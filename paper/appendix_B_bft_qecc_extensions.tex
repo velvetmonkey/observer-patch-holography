@@ -82,7 +82,7 @@ Under assumptions (A1)--(A6), any consensus protocol satisfying
 Suppose $O_a$ and $O_b$ finalise $s_a\neq s_b$ in the same view.
 By (P2), each required a certificate of $q=2f+1$ votes: sets $Q_a,Q_b$.
 By (A3): $|Q_a\cap Q_b|\geq(2f+1)+(2f+1)-(3f+1)=f+1$.
-By (A2), at most $f$ are Byzantine, so $Q_a\cap Q_b$ contains an
+By (A2), at most $f$ are Byzantine, so $Q_a\cap Q_b$ contains a
 nonfaulty $O^*$.
 By (A4), $O^*$'s signed vote is path-reachable within both quorums.
 By (P1), $O^*$ voted for at most one value --- contradiction.
