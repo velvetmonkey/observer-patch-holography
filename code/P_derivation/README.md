@@ -210,6 +210,24 @@ From `reverse-engineering-reality/code/P_derivation/`:
 python3 derive_p.py --mode thomson_structured_running --precision 40
 ```
 
+The `derive_p.py` command is the human-facing fine-structure CLI. It prints a
+colored progress display by default, including the scan stage, the fixed-point
+bracket, each bisection step, the source anchor, transport packet, empirical
+closure packet, and CODATA/NIST comparison. Use:
+
+```bash
+python3 derive_p.py --help
+python3 derive_p.py --color always
+python3 derive_p.py --no-hadron-closure
+python3 derive_p.py --json --output runtime/report.json
+```
+
+The default display row adds the current ledger closure packet
+`0.041164012378350542050005414212806737971` in inverse-alpha units. This is
+the OPH plus empirical hadron closure surface, not a source-only hadron theorem.
+Increase `--max-iterations` when increasing `--precision` and treating extra
+digits as audit-relevant.
+
 If you only want the shortest possible entrypoint that prints the current
 candidate fine-structure value, use:
 

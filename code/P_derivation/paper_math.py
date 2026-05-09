@@ -17,7 +17,10 @@ from __future__ import annotations
 from dataclasses import asdict, dataclass
 from decimal import Decimal, localcontext
 from functools import lru_cache
-from typing import Any
+from typing import Any, Callable
+
+
+ProgressCallback = Callable[[dict[str, Any]], None]
 
 
 def _dec(value: Decimal | int | str | float) -> Decimal:
@@ -716,6 +719,7 @@ class PaperMathContext:
         max_iterations: int = 80,
         tolerance: Decimal | None = None,
         scan_points: int = 60,
+        progress: ProgressCallback | None = None,
     ) -> ClosureResult:
         with localcontext() as ctx:
             ctx.prec = self.work_precision
@@ -739,10 +743,40 @@ class PaperMathContext:
             previous_alpha: Decimal | None = None
             previous_eval: tuple[Decimal, Decimal, D10Point, Decimal, dict[str, Any] | None] | None = None
 
+            if progress is not None:
+                progress(
+                    {
+                        "stage": "scan_start",
+                        "percent": Decimal(0),
+                        "mode": mode,
+                        "precision": self.precision,
+                        "su2_cutoff": self.su2_cutoff,
+                        "su3_cutoff": self.su3_cutoff,
+                        "scan_points": scan_points,
+                        "max_iterations": max_iterations,
+                        "alpha_min": +alpha_min,
+                        "alpha_max": +alpha_max,
+                    }
+                )
+
             for index in range(scan_points + 1):
                 frac = Decimal(index) / Decimal(scan_points)
                 alpha_probe = alpha_min + (alpha_max - alpha_min) * frac
                 current_eval = evaluate(alpha_probe)
+                if progress is not None:
+                    progress(
+                        {
+                            "stage": "scan",
+                            "percent": +(Decimal(5) + Decimal(35) * Decimal(index + 1) / Decimal(scan_points + 1)),
+                            "index": index,
+                            "total": scan_points + 1,
+                            "alpha_probe": +alpha_probe,
+                            "p": +self.outer_p_from_alpha(alpha_probe),
+                            "residual_alpha": +current_eval[0],
+                            "inner_alpha_inv": +current_eval[3],
+                            "source_anchor_alpha_inv": +current_eval[2].alpha_em_inv_mz,
+                        }
+                    )
                 if previous_eval is not None and current_eval[0] * previous_eval[0] <= 0:
                     lo_alpha = previous_alpha
                     hi_alpha = alpha_probe
@@ -754,6 +788,18 @@ class PaperMathContext:
 
             if lo_alpha is None or hi_alpha is None or lo_eval is None or hi_eval is None:
                 raise RuntimeError("Could not bracket the alpha closure root.")
+
+            if progress is not None:
+                progress(
+                    {
+                        "stage": "bracket",
+                        "percent": Decimal(40),
+                        "lo_alpha": +lo_alpha,
+                        "hi_alpha": +hi_alpha,
+                        "lo_residual_alpha": +lo_eval[0],
+                        "hi_residual_alpha": +hi_eval[0],
+                    }
+                )
 
             steps: list[ClosureStep] = []
             final_alpha = hi_alpha
@@ -779,6 +825,26 @@ class PaperMathContext:
                 final_d10 = d10_mid
                 final_alpha_inv = inner_alpha_inv_mid
                 final_running = running_mid
+                if progress is not None:
+                    running_total = (
+                        running_mid.get("total_delta_alpha_inv")
+                        if running_mid is not None
+                        else None
+                    )
+                    progress(
+                        {
+                            "stage": "bisect",
+                            "percent": +(Decimal(40) + Decimal(55) * Decimal(iteration + 1) / Decimal(max_iterations)),
+                            "iteration": iteration + 1,
+                            "total": max_iterations,
+                            "alpha_probe": +alpha_mid,
+                            "p": +self.outer_p_from_alpha(alpha_mid),
+                            "inner_alpha_inv": +inner_alpha_inv_mid,
+                            "source_anchor_alpha_inv": +d10_mid.alpha_em_inv_mz,
+                            "transport_delta_alpha_inv": +running_total if running_total is not None else None,
+                            "residual_alpha": +residual_mid,
+                        }
+                    )
                 if abs(residual_mid) < tol:
                     break
                 if lo_eval[0] * residual_mid <= 0:
@@ -790,6 +856,18 @@ class PaperMathContext:
 
             p = self.outer_p_from_alpha(final_alpha)
             alpha_check, _, _ = self.alpha_external_from_d10(final_d10, mode)
+            if progress is not None:
+                progress(
+                    {
+                        "stage": "complete",
+                        "percent": Decimal(100),
+                        "alpha": +final_alpha,
+                        "alpha_inv": +final_alpha_inv,
+                        "p": +p,
+                        "source_anchor_alpha_inv": +final_d10.alpha_em_inv_mz,
+                        "alpha_fixed_point_residual": +(alpha_check - final_alpha),
+                    }
+                )
             return ClosureResult(
                 mode=mode,
                 precision=self.precision,
@@ -869,9 +947,15 @@ def build_report(
     su3_cutoff: int = 90,
     max_iterations: int = 20,
     scan_points: int = 60,
+    progress: ProgressCallback | None = None,
 ) -> dict[str, Any]:
     ctx = PaperMathContext(precision=precision, su2_cutoff=su2_cutoff, su3_cutoff=su3_cutoff)
-    result = ctx.solve_closure(mode=mode, max_iterations=max_iterations, scan_points=scan_points)
+    result = ctx.solve_closure(
+        mode=mode,
+        max_iterations=max_iterations,
+        scan_points=scan_points,
+        progress=progress,
+    )
     report = to_serializable(result)
     return {**_claim_guard_for_fixed_point_report(), **report}
 
