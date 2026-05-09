@@ -1,32 +1,32 @@
 {
-  "generated_at": "2026-05-08T12:50:17.867502Z",
+  "generated_at": "2026-05-09T07:11:35.626300Z",
   "papers": {
     "deriving_the_particle_zoo_from_observer_consistency": {
       "pdf_path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
-      "sha256": "842ca69b97316e52a8be772e25fd3cbc38230be726180cc1e5be83abd77d7a63",
-      "size_bytes": 322341
+      "sha256": "cff21eab4a67eec3754559a33b0a0e230fbb37c7252e38783443bf2f7b63ca4e",
+      "size_bytes": 322339
     },
     "observers_are_all_you_need": {
       "pdf_path": "paper/observers_are_all_you_need.pdf",
-      "sha256": "3e8b264bbb8a3c78aa3171cd32f4195a17897526cf19c86af449c99d66b4d8f3",
-      "size_bytes": 496522
+      "sha256": "a30e01a9fe41d183d9280e6efc59f46ce4e85b1dd337721c3237d0ccc5694d23",
+      "size_bytes": 496797
     },
     "reality_as_consensus_protocol": {
       "pdf_path": "paper/reality_as_consensus_protocol.pdf",
-      "sha256": "96a63779aa721c3040b0d9693df4d06febb8ff997c9c707372a3e9392ad05a39",
-      "size_bytes": 219429
+      "sha256": "972223d34450689fc8318033498b99974d0f45516958fa4f9785d3e33422beb0",
+      "size_bytes": 219517
     },
     "recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact": {
       "pdf_path": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf",
-      "sha256": "b07a4845bf9cc43db85dabf8fa8f711bebcc07a6d21ef6a515704870b5b6b6f3",
-      "size_bytes": 528749
+      "sha256": "dfbe4176eca4b054d4130f69da02ebbecf79282c946a4b9884ce665182d9089e",
+      "size_bytes": 528698
     },
     "screen_microphysics_and_observer_synchronization": {
       "pdf_path": "paper/screen_microphysics_and_observer_synchronization.pdf",
-      "sha256": "e3395497869394672a4e318b93faac680e1d5fd505aef7528d5ffc954c39554c",
-      "size_bytes": 258580
+      "sha256": "475fe414be4d078e68a6ea0f91cd938fbf432ac1e8db958cd7b378cff4dbace1",
+      "size_bytes": 258554
     }
   },
-  "release_id": "r1431",
-  "released_at": "May 8, 2026"
+  "release_id": "r1432",
+  "released_at": "May 9, 2026"
 }
