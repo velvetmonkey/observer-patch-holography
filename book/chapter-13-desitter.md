@@ -197,16 +197,19 @@ construction cannot erase.
 
 The symbol $\Lambda$ is the cosmological constant, the part of Einstein's
 equation that acts like a uniform large-scale tendency for space to accelerate.
-OPH reads it as global capacity data, not as one more local particle-physics
-coupling.
+It is global capacity data on the input-dependent screen-capacity branch, not
+one more local particle-physics coupling.
 
-So on the cosmological-capacity branch Lambda is fixed by a **global** constraint: the total capacity of the screen. In natural units, once $N_{\mathrm{scr}}=\log(\dim \mathcal{H}_{\text{tot}})$ is supplied, the relationship is:
+So on the input-dependent cosmological-capacity branch Lambda is fixed by a
+**global** constraint: the total capacity of the screen. In natural units,
+once $N_{\mathrm{scr}}=\log(\dim \mathcal{H}_{\text{tot}})$ is supplied, the
+relationship is:
 
 $$\Lambda = \frac{3\pi}{G \cdot \log(\dim \mathcal{H}_{\text{tot}})}$$
 
-In the book's reading, the observed $\Lambda$ is the way the world announces
-its total screen capacity once that global input is identified. It is the
-global size parameter carried by every consistent patch.
+With that global input declared, the observed $\Lambda$ is the way the world
+announces its total screen capacity. It is the global size parameter carried
+by every consistent patch.
 
 The symbol $\mathcal H_{\text{tot}}$ means the total Hilbert space available to
 the screen, and $\dim$ means its dimension, the number of independent quantum
@@ -219,7 +222,11 @@ positive cosmological constant.
 
 The philosophical stance of OPH, no objective camera angle and only perspectives that must agree on overlaps, maps naturally onto de Sitter static-patch intuition. Each timelike observer has a horizon and a patch. There is no operational access to a single global description.
 
-Lambda is the one thing that **can** be shared across overlaps. It is a global capacity constraint that all consistent overlapping descriptions inherit. Different observers see different patches, and they all see the same Lambda encoded in the finite size of their horizons.
+On that same input-dependent branch, Lambda is the global quantity that
+**can** be shared across overlaps. It is a capacity constraint that all
+consistent overlapping descriptions inherit. Different observers see
+different patches, and they all see the same Lambda encoded in the finite
+size of their horizons.
 
 ### The Cosmology Picture
 

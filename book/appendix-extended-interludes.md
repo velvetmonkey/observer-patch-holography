@@ -345,8 +345,8 @@ found that distant supernovae were dimmer than expected in a decelerating
 universe. The simplest fit is a positive cosmological constant or dark energy
 component. In de Sitter language, a positive $\Lambda$ gives a horizon radius
 $r_{dS}=\sqrt{3/\Lambda}$ and a finite entropy capacity. For OPH that capacity
-is the global screen size, the large-number boundary condition for the finite observer-patch
-picture.
+acts as the input-dependent global screen size, the large-number boundary
+condition for the finite observer-patch picture.
 
 The dark-sector continuation is deliberately careful. The modular anomaly
 idea ties residual mismatch in modular-geometric bookkeeping to an effective

@@ -226,8 +226,9 @@ therefore a natural screen.
 
 Different observers carry different horizons, yet those horizons overlap
 enormously. The consistency conditions are severe. The total state space is
-finite. The cosmological constant ceases to look like an awkward vacuum-energy
-leftover and starts looking like a global capacity statement about the screen.
+finite. On that same input-dependent branch, the cosmological constant stops
+looking like an awkward vacuum-energy leftover and instead looks like a global
+capacity statement about the screen.
 
 The de Sitter chapter mattered so much because it did not break the thread. It
 revealed the stage on which the observer-first picture reads most
