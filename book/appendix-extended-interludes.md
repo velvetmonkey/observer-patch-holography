@@ -984,7 +984,7 @@ claim, the reader should be able to see the relay behind it.
 This relay also explains the book's caution around open particle derivations.
 The fine-structure branch, electroweak rows, Higgs/top surface, neutrino
 branch, quark sector, strong-CP boundary, and hadron payloads do not all have
-the same status. Some rows are structural. Some are validation rows. Some
+the same status. Some rows are structural. Some are compare-only validation rows. Some
 depend on empirical payloads. Some are work in progress. A public fact built
 from a long chain has to show which links are welded and which links are
 scaffolds.

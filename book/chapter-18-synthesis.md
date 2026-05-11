@@ -94,9 +94,9 @@ three-generation count follows from CKM phase counting, weak-sector
 consistency, and minimality on the same low-energy branch. The photon,
 gluons, and graviton stay massless because they ride on redundancy directions
 the architecture cannot break. The broader particle table then carries the
-weak-sector validation pair, the low-energy electromagnetic endpoint, the
+weak-sector compare-only validation pair, the low-energy electromagnetic endpoint, the
 declared Higgs/top quantitative surface, the selected-class quark sector, and
-one weighted-cycle neutrino family. The technical status ledger separates charged-lepton
+one weighted-cycle neutrino theorem branch. The technical status ledger separates charged-lepton
 witnesses, the global public quark-frame classification boundary, the
 auxiliary direct-top compare-only codomain, source-only hadron calculations,
 and empirical hadron closure checks. Hadrons add the strong-binding problem on

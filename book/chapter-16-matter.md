@@ -123,12 +123,12 @@ the Ward-projected electromagnetic channel.
 The value is forced because the pixel has one geometry and one electromagnetic
 readout, and those two descriptions meet at a single fixed point.
 
-The weak-boson pair and the familiar low-energy electromagnetic strength come
+The weak-boson compare-only validation pair and the familiar low-energy electromagnetic strength come
 from one continuous construction. The status table records the diagnostic
 source trunk, the endpoint residual, and the empirical hadron closure row that
 uses a separate \(e^+e^-\to\mathrm{hadrons}\) payload class.
 
-The same electroweak core carries the declared Higgs/top surface
+The same electroweak core carries the declared Higgs/top quantitative surface
 
 $$
 (m_H,m_t)=(125.1995304097179,\ 172.3523553288312)\,\mathrm{GeV}.
@@ -172,10 +172,10 @@ $$
 
 together with definite Majorana phases in that construction. Taken together,
 the particle picture is larger than a handful of isolated numbers. The OPH
-status table carries structural massless carriers, the weak-sector validation pair,
-the declared Higgs/top surface, the selected-class running quark sextet with
-Yukawas, and one weighted-cycle neutrino family. The late status ledger
-records the fine-structure audit trunk, the charged-lepton witness surface, the
+status table carries structural massless carriers, the weak-sector compare-only validation pair,
+the declared Higgs/top quantitative surface, the selected-class running quark sextet with
+Yukawas, and one weighted-cycle neutrino theorem branch. The late status ledger
+records the fine-structure audit trunk, the charged-lepton target-anchored witness surface, the
 global public quark-frame classification boundary, and the auxiliary direct-top
 compare-only codomain.
 The selected-class quark theorem leaves strong CP open: the
@@ -353,7 +353,7 @@ action is the classical limit of quantum interference. The deterministic world
 of everyday life is the public face of a quantum reality that becomes
 shareable only after decoherence and redundancy have done their work.
 
-Ledger details: the weak-boson pair is a validation row, charged-lepton rows
+Ledger details: the weak-boson pair is a compare-only validation row, charged-lepton rows
 are target-anchored same-family witnesses rather than source-emitted public
 masses, source-only hadron masses require the OPH strong-binding backend with
 production spectral data and systematics, and empirical hadron closure checks
