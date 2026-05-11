@@ -698,10 +698,10 @@ the algebra net closes on itself.
 The particle picture can be told as one continuous line. The framework fixes the Standard Model
 quotient, the hypercharge lattice, and the generation-color counting. The same
 structure keeps the photon, gluons, and graviton on protected zero lines. From
-there the pixel fixed point organizes the electroweak surface, the Higgs-top
-surface, the selected-class running quark masses, and the weighted-cycle
-neutrino family. The status ledger records the weak-boson validation row,
-the charged-lepton witness surface, the global public quark-frame
+there the pixel fixed point organizes the electroweak compare-only validation surface, the Higgs/top
+quantitative surface, the selected-class running quark masses, and the weighted-cycle
+neutrino theorem branch. The status ledger records the weak-boson compare-only validation row,
+the charged-lepton target-anchored witness surface, the global public quark-frame
 classification boundary, the strong-CP branch, and the auxiliary direct-top
 compare-only codomain.
 
@@ -905,9 +905,9 @@ Let's step back and see what the framework actually accounts for.
 
 **The particle structure.** Section 14.14 gives the concrete structure. The
 framework fixes the massless carriers. The particle surface carries the
-fine-structure fixed point, a weak-boson validation pair, a Higgs-top surface,
+fine-structure fixed point, a weak-boson compare-only validation pair, a Higgs/top quantitative surface,
 a selected-class six-quark running-mass sector with Yukawas,
-and one weighted-cycle neutrino family with definite masses and Majorana
+and one weighted-cycle neutrino theorem branch with definite masses and Majorana
 phases. That selected-class quark sector leaves strong CP open: the available
 corpus does not derive $\theta_{\mathrm{QCD}}$, does not emit physical
 $\bar\theta$, and does not prove that the physical strong-CP phase vanishes. It
@@ -920,7 +920,7 @@ them with one local fixed-point structure. The same pixel ratio feeds the
 electroweak scale, the low-energy electromagnetic endpoint, and the effective
 gravitational coupling. The reader does not need
 every intermediate symbol to see the point. OPH is attempting to tie
-electroweak masses, the Higgs/top surface, electromagnetism at low energy, and
+electroweak validation rows, the Higgs/top quantitative surface, electromagnetism at low energy, and
 Newton's constant to one common structure without treating them as unrelated
 constants, while keeping the open endpoint and matching gates visible.
 
@@ -957,8 +957,8 @@ ultraviolet consistency.
 
 It is a remarkably concrete result. The book points to a specific gauge
 structure, charge pattern, color count, and generation count. It also reaches
-the massless carriers, the $W$ and $Z$, a Higgs-top surface, one
-weighted-cycle neutrino family, and a running quark sector on a selected
+the massless carriers, the compare-only $W$ and $Z$ row, a Higgs/top quantitative surface, one
+weighted-cycle neutrino theorem branch, and a running quark sector on a selected
 physical basis. Strongly coupled bound states add the QCD problem on top of
 that particle-level structure.
 

@@ -645,7 +645,7 @@ Higgs gets a vacuum expectation value.
 The generation-count diagram marks a theorem-grade OPH claim: the window begins
 at three for intrinsic CP capability and closes above five from weak-sector
 ultraviolet consistency. The chapter is careful about which rows are
-theorem-grade, which are validation rows, which are target anchored, and
+theorem-grade, which are compare-only validation rows, which are target anchored, and
 which require external empirical payloads.
 
 The builders are too many for a short list, but the relay includes Dirac,
