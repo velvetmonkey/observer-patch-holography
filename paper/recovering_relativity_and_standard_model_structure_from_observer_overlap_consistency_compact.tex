@@ -1800,6 +1800,31 @@ with the finite-stage errors \(r_{\mathrm{FR}}(\varepsilon_\delta)\) and \(\eta_
 
 For each cap \(C\), let \(\lambda_C(s)\subset \Conf^+(S^2)\) denote the standard cap-preserving conformal one-parameter subgroup, normalized so that the null blow-up near a smooth cut acts by \(v\mapsto e^{-s}v\), and let \(\alpha_{\lambda_C(s)}\) denote the induced automorphism of the scaling-limit cap net.
 
+\begin{proposition}[Support-visible cap-pair extraction on the local GNS support quotient]\label{prop:cap-pair-extraction}
+Fix a round cap \(C\subset S^2\). Under Axioms~\ref{ax:screen}--\ref{ax:entropy}, Theorem~\ref{thm:geosubnet}, and the derived fixed-cutoff regulator/collar/consensus package, consider the transported geometric cap-local test family on \(\mathcal A_n^{\mathrm{geo}}(C_n)\), its projectively compatible transported marginals, the asymptotic transport-equivalence certificate, and a cutoff schedule satisfying Theorem~\ref{thm:regularized-modular-transport}. Along a cofinal refinement subnet:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=2em]
+\item the transported cap marginals admit local weak-\(*\) limits on every support-visible geometric cap subalgebra;
+\item the compatible local limits glue to a state on \(\mathcal A_\infty^{\mathrm{geo,sv}}(C)\);
+\item the GNS representation gives a cap pair
+\[
+(\mathcal A_\infty^{\mathrm{geo,sv}}(C),\omega_\infty^{\mathrm{geo},C})
+\]
+faithful on the local support quotient, and the regularized support-visible modular matrix elements converge to its modular automorphism group.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+For each fixed local collar model, the finite-stage state spaces are weak-\(*\) compact. The transported marginal family is projectively compatible up to the refinement-equivalence certificate supplied by the consensus package, so the usual diagonal subnet argument gives compatible local weak-\(*\) limits on the cap-local test family. Theorem~\ref{thm:regularized-modular-transport} controls the regularized modular matrix elements on every bounded support-visible collar observable under the stated cutoff schedule. Passing to the GNS representation of the glued state quotients the null directions and leaves a faithful representation on the local support. This gives the displayed support-visible cap pair and its modular automorphism group.
+\end{proof}
+
+\begin{proposition}[Round-cap rigidity from surviving cut data]\label{prop:round-cap-rigidity}
+Let \(C\subset S^2\) be a round cap, and let the cap pair be the support-visible extracted pair of Proposition~\ref{prop:cap-pair-extraction}. The geometric cut observables descending through Theorem~\ref{thm:geosubnet} determine the boundary circle and two ordered null endpoint classes. Any orientation-preserving conformal one-parameter subgroup preserving this data is \(\lambda_C(\kappa s)\) for a unique normalization constant \(\kappa>0\).
+\end{proposition}
+
+\begin{proof}
+Choose a M\"obius map carrying \(C\) to the upper half-plane and the ordered endpoint classes to \(0\) and \(\infty\). The orientation-preserving conformal maps of the upper half-plane preserving \(0\), \(\infty\), and the order are exactly \(z\mapsto e^s z\), \(s\in\mathbb R\). Transporting this subgroup back to \(C\) gives the cap-preserving hyperbolic subgroup. Only its parameter normalization remains, hence the factor \(\kappa>0\).
+\end{proof}
+
 \begin{theorem}[Support-visible BW scaling theorem on the prime geometric subnet]\label{thm:bw}
 Assume Axioms~\ref{ax:screen}--\ref{ax:entropy}, Theorem~\ref{thm:geosubnet}, and the derived fixed-cutoff regulator/collar/consensus package established above. For each OPH-realized observer-supporting refinement branch and each round cap \(C\subset S^2\), the support-visible prime geometric cap net admits a weak-\(*\)/GNS scaling-limit cap pair
 \[
@@ -1824,7 +1849,7 @@ Equivalently, the modular parameter \(t\) and the geometric cap-dilation paramet
 s=2\pi t.
 \]
 
-\item No separate cap-isotropy/\(\mathrm{SO}(2)\)-equivariance selector, Euclidean-regularity input, or unregularized full-algebra common floor is used in this theorem. The target algebra is the support-visible prime geometric subnet. Ordered cut-pair rigidity fixes the geometric cap subgroup on that extracted prime pair, \(\lambda_C(s)\) is normalized by the null blow-up \(v\mapsto e^{-s}v\), and the modular KMS normalization fixes the coefficient \(2\pi\).
+\item No separate cap-isotropy/\(\mathrm{SO}(2)\)-equivariance selector, Euclidean-regularity input, or unregularized full-algebra common floor is used in this theorem. The target algebra is the support-visible prime geometric subnet. Proposition~\ref{prop:round-cap-rigidity} fixes the geometric cap subgroup on that extracted prime pair, \(\lambda_C(s)\) is normalized by the null blow-up \(v\mapsto e^{-s}v\), and the modular KMS normalization fixes the coefficient \(2\pi\).
 
 \item If the scaling-limit cap algebra happens to be type I, item \textup{(ii)} may be written as the operator identity
 \[
@@ -1845,9 +1870,9 @@ Step 2: support-visible regularization. Proposition~\ref{prop:commonfloor-collap
 \]
 Choosing \(a_n\downarrow0\) with \(\Delta_n/a_n\to0\), \(d_{m,\delta}a_n\to0\), and \(\Delta_n|\log a_n|\to0\) makes the right-hand side vanish on every fixed local collar model. Thus the theorem concerns the support-visible scaling limit rather than off-support full-algebra directions.
 
-Step 3: scaling-limit cap-pair extraction. Theorem~\ref{thm:geosubnet} fixes the target algebra as the overlap-generated prime geometric subnet, with overlap-trivial auxiliary/record factors removed. The transported cap marginals are compared only on support-visible observables. The regularized modular transport result gives convergent local matrix elements on every fixed collar model, while the fixed finite-dimensional state spaces and the consensus refinement mechanism supply local weak-\(*\) limit states. The GNS construction applied to those compatible limits gives \((\mathcal A_\infty^{\mathrm{geo,sv}}(C),\omega_\infty^{\mathrm{geo},C})\).
+Step 3: scaling-limit cap-pair extraction. Theorem~\ref{thm:geosubnet} fixes the target algebra as the overlap-generated prime geometric subnet, with overlap-trivial auxiliary/record factors removed. Proposition~\ref{prop:cap-pair-extraction} supplies the support-visible weak-\(*\)/GNS cap pair from the transported cap-local test family, the projectively compatible marginal family, the asymptotic transport-equivalence certificate, and the regularized modular transport cutoff schedule.
 
-Step 4: geometric identification on the prime subnet. Normalize \(C\) to the upper half-plane by a M\"obius transformation and send an ordered null cut-pair on \(\partial C\) to \((0,\infty)\). A M\"obius transformation preserving the cap and that ordered pair acts as \(z\mapsto e^s z\), so ordered cut-pair rigidity collapses the residual cap-preserving conformal freedom to the unique hyperbolic one-parameter subgroup up to normalization. Therefore there is a constant \(\kappa_C>0\) such that
+Step 4: geometric identification on the prime subnet. Proposition~\ref{prop:round-cap-rigidity} identifies the only orientation-preserving conformal one-parameter subgroup preserving the surviving round-cap cut data as the standard cap-preserving hyperbolic subgroup up to normalization. Therefore there is a constant \(\kappa_C>0\) such that
 \[
 \sigma_t^{\omega_\infty^{\mathrm{geo},C}}=\alpha_{\lambda_C(\kappa_C t)}.
 \]
@@ -1878,7 +1903,7 @@ operational clocks, global time, or the full problem of time have been derived f
 \begin{remark}[BW-side UV scaffold after the geometric-subnet split]
 Theorem~\ref{thm:geosubnet} fixes the target algebra: the continuum Lorentz claim is asked only on the support-visible extracted prime geometric subnet, not on the full operational algebra. Record/pointer/interface-inert observables are outside that geometric subnet, and off-support directions that disappear in the limiting GNS support are not observer-facing data.
 
-The transported geometric cap-local system consists of the cap-local test family on \(\mathcal A_n^{\mathrm{geo}}(C_n)\), the projectively compatible transported marginal family, and the asymptotic transport-equivalence certificate. On each fixed local collar model, the regularized estimate of Theorem~\ref{thm:regularized-modular-transport} replaces the unavailable unregularized full-algebra floor. Local weak-\(*\) extraction and GNS gluing then emit the support-visible scaling-limit cap pair. Ordered cut-pair rigidity collapses the residual cap-preserving conformal freedom to the standard hyperbolic subgroup. This is the theorem-side content of the BW lift used below.
+The transported geometric cap-local system consists of the cap-local test family on \(\mathcal A_n^{\mathrm{geo}}(C_n)\), the projectively compatible transported marginal family, and the asymptotic transport-equivalence certificate. On each fixed local collar model, the regularized estimate of Theorem~\ref{thm:regularized-modular-transport} replaces the unavailable unregularized full-algebra floor. Proposition~\ref{prop:cap-pair-extraction} gives the local GNS support quotient cap pair. Proposition~\ref{prop:round-cap-rigidity} identifies the residual cap-preserving conformal freedom with the standard hyperbolic subgroup. This is the theorem-side content of the BW lift used below.
 \end{remark}
 
 \begin{proposition}[Common-floor collapse countermodel]\label{prop:commonfloor-collapse}
