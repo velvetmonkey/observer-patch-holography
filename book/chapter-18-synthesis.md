@@ -55,12 +55,12 @@ selection principle. Minimality gives the economy.
 
 ## 18.4 How Spacetime Appears
 
-Once cap modular flow becomes geometric, time stops looking imported from
-outside. It becomes the internal flow attached to a restricted state. When
-those local flows fit together across the smooth screen, Lorentz kinematics
-appears. When generalized entropy sits at equilibrium under the allowed
-MaxEnt variations of a fixed cap, the Einstein relation appears as the public
-large-scale grammar of that equilibrium.
+Once cap modular flow becomes geometric on the support-visible scaling branch,
+time stops looking imported from outside. It becomes the internal flow attached
+to a restricted state. When those local flows fit together across the smooth
+screen, Lorentz kinematics appears. When generalized entropy sits at
+equilibrium under the allowed MaxEnt variations of a fixed cap, the Einstein
+relation appears as the public large-scale grammar of that equilibrium.
 
 Read that sentence as a compressed recap. Modular flow is the clock a restricted
 state carries. Lorentz kinematics is the rulebook for relating moving
@@ -70,6 +70,13 @@ gravity has to respect.
 In plain language, spacetime is the compressed way finite observers keep track
 of how their clocks, horizons, and correlations line up. Geometry is what the
 shared bookkeeping looks like when written smoothly.
+
+The fixed-cutoff microphysics paper plays a narrower role in that story. It
+supplies one explicit finite reference architecture for patches, overlaps, edge
+sectors, records, repair, Bell tests, and checkpoint/restoration. It does not
+identify a unique microscopic UV completion, but it does provide a concrete
+implementation surface on which the broader OPH bookkeeping can be simulated
+and checked.
 
 ## 18.5 How the Particle World Appears
 

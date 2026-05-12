@@ -347,15 +347,27 @@ In [Samir Dzolota's March 2026 Zenodo critique](https://zenodo.org/records/18902
 
 ### Short answer
 
-This criticism identifies a real **construction burden**, but it overstates that burden as a **logical contradiction**.
+This criticism identifies a real **layer distinction**, but it overstates that
+distinction as a **logical contradiction**.
 
-OPH does **not** claim that the final physical local algebra of a patch is a finite Type I factor. It claims that the **UV regulator** is finite and Type I, while the physical cap net must land, in the refinement/scaling limit, in a phase with geometric modular action. The manuscript is explicit that ensuring this geometric modular phase is a remaining task, not something already guaranteed by a bare finite matrix algebra.
+OPH does **not** claim that the final physical local algebra of a patch is a
+finite Type I factor. It claims that the **UV regulator** is finite and Type I,
+while the observer-facing cap net closes the modular-geometric / Lorentz /
+null-modular / Einstein chain on the companion scaling branch. The
+screen-microphysics paper then supplies one explicit fixed-cutoff reference
+architecture for records, repair, Bell, and checkpoint/restoration without
+claiming a unique microscopic UV completion.
 
-So the right challenge is:
+So the right challenge is no longer:
 
-> "Show an explicit UV completion whose refinement limit realizes the required modular geometry."
+> "Where is the missing core modular bridge?"
 
-That is a serious and legitimate demand. But it is different from:
+The current core bridge is carried by the companion theorem stack. The serious
+remaining engineering question is instead:
+
+> "Which fixed-cutoff realizations implement that interface cleanly, and how are nonunique microscopic representatives compared modulo physical equivalence?"
+
+That is a legitimate demand. But it is different from:
 
 > "Finite regulator premises make OPH internally inconsistent."
 
@@ -363,17 +375,24 @@ That is a serious and legitimate demand. But it is different from:
 
 ## 1. What the objection gets right
 
-A bare finite-dimensional regulator does **not** by itself give the full Bisognano-Wichmann / Unruh / Hawking / half-sided-modular package.
+A bare finite-dimensional regulator does **not** by itself give the full
+Bisognano-Wichmann / Unruh / Hawking / half-sided-modular package.
 
 That part is fair.
 
-OPH itself already treats this as an open construction problem. In the working manuscript, the regulator premises `R0, R1` are separated from the later continuum/refinement-limit claim that modular flow becomes geometric. The text explicitly identifies the "remaining gap" as ensuring geometric modular action in the refinement limit, and packages that requirement as CMFP-3.
+But the current OPH paper stack does not leave the core modular-geometric
+surface as an unproved gap. The recovered-core paper closes the support-visible
+BW scaling theorem and the downstream Lorentz / null-modular / Einstein branch
+on its stated observer-facing surface. The microphysics paper supplies an
+explicit fixed-cutoff reference architecture instead of a second proof of that
+same scaling theorem.
 
 So the strongest fair version of the criticism is:
 
-> "You still owe an explicit microscopic model whose refinement limit lands in the geometric modular phase you need."
+> "Show that concrete fixed-cutoff realizations match the declared overlap, record, and scaling interface cleanly."
 
-That is a useful criticism. It is not the same as an algebraic inconsistency.
+That is a useful criticism. It is no longer the same thing as claiming that the
+core modular bridge itself is missing.
 
 ---
 
@@ -382,17 +401,20 @@ That is a useful criticism. It is not the same as an algebraic inconsistency.
 The contradiction claim implicitly treats two different layers of OPH as if they were the same thing:
 
 1. the **UV regulator premises**, where sufficiently small patches are finite-dimensional and Type I;
-2. the **emergent cap-net regime**, where OPH wants geometric modular flow, `K_C = 2pi B_C`, Lorentz kinematics, and the null modular bridge.
+2. the **emergent cap-net regime**, where OPH closes geometric modular flow,
+   `K_C = 2pi B_C`, Lorentz kinematics, and the null modular bridge on the
+   stated scaling surface.
 
 But the manuscript itself distinguishes those layers.
 
 At the regulator level, OPH explicitly assumes finite-dimensional local Hilbert spaces and Type I patch algebras. Later claims such as cap modular covariance, `Conf^+(S^2) ~= SO^+(3,1)`, and the null modular/stress-energy bridge are refinement-limit claims about the effective continuum net.
 
-So the actual question is:
+So the actual question is narrower:
 
-> "Does the chosen UV regulator flow to the required modular fixed point?"
+> "Which regulator presentations realize the same physical branch, and how cleanly do they instantiate the declared fixed-cutoff interface?"
 
-That is a hard question, but it is a regulator-to-continuum question, not a proof that the formalism contradicts itself.
+That is a model-comparison and implementation question, not a proof that the
+formalism contradicts itself.
 
 ---
 
@@ -445,15 +467,20 @@ So UEET's own uncertainty-principle story also needs an emergent large-`N` / con
 
 The clean version of the objection is:
 
-> "Show a concrete UV model, with controlled errors, whose refinement limit realizes OPH's required geometric modular phase."
+> "Show that concrete fixed-cutoff realizations satisfy the declared overlap, record, repair, and scaling diagnostics with controlled errors."
 
-That is legitimate, and OPH more or less says the same thing itself when it identifies the remaining gap around geometric modular action / CMFP-3.
+That is legitimate. It asks for implementation evidence and branch comparison,
+not for a missing core BW/geometric theorem.
 
 But that is not the same as saying:
 
 > "Finite observer patches make OPH algebraically inconsistent."
 
-Nor does the Zenodo note show that UEET is uniquely required. At most, it proposes one possible microscopic picture. The actual mathematical burden remains the same: exhibit a regulator whose continuum limit has the needed modular geometry.
+Nor does the Zenodo note show that UEET is uniquely required. At most, it
+proposes one possible microscopic picture. The actual mathematical burden at
+this stage is comparative: exhibit or analyze regulators that realize the same
+physical branch without confusing UV nonuniqueness with a contradiction in the
+core theorem stack.
 
 ---
 
@@ -461,14 +488,21 @@ Nor does the Zenodo note show that UEET is uniquely required. At most, it propos
 
 This is a useful objection when it is aimed at the right target.
 
-It is right that OPH still owes an explicit microphysical realization of the modular fixed point it uses in the continuum derivation. It is wrong to present that open construction problem as a fatal contradiction between finite UV premises and continuum modular physics.
+It is right to distinguish the finite Type I regulator layer from the
+observer-facing scaling-limit theorem surface. It is wrong to present that
+distinction as a fatal contradiction or as evidence that the core modular
+bridge is still missing. In the current corpus, the support-visible BW theorem
+and downstream Lorentz / null-modular / Einstein branch are already closed on
+their declared surface, while the microphysics paper handles fixed-cutoff
+implementation and nonunique UV realization.
 
-OPH already treats those as different levels of description. And the UEET replacement argument, as stated in the critique, does not actually solve the modular-algebraic problem it raises; it answers a different question.
+The UEET replacement argument, as stated in the critique, still does not solve
+the modular-algebraic problem it raises; it answers a different question.
 
 ## Sources for Objection 3
 
 - [Samir Dzolota, "Technical Critique and Resolution of the OPH Framework" (Zenodo)](https://zenodo.org/records/18902120)
 - [Observers Are All You Need PDF](../paper/observers_are_all_you_need.pdf)
-  Key sections used above: the regulator premises, the refinement-limit modular claims, and the null modular bridge.
+  Key sections used above: the support-visible BW scaling theorem, the Lorentz branch, and the null modular bridge.
 - [Main manuscript source](../paper/tex_fragments/PAPER.tex)
-  Key sections used above: regulator premises `R0, R1`; the "remaining gap" around geometric modular action; CMFP-3; the cap modular theorem; and the null modular bridge.
+  Key sections used above: the regulator premises, the support-visible BW cap theorem, and the null modular bridge.
