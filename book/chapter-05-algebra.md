@@ -411,8 +411,7 @@ record of a long experimental and mathematical reconstruction.
 The same is true for the uncertainty relation. When the book writes
 $\Delta X\,\Delta P\geq \hbar/2$, the symbol $\Delta X$ means the spread of
 position outcomes prepared in a given state, and $\Delta P$ means the spread
-of momentum outcomes in that same state. It says more than that a human
-observer is clumsy. It says a state that makes the position question sharply
+of momentum outcomes in that same state. A state that makes the position question sharply
 answerable cannot also make the momentum question sharply answerable. The
 restriction belongs to the algebra of questions.
 

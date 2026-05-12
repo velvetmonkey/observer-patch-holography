@@ -305,7 +305,7 @@ through the patch's internal clock.
 Consider a cap $C$ on the sphere $S^2$. In the smooth regime, the cap's
 thermal time stops feeling like abstract algebra and starts behaving like an
 actual motion on the sphere. This is where the construction turns into
-relativity. A clock becomes more than a formal device inside the math. Its flow becomes the
+relativity. A clock becomes a geometric device inside the math. Its flow becomes the
 same kind of geometric motion that later shows up as boosts and time
 translations.
 

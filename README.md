@@ -7,7 +7,7 @@
 **Quick links:** [OPH Textbooks](https://learn.floatingpragma.io/) | [Reverse Engineering Reality](https://oph-book.floatingpragma.io/) | [website](https://floatingpragma.io/oph/) | [OPH Lab](https://oph-lab.floatingpragma.io)
 
 OPH is a reconstruction program for fundamental physics. It starts from finite
-observers on a finite holographic screen and works outward. Its working basis
+observers on a finite holographic screen. Its working basis
 is quantum-algebraic: patch algebras, states, trace/Born event probabilities on
 declared record surfaces, and generalized entropy are part of the formal
 starting point. The program is not a demand to derive every mathematical
@@ -31,10 +31,10 @@ Most theories begin by assuming spacetime, quantum fields, and a list of
 constants. OPH starts one step earlier than spacetime and quantum field theory,
 with finite observers on a finite quantum-algebraic holographic screen whose
 descriptions have to agree where their patches overlap. Push that requirement
-hard enough and a `3+1D` Lorentzian spacetime emerges, together with a
+hard enough and a 3+1-dimensional Lorentzian spacetime emerges, together with a
 Jacobson-style Einstein equation and the realized Standard Model quotient
-`SU(3) x SU(2) x U(1) / Z_6`, including the exact hypercharge lattice, the
-realized color triplet `N_c = 3`, and the generation count `N_g = 3`. Quantum
+$SU(3)\times SU(2)\times U(1)/\mathbb Z_6$, including the exact hypercharge lattice, the
+realized color triplet $N_c=3$, and the generation count $N_g=3$. Quantum
 mechanics is treated as the algebraic information language carried by the OPH
 architecture. The reconstruction test is whether that basis coherently
 recovers the effective universe, not whether every mathematical ingredient has
@@ -46,29 +46,20 @@ overlap-visible data, reject inconsistent continuations, and keep the stable
 patterns that can be synchronized. Geometry, particles, laws, and records are
 the large-scale fixed points of that observer-network computation.
 
-The scale is set by two quantities: the total screen capacity
-`N_scr = log dim H_tot`, read from the de Sitter horizon, and the local pixel
-ratio `P = a_cell / l_P^2`, which fixes the size of one screen cell in Planck
-areas. For the observed cosmological constant, the bare horizon area ratio is
-`N_patch = (R_dS / l_P)^2 ≈ 1.05e122`, while the entropy capacity used by OPH is
-`N_scr = pi N_patch ≈ 3.31e122`. From the outside, `P` is a geometric cell size that sits
-slightly above the self-similar balance `φ = (1 + sqrt(5)) / 2`. From the
+The scale is set by two quantities: the total screen capacity read from the
+de Sitter horizon and the local pixel ratio \(P\), the area of one screen cell
+in Planck-area units. For the observed cosmological constant, the bare horizon
+area ratio is about \(1.05\times10^{122}\), while the entropy capacity used by
+OPH is about \(3.31\times10^{122}\). From the outside, \(P\) is a geometric
+cell size slightly above the golden-ratio self-similar balance. From the
 inside, it becomes the smallest electromagnetic observation scale available to
 observers in the world encoded on that screen. The fine-structure lane asks for
 the nonzero detuning of a holographic screen cell such that the cell's outer
-geometric displacement from perfect self-similar equilibrium equals the
-electromagnetic observation scale emitted by the universe living on that same
-screen. This gives the fixed-point equation
-`P = φ + α_em(P) sqrt(pi)`. The first-principles computation is:
-golden-ratio entropy balance gives `φ`; boundary Gaussian normalization gives
-the `sqrt(pi)` width; a trial `P` feeds the source map
-`P -> M_U -> α_U -> α_i(m_Z) -> a0(P)`; Ward-projected `U(1)_Q`
-transport carries the electroweak anchor to the Thomson endpoint
-`A_T(P)=α_em^-1(0;P)`; the realized cell solves
-`P = φ + sqrt(pi) / A_T(P)`. Its public solution is
-`P = a_cell / l_P^2 ≈ 1.6309682094`, with
-`α⁻¹(0) = 137.035999177(21)` and
-`α(0) ≈ 0.00729735256433`. The same fixed-point
+geometric displacement equals the electromagnetic observation scale emitted by
+the universe living on that same screen. The public solution is
+\(P\simeq1.6309682094\), with
+\(\alpha^{-1}(0)=137.035999177(21)\) and
+\(\alpha(0)\simeq0.00729735256433\). The same fixed-point
 geometry is also probed in a separate optical-cavity hardware note.
 
 The same local pixel scale drives the gravity readout, the fine-structure
@@ -82,10 +73,10 @@ marked empirical hadron closure. The operating policy for those rows is in
 ### Selected Quantitative Rows
 
 This table keeps the rows that are easiest to compare directly with PDG and
-NIST values. Structural results such as the `3+1D` Lorentzian spacetime, the
-Standard Model quotient `SU(3) x SU(2) x U(1) / Z_6`, the exact hypercharge
-lattice, the realized color triplet `N_c = 3`, and the generation count
-`N_g = 3` live in the papers. The
+NIST values. Structural results such as the 3+1-dimensional Lorentzian spacetime, the
+Standard Model quotient \(SU(3)\times SU(2)\times U(1)/\mathbb Z_6\), the exact hypercharge
+lattice, the realized color triplet \(N_c=3\), and the generation count
+\(N_g=3\) live in the papers. The
 quick view here sticks to direct numeric rows and exact zeros.
 
 | Quantity | Symbol | OPH | PDG/NIST | Δ |
@@ -108,8 +99,8 @@ quick view here sticks to direct numeric rows and exact zeros.
 | Up | m_u(2 GeV) | 2.16 MeV | 2.16 ± 0.07 | match |
 | Top | m_t cross-section row | 172.35235532883115 GeV | 172.3523553288312 | selected-class match |
 
-`Δ` reports the sigma distance where PDG or NIST quotes a one-standard-deviation
-uncertainty. Otherwise it records `match` or `below bound`.
+\(\Delta\) reports the sigma distance where PDG or NIST quotes a one-standard-deviation
+uncertainty. Otherwise it records "match" or "below bound".
 
 For quarks, PDG uses its standard mass conventions: `u`, `d`, and `s` at
 `2 GeV`, with `c` and `b` in the `MS` scheme at their own mass scale. The
@@ -117,17 +108,17 @@ papers also carry the structural Standard Model derivations listed above and a
 neutrino family, but those do not collapse to one simple PDG or NIST row and
 are left out of this table.
 
-The particle surface also reports `W/Z` values `80.377 GeV` and
-`91.18797809193725 GeV`, a Higgs value `m_H = 125.1995304097179 GeV`, and a
-selected-class top value `m_t = 172.35235532883115 GeV` using the PDG
+The particle surface also reports \(W/Z\) values \(80.377\,\mathrm{GeV}\) and
+\(91.18797809193725\,\mathrm{GeV}\), a Higgs value \(m_H=125.1995304097179\,\mathrm{GeV}\), and a
+selected-class top value \(m_t=172.35235532883115\,\mathrm{GeV}\) using the PDG
 cross-section top-mass convention. The weighted-cycle neutrino branch emits
-`(0.017454720257976796, 0.019481987935919015, 0.05307522145074924) eV` on its
+\((0.017454720257976796, 0.019481987935919015, 0.05307522145074924)\,\mathrm{eV}\) on its
 declared branch.
 
 ## Local Unification Surface
 
 The local unification surface is organized around the public pixel ratio
-`P = 1.630968209403959...` and one local ruler, `a_cell`. On that surface the same scale touches the
+\(P\simeq1.6309682094\) and one local cell area. On that surface the same scale touches the
 electroweak comparison lane, the Higgs lane, the gravity-side entropy relation,
 and the familiar unit readout for meters, seconds, GeV, and Kelvin. The diagram
 below shows how those pieces sit on one scale. The detailed formulas and claim
@@ -190,15 +181,10 @@ tiers live in the papers.
 ## Status Table
 
 The fine-structure display row uses the fixed-point value
-`α⁻¹(0)=137.035999177(21)` and
-`P≈1.6309682094`. The source-side audit trunk
-emits `α_cand^-1≈136.9948351646` at
-`P_cand≈1.6309720957`. The endpoint table
-records the residual needed by the source spectral payload:
-`0.0414658610...` inverse-alpha units at the
-public endpoint pixel, with
-`S_required≈0.8954001326` and
-`c_Q≈0.6580257599`.
+\(\alpha^{-1}(0)=137.035999177(21)\) and
+\(P\simeq1.6309682094\). The source-side audit and endpoint residual records
+live in the particle paper, where they are kept separate from the public
+fixed-point row.
 
 The weak-boson pair is a validation row. Charged-lepton absolute masses are
 target-anchored witness rows. The auxiliary direct-top average is a validation

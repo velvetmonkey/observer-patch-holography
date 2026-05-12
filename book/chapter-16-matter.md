@@ -23,7 +23,7 @@ as fundamental?
 Quantum physics breaks the intuitive picture in three directions at once.
 Particles do not follow single definite paths in the double-slit experiment.
 Fields are more basic than particles, because the same electron can be
-created and destroyed. Energy is more than fuel, because it generates time
+created and destroyed. Energy generates time
 evolution and joins momentum inside one relativistic structure. The hint is
 clear. The classical picture is an emergent approximation. The real question
 is why it works so well.
@@ -353,9 +353,9 @@ action is the classical limit of quantum interference. The deterministic world
 of everyday life is the public face of a quantum reality that becomes
 shareable only after decoherence and redundancy have done their work.
 
-Ledger details: the weak-boson pair is a compare-only validation row, charged-lepton rows
-are target-anchored same-family witnesses rather than source-emitted public
-masses, source-only hadron masses require the OPH strong-binding backend with
+Ledger details: the weak-boson pair is a compare-only validation row. Charged-lepton rows
+are target-anchored same-family witnesses. They are not source-emitted public
+masses. Source-only hadron masses require the OPH strong-binding backend with
 production spectral data and systematics, and empirical hadron closure checks
 use the separate
 \(e^+e^-\to\mathrm{hadrons}\) payload class.

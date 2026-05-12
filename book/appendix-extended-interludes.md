@@ -99,10 +99,9 @@ The microscopic laws do not command it at every step. The high-entropy regions
 of state space are overwhelmingly larger.
 
 This statistical explanation caused controversy because atoms themselves were
-controversial. Boltzmann was defending a world many contemporaries still
-considered speculative. The later confirmation of atoms through Brownian
-motion and Perrin's measurements did more than vindicate one formula. They
-made the hidden microscopic layer physically real. The inscription on
+controversial. Boltzmann was defending a world many contemporaries treated as
+speculative. Brownian motion and Perrin's measurements made the hidden
+microscopic layer physically real. The inscription on
 Boltzmann's grave, $S=k\log W$, became a memorial to a whole way of seeing:
 macroscopic irreversibility can emerge from microscopic multiplicity.
 
@@ -561,8 +560,8 @@ of questions. In Chapter 6, ask whether overlap restriction is clear. In
 Chapter 7, ask whether recovery is separated from copying. In Chapter 8, ask
 whether holography is presented through black holes and controlled dualities
 before OPH generalizes it. In Chapter 9, ask whether entanglement is doing
-geometric work. In Chapter 10, ask whether error correction is more than a
-metaphor.
+geometric work. In Chapter 10, ask whether error correction functions as a
+mechanism.
 
 In Chapter 11, ask whether modular time is tied to restricted states and not
 an external clock. In Chapter 12, ask whether symmetry is presented as a
@@ -891,7 +890,7 @@ interpretation.
 The same pattern appears in the cosmic microwave background. Penzias and
 Wilson found excess microwave noise. Dicke, Peebles, Roll, and Wilkinson
 recognized the cosmological meaning. Later satellites mapped the radiation
-with exquisite precision. The background became more than a glow. It became a
+with exquisite precision. The background became a
 statistical surface covered in acoustic peaks, polarization patterns, and
 parameter constraints. Cosmology grew sharper because many record chains
 converged on one sky.

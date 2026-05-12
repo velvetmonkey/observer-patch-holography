@@ -414,8 +414,8 @@ $$|\Phi^+\rangle=\frac{|00\rangle+|11\rangle}{\sqrt2}.$$
 The kets $|00\rangle$ and $|11\rangle$ are two-qubit basis states. The
 factor $1/\sqrt2$ normalizes the state so total probability is one. If one
 qubit is considered alone, its reduced density matrix looks maximally mixed,
-even though the pair as a whole is pure. This is why entanglement is more than
-ignorance. The correlations belong to the joint state.
+even though the pair as a whole is pure. Entanglement is joint-state
+correlation, not ignorance about one hidden classical value.
 
 The monogamy inequality, written with a tangle $\tau$, says that entanglement
 cannot be shared freely with everyone at once. If $A$ is maximally entangled
@@ -597,8 +597,8 @@ $$
 
 uses the de Sitter radius to set a deep-infrared scale. The proximity to the
 empirical MOND scale is the reason the chapter treats galaxy-scale anomalies
-as a serious assumption-dependent continuation rather than as part of the
-recovered-core theorem package.
+as a serious assumption-dependent continuation outside the recovered-core
+theorem package.
 
 The builders include de Sitter, Friedmann, Lemaitre, Hubble, Slipher,
 Gamow, Penzias, Wilson, Guth, Starobinsky, Linde, Riess, Perlmutter, Schmidt,
@@ -725,8 +725,8 @@ minimum.
 The chapter lists particle masses and couplings, and the notes distinguish
 their status. A validation row checks the framework against known values. A
 target-anchored witness uses an empirical anchor. A source-only prediction
-depends only on declared source inputs. A hadron row is more than quark masses
-because QCD binding dominates hadron mass.
+depends only on declared source inputs. A hadron row also needs QCD binding,
+which dominates hadron mass.
 
 The matter-stability diagram shows the ladder: screen excitations,
 particles, atoms, chemistry, and classical objects. A macroscopic object is

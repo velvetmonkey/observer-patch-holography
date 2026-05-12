@@ -271,7 +271,7 @@ $$S(A) = \frac{\text{Area}(\gamma_A)}{4G}$$
 
 where gamma_A is the **minimal surface** in the bulk that ends on the boundary of region A.
 
-This does more than match two elegant expressions. It tells you how much geometry is needed to keep region $A$ tied to the rest of the state. More entanglement across the boundary cut means a larger minimal surface. Less entanglement means a smaller one. Entropy becomes the quantity that measures how much bulk geometry is supporting the connection.
+This tells you how much geometry is needed to keep region $A$ tied to the rest of the state. More entanglement across the boundary cut means a larger minimal surface. Less entanglement means a smaller one. Entropy becomes the quantity that measures how much bulk geometry is supporting the connection.
 
 The surface $\gamma_A$ can be read as the cheapest geometric bottleneck compatible with the boundary cut. Its area measures how much correlation has to pass between $A$ and its complement. The formula therefore says something very concrete: the bulk pays for connectivity with area, and that bill is exactly the boundary entanglement entropy.
 

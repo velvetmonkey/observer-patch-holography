@@ -204,7 +204,7 @@ We exist in a tiny island of consistency in a vast sea of possible physics. Most
 
 ### Why Is Physics Uniform?
 
-The laws of physics appear to be the same everywhere. An experiment in my lab gives the same result as the same experiment on the other side of the planet. The spectrum of hydrogen in a galaxy 10 billion light-years away matches what we measure on Earth. We take this for granted, but it's worth asking: what enforces this uniformity? If the laws varied from place to place, observers in different locations couldn't agree on physics. The universe would fragment into incompatible realities. Uniformity is more than convenient. It is a consistency requirement.
+The laws of physics appear to be the same everywhere. An experiment in my lab gives the same result as the same experiment on the other side of the planet. The spectrum of hydrogen in a galaxy 10 billion light-years away matches what we measure on Earth. We take this for granted, but it's worth asking: what enforces this uniformity? If the laws varied from place to place, observers in different locations couldn't agree on physics. The universe would fragment into incompatible realities. Uniformity is a consistency requirement.
 
 ## 1.6 Symmetry as Consistency
 
@@ -230,7 +230,7 @@ not change over time, energy is conserved. If they do not change across space,
 momentum is conserved. If they do not change under rotations, angular momentum
 is conserved.
 
-This is the bookkeeping of agreement. It is more than mathematics.
+This is the bookkeeping of agreement.
 
 If energy could just appear or disappear, observers at different times would
 end up with incompatible accounts. Conservation laws are the constraints that

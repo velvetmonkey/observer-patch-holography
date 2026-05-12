@@ -309,8 +309,8 @@ The continuation highlighted here uses the coefficient $\frac{15}{8\pi^2} \appro
 ### Why This Is "Dark"
 
 In this continuation, the anomalous term $T_{00}^{\text{anom}}$ is dark at the
-level of its couplings. It arises from information structure rather than
-Standard Model fields, it gravitates, and it carries no direct electromagnetic
+level of its couplings. It arises from information structure at galaxy scale,
+it gravitates, and it carries no direct electromagnetic
 coupling in the effective description.
 
 ### The Acceleration Scale
@@ -358,8 +358,9 @@ $$V^4 = G \cdot M_b \cdot a_0^{(\text{OPH})}$$
 This is the observed Tully-Fisher form that the continuation aims to
 reproduce, with its normalization benchmark set by screen capacity. In that
 phenomenological branch, the dark sector is read as an infrared correction to
-gravity rather than a new species of particle. The cosmological constant and
-the galaxy-scale anomaly then sit inside one de Sitter picture, but the
+gravity. The statement does not introduce a new particle species. The
+cosmological constant and the galaxy-scale anomaly then sit inside one de
+Sitter picture, but the
 galaxy-scale response law itself is not part of the recovered-core theorem
 package.
 

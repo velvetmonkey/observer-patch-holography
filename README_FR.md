@@ -6,7 +6,7 @@
 
 **Liens rapides :** [OPH Textbooks](https://learn.floatingpragma.io/) | [Reverse Engineering Reality](https://oph-book.floatingpragma.io/) | [site](https://floatingpragma.io/oph/) | [OPH Lab](https://oph-lab.floatingpragma.io)
 
-L'OPH est un programme de reconstruction pour la physique fondamentale. Il part d'observateurs finis sur un écran holographique fini et progresse vers l'extérieur. Sa base de travail est algébrique-quantique : algèbres de patchs, états, probabilités de type trace/Born sur les surfaces d'enregistrement déclarées et entropie généralisée font partie du point de départ formel. Le programme ne cherche pas à dériver chaque ingrédient mathématique à partir de premiers principes. Son objectif est de construire une théorie du tout cohérente et complète en utilisant cette base d'information algébrique pour reconstruire l'univers effectif observé : espace-temps, structure de jauge, particules, enregistrements et synchronisation des observateurs y apparaissent comme des conséquences de la cohérence de recouvrement, et non comme des primitives.
+L'OPH est un programme de reconstruction pour la physique fondamentale. Il part d'observateurs finis sur un écran holographique fini. Sa base de travail est algébrique-quantique : algèbres de patchs, états, probabilités de type trace/Born sur les surfaces d'enregistrement déclarées et entropie généralisée font partie du point de départ formel. Le programme ne cherche pas à dériver chaque ingrédient mathématique à partir de premiers principes. Son objectif est de construire une théorie du tout cohérente et complète en utilisant cette base d'information algébrique pour reconstruire l'univers effectif observé : espace-temps, structure de jauge, particules, enregistrements et synchronisation des observateurs y apparaissent comme des conséquences de la cohérence de recouvrement, et non comme des primitives.
 
 La thèse opérationnelle est plus précise que "l'information est fondamentale".
 L'OPH modélise la réalité comme un processus de consensus à point fixe fondé
@@ -27,11 +27,11 @@ Pour le noyau technique compact, commencez par **Paper 2. [Recovering Relativity
 
 - Un cadre à cutoff fixe pour les patches d'observateurs, les collerettes, la réparation de recouvrement, la jauge supérieure, les enregistrements et le checkpoint/restauration.
 - Une reconstruction de la géométrie lorentzienne, du temps modulaire, de la dynamique d'Einstein de type Jacobson et de la cosmologie de Sitter en patch statique.
-- Une reconstruction de jauge compacte vers le quotient réalisé du Modèle Standard `SU(3) x SU(2) x U(1) / Z_6`, avec le réseau exact des hypercharges, le triplet de couleur réalisé `N_c = 3` et le comptage des générations `N_g = 3`.
-- Un programme particules à niveaux de revendication explicites : porteurs structurels exactement sans masse, ligne `W/Z` en comparaison seule, surface Higgs/top déclarée, masses de quarks sélectionnées avec Yukawas, branche neutrino pondérée, constantes locales candidates, et frontières no-go pour les leptons chargés, la classification globale des cadres de quarks et le codomaine top direct auxiliaire.
+- Une reconstruction de jauge compacte vers le quotient réalisé du Modèle Standard \(SU(3)\times SU(2)\times U(1)/\mathbb Z_6\), avec le réseau exact des hypercharges, le triplet de couleur réalisé \(N_c=3\) et le comptage des générations \(N_g=3\).
+- Un programme particules à niveaux de revendication explicites : porteurs structurels exactement sans masse, ligne \(W/Z\) en comparaison seule, surface Higgs/top déclarée, masses de quarks sélectionnées avec Yukawas, branche neutrino pondérée, constantes locales candidates, et frontières no-go pour les leptons chargés, la classification globale des cadres de quarks et le codomaine top direct auxiliaire.
 - Une architecture microphysique d'écran concrète qui met mesure, enregistrements et observateurs à l'intérieur de la physique.
 
-La mécanique quantique est traitée comme le langage algébrique d'information porté par l'architecture OPH. Le test de reconstruction porte sur la cohérence avec laquelle cette base retrouve l'univers effectif. Une reconstruction des espaces de Hilbert, des `C*`-algèbres ou des algèbres de von Neumann, des probabilités de Born, de la trace et de l'entropie depuis de simples enregistrements opérationnels constitue une question distincte du programme.
+La mécanique quantique est traitée comme le langage algébrique d'information porté par l'architecture OPH. Le test de reconstruction porte sur la cohérence avec laquelle cette base retrouve l'univers effectif. Une reconstruction des espaces de Hilbert, des \(C^*\)-algèbres ou des algèbres de von Neumann, des probabilités de Born, de la trace et de l'entropie depuis de simples enregistrements opérationnels constitue une question distincte du programme.
 
 Le mécanisme est la boucle de consensus à point fixe. Les observateurs locaux
 n'accèdent pas à un état global depuis l'extérieur. Ils portent des états de
@@ -40,13 +40,13 @@ les prolongements incohérents et conservent les motifs stables qui peuvent êtr
 synchronisés. Géométrie, particules, lois et enregistrements sont les points
 fixes à grande échelle de ce calcul en réseau d'observateurs.
 
-L'OPH utilise une seule entrée quantitative externe, la capacité totale de l'écran `N_scr = log dim H_tot`, lue depuis l'horizon de Sitter, ainsi qu'un ratio local de pixel `P = a_cell / l_P^2`. Pour la constante cosmologique observée, le ratio nu d'aire d'horizon vaut `N_patch = (R_dS / l_P)^2 ≈ 1.05e122`, tandis que la capacité entropique utilisée par l'OPH vaut `N_scr = pi N_patch ≈ 3.31e122`. La même cellule d'écran est décrite deux fois : vue de l'extérieur comme un pixel situé légèrement au-dessus de l'équilibre auto-similaire exact `φ = (1 + sqrt(5)) / 2`, et vue de l'intérieur comme la plus petite échelle d'observation électromagnétique disponible pour les observateurs de l'univers simulé.
-Le papier de synthèse écrit cette autoréférence comme un problème de point fixe. Le calcul de structure fine part de l'équilibre entropique au nombre d'or `φ`, utilise la normalisation gaussienne de bord `sqrt(pi)`, envoie un essai de `P` dans la chaîne source `P -> M_U -> α_U -> α_i(m_Z) -> a0(P)`, puis transporte l'ancre électrofaible par la voie Ward-projetée `U(1)_Q` jusqu'au point de Thomson `A_T(P)=α_em^-1(0;P)`. La cellule réalisée résout `P = φ + sqrt(pi) / A_T(P)`. La surface publique utilise `P = a_cell / l_P^2 ≈ 1.6309682094`. La lecture donne `α⁻¹(0) = 137.035999177(21)` et `α(0) ≈ 0.00729735256433`. Le même pixel local porte la gravité, la structure fine, la jauge réalisée, les lignes de masses particules, les enregistrements et la synchronisation des observateurs.
+L'OPH utilise une seule entrée quantitative externe, la capacité totale de l'écran lue depuis l'horizon de Sitter, ainsi qu'un ratio local de pixel \(P\), l'aire d'une cellule d'écran en unités de Planck. Pour la constante cosmologique observée, le ratio nu d'aire d'horizon vaut environ \(1.05\times10^{122}\), tandis que la capacité entropique utilisée par l'OPH vaut environ \(3.31\times10^{122}\). La même cellule d'écran est décrite deux fois : vue de l'extérieur comme un pixel situé légèrement au-dessus de l'équilibre auto-similaire au nombre d'or, et vue de l'intérieur comme la plus petite échelle d'observation électromagnétique disponible pour les observateurs de l'univers simulé.
+Le papier de synthèse écrit cette autoréférence comme un problème de point fixe. Le calcul de structure fine part de l'équilibre entropique au nombre d'or et de la normalisation gaussienne de bord, puis transporte l'ancre électrofaible jusqu'au point de Thomson. La surface publique utilise \(P\simeq1.6309682094\). La lecture donne \(\alpha^{-1}(0)=137.035999177(21)\) et \(\alpha(0)\simeq0.00729735256433\). Le même pixel local porte la gravité, la structure fine, la jauge réalisée, les lignes de masses particules, les enregistrements et la synchronisation des observateurs.
 
 ## Surface locale d'unification
 
-L'OPH place une surface locale d'unification autour de l'entrée UV locale calibrée `P = 1.630968209403959...`. La même échelle porte la voie électrofaible en comparaison, la voie Higgs ainsi que la voie entropique gravitationnelle, tandis que la géométrie lorentzienne fournit la vitesse causale invariante et que la couche locale de lecture fournit l'affichage SI. La présentation produit relevée donne `ellbar_shared = ellbar_SU(2) + ellbar_SU(3)` ; la même loi locale fixe `ellbar_shared = P/4`, et la lecture locale en unités SI est `G_SI = c^3 a_cell / (hbar P)` relativement au datum microscopique déclaré `a_cell`.
-Sur la surface publique des constantes, `hbar` et `k_B` appartiennent à cette couche aval de lecture en unités familières plutôt que d'apparaître comme des constantes OPH émises de manière autonome.
+L'OPH place une surface locale d'unification autour du pixel public \(P\simeq1.6309682094\). La même échelle porte la voie électrofaible en comparaison, la voie Higgs ainsi que la voie entropique gravitationnelle, tandis que la géométrie lorentzienne fournit la vitesse causale invariante et que la couche locale de lecture fournit l'affichage SI. Les formules détaillées vivent dans les papiers.
+Sur la surface publique des constantes, \(\hbar\) et \(k_B\) appartiennent à cette couche aval de lecture en unités familières plutôt que d'apparaître comme des constantes OPH émises de manière autonome.
 
 <p align="center">
   <a href="assets/OPH_Unification_Diagram.svg" target="_blank" rel="noopener noreferrer">
@@ -67,9 +67,9 @@ Sur la surface publique des constantes, `hbar` et `k_B` appartiennent à cette c
 ## Lignes quantitatives sélectionnées
 
 Ce tableau condensé garde les lignes OPH les plus faciles à comparer directement avec les valeurs
-PDG/NIST. Les résultats structurels comme la géométrie lorentzienne `3+1D`, le quotient de jauge
-du Modèle Standard `SU(3) x SU(2) x U(1) / Z_6`, le réseau exact des hypercharges, le triplet
-de couleur réalisé `N_c = 3` et le comptage des générations `N_g = 3` sont énoncés dans les papiers et ne sont pas répétés ici.
+PDG/NIST. Les résultats structurels comme la géométrie lorentzienne en \(3+1\) dimensions, le quotient de jauge
+du Modèle Standard \(SU(3)\times SU(2)\times U(1)/\mathbb Z_6\), le réseau exact des hypercharges, le triplet
+de couleur réalisé \(N_c=3\) et le comptage des générations \(N_g=3\) sont énoncés dans les papiers et ne sont pas répétés ici.
 
 | Quantité | Symbole | OPH | PDG/NIST | Δ |
 | --- | --- | --- | --- | --- |
@@ -100,10 +100,10 @@ Les papiers contiennent aussi les dérivations structurelles du Modèle Standard
 ainsi qu'une famille neutrino, qui n'apparaît pas dans ce tableau faute de ligne de comparaison
 PDG/NIST directe à un seul nombre.
 
-La surface particules porte aussi des valeurs `W/Z` en comparaison seule
-`80.377 GeV` et `91.18797809193725 GeV`, une valeur Higgs
-`m_H = 125.1995304097179 GeV` et une valeur top sélectionnée
-`m_t = 172.35235532883115 GeV` selon la convention PDG de masse top par section
+La surface particules porte aussi des valeurs \(W/Z\) en comparaison seule
+\(80.377\,\mathrm{GeV}\) et \(91.18797809193725\,\mathrm{GeV}\), une valeur Higgs
+\(m_H=125.1995304097179\,\mathrm{GeV}\) et une valeur top sélectionnée
+\(m_t=172.35235532883115\,\mathrm{GeV}\) selon la convention PDG de masse top par section
 efficace. La ligne top directe auxiliaire reste en comparaison seule. Les
 masses des leptons chargés sont des témoins ancrés sur cible, hors du rang des
 prédictions promues. La branche neutrino pondérée émet
@@ -154,15 +154,9 @@ utilise une classe séparée de charge utile \(e^+e^-\to\mathrm{hadrons}\).
 
 ## Table de statut
 
-La ligne publique de structure fine utilise `α⁻¹(0)=137.035999177(21)` et
-`P≈1.6309682094`. Le tronc d'audit source émet
-`α_cand⁻¹≈136.9948351646` à
-`P_cand≈1.6309720957`. La table du point
-final consigne le résidu porté par la charge utile spectrale source :
-`0.0414658610...` unités d'alpha inverse au pixel
-public du point final, avec
-`S_required≈0.8954001326` et
-`c_Q≈0.6580257599`.
+La ligne publique de structure fine utilise \(\alpha^{-1}(0)=137.035999177(21)\) et
+\(P\simeq1.6309682094\). Les enregistrements d'audit source et de résidu au point
+final vivent dans le papier particules, séparés de la ligne publique de point fixe.
 
 La paire faible est une ligne de validation. Les masses absolues des leptons
 chargés sont des témoins ancrés sur cible. La moyenne directe auxiliaire du top

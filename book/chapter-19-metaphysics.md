@@ -76,7 +76,7 @@ dimensions, not four or seven?
 
 The fine-structure lane treats the public Thomson-limit value as a fixed-point
 readout of the same local screen cell. The local
-pixel ratio $P=a_{\mathrm{cell}}/\ell_P^2$ is given two readings. From outside
+pixel ratio \(P\), the area of one screen cell in Planck-area units, is given two readings. From outside
 the encoded world, $P$ is the area of one screen cell in Planck units, sitting
 slightly above the exact golden-ratio balance point $\varphi$. From inside the
 encoded world, the same displacement is read as the smallest electromagnetic
@@ -87,7 +87,7 @@ $$P=\varphi+\alpha_{\mathrm{in}}(P)\sqrt{\pi}.$$
 Here $\alpha_{\mathrm{in}}(P)$ is the inside electromagnetic observation
 strength. The source-side computation sends the same trial pixel through the
 unification scale, running gauge couplings, electroweak anchor, and
-Ward-projected electromagnetic endpoint. The fixed point gives
+long-distance electromagnetic endpoint. The fixed point gives
 
 $$P\simeq1.6309682094.$$
 
@@ -99,8 +99,8 @@ The constant represents the electromagnetic width of the smallest
 observer-supporting pixel. Its value is forced because the inside and outside
 descriptions of that pixel have to land on the same number.
 
-The symbol $\varphi$ is the golden ratio. $P$ is the pixel area ratio
-$a_{\mathrm{cell}}/\ell_P^2$, the area of a screen cell in Planck-area units.
+The symbol $\varphi$ is the golden ratio. $P$ is the pixel area ratio,
+the area of a screen cell in Planck-area units.
 $\sqrt{\pi}$ is the boundary Gaussian normalization used in the local
 ruler discussion. The inverse $\alpha^{-1}(0)$ is the long-distance
 fine-structure readout. The parenthesized digits again indicate the quoted
@@ -231,7 +231,7 @@ stable regularity that survives comparison across patches. A "meaning" is no
 longer a label attached from outside the universe. It is a pattern stabilized
 inside the universe by observers who remember, interpret, and coordinate.
 
-This is why the chapter treats sheaves as more than a mathematical aside. A
+This is why the chapter uses sheaves as a working analogy. A
 sheaf begins with local data. If the local descriptions agree on overlaps, a
 global section may be glued. If they do not agree, the obstruction is real.
 Translated back into the book's language, objectivity is the successful

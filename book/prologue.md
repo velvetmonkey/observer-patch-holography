@@ -164,8 +164,8 @@ access to information, and they must agree where their observations overlap.
 Only a small amount of outside numerical help is needed. One number sets the
 overall size of the screen, and that number is read from the cosmological
 constant. The local grain of the picture, the effective pixel size, is then
-solved on the OPH quantitative branch rather than inserted as a separate
-measured constant. From there the question is simple: how much of gravity,
+solved on the OPH quantitative branch as part of the same local scale
+structure. From there the question is simple: how much of gravity,
 gauge structure, and the particle world can be forced from observer
 consistency alone?
 

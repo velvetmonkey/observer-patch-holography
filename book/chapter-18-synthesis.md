@@ -155,23 +155,15 @@ $$
 
 The computation has a definite order. The golden-ratio balance gives the
 reference value $\phi$. The boundary Gaussian normalization gives the
-$\sqrt{\pi}$ width. A trial $P$ is sent through the source map for the
-unification scale, the running gauge couplings, and the electroweak anchor. The
-unbroken electromagnetic channel is then transported to the long-distance
-Thomson endpoint. The fixed point is the value where
-
-$$
-P=\phi+\frac{\sqrt{\pi}}{A_T(P)}
-$$
-
-with $A_T(P)=\alpha_{\mathrm{em}}^{-1}(0;P)$.
+$\sqrt{\pi}$ width. A trial $P$ is sent through the unification scale, the
+running gauge couplings, and the electroweak anchor. The unbroken
+electromagnetic channel is then transported to the long-distance Thomson
+endpoint.
 
 The symbol $\phi$ is the golden ratio. $\alpha_{\mathrm{in}}(P)$ is the
-inner electromagnetic readout produced when the trial pixel value $P$ is sent
-through the OPH transport chain. $A_T(P)$ is the Thomson-limit inverse
-electromagnetic coupling computed from that trial value. The fixed point is
-the value of $P$ for which the geometric pixel and the electromagnetic readout
-name the same local scale.
+inner electromagnetic readout produced from the trial pixel value $P$. The
+fixed point is the value of $P$ for which the geometric pixel and the
+electromagnetic readout name the same local scale.
 
 The value is forced in OPH because the same cell cannot choose one value for
 its geometry and another value for electromagnetic observation. The
@@ -303,8 +295,8 @@ those clues back to one architecture: a finite screen, local patches,
 recoverability, modular flow, generalized entropy, and a world that holds
 together because partial observers can keep agreeing.
 
-That architecture does more than tidy up puzzles. It turns the universe into a
-much stranger object than classical physics ever imagined. There is no view
+That architecture turns the universe into a much stranger object than classical
+physics ever imagined. There is no view
 from nowhere. There are views from somewhere, and a shared reality is what
 appears when those views can lock into one coherent public record.
 
@@ -321,7 +313,7 @@ organized reconstruction, not a catalog of unrelated facts.
 
 The local-ruler ledger records five technical boundaries. The weak pair is a
 validation row on a declared compare-only surface. Charged-lepton rows are
-target-anchored same-family witnesses rather than source-emitted public
+target-anchored same-family witnesses. They are not source-emitted public
 masses. The selected-class quark theorem closes only on its declared public
 frame class, with global public quark-frame classification as a corpus-limited
 no-go boundary. The auxiliary direct-top PDG row is compare-only. Hadron masses require the

@@ -122,7 +122,7 @@ Bohr and Heisenberg developed what became the "Copenhagen interpretation." The w
 
 This interpretation was never universally accepted. Einstein famously objected: "God does not play dice." But the mathematics works. Quantum mechanics makes predictions, and those predictions are confirmed to extraordinary precision.
 
-The core lesson is operational rather than interpretive. Quantum theory gives probabilities for measurement outcomes with extraordinary accuracy. What those probabilities mean ontologically depends on the interpretation.
+The core lesson is operational. Quantum theory gives probabilities for measurement outcomes with extraordinary accuracy. What those probabilities mean ontologically depends on the interpretation.
 
 ## 14.4 From Particles to Fields
 
@@ -764,8 +764,8 @@ closing cleanly.
 
 The graviton follows the same pattern, this time on the geometric side.
 Chapter 15 argues that once modular flow on screen caps becomes
-geometric, the sphere carries more than abstract bookkeeping. It is
-carrying the compressed information that observers read as spacetime.
+geometric, the sphere carries compressed information that observers read as
+spacetime.
 
 In OPH, geometry is allowed to respond, bend, and fluctuate. Once it
 does, the effective theory needs a massless spin-2 messenger for those

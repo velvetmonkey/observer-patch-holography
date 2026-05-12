@@ -115,7 +115,7 @@ them repeatedly without immediately erasing what was measured.
 
 ### Replication and Redundancy
 
-Surviving pointer states do more than persist. They replicate.
+Surviving pointer states persist by replicating.
 
 When you look at a tree, you're intercepting photons that carry copies of information about the tree. Each photon is a "witness" to the tree's state.
 
