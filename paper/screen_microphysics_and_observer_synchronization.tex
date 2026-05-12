@@ -33,9 +33,12 @@ This paper gives the fixed-cutoff implementation picture behind Observer-Patch H
 This paper sets out one concrete reference architecture for local finite screen degrees of
 freedom. It gives an explicit bridge from local registers to patches, overlaps, records,
 observers, and synchronization, together with fixed-cutoff theorem packages for measurement and
-checkpoint and restoration. The claim boundary is narrow: theorem statements, implementation targets, and
-conjectural bridges are separated throughout. The paper does not identify a unique microscopic UV
-completion, it does not derive the scaling-limit continuum and gravity branches, ``observer'' is used operationally, and synchronization of overlap data is not presented as full continuum closure.
+checkpoint and restoration. The claim boundary is narrow: theorem statements, implementation
+targets, and imported companion-paper closure surfaces are separated throughout. The paper does
+not identify a unique microscopic UV completion, does not re-derive the companion-paper
+support-visible BW, geometric-modular, or local-Einstein closure surfaces, uses ``observer''
+operationally, and does not present synchronization of overlap data as full refinement-limit
+closure.
 
 \section{Claim Taxonomy}
 
@@ -55,12 +58,13 @@ whether the reference architecture exhibits gauge-invariant patch observables, s
 low CMI across collars, and robust synchronization under local repair
 schedules.
 
-\item \textbf{Conjectural bridge claims.} It is plausible that an appropriate refinement-stable
-phase of such models lands in the OPH modular-geometric branch and later supports the OPH
-continuum or gravity story, but that bridge is not proved here.
+\item \textbf{Imported companion-branch claims.} The support-visible BW, geometric-modular, and
+local-Einstein closure surfaces are supplied in the companion corpus; this paper only supplies
+the fixed-cutoff implementation interface that those surfaces use.
 
 \item \textbf{Excluded claims.} This paper does not identify the final OPH microphysics, does not
-establish a unique global repair law, and does not close the Standard Model or continuum branches.
+establish a unique global repair law, and does not itself close the Standard Model branch or the
+companion-paper closure surfaces.
 \end{enumerate}
 
 \section{Why a Finite Gauge-Register Reference Architecture}
@@ -452,7 +456,7 @@ on every edge of the patch-overlap graph. For each neighboring patch
 pair $(P,Q)$, the paper specifies the support of the update, the declared shared
 observable family, the finite syndrome alphabet, the local correction menu, the acceptance rule,
 and the logging contract. It does \emph{not} claim a theorem that a chosen family
-must terminate, be confluent, or yield a continuum-consistent normal form. Those theorem-level
+must terminate, be confluent, or yield a refinement-consistent normal form. Those theorem-level
 questions are on the consensus-paper side of the boundary.
 
 The default should be explicit syndrome-based overlap repair rather than a fully
@@ -1396,9 +1400,9 @@ p_R^{(IJ)}(t)
 \frac{d_R e^{-tC_2(R)}}{\sum_{R'\in\mathcal R_{\max}} d_{R'} e^{-tC_2(R')}}.
 \end{equation}
 This is enough for the SM/GR-paper merge boundary at fixed cutoff. What is
-\emph{not} claimed here is the refinement-stable uniqueness of the truncation, the continuum
-universality of $t$, or the theorem that different truncation ladders must land on one common
-compact limit. Those are later merge-level questions.
+\emph{not} claimed here is the refinement-stable uniqueness of the truncation, the
+refinement-limit universality of $t$, or the theorem that different truncation ladders must land
+on one common compact limit. Those are later merge-level questions.
 
 \subsection{Required deliverables of the first build package}
 
@@ -1426,12 +1430,12 @@ sector probabilities, attempted edge moves, and pass/fail statistics for every c
 
 This is a fixed-cutoff microphysics note. A successful pilot would show that one fixed-cutoff
 screen model can instantiate the declared objects and measurements; it would not identify a
-unique UV completion or close any continuum claim.
+unique UV completion or settle any refinement-limit claim.
 
 \section{Simulator Validation Package}
 
 A useful simulator package has to be able to fail. The validation target is not
-continuum closure. It is the fixed-cutoff architecture claimed here: gauge-admissible
+refinement-limit closure. It is the fixed-cutoff architecture claimed here: gauge-admissible
 local layers, measurable overlap observables, persistent records, and a repair loop whose
 behavior can be diagnosed. The validation package should therefore be distributed with the first
 build, not added later as an informal plotting appendix.
@@ -1472,7 +1476,7 @@ The canonical executable surface for the analytic fixed-cutoff suite is
 the issue-237 reference-architecture benchmark surface: it runs the named $\mathbb Z_2$ and $S_3$
 families over all six schedules, records packet-closure and repair-completeness gates, includes the
 residual-obstruction gate, and states explicitly that the result is fixed-cutoff only. It is not a
-continuum/gravity lift and it is not a uniqueness theorem for microscopic UV completion.
+refinement-limit lift and it is not a uniqueness theorem for microscopic UV completion.
 
 \subsection{Required run manifest and per-cycle log}
 
@@ -1683,32 +1687,32 @@ failing to distinguish removable mismatch from a persistent external fault sourc
 
 \subsection{Reading rule for the validation package}
 
-Even a full reference-architecture pass would not prove the OPH continuum branch, would
-not prove the final repair law, and would not identify a unique microscopic UV completion. It would only
-show that the fixed-cutoff architecture claimed here has been instantiated concretely
-enough to measure and debug. Conversely, failure is informative. A failed gate tells the
-implementation team which layer is not doing the job the paper assigns to it, and the required
-logs above tell them where to start looking. Literal microscopic uniqueness is not the target
-invariant here; the OPH theorem surface fixes only the physical branch modulo gauge or
-implementation hiding and inert ancillary refinement.
+Even a full reference-architecture pass would not identify a unique microscopic UV completion or
+prove the final repair law. It would only show that the fixed-cutoff architecture claimed here has
+been instantiated concretely enough to measure and debug. Conversely, failure is informative. A
+failed gate tells the implementation team which layer is not doing the job the paper assigns to
+it, and the required logs above tell them where to start looking. Literal microscopic uniqueness
+is not the target invariant here; the OPH theorem surface fixes only the physical branch modulo
+gauge or implementation hiding and inert ancillary refinement.
 
 As of the current reference artifact, the analytic backend passes all named $\mathbb Z_2$ and $S_3$
 fixed-cutoff gates across all six schedules. The pass should be read only as an existence-program
-benchmark for the regulated architecture. The open bridge remains the continuum/gravity lift and
-any claim of uniqueness of the underlying microscopic completion.
+benchmark for the regulated architecture. It does not settle uniqueness of the underlying
+microscopic completion and it does not replace the later packet-level quotient and global-consensus
+program.
 
-\section{Dependence on Existing OPH Results and Open Bridges}
+\section{Dependence on Existing OPH Results and Remaining Bridges}
 
 This note is intentionally one-sided in its logical role. It imports OPH structure that
 exists elsewhere in the program, adds one concrete fixed-cutoff reference architecture on top of
-that structure, and leaves the scaling-limit and theorem-level bridges explicit rather than
-implicit. The intended claim boundary is therefore
+that structure, and keeps the companion-paper theorem surfaces explicit rather than implicit. The
+intended claim boundary is therefore
 \begin{equation}
 \text{imported OPH framework}
 \;\longrightarrow\;
 \text{reference architecture}
 \;\longrightarrow\;
-\text{later bridge theorems}.
+\text{companion-paper closure surfaces}.
 \end{equation}
 
 \subsection{Imported OPH structure used here without re-derivation}
@@ -1724,6 +1728,8 @@ sector decomposition.
 mutual information, collar recovery, and edge data are meaningful organizing notions.
 \item The local MaxEnt plus refinement-stability branch as the OPH dynamical background
 against which regulated architectures are later judged.
+\item The support-visible BW scaling theorem together with the imported geometric-modular,
+null-modular, and local-Einstein closure surfaces used elsewhere in the corpus.
 \item The OPH observer-access tuple $(P_O,\mathcal A(P_O),\rho_O,R_O)$, understood as an
 existing access model for a record-bearing internal subsystem.
 \end{enumerate}
@@ -1749,8 +1755,8 @@ mismatch, record persistence, and schedule-divergence diagnostics.
 \end{enumerate}
 
 These are fixed-cutoff regulator claims, simulator-interface claims, and theorem packages at the
-architecture level. They are not continuum
-theorems, gravity theorems, or quantitative Standard Model closures.
+architecture level. They are not refinement-limit theorems, gravity theorems, or quantitative
+Standard Model closures.
 
 \subsection{Boundary markers between imported structure and new architecture content}
 
@@ -1769,11 +1775,11 @@ and correction menus on a finite screen.
 
 This paper does not claim complete OPH microphysics. It records one concrete regulated
 fixed-cutoff construction that carries the mapped fixed-cutoff theorem packages directly, while
-leaving uniqueness and continuum lift open.
+leaving uniqueness and the packet-level refinement program open.
 
-\subsection{Open bridges}
+\subsection{Remaining bridges}
 
-The open bridges are:
+The remaining bridges are:
 \begin{enumerate}[leftmargin=2em]
 \item \textbf{Microphysics uniqueness.}
 Nothing below claims that the octahedral $\mathbb Z_2$ pilot, the $S_3$ upgrade, or the
@@ -1783,20 +1789,16 @@ the open structural branches are stated explicitly.
 \item \textbf{Global repair theory.}
 The local repair kernel, the regulator embedding, the edge-law package, and the local
 measurement/backup packages are carried here as fixed-cutoff theorem packages. Beyond those
-branches lie packet-level quotient closure where available,
-repair completeness on the declared finite patch-net branch, the quotient-level compatibility
-package that yields the local diamond, refinement-stable consensus, continuum-limit uniqueness,
-and the larger continuum/gravity lift.
-\item \textbf{Continuum / gravity lift.}
-The present results are fixed-cutoff theorems. This paper does not derive the OPH
-continuum, the geometric modular branch, or gravity from the finite regulator.
+branches lie packet-level quotient closure where available, repair completeness on the declared
+finite patch-net branch, the quotient-level compatibility package that yields the local diamond,
+and refinement-stable consensus.
 \end{enumerate}
 
 The imported OPH structure stays imported, the finite reference architecture stays finite, the
 regulator-side patch-net embedding theorem, the finite-group edge-law theorem, and the three
-observer-side theorem packages are closed at fixed cutoff, and the open bridge is stated
-explicitly. Open items are the later packet-level quotient closure where desired, the
-compact heat-kernel lift, the larger global consensus program, and the continuum/gravity lift.
+observer-side theorem packages are closed at fixed cutoff, and the remaining open items are the
+later packet-level quotient closure where desired, the compact heat-kernel lift, and the larger
+global consensus program.
 
 \section{Fixed-Cutoff Theorem Packages}
 
@@ -1943,7 +1945,7 @@ record-refresh branches supported on $N_{IJ}$, and the staged map
 is therefore a concrete local repair instrument on the same regulator. The mismatch syndrome
 $S_{IJ}$, the lexicographic score $L_{IJ}$, and the diagnostic cost $\Xi_{IJ}$ are explicit
 functions of the packet values exported by $\mathbf q_{IJ}$. Nothing in this construction invokes
-continuum lift, global fixed points, or refinement-stable consensus. Therefore the finite
+refinement-limit lift, global fixed points, or refinement-stable consensus. Therefore the finite
 patch-net layer is embedded into the OPH regulator at fixed cutoff.
 
 \paragraph{Scope boundary.}
@@ -1982,7 +1984,7 @@ operator
 =
 \sum_{R\in \mathcal R_{\max}} C_2(R)\,\Pi_R^{(IJ)}.
 \]
-No continuum lift, no global consensus theorem, and no separate D10 calibration package are used
+No refinement-limit lift, no global consensus theorem, and no separate D10 calibration package are used
 here. The theorem-local kernel condition is that the thermal proposal kernel induced by the
 declared local move set obeys the reversible symmetry
 \(
@@ -2116,7 +2118,7 @@ This fixes the edge heat-kernel / Casimir package at fixed cutoff. The open item
 From the earlier fixed-cutoff microphysics we use only the same declared observer-facing local
 readout surface and center structure: the pointer projectors on record registers, the
 overlap-sector projectors on the same collar interfaces, and the completed compare, write, and
-verify slice on which those observables are read. No continuum lift, no extra
+verify slice on which those observables are read. No refinement-limit lift, no extra
 observer-metaphysics, and no separate consensus theorem are used here. The appendix ledger
 sharpens this package with Markov/recoverability and Gleason-side comparisons, but the
 fixed-cutoff closure stated in this subsection is carried on the main microphysics
@@ -2200,7 +2202,7 @@ observable algebra on one observer-facing two-wing region, the central setting r
 same compare slice, and the Born/L\"uders package on the resulting commuting event algebra. The
 consensus paper supplies the quotient-level physical observable algebra and observable-level
 confluence on that same fixed-cutoff branch. The only downstream blocker named here is the later
-refinement/continuum lift where the physical observable algebra itself changes under refinement.
+refinement-limit lift where the physical observable algebra itself changes under refinement.
 
 \paragraph{Bell data on the fixed-cutoff surface.}
 Fix two disjoint observer-facing wing regions \(L\) and \(R\) on one declared fixed-cutoff
@@ -2393,7 +2395,7 @@ What is closed here is exactly the fixed-cutoff Bell package on the declared two
 source-specified joint law, no-signaling on commuting separated observables, the CHSH correlator
 formula, and the Tsirelson bound. Exact \(2\sqrt2\) saturation is fixed only on the explicit
 two-qubit branch above. What is not claimed here is a derivation of Bell-pair source preparation
-or tensor-factor structure from the bare repair dynamics, or a refinement-stable continuum Bell
+or tensor-factor structure from the bare repair dynamics, or a refinement-stable Bell
 package beyond the fixed-cutoff physical observable algebra.
 
 \paragraph{Conclusion for this package.}
@@ -2493,8 +2495,7 @@ source-specified joint law, no-signaling theorem, and CHSH/Tsirelson theorem sta
 \item The fixed-cutoff observer checkpoint/restoration package is closed here by the
 checkpoint, restoration, error, and identity theorem stack.
 \item What sits after these fixed-cutoff results is packet-level quotient closure where
-desired, the compact heat-kernel lift, refinement-stable universality, global consensus analysis,
-and the continuum/gravity lift.
+desired, the compact heat-kernel lift, refinement-stable universality, and global consensus analysis.
 \end{enumerate}
 
 \section{Conclusion}
@@ -2509,11 +2510,10 @@ The regulated screen architecture carries five fixed-cutoff theorem packages:
 \end{enumerate}
 
 These results do \emph{not} identify the unique OPH UV completion, prove global repair
-convergence, derive the continuum/gravity branch, or finish the open packet-level,
-refinement, and edge-law lifts. The regulated patch-net embedding theorem is closed on its
-fixed-cutoff microphysics surface; the open bridge begins with autonomous packet dynamics
-when closure holds, then global consensus analysis, refinement-stable universality, and the
-continuum/gravity lift.
+convergence, or finish the open packet-level, refinement, and edge-law lifts. The regulated
+patch-net embedding theorem is closed on its fixed-cutoff microphysics surface; the remaining
+open program begins with autonomous packet dynamics when closure holds, then global consensus
+analysis, and refinement-stable universality.
 
 \appendix
 \input{tex_fragments/MICROPHYSICS_MEASUREMENT_SUPPLEMENT_PORT.tex}
