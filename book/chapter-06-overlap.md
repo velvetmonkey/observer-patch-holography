@@ -465,6 +465,8 @@ But beware of loops. Go from Alice to Bob to Carol and back to Alice-you should 
 
 This is analogous to gauge theory and geometry. Move a vector around a loop; if it comes back rotated, there is nontrivial holonomy. Holonomy is the leftover mismatch that appears after a full circuit. Likewise, a loop that does not close cleanly signals an obstruction to global gluing, with no simple globally consistent assignment.
 
+The public extra demo at [3body.floatingpragma.io](https://3body.floatingpragma.io) applies this gluing lens to the OPH three-body problem solution. It treats the familiar three-body difficulty as a loop holonomy obstruction: pairwise Newtonian data can look locally simple while the closed three-body circuit still has to glue.
+
 ## 6.11 Formal Statement
 
 Let's state the consistency condition precisely.

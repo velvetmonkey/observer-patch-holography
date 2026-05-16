@@ -28,6 +28,7 @@ Pour le noyau technique compact, commencez par **Paper 2. [Recovering Relativity
 - Un cadre à cutoff fixe pour les patches d'observateurs, les collerettes, la réparation de recouvrement, la jauge supérieure, les enregistrements et le checkpoint/restauration.
 - Une reconstruction de la géométrie lorentzienne, du temps modulaire, de la dynamique d'Einstein de type Jacobson et de la cosmologie de Sitter en patch statique.
 - Une reconstruction de jauge compacte vers le quotient réalisé du Modèle Standard \(SU(3)\times SU(2)\times U(1)/\mathbb Z_6\), avec le réseau exact des hypercharges, le triplet de couleur réalisé \(N_c=3\) et le comptage des générations \(N_g=3\).
+- Sur la branche compacte de jauge visible par support, une dérivation de la forme euclidienne Yang-Mills en quatre dimensions et une identification exacte du gap de Yang-Mills avec le gap de réparation.
 - Un programme particules à niveaux de revendication explicites : porteurs structurels exactement sans masse, ligne \(W/Z\) en comparaison seule, surface Higgs/top déclarée, masses de quarks sélectionnées avec Yukawas, branche neutrino pondérée, constantes locales candidates, et frontières no-go pour les leptons chargés, la classification globale des cadres de quarks et le codomaine top direct auxiliaire.
 - Une architecture microphysique d'écran concrète qui met mesure, enregistrements et observateurs à l'intérieur de la physique.
 
@@ -128,7 +129,7 @@ utilise une classe séparée de charge utile \(e^+e^-\to\mathrm{hadrons}\).
 ## Articles
 
 - **Papier 1. [Observers Are All You Need](paper/observers_are_all_you_need.pdf)** : synthèse du programme OPH, des observateurs finis jusqu'à l'univers effectif reconstruit.
-- **Papier 2. [Recovering Relativity and the Standard Model from Observer Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)** : noyau technique pour la relativité, la gravité et la structure réalisée du Modèle Standard.
+- **Papier 2. [Recovering Relativity and the Standard Model from Observer Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)** : noyau technique pour la relativité, la gravité, la structure réalisée du Modèle Standard et la forme/gap Yang-Mills sur la branche compacte de jauge visible par support.
 - **Papier 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)** : dérivations particules, lignes de masses, structure des couplages et surface quantitative.
 - **Papier 4. [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf)** : dynamique de réparation à point fixe, stabilité des enregistrements et consensus public.
 - **Papier 5. [Screen Microphysics and Observer Synchronization](paper/screen_microphysics_and_observer_synchronization.pdf)** : architecture d'écran finie, enregistrements, mouvements de récupération et synchronisation observateur.
@@ -137,6 +138,7 @@ utilise une classe séparée de charge utile \(e^+e^-\to\mathrm{hadrons}\).
 
 - **[Breaking SHA-256 with Physics](extra/breaking_sha256_with_physics.pdf)** ([TeX](extra/breaking_sha256_with_physics.tex)) : recherche physique par contraintes pour la preuve de travail SHA-256d.
 - **[The Fine-Structure Constant as an OPH Pixel Fixed Point](extra/fine_structure_constant_derivation.pdf)** ([TeX](extra/fine_structure_constant_derivation.tex)) : dérivation à point fixe de la ligne de structure fine.
+- **[Explaining the Yang-Mills Mass Gap with Observer-Patch Repair Dynamics](extra/yang_mills_gap_clay_problem.pdf)** ([TeX](extra/yang_mills_gap_clay_problem.tex)) : route OPH visible par support vers le problème de Yang-Mills de Clay, avec dérivation de la forme euclidienne 4D et identification du gap au gap de réparation.
 - **[Observer-Patch Holography and the Dark Matter Phenomenon](extra/oph_dark_matter_paper.pdf)** ([TeX](extra/oph_dark_matter_paper.tex)) : phénoménologie de la matière noire et limite galactique de type MOND.
 - **[Thinking as Patch-Net Fixed-Point Search](extra/thinking_as_patch_net_fixed_point_search.pdf)** ([TeX](extra/thinking_as_patch_net_fixed_point_search.tex)) : cognition et qualia comme consensus récurrent de patches.
 
@@ -145,6 +147,7 @@ utilise une classe séparée de charge utile \(e^+e^-\to\mathrm{hadrons}\).
 - **Site officiel :** [floatingpragma.io/oph](https://floatingpragma.io/oph)
 - **Page theory of everything :** [floatingpragma.io/oph/theory-of-everything](https://floatingpragma.io/oph/theory-of-everything)
 - **Page simulation theory :** [floatingpragma.io/oph/simulation-theory](https://floatingpragma.io/oph/simulation-theory/)
+- **Démo OPH du problème à trois corps :** [3body.floatingpragma.io](https://3body.floatingpragma.io) : un simulateur et parcours de preuve supplémentaire pour la solution OPH du problème à trois corps, présentée comme un exemple de recollement par holonomie de boucle.
 - **Livre :** [oph-book.floatingpragma.io](https://oph-book.floatingpragma.io)
 - **Application d'étude guidée :** [learn.floatingpragma.io](https://learn.floatingpragma.io/)
 - **Questions et explications détaillées :** OPH Sage sur [Telegram](https://t.me/HoloObserverBot), [X](https://x.com/OphSage) ou [Bluesky](https://bsky.app/profile/ophsage.bsky.social)

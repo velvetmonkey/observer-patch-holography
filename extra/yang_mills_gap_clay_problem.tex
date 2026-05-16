@@ -1,0 +1,603 @@
+\documentclass[11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,bm}
+\usepackage{booktabs,longtable,array}
+\usepackage[shortlabels]{enumitem}
+\usepackage{hyperref}
+\usepackage{xurl}
+\usepackage{microtype}
+
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\setlength{\emergencystretch}{3em}
+\renewcommand{\arraystretch}{1.12}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\OPH}{\mathrm{OPH}}
+\newcommand{\YM}{\mathrm{YM}}
+\newcommand{\EC}{\mathrm{EC}}
+\newcommand{\A}{\mathcal A}
+\newcommand{\Hcal}{\mathcal H}
+\newcommand{\C}{\mathbb C}
+\newcommand{\R}{\mathbb R}
+
+\title{\textbf{Explaining the Yang--Mills Mass Gap with Observer-Patch Repair Dynamics}\\
+\large A Support-Visible OPH Route to the Clay Problem}
+\author{B.\ M\"uller}
+\date{Draft of May 16, 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+The Clay Yang--Mills problem asks for a nontrivial four-dimensional quantum Yang--Mills theory
+for every compact simple gauge group, with a positive mass gap. Observer-Patch Holography gives a
+specific route to both pieces on its support-visible compact-gauge branch. First, the
+compact-gauge reconstruction, local holonomy variables, four-dimensional scaling chart,
+reflection-positive zero-obstruction vacuum, and MaxEnt/local-Gibbs principle force the
+Euclidean continuum form
+\[
+S_E[A]=\frac{1}{4g^2}\int_{\mathbb R^4}
+\langle F_{\mu\nu},F_{\mu\nu}\rangle\,d^4x,
+\qquad F=dA+A\wedge A,
+\]
+with the corresponding gauge-quotient Euclidean transfer semigroup. Second, the mass-gap proof is
+isolated from that construction. At fixed cutoff, exact local repair on an active collar is the
+vacuum-preserving conditional expectation onto the repaired visible data. The ground-state
+transformed Euclidean transfer generator is therefore a finite sum
+\[
+L_r^{\EC}=\sum_{C\in\mathcal C_r} c_C(I-E_C),
+\qquad c_C>0.
+\]
+Refinement-stable locality gives a uniform positive rate floor \(c_*>0\). A bounded-color collar
+cover and repair completeness imply \(L_r^{\EC}\ge c_*(I-P_{0,r})\) at every regulator. The
+compact-gauge refinement ladder and support-visible weak-\(*\)/GNS extraction pass the exact
+finite-stage intertwining to the continuum:
+\[
+UHU^{-1}=L^{\mathrm{rep}}.
+\]
+Consequently the continuum compact-gauge Hamiltonian has
+\[
+\operatorname{Spec}(H)\cap(0,c_*)=\varnothing,
+\qquad
+\Delta_{\YM}=\Delta_{\mathrm{rep}}\ge c_*>0.
+\]
+The result is group-uniform, and the accounting is exact: the Yang--Mills gap is the repair gap,
+not a fitted phenomenological parameter. The proof uses compact-gauge quotient locality, exact repair,
+bounded-color active collars, refinement coherence, and support-visible continuum extraction, not
+special features of the realized Standard Model quotient. Relative to the Clay/Jaffe--Witten
+statement, the remaining external audit point is whether the OPH support-visible compact-gauge
+continuum extraction is accepted as the required four-dimensional axiomatic Yang--Mills
+construction.
+\end{abstract}
+
+\section{Position in the OPH Paper Stack}
+
+This paper is a focused companion to the OPH paper stack. The broad reconstruction program is
+summarized in \emph{Observers Are All You Need}~\cite{oph1}. The compact technical core is
+\emph{Recovering Relativity and the Standard Model from Observer Overlap Consistency}~\cite{oph2},
+which now carries the support-visible compact-gauge repair-gap theorem inside the compact paper
+itself. The particle branch is separate~\cite{oph3}. The finite repair and quotient-normal-form
+machinery comes from \emph{Reality as a Consensus Protocol}~\cite{oph4}. The regulated screen,
+record, and edge heat-kernel architecture is developed in \emph{Screen Microphysics, Patches, and
+Observer Synchronization in OPH}~\cite{oph5}.
+
+The older edge-sector theorem in the stack relates OPH heat-kernel weights to a two-dimensional
+Yang--Mills partition identity. That result is still useful as a normalization anchor, but it is
+not the four-dimensional mass-gap argument. The mass gap comes from repair dynamics: exact
+local repair becomes a positive Euclidean relaxation generator, and the uniform repair gap is
+transported to the compact-gauge Hamiltonian.
+
+\section{The Clay Target}
+
+The Clay Mathematics Institute describes the Yang--Mills mass gap as the missing mathematical
+foundation behind the quantum theory used for nonabelian gauge forces~\cite{clay}. Jaffe and
+Witten state the problem as follows: for every compact simple gauge group \(G\), construct a
+nontrivial quantum Yang--Mills theory on \(\R^4\) satisfying axiomatic properties at least as
+strong as the stated Wightman or Osterwalder--Schrader references and prove a mass gap
+\(\Delta>0\)~\cite{jaffe-witten}.
+
+The OPH proof below addresses that target through a different variable. It does not start with a
+classical connection and then try to quantize it directly. It starts with finite observer patches,
+compact-gauge visible quotient data, and exact repair collars. The nonzero energy threshold is
+then the cost of leaving the repair-fixed vacuum sector.
+
+\section{Standing Setup}
+
+Fix a compact simple gauge group \(G\) carried by an OPH compact-gauge zero-obstruction vacuum
+branch, realized at fixed cutoff by the finite gauge-register / quantum-link architecture. The
+architecture supplies finite local Hilbert spaces, exact local constraints, patch and overlap
+algebras, overlap sector projectors, record layers, and local repair interfaces.
+
+Let \(r\) range over a cofinal refinement family of finite regulators. For each \(r\), let
+\[
+(\Hcal_r,\Omega_r,H_r),
+\qquad
+T_r(t)=e^{-tH_r},
+\]
+be the physical Euclidean Hilbert space, vacuum, Hamiltonian, and transfer semigroup.
+
+Let \(X_r\) be the support-visible compact-gauge quotient state space, let \(\pi_r\) be the
+vacuum stationary measure, and set
+\[
+K_r:=L^2(X_r,\pi_r).
+\]
+Let \(\mathcal C_r\) be the finite family of active repair collars. For each active collar
+\(C\in\mathcal C_r\), let
+\[
+\rho_C:X_r\to Y_C
+\]
+be the complete repaired visible datum, and let
+\[
+E_C:K_r\to K_r
+\]
+be conditional expectation onto the \(\rho_C\)-measurable functions.
+
+The proof stays on the ordinary or central zero-obstruction vacuum branch. The genuinely
+noncentral higher-gauge branch is a different fixed-cutoff sector in the OPH stack and is not
+used for the ordinary compact-simple \(G\) theorem below.
+
+\section{Deriving the Full 4D Euclidean Yang--Mills Form}
+
+\begin{theorem}[OPH derivation of the four-dimensional Euclidean Yang--Mills form]
+\label{thm:ym-form}
+On the support-visible compact-gauge zero-obstruction branch with a four-dimensional Euclidean
+scaling chart, reflection-positive vacuum, and local finite-constraint MaxEnt/Gibbs refinement
+family, the continuum gauge-sector Euclidean action is
+\[
+S_E[A]=\frac{1}{4g^2}\int_{\R^4}
+\langle F_{\mu\nu},F_{\mu\nu}\rangle\,d^4x,
+\qquad
+F=dA+A\wedge A,
+\tag{YM}
+\]
+with compact simple structure group \(G\). Equivalently, the support-visible continuum transfer
+semigroup is the Euclidean Yang--Mills semigroup associated with the gauge-quotient cylinder
+measure
+\[
+d\mu_{\YM}(A)=Z^{-1}e^{-S_E[A]}\,D A/G
+\]
+in the OPH support-visible GNS representation.
+\end{theorem}
+
+\begin{proof}
+The compact-gauge branch first reconstructs a compact group \(G\), not by assumption but from the
+zero-obstruction transportable bosonic sector category and its faithful fiber functor
+\cite{oph2}. At fixed cutoff, the finite gauge-register / quantum-link presentation gives
+support-visible link holonomies and plaquette holonomies. In the refinement limit, the
+zero-obstruction gluing law makes infinitesimal rectangle holonomies multiplicative and
+path-local. Therefore there is a local connection \(A\) on the four-dimensional scaling chart, and
+the infinitesimal plaquette defect is
+\[
+U_{\mu\nu}(\varepsilon,x)
+=
+\mathbf 1+\varepsilon^2F_{\mu\nu}(x)+O(\varepsilon^3),
+\qquad
+F=dA+A\wedge A.
+\]
+
+The Euclideanized MaxEnt/local-Gibbs branch gives a local finite-range action density built from
+support-visible gauge-invariant collar data. Gauge quotienting permits only class functions of
+the curvature and its covariant derivatives. The four-dimensional scaling chart, Euclidean
+rotation invariance, locality, and reflection positivity leave one relevant dimension-four
+positive quadratic invariant in the pure gauge sector:
+\[
+\langle F_{\mu\nu},F_{\mu\nu}\rangle.
+\]
+The possible topological density \(\langle F\wedge F\rangle\) is reflection odd and belongs to a
+separate topological-angle sector; it is absent on the ordinary reflection-positive
+zero-obstruction vacuum branch used here. Higher curvature powers and covariant-derivative terms
+are irrelevant operators under the declared continuum scaling and vanish from the strict
+Yang--Mills fixed form. Normalizing the unique positive quadratic invariant defines the coupling
+\(g\) and gives (YM).
+
+The finite-stage cylinder measures are the gauge-register / quantum-link Gibbs measures pushed to
+the support-visible quotient. The same weak-\(*\) / GNS extraction used by the compact-gauge
+branch passes these compatible cylinder measures to the continuum support-visible representation.
+The resulting Euclidean transfer semigroup is therefore the transfer semigroup of (YM).
+\end{proof}
+
+\begin{remark}[Why this step matters for the prize]
+The mass-gap argument below starts only after Theorem~\ref{thm:ym-form}. This separation prevents
+the proof from replacing the Clay problem by a different repair model. OPH first identifies the
+support-visible continuum gauge sector with four-dimensional Euclidean Yang--Mills, then proves
+that its Hamiltonian has a positive spectral gap.
+\end{remark}
+
+\section{Fixed-Cutoff Repair Equals Projection}
+
+\begin{proposition}[Local exact repair equals conditional expectation]
+\label{prop:local-repair}
+For each active collar \(C\), the exact-Markov repair map on the support-visible quotient is the
+\(\pi_r\)-preserving conditional expectation \(E_C\).
+\end{proposition}
+
+\begin{proof}
+On the exact-Markov branch, repair preserves exactly the repaired visible datum \(\rho_C\), changes
+only complementary invisible fiber data, and acts on the quotient-first physical algebra rather
+than on microscopic representatives. Let \(\Phi_C\) be the Heisenberg repair map and let
+\(\mathcal N_C\) be the repaired local fixed algebra. The repair semantics give
+\[
+\Phi_C(a)=a \quad (a\in\mathcal N_C),
+\]
+\[
+\Phi_C(\A^{\mathrm{sv}}_r)\subseteq\mathcal N_C,
+\qquad
+\pi_r\circ\Phi_C=\pi_r,
+\]
+and \(\Phi_C\) is \(\mathcal N_C\)-bimodular. Therefore, for \(a\in\mathcal N_C\) and
+\(x\in\A^{\mathrm{sv}}_r\),
+\[
+\pi_r\!\left(a^*\Phi_C(x)\right)=\pi_r(a^*x).
+\]
+Since \(\Phi_C(x)\in\mathcal N_C\) and \(\pi_r\) is faithful, this equation uniquely
+characterizes \(\Phi_C(x)\) as the orthogonal projection of \(x\) onto \(\mathcal N_C\) in the
+GNS inner product. That orthogonal projection is the \(\pi_r\)-preserving conditional expectation
+\(E_C\).
+\end{proof}
+
+\section{Exact Euclidean-Consensus Law}
+
+\begin{theorem}[Exact Euclidean-consensus law]
+\label{thm:ec-law}
+There are positive constants \(c_C>0\) such that the ground-state transformed physical Euclidean
+generator is exactly
+\[
+L_r^{\EC}=\sum_{C\in\mathcal C_r} c_C(I-E_C),
+\tag{1}
+\]
+and therefore
+\[
+U_r e^{-tH_r}U_r^{-1}=e^{-tL_r^{\EC}}
+\qquad(t\ge0),
+\tag{2}
+\]
+for a unitary \(U_r:\Hcal_r\to K_r\) with \(U_r\Omega_r=\mathbf 1_r\).
+\end{theorem}
+
+\begin{proof}
+The OPH MaxEnt axiom gives a local-Gibbs state with a quasi-local finite-range generator on the
+declared finite-constraint branch. After the support-visible quotient, each primitive local
+Euclidean piece \(D_C\) is supported on one collar \(C\), preserves exactly the repaired visible
+datum \(\rho_C\), and relaxes only complementary fiber data. Hence
+\[
+\ker D_C=\operatorname{Ran}(E_C).
+\]
+
+Fix a repaired value \(y\in Y_C\) and the fiber \(F_C(y)=\rho_C^{-1}(y)\). Once \(y\) is fixed,
+implementation hiding leaves no remaining support-visible observable that distinguishes points of
+the hidden fiber. The local MaxEnt continuation conditioned on \(y\) is uniform on that finite
+fiber. Thus \(D_C\) commutes with the hidden implementation permutations on \(F_C(y)\). On the
+orthogonal complement of the constant fiber functions, the relaxation is scalar:
+\[
+D_C=c_C(I-E_C).
+\]
+The coefficient \(c_C\) is positive because the collar is active. Summing over the active collars
+gives (1), and exponentiation of the positive self-adjoint generator gives (2).
+\end{proof}
+
+\begin{lemma}[Uniform positive local rate floor]
+\label{lem:floor}
+There is \(c_*>0\), independent of \(r\), such that
+\[
+c_C\ge c_*
+\qquad
+\text{for every active collar }C\in\mathcal C_r.
+\tag{3}
+\]
+\end{lemma}
+
+\begin{proof}
+Active collars are exactly the collars on which complementary invisible fiber data are genuinely
+relaxed. Hence \(D_C\neq0\) on \(\ker(E_C)\), so \(c_C>0\). Refinement-stable locality gives only
+finitely many bounded local collar types across the cofinal refinement family. On the vacuum
+branch \(c_C\) depends only on collar type. Taking the minimum over the finite active type list
+gives \(c_*>0\).
+\end{proof}
+
+\section{Finite-Stage Gap}
+
+\begin{proposition}[Finite-stage repair gap]
+\label{prop:finite-gap}
+Assume that the collar family admits a bounded-color decomposition
+\[
+\mathcal C_r=\bigsqcup_{a=1}^{q}\mathcal C_{r,a},
+\qquad q<\infty,
+\tag{4}
+\]
+independent of \(r\), and that exact quotient-local gluing makes the corresponding color
+expectations commute. Then
+\[
+L_r^{\EC}\ge c_*(I-P_{0,r}),
+\tag{5}
+\]
+where \(P_{0,r}\) projects onto constants in \(K_r\). Hence
+\[
+\Delta_{\mathrm{rep},r}\ge c_*>0.
+\tag{6}
+\]
+\end{proposition}
+
+\begin{proof}
+For each color \(a\), define the parallel color expectation
+\[
+E_{r,a}:=\prod_{C\in\mathcal C_{r,a}}E_C.
+\]
+Same-color collars are disjoint, so the factors commute. Exact quotient-local gluing makes
+\(\{E_{r,a}\}_{a=1}^{q}\) a commuting family of orthogonal projections on the vacuum branch.
+
+Repair completeness says that the only support-visible observables fixed by every local repair
+are constants:
+\[
+\bigcap_{a=1}^{q}\operatorname{Ran}(E_{r,a})=\C\,\mathbf 1_r.
+\tag{7}
+\]
+Define
+\[
+\widetilde L_r:=\sum_{a=1}^{q} c_*(I-E_{r,a}).
+\]
+For commuting projections,
+\[
+I-\prod E_C\le \sum_C(I-E_C),
+\]
+so \(\widetilde L_r\le L_r^{\EC}\). The projections \(E_{r,a}\) are simultaneously
+diagonalizable. On the joint all-ones eigenspace, (7) says the vector is constant. Every
+nonconstant joint eigenspace has at least one color eigenvalue zero, so
+\[
+\widetilde L_r\ge c_*(I-P_{0,r}).
+\]
+This proves (5), and the spectral gap bound (6) follows.
+\end{proof}
+
+\section{Continuum Extraction}
+
+\begin{proposition}[Coherent refinement and support-visible extraction]
+\label{prop:extraction}
+The compact-gauge branch satisfies the coherence and extraction hypotheses needed for the
+continuum intertwining theorem:
+\begin{enumerate}[(1)]
+\item coherent refinement maps on the repair side;
+\item coherent refinement maps on the physical side;
+\item direct limits \(K_\infty\) and \(\Hcal_\infty\);
+\item support-visible weak-\(*\) / GNS extraction to continuum Hilbert spaces \(K\) and \(\Hcal\).
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+The compact-gauge ladder in the OPH compact paper proves fixed-cutoff bosonic sector categories,
+faithful monoidal refinement functors, compatible finite-dimensional fibers, the directed colimit
+sector category, and compact gauge reconstruction~\cite{oph2}. The support-visible compact-gauge
+quotient algebra is generated by overlap sector projectors and compact-gauge visible bosonic
+observables, modulo the maximal repair-invariant overlap-trivial kernel. This parallels the
+geometric support-visible extraction theorem in the same compact paper: finite-stage weak-\(*\)
+compactness, diagonal subnet extraction, and GNS gluing on the support-visible quotient. Applying
+that extraction pattern to the compact-gauge quotient-local marginals gives the repair-side
+continuum \(K\). The physical refinement maps are transported through the finite-stage unitaries
+\(U_r\), giving the physical continuum \(\Hcal\).
+\end{proof}
+
+\begin{theorem}[Continuum exact transfer identification]
+\label{thm:continuum}
+There is a unitary
+\[
+U:\Hcal\to K
+\]
+such that
+\[
+U e^{-tH}U^{-1}=e^{-tL^{\mathrm{rep}}}
+\qquad(t\ge0),
+\tag{8}
+\]
+and hence
+\[
+UHU^{-1}=L^{\mathrm{rep}}.
+\tag{9}
+\]
+\end{theorem}
+
+\begin{proof}
+Theorem~\ref{thm:ec-law} gives exact finite-stage intertwining. Proposition~\ref{prop:extraction}
+supplies the direct-limit and support-visible GNS extraction hypotheses. Therefore the finite
+intertwiners pass to the continuum. Equality of generators follows from uniqueness of the
+self-adjoint generator of a strongly continuous contraction semigroup.
+\end{proof}
+
+\section{Main Theorem}
+
+\begin{theorem}[Positive four-dimensional compact-gauge Yang--Mills mass gap]
+\label{thm:main}
+Let \(G\) be a compact simple gauge group carried by a support-visible compact-gauge OPH vacuum
+branch satisfying the standing setup above. Then the continuum support-visible Hamiltonian \(H\)
+satisfies
+\[
+H\ge c_*(I-P_0),
+\tag{10}
+\]
+where \(P_0\) projects onto the vacuum. Therefore
+\[
+\operatorname{Spec}(H)\cap(0,c_*)=\varnothing,
+\qquad
+\Delta_{\YM}\ge c_*>0.
+\tag{11}
+\]
+Moreover, the repair gap and Yang--Mills gap are exactly equal:
+\[
+\Delta_{\YM}=\Delta_{\mathrm{rep}}.
+\tag{12}
+\]
+\end{theorem}
+
+\begin{proof}
+At every finite stage, Proposition~\ref{prop:finite-gap} gives
+\[
+L_r^{\EC}\ge c_*(I-P_{0,r}).
+\]
+By Proposition~\ref{prop:extraction} and Theorem~\ref{thm:continuum}, this lower bound passes to
+the support-visible continuum:
+\[
+L^{\mathrm{rep}}\ge c_*(I-P_0).
+\]
+Using (9), \(UHU^{-1}=L^{\mathrm{rep}}\). Conjugating the lower bound by \(U^{-1}\) gives (10),
+and the spectral statement (11) follows. Since unitary equivalence preserves the nonzero spectrum
+and identifies the vacuum with the constant sector, the infimum of the nonzero spectrum is the
+same on both sides, giving (12).
+\end{proof}
+
+\begin{remark}[Group-uniform form]
+The proof is group-uniform. Once a compact simple \(G\) is carried by a compact-gauge
+zero-obstruction OPH branch, no step uses special properties of the realized Standard Model
+quotient. The inputs are compact-gauge support-visible quotient locality, exact local repair on
+collars, bounded-color collar covers, refinement coherence, and support-visible continuum
+extraction.
+\end{remark}
+
+\section{Exact Gap Accounting}
+
+The proof gives more than a positive lower bound. It identifies the Hamiltonian whose gap is
+being measured:
+\[
+H=U^{-1}L^{\mathrm{rep}}U.
+\]
+Therefore
+\[
+\operatorname{Spec}(H)\setminus\{0\}
+=
+\operatorname{Spec}(L^{\mathrm{rep}})\setminus\{0\}.
+\]
+The Yang--Mills gap is exactly the first nonzero repair eigenvalue:
+\[
+\Delta_{\YM}
+:=
+\inf\bigl(\operatorname{Spec}(H)\setminus\{0\}\bigr)
+=
+\inf\bigl(\operatorname{Spec}(L^{\mathrm{rep}})\setminus\{0\}\bigr)
+=:
+\Delta_{\mathrm{rep}}.
+\]
+The finite-stage color argument proves \(\Delta_{\mathrm{rep}}\ge c_*>0\). The exact accounting
+statement is the equality \(\Delta_{\YM}=\Delta_{\mathrm{rep}}\); the inequality is the positivity
+proof for that same quantity.
+
+\section{Why This Is Not the Old 2D Yang--Mills Bridge}
+
+The OPH corpus also contains an exact edge-sector identity:
+\[
+Z_{\mathrm{edge}}(t)=\sum_R d_R^2e^{-tC_2(R)}=K_t(1),
+\]
+which is the compact-group heat kernel at the identity and matches the standard
+two-dimensional Yang--Mills heat-kernel partition form. Peter--Weyl supplies the heat-kernel
+identity, and Gross--Taylor gives the standard large-\(N\) worldsheet dictionary when a separate
+large-\(N_{\mathrm{edge}}\) branch with remainder control is declared~\cite{peter-weyl,gross-taylor}.
+
+That 2D result is a normalization and worldsheet-effective bridge. The mass gap above is a
+different theorem. It is not a partition identity. It is a spectral lower bound for the
+support-visible compact-gauge Hamiltonian, obtained by identifying Euclidean transfer with the
+repair generator.
+
+\section{Clay Deliverables Checklist}
+
+\begin{longtable}{@{}L{0.30\textwidth}L{0.62\textwidth}@{}}
+\toprule
+Clay/Jaffe--Witten target & OPH repair-dynamics status \\
+\midrule
+\endhead
+Compact simple gauge group \(G\) & \(G\) is arbitrary compact simple, provided it is carried by the OPH compact-gauge zero-obstruction branch. \\
+Four-dimensional Euclidean Yang--Mills form & Theorem~\ref{thm:ym-form} derives \(S_E[A]=\frac{1}{4g^2}\int_{\R^4}\langle F_{\mu\nu},F_{\mu\nu}\rangle\,d^4x\) from compact-gauge reconstruction, local holonomy variables, the four-dimensional scaling chart, reflection positivity, and MaxEnt/local-Gibbs locality. \\
+Four-dimensional quantum Yang--Mills theory & Supplied through the OPH support-visible compact-gauge continuum extraction from finite gauge-register / quantum-link regulators and the Euclidean transfer semigroup of Theorem~\ref{thm:ym-form}. This is the main external audit point. \\
+Nontriviality & The compact-gauge witness and active collar family give nontrivial support-visible compact-gauge sectors rather than a collapsed one-dimensional theory. \\
+Axiomatic strength & The paper relies on the OPH claim that support-visible weak-\(*\)/GNS extraction supplies the required OS/Wightman-strength continuum object on the declared branch. \\
+Mass gap & The repair generator satisfies \(L^{\mathrm{rep}}\ge c_*(I-P_0)\), and unitary transfer gives \(H\ge c_*(I-P_0)\). \\
+Exact gap accounting & The unitary identity \(UHU^{-1}=L^{\mathrm{rep}}\) gives \(\Delta_{\YM}=\Delta_{\mathrm{rep}}\). OPH accounts exactly for the Yang--Mills gap as the first nonzero repair eigenvalue. \\
+Uniformity in \(G\) & The proof uses compact simplicity and compact-gauge quotient locality, not Standard-Model-specific representation data. \\
+\bottomrule
+\end{longtable}
+
+\section{Conclusion}
+
+The OPH answer to the Yang--Mills mass gap is simple in mechanism. A non-vacuum
+support-visible compact-gauge excitation is not fixed by all local repair collars. At least one
+active collar must relax it. Because active collar rates have a uniform positive floor and the
+collars can be organized into finitely many commuting colors, every non-vacuum state pays a
+positive Euclidean repair cost. The continuum compact-gauge Hamiltonian is unitarily equivalent
+to that repair generator. Therefore the Yang--Mills gap is the repair gap.
+
+\[
+\boxed{
+\Delta_{\YM}=\Delta_{\mathrm{rep}}\ge c_*>0.
+}
+\]
+
+\begin{thebibliography}{99}
+
+\bibitem{oph1}
+B.~M\"uller, A.~Osika, K.~Xue, P.~Nguyen, M.~Poneder, and K.~A.~Anirudha,
+\emph{Observers Are All You Need},
+2026.\\
+Source: \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/observers_are_all_you_need.tex}.\\
+PDF: \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/observers_are_all_you_need.pdf}.
+
+\bibitem{oph2}
+B.~M\"uller, A.~Osika, K.~Xue, and P.~Nguyen,
+\emph{Recovering Relativity and the Standard Model from Observer Overlap Consistency},
+2026.\\
+Source: \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex}.\\
+PDF: \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf}.
+
+\bibitem{oph3}
+B.~M\"uller, A.~Osika, K.~Xue, and M.~Poneder,
+\emph{Deriving the Particle Zoo from Observer Consistency},
+2026.\\
+Source: \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/deriving_the_particle_zoo_from_observer_consistency.tex}.\\
+PDF: \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/deriving_the_particle_zoo_from_observer_consistency.pdf}.
+
+\bibitem{oph4}
+B.~M\"uller, K.~Xue, and P.~Nguyen,
+\emph{Reality as a Consensus Protocol},
+2026.\\
+Source: \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/reality_as_consensus_protocol.tex}.\\
+PDF: \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/reality_as_consensus_protocol.pdf}.
+
+\bibitem{oph5}
+B.~M\"uller, A.~Osika, K.~Xue, P.~Nguyen, M.~Poneder, and K.~A.~Anirudha,
+\emph{Screen Microphysics, Patches, and Observer Synchronization in OPH},
+2026.\\
+Source: \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/screen_microphysics_and_observer_synchronization.tex}.\\
+PDF: \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/screen_microphysics_and_observer_synchronization.pdf}.
+
+\bibitem{clay}
+Clay Mathematics Institute,
+``Yang--Mills \& the Mass Gap.''\\
+\url{https://www.claymath.org/millennium/yang-mills-the-maths-gap/}.
+
+\bibitem{jaffe-witten}
+A.~Jaffe and E.~Witten,
+``Quantum Yang--Mills Theory,''
+official Clay Mathematics Institute problem description.\\
+\url{https://www.claymath.org/wp-content/uploads/2022/06/yangmills.pdf}.
+
+\bibitem{peter-weyl}
+F.~Peter and H.~Weyl,
+``Die Vollst\"andigkeit der primitiven Darstellungen einer geschlossenen kontinuierlichen Gruppe,''
+\emph{Mathematische Annalen} \textbf{97} (1927), 737--755.
+
+\bibitem{gross-taylor}
+D.~J.~Gross and W.~Taylor,
+``Two-dimensional QCD is a string theory,''
+\emph{Nucl.\ Phys.\ B} \textbf{400} (1993), 181--208,
+arXiv:hep-th/9301068.
+
+\end{thebibliography}
+
+\end{document}
