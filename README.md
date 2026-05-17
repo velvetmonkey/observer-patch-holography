@@ -207,6 +207,7 @@ tiers live in the papers.
 - **Book:** [oph-book.floatingpragma.io](https://oph-book.floatingpragma.io)
 - **Guided study app:** [learn.floatingpragma.io](https://learn.floatingpragma.io/)
 - **Questions and detailed explanations:** OPH Sage on [Telegram](https://t.me/HoloObserverBot), [X](https://x.com/OphSage), or [Bluesky](https://bsky.app/profile/ophsage.bsky.social)
+- **OPH Notebook:** [NotebookLM source notebook](https://notebooklm.google.com/notebook/d5249760-6ce8-44a0-927b-ccf90402711a) with explainer videos and additional study material.
 - **Lab:** [oph-lab.floatingpragma.io](https://oph-lab.floatingpragma.io)
 - **Common objections:** [extra/COMMON_OBJECTIONS.md](extra/COMMON_OBJECTIONS.md)
 - **IBM Quantum note:** [extra/IBM_QUANTUM_CLOUD.md](extra/IBM_QUANTUM_CLOUD.md)
