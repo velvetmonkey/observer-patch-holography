@@ -1,32 +1,32 @@
 {
-  "generated_at": "2026-05-17T03:56:18.711221Z",
+  "generated_at": "2026-05-17T04:15:29.781110Z",
   "papers": {
     "deriving_the_particle_zoo_from_observer_consistency": {
       "pdf_path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
-      "sha256": "b66408b002a555c501b3724360a4acea00069b81ed52ec6d646c3ab44d93ac84",
+      "sha256": "963acc87b2478a5a7a00b6efd9d47c15ec0da25bb239cf8f2f0eeb1803106d03",
       "size_bytes": 322661
     },
     "observers_are_all_you_need": {
       "pdf_path": "paper/observers_are_all_you_need.pdf",
-      "sha256": "41b6bfca87e6b698009db0a1f56e14df228c671ba4886bde6e6be438eec48f31",
-      "size_bytes": 500840
+      "sha256": "d847e1c612d1b1e18f6bb94b7c928ad0387ee7a270cb2262a71e26b3fb040d24",
+      "size_bytes": 503762
     },
     "reality_as_consensus_protocol": {
       "pdf_path": "paper/reality_as_consensus_protocol.pdf",
-      "sha256": "44e99a5d639a87558d835be0e9f14925ea622027e60607209eb2f1632ba67c30",
-      "size_bytes": 226312
+      "sha256": "063708233d3177f07de77164f0729b45809194a8fc8ee5eca36df5f378c78083",
+      "size_bytes": 226369
     },
     "recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact": {
       "pdf_path": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf",
-      "sha256": "db4c54b660b289bbbdb7dc3a84bd0fb614366e52ad9f1afe80d31adc377a66cf",
+      "sha256": "4d3b2806f1862ec85808792662750a9abbc49ce0234f51a62cb6a12cb9f55d8b",
       "size_bytes": 559246
     },
     "screen_microphysics_and_observer_synchronization": {
       "pdf_path": "paper/screen_microphysics_and_observer_synchronization.pdf",
-      "sha256": "fa8fae158dccf0c51c8d2c24733474f978f7ae090298084c3e40d949e5f2bc8d",
-      "size_bytes": 92611
+      "sha256": "fa890538ada9bd2567397004d1b586fbc0ac0b920b91895e1348ff05d8183276",
+      "size_bytes": 92680
     }
   },
-  "release_id": "r1454",
+  "release_id": "r1450",
   "released_at": "May 17, 2026"
 }
