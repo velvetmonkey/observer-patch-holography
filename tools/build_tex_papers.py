@@ -16,6 +16,7 @@ PAPERS = {
         PAPER_DIR / "deriving_the_particle_zoo_from_observer_consistency.tex"
     ),
     "observers_are_all_you_need": PAPER_DIR / "observers_are_all_you_need.tex",
+    "paradise_as_fixed_point_consensus": PAPER_DIR / "paradise_as_fixed_point_consensus.tex",
     "reality_as_consensus_protocol": PAPER_DIR / "reality_as_consensus_protocol.tex",
     "recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact": (
         PAPER_DIR / "recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex"
@@ -32,6 +33,7 @@ RELEASE_TRACKED = (
     "recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact",
     "observers_are_all_you_need",
     "reality_as_consensus_protocol",
+    "paradise_as_fixed_point_consensus",
     "screen_microphysics_and_observer_synchronization",
     "deriving_the_particle_zoo_from_observer_consistency",
 )

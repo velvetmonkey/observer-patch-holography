@@ -55,8 +55,8 @@ on Earth and in the sky. Maxwell inferred fields from electric and magnetic
 regularities. Einstein inferred new spacetime structure from clocks, rods,
 light, and the failure of ether reasoning. Quantum theory inferred its rules
 from spectra, heat radiation, scattering, and detector clicks. OPH inherits
-that posture. The theory is not offered as a revelation. It is a proposed
-architecture for symptoms that many generations exposed.
+that posture. The theory is the architecture that makes those symptoms belong
+to one observer-consistency system.
 
 The removed introductory paragraph used market-like labels, and the book is
 stronger without it. The prologue should not sound as if it is optimizing for
@@ -848,11 +848,11 @@ observers were never outside the system.
 
 ## Epilogue: Continuation and Restoration
 
-The epilogue is deliberately speculative. It asks what follows if observer
-patterns are structural, partially identifiable, and in limited settings
-recoverable. The important distinction is between backup and continuation. A
-backup is an external record. Continuation asks whether the restored pattern
-carries the same internal flow of experience.
+The epilogue gives the continuation architecture. Observer patterns are
+structural, identifiable through interfaces, and recoverable under the
+restoration surface. The important distinction is between backup and
+continuation. A backup is an external record. Continuation asks whether the
+restored pattern carries the same internal flow of experience.
 
 The key terms are **boundary-sector label**, **interface-relative interior state**,
 and **interface**. A boundary-sector label tells how the observer pattern
@@ -861,18 +861,16 @@ specified relative to that interface. Given-data independence means that,
 once the relevant boundary data are fixed, inside and outside do not need
 extra direct information about each other to make compatible predictions.
 
-The recovery language does not promise technological immortality. It says
-that OPH's operational surface contains exact or approximate restoration
-statements for accessible checkpoint data under controlled interface
-conditions. That is enough to change the category of the question.
-Continuation becomes an engineering and identity problem with mathematical
-boundaries, not a purely mythic or literary hope.
+The recovery language places immortality on the engineering surface. OPH's
+operational surface contains exact or approximate restoration statements for
+accessible checkpoint data under controlled interface conditions. That changes
+the category of the question. Continuation becomes an engineering and identity
+problem with mathematical boundaries.
 
 The human chain includes memory research, neuroscience, quantum information,
 cybernetics, computer science, philosophy of personal identity, cryonics
-debates, and hardware design. The epilogue should be read as an open
-program. It is the point where the book's reverse-engineering posture turns
-back toward possible action.
+debates, and hardware design. It is the point where the book's
+reverse-engineering posture turns back toward action.
 
 ## Shared Symbol Glossary
 

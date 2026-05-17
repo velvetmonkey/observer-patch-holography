@@ -18,6 +18,7 @@ RELEASE_TRACKED_PDFS = {
         "paper/deriving_the_particle_zoo_from_observer_consistency.pdf"
     ),
     "observers_are_all_you_need": Path("paper/observers_are_all_you_need.pdf"),
+    "paradise_as_fixed_point_consensus": Path("paper/paradise_as_fixed_point_consensus.pdf"),
     "reality_as_consensus_protocol": Path("paper/reality_as_consensus_protocol.pdf"),
     "recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact": Path(
         "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf"

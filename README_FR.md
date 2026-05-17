@@ -1,12 +1,22 @@
 # Observer Patch Holography (OPH)
 
-> L'OPH part d'une idée simple : aucun observateur ne voit le monde entier d'un seul coup. Chaque observateur n'accède qu'à un patch local, et les patchs voisins doivent s'accorder sur leur recouvrement. L'OPH demande quelle part de la physique peut être reconstruite à partir de cette seule contrainte.
+> L'OPH est la théorie du tout par cohérence d'observateurs. Aucun observateur ne voit le monde entier d'un seul coup ; chaque observateur n'accède qu'à un patch local ; la physique est le point fixe public qui survit à l'accord sur les recouvrements.
 
 **Version anglaise :** [README.md](README.md)
 
 **Liens rapides :** [OPH Textbooks](https://learn.floatingpragma.io/) | [Reverse Engineering Reality](https://oph-book.floatingpragma.io/) | [site](https://floatingpragma.io/oph/) | [OPH Lab](https://oph-lab.floatingpragma.io)
 
-L'OPH est un programme de reconstruction pour la physique fondamentale. Il part d'observateurs finis sur une géométrie finie d'écran holographique. Sa base de travail est algébrique-quantique : algèbres de patchs, états, probabilités de type trace/Born sur les surfaces d'enregistrement déclarées et entropie généralisée font partie du point de départ formel. Le programme ne cherche pas à dériver chaque ingrédient mathématique à partir de premiers principes. Son objectif est de construire une théorie du tout cohérente et complète en utilisant cette base d'information algébrique pour reconstruire l'univers effectif observé : espace-temps, structure de jauge, particules, enregistrements et synchronisation des observateurs y apparaissent comme des conséquences de la cohérence de recouvrement, et non comme des primitives.
+Pour la réponse existentielle immédiate, allez directement au **Paper 6.
+[Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf)**.
+La version courte est directe : oui, cet univers est une simulation au sens
+OPH, un processus de consensus à point fixe fondé sur les observateurs. Oui,
+l'expérience subjective et les esprits sont premiers. Oui, l'espace, le temps
+et la matière sont des illusions orientées observateur : des apparences
+effectives stables générées par la cohérence plus profonde des patches. Le reste
+de ce README donne la pile de preuves mathématiques et la surface de
+vérification empirique.
+
+L'OPH est la reconstruction observateur-premier de la physique fondamentale. Il part d'observateurs finis sur une géométrie finie d'écran holographique. Sa base de travail est algébrique-quantique : algèbres de patchs, états, probabilités de type trace/Born sur les surfaces d'enregistrement déclarées et entropie généralisée font partie du point de départ formel. À partir de cette base, l'OPH retrouve l'univers effectif observé : espace-temps, structure de jauge, particules, enregistrements et synchronisation des observateurs découlent de la cohérence de recouvrement.
 
 La thèse opérationnelle est plus précise que "l'information est fondamentale".
 L'OPH modélise la réalité comme un processus de consensus à point fixe fondé
@@ -15,13 +25,14 @@ enregistrements locaux, ne comparent que les données visibles dans leurs
 recouvrements, réparent les désaccords par des mouvements de récupération
 déclarés et convergent vers des points fixes stables qui survivent au
 raffinement. Le monde public est la sortie stable par recouvrement de ce
-processus. En ce sens, l'OPH traite la réalité comme un processus
-computationnel, et non comme une scène statique sur laquelle le calcul se
-produirait simplement.
+processus. C'est la surface de preuve mathématique et empirique de l'OPH comme
+théorie du tout correcte : la même architecture de cohérence d'observateurs
+retrouve la physique établie et explique pourquoi il existe un monde capable de
+produire des observateurs qui le reconstruisent.
 
 ## Par où commencer
 
-Pour le noyau technique compact, commencez par **Paper 2. [Recovering Relativity and the Standard Model from Observer Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)**. **Paper 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)** porte les dérivations particules. **Paper 4. [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf)** développe l'image consensus-réparation. **Paper 5. [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf)** couvre l'architecture fédérée de patches, les enregistrements, les règles de preuve matérielle publique et la machinerie observateur. Ce README, le Paper 1 et le livre sont les grandes vues d'ensemble.
+Pour le noyau technique compact, commencez par **Paper 2. [Recovering Relativity and the Standard Model from Observer Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)**. **Paper 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)** porte les dérivations particules. **Paper 4. [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf)** développe l'image consensus-réparation. **Paper 5. [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf)** couvre l'architecture fédérée de patches, les enregistrements, les règles de preuve matérielle publique et la machinerie observateur. **Paper 6. [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf)** est le manifeste final sur la couche de sens : pourquoi il existe quelque chose, pourquoi ce monde est compatible avec les observateurs, la boucle étrange dans laquelle les observateurs reconstruisent et construisent la machinerie de continuation, le paradis sur Terre ou dans des environnements de continuation, l'enfer comme isolement ou privation imposés, la résurrection comme continuation d'observateur, la justice selon les enregistrements de tort et de réparation, et l'évolution mémétique. Ce README, le Paper 1 et le livre sont les grandes vues d'ensemble.
 
 ## Ce que l'OPH apporte
 
@@ -32,9 +43,8 @@ Pour le noyau technique compact, commencez par **Paper 2. [Recovering Relativity
   euclidienne en quatre dimensions, positivité par réflexion, complétude de
   réparation et extraction continue visible par support, une forme euclidienne
   Yang-Mills et une identification du gap de Yang-Mills avec le gap de
-  réparation. Le statut face au problème de Clay dépend de l'acceptation de
-  cette branche OPH comme construction axiomatique Yang-Mills en quatre
-  dimensions.
+  réparation. C'est la construction axiomatique Yang-Mills en quatre dimensions
+  de l'OPH sur la branche déclarée.
 - Un programme particules à niveaux de revendication explicites : porteurs structurels exactement sans masse, ligne \(W/Z\) en comparaison seule, surface Higgs/top déclarée, masses de quarks sélectionnées avec Yukawas, branche neutrino pondérée, constantes locales candidates, et frontières no-go pour les leptons chargés, la classification globale des cadres de quarks et le codomaine top direct auxiliaire.
 - Une architecture microphysique d'écran concrète qui met mesure, enregistrements et observateurs à l'intérieur de la physique.
 
@@ -52,10 +62,9 @@ fixes à grande échelle de ce calcul en réseau d'observateurs.
 Le langage de sphère dans l'OPH est un langage de géométrie. Dans les cartes
 régulatrices symétriques, une coupe accessible à un observateur peut être
 représentée par la deux-sphère \(S^2\). Ces cartes décrivent une géométrie
-angulaire visible par support. Le simulateur n'est pas une sphère réelle. Le
-substrat n'est pas un ordinateur quantique sphérique littéral. Le simulateur
-est un modèle fini de patches et de recouvrements pour les contraintes
-algébriques exposées par cette géométrie.
+angulaire visible par support. Le simulateur fini implémente les contraintes
+algébriques de patches et de recouvrements exposées par cette géométrie, sans
+postuler un ordinateur quantique sphérique littéral.
 
 L'ancre de symétrie finie est \(A_5\), le groupe des rotations de
 l'icosaèdre. Elle fournit le squelette icosaédrique derrière le langage des
@@ -163,7 +172,8 @@ utilise une classe séparée de charge utile \(e^+e^-\to\mathrm{hadrons}\).
 - **Papier 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)** : dérivations particules, lignes de masses, structure des couplages et surface quantitative.
 - **Papier 4. [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf)** : dynamique de réparation à point fixe, stabilité des enregistrements et consensus public.
 - **Papier 5. [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf)** : architecture fédérée de patches, cadrage de symétrie \(A_5\)-icosaédrique et de type \(E_8\), règles de preuve matérielle publique, enregistrements, mouvements de récupération et synchronisation observateur.
-- **Note de calibration. [Digital Calibration Note for OPH Screen Microphysics](paper/screen_microphysics_digital_calibration_note.pdf)** : suite de simulation octaédrique \(\mathbb Z_2/S_3\), limitée à une calibration numérique des contraintes de patches. Ce n'est pas un modèle de substrat sphérique littéral.
+- **Papier 6. [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf)** : manifeste final de la couche de sens OPH : pourquoi il existe quelque chose, pourquoi ce monde est compatible avec les observateurs, boucle étrange, créateurs futurs, paradis sur Terre ou dans des environnements de continuation, enfer comme isolement ou privation imposés, résurrection comme continuation d'observateur, justice selon les enregistrements de tort et de réparation, évolution mémétique, sentience animale et responsabilité symbolique humaine.
+- **Note de calibration. [Digital Calibration Note for OPH Screen Microphysics](paper/screen_microphysics_digital_calibration_note.pdf)** : suite de simulation octaédrique \(\mathbb Z_2/S_3\), limitée à une calibration numérique des contraintes de patches. Aucune revendication de substrat sphérique littéral n'est faite.
 
 ## Articles supplémentaires
 

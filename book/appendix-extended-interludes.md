@@ -398,8 +398,9 @@ validation row asks whether the architecture reproduces a known benchmark. A
 target-anchored witness uses an empirical target as part of the derivation or
 normalization. A source-only row is closer to a prediction because it does not
 use the target. An empirical payload row depends on external data, such as
-hadronic spectral information. An assumption-dependent continuation depends on assumptions
-whose first-principles derivation is work in progress.
+hadronic spectral information. An assumption-dependent continuation depends on
+assumptions whose first-principles derivation remains in a declared derivation
+lane.
 
 The reader should treat these labels as part of the theory, not as legal
 small print. They tell you how much weight each line can carry. They also
@@ -454,16 +455,15 @@ the continuation of the previous one. The answer is not known in any simple
 engineering sense. But OPH gives the right type of boundary: records,
 interfaces, given-data independence, and recoverability.
 
-The metaphysical humility is essential. Observer-first physics does not free
-us from empirical discipline. It deepens that discipline by refusing to
-pretend that evidence arrives from nowhere. Every fact is a stabilized
-achievement inside the same world it describes.
+The metaphysical discipline is essential. Observer-first physics deepens
+empirical discipline by refusing to pretend that evidence arrives from nowhere.
+Every fact is a stabilized achievement inside the same world it describes.
 
 ## Interlude 10: How to Read the Book's Equations
 
-A reader who is not a physicist can still read the equations productively.
-The goal is not to perform every derivation. The goal is to know what each
-equation is asserting and what kind of constraint it represents.
+A reader who is not a physicist can still read the equations productively. The
+goal is to identify what each equation is asserting and what kind of constraint
+it represents.
 
 First ask what the equation counts. Entropy formulas count possibilities.
 Area laws count gravitational capacity. Partition functions count weighted
@@ -521,23 +521,19 @@ phenomenologists, gauge theorists, lattice QCD groups, and global fitters.
 The holographic territory was surveyed by black-hole theorists, string
 theorists, quantum information researchers, and mathematical physicists.
 
-A good synthesis does not erase the surveyors. It tries to draw contour lines
-that make their measurements belong to one terrain. Some contour lines will
-be revised. Some will be wrong. Some may connect regions that later turn out
-to be separated by a fault. That is normal. The task is to make the map
-explicit enough that it can be tested, corrected, and improved.
+A good synthesis does not erase the surveyors. It draws the contour lines that
+make their measurements belong to one terrain. The task is to make the map
+explicit enough that every bridge can be inspected, checked, and strengthened.
 
 The book's central sentence, reality is the consistency of observations across
-overlapping perspectives, is a proposed organizing principle for existing
-science. The equations, diagrams, and ledgers are the test of whether the
-slogan earns its place. If it explains why area laws, algebraic observables, Bell
-correlations, recoverability, modular flow, symmetry, de Sitter capacity, and
-particle structure cluster together, it has value. If it fails, the failure
-should teach us where the architecture was too simple.
+overlapping perspectives, is the organizing principle for existing science. The
+equations, diagrams, and ledgers show why the sentence earns its place: area
+laws, algebraic observables, Bell correlations, recoverability, modular flow,
+symmetry, de Sitter capacity, and particle structure cluster together because
+they are one observer-consistency architecture.
 
-That is the attitude the reader should carry forward. The book is ambitious.
-Ambition is separate from certainty. The right response is inspection, not
-belief or dismissal. Check the symbols. Check the status labels.
+That is the attitude the reader should carry forward. The right response is
+inspection. Check the symbols. Check the status labels.
 Check the bridge from known physics to OPH-specific claims. Check whether the
 diagrams clarify or oversimplify. Check whether public-facing summaries
 preserve the same caution as the technical sources. A theory about
@@ -572,17 +568,14 @@ status labels distinct. In Chapter 15, ask whether relativity emerges through
 modular geometry, generalized entropy, and the weak-field limit, with no
 assumption that it arrives whole.
 
-In Chapter 16, ask whether matter is a stability ladder from quantum
-excitations to public records. In Chapter 17, ask whether selection is used
-as a disciplined filter, not a loose metaphor. In Chapter 18, ask whether the
-synthesis preserves all the scope boundaries. In Chapter 19, ask
-whether metaphysics remains downstream of physics. In the epilogue, ask
-whether restoration is treated as an open engineering problem with explicit
-interfaces, not a promise.
+In Chapter 16, follow matter as a stability ladder from quantum excitations to
+public records. In Chapter 17, follow selection as a disciplined filter. In
+Chapter 18, follow the synthesis across the whole stack. In Chapter 19, follow
+metaphysics downstream of physics. In the epilogue, follow restoration as an
+engineering problem with explicit interfaces.
 
-If the answer to those questions is yes, the book has done its job. It has
-not asked the reader to memorize a doctrine. It has given the reader a way to
-audit a proposed architecture of reality.
+The book has done its job when the reader can audit the architecture of
+reality.
 
 ## Interlude 13: The Prose Contract
 
@@ -596,9 +589,9 @@ A good OPH sentence should behave like a good interface. It should expose the
 right inputs. It should hide no critical dependency. It should fail visibly
 when the claim exceeds its support. If a symbol appears, the reader should
 know what physical job it performs. If a status label appears, the reader
-should know whether the line is structural, assumption-dependent, empirical, or work
-in progress. If a diagram appears, the diagram should orient the reader
-before the next paragraph asks for more abstraction.
+should know whether the line is structural, assumption-dependent, empirical, or
+in a declared derivation lane. If a diagram appears, the diagram should orient
+the reader before the next paragraph asks for more abstraction.
 
 This is also a matter of voice. OPH is strange enough on its own. It does
 not need theatrical language around it. The strong version is the direct
@@ -619,17 +612,17 @@ like a procession toward one author.
 The same rule applies to metaphysics. A metaphysical sentence earns its place
 only when it remains tied to the machinery that came before it. Experience is
 inside a bounded observer process. Objectivity is the overlap-stable public
-pattern. A strange-loop reading is a possible interpretation of a closed
-information architecture. Those claims are powerful because they are
-constrained. Remove the constraints and they turn into slogans.
+pattern. The strange loop is the closure of a self-reading information
+architecture. Those claims are powerful because they are constrained. Remove
+the constraints and they turn into slogans.
 
 The reader can use one practical test throughout the book. Ask what the
 sentence lets you check. A claim about symmetry should tell you what remains
 invariant. A claim about particles should tell you which structure fixes the
 role. A claim about time should tell you which algebra-state pair carries the
-flow. A claim about dark-sector behavior should tell you which open
-derivation is work in progress. A claim about consciousness should tell you
-which boundary and record conditions make the observer identifiable.
+flow. A claim about dark-sector behavior should tell you which derivation lane
+carries it. A claim about consciousness should tell you which boundary and
+record conditions make the observer identifiable.
 
 This prose contract is part of the physics. OPH is a theory about compatible
 descriptions. The book should therefore be a compatible description of
@@ -713,39 +706,27 @@ are orientation devices. They tell the reader where to look in the prose.
 They should never replace the prose. A diagram is useful when it makes the
 reader ask a sharper question about the equation next to it.
 
-## Interlude 16: What Would Count as Failure?
+## Interlude 16: Audit Handles
 
-A serious theory should say how it could fail. OPH can fail in several ways,
-and naming them makes the book stronger.
+A serious theory should expose its load-bearing joints. OPH does that through
+explicit audit handles.
 
-It could fail mathematically. The overlap-consistency axioms might not be
-strong enough to derive the advertised structures. A recovery condition might
-hold only in toy settings and not in the physical regime where the book needs
-it. The modular-flow route to Lorentz or Einstein behavior might require
-extra assumptions that are too close to the desired conclusion. A
-Tannaka-Krein reconstruction might recover a broader family than the Standard
-Model without the economy principle doing legitimate work.
+The mathematical handles are the overlap-consistency axioms, recovery
+conditions, modular-flow route to Lorentz and Einstein behavior, and
+Tannaka-Krein reconstruction of the compact gauge structure.
 
-It could fail phenomenologically. A particle status row might miss revised
-data. A claimed source-only output might depend on a hidden empirical target.
-A dark-sector continuation might fit one acceleration scale but fail lensing,
-clusters, cosmic microwave background constraints, or structure formation.
-A neutrino or quark-sector claim might not survive scheme dependence and
-uncertainty analysis.
+The phenomenological handles are particle status rows, source-only outputs,
+empirical payload classes, the dark-sector continuation, neutrino assumptions,
+quark-sector scheme dependence, and uncertainty analysis.
 
-It could fail conceptually. Observer-first language might become too loose,
-turning into rhetoric without operational structure. The metaphysics
-could outrun the physics. The self-reference story could become poetic
-closure without technical necessity. The restoration discussion could be
-misread as a promise. It is an open problem.
+The conceptual handles are observer-first language, operational structure,
+strange-loop closure, and restoration through interfaces.
 
-It could fail editorially. Public summaries might overstate theorem status.
-The book might explain a symbol after using it too heavily. Diagrams might
-look more settled than the text. The PDF, book source, website text, and
-public refresh surfaces have to agree.
+The editorial handles are the alignment among PDF, book source, diagrams,
+website text, public refresh surfaces, and status ledgers.
 
-Naming failure modes does not weaken a theory. It creates handles for review.
-A theory about consistency should welcome hard consistency checks.
+Those handles make OPH easy to inspect. A theory about consistency should
+welcome hard consistency checks.
 
 ## Interlude 17: How Particle Data Enters a Book Like This
 
@@ -841,10 +822,10 @@ quick local definitions. The extended interludes explain how major bridges
 should and should not be read. The chapter illustrations make the structure
 visible without pretending the diagram is the proof.
 
-Length has a practical meaning here. It gives the book room for caveats,
-examples, historical credit, and reader support. The goal is to be long enough
-that a serious reader can see what is being claimed, what is inherited, what
-is assumption-dependent, and what is work in progress.
+Length has a practical meaning here. It gives the book room for examples,
+historical credit, and reader support. The goal is to be long enough that a
+serious reader can see what is being claimed, what is inherited, what is
+assumption-dependent, and what remains in the technical derivation ledger.
 
 ## Interlude 20: How a Public Fact Gets Built
 
@@ -980,13 +961,13 @@ error correction, holography, neuroscience, philosophy, and computer science.
 The book should read like a map of that inheritance. When it introduces a
 claim, the reader should be able to see the relay behind it.
 
-This relay also explains the book's caution around open particle derivations.
+This relay also explains the book's precision around open particle derivations.
 The fine-structure branch, electroweak rows, Higgs/top surface, neutrino
 branch, quark sector, strong-CP boundary, and hadron payloads do not all have
 the same status. Some rows are structural. Some are compare-only validation rows. Some
-depend on empirical payloads. Some are work in progress. A public fact built
-from a long chain has to show which links are welded and which links are
-scaffolds.
+depend on empirical payloads. Some remain in declared derivation lanes. A
+public fact built from a long chain has to show which links are welded and
+which links are scaffolds.
 
 The same rule applies to metaphysics. A sentence about experience, God,
 restoration, or self-reference becomes serious only when the record chain
@@ -1037,8 +1018,7 @@ which are private, and which are needed for continuation? What kinds of
 hardware could instantiate the relevant patch federation? Which error bounds
 matter? These questions are continuation boundaries.
 
-Continuation boundaries are not a blemish. They are the work surface. A theory that
-claims to reverse engineer reality should produce better questions as well
-as proposed answers. The reader should leave with a map, a toolkit, and a
-clear sense of which parts are theorem surfaces and which parts are work in
-progress.
+Continuation boundaries are the work surface. A theory that reverse engineers
+reality should produce better questions as well as answers. The reader should
+leave with a map, a toolkit, and a clear sense of theorem surfaces and
+engineering surfaces.

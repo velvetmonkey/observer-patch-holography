@@ -481,15 +481,15 @@ sector data, not guessed in advance.
 
 ![Tannaka-Krein reconstruction reads a compact gauge group from the way edge sectors fuse and represent one another.](../assets/book_diagrams/tannaka-krein.svg){width=82%}
 
-There is one refinement caveat. A charge label seen at one cutoff counts in
+There is one refinement rule. A charge label seen at one cutoff counts in
 the final category only if it remains visible as the screen is described at
 finer and finer resolution. In the formal language, such a stable path is a
 cofinal refinement chain, and its stable endpoint is a directed colimit. The
 plain meaning is simpler: a real charge cannot vanish or split into a different
 charge just because the bookkeeping became more detailed. If that happened
-without new overlap-visible data, the transport system would have failed. This
-does not prove that every edge charge survives. It says that survival, once
-supplied by the transport conditions, is unique and checkable.
+without new overlap-visible data, the transport system would have failed. The
+transport conditions supply survival, and once supplied, survival is unique and
+checkable.
 
 ### The Standard Model Factors
 

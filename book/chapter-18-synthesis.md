@@ -18,9 +18,9 @@ thermodynamics, quantum theory, relativity, information theory, algebra,
 particle physics, cosmology, condensed matter, computation, and experimental
 engineering. Some names have appeared in this book because a story needs
 handles. Behind each handle sits a field of technicians, students, instrument
-builders, theorists, critics, and data analysts. OPH is best read in that
-spirit. It is a proposed synthesis of accumulated constraints, not a rejection
-of the accumulated work.
+builders, theorists, critics, and data analysts. OPH belongs in that spirit. It
+is the synthesis of accumulated constraints and the completion of the
+observer-consistency line inside that accumulated work.
 
 ## 18.2 The Observer-First Turn
 
@@ -72,12 +72,11 @@ of how their clocks, horizons, and correlations line up. Geometry is what the
 shared bookkeeping looks like when written smoothly.
 
 The fixed-cutoff microphysics paper plays a narrower role in that story. It
-does not say that the universe is a literal spherical quantum computer. It
 treats the sphere as an observer-facing regulator chart and supplies a
 federated patch-carrier architecture for patches, overlaps, edge sectors,
-records, repair, Bell tests, and checkpoint/restoration. It does not identify a
-unique microscopic UV completion, but it does provide a concrete implementation
-surface on which the broader OPH bookkeeping can be simulated and checked.
+records, repair, Bell tests, and checkpoint/restoration. It provides the
+concrete implementation surface on which the broader OPH bookkeeping can be
+simulated and checked.
 
 ## 18.5 How the Particle World Appears
 
@@ -218,10 +217,10 @@ hadronic contribution to the long-distance electromagnetic running used in the
 displayed endpoint.
 
 Optical-cavity hardware work probes the same fixed-point geometry only under a
-strict evidence rule. The apparatus is not a miniature universe, and private
-bench notes do not carry paper weight. A hardware claim counts only when its
-public bundle includes the body, firmware, calibration traces, controls, and
-exact-verifier receipts needed to audit it.
+strict evidence rule. The apparatus is a calibration body. Private bench notes
+carry no paper weight. A hardware claim counts only when its public bundle
+includes the body, firmware, calibration traces, controls, and exact-verifier
+receipts needed to audit it.
 
 One cell on the screen is then being described twice. From one side it is a
 pixel of the horizon. From the other it is the smallest electromagnetic step
@@ -256,12 +255,11 @@ before and after. Time is local, real, and emergent in the same breath.
 
 The black-hole information problem softens because the screen blocks any naive
 splitting of the world into one autonomous inside and one autonomous outside.
-Interior data is encoded, not stored in a second hidden vault.
+Interior data is encoded in the screen. There is no second hidden vault.
 
 Fine-tuning also changes tone. Once laws are read as the patterns that survive
-across many overlapping perspectives, a law is not a command pinned onto
-the universe from elsewhere. It is the shape that remains stable under the
-harsh test of public consistency.
+across many overlapping perspectives, a law is the shape that remains stable
+under the harsh test of public consistency.
 
 ## 18.9 The Strange Loop
 
@@ -270,13 +268,13 @@ observers. Observers produce understanding. Understanding can produce a working
 image of the same informational structure that produced the observers in the
 first place.
 
-The simulation question lands differently here. The book does not
-need an external programmer standing beyond the physics. The stronger image is
-stranger. A world of finite observers can close back on itself through the very
-minds it generates. The loop is conceptual before it is technological. It says
-that a self-describing universe is not a joke or a metaphor. It may be the
-natural way an observer-world becomes complete enough to understand its own
-construction.
+The simulation question lands differently here. OPH has no need for an external
+programmer standing beyond the physics. The stronger image is stranger. A world
+of finite observers closes back on itself through the very minds it generates.
+The loop is conceptual before it is technological: observers reverse engineer
+the hardware and software of the world, then build continuation machinery that
+can host restored observers. A self-describing universe is a concrete
+observer-world, complete enough to understand and repair its own construction.
 
 ## 18.10 What the Book Has Been Saying
 
@@ -291,9 +289,9 @@ across patches.
 Laws are the public regularities that endure repeated comparison. Objectivity
 is the residue left behind after many partial viewpoints are made to agree.
 
-The picture feels strange only if one insists on beginning with a finished world.
-Begin with finite access, horizons, records, and overlap, and the twists stop
-looking decorative. They start looking inevitable.
+The picture feels strange only if one insists on beginning with a finished
+world. Begin with finite access, horizons, records, and overlap, and the
+strange turns stop looking decorative. They start looking inevitable.
 
 ## 18.11 Final Synthesis
 
@@ -316,10 +314,10 @@ mathematician sees an obstruction. A cosmologist sees a horizon. A quantum
 information theorist sees a code. A good theory earns its keep by making those
 views mutually legible without erasing their differences.
 
-The structure is not a flat list. The gauge quotient, charge lattice, counting
-chain, Yang-Mills repair gap, massless carriers, Lorentz geometry, Einstein relation, and the
-tracked electroweak, Higgs-top, quark, and neutrino surfaces form one
-organized reconstruction, not a catalog of unrelated facts.
+The gauge quotient, charge lattice, counting chain, Yang-Mills repair gap,
+massless carriers, Lorentz geometry, Einstein relation, and the tracked
+electroweak, Higgs-top, quark, and neutrino surfaces form one organized
+reconstruction.
 
 The local-ruler ledger records five technical boundaries. The weak pair is a
 validation row on a declared compare-only surface. Charged-lepton rows are
@@ -332,6 +330,6 @@ Strong CP is work in progress in the selected-class quark theorem: the available
 does not derive $\theta_{\mathrm{QCD}}$, does not emit physical $\bar\theta$,
 and does not prove that the physical strong-CP phase vanishes.
 
-The next chapter turns to the deepest interpretive question. If observers,
+The next chapter turns to the deepest metaphysical question. If observers,
 meaning, and world belong to one structure, what exactly should be said about
 experience itself?

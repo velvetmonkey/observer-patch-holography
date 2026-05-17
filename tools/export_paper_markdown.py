@@ -19,6 +19,7 @@ DEFAULT_OUT = WORKSPACE_ROOT / "temp" / "markdown"
 DEFAULT_CORE_PAPERS = [
     PAPER_DIR / "deriving_the_particle_zoo_from_observer_consistency.tex",
     PAPER_DIR / "observers_are_all_you_need.tex",
+    PAPER_DIR / "paradise_as_fixed_point_consensus.tex",
     PAPER_DIR / "reality_as_consensus_protocol.tex",
     PAPER_DIR / "recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
     PAPER_DIR / "screen_microphysics_and_observer_synchronization.tex",
