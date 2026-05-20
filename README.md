@@ -246,6 +246,7 @@ tiers live in the papers.
 - **Website:** [floatingpragma.io/oph](https://floatingpragma.io/oph)
 - **Theory explainer:** [floatingpragma.io/oph/theory-of-everything](https://floatingpragma.io/oph/theory-of-everything)
 - **Simulation-theory explainer:** [floatingpragma.io/oph/simulation-theory](https://floatingpragma.io/oph/simulation-theory/)
+- **OMEGA hardware guide:** [omega.floatingpragma.io](https://omega.floatingpragma.io): detailed learning resource for how the OPH hardware model works.
 - **Three-body OPH demo:** [3body.floatingpragma.io](https://3body.floatingpragma.io): an extra simulator and proof walk-through for the OPH finite patch-net formulation of the three-body problem, framed as a loop-holonomy gluing example. No closed-form elementary solution is claimed.
 - **Blog essay:** [P = NP on the Observer Screen](https://blog.floatingpragma.io/p-equals-np-on-the-observer-screen): frames OPH as a model of computation built from patches, overlaps, mismatch syndromes, repair moves, and stable records. The essay uses proof-of-work mining as a concrete example and treats `P = NP` as an observer-screen slogan, not a claim to solve the classical complexity problem.
 - **Book:** [oph-book.floatingpragma.io](https://oph-book.floatingpragma.io)
