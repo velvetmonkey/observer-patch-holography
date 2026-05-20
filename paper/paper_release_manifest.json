@@ -2,60 +2,60 @@
   "extra_papers": {
     "breaking_sha256_with_physics": {
       "pdf_path": "extra/breaking_sha256_with_physics.pdf",
-      "sha256": "1f979cee5264155c6ff0fa709d9b36d356ced56435111aafe77b22f9bde809cc",
-      "size_bytes": 198255
+      "sha256": "3cac2da2ccab82354b06e2ea28deaf757f597726601ff681f417dd6ccff0acdb",
+      "size_bytes": 198190
     },
     "fine_structure_constant_derivation": {
       "pdf_path": "extra/fine_structure_constant_derivation.pdf",
-      "sha256": "f3df8778fd8a3186016daefef435fdd08d0430504d9f2e8a903ae40eedbf911f",
+      "sha256": "66e7dd1dc579257284e5362447b1f044c947a4666268fe14c82082123d09e898",
       "size_bytes": 141730
     },
     "oph_dark_matter_paper": {
       "pdf_path": "extra/oph_dark_matter_paper.pdf",
-      "sha256": "c59275d320fc4d314db2455974bf3e2131dac66e7c534536f7b42c9f50b287b2",
-      "size_bytes": 215145
+      "sha256": "a649a630e89553182cf8f91d6d17aa059b3cd4b764ec53e2816bec32827ce90b",
+      "size_bytes": 215146
     },
     "thinking_as_patch_net_fixed_point_search": {
       "pdf_path": "extra/thinking_as_patch_net_fixed_point_search.pdf",
-      "sha256": "8a223b7bbe03ed7e53b21dc622080bf0e84b1c52e5d073517787b62ee7d4fd65",
+      "sha256": "8393d488d57a94f3e8ad4a7ae73ee47992a698cf60e1373cbeb8e74a4ab22a01",
       "size_bytes": 261716
     },
     "yang_mills_gap_clay_problem": {
       "pdf_path": "extra/yang_mills_gap_clay_problem.pdf",
-      "sha256": "9616f96657bc0e8d6adf3c080b6eb1664bc7b04a1e1178474e0131c44a0f5021",
-      "size_bytes": 112725
+      "sha256": "367727fbc336738689d7f388ad83280c09b76c83736bd83db403e44858cecc47",
+      "size_bytes": 112723
     }
   },
-  "generated_at": "2026-05-20T13:39:21.250537Z",
+  "generated_at": "2026-05-20T13:44:42.779327Z",
   "papers": {
     "deriving_the_particle_zoo_from_observer_consistency": {
       "pdf_path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
-      "sha256": "8409b01a0e3c9f2e3fe631637d57c031a7b2782040d58c4e5d59570e54fcbaab",
+      "sha256": "94a2e74e3df036d7611e8ef41448083b97be7352359711f5fac497f8c6fae5a9",
       "size_bytes": 322496
     },
     "observers_are_all_you_need": {
       "pdf_path": "paper/observers_are_all_you_need.pdf",
-      "sha256": "05a85f10416bbd0ef43ba328b4590ffa00dc4b29ccdafcaf953db30717d2cd93",
+      "sha256": "5721987b3afa071e87e14f891c26105e0ebe18a641d92c7417824c38b593634a",
       "size_bytes": 504868
     },
     "paradise_as_fixed_point_consensus": {
       "pdf_path": "paper/paradise_as_fixed_point_consensus.pdf",
-      "sha256": "56496f476ddd19d6fb6c4137d98ecb0503e1e7f62d53c88a0e85b20afb2f6a01",
+      "sha256": "50c9366824fa992f1c80980c5bab160fcc91940f51a7af9f9a0c9a5c0848a25c",
       "size_bytes": 166846
     },
     "reality_as_consensus_protocol": {
       "pdf_path": "paper/reality_as_consensus_protocol.pdf",
-      "sha256": "d03b1a612cc1fd9f4ae9430fb2e40c3d1d9479916276f56e6251b2a0c1f4eae5",
+      "sha256": "3a4bb56e9f2d5c6160707ae7922de8854bdd1841b3de6f37432f288fe1f76f7e",
       "size_bytes": 226133
     },
     "recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact": {
       "pdf_path": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf",
-      "sha256": "6abebe662337b6f7a9fb508113fd932e5283fbd324ae1646796200f3e39942ee",
+      "sha256": "327216c6c9bf60d86a59391ef72ce98a49a7b016e07a0de68f8dd854294fb70b",
       "size_bytes": 561388
     },
     "screen_microphysics_and_observer_synchronization": {
       "pdf_path": "paper/screen_microphysics_and_observer_synchronization.pdf",
-      "sha256": "26abd98808b409f07ae1bd70b50569a35ee9f45322c1b25c51cef690ee821a77",
+      "sha256": "620e4fd62691536135259a2b8f4f304c6a570c9a2af4af71cc575c057dccfff1",
       "size_bytes": 93233
     }
   },
@@ -64,7 +64,7 @@
   "supplemental_papers": {
     "screen_microphysics_digital_calibration_note": {
       "pdf_path": "paper/screen_microphysics_digital_calibration_note.pdf",
-      "sha256": "8e622db3902471b8164a36444a2530a5ceb35ffa8248ff5ed1b63f56f246af2d",
+      "sha256": "0c4c7a54f7cc90a5c1a5fe856092dfaa88011e828c1d239b4c866ae55ff64862",
       "size_bytes": 48356
     }
   }
