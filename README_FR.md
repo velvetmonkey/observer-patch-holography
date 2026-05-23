@@ -92,17 +92,17 @@ Pour le noyau technique compact, commencez par **Paper 2. [Recovering Relativity
 
 - Un cadre à cutoff fixe pour les patches d'observateurs, les collerettes, la réparation de recouvrement, la jauge supérieure, les enregistrements et le checkpoint/restauration.
 - Une reconstruction de la géométrie lorentzienne, du temps modulaire, de la dynamique d'Einstein de type Jacobson et de la cosmologie de Sitter en patch statique.
-- Une reconstruction de jauge compacte vers le quotient réalisé du Modèle Standard \(SU(3)\times SU(2)\times U(1)/\mathbb Z_6\), avec le réseau exact des hypercharges, le triplet de couleur réalisé \(N_c=3\) et le comptage des générations \(N_g=3\).
+- Une reconstruction de jauge compacte vers le quotient réalisé du Modèle Standard $SU(3)\times SU(2)\times U(1)/\mathbb Z_6$, avec le réseau exact des hypercharges, le triplet de couleur réalisé $N_c=3$ et le comptage des générations $N_g=3$.
 - Sur la branche compacte de jauge visible par support déclarée, avec échelle
   euclidienne en quatre dimensions, positivité par réflexion, complétude de
   réparation et extraction continue visible par support, une forme euclidienne
   Yang-Mills et une identification du gap de Yang-Mills avec le gap de
   réparation. C'est la construction axiomatique Yang-Mills en quatre dimensions
   de l'OPH sur la branche déclarée.
-- Un programme particules à niveaux de revendication explicites : porteurs structurels exactement sans masse, ligne \(W/Z\) en comparaison seule, surface Higgs/top déclarée, masses de quarks sélectionnées avec Yukawas, branche neutrino pondérée, constantes locales candidates, et frontières no-go pour les leptons chargés, la classification globale des cadres de quarks et le codomaine top direct auxiliaire.
+- Un programme particules à niveaux de revendication explicites : porteurs structurels exactement sans masse, ligne $W/Z$ en comparaison seule, surface Higgs/top déclarée, masses de quarks sélectionnées avec Yukawas, branche neutrino pondérée, constantes locales candidates, et frontières no-go pour les leptons chargés, la classification globale des cadres de quarks et le codomaine top direct auxiliaire.
 - Une architecture microphysique d'écran concrète qui met mesure, enregistrements et observateurs à l'intérieur de la physique.
 
-La mécanique quantique est traitée comme le langage algébrique d'information porté par l'architecture OPH. Le test de reconstruction porte sur la cohérence avec laquelle cette base retrouve l'univers effectif. Une reconstruction des espaces de Hilbert, des \(C^*\)-algèbres ou des algèbres de von Neumann, des probabilités de Born, de la trace et de l'entropie depuis de simples enregistrements opérationnels constitue une question distincte du programme.
+La mécanique quantique est traitée comme le langage algébrique d'information porté par l'architecture OPH. Le test de reconstruction porte sur la cohérence avec laquelle cette base retrouve l'univers effectif. Une reconstruction des espaces de Hilbert, des $C^*$-algèbres ou des algèbres de von Neumann, des probabilités de Born, de la trace et de l'entropie depuis de simples enregistrements opérationnels constitue une question distincte du programme.
 
 Le mécanisme est la boucle de consensus à point fixe. Les observateurs locaux
 n'accèdent pas à un état global depuis l'extérieur. Ils portent des états de
@@ -115,7 +115,7 @@ fixes à grande échelle de ce calcul en réseau d'observateurs.
 
 Le langage de sphère dans l'OPH est un langage de géométrie. Dans les cartes
 régulatrices symétriques, une coupe accessible à un observateur peut être
-représentée par la deux-sphère \(S^2\). Ces cartes décrivent une géométrie
+représentée par la deux-sphère $S^2$. Ces cartes décrivent une géométrie
 angulaire visible par support. Le simulateur fini sert de surface de
 calibration pour les contraintes algébriques de patches et de recouvrements
 exposées par cette géométrie.
@@ -123,33 +123,33 @@ exposées par cette géométrie.
 Cette carte sphérique porte plusieurs tâches précises. Les caps et les colliers
 donnent les données locales de coupe utilisées par le flot modulaire et la
 variation d'entropie. Le groupe conforme de la sphère est la forme céleste du
-groupe de Lorentz connexe, \(\mathrm{SO}^+(3,1)\), ce qui donne le pont
-cinématique vers la branche d'espace-temps émergent en \(3+1\) dimensions. Les
+groupe de Lorentz connexe, $\mathrm{SO}^+(3,1)$, ce qui donne le pont
+cinématique vers la branche d'espace-temps émergent en $3+1$ dimensions. Les
 harmoniques sphériques organisent les modes angulaires. Les cellulations finies
 de la même carte donnent la surface régulatrice où les ports de patches, les
 données d'arêtes et les contrôles de recouvrement deviennent explicites.
 
-L'ancre de symétrie finie est \(A_5\), le groupe des rotations de
+L'ancre de symétrie finie est $A_5$, le groupe des rotations de
 l'icosaèdre. Elle fournit le squelette icosaédrique derrière le langage des
 porteurs de patches échosaédriques : une façon finie et très symétrique
 d'organiser ports, recouvrements et données locales de comparaison sans traiter
 le porteur comme une boule lisse.
 
-L'ancre exceptionnelle est le groupe de Lie \(E_8\) et sa structure de réseau
-de racines. \(E_8\) donne le langage de fermeture exceptionnelle utilisé dans
+L'ancre exceptionnelle est le groupe de Lie $E_8$ et sa structure de réseau
+de racines. $E_8$ donne le langage de fermeture exceptionnelle utilisé dans
 le côté symétries supérieures et représentations de la pile OPH. Le groupe
-icosaédrique binaire et le \(E_8\) affine se rencontrent par la correspondance
-de McKay. C'est pourquoi le langage \(A_5\)-icosaédrique et le langage de type
-\(E_8\) appartiennent à une même histoire de symétrie. Ces noms désignent des
+icosaédrique binaire et le $E_8$ affine se rencontrent par la correspondance
+de McKay. C'est pourquoi le langage $A_5$-icosaédrique et le langage de type
+$E_8$ appartiennent à une même histoire de symétrie. Ces noms désignent des
 contraintes de symétrie et une structure de régulateur.
 
-L'OPH utilise une seule entrée quantitative externe, la capacité totale de l'écran lue depuis l'horizon de Sitter, ainsi qu'un ratio local de pixel \(P\), l'aire d'une cellule d'écran en unités de Planck. Pour la constante cosmologique observée, le ratio nu d'aire d'horizon vaut environ \(1.05\times10^{122}\), tandis que la capacité entropique utilisée par l'OPH vaut environ \(3.31\times10^{122}\). La même cellule d'écran est décrite deux fois : vue de l'extérieur comme un pixel situé légèrement au-dessus de l'équilibre auto-similaire au nombre d'or, et vue de l'intérieur comme la plus petite échelle d'observation électromagnétique disponible pour les observateurs de l'univers encodé.
-Le papier de synthèse écrit cette autoréférence comme un problème de point fixe. Le calcul de structure fine part de l'équilibre entropique au nombre d'or et de la normalisation gaussienne de bord, puis transporte l'ancre électrofaible jusqu'au point de Thomson. La surface publique utilise \(P\simeq1.6309682094\). La lecture donne \(\alpha^{-1}(0)=137.035999177(21)\) et \(\alpha(0)\simeq0.00729735256433\). Le même pixel local porte la gravité, la structure fine, la jauge réalisée, les lignes de masses particules, les enregistrements et la synchronisation des observateurs.
+L'OPH utilise une seule entrée quantitative externe, la capacité totale de l'écran lue depuis l'horizon de Sitter, ainsi qu'un ratio local de pixel $P$, l'aire d'une cellule d'écran en unités de Planck. Pour la constante cosmologique observée, le ratio nu d'aire d'horizon vaut environ $1.05\times10^{122}$, tandis que la capacité entropique utilisée par l'OPH vaut environ $3.31\times10^{122}$. La même cellule d'écran est décrite deux fois : vue de l'extérieur comme un pixel situé légèrement au-dessus de l'équilibre auto-similaire au nombre d'or, et vue de l'intérieur comme la plus petite échelle d'observation électromagnétique disponible pour les observateurs de l'univers encodé.
+Le papier de synthèse écrit cette autoréférence comme un problème de point fixe. Le calcul de structure fine part de l'équilibre entropique au nombre d'or et de la normalisation gaussienne de bord, puis transporte l'ancre électrofaible jusqu'au point de Thomson. La surface publique utilise $P\simeq1.6309682094$. La lecture donne $\alpha^{-1}(0)=137.035999177(21)$ et $\alpha(0)\simeq0.00729735256433$. Le même pixel local porte la gravité, la structure fine, la jauge réalisée, les lignes de masses particules, les enregistrements et la synchronisation des observateurs.
 
 ## Surface locale d'unification
 
-L'OPH place une surface locale d'unification autour du pixel public \(P\simeq1.6309682094\). La même échelle porte la voie électrofaible en comparaison, la voie Higgs ainsi que la voie entropique gravitationnelle, tandis que la géométrie lorentzienne fournit la vitesse causale invariante et que la couche locale de lecture fournit l'affichage SI. Les formules détaillées vivent dans les papiers.
-Sur la surface publique des constantes, \(\hbar\) et \(k_B\) appartiennent à cette couche aval de lecture en unités familières plutôt que d'apparaître comme des constantes OPH émises de manière autonome.
+L'OPH place une surface locale d'unification autour du pixel public $P\simeq1.6309682094$. La même échelle porte la voie électrofaible en comparaison, la voie Higgs ainsi que la voie entropique gravitationnelle, tandis que la géométrie lorentzienne fournit la vitesse causale invariante et que la couche locale de lecture fournit l'affichage SI. Les formules détaillées vivent dans les papiers.
+Sur la surface publique des constantes, $\hbar$ et $k_B$ appartiennent à cette couche aval de lecture en unités familières plutôt que d'apparaître comme des constantes OPH émises de manière autonome.
 
 <p align="center">
   <a href="assets/OPH_Unification_Diagram.svg" target="_blank" rel="noopener noreferrer">
@@ -170,9 +170,9 @@ Sur la surface publique des constantes, \(\hbar\) et \(k_B\) appartiennent à ce
 ## Lignes quantitatives sélectionnées
 
 Ce tableau condensé garde les lignes OPH les plus faciles à comparer directement avec les valeurs
-PDG/NIST. Les résultats structurels comme la géométrie lorentzienne en \(3+1\) dimensions, le quotient de jauge
-du Modèle Standard \(SU(3)\times SU(2)\times U(1)/\mathbb Z_6\), le réseau exact des hypercharges, le triplet
-de couleur réalisé \(N_c=3\) et le comptage des générations \(N_g=3\) sont énoncés dans les papiers et ne sont pas répétés ici.
+PDG/NIST. Les résultats structurels comme la géométrie lorentzienne en $3+1$ dimensions, le quotient de jauge
+du Modèle Standard $SU(3)\times SU(2)\times U(1)/\mathbb Z_6$, le réseau exact des hypercharges, le triplet
+de couleur réalisé $N_c=3$ et le comptage des générations $N_g=3$ sont énoncés dans les papiers et ne sont pas répétés ici.
 
 | Quantité | Symbole | OPH | PDG/NIST | Δ |
 | --- | --- | --- | --- | --- |
@@ -203,10 +203,10 @@ Les papiers contiennent aussi les dérivations structurelles du Modèle Standard
 ainsi qu'une famille neutrino, qui n'apparaît pas dans ce tableau faute de ligne de comparaison
 PDG/NIST directe à un seul nombre.
 
-La surface particules porte aussi des valeurs \(W/Z\) en comparaison seule
-\(80.377\,\mathrm{GeV}\) et \(91.18797809193725\,\mathrm{GeV}\), une valeur Higgs
-\(m_H=125.1995304097179\,\mathrm{GeV}\) et une valeur top sélectionnée
-\(m_t=172.35235532883115\,\mathrm{GeV}\) selon la convention PDG de masse top par section
+La surface particules porte aussi des valeurs $W/Z$ en comparaison seule
+$80.377\,\mathrm{GeV}$ et $91.18797809193725\,\mathrm{GeV}$, une valeur Higgs
+$m_H=125.1995304097179\,\mathrm{GeV}$ et une valeur top sélectionnée
+$m_t=172.35235532883115\,\mathrm{GeV}$ selon la convention PDG de masse top par section
 efficace. La ligne top directe auxiliaire reste en comparaison seule. Les
 masses des leptons chargés sont des témoins ancrés sur cible, hors du rang des
 prédictions promues. La branche neutrino pondérée émet
@@ -216,7 +216,7 @@ elles ne sont pas de simples entrées de quarks dans un tableau de comparaison
 rapide. Les lignes hadroniques gardent deux surfaces séparées : les masses
 source demandent un backend hadronique OPH comme GLORB/Echosahedron avec
 données spectrales et systématiques de production; la fermeture empirique
-utilise une classe séparée de charge utile \(e^+e^-\to\mathrm{hadrons}\).
+utilise une classe séparée de charge utile $e^+e^-\to\mathrm{hadrons}$.
 
 **Pile de dérivation des particules**
 
@@ -234,9 +234,9 @@ utilise une classe séparée de charge utile \(e^+e^-\to\mathrm{hadrons}\).
 - **Papier 2. [Recovering Relativity and the Standard Model from Observer Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)** : noyau technique pour la relativité, la gravité, la structure réalisée du Modèle Standard et la forme/gap Yang-Mills sur la branche compacte de jauge visible par support sous ses hypothèses déclarées.
 - **Papier 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)** : dérivations particules, lignes de masses, structure des couplages et surface quantitative.
 - **Papier 4. [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf)** : dynamique de réparation à point fixe, stabilité des enregistrements et consensus public.
-- **Papier 5. [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf)** : architecture fédérée de patches, cadrage de symétrie \(A_5\)-icosaédrique et de type \(E_8\), règles de preuve matérielle publique, enregistrements, mouvements de récupération et synchronisation observateur.
+- **Papier 5. [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf)** : architecture fédérée de patches, cadrage de symétrie $A_5$-icosaédrique et de type $E_8$, règles de preuve matérielle publique, enregistrements, mouvements de récupération et synchronisation observateur.
 - **Papier 6. [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf)** : manifeste final de la couche de sens OPH : pourquoi il existe quelque chose, pourquoi ce monde est compatible avec les observateurs, boucle étrange, créateurs futurs, paradis sur Terre ou dans des environnements de continuation, enfer comme isolement ou privation imposés, résurrection comme continuation d'observateur, justice selon les enregistrements de tort et de réparation, évolution mémétique, sentience animale et responsabilité symbolique humaine.
-- **Note de calibration. [Digital Calibration Note for OPH Screen Microphysics](paper/screen_microphysics_digital_calibration_note.pdf)** : suite de simulation octaédrique \(\mathbb Z_2/S_3\), limitée à une calibration numérique des contraintes de patches et des cartes géométriques d'écran.
+- **Note de calibration. [Digital Calibration Note for OPH Screen Microphysics](paper/screen_microphysics_digital_calibration_note.pdf)** : suite de simulation octaédrique $\mathbb Z_2/S_3$, limitée à une calibration numérique des contraintes de patches et des cartes géométriques d'écran.
 
 ## Articles supplémentaires
 
@@ -264,8 +264,8 @@ utilise une classe séparée de charge utile \(e^+e^-\to\mathrm{hadrons}\).
 
 ## Table de statut
 
-La ligne publique de structure fine utilise \(\alpha^{-1}(0)=137.035999177(21)\) et
-\(P\simeq1.6309682094\). Les enregistrements d'audit source et de résidu au point
+La ligne publique de structure fine utilise $\alpha^{-1}(0)=137.035999177(21)$ et
+$P\simeq1.6309682094$. Les enregistrements d'audit source et de résidu au point
 final vivent dans le papier particules, séparés de la ligne publique de point fixe.
 
 La paire faible est une ligne de validation. Les masses absolues des leptons
@@ -273,7 +273,7 @@ chargés sont des témoins ancrés sur cible. La moyenne directe auxiliaire du t
 est une ligne de validation. Les lignes hadroniques source demandent le backend
 OPH de liaison forte avec données spectrales de production et systématiques; la
 fermeture empirique utilise une classe séparée de charge utile
-\(e^+e^-\to\mathrm{hadrons}\).
+$e^+e^-\to\mathrm{hadrons}$.
 
 La CP forte est en cours de travail dans le théorème des quarks sur classe
 sélectionnée : le corpus disponible ne dérive pas l'angle theta de QCD,

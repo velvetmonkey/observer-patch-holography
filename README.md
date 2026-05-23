@@ -117,45 +117,45 @@ the large-scale fixed points of that observer-network computation.
 ## Geometry, Symmetry, and Simulators
 
 Sphere language in OPH is geometry language. In symmetric regulator charts, an
-observer-accessible cut can be represented by the two-sphere \(S^2\). Those
+observer-accessible cut can be represented by the two-sphere $S^2$. Those
 charts describe angular support geometry. The finite simulator implements the
 patch-and-overlap algebraic constraints exposed by that geometry.
 
 That spherical chart carries several concrete jobs. Caps and collars give the
 local cut data used by modular flow and entropy variation. The conformal group
 of the sphere is the celestial-sphere form of the connected Lorentz group,
-\(\mathrm{SO}^+(3,1)\), so the same chart supplies the kinematic bridge to the
-emergent \(3+1\)D spacetime branch. Spherical harmonics organize angular modes.
+$\mathrm{SO}^+(3,1)$, so the same chart supplies the kinematic bridge to the
+emergent $3+1$D spacetime branch. Spherical harmonics organize angular modes.
 Finite cellulations of the same chart give the regulator surface on which patch
 ports, edge data, and overlap checks can be made explicit.
 
-The finite symmetry anchor is \(A_5\), the rotational symmetry group of the
+The finite symmetry anchor is $A_5$, the rotational symmetry group of the
 icosahedron. It supplies the icosahedral skeleton behind the echosahedral patch
 carrier language: a finite, highly symmetric way to organize ports, overlaps,
 and local comparison data without treating the carrier as a smooth ball.
 
-The exceptional symmetry anchor is the \(E_8\) Lie group and its root-lattice
-structure. \(E_8\) matters because it gives the exceptional closure language
+The exceptional symmetry anchor is the $E_8$ Lie group and its root-lattice
+structure. $E_8$ matters because it gives the exceptional closure language
 used in the higher symmetry and representation side of the OPH stack. The
-binary icosahedral group and affine \(E_8\) meet through the McKay
-correspondence. This is why \(A_5\)-icosahedral and \(E_8\)-type language can
+binary icosahedral group and affine $E_8$ meet through the McKay
+correspondence. This is why $A_5$-icosahedral and $E_8$-type language can
 belong to one symmetry story. These names mark symmetry constraints and
 regulator structure.
 
 The scale is set by two quantities: the total screen capacity read from the
-de Sitter horizon and the local pixel ratio \(P\), the area of one screen cell
+de Sitter horizon and the local pixel ratio $P$, the area of one screen cell
 in Planck-area units. For the observed cosmological constant, the bare horizon
-area ratio is about \(1.05\times10^{122}\), while the entropy capacity used by
-OPH is about \(3.31\times10^{122}\). From the outside, \(P\) is a geometric
+area ratio is about $1.05\times10^{122}$, while the entropy capacity used by
+OPH is about $3.31\times10^{122}$. From the outside, $P$ is a geometric
 cell size slightly above the golden-ratio self-similar balance. From the
 inside, it becomes the smallest electromagnetic observation scale available to
 observers in the world encoded on that screen. The fine-structure lane asks for
 the nonzero detuning of a holographic screen cell such that the cell's outer
 geometric displacement equals the electromagnetic observation scale emitted by
 the universe living on that same screen. The public solution is
-\(P\simeq1.6309682094\), with
-\(\alpha^{-1}(0)=137.035999177(21)\) and
-\(\alpha(0)\simeq0.00729735256433\). Hardware-facing checks of the
+$P\simeq1.6309682094$, with
+$\alpha^{-1}(0)=137.035999177(21)$ and
+$\alpha(0)\simeq0.00729735256433$. Hardware-facing checks of the
 same fixed-point geometry are treated only as public evidence-bundle claims
 when the raw artifacts and verifier receipts are available.
 
@@ -171,9 +171,9 @@ marked empirical hadron closure. The operating policy for those rows is in
 
 This table keeps the rows that are easiest to compare directly with PDG and
 NIST values. Structural results such as the 3+1-dimensional Lorentzian spacetime, the
-Standard Model quotient \(SU(3)\times SU(2)\times U(1)/\mathbb Z_6\), the exact hypercharge
-lattice, the realized color triplet \(N_c=3\), and the generation count
-\(N_g=3\) live in the papers. The
+Standard Model quotient $SU(3)\times SU(2)\times U(1)/\mathbb Z_6$, the exact hypercharge
+lattice, the realized color triplet $N_c=3$, and the generation count
+$N_g=3$ live in the papers. The
 quick view here sticks to direct numeric rows and exact zeros.
 
 | Quantity | Symbol | OPH | PDG/NIST | Δ |
@@ -196,7 +196,7 @@ quick view here sticks to direct numeric rows and exact zeros.
 | Up | m_u(2 GeV) | 2.16 MeV | 2.16 ± 0.07 | match |
 | Top | m_t cross-section row | 172.35235532883115 GeV | 172.3523553288312 | selected-class match |
 
-\(\Delta\) reports the sigma distance where PDG or NIST quotes a one-standard-deviation
+$\Delta$ reports the sigma distance where PDG or NIST quotes a one-standard-deviation
 uncertainty. Otherwise it records "match" or "below bound".
 
 For quarks, PDG uses its standard mass conventions: `u`, `d`, and `s` at
@@ -205,17 +205,17 @@ papers also carry the structural Standard Model derivations listed above and a
 neutrino family, but those do not collapse to one simple PDG or NIST row and
 are left out of this table.
 
-The particle surface also reports \(W/Z\) values \(80.377\,\mathrm{GeV}\) and
-\(91.18797809193725\,\mathrm{GeV}\), a Higgs value \(m_H=125.1995304097179\,\mathrm{GeV}\), and a
-selected-class top value \(m_t=172.35235532883115\,\mathrm{GeV}\) using the PDG
+The particle surface also reports $W/Z$ values $80.377\,\mathrm{GeV}$ and
+$91.18797809193725\,\mathrm{GeV}$, a Higgs value $m_H=125.1995304097179\,\mathrm{GeV}$, and a
+selected-class top value $m_t=172.35235532883115\,\mathrm{GeV}$ using the PDG
 cross-section top-mass convention. The weighted-cycle neutrino branch emits
-\((0.017454720257976796, 0.019481987935919015, 0.05307522145074924)\,\mathrm{eV}\) on its
+$(0.017454720257976796, 0.019481987935919015, 0.05307522145074924)\,\mathrm{eV}$ on its
 declared branch.
 
 ## Local Unification Surface
 
 The local unification surface is organized around the public pixel ratio
-\(P\simeq1.6309682094\) and one local cell area. On that surface the same scale touches the
+$P\simeq1.6309682094$ and one local cell area. On that surface the same scale touches the
 electroweak comparison lane, the Higgs lane, the gravity-side entropy relation,
 and the familiar unit readout for meters, seconds, GeV, and Kelvin. The diagram
 below shows how those pieces sit on one scale. The detailed formulas and claim
@@ -253,9 +253,9 @@ tiers live in the papers.
 - **Paper 2. [Recovering Relativity and the Standard Model from Observer Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)**: compact technical core for relativity, gravity, realized Standard Model structure, and the support-visible compact-gauge Yang-Mills form/gap theorem under its declared branch assumptions.
 - **Paper 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)**: particle derivations, mass rows, coupling structure, and the quantitative comparison surface.
 - **Paper 4. [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf)**: fixed-point repair dynamics, record stability, and the consensus picture of public reality.
-- **Paper 5. [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf)**: federated patch-carrier architecture, \(A_5\)-icosahedral and \(E_8\)-type symmetry framing, public hardware-evidence rules, records, recovery moves, and observer synchronization.
+- **Paper 5. [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf)**: federated patch-carrier architecture, $A_5$-icosahedral and $E_8$-type symmetry framing, public hardware-evidence rules, records, recovery moves, and observer synchronization.
 - **Paper 6. [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf)**: final manifest paper for OPH's meaning layer: why anything exists, why this world is observer-compatible, the strange loop in which observers reverse engineer and build the continuation machinery, paradise on Earth or in engineered continuation environments, hell as enforced isolation or deprivation, resurrection as observer continuation, justice as continuation according to harm and repair records, and memetic evolution.
-- **Calibration note. [Digital Calibration Note for OPH Screen Microphysics](paper/screen_microphysics_digital_calibration_note.pdf)**: the octahedral \(\mathbb Z_2/S_3\) simulator suite, scoped as digital calibration for patch constraints and screen-geometry charts.
+- **Calibration note. [Digital Calibration Note for OPH Screen Microphysics](paper/screen_microphysics_digital_calibration_note.pdf)**: the octahedral $\mathbb Z_2/S_3$ simulator suite, scoped as digital calibration for patch constraints and screen-geometry charts.
 
 ## Supplemental Papers
 
@@ -285,8 +285,8 @@ tiers live in the papers.
 ## Status Table
 
 The fine-structure display row uses the fixed-point value
-\(\alpha^{-1}(0)=137.035999177(21)\) and
-\(P\simeq1.6309682094\). The source-side audit and endpoint residual records
+$\alpha^{-1}(0)=137.035999177(21)$ and
+$P\simeq1.6309682094$. The source-side audit and endpoint residual records
 live in the particle paper, where they are kept separate from the public
 fixed-point row.
 
@@ -294,7 +294,7 @@ The weak-boson pair is a validation row. Charged-lepton absolute masses are
 target-anchored witness rows. The auxiliary direct-top average is a validation
 row. Hadron-controlled rows use the policy in [`HADRON.md`](HADRON.md):
 source-only OPH values stay separate from OPH plus empirical hadron closure
-values carried by the empirical \(e^+e^-\to\mathrm{hadrons}\) payload class.
+values carried by the empirical $e^+e^-\to\mathrm{hadrons}$ payload class.
 
 Strong CP is work in progress in the selected-class quark theorem:
 the available corpus does not derive the QCD theta angle, does not emit the
@@ -310,7 +310,7 @@ descent on the realized branch.
 - **[`book/`](book):** OPH Book source and generated downloadable PDF. Print-PDF build notes live in [`book/README.md`](book/README.md).
 - **[`code/`](code):** computational material, particle outputs, and experiments.
 - **[`HADRON.md`](HADRON.md):** policy for QCD-limited particle rows, empirical
-  \(e^+e^-\to\mathrm{hadrons}\) input, and fine-structure hadron closure.
+  $e^+e^-\to\mathrm{hadrons}$ input, and fine-structure hadron closure.
 - **[`assets/`](assets):** public diagrams and figures.
 - **[`extra/`](extra):** maintained public notes such as objections, experimental write-ups, and selected supporting essays.
 
