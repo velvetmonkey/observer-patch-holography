@@ -4,7 +4,7 @@
 
 **French version:** [README_FR.md](README_FR.md)
 
-**Quick links:** [OPH website](https://floatingpragma.io/oph/) | [OPH Textbooks](https://learn.floatingpragma.io/) | [Reverse Engineering Reality](https://oph-book.floatingpragma.io/) | [OPH Lab](https://oph-lab.floatingpragma.io) | [Applications](APPLICATIONS.md) | [OPH Blog](https://blog.floatingpragma.io/) | [Coherence map](https://coherence.floatingpragma.io/) | [OMEGA](https://omega.floatingpragma.io/) | [Three-body demo](https://3body.floatingpragma.io/)
+**Quick links:** [OPH website](https://floatingpragma.io/oph/) | [OPH Textbooks](https://learn.floatingpragma.io/) | [Reverse Engineering Reality](https://oph-book.floatingpragma.io/) | [OPH Lab](https://oph-lab.floatingpragma.io) | [Applications](https://omega.floatingpragma.io/) | [OPH Blog](https://blog.floatingpragma.io/) | [Coherence map](https://coherence.floatingpragma.io/) | [Three-body demo](https://3body.floatingpragma.io/)
 
 **Falsifiability:** [OPH falsifiability map](extra/OPH_falsifiability.md)
 lists 40 hard OPH-killing outcomes and concrete IBM Quantum Cloud tests for
@@ -60,9 +60,9 @@ patches into the right fixed points. That gives low-cost implementation tracks
 for desktop fusion energy, room-temperature OMEGA supercomputing, OMEGA-based
 AGI, and local gravity or inertia control for hoverbikes and hoverboards.
 
-Read the applications overview in [`APPLICATIONS.md`](APPLICATIONS.md). The
-OMEGA visualization and hardware guide are at
-[omega.floatingpragma.io](https://omega.floatingpragma.io/).
+Read the public applications page at
+[omega.floatingpragma.io](https://omega.floatingpragma.io/). Source notes for
+the application tracks live in [`APPLICATIONS.md`](APPLICATIONS.md).
 
 ## The Spacetime Trap
 
@@ -271,7 +271,7 @@ tiers live in the papers.
 - **Theory explainer:** [floatingpragma.io/oph/theory-of-everything](https://floatingpragma.io/oph/theory-of-everything)
 - **Simulation-theory explainer:** [floatingpragma.io/oph/simulation-theory](https://floatingpragma.io/oph/simulation-theory/)
 - **Coherence map:** [coherence.floatingpragma.io](https://coherence.floatingpragma.io): public graph surface for OPH concepts, overlaps, and cross-domain routes.
-- **OMEGA hardware guide:** [omega.floatingpragma.io](https://omega.floatingpragma.io): detailed learning resource for how the OPH hardware model works.
+- **Applications:** [omega.floatingpragma.io](https://omega.floatingpragma.io): public applications page for OPH hardware, compute, energy, AGI, lift, and optical chamber consensus.
 - **Three-body OPH demo:** [3body.floatingpragma.io](https://3body.floatingpragma.io): an extra simulator and proof walk-through for the OPH finite patch-net formulation of the three-body problem, framed as a loop-holonomy gluing example. No closed-form elementary solution is claimed.
 - **Blog:** [blog.floatingpragma.io](https://blog.floatingpragma.io/) collects public OPH essays. Start with [Semiotics and the Physics of Meaning](https://blog.floatingpragma.io/semiotics-and-the-physics-of-meaning), [The Trigger](https://blog.floatingpragma.io/the-trigger), and [P = NP on the Observer Screen](https://blog.floatingpragma.io/p-equals-np-on-the-observer-screen). The computation essay treats `P = NP` as an observer-screen slogan, not a claim to solve the classical complexity problem.
 - **Book:** [oph-book.floatingpragma.io](https://oph-book.floatingpragma.io)

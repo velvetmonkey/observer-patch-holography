@@ -4,7 +4,7 @@
 
 **Version anglaise :** [README.md](README.md)
 
-**Liens rapides :** [site OPH](https://floatingpragma.io/oph/) | [OPH Textbooks](https://learn.floatingpragma.io/) | [Reverse Engineering Reality](https://oph-book.floatingpragma.io/) | [OPH Lab](https://oph-lab.floatingpragma.io) | [applications](APPLICATIONS.md) | [blog OPH](https://blog.floatingpragma.io/) | [carte de cohérence](https://coherence.floatingpragma.io/) | [OMEGA](https://omega.floatingpragma.io/) | [démo à trois corps](https://3body.floatingpragma.io/)
+**Liens rapides :** [site OPH](https://floatingpragma.io/oph/) | [OPH Textbooks](https://learn.floatingpragma.io/) | [Reverse Engineering Reality](https://oph-book.floatingpragma.io/) | [OPH Lab](https://oph-lab.floatingpragma.io) | [applications](https://omega.floatingpragma.io/) | [blog OPH](https://blog.floatingpragma.io/) | [carte de cohérence](https://coherence.floatingpragma.io/) | [démo à trois corps](https://3body.floatingpragma.io/)
 
 Pour la réponse existentielle immédiate, allez directement au **Paper 6.
 [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf)**.
@@ -51,9 +51,9 @@ pistes de mise en œuvre à bas coût pour l'énergie de fusion de bureau, le
 supercalcul OMEGA à température ambiante, l'AGI fondée sur OMEGA et le contrôle
 local de gravité ou d'inertie pour hoverbikes et hoverboards.
 
-La page d'ensemble est [`APPLICATIONS.md`](APPLICATIONS.md). La visualisation
-OMEGA et le guide matériel sont sur
-[omega.floatingpragma.io](https://omega.floatingpragma.io/).
+La page publique des applications est
+[omega.floatingpragma.io](https://omega.floatingpragma.io/). Les notes sources
+des pistes applicatives vivent dans [`APPLICATIONS.md`](APPLICATIONS.md).
 
 ## Le piège de l'espace-temps
 
@@ -252,7 +252,7 @@ utilise une classe séparée de charge utile \(e^+e^-\to\mathrm{hadrons}\).
 - **Page theory of everything :** [floatingpragma.io/oph/theory-of-everything](https://floatingpragma.io/oph/theory-of-everything)
 - **Page simulation theory :** [floatingpragma.io/oph/simulation-theory](https://floatingpragma.io/oph/simulation-theory/)
 - **Carte de cohérence :** [coherence.floatingpragma.io](https://coherence.floatingpragma.io) : surface graphe publique pour les concepts OPH, les recouvrements et les routes entre domaines.
-- **Guide matériel OMEGA :** [omega.floatingpragma.io](https://omega.floatingpragma.io) : ressource d'apprentissage détaillée sur le fonctionnement du modèle matériel OPH.
+- **Applications :** [omega.floatingpragma.io](https://omega.floatingpragma.io) : page publique pour le matériel OPH, le calcul, l'énergie, l'AGI, le contrôle de portance et le consensus par chambre optique.
 - **Démo OPH du problème à trois corps :** [3body.floatingpragma.io](https://3body.floatingpragma.io) : un simulateur et parcours de preuve supplémentaire pour la formulation OPH en réseau fini de patches du problème à trois corps, présentée comme un exemple de recollement par holonomie de boucle, sans revendication de solution élémentaire fermée.
 - **Blog :** [blog.floatingpragma.io](https://blog.floatingpragma.io/) rassemble les essais publics OPH. Commencez par [Semiotics and the Physics of Meaning](https://blog.floatingpragma.io/semiotics-and-the-physics-of-meaning), [The Trigger](https://blog.floatingpragma.io/the-trigger) et [P = NP on the Observer Screen](https://blog.floatingpragma.io/p-equals-np-on-the-observer-screen). L'essai de calcul traite `P = NP` comme un slogan d'écran d'observateur, pas comme une revendication de solution du problème classique.
 - **Livre :** [oph-book.floatingpragma.io](https://oph-book.floatingpragma.io)

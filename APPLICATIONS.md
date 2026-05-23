@@ -1,5 +1,7 @@
 # OPH Applications
 
+Public page: [omega.floatingpragma.io](https://omega.floatingpragma.io/).
+
 OPH points at machines as well as equations. A finite device has a boundary.
 It exposes measurements. Neighboring patches compare what they see. Mismatch
 drives repair. Stable outcomes become records. OMEGA is the lab version of
