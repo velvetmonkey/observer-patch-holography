@@ -15,18 +15,13 @@ not_claimed:
   - derivation of Leech lattice from mod-6 alone
   - derivation of Standard Model Z6 quotient
   - derivation of Monster from arithmetic alone
-revisions:
-  - corrected Coxeter-Todd construction (now uses ternary Golay code)
-  - corrected Leech lattice construction (mod-4 conditions, not naive mod-2)
-  - clarified (Z/6Z)^x role as indexing-only, not generating
-  - added Bridge 4 to Monster via Moonshine module
-  - softened conclusion to reflect ancestral rather than constructive relationship
 ---
 
 # An Expository Note on the Arithmetic Chain
-## $(\mathbb{Z}/6\mathbb{Z})^\times \to \mathbb{Z}[\omega] \to K_{12} \to \Lambda_{24} \to \mathbb{M}$
 
-*Background note / expository map — Revised May 2026*
+$$(\mathbb{Z}/6\mathbb{Z})^\times \to \mathbb{Z}[\omega] \to K_{12} \to \Lambda_{24} \to \mathbb{M}$$
+
+*Background note / expository map — May 2026*
 
 ---
 
@@ -37,6 +32,7 @@ This is a **background contribution / expository map**, not an OPH theorem and n
 ### Abstract
 
 We present an expository account of a five-step chain of standard mathematical structures, starting from the multiplicative group $(\mathbb{Z}/6\mathbb{Z})^\times = \{1, 5\}$ and reaching the Monster sporadic simple group $\mathbb{M}$:
+
 $$(\mathbb{Z}/6\mathbb{Z})^\times \to \mathbb{Z}[\omega] \to K_{12} \to \Lambda_{24} \to \mathbb{M}.$$
 
 Each bridge requires substantial independent mathematical data: algebraic number theory for Bridge 1, the ternary Golay code for Bridge 2, the binary Golay code for Bridge 3, and vertex operator algebra theory for Bridge 4. All results cited are standard, due to Coxeter, Todd, Conway, Sloane, Griess, Frenkel–Lepowsky–Meurman, Borcherds, and others. **No new theorems are claimed**, and **the chain is ancestral, not constructive**: $(\mathbb{Z}/6\mathbb{Z})^\times$ does not generate the later structures; it indexes a single arithmetic dichotomy that initiates the chain.
@@ -45,9 +41,7 @@ Each bridge requires substantial independent mathematical data: algebraic number
 
 ## 1. Introduction and Scope
 
-The group of units modulo 6 is
-$$(\mathbb{Z}/6\mathbb{Z})^\times = \{1, 5\},$$
-a cyclic group of order 2. This elementary object turns out to index the first link in a chain of genuine mathematical structures of increasing depth.
+The group of units modulo 6 is $(\mathbb{Z}/6\mathbb{Z})^\times = \{1, 5\}$, a cyclic group of order 2. This elementary object turns out to index the first link in a chain of genuine mathematical structures of increasing depth.
 
 **What this note does:** describe each bridge precisely, with the correct mathematical content for each construction.
 
@@ -57,31 +51,36 @@ a cyclic group of order 2. This elementary object turns out to index the first l
 
 ## 2. Bridge 1: From $(\mathbb{Z}/6\mathbb{Z})^\times$ to the Eisenstein Integers
 
-**Definition 2.1.** Let $\omega = e^{2\pi i/3} = -\tfrac{1}{2} + \tfrac{\sqrt{3}}{2}i$. The Eisenstein integers are
+**Definition 2.1.** Let $\omega = e^{2\pi i/3} = -\frac{1}{2} + \frac{\sqrt{3}}{2}i$. The Eisenstein integers are
+
 $$\mathbb{Z}[\omega] = \{a + b\omega : a, b \in \mathbb{Z}\} \subset \mathbb{C}.$$
+
 As a real lattice, $\mathbb{Z}[\omega]$ is the $A_2$ root lattice — a hexagonal lattice. The norm of $a + b\omega$ is
+
 $$N(a + b\omega) = a^2 - ab + b^2.$$
 
 **Theorem 2.2** (Splitting of rational primes in $\mathbb{Z}[\omega]$). Let $p$ be a rational prime with $p \geq 5$. Then:
 
-1. If $p \equiv 1 \pmod 6$, then $p = \pi\bar\pi$ in $\mathbb{Z}[\omega]$ for a non-unit Eisenstein prime $\pi$. We say $p$ **splits**.
-2. If $p \equiv 5 \pmod 6$, then $p$ remains prime in $\mathbb{Z}[\omega]$. We say $p$ is **inert**.
+1. If $p \equiv 1 \pmod{6}$, then $p = \pi \bar{\pi}$ in $\mathbb{Z}[\omega]$ for a non-unit Eisenstein prime $\pi$. We say $p$ **splits**.
+2. If $p \equiv 5 \pmod{6}$, then $p$ remains prime in $\mathbb{Z}[\omega]$. We say $p$ is **inert**.
 
-*Proof.* Standard, via Dedekind–Kummer applied to $\mathbb{Q}(\omega) = \mathbb{Q}(\sqrt{-3})$, whose discriminant is $-3$. A prime $p \neq 3$ splits iff $-3$ is a square mod $p$, which by quadratic reciprocity occurs exactly when $p \equiv 1 \pmod 3$. For $p \geq 5$, this is equivalent to $p \equiv 1 \pmod 6$. $\blacksquare$
+*Proof.* Standard, via Dedekind–Kummer applied to $\mathbb{Q}(\omega) = \mathbb{Q}(\sqrt{-3})$, whose discriminant is $-3$. A prime $p \neq 3$ splits iff $-3$ is a square mod $p$, which by quadratic reciprocity occurs exactly when $p \equiv 1 \pmod{3}$. For $p \geq 5$, this is equivalent to $p \equiv 1 \pmod{6}$. $\blacksquare$
 
 **Remark 2.3** (Verification).
 
 | $p$ | $p \bmod 6$ | Behavior | Example factorization |
 |---:|:-:|:-:|:--|
-| 7 | 1 | splits | $7 = (3 + \omega)(3 + \bar\omega)$ |
+| 7 | 1 | splits | $7 = (3 + \omega)(3 + \bar{\omega})$ |
 | 11 | 5 | inert | $11$ remains prime |
-| 13 | 1 | splits | $13 = (4 + \omega)(4 + \bar\omega)$ |
+| 13 | 1 | splits | $13 = (4 + \omega)(4 + \bar{\omega})$ |
 | 17 | 5 | inert | $17$ remains prime |
-| 19 | 1 | splits | $19 = (5 + 2\omega)(5 + 2\bar\omega)$ |
+| 19 | 1 | splits | $19 = (5 + 2\omega)(5 + 2\bar{\omega})$ |
 | 23 | 5 | inert | $23$ remains prime |
 
 **Connection to $(\mathbb{Z}/6\mathbb{Z})^\times$.** The splitting/inertness dichotomy is governed by the residue of $p$ modulo 3, since the quadratic character of $\mathbb{Q}(\sqrt{-3})$ is the Kronecker symbol $\chi_{-3}$, which has conductor 3. The lift to modulus 6 is via the natural isomorphism
+
 $$(\mathbb{Z}/6\mathbb{Z})^\times \cong (\mathbb{Z}/2\mathbb{Z})^\times \times (\mathbb{Z}/3\mathbb{Z})^\times \cong (\mathbb{Z}/3\mathbb{Z})^\times \cong \mathbb{Z}/2\mathbb{Z},$$
+
 where the mod-2 component is trivial. So $(\mathbb{Z}/6\mathbb{Z})^\times \cong C_2$ **indexes** the split/inert dichotomy for rational primes $p \notin \{2, 3\}$; it does not generate or determine the structure of $\mathbb{Z}[\omega]$, which exists independently.
 
 This is the precise sense in which $(\mathbb{Z}/6\mathbb{Z})^\times$ enters the chain: as an indexing label on an arithmetic dichotomy, not as a generating algebraic object.
@@ -92,10 +91,12 @@ This is the precise sense in which $(\mathbb{Z}/6\mathbb{Z})^\times$ enters the 
 
 This bridge requires more than a single congruence condition. The Coxeter–Todd lattice $K_{12}$ is constructed from $\mathbb{Z}[\omega]^6$ using the **ternary Golay code** as glue.
 
-**Definition 3.1** (Ternary Golay code). The ternary Golay code $\mathcal{C}_6 = [6, 3, 4]_3$ is a 3-dimensional subspace of $\mathbb{F}_3^6$ with minimum Hamming distance 4. It is the unique (up to equivalence) self-dual $[6, 3]$ code over $\mathbb{F}_3$ with these parameters, and it is closely related to the larger $[12, 6, 6]_3$ ternary Golay code via doubling. Its 27 codewords each lie at Hamming distance $\geq 4$ from every other.
+**Definition 3.1** (Ternary Golay code). The ternary Golay code $\mathcal{C}_6 = [6, 3, 4]_3$ is a 3-dimensional subspace of $\mathbb{F}_3^6$ with minimum Hamming distance 4. It is the unique (up to equivalence) self-dual $[6, 3]$ code over $\mathbb{F}_3$ with these parameters. Its 27 codewords each lie at Hamming distance at least 4 from every other.
 
-**Definition 3.2** (Coxeter–Todd lattice via the ternary Golay code). Let $\theta = 1 - \omega$, so that $N(\theta) = 3$ and $\mathbb{Z}[\omega]/(\theta) \cong \mathbb{F}_3$. The Coxeter–Todd lattice is
-$$K_{12} = \left\{(z_1, \ldots, z_6) \in \mathbb{Z}[\omega]^6 \;\middle|\; (z_1 \bmod \theta, \ldots, z_6 \bmod \theta) \in \mathcal{C}_6 \right\},$$
+**Definition 3.2** (Coxeter–Todd lattice via the ternary Golay code). Let $\theta = 1 - \omega$, so that $N(\theta) = 3$ and $\mathbb{Z}[\omega]/(\theta) \cong \mathbb{F}_3$. The Coxeter–Todd lattice is the set of $(z_1, \ldots, z_6) \in \mathbb{Z}[\omega]^6$ such that the residue vector
+
+$$(z_1 \bmod \theta, \ldots, z_6 \bmod \theta) \in \mathcal{C}_6,$$
+
 where the reduction $\mathbb{Z}[\omega]^6 \to \mathbb{F}_3^6$ is applied componentwise. The constraint requires the residue vector mod $\theta$ to be a codeword of the ternary Golay code, not merely to sum to zero.
 
 The index of $K_{12}$ in $\mathbb{Z}[\omega]^6$ is $|\mathbb{F}_3^6 / \mathcal{C}_6| = 3^{6-3} = 27$.
@@ -110,7 +111,7 @@ The index of $K_{12}$ in $\mathbb{Z}[\omega]^6$ is $|\mathbb{F}_3^6 / \mathcal{C
 
 It is the densest known 12-dimensional lattice packing.
 
-**Remark 3.4.** A naive sublattice such as $\{(z_1, \ldots, z_6) : \sum z_i \equiv 0 \pmod \theta\}$ has discriminant $3^7 = 2187$, not $3^6 = 729$, and so is *not* the Coxeter–Todd lattice. The full ternary Golay constraint is essential.
+**Remark 3.4.** A naive sublattice such as $\{(z_1, \ldots, z_6) : \sum z_i \equiv 0 \pmod{\theta}\}$ has discriminant $3^7 = 2187$, not $3^6 = 729$, and so is *not* the Coxeter–Todd lattice. The full ternary Golay constraint is essential.
 
 **Remark 3.5.** The norm $N(\theta) = 3$ is the same "3" that appears in the conductor of $\chi_{-3}$ and in the ramification of 3 in $\mathbb{Z}[\omega]$: the prime 3 ramifies as $3 = -\omega^2 \theta^2$.
 
@@ -120,31 +121,30 @@ It is the densest known 12-dimensional lattice packing.
 
 The third bridge also requires Golay code data, this time the **binary** Golay code.
 
-**Definition 4.1** (Extended binary Golay code). The extended binary Golay code $G_{24}$ is the unique (up to isomorphism) binary linear code $[24, 12, 8]$: length 24, dimension 12, minimum Hamming distance 8.
+**Definition 4.1** (Extended binary Golay code). The extended binary Golay code $G_{24}$ is the unique (up to isomorphism) binary linear code with parameters $[24, 12, 8]$: length 24, dimension 12, minimum Hamming distance 8.
 
-**Theorem 4.2** (Leech lattice; standard construction). The Leech lattice $\Lambda_{24}$ is the set of vectors
-$$\Lambda_{24} = \frac{1}{\sqrt 8}\left\{(a_1, \ldots, a_{24}) \in \mathbb{Z}^{24} \;\middle|\; \begin{aligned}
-&\text{(i) all } a_i \text{ are congruent mod 2 (the "parity"),} \\
-&\text{(ii) the bits } (a_i \bmod 4)/2 \text{ form a Golay codeword,} \\
-&\text{(iii) } \sum a_i \equiv 4 m \pmod 8 \text{ where } m = a_1 \bmod 2
-\end{aligned}\right\}.$$
+**Theorem 4.2** (Leech lattice; standard construction). The Leech lattice $\Lambda_{24}$ consists of the vectors $\frac{1}{\sqrt{8}}(a_1, \ldots, a_{24})$ with $a_i \in \mathbb{Z}$ satisfying:
 
-(This is the standard construction in Conway–Sloane [1], Chapter 4. Several equivalent formulations exist; see Remark 4.3.)
+1. All $a_i$ are congruent modulo 2 (i.e., they share a common parity, denoted $m \in \{0, 1\}$).
+2. The reduction $(a_i \bmod 4)/2 \in \mathbb{F}_2$ for each $i$ produces a vector in $\mathbb{F}_2^{24}$ that is a codeword of $G_{24}$.
+3. The sum satisfies $\sum_i a_i \equiv 4m \pmod{8}$.
 
-**Remark 4.3** (Why naive Construction A is insufficient). The naive Construction A applied to $G_{24}$ — namely $\{x \in \mathbb{Z}^{24} : x \bmod 2 \in G_{24}\}$ scaled by $1/\sqrt{8}$ — gives a related but distinct 24-dimensional even unimodular lattice that *does* contain norm-2 vectors. The Leech lattice $\Lambda_{24}$ is *rootless* (no norm-2 vectors), which requires the additional mod-4 / parity conditions above. Equivalent constructions exist via:
+This is the standard construction from Conway–Sloane [1], Chapter 4. Several equivalent formulations exist; see Remark 4.3.
+
+**Remark 4.3** (Why naive Construction A is insufficient). The naive Construction A applied to $G_{24}$ — namely $\{x \in \mathbb{Z}^{24} : x \bmod 2 \in G_{24}\}$ scaled by $\frac{1}{\sqrt{8}}$ — gives a related but distinct 24-dimensional even unimodular lattice that *does* contain norm-2 vectors. The Leech lattice $\Lambda_{24}$ is *rootless* (no norm-2 vectors), which requires the additional mod-4 and parity conditions above. Equivalent constructions exist via:
 
 - Construction $A_4$ applied to a lift of $G_{24}$ to $\mathbb{Z}/4\mathbb{Z}$, with a parity check appended (Conway–Sloane).
 - Construction B applied to $G_{24}$ followed by point-doubling (Forney's cubing construction).
 - Gluing from any Niemeier lattice via the appropriate modifying procedure.
 - The Weyl vector construction in the Lorentzian lattice $\mathrm{II}_{25,1}$.
 
-All of these produce the same lattice. The single-congruence "$x \bmod 2 \in G_{24}$" version is incomplete and was the principal error in earlier drafts of this note.
+All of these produce the same lattice.
 
 **Properties of $\Lambda_{24}$:**
 
 - **Dimension**: 24.
 - **Minimal vector norm**: 4 (rootless: no vectors of norm 2).
-- **Kissing number**: 196,560.
+- **Kissing number**: $196{,}560$.
 - **Determinant**: 1 (unimodular, even).
 
 It is the unique even unimodular lattice in $\mathbb{R}^{24}$ with no roots (Niemeier 1973).
@@ -159,29 +159,31 @@ This bridge is qualitatively different from the previous three. The Monster does
 
 ### 5.1 The Conway groups
 
-**Theorem 5.1** (Conway 1968). The automorphism group of $\Lambda_{24}$ is the Conway group
-$$\mathrm{Co}_0 = \mathrm{Aut}(\Lambda_{24}), \qquad |\mathrm{Co}_0| = 2^{22} \cdot 3^9 \cdot 5^4 \cdot 7^2 \cdot 11 \cdot 13 \cdot 23.$$
-Its quotient $\mathrm{Co}_1 = \mathrm{Co}_0 / \{\pm I\}$ is one of the 26 sporadic simple groups, of order $\approx 4.16 \times 10^{18}$. Two further sporadic simples $\mathrm{Co}_2$, $\mathrm{Co}_3$ arise as stabilizers in $\mathrm{Co}_1$ of vectors of specific minimal norms.
+**Theorem 5.1** (Conway 1968). The automorphism group of $\Lambda_{24}$ is the Conway group $\mathrm{Co}_0 = \mathrm{Aut}(\Lambda_{24})$, with order
+
+$$|\mathrm{Co}_0| = 2^{22} \cdot 3^9 \cdot 5^4 \cdot 7^2 \cdot 11 \cdot 13 \cdot 23.$$
+
+Its quotient $\mathrm{Co}_1 = \mathrm{Co}_0 / \{\pm I\}$ is one of the 26 sporadic simple groups, of order approximately $4.16 \times 10^{18}$. Two further sporadic simples $\mathrm{Co}_2$, $\mathrm{Co}_3$ arise as stabilizers in $\mathrm{Co}_1$ of vectors of specific minimal norms.
 
 ### 5.2 The Moonshine module and the Monster
 
 The Monster does *not* act directly on $\Lambda_{24}$. It arises as follows.
 
 **Construction 5.2** (Frenkel–Lepowsky–Meurman 1988). Starting from the Leech lattice vertex operator algebra $V_\Lambda$ (a bosonic conformal field theory of central charge 24), the **Moonshine module** is defined as a $\mathbb{Z}/2$-orbifold:
+
 $$V^\natural = V_\Lambda^+ \oplus V_\Lambda^{T,+},$$
+
 where $V_\Lambda^+$ is the involution-invariant subspace of $V_\Lambda$, and $V_\Lambda^{T,+}$ is the involution-invariant subspace of the unique twisted module $V_\Lambda^T$ for the lattice involution $x \mapsto -x$.
 
 **Theorem 5.3** (Frenkel–Lepowsky–Meurman 1988; Borcherds 1992). The automorphism group of $V^\natural$ is the Monster sporadic simple group:
+
 $$\mathrm{Aut}(V^\natural) = \mathbb{M}, \qquad |\mathbb{M}| \approx 8.08 \times 10^{53}.$$
-The graded character of $V^\natural$ is $j(\tau) - 744$, and for each $g \in \mathbb{M}$, the McKay–Thompson series
-$$T_g(\tau) = \mathrm{Tr}_{V^\natural}(g \cdot q^{L_0 - 1})$$
-is a Hauptmodul for a genus-zero subgroup of $\mathrm{SL}_2(\mathbb{R})$. This is **monstrous moonshine** (Conway–Norton 1979, proved by Borcherds 1992).
 
-**Remark 5.4** ($\mathrm{Co}_1$ inside $\mathbb{M}$). The Conway group $\mathrm{Co}_1$ from Theorem 5.1 appears inside the Monster as a quotient of a maximal subgroup:
-$$2^{1+24}.\mathrm{Co}_1 \leq \mathbb{M},$$
-the centralizer of a $2A$-involution in $\mathbb{M}$. This makes precise the sense in which the Leech-lattice symmetries are a "piece of" the Monster's structure, without being its full source. The Monster is fundamentally larger and richer than $\mathrm{Co}_0$.
+The graded character of $V^\natural$ is $j(\tau) - 744$, and for each $g \in \mathbb{M}$, the McKay–Thompson series $T_g(\tau) = \mathrm{Tr}_{V^\natural}(g \cdot q^{L_0 - 1})$ is a Hauptmodul for a genus-zero subgroup of $\mathrm{SL}_2(\mathbb{R})$. This is **monstrous moonshine** (Conway–Norton 1979, proved by Borcherds 1992).
 
-**Remark 5.5** (Other orbifolds, multiple constructions). Carnahan (2017) proved that for each fixed-point-free automorphism of $\Lambda_{24}$ satisfying a no-massless-states condition, the corresponding cyclic orbifold of $V_\Lambda$ is isomorphic to $V^\natural$. This yields 51 distinct orbifold constructions of the Moonshine module, in bijection with the 51 non-Fricke conjugacy classes of $\mathbb{M}$. The Bridge 4 presented here via the $\mathbb{Z}/2$ orbifold is one canonical construction among many; the construction is structurally far richer than any single orbifold suggests.
+**Remark 5.4** ($\mathrm{Co}_1$ inside $\mathbb{M}$). The Conway group $\mathrm{Co}_1$ from Theorem 5.1 appears inside the Monster as a quotient of a maximal subgroup: $2^{1+24}.\mathrm{Co}_1 \leq \mathbb{M}$, the centralizer of a $2A$-involution in $\mathbb{M}$. This makes precise the sense in which the Leech-lattice symmetries are a "piece of" the Monster's structure, without being its full source. The Monster is fundamentally larger and richer than $\mathrm{Co}_0$.
+
+**Remark 5.5** (Other orbifolds, multiple constructions). Carnahan (2017) proved that for each fixed-point-free automorphism of $\Lambda_{24}$ satisfying a no-massless-states condition, the corresponding cyclic orbifold of $V_\Lambda$ is isomorphic to $V^\natural$. This yields 51 distinct orbifold constructions of the Moonshine module, in bijection with the 51 non-Fricke conjugacy classes of $\mathbb{M}$.
 
 ---
 
@@ -199,7 +201,7 @@ Each bridge requires a genuinely new ingredient that is not contained in the pre
 
 1. **Bridge 1** (Number theory): The Kronecker symbol $\chi_{-3}$ and the Dedekind–Kummer splitting theorem.
 2. **Bridge 2** (Coding theory + lattice theory): The ternary Golay code $[6,3,4]_3$ as algebraic glue inside $\mathbb{Z}[\omega]^6$.
-3. **Bridge 3** (Coding theory + lattice theory): The binary Golay code $[24,12,8]$ together with mod-4 / parity conditions to ensure rootlessness.
+3. **Bridge 3** (Coding theory + lattice theory): The binary Golay code $[24,12,8]$ together with mod-4 and parity conditions to ensure rootlessness.
 4. **Bridge 4** (Vertex operator algebras + group theory): The orbifold construction of $V^\natural$, requiring the FLM construction (1988), Borcherds' proof of monstrous moonshine (1992), and Griess's original construction of $\mathbb{M}$ (1982).
 
 ---
@@ -259,23 +261,3 @@ The value of understanding this chain lies not in any new theorem it proves, but
 [13] Duncan, J. F. R. and Mack-Crane, S. "The Moonshine module for Conway's group." *Forum of Mathematics, Sigma*, **3** (2015), e10.
 
 [14] Niemeier, H.-V. "Definite quadratische Formen der Dimension 24 und Diskriminante 1." *J. Number Theory*, **5** (1973), 142–178.
-
----
-
-## Appendix: Errata from the original March 2026 version
-
-This revised edition corrects three mathematical errors and one framing imprecision identified during peer review.
-
-**Erratum 1 — Bridge 1 framing.** The original phrasing "*the multiplication table reflects the group structure of $\mathbb{Z}[\omega]^\times / \{\text{units}\}$ restricted to rational primes*" is mathematically incoherent (the unit group modulo units is trivial). The corrected text describes $(\mathbb{Z}/6\mathbb{Z})^\times$ as indexing the splitting dichotomy via the Kronecker character $\chi_{-3}$ of conductor 3, lifted to modulus 6.
-
-**Erratum 2 — Bridge 2 construction (substantive).** The original definition
-$$K_{12} = \left\{(z_1, \ldots, z_6) \in \mathbb{Z}[\omega]^6 : \sum z_i \equiv 0 \pmod \theta \right\}$$
-is incorrect. A single mod-$\theta$ sum constraint gives an index-3 sublattice of $\mathbb{Z}[\omega]^6$ with discriminant $3^7 = 2187$, whereas $K_{12}$ has discriminant $3^6 = 729$. The correct construction uses the ternary Golay code $\mathcal{C}_6 = [6, 3, 4]_3$ as glue, with index $3^3 = 27$ in $\mathbb{Z}[\omega]^6$. See revised Definition 3.2.
-
-**Erratum 3 — Bridge 3 construction (substantive).** The original definition
-$$\Lambda_{24} = \frac{1}{\sqrt{8}} \{x \in \mathbb{Z}^{24} : x \bmod 2 \in G_{24}\}$$
-is incomplete. This is naive Construction A; the resulting lattice is even unimodular but *not rootless* — it contains norm-2 vectors. The Leech lattice requires additional mod-4 and parity conditions. See revised Theorem 4.2 and Remark 4.3.
-
-**Erratum 4 — Conclusion overclaim.** The original conclusion described $(\mathbb{Z}/6\mathbb{Z})^\times$ as "*the foundational ancestor*" of the chain. While the chain is real, $(\mathbb{Z}/6\mathbb{Z})^\times$ does not generate or determine the later structures — they each require substantial independent mathematical data (the Golay codes, lattice theory, VOA theory). The revised conclusion describes the role as "indexing" rather than "generating," consistent with the actual mathematical relationship.
-
-**Extension — Bridge 4.** A new Section 5 extends the chain to the Monster sporadic group $\mathbb{M}$ via the Moonshine module $V^\natural$. This step is qualitatively different from Bridges 1–3: it does not produce a lattice or code, but a vertex operator algebra whose automorphism group is $\mathbb{M}$. The role of $\Lambda_{24}$ is as the input to the FLM orbifold construction, not as a structure on which $\mathbb{M}$ directly acts.
