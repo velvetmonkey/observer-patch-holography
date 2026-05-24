@@ -244,9 +244,12 @@ that some shared center labels are counted only once.
 
 Once a compact gauge group is reconstructed, the next question is the field
 theory carried by that group. On the declared support-visible compact-gauge
-branch, OPH uses local holonomy data, a four-dimensional scaling chart,
-reflection positivity, support-visible continuum extraction, and the local
-maximum-entropy Gibbs rule to obtain the Euclidean Yang-Mills action:
+branch, OPH uses compact-gauge reconstruction, local holonomy data, a
+four-dimensional scaling chart, a reflection-positive ordinary vacuum sector,
+support-visible continuum extraction, the local maximum-entropy Gibbs rule, and
+the branch condition that no additional gauge-invariant relevant dimension-four
+pure-gauge operator survives besides the positive curvature-squared invariant to
+obtain the Euclidean Yang-Mills action:
 
 $$
 S_E[A]=\frac{1}{4g^2}\int_{\mathbb R^4}\langle F_{\mu\nu},F_{\mu\nu}\rangle\,d^4x.
@@ -269,6 +272,8 @@ $$
 $$
 
 On that branch, the Yang-Mills gap is the repair gap.
+As a Clay-facing theorem, this remains scoped to that declared branch and to
+the support-visible continuum construction carried there.
 
 ## 12.8 Symmetry Breaking
 

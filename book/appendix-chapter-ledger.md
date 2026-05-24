@@ -554,9 +554,9 @@ Later quotient structure identifies transformations that act the same on
 physical states.
 
 The compact-gauge branch also supplies the Euclidean Yang-Mills action in four
-dimensions on its support-visible branch. The corresponding mass-gap statement
-identifies the first nonzero Yang-Mills energy with the first nonzero repair
-eigenvalue:
+dimensions on its support-visible branch, under its declared compact-gauge
+branch assumptions. The corresponding mass-gap statement identifies the first
+nonzero Yang-Mills energy with the first nonzero repair eigenvalue:
 
 $$\Delta_{\mathrm{YM}}=\Delta_{\mathrm{rep}}.$$
 

@@ -228,7 +228,8 @@ consequences.
 
 The gauge branch also carries a four-dimensional Euclidean Yang-Mills form and
 a repair-gap account of the compact-gauge mass gap on its declared
-support-visible branch.
+support-visible compact-gauge branch. In the Clay-facing formulation, that
+claim stays tied to the support-visible continuum construction carried there.
 
 The program recovers known physics, gravity and the Standard Model included,
 from this simple starting point. The answer is not inserted by hand.

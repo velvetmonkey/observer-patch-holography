@@ -422,11 +422,14 @@ Different observers describe the same overlap region using different frames. The
 
 This is "gauge-as-gluing." Gauge symmetry isn't fundamental. It's the grammar of how patches fit together.
 
-The same branch also carries the Yang-Mills form. Local holonomy data and the
-four-dimensional continuum scaling limit produce the curvature-squared
-Euclidean action. Repair collars supply the spectral part: leaving the repaired
-vacuum sector costs a positive amount of Euclidean relaxation energy, and that
-cost is the Yang-Mills mass gap on the support-visible compact-gauge branch.
+The same branch also carries the Yang-Mills form. Compact-gauge reconstruction,
+local holonomy data, the four-dimensional continuum scaling chart, the
+reflection-positive ordinary vacuum sector, and the absence of additional
+gauge-invariant relevant dimension-four pure-gauge operators beyond the
+curvature-squared invariant produce the Euclidean action. Repair collars supply
+the spectral part: leaving the repaired vacuum sector costs a positive amount
+of Euclidean relaxation energy, and that cost is the Yang-Mills mass gap on the
+support-visible compact-gauge branch.
 
 ### Edge-Center Completion
 

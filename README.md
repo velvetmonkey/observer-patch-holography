@@ -107,6 +107,9 @@ scaling, reflection positivity, repair completeness, and support-visible
 continuum extraction in force, the same stack gives the Euclidean Yang-Mills
 form and identifies the Yang-Mills mass gap with the repair gap. This is OPH's
 four-dimensional axiomatic Yang-Mills construction on the declared branch.
+Clay-facing admissibility is branch-dependent and turns on taking that
+support-visible continuum extraction as the required four-dimensional
+construction.
 
 The mechanism is the fixed-point consensus loop. Local observers do not access
 a global state from outside. They carry finite patch states, exchange
@@ -261,7 +264,7 @@ tiers live in the papers.
 
 - **[Photonic Fixed-Point Consensus for SHA-256d Proof of Work](extra/Photonic_fixed-point_consensus_for_SHA-256d_proof_of_work.pdf)**: photonic candidate enrichment for SHA-256d proof of work.
 - **[The Fine-Structure Constant as an OPH Pixel Fixed Point](extra/fine_structure_constant_derivation.pdf)**: fixed-point derivation of the fine-structure row.
-- **[Explaining the Yang-Mills Mass Gap with Observer-Patch Repair Dynamics](extra/yang_mills_gap_clay_problem.pdf)**: support-visible OPH route to the Clay Yang-Mills problem, branch-scoped to the compact-gauge extraction and identifying the gap with the repair gap.
+- **[Explaining the Yang-Mills Mass Gap with Observer-Patch Repair Dynamics](extra/yang_mills_gap_clay_problem.pdf)**: support-visible OPH route to the Clay Yang-Mills problem, branch-scoped to the compact-gauge extraction, with Clay-facing status tied to that axiomatic-construction claim, and identifying the gap with the repair gap.
 - **[Observer-Patch Holography and the Dark Matter Phenomenon](extra/oph_dark_matter_paper.pdf)**: dark-matter phenomenology and MOND-like galaxy limit.
 - **[Thinking as Patch-Net Fixed-Point Search](extra/thinking_as_patch_net_fixed_point_search.pdf)**: cognition and qualia as recurrent patch consensus.
 

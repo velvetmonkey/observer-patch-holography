@@ -107,10 +107,15 @@ identification that makes the Standard Model charge lattice fit together.
 The same declared support-visible compact-gauge branch also carries a
 four-dimensional Euclidean Yang-Mills form and a mass-gap account for compact
 simple gauge groups carried by that branch. The Euclidean action comes from
-compact-gauge holonomy data and the local maximum-entropy Gibbs scaling limit.
-The gap comes from repair: exact local repair turns into a positive Euclidean
-relaxation generator, and the first nonzero repair eigenvalue is the first
-nonzero Yang-Mills energy.
+compact-gauge holonomy data, the four-dimensional scaling chart, the
+reflection-positive ordinary vacuum sector, the local maximum-entropy Gibbs
+scaling limit, and the branch condition that no additional gauge-invariant
+relevant dimension-four pure-gauge operator survives besides the positive
+curvature-squared invariant. The gap comes from repair: exact local repair
+turns into a positive Euclidean relaxation generator, and the first nonzero
+repair eigenvalue is the first nonzero Yang-Mills energy. As a Clay-facing
+claim, that result stays branch-scoped to the support-visible continuum
+construction used there.
 
 The color triplet follows from the minimal coupled carrier, and the
 three-generation count follows from CKM phase counting, weak-sector
