@@ -327,3 +327,20 @@ descent on the realized branch.
 </p>
 
 <p align="center"><sub>A domain -> subdomain -> OPH-area map spanning mathematics, computer science, information and inference, complex systems, theoretical physics, quantum information, and measurement foundations. Click to open the full poster PNG.</sub></p>
+
+## License And Patent Policy
+
+The authored material in this repository is licensed under
+[CC BY-NC-SA 4.0](LICENSE), with the repository-wide
+[OPH Open Use And Anti-Patent Covenant](PATENTS.md) applying to OPH-derived
+ideas, implementations, devices, methods, applications, software, simulations,
+and hardware designs.
+
+In short: OPH is published so the mathematics, software, applications, devices,
+hardware designs, simulations, engineering methods, and experimental
+implementations can be studied, tested, implemented, modified, deployed,
+manufactured, and shared. OPH-derived work may not be used to create private
+patent monopolies or patent claims that restrict others from practicing OPH.
+
+See [PATENTS.md](PATENTS.md) for the canonical policy text and copy/paste
+website notices.
