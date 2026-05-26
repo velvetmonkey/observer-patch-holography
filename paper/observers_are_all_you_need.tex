@@ -146,7 +146,9 @@
 \begin{abstract}
 Observer-Patch Holography starts from finite horizon-screen geometry following the spherical
 symmetries of observer-accessible cuts. The rule is that local observer patches must agree on
-every observable they share. Sphere language names regulator and symmetry geometry: finite screen charts,
+every observable they share. The screen is a net of observer-facing support regions, not a literal
+spherical substrate or a separate private sphere for each observer. Sphere language names regulator
+and symmetry geometry: finite screen charts,
 \(A_5\)-type icosahedral patch data
 where a carrier is made concrete, and \(E_8\)-type exceptional organization where the high-symmetry
 branch invokes it. Together with local MaxEnt, recoverable
@@ -194,10 +196,12 @@ A reader who follows the mathematical proofs presented should conclude that, con
 \section{Introduction}
 
 Observer-Patch Holography asks how much of physics is forced once the world is described from the
-inside. No observer has access to a view from nowhere. Each observer sees a patch of a finite
-horizon screen, carries records inside that patch, and can compare only the observables shared with
-neighboring patches. OPH takes that comparison rule literally: where descriptions overlap, they must
-agree.
+inside. No observer has access to a view from nowhere. In the idealized description there is a
+shared screen net, often charted by \(S^2\), but each finite observer has access only to a local
+patch \(P_O\) of that net. The observer carries records inside that patch and can compare only the
+observables shared with neighboring patches. OPH takes that comparison rule literally: where
+descriptions overlap, they must agree. Thus an "observer screen" is an operational access cut, not a
+private physical sphere assigned to the observer.
 
 The formalism used here is deliberately quantum-algebraic. Patches carry algebras and states,
 record events use the trace/Born rule on their declared operator surface, and the gravity branch
@@ -336,8 +340,9 @@ construction surface.
 The implementation question is what must exist below the observer-level axioms so they have a
 physical carrier. OPH's answer is a fixed-cutoff federation of finite patch carriers. Each carrier
 exposes overlap ports, record registers, repair maps, and checkpoint interfaces. The screen is the
-observer-facing geometry chart. The implementation is the finite algebraic machinery that makes
-compare, write, repair, and re-read operations available.
+observer-facing geometry chart. It is not the carrier itself in the sense of one literal smooth ball.
+The implementation is the finite algebraic machinery that makes compare, write, repair, and re-read
+operations available.
 
 Spherical geometry carries several pieces of the construction at once. An observer-accessible cut
 has a closed two-dimensional angular chart. Caps and collars on that chart supply the cut data used

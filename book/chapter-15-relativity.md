@@ -360,15 +360,21 @@ and the rigidity hypotheses identify that motion with the conformal action.
 
 This deserves careful explanation, because it addresses a natural worry about OPH.
 
-If reality is encoded on a 2D sphere with finite local screen degrees of
-freedom, why isn't there a "God's eye view" of the whole sphere? Wouldn't that
-be a privileged reference frame?
+If reality is encoded with a screen chart carrying finite local degrees of
+freedom, why isn't there a "God's eye view" of the whole chart? Wouldn't that be
+a privileged reference frame?
 
-The answer is that **there is no observer outside the sphere**. OPH does not
-include any external vantage point. Observers are not users viewing a
-simulation. They are patterns *within* the screen data itself.
+The answer is that **there is no observer outside the screen net**. The sphere
+is not an external object that someone can inspect from above. It is the
+symmetric chart for observer-facing support data. OPH does not include any
+external vantage point. Observers are not users viewing a simulation. They are
+patterns *within* the screen data itself.
 
-Think about what an observer actually is in OPH. An observer is a stable correlation pattern among some subset of the screen degrees of freedom. This pattern has access only to its patch $P_O \subset S^2$. No observer can access the entire sphere simultaneously. The "global state" $\omega$ exists mathematically, but no entity within OPH can observe it.
+Think about what an observer actually is in OPH. An observer is a stable
+correlation pattern among some subset of the screen degrees of freedom. This
+pattern has access only to its patch $P_O \subset S^2$. No observer can access
+the entire screen net simultaneously. The "global state" $\omega$ exists
+mathematically, but no entity within OPH can observe it as a private object.
 
 Consider two observers with overlapping patches. Each has a modular flow, a
 local clock. When their descriptions are compared, the admissible

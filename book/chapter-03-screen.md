@@ -144,6 +144,14 @@ In each case, the horizon is a boundary that limits what the observer can access
 
 Finite observer access naturally suggests an effective screen picture.
 
+The word "screen" needs care. OPH does not mean that every observer owns a
+separate physical sphere, and it does not require a literal ball with data
+painted on its surface. In the idealized description there is a shared
+observer-facing screen net, often drawn with the symmetric chart $S^2$. A finite
+observer has access only to a bounded local cut of that net. The observer's
+operational screen is that accessible cut, and a patch is the part of the cut
+currently supporting records, comparisons, and repair.
+
 For an observer in our universe, the accessible boundary can take several
 forms. There is an observer-dependent cosmological horizon scale. Near a black
 hole there is an event horizon. Under sustained acceleration there is a
@@ -188,9 +196,12 @@ The metric is:
 $$ds^2 = d\theta^2 + \sin^2\theta \, d\phi^2$$
 
 $S^2$ means the two-dimensional surface of a unit sphere, not the solid ball
-inside it. The set notation says: take all points $(x,y,z)$ in ordinary
-three-dimensional real space whose distance from the origin is 1. The metric
-$ds^2$ then tells you how to measure tiny distances along that curved surface.
+inside it. In OPH it is also a chart, not a hardware blueprint. The set
+notation says: take all points $(x,y,z)$ in ordinary three-dimensional real
+space whose distance from the origin is 1. The metric $ds^2$ then tells you how
+to measure tiny distances along that curved surface. The real physical content
+is the patch algebra, the local state, the records, and the overlap data carried
+by that chart.
 
 ### Spherical Harmonics
 
@@ -210,11 +221,19 @@ In such a finite-resolution screen model, our experience of a continuous world i
 
 ## 3.8 Patches and Overlaps
 
-You cannot see the whole screen. Some parts are hidden by your horizon or by instrumental limits. You only access a **patch**-a portion of the sphere.
+You cannot see the whole screen net. Some parts are hidden by your horizon or by
+instrumental limits, and some parts are simply not in your operational domain.
+You only access a **patch**, a connected region $P_O\subset S^2$ in the
+symmetric chart.
 
-Another observer, at a different location or with different instruments, accesses a different patch. Where patches overlap, observers can compare notes.
+Another observer, at a different location or with different instruments,
+accesses a different patch. Where patches overlap, observers can compare notes.
 
-If the screen is a sphere $S^2$ and observer $i$ sees patch $P_i$, then two observers can compare data on the overlap $P_i \cap P_j$. That overlap is the seed of consistency.
+If the screen net is charted by $S^2$ and observer $i$ has access patch $P_i$,
+then two observers can compare data on the overlap $P_i \cap P_j$. That overlap
+is the seed of consistency. What $i$ sees is not the whole screen net. It is the
+local algebra, state, and records supported on $P_i$. What $i$ and $j$ can make
+public is the part of those descriptions that agrees on $P_i \cap P_j$.
 
 ![Two observer patches on the S^2 screen share a lens-shaped overlap where their descriptions can be compared.](../assets/book_diagrams/s2-screen.svg){width=74%}
 
@@ -230,7 +249,11 @@ A sphere cannot be covered by a single smooth coordinate system. If you try to p
 
 Mathematicians handle this by using multiple overlapping coordinate charts, called an **atlas**. Each chart covers part of the sphere. Where charts overlap, there are transition functions that tell you how to convert coordinates.
 
-This is exactly analogous to our observer patches. Each observer has a local description. Where observers overlap, they must agree on how to translate between their descriptions.
+This is analogous to our observer patches. Each observer has a local
+description. Where observers overlap, they must agree on how to translate
+between their descriptions. The atlas is the mathematical way to say what the
+informal picture says physically: one shared net can be covered by many local
+charts, and no finite chart has to contain the whole net.
 
 Physics is the art of finding descriptions that work in many charts and have consistent translations between them.
 
@@ -287,7 +310,14 @@ subtler and is developed later.
 
 A concrete screen picture looks like this.
 
-Imagine the screen as a **gauge-invariant quantum system** on the 2-sphere, something like a quantum cellular automaton but with important structure. Triangulate the sphere into tiny cells. At each edge of the triangulation sits a finite-dimensional quantum system (a qudit). At each vertex, a gauge constraint (Gauss's law) restricts which configurations are physical. Not all states survive; only those satisfying the constraint at every vertex.
+Imagine the screen chart as a **gauge-invariant quantum system** on the
+2-sphere, something like a quantum cellular automaton but with important
+structure. This is a regulator picture for the observer-facing data, not a
+claim that the world is built as one smooth spherical shell. Triangulate the
+chart into tiny cells. At each edge of the triangulation sits a
+finite-dimensional quantum system (a qudit). At each vertex, a gauge constraint
+(Gauss's law) restricts which configurations are physical. Not all states
+survive; only those satisfying the constraint at every vertex.
 
 In plainer language, a qudit is a small quantum register with finitely many
 possible readouts, like a qubit with more than two options. A gauge constraint

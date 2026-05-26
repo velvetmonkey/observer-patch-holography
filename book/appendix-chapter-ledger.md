@@ -171,15 +171,18 @@ the structure can be seen.
 
 The symbol $S^2$ means the two-sphere, the ordinary surface of a ball
 abstracted as a mathematical object. It is two-dimensional because two
-coordinates, like latitude and longitude, label points on it. The standard
-round metric on $S^2$ is not the whole OPH theory. It is the symmetric
-starting geometry used to organize patches, caps, and overlaps.
+coordinates, like latitude and longitude, label points on it. In OPH this
+sphere is a chart for observer-facing support data, not a literal ball that
+stores the universe on its surface. The standard round metric on $S^2$ is not
+the whole OPH theory. It is the symmetric starting geometry used to organize
+patches, caps, and overlaps.
 
 The chapter's screen diagram shows two observer patches and the
 lens-shaped overlap where their descriptions can be compared. That overlap is
-not a decorative shading. It is the operational hinge of the book. A private
-patch can carry more than the shared lens. Public reality is built from what
-many such lenses force to agree.
+not a decorative shading. It is the operational hinge of the book. There is one
+shared screen net idealization, many observer-facing access cuts, and many
+finite patches. A private patch can carry more than the shared lens. Public
+reality is built from what many such lenses force to agree.
 
 The historical builders include Bekenstein, who argued that black holes have
 entropy, Hawking, who found black-hole radiation and fixed the temperature,

@@ -124,6 +124,10 @@ observer-accessible cut can be represented by the two-sphere $S^2$. Those
 charts describe angular support geometry. The finite simulator implements the
 patch-and-overlap algebraic constraints exposed by that geometry.
 
+OPH therefore uses one shared screen net idealization and many finite observer
+patches. An observer screen is a local access cut on that net, not a separate
+private sphere. The $S^2$ chart is not a literal ball with data painted on it.
+
 That spherical chart carries several concrete jobs. Caps and collars give the
 local cut data used by modular flow and entropy variation. The conformal group
 of the sphere is the celestial-sphere form of the connected Lorentz group,

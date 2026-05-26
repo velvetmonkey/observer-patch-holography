@@ -32,8 +32,8 @@ is why it works so well.
 
 **Matter is a stable pattern in the screen data**.
 
-Think of the screen as a high-resolution, quantum information canvas. Most
-patterns are noisy and ephemeral. Some are stable: they survive overlap
+Think of the screen chart as a high-resolution, quantum information canvas.
+Most patterns are noisy and ephemeral. Some are stable: they survive overlap
 consistency, persist under modular time, and can be tracked across patches.
 Those stable patterns are what we call **particles**.
 

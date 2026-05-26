@@ -48,10 +48,10 @@ as the compressed public geometry reconstructed from finite patch data exposed
 through screen charts and overlap consistency, not as the primitive storage
 layer.
 
-**Cap.** A cap is a region on the spherical screen, usually associated with an
-observer-accessible patch or a subregion used in entropy and modular-flow
-arguments. Caps have boundaries and collars, and their generalized entropy
-plays a role in the gravity reconstruction.
+**Cap.** A cap is a region in the spherical screen chart, usually associated
+with an observer-accessible patch or a subregion used in entropy and
+modular-flow arguments. Caps have boundaries and collars, and their generalized
+entropy plays a role in the gravity reconstruction.
 
 **Causal structure.** Causal structure determines which events can influence
 which. Relativity encodes it through light cones. OPH reads causal structure
@@ -248,7 +248,9 @@ public reality as the stable result of overlap repair.
 **Observer patch.** An observer patch is the finite operational domain
 available to an observer. It has a local algebra, a state, records, and
 interfaces to neighboring patches. The patch is the basic unit of OPH's
-observer-first construction.
+observer-first construction. It is not a separate private sphere owned by that
+observer. It is the bounded part of the shared screen net that the observer can
+use.
 
 **Overlap.** An overlap is the shared part of two patches where their
 descriptions can be compared. It may be geometric, algebraic, or operational.
@@ -308,9 +310,17 @@ physics because a number such as a quark mass or coupling constant is not
 complete without its scale and scheme.
 
 **Screen.** The screen is the finite holographic surface carrying the primary
-data in OPH's boundary-first picture. Observer patches live on or access
-parts of the screen. Bulk spacetime is reconstructed from screen data and
-consistency.
+data in OPH's boundary-first picture. The word is used at three related levels:
+the global screen net, an observer-facing access cut on that net, and the
+finite patch available to a particular observer. Observer patches live on or
+access parts of the screen. Bulk spacetime is reconstructed from screen data
+and consistency. The $S^2$ sphere is a regulator and symmetry chart for this
+structure, not a literal spherical computer outside the universe.
+
+**Screen net.** A screen net is the whole pattern of local screen regions,
+their algebras, and their overlaps. In symmetric situations it can be charted
+by $S^2$. Finite observers never inspect the whole net. They compare only the
+overlaps of their local patches.
 
 **Selection filter.** A selection filter is a constraint that candidate
 physical structures must pass to become part of a stable public world.

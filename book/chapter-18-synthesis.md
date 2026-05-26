@@ -37,10 +37,12 @@ where records meet. It is where the bookkeeping has to close.
 
 ## 18.3 The Screen and the Ledger
 
-The fundamental image is simple enough to keep in your head. Picture a
-two-sphere carrying finite quantum data. No observer sees the whole sphere at
-once. Each observer lives on a patch. Where patches overlap, the observables on
-that overlap have to match.
+The fundamental image is simple enough to keep in your head. Picture a shared
+screen net that can be drawn, in its symmetric chart, as finite quantum data
+organized on a two-sphere. No observer sees the whole net at once. Each observer
+has an access patch. Where patches overlap, the observables on that overlap
+have to match. The sphere is the chart for the gluing problem, not a literal
+ball outside the universe.
 
 The state on the screen is selected by maximum entropy subject to a stable
 local family of constraints. Generalized entropy gives each cap both a bulk

@@ -120,6 +120,11 @@ angulaire visible par support. Le simulateur fini sert de surface de
 calibration pour les contraintes algébriques de patches et de recouvrements
 exposées par cette géométrie.
 
+L'OPH utilise donc une idéalisation de réseau d'écran partagé, avec de nombreux
+patches d'accès finis. L'écran d'un observateur est une coupe d'accès locale sur
+ce réseau, non une sphère privée séparée. La carte $S^2$ n'est pas une boule
+littérale recouverte de données.
+
 Cette carte sphérique porte plusieurs tâches précises. Les caps et les colliers
 donnent les données locales de coupe utilisées par le flot modulaire et la
 variation d'entropie. Le groupe conforme de la sphère est la forme céleste du
