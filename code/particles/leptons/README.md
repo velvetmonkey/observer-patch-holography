@@ -173,3 +173,9 @@ Additional guards:
 
 - [`test_shared_budget_not_silently_localized.py`](/Users/muellerberndt/Projects/oph-meta/particles/leptons/test_shared_budget_not_silently_localized.py)
 - [`test_channel_norm_refinement_limit.py`](/Users/muellerberndt/Projects/oph-meta/particles/leptons/test_channel_norm_refinement_limit.py)
+
+## License And Patent Policy
+
+This particle lepton surface is part of the OPH public repository. See the main
+[LICENSE](../../../LICENSE) and
+[OPH Open Use And Anti-Patent Covenant](../../../PATENTS.md).

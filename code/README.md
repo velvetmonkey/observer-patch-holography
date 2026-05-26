@@ -27,3 +27,12 @@ python3 scripts/build_derivation_gap_ledger.py
 ```
 
 The particle gap campaign lives at `particles/campaigns/gap_bundle/`.
+
+## License And Patent Policy
+
+This code surface is part of the OPH public repository. See the main
+[LICENSE](../LICENSE) and [OPH Open Use And Anti-Patent Covenant](../PATENTS.md).
+OPH-derived software, simulations, algorithms, hardware methods, applications,
+and implementation patterns may be studied, tested, implemented, modified,
+deployed, manufactured, and shared, but may not be used to create patent claims
+that restrict others from practicing OPH-derived work.

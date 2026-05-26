@@ -291,3 +291,13 @@ d'angle topologique sur la branche réalisée.
 - **[`code/`](code)** : sorties calculatoires, surface particules et expériences.
 - **[`assets/`](assets)** : schémas et figures publics.
 - **[`extra/`](extra)** : notes publiques maintenues, objections, comptes rendus expérimentaux et quelques essais de support.
+
+## Licence et politique anti-brevet
+
+Le matériel rédigé dans ce dépôt est régi par [la licence principale](LICENSE).
+La politique OPH d'usage ouvert et d'anti-brevet est dans
+[PATENTS.md](PATENTS.md). En bref, les idées, méthodes, logiciels,
+applications, simulations et conceptions matérielles dérivés d'OPH peuvent être
+étudiés, testés, implémentés, modifiés, déployés, fabriqués et partagés, mais
+ne peuvent pas servir à créer des revendications de brevet qui empêchent
+d'autres personnes de pratiquer un travail dérivé d'OPH.

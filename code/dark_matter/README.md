@@ -60,3 +60,9 @@ a conservative disk-potential solver, hierarchical SPARC likelihood, finite
 collar parent evaluator, CAMB or CLASS anomaly module, cluster map forward
 model, joint likelihood runner, and reproducibility harness with fixed data
 hashes.
+
+## License And Patent Policy
+
+This code surface is part of the OPH public repository. See the main
+[LICENSE](../../LICENSE) and
+[OPH Open Use And Anti-Patent Covenant](../../PATENTS.md).

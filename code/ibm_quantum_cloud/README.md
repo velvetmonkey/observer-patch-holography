@@ -72,3 +72,9 @@ python3 code/ibm_quantum_cloud/programs/s3_diagnostic_bundle.py \
 
 - The Stage 1 JSON exports keep the original job IDs and measured outputs, but account-specific instance CRNs are redacted in this public copy.
 - The raw JSON is intentionally preserved in its original schema so readers can inspect the measured values directly.
+
+## License And Patent Policy
+
+This code and data bundle is part of the OPH public repository. See the main
+[LICENSE](../../LICENSE) and
+[OPH Open Use And Anti-Patent Covenant](../../PATENTS.md).

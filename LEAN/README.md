@@ -79,3 +79,8 @@ proof debt appears elsewhere or the count changes.
 - Coordination: "OPH LEAN Proofs" working group (Bernhard Mueller, Ben
   Cassie, Dula). Cross-audit between auditors is required before PRs are
   merged.
+
+## License And Patent Policy
+
+This formalisation surface is part of the OPH public repository. See the main
+[LICENSE](../LICENSE) and [OPH Open Use And Anti-Patent Covenant](../PATENTS.md).

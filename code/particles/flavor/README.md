@@ -213,3 +213,9 @@ The active local chain is now:
 14. derive a candidate odd quark sector splitter from the shared boundary on the main builder path
 15. build factorized-only forward Yukawas for the quark sectors while preserving any explicit edge-statistics bridge metadata
 16. export one blind dictionary artifact that can later feed charged-lepton and neutrino lanes too, including the current constructive quark bridge provenance
+
+## License And Patent Policy
+
+This particle flavor surface is part of the OPH public repository. See the main
+[LICENSE](../../../LICENSE) and
+[OPH Open Use And Anti-Patent Covenant](../../../PATENTS.md).

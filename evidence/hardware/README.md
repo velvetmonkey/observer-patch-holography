@@ -43,3 +43,13 @@ Each bundle should include:
 - `claim.md` stating the strongest allowed claim and explicit non-claims.
 
 The `template/` directory gives a minimal shape for future bundles.
+
+## License And Patent Policy
+
+This hardware evidence surface is part of the OPH public repository. See the
+main [LICENSE](../../LICENSE) and
+[OPH Open Use And Anti-Patent Covenant](../../PATENTS.md). OPH-derived
+hardware designs, devices, experimental procedures, verification methods,
+software, and implementation patterns may be studied, tested, implemented,
+modified, deployed, manufactured, and shared, but may not be used to create
+patent claims that restrict others from practicing OPH-derived work.

@@ -61,3 +61,9 @@ Current output style:
 - A few long inline scientific expressions are normalized into TeX-safe forms before compilation.
 - `book/reverse-engineering-reality-book.pdf` is a release artifact. Rebuild it before publishing
   whenever book chapters or public release materials change.
+
+## License And Patent Policy
+
+The OPH book source and generated book artifact are part of the OPH public
+repository. See the main [LICENSE](../LICENSE) and
+[OPH Open Use And Anti-Patent Covenant](../PATENTS.md).

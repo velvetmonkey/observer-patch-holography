@@ -174,3 +174,9 @@ Current closure split:
 
 The outputs stay under `particles/runs/neutrino/` until an actual OPH-derived
 family-response and Majorana phase theorem exists.
+
+## License And Patent Policy
+
+This particle neutrino surface is part of the OPH public repository. See the
+main [LICENSE](../../../LICENSE) and
+[OPH Open Use And Anti-Patent Covenant](../../../PATENTS.md).

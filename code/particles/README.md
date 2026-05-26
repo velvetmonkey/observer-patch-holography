@@ -257,3 +257,9 @@ The code here feeds the particle paper:
 
 - [deriving_the_particle_zoo_from_observer_consistency.tex](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/paper/deriving_the_particle_zoo_from_observer_consistency.tex)
 - [deriving_the_particle_zoo_from_observer_consistency.pdf](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/paper/deriving_the_particle_zoo_from_observer_consistency.pdf)
+
+## License And Patent Policy
+
+This particle code surface is part of the OPH public repository. See the main
+[LICENSE](../../LICENSE) and
+[OPH Open Use And Anti-Patent Covenant](../../PATENTS.md).
