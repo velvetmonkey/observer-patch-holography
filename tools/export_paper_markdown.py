@@ -33,19 +33,37 @@ DEFAULT_SOURCES = [
     *DEFAULT_EXTRA_PAPERS,
 ]
 BUILD_INFO_NAME = "_build_info.json"
+COMPACT_PAPER_SOURCE = (
+    PAPER_DIR / "recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex"
+)
+COMPACT_MARKDOWN_SOURCE = PAPER_DIR / "tex_fragments" / "PAPER.tex"
+MARKDOWN_SOURCE_OVERRIDES = {
+    COMPACT_PAPER_SOURCE: COMPACT_MARKDOWN_SOURCE,
+}
 
 
 def postprocess_markdown(text: str) -> str:
+    def protect_math_table_pipes(match: re.Match[str]) -> str:
+        body = match.group(1).replace("|", r"\vert{}")
+        return f"$`{body}`$"
+
+    def protect_table_row_pipes(line: str) -> str:
+        if not line.lstrip().startswith("|"):
+            return line
+        return re.sub(r"\$`([^`]*\|[^`]*)`\$", protect_math_table_pipes, line)
+
     text = re.sub(
         r"(\*\*Paper release:\*\* `[^`]+`)(?=\*\*Released:\*\*)",
         r"\1  \n",
         text,
         count=1,
     )
+    text = "\n".join(protect_table_row_pipes(line) for line in text.splitlines())
     return text
 
 
 def export_one(src: Path, dest: Path, pandoc_bin: str) -> None:
+    export_src = MARKDOWN_SOURCE_OVERRIDES.get(src, src)
     subprocess.run(
         [
             pandoc_bin,
@@ -53,15 +71,17 @@ def export_one(src: Path, dest: Path, pandoc_bin: str) -> None:
             "latex",
             "-t",
             "gfm",
-            "--wrap=preserve",
-            src.name,
+            "--wrap=none",
+            export_src.name,
             "-o",
             str(dest),
         ],
         check=True,
-        cwd=src.parent,
+        cwd=export_src.parent,
     )
     dest.write_text(postprocess_markdown(dest.read_text(encoding="utf-8")), encoding="utf-8")
+    if not dest.read_text(encoding="utf-8").strip():
+        raise SystemExit(f"empty markdown export for {src}")
 
 
 def current_release_id() -> str:
