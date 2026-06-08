@@ -21,7 +21,8 @@
     <text x="480" y="161">local algebras and overlap</text>
     <text x="480" y="235">entropy, recovery, and codes</text>
     <text x="480" y="309">modular time and symmetry</text>
-    <text x="480" y="383">P and N_CRC fixed points</text>
+    <text x="480" y="376" font-size="20">P = 1.630968</text>
+    <text x="480" y="398" font-size="20">N_CRC = 3.31e122</text>
     <text x="480" y="457">self-reading public reality</text>
   </g>
 </svg>

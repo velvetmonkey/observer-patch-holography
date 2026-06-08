@@ -21,6 +21,7 @@ TASK_TRACKER_YAML = ROOT / "particles" / "task_tracker.yaml"
 EXACT_NONHADRON_JSON = ROOT / "particles" / "exact_nonhadron_masses.json"
 DEFAULT_OUTPUT = ROOT / "particles" / "particle_mass_derivation_graph.svg"
 PUBLIC_PIXEL_DISPLAY = "1.630968"
+PUBLIC_CAPACITY_DISPLAY = "3.31e122"
 
 WIDTH = 2560
 MARGIN_X = 72
@@ -1240,7 +1241,7 @@ def build_svg(results: Dict[str, Any], tasks: Dict[str, Dict[str, Any]], exact_b
 
     # Header sizes
     intro_lines = [
-        "A top-down map of the OPH particle program: start at the common inputs, move through the sector lanes, and finish at the particle rows printed by the declared code surfaces.",
+        "A top-down map of the OPH particle program: start at the fixed-point closures, move through the sector lanes, and finish at the particle rows printed by the declared code surfaces.",
         "Blue and green regions show implemented derivation surfaces. Orange cards mark named theorem or computation burdens on the public lanes.",
         "This poster is both a reader-facing explainer and a lane-by-lane claim map, so each lane pairs plain-language summaries with the sharper technical boundary.",
     ]
@@ -1260,7 +1261,7 @@ def build_svg(results: Dict[str, Any], tasks: Dict[str, Dict[str, Any]], exact_b
     header_bottom = max(current_y + 112 + intro_height, legend_y + legend_h)
     current_y = header_bottom + 30
 
-    # Inputs section
+    # Fixed-point closure section
     input_label_y = current_y
     current_y += 28
 
@@ -1282,7 +1283,7 @@ def build_svg(results: Dict[str, Any], tasks: Dict[str, Dict[str, Any]], exact_b
         {
             "x": MARGIN_X + axiom_w + input_gap,
             "w": p_w,
-            "title": "Shared Closure Variable: P",
+            "title": "Local Fixed Point: P",
             "body": [f"P = {PUBLIC_PIXEL_DISPLAY}. This scalar is the local pixel ratio selected on the outer/inner closure surface and shared by the electroweak, flavor, and hadron lanes."],
             "fill": COLORS["input_fill"],
             "stroke": COLORS["input_stroke"],
@@ -1290,8 +1291,8 @@ def build_svg(results: Dict[str, Any], tasks: Dict[str, Dict[str, Any]], exact_b
         {
             "x": MARGIN_X + axiom_w + input_gap + p_w + input_gap,
             "w": other_w,
-            "title": "Other Declared Input Surface",
-            "body": [f"log_dim_H = {inputs['log_dim_H']} feeds the neutrino estimate lane. loops = {inputs['loops']} and hadron_profile = {inputs['hadron_profile']} are the settings used by this report."],
+            "title": "Global Fixed Point: N_CRC",
+            "body": [f"N_CRC = {PUBLIC_CAPACITY_DISPLAY}. Cosmic record-capacity closure fixes the Lambda readout; legacy neutrino side settings remain separate from the weighted-cycle theorem lane. loops = {inputs['loops']}; hadron_profile = {inputs['hadron_profile']}."],
             "fill": COLORS["input_fill"],
             "stroke": COLORS["input_stroke"],
         },
@@ -1324,7 +1325,7 @@ def build_svg(results: Dict[str, Any], tasks: Dict[str, Dict[str, Any]], exact_b
     scaffold_y = current_y
     scaffold_w = WIDTH - 2 * MARGIN_X
     scaffold_body = [
-        "Start with the OPH axioms plus the shared closure variable P and the extra input surface used by the neutrino lane.",
+        "Start with the OPH axioms plus the two fixed-point closures P and N_CRC; no extra capacity input is introduced.",
         "Then read each lane from top to bottom: implemented theorem content, named frontier objects, prediction surface, and the particle rows shown on the public table.",
         f"The badge reports {closedish} of {total_rows} tracked rows above continuation / simulation status. Those rows sit on structural, electroweak-closure, secondary quantitative, or selected-class theorem surfaces.",
         "The broader geometric-premise boundary sits above the particle lanes. Three cap-pair extraction witnesses are explicit. The open geometric clause concerns a common floor for the finitely many modular-transport marginals, followed by ordered null cut-pair rigidity.",
@@ -1486,7 +1487,7 @@ def build_svg(results: Dict[str, Any], tasks: Dict[str, Dict[str, Any]], exact_b
             )
         )
 
-    parts.append(render_wrapped_text(MARGIN_X, input_label_y + 20, ["1. Inputs"], font_size=24, fill=COLORS["ink"], weight=700, line_height=26))
+    parts.append(render_wrapped_text(MARGIN_X, input_label_y + 20, ["1. Fixed-point closures"], font_size=24, fill=COLORS["ink"], weight=700, line_height=26))
     for spec in input_specs:
         parts.append(
             draw_box(

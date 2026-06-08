@@ -26,4 +26,5 @@
   <path d="M208 219 C225 150 310 102 390 86" stroke="#2e2a25" stroke-width="5" fill="none" marker-end="url(#arrow)"/>
   <text x="480" y="256" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" fill="#2e2a25" font-weight="700">self-reading</text>
   <text x="480" y="286" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#2e2a25" font-weight="700">universe</text>
+  <text x="480" y="318" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#2e2a25" font-weight="700">N_CRC = 3.31e122</text>
 </svg>

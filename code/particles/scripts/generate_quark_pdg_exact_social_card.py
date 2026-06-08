@@ -126,7 +126,7 @@ def build_svg() -> str:
         )
 
     title = "Observer Patch Holography vs PDG Quark Mass Matches"
-    subtitle = "derived from P = 1.630968 | selected-class quark theorem | PDG cross-section top row"
+    subtitle = "fixed points: P = 1.630968, N_CRC = 3.31e122 | selected-class quark theorem | PDG cross-section top row"
     badge = f"max |Δm| = {_fmt_decimal(max_abs_diff)} GeV"
     footer = f"y_q = sqrt(2) m_q / v | v = {_fmt_decimal(Decimal(v_exact))} GeV | scalar y_q shown to 30 decimals"
 
@@ -136,7 +136,8 @@ def build_svg() -> str:
         (
             "<desc id=\"desc\">A social-card comparison table for the OPH selected-class quark theorem, "
             "showing exact stored OPH running quark masses against the pinned PDG 2025 API reference values, "
-            "plus the scalar Yukawa couplings implied by the same exact mass surface and exact electroweak v.</desc>"
+            "plus the scalar Yukawa couplings implied by the same exact mass surface and exact electroweak v, "
+            "with OPH fixed-point context P = 1.630968 and N_CRC = 3.31e122.</desc>"
         ),
         "<defs>",
         '  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#07111c"/><stop offset="100%" stop-color="#0d1526"/></linearGradient>',

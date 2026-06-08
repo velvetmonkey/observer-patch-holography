@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="800" viewBox="0 0 1600 800" role="img" aria-labelledby="title desc">
 <title id="title">Observer Patch Holography vs PDG Quark Mass Matches</title>
-<desc id="desc">A social-card comparison table for the OPH selected-class quark theorem, showing exact stored OPH running quark masses against the pinned PDG 2025 API reference values, plus the scalar Yukawa couplings implied by the same exact mass surface and exact electroweak v.</desc>
+<desc id="desc">A social-card comparison table for the OPH selected-class quark theorem, showing exact stored OPH running quark masses against the pinned PDG 2025 API reference values, plus the scalar Yukawa couplings implied by the same exact mass surface and exact electroweak v, with OPH fixed-point context P = 1.630968 and N_CRC = 3.31e122.</desc>
 <defs>
   <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#07111c"/><stop offset="100%" stop-color="#0d1526"/></linearGradient>
   <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0d1627"/><stop offset="100%" stop-color="#0b1220"/></linearGradient>
@@ -8,7 +8,7 @@
 </defs>
 <rect x="0" y="0" width="1600" height="800" fill="url(#bg)"/>
 <text x="48" y="82" fill="#f8fbff" font-size="36" text-anchor="start" font-weight="800" font-family="'IBM Plex Sans','Avenir Next','Segoe UI',sans-serif">Observer Patch Holography vs PDG Quark Mass Matches</text>
-<text x="48" y="118" fill="#b9cae3" font-size="20" text-anchor="start" font-weight="400" font-family="'IBM Plex Mono','SFMono-Regular','Consolas',monospace">derived from P = 1.630968 | selected-class quark theorem | PDG cross-section top row</text>
+<text x="48" y="118" fill="#b9cae3" font-size="20" text-anchor="start" font-weight="400" font-family="'IBM Plex Mono','SFMono-Regular','Consolas',monospace">fixed points: P = 1.630968, N_CRC = 3.31e122 | selected-class quark theorem | PDG cross-section top row</text>
 <rect x="1170" y="40" width="374" height="48" fill="url(#badge)" rx="24" opacity="0.98"/>
 <text x="1357" y="71" fill="#06111d" font-size="18" text-anchor="middle" font-weight="800" font-family="'IBM Plex Mono','SFMono-Regular','Consolas',monospace">max |Δm| = 0.00000000000005 GeV</text>
 <rect x="40" y="160" width="930" height="560" fill="url(#panel)" rx="28" stroke="#24364c" stroke-width="1.2"/>
