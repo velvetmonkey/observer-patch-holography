@@ -164,6 +164,14 @@ Node & Output & Immediate internal ingredients & Standard mathematics used & Bra
 \endgroup
 
 The recovered core of this SM/GR derivation paper is D1--D5 together with D7--D9. Within that package, D7 is the bosonic sector-category construction plus compact-gauge reconstruction stage, while D8--D9 are realized-branch results that keep the realized one-generation chiral matter plus one-Higgs package and MAR admissibility inputs explicit. D6 sits outside that recovered core because it requires the external screen-capacity input \(N_{\mathrm{scr}}\). It is the input-dependent local/global theorem stack for the same Einstein branch: D5 leaves the metric term undetermined, D6 closes that same branch once the external screen-capacity input \(N_{\mathrm{scr}}\) and the screen-capacity identification are declared, and the same D6 stack emits the de Sitter static-patch parameter package. D10 is the integrated quantitative-closure branch, and D12 collects phenomenological continuations. The modular-anomaly dark-sector branch belongs to D12: it imports the D6 static-patch scale only as an IR benchmark and does not derive MOND/RAR-style response laws, a controlled galaxy-scale source/response law, or galaxy/cluster phenomenology. The only external continuous input is \(N_{\mathrm{scr}}\) in D6; the local pixel ratio \(P\) belongs to the separate Phase-II closure branch together with descendants built from it.
+
+Cosmology continuations above D6 obey the same firewall. The flat-FLRW reading is allowed only as a
+conditional holonomy statement: spatial curvature is a visible scalar holonomy on a declared FLRW
+branch, and zero curvature is the zero-visible-holonomy branch when no independent curvature charge
+is included in the preserved boundary datum. Inflation replacement, CMB scalar or parity kernels,
+\(H_0/S_8\) prediction, dark/anomaly growth kernels, and baryogenesis require additional
+continuation theorems or likelihood contracts. They are not promoted to recovered-core SM/GR
+outputs by the D6 capacity relation.
 \section{Five Axioms, the Phase-II Pixel Variable, the External Capacity Input, and Theorem Checklist}\label{sec:theorem-ledger}
 
 This section states the theorem checklist and dependency map for this SM/GR derivation paper. The basis used below consists of the five core axioms, the quantitative quantities listed next, the support-visible BW scaling theorem, and the theorem-produced bosonic gauge-reconstruction chain. This is an algebraic-information basis: the screen-net, state, trace/probability, and generalized-entropy structures are starting ingredients of the OPH framework. The purpose is to test whether this basis supports a consistent and comprehensive theory-of-everything reconstruction of the observed effective universe. On the fixed-cutoff local finite-constraint MaxEnt branch, the local-Gibbs form, quasi-local dynamics, Lieb--Robinson propagation control, and endpoint-Lipschitz interval control are internal consequences. Any Dobrushin/local-Gibbs/mixing language used below names only a sufficient fixed-cutoff collar-recoverability mechanism on that branch. It is not an infinite-volume uniqueness claim for the refinement-limit theory. What Axiom~\ref{ax:maxent} fixes under refinement is the realized state-side MaxEnt branch itself. Theorem~\ref{thm:geosubnet} fixes the operational/geometric split at fixed cutoff, and Theorem~\ref{thm:bw} fixes the support-visible scaling-limit cap automorphism, its \(2\pi\) normalization, and the Lorentz-facing geometric cap action on that subnet. Corollary~\ref{cor:n2} then derives the null half-sided modular pair after the null blow-up step, and Lemma~\ref{lem:translation} promotes that pair to the explicit positive null-translation generator on its Stone domain with the affine half-line modular relation. Theorem~\ref{thm:equilibrium} internalizes the fixed-cap generalized-entropy stationarity step for admissible fixed-cap MaxEnt variations on the realized cap-label-preserving MaxEnt family. The compact-gauge realized branch is supplied by Theorem~\ref{thm:mar-witness-landing}. The bounded-interval transport/projective branch is a branch-local construction only where those interval formulas are invoked. Gluing-side path-independent transport is Theorem~\ref{thm:transport-from-gluing}. On the ordinary/central branch the zero obstruction is \([z]_\Sigma=0\); on the genuinely noncentral branch the zero obstruction is \(q_\Sigma=0\), and \(q_\Sigma\ne0\) is routed to the fixed-cutoff higher-gauge sector rather than to ordinary compact-group reconstruction.
@@ -3493,6 +3501,38 @@ t_0=\frac{2}{3H_0\sqrt{\Omega_\Lambda}}
 \]
 \end{remark}
 
+\begin{lemma}[FLRW curvature as visible scalar holonomy]\label{lem:flrw-curvature-holonomy}
+On a homogeneous-isotropic spatial slice with constant sectional curvature \(K\), the small-loop
+holonomy in the \(u\)-\(v\) plane satisfies
+\[
+\operatorname{Hol}_{\Box_{uv}}
+=
+\exp\!\left(KA_\Box J_{uv}+O(A_\Box^{3/2})\right),
+\]
+where \(A_\Box\) is the loop area and \(J_{uv}\) is the infinitesimal rotation generator in that
+two-plane. On a visibly separated OPH refinement system, the refinement-limit scalar spatial
+holonomy vanishes if and only if \(K=0\). Thus the flat FLRW branch is the zero-visible spatial
+holonomy branch.
+\end{lemma}
+
+\begin{proof}
+The displayed formula is the standard infinitesimal holonomy expansion for a connection with
+constant sectional curvature. If \(K=0\), every area-normalized small-loop curvature readout
+vanishes. Conversely, if \(K\ne0\), the area-normalized holonomy converges to \(KJ_{uv}\) in each
+visible two-plane. Visible separation forbids quotienting this nonzero family away as a mere gauge
+representative difference. Homogeneity and isotropy leave no independent scalar spatial-curvature
+obstruction beyond \(K\), so vanishing refinement-limit scalar holonomy forces \(K=0\).
+\end{proof}
+
+\begin{remark}[Flatness is not a D6 output]\label{rem:flrw-holonomy-boundary}
+Lemma~\ref{lem:flrw-curvature-holonomy} only names the OPH meaning of an FLRW flat branch. A
+selection statement needs an additional cosmological continuation hypothesis: the preserved
+cosmological boundary datum must contain no independent curvature charge, and the same-boundary or
+MAR selector must choose the extension with minimal visible geometric obstruction. The lemma by
+itself does not solve the inflationary flatness or horizon problems and does not supply a CMB
+kernel.
+\end{remark}
+
 \begin{theorem}[Cosmological-constant / screen-capacity closure stack]\label{thm:lambda-stack}
 Assume the hypotheses of Corollary~\ref{cor:einstein}, the external input
 \[
@@ -4695,11 +4735,11 @@ Tier & Representative outputs & What would actually falsify the tier \\
 Phase I recovered core (Theorem~\ref{thm:master}; D1--D5, D7--D9) & Confluence of overlap repair, Lorentz kinematics, the Jacobson-type Einstein branch in the stated scaling regime, compact gauge reconstruction in the bosonic branch, the support-visible four-dimensional Euclidean Yang--Mills form and compact-gauge repair gap under the declared compact-gauge branch assumptions, the realized Standard Model quotient chain on the explicit realized matter package, the exact hypercharge lattice on that realized matter package, the realized color triplet \(N_c=3\), the generation count \(N_g=3\), and the product-group consequence of no gauge-mediated proton decay & A mathematical failure in the derivation chain, loss of the Yang--Mills form or exact repair-gap branch conditions, or data that require a different realized gauge quotient, different realized hypercharges, a different color or generation count on the admissible branch, or gauge-mediated proton decay \\
 Phase II input-dependent corollary (D6) & \(\Lambda=\frac{3\pi}{G N_{\mathrm{scr}}}\), \(S_{\mathrm{dS}}=N_{\mathrm{scr}}\), \(r_{\mathrm{dS}}=\sqrt{3/\Lambda}\), and \(t_\Lambda=r_{\mathrm{dS}}/c\) once the screen-capacity identification is made, while any retained capacity-level neutrino side estimate on that input is legacy bookkeeping rather than the weighted-cycle neutrino theorem lane; the observed cosmic age is a downstream FLRW benchmark & Failure of the screen-capacity identification or of the specific global capacity relation. Such a failure would not by itself erase the recovered core \\
 Phase II quantitative-closure branch (D10) & forward transmutation data \(\alpha_U(P)\), \(t_U(P)\), \(t_{\mathrm{tr}}(P)\), pixel-closure gauge-coupling consistency, \(\alpha_i(m_Z)\), the source-locked anchor \(a_0(P)=\alpha_{\mathrm{em}}^{-1}(m_Z^2;P)\), the declared electroweak transport family \((W,Z,\alpha_{\mathrm{em}}^{-1}(q^2),\sin^2\theta_W(q^2),v)\), and the Thomson endpoint \(\alpha_{\mathrm{Th}}^{-1}=137.035999177(21)\) on the OPH plus empirical hadron closure row. The source-side audit trunk emits \(\alpha_{\mathrm{cand}}^{-1}\simeq136.9948351646\) at \(P_{\mathrm{cand}}\simeq1.6309720957\). The endpoint residual table records \(0.0414658610\ldots\) inverse-alpha units at the public endpoint pixel, with \(S_{\mathrm{required}}\simeq0.8954001326\) and \(c_Q\simeq0.6580257599\). Empirical \(e^+e^-\to\mathrm{hadrons}\) input is kept in a separate row class from the source-only theorem & Failure of the integrated quantitative closure once \(P\) and the printed running/matching/scheme conventions are imposed, or failure of the explicit source spectral payload, same-scheme remainder, empirical source disclosure, and interval-certificate records \\
-Phase III phenomenological continuations (D12 and beyond) & Flavor ans\"atze, charged-lepton continuation ans\"atze beyond exact centered readback, texture branches, the weighted-cycle / Majorana-holonomy neutrino branch above the legacy D6 side estimate, further neutrino mass/mixing refinements, dark-sector response laws, heuristic baryogenesis continuations, proton-spin bookkeeping, proton-lifetime estimates beyond the gauge-channel exclusion, black-hole spectroscopy templates, controlled large-\(N_{\mathrm{edge}}\) string/worldsheet effective descriptions, conjectural critical-superstring extensions, and other downstream phenomenology & Retraction of the corresponding continuation only. These branches are not part of the recovered core and their failure is not, by itself, a falsification of relativity-plus-Standard-Model recovery \\
+Phase III phenomenological continuations (D12 and beyond) & Flavor ans\"atze, charged-lepton continuation ans\"atze beyond exact centered readback, texture branches, the weighted-cycle / Majorana-holonomy neutrino branch above the legacy D6 side estimate, further neutrino mass/mixing refinements, dark-sector response laws, CMB/inflation-replacement kernels, \(H_0/S_8\) and growth continuations, heuristic baryogenesis continuations, proton-spin bookkeeping, proton-lifetime estimates beyond the gauge-channel exclusion, black-hole spectroscopy templates, controlled large-\(N_{\mathrm{edge}}\) string/worldsheet effective descriptions, conjectural critical-superstring extensions, and other downstream phenomenology & Retraction of the corresponding continuation only. These branches are not part of the recovered core and their failure is not, by itself, a falsification of relativity-plus-Standard-Model recovery \\
 \end{longtable}
 \endgroup
 
-Phase I is the recovered-core tier, Phase II is adjacent but non-core, and Phase III contains phenomenological continuations. On the exact finite packet-closed quotient branch, the fixed-cutoff consensus surface does define an affine OPH closure map: the schedule-independent normal-form projection pushes forward to a continuous idempotent self-map of the finite packet simplex, its image is exactly the normal-form simplex, and its fixed points are exactly the packets supported on quotient normal forms. Interpretive strange-loop discussions and the full habitat theorem sit outside these tiers: the paper does not prove a habitat-level closure map, a nonempty observer-supporting invariant sector, or uniqueness/stability theorems for arbitrary OPH state-and-law data beyond the finite packet-quotient branch.
+Phase I is the recovered-core tier, Phase II is adjacent but non-core, and Phase III contains phenomenological continuations. The D6 row permits the conditional holonomy reading of FLRW flatness in Lemma~\ref{lem:flrw-curvature-holonomy}; it does not promote an inflation replacement, CMB likelihood, or high-\(H_0\) branch. Current low-\(H_0\), Planck-like \(S_8\) dark/anomaly rows are therefore diagnostic continuation checks until a homogeneous anomaly-load selector and growth kernels are emitted before fitting cosmological data. On the exact finite packet-closed quotient branch, the fixed-cutoff consensus surface does define an affine OPH closure map: the schedule-independent normal-form projection pushes forward to a continuous idempotent self-map of the finite packet simplex, its image is exactly the normal-form simplex, and its fixed points are exactly the packets supported on quotient normal forms. Interpretive strange-loop discussions and the full habitat theorem sit outside these tiers: the paper does not prove a habitat-level closure map, a nonempty observer-supporting invariant sector, or uniqueness/stability theorems for arbitrary OPH state-and-law data beyond the finite packet-quotient branch.
 
 \subsection{Recovered-core discriminators}
 
