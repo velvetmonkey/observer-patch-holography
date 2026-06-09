@@ -87,7 +87,7 @@ STATUS_BAR = {
 STATUS_TEXT = {
     "structural": "structural",
     "calibration": "electroweak closure",
-    "candidate_trunk_compare_only": "electroweak compare surface",
+    "candidate_trunk_compare_only": "EW compare",
     "secondary_quantitative": "secondary",
     "declared_surface_theorem": "declared-surface theorem",
     "target_anchored_witness_no_go_boundary": "witness boundary",
@@ -131,7 +131,7 @@ GROUP_ROW_TEXT = {
 STATUS_EXPLAINER = {
     "structural": "exact structural theorem surface",
     "calibration": "implemented P-driven electroweak quantitative-closure surface",
-    "candidate_trunk_compare_only": "P-root candidate compare surface",
+    "candidate_trunk_compare_only": "compare-only W/Z validation surface",
     "secondary_quantitative": "quantitative secondary branch with a separate proof package",
     "declared_surface_theorem": "theorem surface on declared running and matching conventions",
     "target_anchored_witness_no_go_boundary": "target-anchored witness with a corpus-limited no-go boundary",
@@ -143,7 +143,7 @@ STATUS_EXPLAINER = {
 STATUS_NEXT_STEP = {
     "structural": "This row belongs to the structural zero surface.",
     "calibration": "This row belongs to the implemented P-driven electroweak closure surface.",
-    "candidate_trunk_compare_only": "This row belongs to the P-root candidate compare surface.",
+    "candidate_trunk_compare_only": "This row belongs to the compare-only W/Z validation surface.",
     "secondary_quantitative": "This row belongs to a quantitative secondary branch with its own proof surface.",
     "declared_surface_theorem": "This row belongs to a theorem surface on declared running and matching conventions.",
     "target_anchored_witness_no_go_boundary": "This row belongs to a target-anchored witness with a corpus-limited no-go boundary.",
@@ -1327,7 +1327,7 @@ def build_svg(results: Dict[str, Any], tasks: Dict[str, Dict[str, Any]], exact_b
     scaffold_body = [
         "Start with the OPH axioms plus the two fixed-point closures P and N_CRC; no extra capacity input is introduced.",
         "Then read each lane from top to bottom: implemented theorem content, named frontier objects, prediction surface, and the particle rows shown on the public table.",
-        f"The badge reports {closedish} of {total_rows} tracked rows above continuation / simulation status. Those rows sit on structural, electroweak-closure, secondary quantitative, or selected-class theorem surfaces.",
+        f"The badge reports {closedish} of {total_rows} tracked rows above continuation / simulation status. Those rows sit on structural, electroweak-compare, secondary quantitative, or selected-class theorem surfaces.",
         "The broader geometric-premise boundary sits above the particle lanes. Three cap-pair extraction witnesses are explicit. The open geometric clause concerns a common floor for the finitely many modular-transport marginals, followed by ordered null cut-pair rigidity.",
     ]
     scaffold_h = estimate_box_height(
@@ -1390,8 +1390,8 @@ def build_svg(results: Dict[str, Any], tasks: Dict[str, Dict[str, Any]], exact_b
             "Status colors",
             [
                 "structural = massless or exact structural rows",
-                "electroweak closure = produced by the implemented P-driven electroweak chain",
-                "secondary = quantitative branch built on an earlier electroweak-closure layer",
+                "electroweak compare = W/Z validation on the implemented P-driven electroweak chain",
+                "secondary = quantitative branch built on a declared electroweak layer",
                 "selected-class theorem = theorem-grade closure on the public quark frame class selected by P",
                 "continuation = declared continuation or witness surface",
                 "simulation = execution-bound lane with backend and systematics prerequisites",
