@@ -21,6 +21,7 @@
   </g>
   <g font-family="Arial, sans-serif" fill="#2e2a25" font-weight="700">
     <text x="350" y="256" font-size="24">bulk event</text>
-    <text x="360" y="468" font-size="24">boundary entries agree by correlation, not by volume storage</text>
+    <text x="480" y="456" text-anchor="middle" font-size="21">boundary entries agree by correlation,</text>
+    <text x="480" y="482" text-anchor="middle" font-size="21">not by volume storage</text>
   </g>
 </svg>

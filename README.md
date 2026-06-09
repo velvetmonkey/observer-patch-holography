@@ -46,12 +46,21 @@ $$
 for the global screen capacity, where $F(N)$ is the active horizon capacity read
 back by observers inside the universe supplied with capacity $N$. The finite
 count representation is
-$N_\star=\operatorname{MAR}\arg\max_N(\log|\Omega^{\mathrm{sc}}_N|-N)$.
+
+$$
+N_\star=\operatorname{MAR}\,\operatorname*{arg\,max}_{N}
+\bigl(\log|\Omega^{\mathrm{sc}}_N|-N\bigr)
+$$
+
 Informally, $N_{\mathrm{CRC}}$ is the unique capacity where the universe reads
 back its own boundary without deficit or slack. The cosmological readout is
-$\Lambda_{\mathrm{CRC}}=3\pi/(G N_{\mathrm{CRC}})$. All other OPH quantitative
-readouts sit downstream of these two closure values and the recovered structural
-branch.
+
+$$
+\Lambda_{\mathrm{CRC}}=\frac{3\pi}{G N_{\mathrm{CRC}}}
+$$
+
+All other OPH quantitative readouts sit downstream of these two closure values
+and the recovered structural branch.
 
 In the informal simulation-language reading, $P$ links the pixel area of the
 simulating-side screen to the electromagnetic interaction, i.e. observation, in
@@ -272,18 +281,19 @@ cross-section top-mass convention. The weighted-cycle neutrino branch emits
 $(0.017454720257976796, 0.019481987935919015, 0.05307522145074924)\,\mathrm{eV}$ on its
 declared branch.
 
-## Local Unification Surface
+## Two-Constant Unification Surface
 
-The local unification surface is organized around the public pixel ratio
-$P\simeq1.6309682094$ and one local cell area. On that surface the same scale touches the
-electroweak comparison lane, the Higgs lane, the gravity-side entropy relation,
-and the familiar unit readout for meters, seconds, GeV, and Kelvin. The diagram
-below shows how those pieces sit on one scale. The detailed formulas and claim
-tiers live in the papers.
+The quantitative surface is organized around two closure values rather than one
+local input: the pixel fixed point $P\simeq1.6309682094$ and the global
+record-capacity fixed point $N_{\mathrm{CRC}}\simeq3.31\times10^{122}$. The
+$P$ branch feeds the gravity readout, the Ward-projected electromagnetic
+channel, and the scoped particle-mass rows; the $N_{\mathrm{CRC}}$ branch feeds
+the cosmological-constant readout. The detailed formulas and claim tiers live in
+the papers.
 
 <p align="center">
   <a href="assets/OPH_Unification_Diagram.svg" target="_blank" rel="noopener noreferrer">
-    <img src="assets/OPH_Unification_Diagram.svg?v=20260415" alt="OPH unification diagram" width="92%">
+    <img src="assets/OPH_Unification_Diagram.svg?v=20260609" alt="OPH unification diagram" width="92%">
   </a>
 </p>
 

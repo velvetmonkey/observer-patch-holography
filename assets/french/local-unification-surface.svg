@@ -1,22 +1,25 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 920" role="img" aria-labelledby="title desc">
-  <title id="title">Surface locale d'unification OPH</title>
-  <desc id="desc">Schéma montrant comment l'entrée UV locale calibrée P organise la vitesse causale structurelle c, les masses bosoniques et du Higgs, et le couplage de Newton du côté gravitationnel sur une même surface locale.</desc>
+  <title id="title">Surface d'unification OPH à deux fermetures</title>
+  <desc id="desc">Schéma français de la surface quantitative OPH actuelle. Le point fixe local P alimente la gravité, le canal électromagnétique et les lignes de masses de particules. Le point fixe global N_CRC alimente la constante cosmologique.</desc>
+
   <defs>
     <style>
       .bg { fill: #f7f3ea; }
       .title { font: 700 34px 'IBM Plex Sans', 'Avenir Next', 'Helvetica Neue', Arial, sans-serif; fill: #17212b; }
       .subtitle { font: 500 16px 'IBM Plex Sans', 'Avenir Next', 'Helvetica Neue', Arial, sans-serif; fill: #405162; }
-      .lane { font: 700 18px 'IBM Plex Sans', 'Avenir Next', 'Helvetica Neue', Arial, sans-serif; fill: #17212b; letter-spacing: 0.08em; text-transform: uppercase; }
-      .box { rx: 22; ry: 22; stroke-width: 2.5; }
-      .boxtext { font: 600 18px 'IBM Plex Sans', 'Avenir Next', 'Helvetica Neue', Arial, sans-serif; fill: #17212b; }
+      .lane { font: 700 17px 'IBM Plex Sans', 'Avenir Next', 'Helvetica Neue', Arial, sans-serif; fill: #17212b; letter-spacing: 0.08em; text-transform: uppercase; }
+      .box { rx: 18; ry: 18; stroke-width: 2.5; }
+      .boxtext { font: 700 18px 'IBM Plex Sans', 'Avenir Next', 'Helvetica Neue', Arial, sans-serif; fill: #17212b; }
       .small { font: 500 15px 'IBM Plex Sans', 'Avenir Next', 'Helvetica Neue', Arial, sans-serif; fill: #405162; }
-      .value { font: 700 23px 'IBM Plex Sans', 'Avenir Next', 'Helvetica Neue', Arial, sans-serif; fill: #17212b; }
+      .value { font: 700 24px 'IBM Plex Sans', 'Avenir Next', 'Helvetica Neue', Arial, sans-serif; fill: #17212b; }
       .formula { font: 600 16px 'IBM Plex Sans', 'Avenir Next', 'Helvetica Neue', Arial, sans-serif; fill: #17212b; }
+      .muted { fill: #6a7280; }
       .chip { rx: 14; ry: 14; fill: #ffffff; stroke: #c9bda8; stroke-width: 1.5; }
       .chiptext { font: 600 14px 'IBM Plex Sans', 'Avenir Next', 'Helvetica Neue', Arial, sans-serif; fill: #5a4a39; }
       .arrow-blue { stroke: #2f6ea6; }
       .arrow-green { stroke: #31784f; }
-      .arrow-red { stroke: #9b3f30; }
+      .arrow-purple { stroke: #6f4aa3; }
+      .arrow-gold { stroke: #a56c12; }
       .arrow-dashed { stroke-dasharray: 10 8; }
     </style>
     <marker id="arrowheadBlue" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
@@ -25,111 +28,82 @@
     <marker id="arrowheadGreen" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
       <path d="M0,0 L10,5 L0,10 z" fill="#31784f"/>
     </marker>
-    <marker id="arrowheadRed" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
-      <path d="M0,0 L10,5 L0,10 z" fill="#9b3f30"/>
+    <marker id="arrowheadPurple" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6f4aa3"/>
+    </marker>
+    <marker id="arrowheadGold" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#a56c12"/>
     </marker>
   </defs>
 
   <rect class="bg" x="0" y="0" width="1400" height="920"/>
 
-  <text class="title" x="700" y="56" text-anchor="middle">Surface Locale d'Unification OPH</text>
-  <text class="subtitle" x="700" y="86" text-anchor="middle">Une entree UV locale calibree organise la vitesse causale structurelle, les masses bosoniques et du Higgs, et le couplage de Newton du cote gravitationnel.</text>
+  <text class="title" x="700" y="54" text-anchor="middle">Surface d'unification OPH à deux fermetures</text>
+  <text class="subtitle" x="700" y="86" text-anchor="middle">P ferme la cellule locale ; N_CRC ferme l'horizon global. Les lectures quantitatives descendent de la branche appropriée.</text>
 
-  <text class="lane" x="180" y="148" text-anchor="middle">Voie Structurelle</text>
-  <text class="lane" x="700" y="148" text-anchor="middle">Voie Bosonique</text>
-  <text class="lane" x="1170" y="148" text-anchor="middle">Voie Gravitationnelle</text>
+  <rect class="box" x="120" y="124" width="500" height="114" fill="#fff6e3" stroke="#a56c12"/>
+  <text class="boxtext" x="370" y="158" text-anchor="middle">Fermeture locale · constante de pixel</text>
+  <text class="value" x="370" y="194" text-anchor="middle">P ≃ 1.630968</text>
+  <text class="small" x="370" y="220" text-anchor="middle">P = φ + √π / A_T(P)</text>
 
-  <rect class="box" x="530" y="164" width="340" height="92" fill="#fff6e3" stroke="#a56c12"/>
-  <text class="boxtext" x="700" y="202" text-anchor="middle">P fixe l'echelle UV locale</text>
-  <text class="value" x="700" y="235" text-anchor="middle">a_cell</text>
+  <rect class="box" x="780" y="124" width="500" height="114" fill="#efe8fb" stroke="#6f4aa3"/>
+  <text class="boxtext" x="1030" y="158" text-anchor="middle">Fermeture globale · capacité d'horizon</text>
+  <text class="value" x="1030" y="194" text-anchor="middle">N_CRC ≃ 3.31 × 10^122</text>
+  <text class="small" x="1030" y="220" text-anchor="middle">N_CRC = F(N_CRC)</text>
 
-  <rect class="box" x="70" y="206" width="220" height="82" fill="#eef6ff" stroke="#2f6ea6"/>
-  <text class="boxtext" x="180" y="242" text-anchor="middle">Flot modulaire geometrique</text>
-  <text class="small" x="180" y="266" text-anchor="middle">sur le sous-reseau geometrique premier</text>
+  <rect class="box" x="250" y="276" width="330" height="82" fill="#fffdf7" stroke="#a56c12"/>
+  <text class="boxtext" x="415" y="310" text-anchor="middle">Branche P</text>
+  <text class="small" x="415" y="334" text-anchor="middle">α_U, transport électromagnétique, v et a_cell</text>
 
-  <rect class="box" x="70" y="334" width="220" height="82" fill="#eef6ff" stroke="#2f6ea6"/>
-  <text class="boxtext" x="180" y="370" text-anchor="middle">Vitesse causale invariante</text>
-  <text class="small" x="180" y="394" text-anchor="middle">sortie lorentzienne structurelle</text>
+  <rect class="box" x="820" y="276" width="330" height="82" fill="#fbf8ff" stroke="#6f4aa3"/>
+  <text class="boxtext" x="985" y="310" text-anchor="middle">Branche N_CRC</text>
+  <text class="small" x="985" y="334" text-anchor="middle">capacité d'enregistrement observable</text>
 
-  <rect class="box" x="70" y="470" width="220" height="92" fill="#ffffff" stroke="#2f6ea6"/>
-  <text class="boxtext" x="180" y="506" text-anchor="middle">LocalFamiliarUnitReadoutPackage</text>
-  <text class="small" x="180" y="532" text-anchor="middle">pont vers les unites locales d'affichage</text>
+  <line x1="370" y1="238" x2="415" y2="274" class="arrow-gold" stroke-width="4" marker-end="url(#arrowheadGold)"/>
+  <line x1="1030" y1="238" x2="985" y2="274" class="arrow-purple" stroke-width="4" marker-end="url(#arrowheadPurple)"/>
 
-  <rect class="box" x="48" y="624" width="264" height="112" fill="#dff1ff" stroke="#2f6ea6"/>
-  <text class="boxtext" x="180" y="668" text-anchor="middle">c</text>
-  <text class="value" x="180" y="704" text-anchor="middle">299792458 m/s</text>
+  <text class="lane" x="230" y="430" text-anchor="middle">Gravité</text>
+  <text class="lane" x="700" y="430" text-anchor="middle">Particules</text>
+  <text class="lane" x="1160" y="430" text-anchor="middle">Cosmologie</text>
 
-  <rect class="box" x="542" y="316" width="316" height="82" fill="#eefaf1" stroke="#31784f"/>
-  <text class="boxtext" x="700" y="352" text-anchor="middle">alpha_U</text>
-  <text class="small" x="700" y="376" text-anchor="middle">couplage a l'echelle d'unification</text>
+  <line x1="415" y1="358" x2="230" y2="452" class="arrow-blue" stroke-width="4" marker-end="url(#arrowheadBlue)"/>
+  <line x1="415" y1="358" x2="700" y2="452" class="arrow-green" stroke-width="4" marker-end="url(#arrowheadGreen)"/>
+  <line x1="985" y1="358" x2="1160" y2="452" class="arrow-purple" stroke-width="4" marker-end="url(#arrowheadPurple)"/>
 
-  <rect class="box" x="542" y="444" width="316" height="82" fill="#eefaf1" stroke="#31784f"/>
-  <text class="boxtext" x="700" y="480" text-anchor="middle">(t_U, t_tr)</text>
-  <text class="small" x="700" y="504" text-anchor="middle">paire de transmutation</text>
+  <rect class="box" x="80" y="454" width="300" height="92" fill="#eef6ff" stroke="#2f6ea6"/>
+  <text class="boxtext" x="230" y="490" text-anchor="middle">Pont d'entropie de bord</text>
+  <text class="formula" x="230" y="520" text-anchor="middle">lbar_shared = P / 4</text>
 
-  <rect class="box" x="542" y="572" width="316" height="82" fill="#eefaf1" stroke="#31784f"/>
-  <text class="boxtext" x="700" y="608" text-anchor="middle">v</text>
-  <text class="small" x="700" y="632" text-anchor="middle">echelle electrofaible</text>
+  <rect class="box" x="80" y="596" width="300" height="112" fill="#dff1ff" stroke="#2f6ea6"/>
+  <text class="boxtext" x="230" y="638" text-anchor="middle">Constante de Newton</text>
+  <text class="value" x="230" y="674" text-anchor="middle">G ≃ 6.6743×10^-11</text>
 
-  <rect class="box" x="476" y="722" width="210" height="112" fill="#dff5e7" stroke="#31784f"/>
-  <text class="boxtext" x="581" y="764" text-anchor="middle">M_W</text>
-  <text class="value" x="581" y="800" text-anchor="middle">80.377 GeV</text>
+  <rect class="box" x="520" y="454" width="360" height="82" fill="#eefaf1" stroke="#31784f"/>
+  <text class="boxtext" x="700" y="488" text-anchor="middle">Canal électromagnétique de Ward</text>
+  <text class="value" x="700" y="516" text-anchor="middle">α^-1(0) = 137.035999177</text>
 
-  <rect class="box" x="714" y="722" width="210" height="112" fill="#dff5e7" stroke="#31784f"/>
-  <text class="boxtext" x="819" y="764" text-anchor="middle">M_Z</text>
-  <text class="value" x="819" y="800" text-anchor="middle">91.1879780919 GeV</text>
+  <rect class="box" x="520" y="572" width="360" height="78" fill="#dff5e7" stroke="#31784f"/>
+  <text class="boxtext" x="700" y="604" text-anchor="middle">Higgs et quarks</text>
+  <text class="small" x="700" y="628" text-anchor="middle">Higgs/top théorème ; quarks sur f_P public</text>
 
-  <rect class="box" x="936" y="428" width="296" height="98" fill="#f7ece7" stroke="#9b3f30"/>
-  <text class="boxtext" x="1084" y="466" text-anchor="middle">ellbar_SU2(t2_run) + ellbar_SU3(t3_run)</text>
-  <text class="formula" x="1084" y="498" text-anchor="middle">= P / 4</text>
+  <rect class="box" x="520" y="684" width="360" height="90" fill="#f2f4f7" stroke="#8c95a3"/>
+  <text class="boxtext muted" x="700" y="716" text-anchor="middle">Lignes encadrées</text>
+  <text class="small" x="700" y="740" text-anchor="middle">W/Z comparatif ; leptons chargés en gap de continuation</text>
 
-  <rect class="box" x="936" y="576" width="296" height="98" fill="#f7ece7" stroke="#9b3f30"/>
-  <text class="boxtext" x="1084" y="612" text-anchor="middle">ellbar_shared</text>
-  <text class="small" x="1084" y="638" text-anchor="middle">Tr(rho_C L_C) / N_Sigma</text>
+  <rect class="box" x="1010" y="454" width="300" height="92" fill="#efe8fb" stroke="#6f4aa3"/>
+  <text class="boxtext" x="1160" y="490" text-anchor="middle">Constante cosmologique</text>
+  <text class="value" x="1160" y="520" text-anchor="middle">Λ ≃ 1.1×10^-52 m^-2</text>
 
-  <rect class="box" x="948" y="726" width="272" height="108" fill="#fde7e2" stroke="#9b3f30"/>
-  <text class="boxtext" x="1084" y="764" text-anchor="middle">G = a_cell / (4 ellbar_shared)</text>
-  <text class="value" x="1084" y="802" text-anchor="middle">6.674299995910528e-11</text>
+  <rect class="box" x="1010" y="596" width="300" height="82" fill="#fbf8ff" stroke="#6f4aa3"/>
+  <text class="boxtext" x="1160" y="628" text-anchor="middle">Énergie noire</text>
+  <text class="small" x="1160" y="652" text-anchor="middle">w = -1 si N_CRC est verrouillé</text>
 
-  <rect class="box" x="936" y="246" width="296" height="104" fill="#eefaf1" stroke="#31784f"/>
-  <text class="boxtext" x="1084" y="284" text-anchor="middle">sigma_D11,HT</text>
-  <text class="formula" x="1084" y="318" text-anchor="middle">alpha_U cos(2 theta_W0) / sqrt(pi)</text>
+  <line x1="230" y1="546" x2="230" y2="594" class="arrow-blue" stroke-width="4" marker-end="url(#arrowheadBlue)"/>
+  <line x1="700" y1="536" x2="700" y2="570" class="arrow-green" stroke-width="4" marker-end="url(#arrowheadGreen)"/>
+  <line x1="700" y1="650" x2="700" y2="682" class="arrow-dashed" stroke="#8c95a3" stroke-width="3" marker-end="url(#arrowheadGreen)"/>
+  <line x1="1160" y1="546" x2="1160" y2="594" class="arrow-purple" stroke-width="4" marker-end="url(#arrowheadPurple)"/>
 
-  <rect class="box" x="936" y="92" width="296" height="104" fill="#dff5e7" stroke="#31784f"/>
-  <text class="boxtext" x="1084" y="132" text-anchor="middle">M_H</text>
-  <text class="value" x="1084" y="168" text-anchor="middle">125.1995304097179 GeV</text>
-
-  <line x1="700" y1="256" x2="700" y2="314" class="arrow-green" stroke-width="4" marker-end="url(#arrowheadGreen)"/>
-  <line x1="700" y1="398" x2="700" y2="442" class="arrow-green" stroke-width="4" marker-end="url(#arrowheadGreen)"/>
-  <line x1="700" y1="526" x2="700" y2="570" class="arrow-green" stroke-width="4" marker-end="url(#arrowheadGreen)"/>
-  <line x1="644" y1="654" x2="604" y2="720" class="arrow-green" stroke-width="4" marker-end="url(#arrowheadGreen)"/>
-  <line x1="756" y1="654" x2="796" y2="720" class="arrow-green" stroke-width="4" marker-end="url(#arrowheadGreen)"/>
-
-  <line x1="858" y1="356" x2="936" y2="318" class="arrow-green" stroke-width="4" marker-end="url(#arrowheadGreen)"/>
-  <line x1="1084" y1="246" x2="1084" y2="198" class="arrow-green" stroke-width="4" marker-end="url(#arrowheadGreen)"/>
-
-  <line x1="870" y1="210" x2="1084" y2="210" class="arrow-red" stroke-width="4" marker-end="url(#arrowheadRed)"/>
-  <line x1="1084" y1="350" x2="1084" y2="426" class="arrow-red" stroke-width="4" marker-end="url(#arrowheadRed)"/>
-  <line x1="1084" y1="526" x2="1084" y2="574" class="arrow-red" stroke-width="4" marker-end="url(#arrowheadRed)"/>
-  <line x1="1084" y1="674" x2="1084" y2="724" class="arrow-red" stroke-width="4" marker-end="url(#arrowheadRed)"/>
-
-  <line x1="180" y1="288" x2="180" y2="332" class="arrow-blue" stroke-width="4" marker-end="url(#arrowheadBlue)"/>
-  <line x1="180" y1="416" x2="180" y2="468" class="arrow-blue" stroke-width="4" marker-end="url(#arrowheadBlue)"/>
-  <line x1="180" y1="562" x2="180" y2="622" class="arrow-blue" stroke-width="4" marker-end="url(#arrowheadBlue)"/>
-  <line x1="530" y1="228" x2="290" y2="512" class="arrow-blue arrow-dashed" stroke-width="3.5" marker-end="url(#arrowheadBlue)"/>
-
-  <rect class="chip" x="148" y="842" width="232" height="34"/>
-  <text class="chiptext" x="264" y="864" text-anchor="middle">LocalFamiliarUnitReadoutPackage</text>
-
-  <rect class="chip" x="394" y="842" width="216" height="34"/>
-  <text class="chiptext" x="502" y="864" text-anchor="middle">SharedEdgeEntropyBridge</text>
-
-  <rect class="chip" x="624" y="842" width="244" height="34"/>
-  <text class="chiptext" x="746" y="864" text-anchor="middle">StrictClassicalBranchReleaseClause</text>
-
-  <rect class="chip" x="882" y="842" width="232" height="34"/>
-  <text class="chiptext" x="998" y="864" text-anchor="middle">EWTargetFreeRepairChartIdentity_D10</text>
-
-  <rect class="chip" x="1128" y="842" width="224" height="34"/>
-  <text class="chiptext" x="1240" y="864" text-anchor="middle">D11LiveForwardExactHiggsPromotion</text>
+  <rect class="box" x="220" y="806" width="960" height="62" fill="#ffffff" stroke="#c9bda8"/>
+  <text class="boxtext" x="700" y="832" text-anchor="middle">Deux fermetures, une surface quantitative</text>
+  <text class="small" x="700" y="856" text-anchor="middle">P porte les lectures locales ; N_CRC porte la fermeture cosmologique. Aucune des deux n'est un paramètre ajusté.</text>
 </svg>

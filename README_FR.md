@@ -192,14 +192,20 @@ contraintes de symétrie et une structure de régulateur.
 La discussion d'échelle a deux surfaces. La branche cosmologique utilise le point fixe unique de fermeture des enregistrements cosmiques : $N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}})$, où la capacité d'horizon fournie et la capacité relue par les observateurs coïncident. La densité $\log|\Omega^{\mathrm{sc}}_N|-N$ est la représentation par comptage fini de cette cible. Sur la branche observée, ce point fixe est la capacité entropique de Sitter. Pour la constante cosmologique observée, le ratio nu d'aire d'horizon vaut environ $1.05\times10^{122}$, tandis que la capacité entropique utilisée par l'OPH vaut environ $3.31\times10^{122}$. Le ratio local de pixel $P$ est l'aire d'une cellule d'écran en unités de Planck. La même cellule d'écran est décrite deux fois : vue de l'extérieur comme un pixel situé légèrement au-dessus de l'équilibre auto-similaire au nombre d'or, et vue de l'intérieur comme la plus petite échelle d'observation électromagnétique disponible pour les observateurs de l'univers encodé.
 Le papier de synthèse écrit cette autoréférence comme un problème de point fixe. Le calcul de structure fine part de l'équilibre entropique au nombre d'or et de la normalisation gaussienne de bord, puis transporte l'ancre électrofaible jusqu'au point de Thomson. La surface publique utilise $P\simeq1.6309682094$. La lecture donne $\alpha^{-1}(0)=137.035999177(21)$ et $\alpha(0)\simeq0.00729735256433$. Le même pixel local porte la gravité, la structure fine, la jauge réalisée, les lignes de masses particules, les enregistrements et la synchronisation des observateurs.
 
-## Surface locale d'unification
+## Surface d'unification à deux constantes
 
-L'OPH place une surface locale d'unification autour du pixel public $P\simeq1.6309682094$. La même échelle porte la voie électrofaible en comparaison, la voie Higgs ainsi que la voie entropique gravitationnelle, tandis que la géométrie lorentzienne fournit la vitesse causale invariante et que la couche locale de lecture fournit l'affichage SI. Les formules détaillées vivent dans les papiers.
-Sur la surface publique des constantes, $\hbar$ et $k_B$ appartiennent à cette couche aval de lecture en unités familières plutôt que d'apparaître comme des constantes OPH émises de manière autonome.
+La surface quantitative de l'OPH s'organise autour de deux valeurs de fermeture
+plutôt qu'une seule entrée locale : le point fixe de pixel
+$P\simeq1.6309682094$ et le point fixe global de capacité d'enregistrement
+$N_{\mathrm{CRC}}\simeq3.31\times10^{122}$. La branche $P$ alimente la lecture
+gravitationnelle, le canal électromagnétique projeté par Ward et les lignes
+encadrées de masses de particules ; la branche $N_{\mathrm{CRC}}$ alimente la
+lecture de la constante cosmologique. Les formules détaillées et les niveaux de
+revendication vivent dans les papiers.
 
 <p align="center">
   <a href="assets/OPH_Unification_Diagram.svg" target="_blank" rel="noopener noreferrer">
-    <img src="assets/OPH_Unification_Diagram.svg?v=20260415" alt="Schéma d'unification OPH" width="92%">
+    <img src="assets/OPH_Unification_Diagram.svg?v=20260609" alt="Schéma d'unification OPH" width="92%">
   </a>
 </p>
 

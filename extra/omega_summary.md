@@ -371,7 +371,8 @@ The following files give the theory and engineering background for this summary:
 </p>
 
 <p align="center"><sub>
-The OPH unification diagram shows how local screen structure connects the physics branches.
+The OPH unification diagram shows how the local pixel fixed point and the global
+record-capacity fixed point feed their branch-specific physics readouts.
 </sub></p>
 
 <p align="center">
