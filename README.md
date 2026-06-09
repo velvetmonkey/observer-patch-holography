@@ -48,7 +48,7 @@ back by observers inside the universe supplied with capacity $N$. The finite
 count representation is
 
 $$
-N_\star=\operatorname{MAR}\,\operatorname*{arg\,max}_{N}
+N_\star=\mathrm{MAR}\,\mathrm{argmax}_{N}
 \bigl(\log|\Omega^{\mathrm{sc}}_N|-N\bigr)
 $$
 

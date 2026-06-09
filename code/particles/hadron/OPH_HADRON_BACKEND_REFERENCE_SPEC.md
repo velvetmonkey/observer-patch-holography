@@ -47,7 +47,7 @@ Use the isotropic Wilson plaquette gauge action
 \[
 S_g(U;\beta)
 =
-\beta \sum_p \left(1 - \frac{1}{3}\Re\operatorname{Tr} U_p\right).
+\beta \sum_p \left(1 - \frac{1}{3}\Re\mathrm{Tr} U_p\right).
 \]
 
 Concrete conventions:
@@ -183,7 +183,7 @@ Export `pi_iso(t)` as the real zero-momentum projected connected correlator
 C_\pi(t; s)
 =
 \sum_{\mathbf x}
-\Re\operatorname{tr}_{c,\mathrm{spin}}
+\Re\mathrm{tr}_{c,\mathrm{spin}}
 \left[\gamma_5 S_l(x;s)\gamma_5 S_l(s;x)\right].
 \]
 

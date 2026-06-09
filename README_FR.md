@@ -35,7 +35,7 @@ $$
 pour la capacité globale de l'écran, où $F(N)$ est la capacité active de
 l'horizon relue par les observateurs à l'intérieur de l'univers fourni avec la
 capacité $N$. La représentation par comptage fini est
-$N_\star=\operatorname{MAR}\arg\max_N(\log|\Omega^{\mathrm{sc}}_N|-N)$.
+$N_\star=\mathrm{MAR}\,\mathrm{argmax}_N(\log|\Omega^{\mathrm{sc}}_N|-N)$.
 Intuitivement, $N_{\mathrm{CRC}}$ est l'unique capacité où l'univers relit sa
 propre frontière sans déficit ni capacité inerte. La lecture cosmologique est
 $\Lambda_{\mathrm{CRC}}=3\pi/(G N_{\mathrm{CRC}})$. Tous les autres affichages

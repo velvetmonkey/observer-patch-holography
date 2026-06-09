@@ -27,7 +27,7 @@ $$
 
 Here $F(N)$ is the active horizon capacity read back by observers inside the
 universe supplied with capacity $N$. The count representation is
-$N_\star=\operatorname{MAR}\arg\max_N(\log|\Omega^{\mathrm{sc}}_N|-N)$.
+$N_\star=\mathrm{MAR}\,\mathrm{argmax}_N(\log|\Omega^{\mathrm{sc}}_N|-N)$.
 Informally, $N_{\mathrm{CRC}}$ is the unique capacity where the universe reads
 back its own boundary without deficit or slack. The cosmological constant is
 $\Lambda_{\mathrm{CRC}}=3\pi/(G N_{\mathrm{CRC}})$. Everything else in the

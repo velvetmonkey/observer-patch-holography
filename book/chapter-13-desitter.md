@@ -225,7 +225,7 @@ space size:
 $$
 \Pi(N)=|\Omega^{\mathrm{sc}}_N|e^{-N},
 \qquad
-N_\star=\operatorname{MAR}\arg\max_N\left(\log|\Omega^{\mathrm{sc}}_N|-N\right).
+N_\star=\mathrm{MAR}\,\mathrm{argmax}_N\left(\log|\Omega^{\mathrm{sc}}_N|-N\right).
 $$
 
 Equivalently, with $\ell(N)=\log|\Omega^{\mathrm{sc}}_N|-N$, the OPH-derived
