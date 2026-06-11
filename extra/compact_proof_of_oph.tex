@@ -373,9 +373,9 @@ is \(E_{\rm cell}\), the unified-coupling record \(\mathcal R_U\) emits
   =
   \exp\!\left[-\frac{2\pi}{4\alpha_U(P_\star)}\right].
 \]
-The Higgs mass is fixed by the D10/D11 normal-form branch equations.  A free
-bare scalar parameter is absent from this proof object.  The detailed
-hierarchy and Higgs/top records live in O1 and O5.}
+The Higgs mass is fixed by the branch equations recorded in the particle paper,
+cited as O5 in Appendix A.  A free bare scalar parameter is absent from this
+proof object.  The detailed hierarchy and Higgs/top records live in O1 and O5.}
 
 The hierarchy construction enters this note through the public
 \emph{Observers Are All You Need} paper, cited as O1 in Appendix A.  The
@@ -610,7 +610,7 @@ G_{\rm geom}=\ell_\star^2\\
 G_{\rm SI}=6.674299995910528\times10^{-11}
 \end{gathered}\) &
 Comparison only.  \(G=6.67430(15)\times10^{-11}{\rm m^3\,kg^{-1}\,s^{-2}}\).
-This CODATA row is excluded upstream by the Appendix B anti-smuggling criterion. &
+This CODATA row is excluded upstream by the no-\(G\) criterion in Section 4. &
 conditional; calibration checksum unless \(\mathcal R_\gamma\) is source-emitted &
 S1,O3,O4\\
 
@@ -840,146 +840,5 @@ S5,O1,O4\\
 \(\mathrm{O3}\): \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/screen_microphysics_and_observer_synchronization.tex}{Screen Microphysics and Observer Synchronization}.\par
 \(\mathrm{O4}\): \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex}{Recovering Relativity and Standard Model Structure from Observer Overlap Consistency}.\par
 \(\mathrm{O5}\): \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/deriving_the_particle_zoo_from_observer_consistency.tex}{Deriving the Particle Zoo from Observer Consistency}.\par
-
-\sect{Appendix B. Audit checks}
-Appendix B addresses circularity and dependency concerns.  It records which
-quantities enter the proof, which quantities are downstream comparisons, and
-which dependency paths are excluded.
-
-\textbf{Fixed-point proof-record standard.}
-A fixed-point row is accepted here only when its proof record contains
-\[
-  \mathcal R_X=(I_X,F_X,d_X,q_X,x_0,r_X,\mathcal G_X).
-\]
-\(I_X\) is the declared branch interval.  \(F_X:I_X\to I_X\) is the readback
-map.  \(d_X\) is the metric.  \(q_X<1\) is the contraction constant.  \(x_0\)
-is the displayed candidate.  \(r_X=d_X(F_X(x_0),x_0)\) is the residual.
-\(\mathcal G_X\) is the dependency graph.
-
-The proof record must give
-\[
-  F_X(I_X)\subseteq I_X,
-  \qquad
-  d_X(F_X(x),F_X(y))\le q_Xd_X(x,y).
-\]
-Then the true fixed point \(x_\star\) obeys
-\[
-  d_X(x_\star,x_0)\le\frac{r_X}{1-q_X}.
-\]
-Observed records may identify the physically relevant branch interval.  They
-may not modify \(F_X\), choose a fitted root, alter \(r_X\), or change
-\(\mathcal G_X\) after comparison with a target measurement.
-
-\textbf{Scale freedom lemma.}
-No expression using only \(P_\star,N_\star\), pure dimensionless constants, and
-exact display constants \(c,\hbar\) determines \(B_\star\) in \({\rm m^{-2}}\),
-\(\ell_\star^2\) in \({\rm m^2}\), or \(G_{\rm SI}\) in SI units.
-
-Unit check.  \(P_\star\) and \(N_\star\) are ratios and counts.  They fix the
-shape of the screen and the number of records on it.  A pure ratio has no metre
-scale.  The scale readout is separate.
-
-For any \(\lambda>0\), rescale
-\[
-  \ell_\star^2\mapsto\lambda^2\ell_\star^2,\qquad
-  a_{\rm cell}\mapsto\lambda^2a_{\rm cell},\qquad
-  \Lambda_\star\mapsto\lambda^{-2}\Lambda_\star .
-\]
-Then both closure coordinates are unchanged:
-\[
-  \frac{\lambda^2a_{\rm cell}}{\lambda^2\ell_\star^2}
-  =\frac{a_{\rm cell}}{\ell_\star^2},
-  \qquad
-  \frac{3\pi}{(\lambda^{-2}\Lambda_\star)(\lambda^2\ell_\star^2)}
-  =
-  \frac{3\pi}{\Lambda_\star\ell_\star^2}.
-\]
-The same \(P_\star,N_\star\) therefore admit
-\[
-  B_\star\mapsto\lambda^{-2}B_\star,\qquad
-  G_{\rm SI}\mapsto\lambda^2G_{\rm SI}.
-\]
-The SI gravity row requires a separate scale readout.
-
-\textbf{Dependency ledger.}
-\begin{center}
-\begin{tabular}{@{}p{0.19\linewidth}p{0.37\linewidth}p{0.36\linewidth}@{}}
-\toprule
-\textbf{Object} & \textbf{Allowed role} & \textbf{Forbidden upstream use}\\
-\midrule
-\(P_\star\) &
-local pixel fixed point &
-insufficient for metres\\
-\(N_\star\) &
-global screen-capacity fixed point &
-insufficient for metres\\
-\(\gamma_\star\) &
-dimensionless no-\(G\) scale readout &
-must not be fitted from measured \(G\)\\
-\(B_\star\) &
-SI display of the scale readout &
-must not be computed from \(3\pi/(GN_\star)\)\\
-\(\ell_\star^2\) &
-area coordinate from \(3\pi/B_\star\) &
-must not be computed from \(\hbar G/c^3\)\\
-\(G_{\rm geom}\) &
-local edge-entropy output &
-kept out of the scale readout\\
-\(\Lambda_{\rm CRC}\) &
-downstream de Sitter display &
-evaluated only after \(G_{\rm geom}\)\\
-\bottomrule
-\end{tabular}
-\end{center}
-
-\textbf{Precision status.}
-The displayed digits are a checksum of the declared branch proof records.  The
-\(G\) digits have prediction status only if \(\mathcal R_\gamma\) was fixed
-before comparison with measured \(G\), and its dependency graph excludes
-gravity-calibrated inputs.  Otherwise the displayed agreement is calibration.
-The proof is the public readback map, residual bound, and dependency graph.
-
-\textbf{SI chart and downstream Planck area.}
-Fix the exact SI constants \(c\), \(\hbar\), and the cesium clock frequency
-\(\nu_{\rm Cs}=9\,192\,631\,770~{\rm s^{-1}}\).  A no-\(G\) OPH emission of
-\[
-  \gamma_\star=\frac{\ell_\star\nu_{\rm Cs}}{c}
-\]
-sets the SI area chart.  The algebra is
-\[
-  G_{\rm SI}
-  =
-  \frac{c^3}{\hbar}\ell_\star^2
-  =
-  \frac{c^5}{\hbar\nu_{\rm Cs}^2}\gamma_\star^2
-  =
-  \frac{c^5}{4\pi^2\hbar\nu_{\rm Cs}^2}\varepsilon_{\rm Cs}^2 .
-\]
-After this emission, the SI Planck area is downstream:
-\[
-  \ell_{P,{\rm OPH}}^2
-  :=
-  \frac{\hbar G_{\rm SI}}{c^3}
-  =
-  \ell_\star^2 .
-\]
-Using \(\ell_P^2\) upstream would smuggle the answer into the scale readout.
-
-\textbf{Sensitivity and frozen-branch test.}
-For equivalent scale coordinates,
-\[
-\frac{\delta G}{G}
-=
-\frac{\delta\ell_\star^2}{\ell_\star^2}
-=
-2\frac{\delta\gamma_\star}{\gamma_\star}
-=
--\frac{\delta B_\star}{B_\star}.
-\]
-These formulas convert a readback residual into a bounded interval for the
-gravity row.  If the published scale readout \(B_\star\), \(\ell_\star^2\), or
-\(\gamma_\star\) is changed after a new measurement of \(G\), and the change
-lacks a pre-existing no-\(G\) OPH readback proof, then the numerical gravity
-row is classified as calibration.
 
 \end{document}
