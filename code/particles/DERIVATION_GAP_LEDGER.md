@@ -33,6 +33,7 @@ Systematic claim-safe queue after the five-equation P-trunk simplification.
 - Krawczyk interior inclusion: `True`
 - Forbidden DAG paths into protected targets: `[]`
 - Boundary: This certificate closes the local P -> alpha_U -> v/E_star hierarchy lane. Excluded gates are the public Thomson endpoint transport, the Higgs RG naturality defect bound, theorem-grade W/Z promotion, and the full no-G clock stack for SI gravity.
+- Local/global tick status: `particles/hierarchy/certificates/R_N_global_repair_tick_certificate.json` closes the global repair-tick lemma on the declared 24-round branch: under the declared area-law counting model `F(N)=pi/rho_read^2` (a D6-consistent modeling identification of `Cap_read`), the corpus readback fixed-point equation `N_CRC=F(N_CRC)` is equivalent to the closure transport `G_N(1)=rho_star`, which forces the full-cycle multiplier `(N_CRC/pi)^(-1/2)`, and one tick has `|g_*'|=(N_CRC/pi)^(-1/48)` with no electroweak inputs. The counting model and 24-round count are declared, not derived, and the corpus marks the finite readback map as schematic; the finite-machinery verification of the readback resolution and counting, representation-to-spectrum round-count derivation, electroweak projection, joint `(P,N)` stability, and RG/coarse-graining naturality gates remain open before any resonance promotion.
 
 ## Bundle Execution Plan
 

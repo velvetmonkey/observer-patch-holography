@@ -10,8 +10,18 @@
     },
     "N_CRC_implied_by_exact_equality": "3.5323546226930e122"
   },
+  "resolved_sublemmas": [
+    {
+      "name": "global repair-tick lemma",
+      "artifact": "R_N_global_repair_tick_certificate.json",
+      "status": "closed_global_repair_tick_lemma_on_declared_round_structure",
+      "result": "under the declared area-law counting model the readback fixed-point equation is equivalent to the closure transport G_N(1) = rho_star, giving the full-cycle multiplier (N_CRC/pi)^(-1/2); the declared 24-tick branch gives |g_*'| = (N_CRC/pi)^(-1/48)",
+      "declared_input": "24-round count (representation-to-spectrum derivation open); area-law counting model of Cap_read and single effective readback resolution (finite-machinery verification open)"
+    }
+  ],
   "promotion_requires": [
-    "global repair-tick lemma",
+    "finite-machinery verification that nf_{r,N} delivers a single well-defined effective readback resolution",
+    "representation-to-spectrum theorem deriving the 24-round repair count",
     "electroweak tick-projection lemma",
     "joint fixed-point/stability theorem for (P,N)",
     "RG/coarse-graining naturality theorem"

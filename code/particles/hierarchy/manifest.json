@@ -11,7 +11,8 @@
       "DAG_U forbidden-ancestor path exclusion, on the declared graph",
       "R_U interval/Krawczyk witness using explicit interval derivative enclosure",
       "W/Z compare-only boundary ledger",
-      "R_gamma no-G graph skeleton and missing-component gate ledger"
+      "R_gamma no-G graph skeleton and missing-component gate ledger",
+      "R_N global repair-tick lemma on the declared 24-round structure"
     ],
     "not_closed_by_bundle": [
       "source-only A_T(P) hadronic endpoint transport for the public Thomson endpoint",
@@ -20,19 +21,21 @@
       "concrete RG/coarse-graining Higgs readout defect epsilon_H=0 or bounded",
       "full R_gamma source stack: R_alpha, R_e_abs, R_QCD/nuc^133Cs, R_atom^133Cs",
       "W/Z theorem-grade target-free promotion certificate",
+      "finite-machinery verification of a single effective readback resolution for nf_{r,N}",
+      "representation-to-spectrum derivation of the 24-round repair count",
       "local/global N_CRC resonance theorem"
     ]
   },
   "files": [
     {
       "path": "README.md",
-      "sha256": "196753dc24258891dbb2b4ec274ffbeb252ac201d38257d4148b7f8708653426",
-      "bytes": 1934
+      "sha256": "8890f02eeb148ebef71e0b6f148327526be88fbaffe1e263f366109334794fee",
+      "bytes": 2725
     },
     {
       "path": "STATUS.md",
-      "sha256": "3bb7170c7ca2b88735195c6bba22e2a5567ed815d495e12914c7bd9a530c20f3",
-      "bytes": 1540
+      "sha256": "085f5c4aba9eb233fe309d6bb673e045a618f52485c79fcfc0ef1f499191c50f",
+      "bytes": 2085
     },
     {
       "path": "certificates/DAG_U.json",
@@ -85,9 +88,14 @@
       "bytes": 1063
     },
     {
+      "path": "certificates/R_N_global_repair_tick_certificate.json",
+      "sha256": "4d6666af26f85bcc4aab8b14bb29ea5c65d20f3677c18dc08aef370877dca9e9",
+      "bytes": 11188
+    },
+    {
       "path": "certificates/local_global_resonance_audit.json",
-      "sha256": "48fab6a84aa8e5a1fd21bd444d455b162a23108f64915c478c7ab5b73fc4c08e",
-      "bytes": 591
+      "sha256": "0ef8c463aea5eac28174ebabca7322792fc374fd668d8cabd8d63550857605ba",
+      "bytes": 1470
     },
     {
       "path": "computations/hierarchy_numeric_witness.json",
@@ -100,14 +108,19 @@
       "bytes": 1853
     },
     {
+      "path": "computations/derive_global_repair_tick_lemma.py",
+      "sha256": "d202b53a0b1d3943ca24f661648372ab8bc1e9f5746395956e6f0050dfb289c3",
+      "bytes": 16993
+    },
+    {
       "path": "theorem_package.md",
-      "sha256": "7b4e3390c156c39fce0faca4c133f7c68b9ab1e5c948da62cd14ba3f4eecffb4",
-      "bytes": 1872
+      "sha256": "9b4281bf746559d25c70f300673fb0646edc34f063b3e152b091dc885a25dd29",
+      "bytes": 4775
     },
     {
       "path": "validators/validate_bundle.py",
-      "sha256": "93ea81872364531ae36b750848201978d340c8139c8c8d46fb2cbdcc5dd1ae83",
-      "bytes": 666
+      "sha256": "58fcb69f34326a22af913d1a856fce896fa4db94ecedea8f0822c64e8a92826f",
+      "bytes": 835
     },
     {
       "path": "validators/validate_dag.py",
@@ -118,6 +131,11 @@
       "path": "validators/validate_ru_interval_certificate.py",
       "sha256": "3b97777d0e06f1b1122a344ac8ad9dbe727e683806ee36c90a1324b6fc8e8f44",
       "bytes": 898
+    },
+    {
+      "path": "validators/validate_global_repair_tick_certificate.py",
+      "sha256": "2aacf1518fdb58b68003662a813e40822e8b20f17d4c85997eccb813c4c81ae2",
+      "bytes": 4463
     }
   ]
 }
