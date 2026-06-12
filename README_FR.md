@@ -66,7 +66,8 @@ Intuitivement, $N_{\mathrm{CRC}}$ est l'unique capacité où l'univers relit sa
 propre frontière sans déficit ni capacité inerte. En unités géométriques, la
 lecture cosmologique est
 $\Lambda_{\mathrm{CRC}}=3\pi/(G_{\mathrm{geom}}N_{\mathrm{CRC}})$ avec
-$G_{\mathrm{geom}}=\ell_\star^2$. Les lignes de structure fine et de particules
+$G_{\mathrm{geom}}=\ell_\star^2$. La branche électromagnétique retrouvée donne
+les équations de Maxwell sur la branche ordinaire du photon. Les lignes de structure fine et de particules
 sont en aval de $P_\star$ et de la branche structurelle retrouvée. La ligne
 cosmologique est en aval de $N_{\mathrm{CRC}}$. La normalisation de Newton est
 en aval de $\ell_\star^2=3\pi/B_\star$.
@@ -384,7 +385,7 @@ utilise une classe séparée de charge utile $e^+e^-\to\mathrm{hadrons}$.
 ## Articles
 
 - **Papier 1. [Observers Are All You Need](paper/observers_are_all_you_need.pdf)** : synthèse du programme OPH, des observateurs finis jusqu'à l'univers effectif reconstruit.
-- **Papier 2. [Recovering Relativity and the Standard Model from Observer Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)** : noyau technique pour la relativité, la gravité, la reconstruction de jauge compacte à obstruction nulle, la structure réalisée du Modèle Standard sélectionnée par MAR et la forme/gap Yang-Mills sur la branche compacte de jauge visible par support sous ses hypothèses déclarées.
+- **Papier 2. [Recovering Relativity and the Standard Model from Observer Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)** : noyau technique pour la relativité, la gravité, la reconstruction de jauge compacte à obstruction nulle, la structure réalisée du Modèle Standard sélectionnée par MAR, les équations de Maxwell sur la branche ordinaire du photon et la forme/gap Yang-Mills sur la branche compacte de jauge visible par support sous ses hypothèses déclarées.
 - **Papier 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)** : dérivations particules, lignes de masses, structure des couplages et surface quantitative.
 - **Papier 4. [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf)** : dynamique de réparation à point fixe, stabilité des enregistrements et consensus public.
 - **Papier 5. [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf)** : architecture fédérée de patches, cadrage de symétrie $A_5$-icosaédrique et de type $E_8$, règles de preuve matérielle publique, enregistrements, mouvements de récupération et synchronisation observateur.

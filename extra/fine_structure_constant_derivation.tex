@@ -100,6 +100,30 @@ The OPH background used here is spread across three papers. The observer-overlap
 
 Why this split matters: the fixed-point equation and the hadronic transport calculation answer different questions. The fixed-point equation says how a local screen cell must close on itself. The hadronic calculation says how the electromagnetic current is transported through low-energy QCD. These are different layers of the calculation. A non-arbitrary endpoint calculation must either evaluate the same-scheme hadronic spectral functional directly, or derive the scheme bridge from OPH source data.
 
+\begin{proposition}[Maxwell normalization of the endpoint lane]
+On the ordinary electromagnetic branch used by the fixed-point equation, the Ward-projected
+\(\U(1)_Q\) channel carries
+\[
+F_Q=dA_Q,\qquad dF_Q=0,\qquad d{*}F_Q=g_Q^2(q^2;P){*}J_Q,
+\]
+with
+\[
+g_Q^2(q^2;P)=4\pi\alpha_{\mathrm{em}}(q^2;P),
+\qquad
+\ATh(P)=\alpha_{\mathrm{em}}^{-1}(0;P).
+\]
+Thus the inside reading in the pixel equation is the Thomson-limit Maxwell coupling of the same
+electromagnetic current.
+\end{proposition}
+
+\begin{proof}
+The compact OPH reconstruction identifies the unbroken electromagnetic branch as \(\U(1)_Q\).
+On that abelian factor, the compact-gauge curvature reduces to \(F_Q=dA_Q\), and the quadratic
+field action gives \(d{*}F_Q=g_Q^2{*}J_Q\). The particle-paper transport theorem then identifies
+the same \(g_Q(q^2;P)\) with the Ward-projected running electromagnetic coupling. Taking
+\(q^2\to0\) gives the endpoint quantity \(\ATh(P)\) used in the pixel fixed-point equation.
+\end{proof}
+
 There is a long history of attempts to understand \(\alpha\) from deeper structure. Jentschura and Nandori give a useful survey of first-principles attempts, including beta-function, symmetry, cutoff, and string-inspired ideas \cite{jentschura-nandori}. Golden-ratio constructions appear in historical geometric proposals \cite{heyrovska-narayan} and in recent semi-empirical work on electroweak and flavor mixing \cite{ciborowski}. Octonionic and exceptional-algebra approaches also produce values near \(1/137\) \cite{singh}. Recent arXiv papers use symbolic regression and quantum-information criteria to look for structure in Standard Model constants and electroweak parameters \cite{chekanov-kjellerstrand,liu-low-yin}. The OPH calculation belongs to this broad search for structure, with one added requirement: the number must arise from a fixed-point map whose input and output are the same local screen cell.
 
 The hadronic step uses the standard dispersion logic behind hadronic vacuum-polarization work. The measured input is the electromagnetic spectral function measured through \(e^+e^-\to\mathrm{hadrons}\), as used in data-driven running-\(\alpha\) and \(g-2\) analyses \cite{dhmz,knt19,pdg-xsect}. In this paper, the decimal correction shown above is calibrated from the CODATA/NIST Thomson endpoint and the OPH pure source calculation. A direct production calculation from OPH hadron dynamics is work in progress.
@@ -985,7 +1009,9 @@ The fine-structure constant is the coupling that makes one OPH screen cell inter
 
 The pure source calculation computes the fixed-point witness
 \[
-\alphainv_{\mathrm{cand}}=136.994835164621649457949994585787193262029.
+\alphainv_{\mathrm{cand}}
+=
+\decnum{136.994835164621649457949994585787193262029}.
 \]
 The public endpoint value is
 \[

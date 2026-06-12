@@ -8,6 +8,7 @@
 \usepackage{enumitem}
 \usepackage{hyperref}
 \usepackage{xurl}
+\usepackage{seqsplit}
 \input{release_info.tex}
 
 \hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
@@ -30,6 +31,7 @@
 \newcommand{\nf}{\operatorname{nf}}
 \newcommand{\ellbar}{\bar{\ell}}
 \newcommand{\ophid}[1]{\path{#1}}
+\newcommand{\decnum}[1]{\vcenter{\hbox{\parbox{0.68\linewidth}{\small\ttfamily\seqsplit{#1}}}}}
 
 \title{Recovering Relativity and the Standard Model\\
 from Observer Overlap Consistency}
@@ -43,7 +45,7 @@ from Observer Overlap Consistency}
 \begin{abstract}
 Observer-Patch Holography starts from a finite screen and one rule: neighboring observer patches must agree on their overlap. This compact paper gives the short technical route from that rule to the main structural branch of the theory.
 
-The main achievements are Lorentz and null structure, the Einstein branch, compact gauge reconstruction, the Standard Model gauge quotient, exact hypercharge, three colors, three generations, and the compact-gauge Yang-Mills gap claim on its stated branch. The quantitative layer is stated as fixed readback. The local pixel \(P\) feeds the fine-structure and particle branches. The cosmic capacity \(N_{\mathrm{CRC}}\) feeds the dimensionless de Sitter capacity relation. Observation locates the branch. The OPH maps supply the values. The recovered structural core is kept separate from particle numerics and phenomenology.
+The main achievements are Lorentz and null structure, the Einstein branch with its Newton limit, compact gauge reconstruction, the Standard Model gauge quotient, exact hypercharge and charge quantization, three colors, three generations, the Maxwell sector on the realized electromagnetic branch, the Yang--Mills form/equations and gap claim on its stated compact-gauge branch, and the de Sitter capacity relation. The quantitative layer is fixed readback: the local pixel \(P\) feeds the fine-structure and particle branches, while the cosmic capacity \(N_{\mathrm{CRC}}\) feeds the dimensionless cosmological row.
 \end{abstract}
 
 \section{Introduction}
@@ -80,7 +82,7 @@ The results emphasized in this paper are ordered below by a combination of impac
 \[
 \frac{\SU(3)\times\SU(2)\times\U(1)}{\mathbb Z_6}
 \]
-is recovered on the realized MAR-admissible branch of the bosonic compact-gauge theorem; together with the one-Higgs package it fixes the structural electroweak force content \(\SU(2)_L\times\U(1)_Y\to\U(1)_Q\) and the \(W^\pm/Z/A\) gauge-boson basis. This is a realized-branch gauge result with explicit matter-package and admissibility inputs; numerical \(W/Z\) masses and mixing are D10 quantitative readouts.
+is recovered on the realized MAR-admissible branch of the bosonic compact-gauge theorem; together with the one-Higgs package it fixes the structural electroweak force content \(\SU(2)_L\times\U(1)_Y\to\U(1)_Q\) and the \(W^\pm/Z/A\) gauge-boson basis. The ordinary \(\U(1)_Q\) photon branch then gives \(F_Q=dA_Q\), \(dF_Q=0\), and \(d*F_Q=g_Q^2*J_Q\), i.e. Maxwell's equations after canonical electromagnetic normalization. This is a realized-branch gauge result with explicit matter-package and admissibility inputs; numerical \(W/Z\) masses and mixing are D10 quantitative readouts.
 \item On the support-visible compact-gauge branch, OPH derives the four-dimensional
 Euclidean Yang--Mills form from compact-gauge holonomy data and the local MaxEnt/Gibbs
 continuum limit. Local repair collars generate Euclidean time through conditional
@@ -98,6 +100,32 @@ construction on that declared branch.
 \item A bare overlap net is a finite constraint code: codewords are the globally overlap-consistent states \(C=\Phi^{-1}(0)\). Overlap repair admits a unique schedule-independent normal form from each fixed initial physical quotient state on the stated finite patch-net hypotheses, where Lyapunov descent gives termination and the local-diamond plus repair-completeness clauses give confluence. Same-boundary uniqueness additionally requires a preserved boundary/sector map whose consistent quotient fiber has a unique extension. The same package induces refinement-limit normal-form and holonomy classes on separated cofinal refinement systems with compatible projections, and makes reconciliation commute with coarse-graining up to explicitly declared normal-form and obstruction defects. QECC distance, min-cut resilience, exponential convergence, BFT wall-clock liveness, and hardware speedup are separate certified branches, not consequences of a generic overlap graph.
 \item The fixed-cutoff topological UV package closes on the ordinary branch, the central-defect branch, and the genuinely noncentral branch through a compact crossed-module higher-gauge collar theorem; the support-visible continuum BW/geometric lift is supplied by Theorem~\ref{thm:bw}, while the realized compact-gauge branch is supplied by the compact-gauge witness and physical-UV landing theorem below.
 \end{enumerate}
+
+\subsection*{Famous recovered formulas by claim tier}
+
+The compact paper uses the following public-facing map. Core theorem results, corollaries, and
+inherited limits are separated by their branch conditions.
+
+\begingroup
+\footnotesize
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.25\textwidth}>{\raggedright\arraybackslash}p{0.17\textwidth}>{\raggedright\arraybackslash}p{0.31\textwidth}>{\raggedright\arraybackslash}p{0.19\textwidth}@{}}
+\toprule
+Recovered formula or output & Claim tier & Display & Boundary \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+Lorentz transformations and light cone & core theorem & \(\mathrm{Conf}^+(S^2)\cong\mathrm{SO}^+(3,1)\) & prime geometric BW branch \\
+Einstein field equation & core theorem & \(G_{ab}+\Lambda g_{ab}=8\pi G\,\langle T_{ab}\rangle\) & local branch leaves \(\Lambda\) open \\
+Newton-Poisson limit & inherited limit & \(\nabla^2\Phi=4\pi G\rho\), \(\ddot{\mathbf x}=-\nabla\Phi\) & weak field, slow motion \\
+Maxwell equations & corollary & \(F_Q=dA_Q,\ dF_Q=0,\ d{*}F_Q=g_Q^2{*}J_Q\) & ordinary photon branch \\
+Yang--Mills equations & corollary & \(F=dA+A\wedge A,\ DF=0,\ D{*}F=g^2{*}J\) & compact-gauge branch \\
+Bekenstein--Hawking / de Sitter area law & global closure & \(N_{\mathrm{scr}}=A/(4\ell_P^2)=3\pi/(G\Lambda)\) & capacity fixed point \\
+Charge quantization & core theorem & \(Q=T_3+Y\), observable color singlets have \(Q\in\mathbb Z\) & fractional quarks are confined colored fields \\
+Structural zero masses & core theorem & \(m_\gamma=m_g=m_{\mathrm{grav}}=0\) & gluons appear as confined carriers \\
+Colors and generations & core theorem & \(N_c=3,\quad N_g=3\) & flavor masses are separate continuations \\
+\end{longtable}
+\endgroup
 
 On that same fixed-cutoff consensus surface, the status split is sharp: normal-form computation is
 a finite-state decidable problem with the Lyapunov step bound from the consensus paper, the only
@@ -238,9 +266,10 @@ has a unique source zero in the declared interval, with frozen representation cu
 packet, matching prescription, threshold packet, and renormalization convention. The hierarchy
 artifact records
 \[
-I_U=[0.041123336195630494,\;0.041125336195630496],
-\qquad
-\alpha_U(P_\star)=0.041124336195630495,
+\begin{aligned}
+I_U&=[0.041123336195630494,\;0.041125336195630496],\\
+\alpha_U(P_\star)&=0.041124336195630495,
+\end{aligned}
 \]
 a Krawczyk image strictly inside \(I_U\), and a derivative enclosure contained in
 \([-10.995768,-10.985284]\).  On the declared graph there is no directed path from measured
@@ -400,7 +429,7 @@ and let the selected no-\(G\) scale branch supply
 \equiv
 \frac{\ell_\star\nu_{\mathrm{Cs}}}{c}
 =
-4.9559743365484194636657782433696431879484319705825
+\decnum{4.9559743365484194636657782433696431879484319705825}
 \times10^{-34},
 \]
 with \(\nu_{\mathrm{Cs}}=9{,}192{,}631{,}770\,\mathrm{s^{-1}}\). Then
@@ -408,14 +437,14 @@ with \(\nu_{\mathrm{Cs}}=9{,}192{,}631{,}770\,\mathrm{s^{-1}}\). Then
 \ell_\star^2
 =\left(\frac{\gamma_\star c}{\nu_{\mathrm{Cs}}}\right)^2
 =
-2.61228030237427777887347769215451001461202676866
+\decnum{2.61228030237427777887347769215451001461202676866}
 \times10^{-70}\,\mathrm{m^2}.
 \]
 Equivalently, the same certificate has the SI curvature display
 \[
 B_\star:=\frac{3\pi}{\ell_\star^2}
 =
-3.6078739146803215760518414801601725476877083072171853821242070198789871988886
+\decnum{3.6078739146803215760518414801601725476877083072171853821242070198789871988886}
 \times10^{70}\,\mathrm{m^{-2}}.
 \]
 On the de Sitter branch this is the same scale product
@@ -4574,6 +4603,78 @@ while the neutral \(\SU(2)_L\) and \(\U(1)_Y\) gauge fields span the \(Z/A\) bas
 The D8 result fixes the weak-type role to the \(\SU(2)\) doublet and the connected abelian role to \(\U(1)_Y\). Theorem~\ref{thm:hypercharge} fixes \(Y_H=1/2\) and the matter hypercharge lattice. Choosing the neutral Higgs component has \(T_3=-1/2\), hence \(T_3+Y=0\) on the selected vacuum direction. Therefore precisely the \(Q=T_3+Y\) direction stabilizes that branch. The two noncommuting charged \(\SU(2)\) generators are broken directions and combine into \(W^\pm\); the orthogonal neutral broken direction is the \(Z\) carrier, while the unbroken stabilizer is the photon \(A\). The global \(\mathbb Z_6\) quotient fixes the compatible charge lattice used in Proposition~\ref{prop:z6}.
 \end{proof}
 
+\begin{corollary}[Maxwell sector from the realized \texorpdfstring{\(\U(1)_Q\)}{U(1)Q} branch]\label{cor:maxwell-sector}
+On the realized ordinary zero-obstruction one-Higgs branch, let \(A_Q\) be the support-visible connection component on the unbroken electromagnetic factor \(\U(1)_Q\) of Corollary~\ref{cor:electroweak-force}. Then
+\[
+F_Q=dA_Q.
+\]
+The low-energy Lorentzian electromagnetic action with conserved current \(J_Q\) is
+\[
+S_{\mathrm{EM}}[A_Q,J_Q]
+=
+-\frac{1}{2g_Q^2}\int F_Q\wedge *F_Q
++\int A_Q\wedge *J_Q,
+\]
+equivalently
+\[
+S_{\mathrm{EM}}[A_Q]
+=
+-\frac{1}{4g_Q^2}
+\int F_{Q,\mu\nu}F_Q^{\mu\nu}\,d^4x
+\]
+for the pure field term. Its Euler--Lagrange equations are
+\[
+dF_Q=0,
+\qquad
+d*F_Q=g_Q^2 *J_Q.
+\]
+In local coordinates,
+\[
+\partial_{[\lambda}F_{Q,\mu\nu]}=0,
+\qquad
+\partial_\mu F_Q^{\mu\nu}=g_Q^2 J_Q^\nu.
+\]
+After canonical electromagnetic normalization, these are Maxwell's equations. The numerical value of \(g_Q\), equivalently \(\alpha_{\mathrm{em}}\), belongs to the D10 Ward-projected electromagnetic readout.
+\end{corollary}
+
+\begin{proof}
+Corollary~\ref{cor:electroweak-force} supplies the unbroken electromagnetic factor \(\U(1)_Q\) with generator \(Q=T_3+Y\). The compact-gauge curvature theorem supplies a support-visible continuum connection and curvature
+\[
+F=dA+A\wedge A
+\]
+on the compact-gauge scaling chart. Restricting to \(\U(1)_Q\) removes the Lie-bracket term because \(\mathfrak u(1)\) is abelian, hence
+\[
+F_Q=dA_Q.
+\]
+The identity \(d^2=0\) gives \(dF_Q=0\).
+
+For the sourced equation, vary
+\[
+S_{\mathrm{EM}}[A_Q,J_Q]
+=
+-\frac{1}{2g_Q^2}\int F_Q\wedge *F_Q
++\int A_Q\wedge *J_Q.
+\]
+Since \(\delta F_Q=d(\delta A_Q)\), integration by parts on compactly supported variations gives
+\[
+\delta S_{\mathrm{EM}}
+=
+\int \delta A_Q\wedge
+\left(
+\frac{1}{g_Q^2}d*F_Q-*J_Q
+\right)
+\]
+up to the boundary term. Stationarity for arbitrary \(\delta A_Q\) gives
+\[
+d*F_Q=g_Q^2 *J_Q.
+\]
+Applying \(d\) to the sourced equation gives \(d*J_Q=0\), the current-conservation compatibility condition. The component equations are the standard homogeneous and inhomogeneous Maxwell equations with the OPH coupling convention.
+\end{proof}
+
+\begin{remark}[Maxwell branch boundary]
+Corollary~\ref{cor:maxwell-sector} concerns the ordinary photon branch. Topologically singular electromagnetic sectors with magnetic sources obey modified homogeneous equations. The support-visible compact simple nonabelian branch used for Theorem~\ref{thm:oph-yang-mills-gap} has a positive repair gap; the abelian electromagnetic branch has the symmetry-protected massless photon of Corollary~\ref{cor:electroweak-force}.
+\end{remark}
+
 \begin{theorem}[Realized compact-gauge witness and physical UV landing]\label{thm:mar-witness-landing}
 On the ordinary or central zero-obstruction bosonic branch, the OPH compact reference architecture admits an OPH-realizable cofinal heat-kernel edge-sector witness
 \[
@@ -4780,17 +4881,18 @@ and a strictly negative derivative enclosure
 \]
 The public endpoint branch then gives
 \[
-\alpha_U(P_\star)=0.041124336195630495,
-\qquad
-\frac{v}{E_\star}=2.0199803239725553\times10^{-17},
-\qquad
-\log_{10}\frac{E_\star}{v}=16.69465286086613.
+\begin{aligned}
+\alpha_U(P_\star)&=0.041124336195630495,\\
+\frac{v}{E_\star}&=2.0199803239725553\times10^{-17},\\
+\log_{10}\frac{E_\star}{v}&=16.69465286086613.
+\end{aligned}
 \]
 The source-audit branch gives
 \[
-P_{\mathrm{cand}}=1.63097209569432901817967892561191884270169,
-\qquad
-\frac{v(P_{\mathrm{cand}})}{E_\star}=2.0198114150099223\times10^{-17},
+\begin{aligned}
+P_{\mathrm{cand}}&=\decnum{1.63097209569432901817967892561191884270169},\\
+\frac{v(P_{\mathrm{cand}})}{E_\star}&=2.0198114150099223\times10^{-17},
+\end{aligned}
 \]
 and is the branch to use when the public Thomson endpoint is excluded upstream.
 The Higgs naturalness row is read on the same D10/D11 normal-form surface. The observer-visible
@@ -5180,7 +5282,7 @@ This paper does not leave any known long-range or Standard Model gauge force una
 \item \textbf{Gravity}: D3--D6 recover Lorentz kinematics, the null-stress bridge, and the Jacobson-type Einstein branch, with \(T_{ab}\) as the stress-energy source and the graviton as the quantum of the dynamical metric branch.
 \item \textbf{Strong interaction}: D8--D9 recover the \(\SU(3)_c\) color factor, the color triplet \(N_c=3\), quark color triplet/antitriplet assignments, and the eight gluon generators \((8,1,0)\). Confinement and hadron spectra are separate infrared QCD questions, not missing gauge-charge assignments.
 \item \textbf{Weak interaction}: D8--D9 recover the \(\SU(2)_L\) weak doublet structure, the one-Higgs branch, and the charged weak carriers \(W^\pm\) from the broken \(\SU(2)_L\) generators. D10 supplies the quantitative running/matching readout for \(v\) and the \(W/Z\) validation rows.
-\item \textbf{Hypercharge and electromagnetism}: Theorem~\ref{thm:hypercharge}, Proposition~\ref{prop:z6}, and Corollary~\ref{cor:electroweak-force} fix the \(\U(1)_Y\) lattice, the unbroken generator \(Q=T_3+Y\), integer charge for color singlets, and the photon \(A\) as the massless \(\U(1)_Q\) carrier. The Thomson-limit fine-structure endpoint is a D10 quantitative closure.
+\item \textbf{Hypercharge and electromagnetism}: Theorem~\ref{thm:hypercharge}, Proposition~\ref{prop:z6}, and Corollary~\ref{cor:electroweak-force} fix the \(\U(1)_Y\) lattice, the unbroken generator \(Q=T_3+Y\), integer charge for color singlets, and the photon \(A\) as the massless \(\U(1)_Q\) carrier. Corollary~\ref{cor:maxwell-sector} gives the Maxwell equations \(dF_Q=0\) and \(d*F_Q=g_Q^2*J_Q\) on the ordinary photon branch. The Thomson-limit fine-structure endpoint is a D10 quantitative closure.
 \end{itemize}
 
 \subsubsection{Product-group corollary}
@@ -5483,9 +5585,10 @@ structural Lorentz output \(c\), while GeV and Kelvin are downstream familiar-un
 inverse local ruler through \(\hbar\) and \(k_B\).
 On that declared extension surface the local release values are
 \[
-c=299792458\,\mathrm{m/s},
-\qquad
-G=6.674299995910528\times10^{-11}\,\mathrm{m^3\,kg^{-1}\,s^{-2}},
+\begin{aligned}
+c&=299792458\,\mathrm{m/s},\\
+G&=6.674299995910528\times10^{-11}\,\mathrm{m^3\,kg^{-1}\,s^{-2}},
+\end{aligned}
 \]
 \[
 (M_W,M_Z,M_H)=
@@ -5502,7 +5605,7 @@ Particle-spectrum continuation boundaries beyond the compact SM/GR ledger are st
 The paper does not claim complete closure of all low-energy observables.\footnote{Questions outside this theorem package do not alter the specific claim set established here. Even a separate habitat theorem for OPH state-and-law data would not enlarge this SM/GR derivation paper's Phase-I scope unless the actual closure map, invariant admissible sector, and stability hypotheses were also proved at the same tier.}
 \section{Conclusion}
 
-Observer-Patch Holography starts from overlap consistency of observer patches and yields, within one framework, several effective structures usually treated separately in modern fundamental physics. This SM/GR derivation paper supports a unique schedule-independent quotient normal form for overlap repair from each fixed initial physical quotient state, with same-boundary uniqueness only under the additional unique-extension condition, and hence a quotient-level physical UV branch only modulo boundary redundancy, implementation hiding, and inert ancillary stabilization. It also supports a Lorentz branch on the extracted prime geometric cap pair, a Jacobson-type Einstein branch under the derived fixed-cap generalized-entropy stationarity theorem for admissible fixed-cap MaxEnt variations and the null modular bridge together with the bounded-interval projective branch, the global closure of that same gravity lane at the cosmic record-capacity fixed point, the Standard Model gauge quotient with exact hypercharges and structural electroweak force content on the realized matter package on the realized MAR one-Higgs branch in the bosonic internal-gauge sector, the realized color triplet \(N_c=3\) and generation count \(N_g=3\) on that branch, a support-visible compact-gauge Yang--Mills form together with repair-gap accounting of the Yang--Mills mass gap under the declared compact-gauge branch assumptions, and a separate integrated quantitative-closure branch. Phenomenological continuations are discussed separately from the recovered core.
+Observer-Patch Holography starts from overlap consistency of observer patches and yields, within one framework, several effective structures usually treated separately in modern fundamental physics. This SM/GR derivation paper supports a unique schedule-independent quotient normal form for overlap repair from each fixed initial physical quotient state, with same-boundary uniqueness only under the additional unique-extension condition, and hence a quotient-level physical UV branch only modulo boundary redundancy, implementation hiding, and inert ancillary stabilization. It also supports a Lorentz branch on the extracted prime geometric cap pair, a Jacobson-type Einstein branch under the derived fixed-cap generalized-entropy stationarity theorem for admissible fixed-cap MaxEnt variations and the null modular bridge together with the bounded-interval projective branch, the global closure of that same gravity lane at the cosmic record-capacity fixed point, the Standard Model gauge quotient with exact hypercharges and structural electroweak force content on the realized matter package on the realized MAR one-Higgs branch in the bosonic internal-gauge sector, the realized color triplet \(N_c=3\) and generation count \(N_g=3\) on that branch, the Maxwell equations on the ordinary \(\U(1)_Q\) photon branch, a support-visible compact-gauge Yang--Mills form together with repair-gap accounting of the Yang--Mills mass gap under the declared compact-gauge branch assumptions, and a separate integrated quantitative-closure branch. Phenomenological continuations are discussed separately from the recovered core.
 
 The framework therefore presents general relativity and the Standard Model as effective descriptions arising from the five-axiom basis together with the support-visible BW scaling theorem, geometric-subnet construction, and categorical gauge reconstruction. The local quantitative claim surface is equally explicit: the declared pixel fixed point \(P\) controls the electroweak/Higgs mass trunk and the shared cell/edge identity used by the Newton area law, the selected no-\(G\) scale certificate controls the classical-regime gravity normalization through \(\ell_\star^2=3\pi/B_\star\), the invariant causal speed \(c\) is the structural Lorentz output, and the familiar-unit package reads meters, seconds, GeV, and Kelvin from the single local ruler \(\sqrt{a_{\mathrm{cell}}}=\sqrt{P}\,\ell_\star\) with \(\hbar\) and \(k_B\) used only as display conventions. Separate continuation boundaries concern sharper quantitative control, a fuller fermionic gauge branch, and theorem-side local exact-release objects beyond the corpus-backed surfaces stated here.
 

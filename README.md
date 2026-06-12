@@ -80,7 +80,8 @@ $$
 G_{\mathrm{geom}}=\ell_\star^2.
 $$
 
-The fine-structure and particle rows sit downstream of $P_\star$ and the
+The recovered electromagnetic branch gives Maxwell's equations on the ordinary
+photon lane. The fine-structure and particle rows sit downstream of $P_\star$ and the
 recovered structural branch. The cosmological row sits downstream of
 $N_{\mathrm{CRC}}$. The Newton normalization sits downstream of
 $\ell_\star^2=3\pi/B_\star$.
@@ -383,7 +384,7 @@ tiers live in the papers.
 ## Papers
 
 - **Paper 1. [Observers Are All You Need](paper/observers_are_all_you_need.pdf)**: broad synthesis of the OPH reconstruction program, from finite observers to the recovered effective universe.
-- **Paper 2. [Recovering Relativity and the Standard Model from Observer Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)**: compact technical core for relativity, gravity, zero-obstruction compact-gauge reconstruction, MAR-selected realized Standard Model structure, and the support-visible compact-gauge Yang-Mills form/gap theorem under its declared branch assumptions.
+- **Paper 2. [Recovering Relativity and the Standard Model from Observer Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)**: compact technical core for relativity, gravity, zero-obstruction compact-gauge reconstruction, MAR-selected realized Standard Model structure, Maxwell equations on the ordinary photon branch, and the support-visible compact-gauge Yang-Mills form/gap theorem under its declared branch assumptions.
 - **Paper 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)**: particle derivations, mass rows, coupling structure, and the quantitative comparison surface.
 - **Paper 4. [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf)**: fixed-point repair dynamics, record stability, and the consensus picture of public reality.
 - **Paper 5. [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf)**: federated patch-carrier architecture, $A_5$-icosahedral and $E_8$-type symmetry framing, public hardware-evidence rules, records, recovery moves, and observer synchronization.

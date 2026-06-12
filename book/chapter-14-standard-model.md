@@ -788,6 +788,16 @@ world. Give the photon a hard mass and
 the overlap bookkeeping tears. The glue between charged descriptions stops
 closing cleanly.
 
+The same branch gives the field equations. The electromagnetic connection is
+the patch field that keeps charged descriptions aligned. Its field strength is
+the change of that connection around small loops. Because the photon branch is
+abelian, the curvature is just $F=dA$. That automatically gives the homogeneous
+Maxwell equations. Varying the usual quadratic field energy with an electric
+current gives the sourced Maxwell equations. In ordinary units, these are the
+familiar laws for electric fields, magnetic fields, charges, and currents. In
+OPH language, they are the continuum equations for the recovered $U(1)$ photon
+branch.
+
 ## 14.16 Why the Graviton Is Inevitable
 
 The graviton follows the same pattern, this time on the geometric side.
