@@ -13,4 +13,5 @@
 | `RG_Higgs_naturality_defect_certificate.json` | formal condition only | Defines `epsilon_H`; concrete defect bound missing. |
 | `R_WZ_boundary_certificate.json` | compare-only | Prevents accidental promotion of `W/Z`. |
 | `R_gamma_noG_DAG_certificate.json` | skeleton only | No-G rule and missing components are explicit. |
-| `local_global_resonance_audit.json` | not used | Computes mismatch for rounded `N_CRC` and lists missing lemmas. |
+| `R_N_global_repair_tick_certificate.json` | closed lemma on declared rounds | Derives the closure transport from the corpus readback map under the declared area-law counting model (`F(N)=pi/rho_read^2`, so `N=F(N)` is equivalent to `G_N(1)=rho_star`), hence the full-cycle multiplier `(N_CRC/pi)^(-1/2)` and `|g_*'|=(N_CRC/pi)^(-1/48)` on the declared 24-round branch without EW inputs; the counting model and round count are declared, not derived. |
+| `local_global_resonance_audit.json` | not used | Computes mismatch for rounded `N_CRC`, records the closed tick lemma, and lists the remaining round-count/projection/stability/naturality gates. |
