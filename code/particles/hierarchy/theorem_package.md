@@ -72,8 +72,9 @@ corpus defines the readback map as `F(N) = Cap_read(Obs(nf_{r,N}(U_{r,N})))` in 
 limit, the capacity reconstructed by the stable self-reading observer sector from the horizon
 record (`paper/tex_fragments/OBSERVERS_SYNTHESIS_SECTIONS.tex`). Model `Cap_read` by the D6
 area law evaluated at the effective delivery resolution `rho_read`, the canonical
-scale-covariant extension of `N = pi (r/ell)^2`, supplied here as a declared modeling
-identification rather than a corpus-stated property of `Cap_read`:
+scale-covariant extension of `N = pi (r/ell)^2`. The certificate records this as a declared
+modeling identification. The corpus defines `Cap_read` as reconstructed capacity and does not
+state this counting rule as one of its properties:
 
 ```math
 F(N) = \pi / \rho_{read}^2 .
@@ -98,17 +99,16 @@ g_N(\rho) = (N_{CRC}/\pi)^{-1/48}\rho,
 ```
 
 For a general `m`-tick decomposition the per-tick derivative is `(N_CRC/pi)^(-1/(2m))`;
-the declared `m = 24` reproduces the stated `-1/48` exponent without correction.
+the declared `m = 24` gives the stated `-1/48` exponent.
 
-Boundary: the closure transport is derived at the interface level of `F`, conditional on the
-declared counting model above (the corpus marks the finite readback map `F_r` as schematic and
-its refinement limit as conditional on existence, so the concrete finite-machinery
-verification that `nf_{r,N}` delivers a single well-defined effective resolution, and that
-`Cap_read` counts by the area law at that resolution, remains open). The round count `m = 24`
-is the declared branch architecture, not a derived integer. That
-finite-machinery verification, a representation-to-spectrum theorem for the round count, the
-electroweak tick projection (assigned to later issues), the joint `(P,N)` stability theorem,
-and the RG/coarse-graining naturality statement remain outside the promoted hierarchy theorem.
+Boundary: the closure transport follows at the interface level of `F`, conditional on the
+declared counting model above. The corpus marks the finite readback map `F_r` as schematic and
+its refinement limit as conditional on existence. Work in progress covers the concrete
+finite-machinery verification that `nf_{r,N}` delivers a single well-defined effective
+resolution, the area-law readback count at that resolution, a representation-to-spectrum
+theorem for the round count, the electroweak tick projection, the joint `(P,N)` stability
+theorem, and the RG/coarse-graining naturality statement. The promoted hierarchy theorem does
+not use these as inputs.
 
 ## Boundary theorem: SI gravity/clock hierarchy
 

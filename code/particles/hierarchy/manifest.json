@@ -34,8 +34,8 @@
     },
     {
       "path": "STATUS.md",
-      "sha256": "88226b37709aaee374241264ca3d5f475028ef8370b812a012fd408dacd81477",
-      "bytes": 2068
+      "sha256": "4b7957ca35d51bbbccf13ab901b382d648593867dbb30c8fb8fbfa85c70a1771",
+      "bytes": 2077
     },
     {
       "path": "certificates/DAG_U.json",
@@ -89,8 +89,8 @@
     },
     {
       "path": "certificates/R_N_global_repair_tick_certificate.json",
-      "sha256": "9ecf31a0ee338e49055002505187f59b71d35cdc0706ebabafc8ea5d2f3a5b6b",
-      "bytes": 11029
+      "sha256": "a9f5f1d98742746118bf6064ed5c3d665f43dae81b0a02f3b0ad924390a1628a",
+      "bytes": 10971
     },
     {
       "path": "certificates/local_global_resonance_audit.json",
@@ -109,13 +109,13 @@
     },
     {
       "path": "computations/derive_global_repair_tick_lemma.py",
-      "sha256": "4b08fd2527fd5a5662a8fb71c3ca46e86f3a5cc9d5145f7f23ffb4f07ca07758",
-      "bytes": 16711
+      "sha256": "4311612e98796683b8d77872237b60ad38a297fe6aacdb4871685c7f22457b3f",
+      "bytes": 16648
     },
     {
       "path": "theorem_package.md",
-      "sha256": "cd3a6baff0cb3f249ec72fabd8a7e0136f2073c017d50cbbcea33fc3d7032052",
-      "bytes": 4621
+      "sha256": "62aab940dae997c9985a33b10e20734fe8a2df6b612460932bb5d6a199274028",
+      "bytes": 4536
     },
     {
       "path": "validators/validate_bundle.py",
