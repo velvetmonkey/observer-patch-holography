@@ -263,10 +263,10 @@ local cell, so
 the full-cycle multiplier is $(N_{\mathrm{CRC}}/\pi)^{-1/2}$, and on the
 declared 24-tick branch one homogeneous tick has
 $|g_\star'|=(N_{\mathrm{CRC}}/\pi)^{-1/48}$. The round count is declared
-rather than derived, so the local/global resonance theorem itself stays open
-behind the finite-machinery verification of the readback resolution, the
-round-count derivation, electroweak projection, joint $(P,N)$ stability, and
-RG naturality gates.
+branch architecture in this lemma. The theorem-grade local/global resonance
+statement has work-in-progress gates: finite-machinery verification of the
+readback resolution, the round-count derivation, electroweak projection,
+joint $(P,N)$ stability, and RG naturality.
 
 This is the cleanest way to say what the fine-structure constant means in OPH.
 It is the nonzero detuning of a holographic screen cell. From the outside, the

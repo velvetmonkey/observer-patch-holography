@@ -971,18 +971,19 @@ depends on the RG coarse-graining defect bound, and the SI gravity decimal
 depends on the complete no-G clock bridge.
 
 There is also a global capacity-side tick lemma. The screen-capacity fixed
-point fixes the cosmic radius ratio, and the readback closure is derived
-rather than assumed: the capacity read back at delivery resolution
+point fixes the cosmic radius ratio. The readback closure follows from the
+fixed-point equation under the declared area-law counting model: the capacity
+read back at delivery resolution
 $\rho_{\mathrm{read}}$ is $\pi/\rho_{\mathrm{read}}^2$ under the declared
 area-law counting model, so the
 fixed-point equation forces the readback to land exactly on the local cell and
 the full cycle contracts by $(N_{\mathrm{CRC}}/\pi)^{-1/2}$. On the declared
 24-tick branch one homogeneous tick has
 $|g_\star'|=(N_{\mathrm{CRC}}/\pi)^{-1/48}$, and the certificate excludes
-electroweak inputs. The 24-round count itself is declared rather than derived;
-the finite-machinery verification of the readback resolution, that round-count
-derivation, the electroweak projection, joint stability, and RG naturality
-gates remain separate.
+electroweak inputs. The proof takes the 24-round count as branch
+architecture. Work in progress covers the finite-machinery verification of the
+readback resolution, the derivation of that round count, the electroweak
+projection, joint stability, and RG naturality.
 
 **Charge quantization.** All color-singlet particles have integer electric charge. No fractional charges like $\pm 1/3$ can exist outside hadrons. This follows from the global structure of the gauge group.
 

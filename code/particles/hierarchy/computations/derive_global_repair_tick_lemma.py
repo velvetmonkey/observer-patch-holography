@@ -20,7 +20,7 @@ rho_star, i.e. G_N(1) = rho_star, with full-cycle multiplier
 (N_CRC/pi)^(-1/2). On the declared 24-tick resonance branch the one-tick map
 is the positive homogeneous 24th root, hence |g_*'| = (N_CRC/pi)^(-1/48).
 For a general m-tick decomposition the per-tick exponent is -1/(2m); the
-declared m = 24 reproduces the stated exponent without correction.
+declared m = 24 gives the stated exponent.
 
 Output: a machine-readable certificate for GlobalRepairTickLemma_R_N.
 """
@@ -79,15 +79,15 @@ def build_artifact(n_crc_display: float = DISPLAY_N_CRC) -> dict:
                 "dependency boundary excluding electroweak measured inputs",
             ],
             "declared_not_derived": [
-                "round count m = 24 (declared resonance-branch architecture; representation-to-spectrum derivation open)",
+                "round count m = 24 (branch architecture for this lemma; representation-to-spectrum derivation is work in progress)",
                 "homogeneous positive-root one-tick normal form (the normalization convention defining |g_*'|, supplied per acceptance criterion 1)",
                 "single effective delivery resolution rho_read for the readback (the scale-free normal form under which the counting model is stated)",
-                "readback counting model: Cap_read reconstructs capacity by the D6 area law evaluated at the effective delivery resolution, F(N) = pi/rho_read^2 (a D6-consistent modeling identification of Cap_read; the corpus defines Cap_read only as the capacity reconstructed by the observer sector and does not state this counting property)",
+                "readback counting model: Cap_read reconstructs capacity by the D6 area law evaluated at the effective delivery resolution, F(N) = pi/rho_read^2 (a D6-consistent modeling identification of Cap_read; the corpus defines Cap_read as the capacity reconstructed by the observer sector and does not state this counting property)",
             ],
             "not_closed_by_certificate": [
                 "verification on the concrete finite repair machinery that nf_{r,N} delivers a single well-defined effective resolution scale (the corpus marks the finite readback map F_r as schematic and the refinement limit as conditional on existence)",
                 "representation-to-spectrum theorem deriving the 24-round count from the OPH repair grammar",
-                "electroweak tick-projection lemma (assigned to later local/global resonance work)",
+                "electroweak tick-projection lemma (part of local/global resonance work)",
                 "joint fixed-point/stability theorem for (P,N)",
                 "RG/coarse-graining naturality theorem",
                 "exact equality between the D10 transmutation exponent and the N_CRC tick projection",
@@ -120,7 +120,8 @@ def build_artifact(n_crc_display: float = DISPLAY_N_CRC) -> dict:
                 "Cap_read is modeled as the D6 area-law count at the delivery resolution: the capacity "
                 "reconstructed at rho_read is F(N) = pi / rho_read^2. This is the canonical "
                 "scale-covariant extension of the D6 counting rule N = pi (r/ell)^2, supplied here as a "
-                "modeling identification, not a corpus-stated property of Cap_read"
+                "modeling identification. The corpus defines Cap_read as reconstructed capacity and does "
+                "not state this counting rule as one of its properties"
             ),
             "one_tick_map": "g_N with g_N^24 = G_N, positive homogeneous root",
             "derivative_convention": (
@@ -193,8 +194,8 @@ def build_artifact(n_crc_display: float = DISPLAY_N_CRC) -> dict:
             "declared_round_count_m": DECLARED_REPAIR_ROUNDS,
             "exponent_at_declared_m": "-1/48",
             "corrected_exponent_clause": (
-                "the proof confirms -1/48 at the declared m = 24; no correction required; "
-                "the parametric law -1/(2m) is recorded for any future round-count theorem"
+                "the proof gives -1/48 at the declared m = 24; "
+                "the parametric law -1/(2m) applies to an m-tick round-count theorem"
             ),
         },
         "symbolic_checks": {
@@ -203,7 +204,7 @@ def build_artifact(n_crc_display: float = DISPLAY_N_CRC) -> dict:
             "ew_projection_identity_if_projection_lemma_supplied": (
                 "(|g_*'|)^(4 P_star) = (N_CRC/pi)^(-P_star/12)"
             ),
-            "corrected_exponent": "-1/48 (unchanged at declared m = 24; parametric -1/(2m))",
+            "corrected_exponent": "-1/48 at declared m = 24; parametric -1/(2m)",
         },
         "numeric_display_for_rounded_capacity": {
             "N_CRC_display": _format_scientific(n_crc_display),
@@ -238,7 +239,7 @@ def build_artifact(n_crc_display: float = DISPLAY_N_CRC) -> dict:
             "On the D6 capacity branch, the de Sitter entropy normalization gives N_CRC = pi (r_CRC/ell_star)^2, so the local cell sits at rho_star = (N_CRC/pi)^(-1/2) in the coordinate rho = ell/r_CRC.",
             "The corpus readback map is F(N) = Cap_read(Obs(nf_{r,N}(U_{r,N}))) in the refinement limit: the capacity reconstructed by the interior observer sector from the horizon record (Observers synthesis sections).",
             "Model Cap_read by the D6 area law at the delivery resolution (the canonical scale-covariant extension of N = pi (r/ell)^2; a declared modeling identification): a readback delivering the horizon record at effective resolution coordinate rho_read reconstructs capacity F(N) = pi/rho_read^2.",
-            "The fixed-point equation N_CRC = F(N_CRC) = pi/rho_star^2 therefore forces rho_read = rho_star (positive roots): deficit rho_read > rho_star gives F < N, slack rho_read < rho_star gives F > N. This is exactly the closure transport G_N(1) = rho_star, so closure is not an independent assumption.",
+            "The fixed-point equation N_CRC = F(N_CRC) = pi/rho_star^2 forces rho_read = rho_star (positive roots): deficit rho_read > rho_star gives F < N, slack rho_read < rho_star gives F > N. This gives the closure transport G_N(1) = rho_star.",
             "Homogeneity (scale-free normal form) forces G_N(rho) = Q rho with Q > 0, and G_N(1) = rho_star gives Q = (N_CRC/pi)^(-1/2).",
             "On the declared 24-tick branch, the one-tick map is the positive homogeneous root with g_N^24 = G_N, so its multiplier is Q^(1/24) = (N_CRC/pi)^(-1/48).",
             "Because g_N(rho) = q rho, the absolute derivative in this coordinate is |g_*'| = q = (N_CRC/pi)^(-1/48). For a general m-tick decomposition the same argument gives (N_CRC/pi)^(-1/(2m)).",
@@ -247,16 +248,16 @@ def build_artifact(n_crc_display: float = DISPLAY_N_CRC) -> dict:
             "defines_N_CRC_repair_map_tick_coordinate_and_derivative_convention": True,
             "proves_declared_screen_capacity_fixed_point_emits_tick_contraction": True,
             "proof_scope": (
-                "the closure transport G_N(1) = rho_star is derived as equivalent to the corpus "
+                "the closure transport G_N(1) = rho_star follows as equivalent to the corpus "
                 "fixed-point equation N_CRC = F(N_CRC) under the declared area-law counting model, and the "
-                "full-cycle multiplier follows; the 24-round decomposition is the declared branch "
-                "architecture, not a derived integer"
+                "full-cycle multiplier follows; the proof takes the 24-round decomposition as declared "
+                "branch architecture"
             ),
             "round_count_derived_from_first_principles": False,
             "closure_transport_derived_from_F_interface": True,
             "readback_counting_model_is_modeling_identification": True,
             "concrete_finite_machinery_verification_open": True,
-            "exact_corrected_exponent_clause": "unchanged: -1/48 at declared m = 24; parametric form -1/(2m)",
+            "exact_corrected_exponent_clause": "-1/48 at declared m = 24; parametric form -1/(2m)",
             "uses_oph_source_side_data_only": True,
             "imports_electroweak_hierarchy_as_measured_input": False,
             "emits_machine_checkable_certificate": True,

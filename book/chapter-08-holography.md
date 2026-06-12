@@ -444,7 +444,7 @@ For that reason, OPH is not a dS/CFT proposal. A hypothetical dS/CFT would posit
 entanglement-equilibrium / Jacobson-style branch, can yield semiclassical
 gravity in the bulk.**
 
-The bulk and boundary do not need to be complete dual descriptions. The bulk emerges from the boundary through consistency and compression. It is not an independent theory that happens to match.
+The bulk and boundary do not need to be complete dual descriptions. The bulk emerges from the boundary through consistency and compression. It is the consistency/compression readout of the boundary.
 
 ### Why This Matters
 
