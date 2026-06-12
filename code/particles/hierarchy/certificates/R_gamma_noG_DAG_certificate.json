@@ -1,0 +1,36 @@
+{
+  "artifact": "R_gamma_noG_DAG_certificate",
+  "status": "skeleton_passes_forbidden_gravity_path_check_but_missing_component_certificates",
+  "components_required": [
+    "R_U",
+    "R_alpha",
+    "R_e_abs",
+    "R_QCD_nuc_133Cs",
+    "R_atom_133Cs"
+  ],
+  "component_status": {
+    "R_U": "partially supplied by this bundle for electroweak hierarchy",
+    "R_alpha": "not supplied",
+    "R_e_abs": "not supplied",
+    "R_QCD_nuc_133Cs": "not supplied",
+    "R_atom_133Cs": "not supplied"
+  },
+  "forbidden_sources": [
+    "G_exp",
+    "Planck_area_hbarG_over_c3",
+    "Planck_mass_sqrt_hbarc_over_G",
+    "Planck_time_sqrt_hbarG_over_c5",
+    "Lambda_exp",
+    "3pi_c3_over_hbarG"
+  ],
+  "allowed_unit_chart": [
+    "c_SI_definition",
+    "hbar_unit_chart",
+    "nu_Cs_SI_definition"
+  ],
+  "formula_if_closed": "G_SI = c^5/(4*pi^2*hbar*nu_Cs^2) * epsilon_Cs^2",
+  "candidate_values_from_sources": {
+    "epsilon_Cs": "3.113930513416012823901050434132426029496608693041876e-33",
+    "gamma_star": "4.9559743365484194636657782433696431879484319705825e-34"
+  }
+}

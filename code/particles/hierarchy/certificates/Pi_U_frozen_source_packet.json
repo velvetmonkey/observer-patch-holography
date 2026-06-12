@@ -1,0 +1,28 @@
+{
+  "artifact": "Pi_U_frozen_source_packet",
+  "status": "declared_frozen_packet_ledger",
+  "N2": 128,
+  "N3": 64,
+  "b_coefficients": {
+    "b1": "33/5",
+    "b2": "1",
+    "b3": "-3"
+  },
+  "N_c": 3,
+  "beta_EW": "N_c + 1 = 4",
+  "M_U(P)": "E_star * exp(-2*pi) * P^(1/6)",
+  "E_cell(P)": "E_star / sqrt(P)",
+  "v(P,a)": "E_cell(P) * exp[-2*pi/(4*a)]",
+  "frozen_before_comparison_with": [
+    "M_W",
+    "M_Z",
+    "alpha_s(M_Z)",
+    "sin^2(theta_W)",
+    "v_exp",
+    "G_exp",
+    "Planck area",
+    "Planck mass",
+    "measured Lambda"
+  ],
+  "posthoc_tuning_rule": "Any post-comparison change demotes the hierarchy row to calibration."
+}

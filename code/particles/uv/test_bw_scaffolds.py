@@ -6,6 +6,7 @@ from __future__ import annotations
 import json
 import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
 
@@ -18,19 +19,19 @@ MODULAR_DEFECT = ROOT / "particles" / "uv" / "derive_bw_fixed_local_collar_faith
 SCHEDULE = ROOT / "particles" / "uv" / "derive_bw_carried_collar_schedule_scaffold.py"
 EXTRACTION = ROOT / "particles" / "uv" / "derive_bw_scaling_limit_cap_pair_extraction_scaffold.py"
 RIGIDITY = ROOT / "particles" / "uv" / "derive_bw_ordered_cut_pair_rigidity_scaffold.py"
-RUNS = ROOT / "particles" / "runs" / "uv"
 
 
 def _run(script: Path) -> dict:
-    output = RUNS / script.name.replace(".py", ".json")
-    completed = subprocess.run(
-        [sys.executable, str(script), "--output", str(output)],
-        check=True,
-        capture_output=True,
-        text=True,
-    )
-    assert "saved:" in completed.stdout
-    return json.loads(output.read_text(encoding="utf-8"))
+    with tempfile.TemporaryDirectory(prefix="oph-uv-scaffold-") as temp_dir:
+        output = Path(temp_dir) / script.name.replace(".py", ".json")
+        completed = subprocess.run(
+            [sys.executable, str(script), "--output", str(output)],
+            check=True,
+            capture_output=True,
+            text=True,
+        )
+        assert "saved:" in completed.stdout
+        return json.loads(output.read_text(encoding="utf-8"))
 
 
 def test_scaling_limit_cap_pair_extraction_scaffold() -> None:

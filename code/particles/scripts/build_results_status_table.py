@@ -100,6 +100,12 @@ D10_MASS_PAIR_NOTE = (
     "The electromagnetic row is not taken from the compact hypercharge slice. Its source anchor is `a0 = alpha_em^-1(m_Z^2) = 128.30576920234813` on the same running family, and the Ward-projected `U(1)_Q` transport family is the readout surface. The Thomson endpoint recorded on that surface has no default reference value; external references can be supplied only as compare-only metadata until the source transport is emitted on the same branch. The separate `code/P_derivation/fixed_point_witness.py` surface records the outer/inner `P`-closure as a numerical witness, and `code/P_derivation/fixed_point_certificate.py` records the local numerical contraction certificate. "
     "`EWTransportKernel_D10`, `EWTransportReadoutCoherence_D10`, and `EWScalarProvenanceEquality_D10` supply the shared-kernel and shared-provenance gate for that readout. "
     "The compact anti-diagonal carrier slice and the source-only target-free emitter artifacts sit on disk as carrier or compare surfaces; they do not define the public electromagnetic theorem."
+    " The local electroweak hierarchy certificate is carried separately in `code/particles/hierarchy`: "
+    "`P_C = 1.630968209403959324879279847782648941`, "
+    "`alpha_U(P_C) = 0.041124336195630495`, and "
+    "`v/E_star = 2.0199803239725553e-17`, with a declared DAG check and an `R_U` Krawczyk inclusion witness. "
+    "That certificate closes the local `P -> alpha_U -> v/E_star` hierarchy lane. The public Thomson endpoint transport, "
+    "Higgs RG naturality defect bound, and full no-G clock stack are separate gates."
 )
 D11_NOTE = (
     "Derived from `derive_d11_declared_calibration_surface.py -> derive_d10_ew_source_transport_pair.py -> "

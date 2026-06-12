@@ -116,8 +116,8 @@ The important claim-boundary caveat is:
   finite-difference slopes, but it does not prove a Banach contraction bound or
   interval-wide uniqueness.
 - `fixed_point_certificate.py` emits a local numerical contraction certificate
-  for the implemented map. It is a stricter machine artifact than the witness,
-  but still not a formal interval-arithmetic proof of the full map.
+  for the implemented map. It is a stricter machine artifact than the witness;
+  formal interval arithmetic for the full map is a separate certificate.
 - A separate pending hardware note reports an optical-cavity check of the same
   fixed-point geometry; this is treated as corroborating engineering evidence.
 
@@ -201,6 +201,30 @@ with that same hadron row would require a same-scheme source-anchor bridge of
 of `0.0322443435578872888...`, outside the PDG/CERN range. Therefore raw PDG
 hadronic running is an empirical diagnostic until a source-side scheme bridge or
 same-scheme Ward-projected endpoint map is supplied.
+
+## Hierarchy certificate handoff
+
+The electroweak-hierarchy proof bundle in `../particles/hierarchy` uses the
+same two branch surfaces recorded here. On the public endpoint branch it reads
+
+```text
+P_C = 1.630968209403959324879279847782648941
+alpha_U(P_C) = 0.041124336195630495
+v/E_star = 2.0199803239725553e-17
+```
+
+On the source-audit branch it reads
+
+```text
+P_source_audit = 1.63097209569432901817967892561191884270169
+alpha_U(P_source_audit) = 0.04112424744557487
+v(P_source_audit)/E_star = 2.0198114150099223e-17
+```
+
+The bundle certifies the local `P -> alpha_U -> v/E_star` hierarchy lane by a
+declared dependency graph and a Krawczyk inclusion for the `R_U` interval. The
+public Thomson endpoint transport gate remains the same source-side hadronic
+spectral object described above.
 
 ## Usage
 

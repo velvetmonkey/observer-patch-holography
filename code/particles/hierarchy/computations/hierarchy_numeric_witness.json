@@ -1,0 +1,41 @@
+{
+  "public_endpoint_branch": {
+    "P_C": "1.630968209403959324879279847782648941",
+    "alpha_U_display": "0.041124336195630495",
+    "alpha_U_recomputed_root_for_formula_stack": "0.04112433619563048217762852895101648197489900549381103874177356871497404097781943386",
+    "alpha_U_inverse_display": "24.316501918546496",
+    "M_U_over_E_star": "0.0020260720012100031055338687795379539495636249327907148452944119615600331255995209339",
+    "v_over_E_star": "2.0199803239725553e-17",
+    "mu_Z_over_E_star": "7.502403238986022e-18",
+    "t_transmutation": "38.19627189415389",
+    "P_inv_sqrt": "0.7830279277625491",
+    "exp_minus_t": "2.5797040595276292e-17",
+    "E_star_over_v": "4.950543270804586e16",
+    "log10_E_star_over_v": "16.69465286086613"
+  },
+  "source_audit_branch": {
+    "P_cand": "1.63097209569432901817967892561191884270169",
+    "alpha_U": "0.04112424744557487",
+    "alpha_U_inverse": "24.316554395881205",
+    "v_over_E_star": "2.0198114150099223e-17",
+    "relative_shift_vs_public_v": "8.36e-5",
+    "status": "Use this branch when avoiding measured Thomson endpoint upstream."
+  },
+  "heat_kernel_witness": {
+    "SU2_ell_public_formula_recomputed": "0.39488144681077622507518980446627922988142688162693017962209481880381482336708488892",
+    "SU3_ell_public_formula_recomputed": "0.012860605540213465220040008662433374726542601898277191713757749570806872741665967494",
+    "sum_ell_recomputed": "0.40774205235098969029522981312871260460796948352520737133585256837462169610875085617",
+    "P_over_4": "0.40774205235098983121981996194566223524999999999999999999999999999999999999999999992",
+    "Phi_at_display_candidate_recomputed": "-1.4092459014881694963064203051647479262866414743162537830389124914375004750651665e-16",
+    "source_reported_sum_ell": "0.40774205235098987",
+    "source_reported_P_over_4": "0.4077420523509898",
+    "source_reported_residual": "5.55e-17",
+    "explanation": "Tiny residual differences reflect printed candidate/P rounding and the recomputed formula stack; root solve gives zero inside I_U."
+  },
+  "sensitivity": {
+    "d_ln_v_over_Estar_d_alphaU": "928.7997187955167",
+    "d_ln_G_d_alphaU_if_quadratic_clock_scale": "1857.5994375910334",
+    "residual_to_root_bound_using_recomputed_residual": "1.282e-17",
+    "residual_to_root_bound_using_source_reported_residual_5p55e-17": "5.05e-18"
+  }
+}

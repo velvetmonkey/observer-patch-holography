@@ -75,7 +75,7 @@
       0.06478785725166165
     ]
   },
-  "generated_utc": "2026-04-12T12:09:59Z",
+  "generated_utc": "2026-06-12T05:39:02Z",
   "notes": [
     "The input masses are taken from the exact current-family readout witness, which is target-anchored and explicitly not public-promotion-allowed.",
     "This package is useful for local theorem search and consistency checks because it computes the exact missing scalar package the public proof is trying to internalize.",

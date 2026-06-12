@@ -1,6 +1,6 @@
 # Particle Derivation Gap Ledger
 
-Generated: `2026-05-07T03:51:58Z`
+Generated: `2026-06-12T05:21:42Z`
 
 Systematic claim-safe queue after the five-equation P-trunk simplification.
 
@@ -14,9 +14,29 @@ Systematic claim-safe queue after the five-equation P-trunk simplification.
 - Candidate alpha^-1: `136.994020662724205139718642793`
 - Source report mode: `thomson_structured_running_asymptotic`
 
+## Electroweak Hierarchy Certificate
+
+- Artifact: `particles/hierarchy`
+- Exists: `True`
+- Claim status: `closed_local_electroweak_hierarchy_certificate`
+- May feed local hierarchy claim: `True`
+- Public endpoint P: `1.630968209403959324879279847782648941`
+- Public endpoint alpha_U: `0.041124336195630495`
+- Public endpoint v/E_star: `2.0199803239725553e-17`
+- Public endpoint log10(E_star/v): `16.69465286086613`
+- Source-audit P: `1.63097209569432901817967892561191884270169`
+- Source-audit alpha_U: `0.04112424744557487`
+- Source-audit v/E_star: `2.0198114150099223e-17`
+- R_U interval: `[0.041123336195630494, 0.041125336195630496]`
+- Krawczyk image: `[0.041124335718554498251685561120150817089903543894567180291985915541514084341979470, 0.041124336672706466103571496781875444719601176485634484342812958790445912366833206]`
+- Derivative interval: `[-10.995767998506369371985481516028357811043316285244607, -10.985284409796418191205377821955038437448873048903355]`
+- Krawczyk interior inclusion: `True`
+- Forbidden DAG paths into protected targets: `[]`
+- Boundary: This certificate closes the local P -> alpha_U -> v/E_star hierarchy lane. Excluded gates are the public Thomson endpoint transport, the Higgs RG naturality defect bound, theorem-grade W/Z promotion, and the full no-G clock stack for SI gravity.
+
 ## Bundle Execution Plan
 
-The remaining work is grouped into coupled closure packets rather than a one-blocker-at-a-time queue.
+Open work is grouped into coupled closure packets rather than a one-blocker-at-a-time queue.
 
 | Bundle | Status | Gaps | Promotion question |
 | --- | --- | --- | --- |
@@ -36,7 +56,7 @@ The remaining work is grouped into coupled closure packets rather than a one-blo
 - `top-codomain-bridge-bundle`: `closed_corpus_limited_codomain_no_go`. No-go result. The exact top theorem row remains on Q007TP4. The auxiliary direct-top row Q007TP is compare-only because the available corpus emits no source-side extraction-response kernel into that codomain.
 - `particle-root-integration-gate`: `keep_candidate_with_constructive_next_artifacts`. No promotion. The first wave emits constructive next artifacts, so the compressed P trunk remains candidate/audit metadata until those artifacts are populated and certified.
 
-## Remaining Gaps
+## Open Gates
 
 | ID | Lane | Status | Issue | Next action |
 | --- | --- | --- | --- | --- |
@@ -56,6 +76,6 @@ The remaining work is grouped into coupled closure packets rather than a one-blo
 ## Claim Policy
 
 - The compressed P trunk is an audit/candidate artifact until the endpoint and certificate gates close.
-- The remaining blockers should be worked as coupled bundles, not as isolated one-off fixes.
+- Open blockers should be worked as coupled bundles rather than isolated one-off fixes.
 - The particle pipeline must keep compare-only, continuation, selected-class, and theorem-grade rows mechanically distinct.
 - Golden-ratio torus or resonance language is not a derivation input unless a separate representation-to-spectrum theorem is supplied.

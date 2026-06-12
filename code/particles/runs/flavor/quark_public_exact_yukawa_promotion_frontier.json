@@ -479,7 +479,7 @@
     },
     "statement": "Let f_P be the physical quark frame class selected by P, represented on the realized quark lane by the explicit same-label common-refinement transport-frame class [F0^dagger F1]. For any two declared current-family/common-refinement transport-frame realizations r,r' in the selected same-label bridge fiber R_decl(f_P), the emitted Sigma_ud^phys element and attached exact physical sigma datum (sigma_seed_ud, eta_ud, sigma_u, sigma_d) agree. Equivalently, the exact sigma readout is constant on R_decl(f_P) and descends uniquely to a target-free public datum on the physical quark frame class selected by P."
   },
-  "generated_utc": "2026-05-06T02:43:29Z",
+  "generated_utc": "2026-06-12T05:39:00Z",
   "notes": [
     "This frontier is now resolved: the direct public sigma-datum descent theorem is closed, and the public exact Yukawa theorem is emitted explicitly.",
     "The alternate upstream route remains only as an unused alternative derivation route.",

@@ -103,7 +103,7 @@
       }
     ]
   },
-  "generated_utc": "2026-05-07T03:51:58Z",
+  "generated_utc": "2026-06-12T05:39:00Z",
   "input_artifacts": {
     "edge_statistics_candidate": "oph_quark_edge_statistics_spread_candidate",
     "odd_response": "oph_quark_odd_response_law",

@@ -32,5 +32,7 @@ def test_quark_current_family_exact_pdg_theorem() -> None:
         assert math.isclose(float(residual), 0.0, rel_tol=0.0, abs_tol=1e-12)
 
     frontier = payload["next_target_free_bridge"]["remaining_public_frontier"]
-    assert "quark_physical_sigma_ud_lift" in frontier
-    assert "quark_absolute_sector_readout_theorem" in frontier
+    assert frontier == []
+    assert "selected-public-class closure is carried by the public physical-sigma" in (
+        payload["next_target_free_bridge"]["note"]
+    )

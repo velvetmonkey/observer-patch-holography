@@ -1,0 +1,29 @@
+{
+  "artifact": "R_U_interval_certificate",
+  "status": "interval_witness_supplied",
+  "method": "High-precision formula-stack evaluation plus mpmath.iv interval derivative enclosure; package includes validator source.",
+  "P_C": "1.630968209403959324879279847782648941",
+  "I_U": {
+    "lower": "0.041123336195630494",
+    "upper": "0.041125336195630496"
+  },
+  "candidate_display": "0.041124336195630495",
+  "candidate_recomputed_root": "0.04112433619563048217762852895101648197489900549381103874177356871497404097781943386",
+  "endpoint_signs": {
+    "Phi(lower)": "0.000010990748697670281224767282902844965976275295232362864169846404176480574078378065",
+    "Phi(upper)": "-0.000010990300680190573525875729987742755373068216778899571221024459151856779264233122",
+    "existence_by_IVT": true
+  },
+  "mu_Z_interval_for_I_U": {
+    "lower": "7.495342826802518e-18",
+    "upper": "7.50946996048154e-18"
+  },
+  "derivative_interval": {
+    "lower": "-10.995767998506369371985481516028357811043316285244607",
+    "upper": "-10.985284409796418191205377821955038437448873048903355",
+    "excludes_zero": true,
+    "m_U": "10.985284409796418191205377821955038437448873048903355"
+  },
+  "uniqueness": "Derivative interval is strictly negative on I_U, so Phi_U is monotone decreasing on this enclosure.",
+  "formal_caveat": "For journal-grade proof, rerun with a certified outward-rounded interval library or proof assistant and attach the raw log."
+}

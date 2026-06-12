@@ -1,0 +1,28 @@
+{
+  "artifact": "R_HT_declared_surface_certificate",
+  "status": "declared_surface_output_recorded_interval_inputs_missing",
+  "outputs": {
+    "m_H_GeV": "125.1995304097179",
+    "m_t_D11_GeV": "172.3523553288312"
+  },
+  "formula_inputs_required_for_interval_certification": [
+    "eta_source",
+    "beta_EW",
+    "lambda_EW",
+    "tau_2_tree_exact",
+    "delta_n_tree_exact",
+    "y_t_core(mu_t)",
+    "lambda_core(mu_t)",
+    "D11 Jacobian map intervals"
+  ],
+  "formulas": {
+    "rho_HT": "log(1 + tau_2_tree_exact)",
+    "R_T": "-tau_2_tree_exact*eta_source^2 + (1+beta_EW/28)*eta_source^6 + eta_source^8/14 + eta_source^9/27",
+    "R_H": "eta_source^5 - (3/25)*eta_source^6 + lambda_EW*eta_source^6/18 + eta_source^8/(2*beta_EW)",
+    "pi_y": "(eta_source + (3/2 + beta_EW/4)*rho_HT + R_T)/sqrt(pi)",
+    "pi_lambda": "(eta_source - (4/3 - beta_EW/54)*rho_HT + R_H)/sqrt(pi)",
+    "delta_y_t": "pi_y * y_t_core(mu_t)",
+    "delta_lambda": "-16/9 * pi_lambda * lambda_core(mu_t)"
+  },
+  "needed_next_artifact": "I_HT interval box and F_HT# output enclosure."
+}

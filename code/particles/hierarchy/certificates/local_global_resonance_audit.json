@@ -1,0 +1,19 @@
+{
+  "artifact": "local_global_resonance_audit",
+  "status": "not_used_for_hierarchy_proof",
+  "proposed_relation": "t_tr(P_star) = (P_star/12) * log(N_CRC/pi)",
+  "computed": {
+    "using_rounded_N_CRC_3p31e122": {
+      "rhs": "38.1874352416461",
+      "t_tr_D10": "38.19627189415389",
+      "ratio": "0.9997686514"
+    },
+    "N_CRC_implied_by_exact_equality": "3.5323546226930e122"
+  },
+  "promotion_requires": [
+    "global repair-tick lemma",
+    "electroweak tick-projection lemma",
+    "joint fixed-point/stability theorem for (P,N)",
+    "RG/coarse-graining naturality theorem"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "artifact": "R_P_source_audit_pixel_certificate",
+  "status": "source_audit_branch_witness_not_full_endpoint_proof",
+  "P_cand": "1.63097209569432901817967892561191884270169",
+  "alpha_cand_inverse": "136.994835164621649457949994585787193262029",
+  "alpha_U_P_cand": "0.04112424744557487",
+  "v_over_E_star_P_cand": "2.0198114150099223e-17",
+  "needed_for_public_endpoint_completion": [
+    "same-scheme low-energy hadronic spectral transport",
+    "Ward-projected endpoint convention bridge",
+    "interval proof for the resulting A_T(P) self-map"
+  ]
+}

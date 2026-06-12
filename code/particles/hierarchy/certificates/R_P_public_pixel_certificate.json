@@ -1,0 +1,36 @@
+{
+  "artifact": "R_P_public_pixel_certificate",
+  "status": "conditional_public_endpoint_certificate",
+  "closure_equation": "P = phi + sqrt(pi) / A_T(P)",
+  "public_endpoint_convention": {
+    "A_T_public": "137.035999177",
+    "P_C": "1.630968209403959324879279847782648941",
+    "alpha_inverse_endpoint": "137.035999177(21)"
+  },
+  "proof_rule": {
+    "needed_for_uniqueness": [
+      "I_P",
+      "Gamma(I_P) subset I_P",
+      "contraction constant q_P < 1",
+      "residual r_P",
+      "DAG_P"
+    ],
+    "supplied_here": [
+      "candidate P_C computed from public endpoint convention",
+      "DAG label for public endpoint branch"
+    ],
+    "not_supplied_here": [
+      "source-only hadronic/same-scheme A_T(P) transport",
+      "Banach contraction log for source-only map"
+    ]
+  },
+  "dependency_boundary": {
+    "branch": "public endpoint pixel",
+    "allowed": [
+      "public Thomson endpoint as declared endpoint convention / branch locator"
+    ],
+    "forbidden_for_source_only_claim": [
+      "measured Thomson endpoint as upstream source map input"
+    ]
+  }
+}

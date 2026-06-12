@@ -73,6 +73,7 @@ def test_runtime_surface_preserves_repaired_neutrino_rows_and_canonical_refs(tmp
         "code/particles/runs/flavor/quark_current_family_selected_sheet_closure.json"
     )
     assert (current_dir / "P_derivation" / "runtime" / "p_closure_trunk_current.json").exists()
+    assert (current_dir / "P_derivation" / "runtime" / "measured_endpoint_calibration_current.json").exists()
     assert (current_dir / "P_derivation" / "runtime" / "thomson_endpoint_contract_current.json").exists()
     assert (current_dir / "P_derivation" / "runtime" / "source_spectral_theorem_current.json").exists()
     assert (current_dir / "P_derivation" / "runtime" / "thomson_endpoint_package_current.json").exists()

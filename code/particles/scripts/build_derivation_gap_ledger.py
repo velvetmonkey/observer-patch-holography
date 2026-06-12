@@ -19,6 +19,10 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[2]
 PARTICLES_ROOT = ROOT / "particles"
 P_TRUNK = ROOT / "P_derivation" / "runtime" / "p_closure_trunk_current.json"
+HIERARCHY_ROOT = PARTICLES_ROOT / "hierarchy"
+HIERARCHY_WITNESS = HIERARCHY_ROOT / "computations" / "hierarchy_numeric_witness.json"
+HIERARCHY_KRAWCZYK = HIERARCHY_ROOT / "certificates" / "R_U_krawczyk_certificate.json"
+HIERARCHY_DAG = HIERARCHY_ROOT / "certificates" / "DAG_U.json"
 DEFAULT_JSON_OUT = PARTICLES_ROOT / "runs" / "status" / "particle_derivation_gap_ledger.json"
 DEFAULT_MD_OUT = PARTICLES_ROOT / "DERIVATION_GAP_LEDGER.md"
 
@@ -46,6 +50,49 @@ def _load_p_trunk_summary() -> dict[str, Any]:
         "may_feed_live_particle_predictions": payload.get("consumer_policy", {}).get(
             "may_feed_live_particle_predictions",
             False,
+        ),
+    }
+
+
+def _load_hierarchy_summary() -> dict[str, Any]:
+    if not (HIERARCHY_WITNESS.exists() and HIERARCHY_KRAWCZYK.exists() and HIERARCHY_DAG.exists()):
+        return {
+            "artifact_path": str(HIERARCHY_ROOT.relative_to(ROOT)),
+            "exists": False,
+            "claim_status": "not_emitted",
+            "may_feed_local_hierarchy_claim": False,
+        }
+
+    witness = json.loads(HIERARCHY_WITNESS.read_text(encoding="utf-8"))
+    krawczyk = json.loads(HIERARCHY_KRAWCZYK.read_text(encoding="utf-8"))
+    dag = json.loads(HIERARCHY_DAG.read_text(encoding="utf-8"))
+    public = witness["public_endpoint_branch"]
+    source_audit = witness["source_audit_branch"]
+    return {
+        "artifact_path": str(HIERARCHY_ROOT.relative_to(ROOT)),
+        "exists": True,
+        "claim_status": "closed_local_electroweak_hierarchy_certificate",
+        "may_feed_local_hierarchy_claim": True,
+        "public_endpoint_branch": {
+            "P": public["P_C"],
+            "alpha_U": public["alpha_U_display"],
+            "v_over_E_star": public["v_over_E_star"],
+            "log10_E_star_over_v": public["log10_E_star_over_v"],
+        },
+        "source_audit_branch": {
+            "P": source_audit["P_cand"],
+            "alpha_U": source_audit["alpha_U"],
+            "v_over_E_star": source_audit["v_over_E_star"],
+        },
+        "interval": krawczyk["I_U"],
+        "krawczyk_image": krawczyk["K_I"],
+        "derivative_interval": krawczyk["derivative_interval"],
+        "krawczyk_interior": krawczyk["inclusion"]["K_I_subset_interior_I_U"],
+        "dag_forbidden_paths": dag["validation_result"]["forbidden_paths_to_protected_targets"],
+        "boundary": (
+            "This certificate closes the local P -> alpha_U -> v/E_star hierarchy lane. "
+            "Excluded gates are the public Thomson endpoint transport, the Higgs RG naturality "
+            "defect bound, theorem-grade W/Z promotion, and the full no-G clock stack for SI gravity."
         ),
     }
 
@@ -429,6 +476,7 @@ def build_ledger() -> dict[str, Any]:
         "generated_utc": _now_utc(),
         "purpose": "Systematic claim-safe queue after the five-equation P-trunk simplification.",
         "p_trunk": _load_p_trunk_summary(),
+        "electroweak_hierarchy": _load_hierarchy_summary(),
         "bundles": build_bundles(),
         "rows": rows,
         "promotion_policy": {
@@ -456,6 +504,7 @@ def build_ledger() -> dict[str, Any]:
 
 def render_markdown(ledger: dict[str, Any]) -> str:
     p_trunk = ledger["p_trunk"]
+    hierarchy = ledger["electroweak_hierarchy"]
     lines = [
         "# Particle Derivation Gap Ledger",
         "",
@@ -481,9 +530,43 @@ def render_markdown(ledger: dict[str, Any]) -> str:
     lines.extend(
         [
             "",
+            "## Electroweak Hierarchy Certificate",
+            "",
+            f"- Artifact: `{hierarchy['artifact_path']}`",
+            f"- Exists: `{hierarchy['exists']}`",
+            f"- Claim status: `{hierarchy['claim_status']}`",
+            f"- May feed local hierarchy claim: `{hierarchy['may_feed_local_hierarchy_claim']}`",
+        ]
+    )
+    if hierarchy.get("exists"):
+        public = hierarchy["public_endpoint_branch"]
+        source_audit = hierarchy["source_audit_branch"]
+        interval = hierarchy["interval"]
+        k_image = hierarchy["krawczyk_image"]
+        derivative = hierarchy["derivative_interval"]
+        lines.extend(
+            [
+                f"- Public endpoint P: `{public['P']}`",
+                f"- Public endpoint alpha_U: `{public['alpha_U']}`",
+                f"- Public endpoint v/E_star: `{public['v_over_E_star']}`",
+                f"- Public endpoint log10(E_star/v): `{public['log10_E_star_over_v']}`",
+                f"- Source-audit P: `{source_audit['P']}`",
+                f"- Source-audit alpha_U: `{source_audit['alpha_U']}`",
+                f"- Source-audit v/E_star: `{source_audit['v_over_E_star']}`",
+                f"- R_U interval: `[{interval['lower']}, {interval['upper']}]`",
+                f"- Krawczyk image: `[{k_image['lower']}, {k_image['upper']}]`",
+                f"- Derivative interval: `[{derivative['lower']}, {derivative['upper']}]`",
+                f"- Krawczyk interior inclusion: `{hierarchy['krawczyk_interior']}`",
+                f"- Forbidden DAG paths into protected targets: `{hierarchy['dag_forbidden_paths']}`",
+                f"- Boundary: {hierarchy['boundary']}",
+            ]
+        )
+    lines.extend(
+        [
+            "",
             "## Bundle Execution Plan",
             "",
-            "The remaining work is grouped into coupled closure packets rather than a one-blocker-at-a-time queue.",
+            "Open work is grouped into coupled closure packets rather than a one-blocker-at-a-time queue.",
             "",
             "| Bundle | Status | Gaps | Promotion question |",
             "| --- | --- | --- | --- |",
@@ -506,7 +589,7 @@ def render_markdown(ledger: dict[str, Any]) -> str:
     lines.extend(
         [
             "",
-            "## Remaining Gaps",
+            "## Open Gates",
             "",
             "| ID | Lane | Status | Issue | Next action |",
             "| --- | --- | --- | --- | --- |",
@@ -523,7 +606,7 @@ def render_markdown(ledger: dict[str, Any]) -> str:
             "## Claim Policy",
             "",
             "- The compressed P trunk is an audit/candidate artifact until the endpoint and certificate gates close.",
-            "- The remaining blockers should be worked as coupled bundles, not as isolated one-off fixes.",
+            "- Open blockers should be worked as coupled bundles rather than isolated one-off fixes.",
             "- The particle pipeline must keep compare-only, continuation, selected-class, and theorem-grade rows mechanically distinct.",
             "- Golden-ratio torus or resonance language is not a derivation input unless a separate representation-to-spectrum theorem is supplied.",
         ]

@@ -118,6 +118,10 @@ RUNTIME_EXTERNAL_OUTPUTS = (
         Path("P_derivation/runtime/p_closure_trunk_current.json"),
     ),
     (
+        P_DERIVATION_ROOT / "runtime" / "measured_endpoint_calibration_current.json",
+        Path("P_derivation/runtime/measured_endpoint_calibration_current.json"),
+    ),
+    (
         P_DERIVATION_ROOT / "runtime" / "thomson_endpoint_contract_current.json",
         Path("P_derivation/runtime/thomson_endpoint_contract_current.json"),
     ),

@@ -2,12 +2,20 @@
 
 This directory is the canonical code surface for OPH derivation work.
 
-Primary surfaces:
+Primary derivation surfaces:
 
 - `P_derivation/`: compressed `P -> alpha` closure and fixed-point artifacts.
-- `particles/`: particle-spectrum builders, status surfaces, and gap campaigns.
+- `particles/`: particle-spectrum builders, status surfaces, gap campaigns, and
+  the electroweak hierarchy certificate bundle under `particles/hierarchy/`.
 - `consensus/`: packet-net, consensus-protocol, and fixed-cutoff Z2/S3 reference-architecture benchmark artifacts.
-- `dark_matter/`: dark-sector simulation and likelihood utilities.
+
+Supplemental and benchmark surfaces:
+
+- `dark_matter/`: pre-likelihood dark-sector simulation and likelihood scaffolds
+  for the dark-matter supplement.
+- `ibm_quantum_cloud/`: completed IBM hardware benchmark scripts and redacted
+  raw-result JSON for OPH-inspired reduced-sector states. This is a benchmark
+  bundle, not a theorem input to the particle or cosmology papers.
 
 For the reference-architecture benchmark suite:
 
@@ -16,7 +24,7 @@ python3 code/consensus/reference_architecture_benchmark_suite.py
 python3 -m pytest code/consensus/test_reference_architecture_benchmark_suite.py
 ```
 
-The current emitted artifact is `code/consensus/runs/reference_architecture_benchmark_suite_current.json`.
+The emitted artifact is `code/consensus/runs/reference_architecture_benchmark_suite_current.json`.
 
 For the particle program, start with:
 

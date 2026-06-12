@@ -58,6 +58,26 @@ The OPH plus empirical hadron closure row uses a separate `e+e- -> hadrons`
 payload class for the hadronic endpoint contribution. The source-only audit row
 is recorded separately.
 
+The electroweak-hierarchy bundle in `../particles/hierarchy` uses these same
+two branch surfaces. On the public endpoint branch it records
+
+```text
+alpha_U(P) = 0.041124336195630495
+v/E_star   = 2.0199803239725553e-17
+```
+
+On the source-audit branch it records
+
+```text
+alpha_U(P_source_audit) = 0.04112424744557487
+v(P_source_audit)/E_star = 2.0198114150099223e-17
+```
+
+The `R_U` certificate proves a unique local source zero in the supplied
+interval by Krawczyk inclusion and a derivative enclosure excluding zero. The
+public-endpoint burden is the source-side Thomson transport object described in
+this directory.
+
 ## Outer Closure
 
 The pixel ratio is the screen-cell area in Planck units:
@@ -203,7 +223,7 @@ This is the scalar source-audit packet recorded by the finite-code ledger.
 
 ## Audit Checks
 
-The source-audit residual is not a failure of the outer equation:
+The source-audit residual leaves the outer equation intact:
 
 ```text
 P = phi + alpha * sqrt(pi)

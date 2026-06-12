@@ -20,9 +20,9 @@
   "b_mode_odd_projector_evaluator": {
     "J_B_formula": "dot(v, B_ord) / B_ord_norm_sq",
     "artifact": "oph_quark_diagonal_B_odd_source_scalar_evaluator",
-    "predictive_J_B_source_law_status": "missing",
-    "proof_status": "pure_B_odd_projection_formula_closed_source_values_open",
-    "smallest_constructive_missing_object": "source_readback_u_log_per_side_and_source_readback_d_log_per_side"
+    "predictive_J_B_source_law_status": "selected_public_class_closed",
+    "proof_status": "closed_public_selected_class_pure_B_odd_source_scalar_evaluator",
+    "smallest_constructive_missing_object": "off_canonical_pure_B_source_payload_family"
   },
   "broader_supported_frontier": "oph_light_quark_isospin_overlap_defect_selector_law",
   "centered_ray_fit": {
@@ -626,7 +626,7 @@
     "tau_d_best_fit": 0.08831017354133808,
     "tau_u_best_fit": 0.05214018144630117
   },
-  "generated_utc": "2026-04-26T05:11:10Z",
+  "generated_utc": "2026-06-12T05:38:58Z",
   "mean_split_audit": {
     "current_log_shift_d": -2.0281337286007872,
     "current_log_shift_u": -0.16973941452778685,
@@ -672,7 +672,7 @@
     "The same-family D12 mass ray is now an explicit emitted object on disk: D12_ud_mass_ray = { ray_modulus * (1/5, -((1 - x2^2) / 27)) }, and on that emitted ray the broader supported frontier Delta_ud_overlap is equivalently the downstream scalar burden quark_d12_t1_value_law, with intrinsic_scale_law_D12 retained as the derived wrapper.",
     "The mass-side theorem boundary remains sharp too: with D12_ud_mass_ray emitted, the broader supported D12 primitive remains Delta_ud_overlap, and on the emitted ray that same missing value is packaged as quark_d12_t1_value_law rather than another larger mass-side carrier."
   ],
-  "predictive_J_B_source_law_status": "missing",
+  "predictive_J_B_source_law_status": "selected_public_class_closed",
   "quadratic_residual_audit": {
     "Q_ord": [
       0.2440347951122107,

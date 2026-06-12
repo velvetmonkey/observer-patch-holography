@@ -29,6 +29,18 @@ def build_artifact(affine: dict, exact_readout: dict, lane_contract: dict) -> di
     masses_u = [math.exp(anchor + split + value) for value in exact_u]
     masses_d = [math.exp(anchor - split + value) for value in exact_d]
     target_frontier = lane_contract["exact_missing_theorems"]
+    target_frontier_ids = [item["id"] for item in target_frontier]
+    if target_frontier_ids:
+        frontier_note = (
+            "This theorem is exact only on the target-anchored current-family witness. "
+            "Promotion to a target-free theorem-grade OPH derivation requires the listed public frontier."
+        )
+    else:
+        frontier_note = (
+            "This theorem is exact only on the target-anchored current-family witness. "
+            "The target-free selected-public-class closure is carried by the public physical-sigma and "
+            "exact-Yukawa theorem artifacts, so this current-family witness is not the promotion surface."
+        )
 
     return {
         "artifact": "oph_quark_current_family_exact_pdg_theorem",
@@ -81,11 +93,8 @@ def build_artifact(affine: dict, exact_readout: dict, lane_contract: dict) -> di
             "b": masses_d[2] - float(exact_readout["predicted_singular_values_d"][2]),
         },
         "next_target_free_bridge": {
-            "remaining_public_frontier": [item["id"] for item in target_frontier],
-            "note": (
-                "This theorem is exact only on the target-anchored current-family witness. "
-                "Promoting it to a target-free theorem-grade OPH derivation still requires the remaining public frontier."
-            ),
+            "remaining_public_frontier": target_frontier_ids,
+            "note": frontier_note,
         },
         "notes": [
             "This closes the exact current-family PDG-matched running-value reconstruction on the current-family witness.",

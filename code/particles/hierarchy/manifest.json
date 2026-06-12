@@ -1,0 +1,123 @@
+{
+  "bundle_id": "oph-hierarchy-proof-artifacts-r1473-2026-06-12",
+  "generated_utc": "2026-06-12T04:17:17Z",
+  "purpose": "Machine-readable artifacts for the OPH electroweak hierarchy proof obligation audit.",
+  "source_release_context": "OPH r1473 sources, released June 11-12, 2026; generated in ChatGPT session on 2026-06-12.",
+  "claim_boundary": {
+    "closed_by_bundle": [
+      "public-branch numerical hierarchy witness",
+      "source-audit-branch numerical hierarchy witness",
+      "frozen D10 packet ledger",
+      "DAG_U forbidden-ancestor path exclusion, on the declared graph",
+      "R_U interval/Krawczyk witness using explicit interval derivative enclosure",
+      "W/Z compare-only boundary ledger",
+      "R_gamma no-G graph skeleton and missing-component gate ledger"
+    ],
+    "not_closed_by_bundle": [
+      "source-only A_T(P) hadronic endpoint transport for the public Thomson endpoint",
+      "raw outward-rounded interval log from a formal proof assistant or certified interval library",
+      "D10/D11 Higgs/top raw interval box for every internal input",
+      "concrete RG/coarse-graining Higgs readout defect epsilon_H=0 or bounded",
+      "full R_gamma source stack: R_alpha, R_e_abs, R_QCD/nuc^133Cs, R_atom^133Cs",
+      "W/Z theorem-grade target-free promotion certificate",
+      "local/global N_CRC resonance theorem"
+    ]
+  },
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "196753dc24258891dbb2b4ec274ffbeb252ac201d38257d4148b7f8708653426",
+      "bytes": 1934
+    },
+    {
+      "path": "STATUS.md",
+      "sha256": "3bb7170c7ca2b88735195c6bba22e2a5567ed815d495e12914c7bd9a530c20f3",
+      "bytes": 1540
+    },
+    {
+      "path": "certificates/DAG_U.json",
+      "sha256": "dd3c0a1dbe97d7dc4db7e963a06e403576a99020773526afcb7850689c90e129",
+      "bytes": 3775
+    },
+    {
+      "path": "certificates/Pi_U_frozen_source_packet.json",
+      "sha256": "720498dbcd0120564b120782739e10c2fbb8357ec60f1825b5dac745d9e801f4",
+      "bytes": 643
+    },
+    {
+      "path": "certificates/RG_Higgs_naturality_defect_certificate.json",
+      "sha256": "736cf7ca440242e59ef4a5ca8193f4a699357c37c917ad6a6b033c6f5f365e44",
+      "bytes": 703
+    },
+    {
+      "path": "certificates/R_HT_declared_surface_certificate.json",
+      "sha256": "3eb749b766308013d1f839c8838c32e1b59cb8ed2e4e079f4b7ba8b7397c4575",
+      "bytes": 1065
+    },
+    {
+      "path": "certificates/R_P_public_pixel_certificate.json",
+      "sha256": "1d37c44e5d1f1777667eae443ef7af6c5c054fcc3683bb1edb6919b2e2ccee07",
+      "bytes": 1080
+    },
+    {
+      "path": "certificates/R_P_source_audit_pixel_certificate.json",
+      "sha256": "11aeb17fd03b032af987100f8b865786f77b17c6d81aa4a649984e5059f42010",
+      "bytes": 558
+    },
+    {
+      "path": "certificates/R_U_interval_certificate.json",
+      "sha256": "baaf02723381ed8a79bae862952935c9598e2290a34c4c336572dfa7ef5c1766",
+      "bytes": 1445
+    },
+    {
+      "path": "certificates/R_U_krawczyk_certificate.json",
+      "sha256": "e7c7faea25ab5baca2257ee8beea0d50b1670c37d24c6eea35e8f12b36b5b436",
+      "bytes": 1580
+    },
+    {
+      "path": "certificates/R_WZ_boundary_certificate.json",
+      "sha256": "733f3d1471f625f4f1ca45b6619068bb97ca2b71e2a32deee143efb6af759a96",
+      "bytes": 468
+    },
+    {
+      "path": "certificates/R_gamma_noG_DAG_certificate.json",
+      "sha256": "aa77973aa8e5fc0c58db7035ee165ce04eae0b1d4ce6d5d469929ec33ea1fed2",
+      "bytes": 1063
+    },
+    {
+      "path": "certificates/local_global_resonance_audit.json",
+      "sha256": "48fab6a84aa8e5a1fd21bd444d455b162a23108f64915c478c7ab5b73fc4c08e",
+      "bytes": 591
+    },
+    {
+      "path": "computations/hierarchy_numeric_witness.json",
+      "sha256": "42be5381c4fcfbb121d8deb0771c51e5ecadf5414b81e13b3ab92bd64d8efa63",
+      "bytes": 2358
+    },
+    {
+      "path": "computations/hierarchy_recompute.py",
+      "sha256": "0619d019d24c5ea2458b8bf33ecbf2492d27c610725bf4ee49d8effa0f372620",
+      "bytes": 1853
+    },
+    {
+      "path": "theorem_package.md",
+      "sha256": "7b4e3390c156c39fce0faca4c133f7c68b9ab1e5c948da62cd14ba3f4eecffb4",
+      "bytes": 1872
+    },
+    {
+      "path": "validators/validate_bundle.py",
+      "sha256": "93ea81872364531ae36b750848201978d340c8139c8c8d46fb2cbdcc5dd1ae83",
+      "bytes": 666
+    },
+    {
+      "path": "validators/validate_dag.py",
+      "sha256": "05fbc369b6077d5c8c5849c8b29152f41871c07eaf13d3a5d54781cfb938abc2",
+      "bytes": 906
+    },
+    {
+      "path": "validators/validate_ru_interval_certificate.py",
+      "sha256": "3b97777d0e06f1b1122a344ac8ad9dbe727e683806ee36c90a1324b6fc8e8f44",
+      "bytes": 898
+    }
+  ]
+}

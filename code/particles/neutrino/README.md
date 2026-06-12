@@ -31,82 +31,82 @@ promotion questions.
 
 ## Current Working Split
 
-- [`derive_neutrino_scale_anchor.py`](/Users/muellerberndt/Projects/oph-meta/particles/neutrino/derive_neutrino_scale_anchor.py)
+- [`derive_neutrino_scale_anchor.py`](derive_neutrino_scale_anchor.py)
   Derives the active local neutrino scale anchor directly from the current D10
   core via `m_star = v^2 / mu_u`.
-- [`derive_family_response_tensor.py`](/Users/muellerberndt/Projects/oph-meta/particles/neutrino/derive_family_response_tensor.py)
+- [`derive_family_response_tensor.py`](derive_family_response_tensor.py)
   Builds the real symmetric family-response tensor from the local scale anchor
   and the common sector-response object.
-- [`derive_majorana_holonomy_lift.py`](/Users/muellerberndt/Projects/oph-meta/particles/neutrino/derive_majorana_holonomy_lift.py)
+- [`derive_majorana_holonomy_lift.py`](derive_majorana_holonomy_lift.py)
   Holds the congruence-gauge Majorana phase boundary, selector candidates, and
   the current equal-split selector-point closure.
-- [`derive_majorana_deformation_bilinear_form.py`](/Users/muellerberndt/Projects/oph-meta/particles/neutrino/derive_majorana_deformation_bilinear_form.py)
+- [`derive_majorana_deformation_bilinear_form.py`](derive_majorana_deformation_bilinear_form.py)
   Exports the OPH-only deformation-bilinear-form boundary. On the current
   isotropic branch it closes the residual metric class up to scale and leaves
   the upstream OPH Hessian origin theorem explicit.
-- [`derive_majorana_overlap_defect_hessian.py`](/Users/muellerberndt/Projects/oph-meta/particles/neutrino/derive_majorana_overlap_defect_hessian.py)
+- [`derive_majorana_overlap_defect_hessian.py`](derive_majorana_overlap_defect_hessian.py)
   Exports the exact upstream Hessian-shaped object now isolating the remaining
   OPH-only neutrino blocker.
-- [`derive_majorana_overlap_defect_action_germ.py`](/Users/muellerberndt/Projects/oph-meta/particles/neutrino/derive_majorana_overlap_defect_action_germ.py)
+- [`derive_majorana_overlap_defect_action_germ.py`](derive_majorana_overlap_defect_action_germ.py)
   Exports the local quadratic overlap-defect action germ that now sits between
   the selector center and the exact scalar-evaluator obstruction.
-- [`derive_majorana_phase_pullback_metric.py`](/Users/muellerberndt/Projects/oph-meta/particles/neutrino/derive_majorana_phase_pullback_metric.py)
+- [`derive_majorana_phase_pullback_metric.py`](derive_majorana_phase_pullback_metric.py)
   Exports the pullback metric and finite-angle chordal-distortion action behind
   the selector law. In the sandbox this now closes the law under a
   standard-math-fixed Hilbert-Schmidt/Frobenius route, while the stricter
   OPH-only ambient-metric derivation remains separate.
-- [`build_forward_majorana_matrix.py`](/Users/muellerberndt/Projects/oph-meta/particles/neutrino/build_forward_majorana_matrix.py)
+- [`build_forward_majorana_matrix.py`](build_forward_majorana_matrix.py)
   Builds the neutrino matrix artifact in explicit `real_seed`,
   `canonical_selector`, or `residual_envelope` mode.
-- [`build_majorana_phase_envelope.py`](/Users/muellerberndt/Projects/oph-meta/particles/neutrino/build_majorana_phase_envelope.py)
+- [`build_majorana_phase_envelope.py`](build_majorana_phase_envelope.py)
   Sweeps the residual Majorana phase plane and exports gap-vs-radius stability
   certificates for splittings and ordering.
-- [`build_forward_splittings.py`](/Users/muellerberndt/Projects/oph-meta/particles/neutrino/build_forward_splittings.py)
+- [`build_forward_splittings.py`](build_forward_splittings.py)
   Turns the blind matrix artifact into masses, splittings, and explicit
   real-seed versus phase-certified outputs.
-- [`build_pmns_from_shared_flavor_basis.py`](/Users/muellerberndt/Projects/oph-meta/particles/neutrino/build_pmns_from_shared_flavor_basis.py)
+- [`build_pmns_from_shared_flavor_basis.py`](build_pmns_from_shared_flavor_basis.py)
   Builds PMNS only if a charged-lepton left basis is supplied.
-- [`derive_neutrino_attachment_bridge_scalar_corridor.py`](/Users/muellerberndt/Projects/oph-meta/particles/neutrino/derive_neutrino_attachment_bridge_scalar_corridor.py)
+- [`derive_neutrino_attachment_bridge_scalar_corridor.py`](derive_neutrino_attachment_bridge_scalar_corridor.py)
   Fuses the strongest current compare-only routes for the diagnostic bridge
   scalar sidecar `B_nu`, including the best defect-weighted `mu_e`-assisted
   route, exposes the smaller exact correction scalar `C_nu` above the best
   emitted proxy, and records a narrower shortlist-consensus window beneath the
   emitted theorem pair.
-- [`derive_neutrino_bridge_correction_candidate_audit.py`](/Users/muellerberndt/Projects/oph-meta/particles/neutrino/derive_neutrino_bridge_correction_candidate_audit.py)
+- [`derive_neutrino_bridge_correction_candidate_audit.py`](derive_neutrino_bridge_correction_candidate_audit.py)
   Audits the reduced correction scalar `C_nu` directly and induces a narrower
   target-containing compare-only `B_nu` window than the older direct bridge
   corridor, as a diagnostic surface beneath the theorem lane.
-- [`derive_neutrino_bridge_correction_invariant_scaffold.py`](/Users/muellerberndt/Projects/oph-meta/particles/neutrino/derive_neutrino_bridge_correction_invariant_scaffold.py)
+- [`derive_neutrino_bridge_correction_invariant_scaffold.py`](derive_neutrino_bridge_correction_invariant_scaffold.py)
   Records the reduced correction geometry `C_nu` below the raw bridge scalar
   `B_nu` and above the internal positive proxy `P_nu` on the scaffold beneath
   the emitted theorem pair.
-- [`derive_neutrino_bridge_rigidity_theorem.py`](/Users/muellerberndt/Projects/oph-meta/particles/neutrino/derive_neutrino_bridge_rigidity_theorem.py)
+- [`derive_neutrino_bridge_rigidity_theorem.py`](derive_neutrino_bridge_rigidity_theorem.py)
   Emits the weighted-cycle bridge-rigidity theorem
   `C_nu = sum_gap^2 * prod_qbar * solar_response_over_mstar^-0.5`.
-- [`derive_neutrino_absolute_attachment_theorem.py`](/Users/muellerberndt/Projects/oph-meta/particles/neutrino/derive_neutrino_absolute_attachment_theorem.py)
+- [`derive_neutrino_absolute_attachment_theorem.py`](derive_neutrino_absolute_attachment_theorem.py)
   Emits `B_nu`, `lambda_nu`, and the absolute weighted-cycle neutrino family
   from the bridge-rigidity theorem and the internal proxy `P_nu`.
 
 ## Guards
 
-- [`test_no_pmns_import.py`](/Users/muellerberndt/Projects/oph-meta/particles/neutrino/test_no_pmns_import.py)
-- [`test_no_oscillation_import.py`](/Users/muellerberndt/Projects/oph-meta/particles/neutrino/test_no_oscillation_import.py)
-- [`test_no_dirac_k3_reuse.py`](/Users/muellerberndt/Projects/oph-meta/particles/neutrino/test_no_dirac_k3_reuse.py)
-- [`test_majorana_residual_factorization.py`](/Users/muellerberndt/Projects/oph-meta/particles/neutrino/test_majorana_residual_factorization.py)
-- [`test_shared_flavor_basis_contract.py`](/Users/muellerberndt/Projects/oph-meta/particles/neutrino/test_shared_flavor_basis_contract.py)
-- [`test_no_zero_phase_shortcut.py`](/Users/muellerberndt/Projects/oph-meta/particles/neutrino/test_no_zero_phase_shortcut.py)
-- [`test_majorana_selector_equivariance.py`](/Users/muellerberndt/Projects/oph-meta/particles/neutrino/test_majorana_selector_equivariance.py)
-- [`test_phase_envelope_gap_certificate.py`](/Users/muellerberndt/Projects/oph-meta/particles/neutrino/test_phase_envelope_gap_certificate.py)
-- [`test_isotropic_selector_reason_gate.py`](/Users/muellerberndt/Projects/oph-meta/particles/neutrino/test_isotropic_selector_reason_gate.py)
-- [`test_pullback_action_matches_hs_distortion.py`](/Users/muellerberndt/Projects/oph-meta/particles/neutrino/test_pullback_action_matches_hs_distortion.py)
-- [`test_pullback_metric_finite_difference.py`](/Users/muellerberndt/Projects/oph-meta/particles/neutrino/test_pullback_metric_finite_difference.py)
-- [`test_selector_point_vs_law_status_split.py`](/Users/muellerberndt/Projects/oph-meta/particles/neutrino/test_selector_point_vs_law_status_split.py)
-- [`test_ambient_metric_s3_rigidity.py`](/Users/muellerberndt/Projects/oph-meta/particles/neutrino/test_ambient_metric_s3_rigidity.py)
-- [`test_oph_only_scope_requires_deformation_form.py`](/Users/muellerberndt/Projects/oph-meta/particles/neutrino/test_oph_only_scope_requires_deformation_form.py)
-- [`test_hessian_recovers_deformation_bilinear_form.py`](/Users/muellerberndt/Projects/oph-meta/particles/neutrino/test_hessian_recovers_deformation_bilinear_form.py)
-- [`test_oph_only_hessian_not_frobenius_primitive.py`](/Users/muellerberndt/Projects/oph-meta/particles/neutrino/test_oph_only_hessian_not_frobenius_primitive.py)
-- [`test_overlap_defect_action_germ_class.py`](/Users/muellerberndt/Projects/oph-meta/particles/neutrino/test_overlap_defect_action_germ_class.py)
-- [`test_overlap_defect_action_scale_requires_evaluator.py`](/Users/muellerberndt/Projects/oph-meta/particles/neutrino/test_overlap_defect_action_scale_requires_evaluator.py)
+- [`test_no_pmns_import.py`](test_no_pmns_import.py)
+- [`test_no_oscillation_import.py`](test_no_oscillation_import.py)
+- [`test_no_dirac_k3_reuse.py`](test_no_dirac_k3_reuse.py)
+- [`test_majorana_residual_factorization.py`](test_majorana_residual_factorization.py)
+- [`test_shared_flavor_basis_contract.py`](test_shared_flavor_basis_contract.py)
+- [`test_no_zero_phase_shortcut.py`](test_no_zero_phase_shortcut.py)
+- [`test_majorana_selector_equivariance.py`](test_majorana_selector_equivariance.py)
+- [`test_phase_envelope_gap_certificate.py`](test_phase_envelope_gap_certificate.py)
+- [`test_isotropic_selector_reason_gate.py`](test_isotropic_selector_reason_gate.py)
+- [`test_pullback_action_matches_hs_distortion.py`](test_pullback_action_matches_hs_distortion.py)
+- [`test_pullback_metric_finite_difference.py`](test_pullback_metric_finite_difference.py)
+- [`test_selector_point_vs_law_status_split.py`](test_selector_point_vs_law_status_split.py)
+- [`test_ambient_metric_s3_rigidity.py`](test_ambient_metric_s3_rigidity.py)
+- [`test_oph_only_scope_requires_deformation_form.py`](test_oph_only_scope_requires_deformation_form.py)
+- [`test_hessian_recovers_deformation_bilinear_form.py`](test_hessian_recovers_deformation_bilinear_form.py)
+- [`test_oph_only_hessian_not_frobenius_primitive.py`](test_oph_only_hessian_not_frobenius_primitive.py)
+- [`test_overlap_defect_action_germ_class.py`](test_overlap_defect_action_germ_class.py)
+- [`test_overlap_defect_action_scale_requires_evaluator.py`](test_overlap_defect_action_scale_requires_evaluator.py)
 
 ## Typical Sandbox Flow
 

@@ -367,16 +367,27 @@ non-circularity test for the gravity number.}
 \infobox{Hierarchy problem in OPH}{
 The usual hierarchy problem treats the weak scale as a fragile scalar input
 near the ultraviolet cutoff.  OPH uses the local pixel branch.  The cell scale
-is \(E_{\rm cell}\), the unified-coupling record \(\mathcal R_U\) emits
-\(\alpha_U(P_\star)\), and the weak scale is read by
+is \(E_{\rm cell}\), and the unified-coupling record \(\mathcal R_U\) emits
+the unique source zero \(\alpha_U(P_\star)\).  The hierarchy certificate uses
+\[
+  I_U=[0.041123336195630494,\;0.041125336195630496],
+\]
+with a Krawczyk image contained in the interior of \(I_U\) and a derivative
+interval contained in \([-10.995768,\,-10.985284]\).  On that branch the weak
+scale is read by
 \[
   \frac{v}{E_{\rm cell}}
   =
   \exp\!\left[-\frac{2\pi}{4\alpha_U(P_\star)}\right].
 \]
-The Higgs mass is fixed by the branch equations recorded in the particle paper,
-cited as O5 in Appendix A.  A free bare scalar parameter is absent from this
-proof object.  The detailed hierarchy and Higgs/top records live in O1 and O5.}
+Equivalently \(v/E_\star=2.0199803239725553\times10^{-17}\) on the public
+endpoint branch.  The source-audit branch gives
+\(v/E_\star=2.0198114150099223\times10^{-17}\) when the public Thomson
+endpoint is excluded upstream.  The Higgs mass is fixed by the branch equations
+recorded in the particle paper, cited as O5 in Appendix A.  A free bare scalar
+parameter is absent from this proof object.  The RG naturality defect bound for
+the Higgs normal form is a separate proof obligation, and the SI gravity value
+requires the full \(\mathcal R_\gamma\) clock bridge below.}
 
 The hierarchy construction enters this note through the public
 \emph{Observers Are All You Need} paper, cited as O1 in Appendix A.  The
@@ -400,8 +411,9 @@ imported clock-scale object is the source bridge
 \(\mathcal R_{\rm QCD/nuc}^{133{\rm Cs}}\) is the source-side cesium nuclear
 record.  \(\mathcal R_{\rm atom}^{133{\rm Cs}}\) is the cesium hyperfine
 spectral record.  The Observers paper carries the source equations, interval
-requirements, derivative bounds, and dependency graph.  This note uses only the
-resulting rule: if the full graph contains no measured \(G\), no Planck area,
+requirements, Krawczyk inclusion, derivative bounds, and dependency graph for
+the \(\mathcal R_U\) hierarchy record.  This note uses only the resulting rule:
+if the full graph contains no measured \(G\), no Planck area,
 no measured \(\Lambda\), no measured electroweak calibration, and no equivalent
 gravity-calibrated scale, then the emitted \(\varepsilon_{\rm Cs}\) is a
 no-\(G\) scale readout.  Otherwise the printed SI gravity decimal is a

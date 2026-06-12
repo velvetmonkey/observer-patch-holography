@@ -1,0 +1,203 @@
+{
+  "artifact": "DAG_U",
+  "status": "passes_declared_forbidden_ancestor_check",
+  "nodes": [
+    {
+      "id": "P_star",
+      "type": "source_fixed_point",
+      "status": "conditional_public_or_source_audit_branch"
+    },
+    {
+      "id": "N2",
+      "type": "frozen_packet",
+      "value": 128
+    },
+    {
+      "id": "N3",
+      "type": "frozen_packet",
+      "value": 64
+    },
+    {
+      "id": "b_i",
+      "type": "frozen_packet",
+      "value": "(33/5,1,-3)"
+    },
+    {
+      "id": "M_U",
+      "type": "source_formula"
+    },
+    {
+      "id": "E_cell",
+      "type": "source_formula"
+    },
+    {
+      "id": "beta_EW",
+      "type": "frozen_packet",
+      "value": 4
+    },
+    {
+      "id": "Casimir_normalization",
+      "type": "frozen_packet"
+    },
+    {
+      "id": "matching_scheme",
+      "type": "frozen_packet"
+    },
+    {
+      "id": "mu_Z_fixed_point",
+      "type": "source_fixed_point"
+    },
+    {
+      "id": "heat_kernel_sums",
+      "type": "finite_sums"
+    },
+    {
+      "id": "Phi_U",
+      "type": "residual"
+    },
+    {
+      "id": "alpha_U",
+      "type": "source_root"
+    },
+    {
+      "id": "v_over_E_star",
+      "type": "hierarchy_output"
+    },
+    {
+      "id": "m_H_D10D11",
+      "type": "declared_surface_output"
+    },
+    {
+      "id": "M_W_measured",
+      "type": "forbidden_measurement"
+    },
+    {
+      "id": "M_Z_measured",
+      "type": "forbidden_measurement"
+    },
+    {
+      "id": "alpha_s_MZ_measured",
+      "type": "forbidden_measurement"
+    },
+    {
+      "id": "sin2thetaW_measured",
+      "type": "forbidden_measurement"
+    },
+    {
+      "id": "v_exp",
+      "type": "forbidden_measurement"
+    },
+    {
+      "id": "G_exp",
+      "type": "forbidden_measurement"
+    },
+    {
+      "id": "Planck_area_from_G",
+      "type": "forbidden_measurement"
+    },
+    {
+      "id": "Planck_mass_from_G",
+      "type": "forbidden_measurement"
+    },
+    {
+      "id": "Lambda_exp",
+      "type": "forbidden_measurement"
+    }
+  ],
+  "edges": [
+    {
+      "from": "P_star",
+      "to": "M_U"
+    },
+    {
+      "from": "P_star",
+      "to": "E_cell"
+    },
+    {
+      "from": "P_star",
+      "to": "mu_Z_fixed_point"
+    },
+    {
+      "from": "N2",
+      "to": "heat_kernel_sums"
+    },
+    {
+      "from": "N3",
+      "to": "heat_kernel_sums"
+    },
+    {
+      "from": "b_i",
+      "to": "mu_Z_fixed_point"
+    },
+    {
+      "from": "M_U",
+      "to": "mu_Z_fixed_point"
+    },
+    {
+      "from": "E_cell",
+      "to": "mu_Z_fixed_point"
+    },
+    {
+      "from": "beta_EW",
+      "to": "v_over_E_star"
+    },
+    {
+      "from": "Casimir_normalization",
+      "to": "heat_kernel_sums"
+    },
+    {
+      "from": "matching_scheme",
+      "to": "mu_Z_fixed_point"
+    },
+    {
+      "from": "mu_Z_fixed_point",
+      "to": "Phi_U"
+    },
+    {
+      "from": "heat_kernel_sums",
+      "to": "Phi_U"
+    },
+    {
+      "from": "Phi_U",
+      "to": "alpha_U"
+    },
+    {
+      "from": "alpha_U",
+      "to": "v_over_E_star"
+    },
+    {
+      "from": "P_star",
+      "to": "v_over_E_star"
+    },
+    {
+      "from": "v_over_E_star",
+      "to": "m_H_D10D11"
+    },
+    {
+      "from": "alpha_U",
+      "to": "m_H_D10D11"
+    }
+  ],
+  "forbidden_sources": [
+    "M_W_measured",
+    "M_Z_measured",
+    "alpha_s_MZ_measured",
+    "sin2thetaW_measured",
+    "v_exp",
+    "G_exp",
+    "Planck_area_from_G",
+    "Planck_mass_from_G",
+    "Lambda_exp"
+  ],
+  "protected_targets": [
+    "Phi_U",
+    "alpha_U",
+    "v_over_E_star",
+    "m_H_D10D11"
+  ],
+  "validation_result": {
+    "forbidden_paths_to_protected_targets": [],
+    "pass": true
+  },
+  "note": "This proves the declared graph excludes forbidden paths. It does not prove provenance timestamps unless paired with repository history/signatures."
+}

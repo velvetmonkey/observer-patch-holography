@@ -25,31 +25,31 @@ available substitute for a production OPH hadronic spectral payload.
 ## Core Files
 
 - runtime receipt:
-  [derive_runtime_schedule_receipt_n_therm_and_n_sep.py](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/hadron/derive_runtime_schedule_receipt_n_therm_and_n_sep.py)
+  [derive_runtime_schedule_receipt_n_therm_and_n_sep.py](derive_runtime_schedule_receipt_n_therm_and_n_sep.py)
 - cfg/source payload:
-  [derive_stable_channel_cfg_source_measure_payload.py](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/hadron/derive_stable_channel_cfg_source_measure_payload.py)
+  [derive_stable_channel_cfg_source_measure_payload.py](derive_stable_channel_cfg_source_measure_payload.py)
 - sequence evaluation:
-  [derive_stable_channel_sequence_evaluation.py](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/hadron/derive_stable_channel_sequence_evaluation.py)
+  [derive_stable_channel_sequence_evaluation.py](derive_stable_channel_sequence_evaluation.py)
 - groundstate readout:
-  [derive_stable_channel_groundstate_readout.py](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/hadron/derive_stable_channel_groundstate_readout.py)
+  [derive_stable_channel_groundstate_readout.py](derive_stable_channel_groundstate_readout.py)
 - lane audit:
-  [derive_current_hadron_lane_audit.py](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/hadron/derive_current_hadron_lane_audit.py)
+  [derive_current_hadron_lane_audit.py](derive_current_hadron_lane_audit.py)
 - production validator:
-  [validate_production_hadron_closure.py](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/hadron/validate_production_hadron_closure.py)
+  [validate_production_hadron_closure.py](validate_production_hadron_closure.py)
 - one-shot production writeback:
-  [run_production_backend_writeback.py](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/hadron/run_production_backend_writeback.py)
+  [run_production_backend_writeback.py](run_production_backend_writeback.py)
 - empirical `e+e- -> hadrons` source registry:
-  [empirical_ee_hadrons_sources.yaml](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/hadron/empirical_ee_hadrons_sources.yaml)
+  [empirical_ee_hadrons_sources.yaml](empirical_ee_hadrons_sources.yaml)
 
 ## Active Artifacts
 
-- [runtime_schedule_receipt_N_therm_and_N_sep.json](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/hadron/runtime_schedule_receipt_N_therm_and_N_sep.json)
-- [stable_channel_cfg_source_measure_payload.json](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/hadron/stable_channel_cfg_source_measure_payload.json)
-- [stable_channel_sequence_evaluation.json](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/hadron/stable_channel_sequence_evaluation.json)
-- [current_hadron_lane_audit.json](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/hadron/current_hadron_lane_audit.json)
-- [hadron_production_closure_validation_report.json](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/hadron/hadron_production_closure_validation_report.json)
-- [hadron_production_readiness_report.json](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/hadron/hadron_production_readiness_report.json)
-- [HADRON_SYSTEMATICS_STATUS.md](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/HADRON_SYSTEMATICS_STATUS.md)
+- [runtime_schedule_receipt_N_therm_and_N_sep.json](../runs/hadron/runtime_schedule_receipt_N_therm_and_N_sep.json)
+- [stable_channel_cfg_source_measure_payload.json](../runs/hadron/stable_channel_cfg_source_measure_payload.json)
+- [stable_channel_sequence_evaluation.json](../runs/hadron/stable_channel_sequence_evaluation.json)
+- [current_hadron_lane_audit.json](../runs/hadron/current_hadron_lane_audit.json)
+- [hadron_production_closure_validation_report.json](../runs/hadron/hadron_production_closure_validation_report.json)
+- [hadron_production_readiness_report.json](../runs/hadron/hadron_production_readiness_report.json)
+- [HADRON_SYSTEMATICS_STATUS.md](../HADRON_SYSTEMATICS_STATUS.md)
 
 ## Canonical Execution Path
 

@@ -1,0 +1,15 @@
+{
+  "artifact": "R_WZ_boundary_certificate",
+  "status": "compare_only_boundary",
+  "values": {
+    "M_W_GeV": "80.377",
+    "M_Z_GeV": "91.18797809193725"
+  },
+  "rule": "These values are validation/adapter rows and are not required for the v/E_star hierarchy theorem.",
+  "promotion_requires": [
+    "I_WZ interval box",
+    "F_WZ# target-free electroweak map",
+    "K_WZ inclusion or equivalent uniqueness proof",
+    "DAG_WZ with no measured M_W or M_Z path"
+  ]
+}

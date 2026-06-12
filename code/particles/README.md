@@ -22,20 +22,21 @@ part of this canonical tree.
 
 ## Active Layout
 
-- [calibration](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/calibration)
-- [flavor](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/flavor)
-- [leptons](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/leptons)
-- [neutrino](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/neutrino)
-- [hadron](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/hadron)
-- [qcd](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/qcd)
-- [runs](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs)
-- [scripts](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/scripts)
-- [RESULTS_STATUS.md](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/RESULTS_STATUS.md)
-- [DERIVATION_GAP_LEDGER.md](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/DERIVATION_GAP_LEDGER.md)
-- [GAP_BUNDLE_CAMPAIGN.md](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/GAP_BUNDLE_CAMPAIGN.md)
-- [campaigns/gap_bundle](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/campaigns/gap_bundle)
-- [particle_mass_derivation_graph.svg](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/particle_mass_derivation_graph.svg)
-- [task_tracker.yaml](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/task_tracker.yaml)
+- [calibration](calibration)
+- [flavor](flavor)
+- [leptons](leptons)
+- [neutrino](neutrino)
+- [hadron](hadron)
+- [qcd](qcd)
+- [hierarchy](hierarchy)
+- [runs](runs)
+- [scripts](scripts)
+- [RESULTS_STATUS.md](RESULTS_STATUS.md)
+- [DERIVATION_GAP_LEDGER.md](DERIVATION_GAP_LEDGER.md)
+- [GAP_BUNDLE_CAMPAIGN.md](GAP_BUNDLE_CAMPAIGN.md)
+- [campaigns/gap_bundle](campaigns/gap_bundle)
+- [particle_mass_derivation_graph.svg](particle_mass_derivation_graph.svg)
+- [task_tracker.yaml](task_tracker.yaml)
 
 ## High-Level Chain
 
@@ -45,6 +46,11 @@ part of this canonical tree.
   calibration/derive_d10_ew_population_evaluator.py ->
   calibration/derive_d10_ew_w_anchor_neutral_shear_factorization.py ->
   calibration/derive_d10_ew_source_transport_readout.py`
+- electroweak hierarchy certificate:
+  `hierarchy/certificates/DAG_U.json ->
+  hierarchy/certificates/R_U_interval_certificate.json ->
+  hierarchy/certificates/R_U_krawczyk_certificate.json ->
+  hierarchy/computations/hierarchy_numeric_witness.json`
 - Higgs/top:
   `calibration/derive_d11_declared_calibration_surface.py ->
   calibration/derive_d11_forward_seed.py ->
@@ -91,71 +97,83 @@ The exact public running-top row uses the PDG 2025 cross-section entry
 The auxiliary direct-top average `Q007TP` is compare-only; #207 is closed as a
 corpus-limited codomain no-go.
 
+The hierarchy proof bundle is a separate audit lane from the rounded `1.63094`
+calibration carrier. It records the public endpoint branch
+`P_C = 1.630968209403959324879279847782648941`,
+`alpha_U(P_C) = 0.041124336195630495`, and
+`v/E_star = 2.0199803239725553e-17`, together with a source-audit branch that
+keeps the public Thomson endpoint out of the upstream solve. Its Krawczyk
+certificate proves a unique source zero for the declared `R_U` formula stack
+inside the supplied interval. Full SI gravity remains gated by the no-G clock
+stack, and Higgs naturalness remains gated by the concrete RG defect bound.
+
 ## Main Outputs
 
 - status table:
-  [RESULTS_STATUS.md](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/RESULTS_STATUS.md)
+  [RESULTS_STATUS.md](RESULTS_STATUS.md)
 - systematic open-gap ledger after the compressed `P`-trunk simplification:
-  [DERIVATION_GAP_LEDGER.md](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/DERIVATION_GAP_LEDGER.md)
-- bundled closure campaign for addressing the remaining blockers as coupled
+  [DERIVATION_GAP_LEDGER.md](DERIVATION_GAP_LEDGER.md)
+- bundled closure campaign for addressing the open blockers as coupled
   packets:
-  [GAP_BUNDLE_CAMPAIGN.md](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/GAP_BUNDLE_CAMPAIGN.md)
-  and [campaigns/gap_bundle](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/campaigns/gap_bundle)
+  [GAP_BUNDLE_CAMPAIGN.md](GAP_BUNDLE_CAMPAIGN.md)
+  and [campaigns/gap_bundle](campaigns/gap_bundle)
 - exact-fits-only diagnostic surface:
-  [EXACT_FITS_ONLY.md](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/EXACT_FITS_ONLY.md)
+  [EXACT_FITS_ONLY.md](EXACT_FITS_ONLY.md)
 - exact non-hadron mass bundle:
-  [EXACT_NONHADRON_MASSES.md](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/EXACT_NONHADRON_MASSES.md)
+  [EXACT_NONHADRON_MASSES.md](EXACT_NONHADRON_MASSES.md)
 - machine-readable status:
-  [results_status.json](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/results_status.json)
+  [results_status.json](results_status.json)
 - machine-readable exact-fits-only surface:
-  [exact_fits_only.json](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/exact_fits_only.json)
+  [exact_fits_only.json](exact_fits_only.json)
 - machine-readable exact non-hadron mass bundle:
-  [exact_nonhadron_masses.json](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/exact_nonhadron_masses.json)
+  [exact_nonhadron_masses.json](exact_nonhadron_masses.json)
 - frozen status artifact:
-  [status_table_forward_current.json](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/status/status_table_forward_current.json)
+  [status_table_forward_current.json](runs/status/status_table_forward_current.json)
 - frozen exact-fits-only artifact:
-  [exact_fits_only_current.json](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/status/exact_fits_only_current.json)
+  [exact_fits_only_current.json](runs/status/exact_fits_only_current.json)
 - frozen exact non-hadron mass bundle:
-  [exact_nonhadron_masses_current.json](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/status/exact_nonhadron_masses_current.json)
+  [exact_nonhadron_masses_current.json](runs/status/exact_nonhadron_masses_current.json)
 - derivation graph:
-  [particle_mass_derivation_graph.svg](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/particle_mass_derivation_graph.svg)
+  [particle_mass_derivation_graph.svg](particle_mass_derivation_graph.svg)
+- electroweak hierarchy proof bundle:
+  [hierarchy](hierarchy)
 
 ## Quark Closure Surface
 
 - maximal theorem-emitted package artifact:
-  [quark_maximal_theorem_emitted_package.json](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/flavor/quark_maximal_theorem_emitted_package.json)
+  [quark_maximal_theorem_emitted_package.json](runs/flavor/quark_maximal_theorem_emitted_package.json)
 - target-free mass bridge artifacts:
-  [light_quark_overlap_defect_value_law.json](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/flavor/light_quark_overlap_defect_value_law.json)
+  [light_quark_overlap_defect_value_law.json](runs/flavor/light_quark_overlap_defect_value_law.json)
   and
-  [quark_d12_t1_value_law.json](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/flavor/quark_d12_t1_value_law.json)
+  [quark_d12_t1_value_law.json](runs/flavor/quark_d12_t1_value_law.json)
 - physical-sheet contract artifact:
-  [quark_lane_closure_contract.json](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/flavor/quark_lane_closure_contract.json)
+  [quark_lane_closure_contract.json](runs/flavor/quark_lane_closure_contract.json)
 - algebraic-collapse artifact:
-  [quark_absolute_readout_algebraic_collapse.json](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/flavor/quark_absolute_readout_algebraic_collapse.json)
+  [quark_absolute_readout_algebraic_collapse.json](runs/flavor/quark_absolute_readout_algebraic_collapse.json)
 - exact `current_family_only` PDG witness:
-  [quark_current_family_exact_pdg_theorem.json](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/flavor/quark_current_family_exact_pdg_theorem.json)
+  [quark_current_family_exact_pdg_theorem.json](runs/flavor/quark_current_family_exact_pdg_theorem.json)
 - restricted current-family common-refinement transport-frame sector-attached lift:
-  [quark_current_family_transport_frame_sector_attached_lift.json](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/flavor/quark_current_family_transport_frame_sector_attached_lift.json)
+  [quark_current_family_transport_frame_sector_attached_lift.json](runs/flavor/quark_current_family_transport_frame_sector_attached_lift.json)
 - restricted current-family common-refinement transport-frame physical sigma lift theorem:
-  [quark_current_family_transport_frame_physical_sigma_lift_theorem.json](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/flavor/quark_current_family_transport_frame_physical_sigma_lift_theorem.json)
+  [quark_current_family_transport_frame_physical_sigma_lift_theorem.json](runs/flavor/quark_current_family_transport_frame_physical_sigma_lift_theorem.json)
 - restricted current-family common-refinement transport-frame strengthened physical sigma lift theorem:
-  [quark_current_family_transport_frame_strengthened_physical_sigma_lift_theorem.json](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/flavor/quark_current_family_transport_frame_strengthened_physical_sigma_lift_theorem.json)
+  [quark_current_family_transport_frame_strengthened_physical_sigma_lift_theorem.json](runs/flavor/quark_current_family_transport_frame_strengthened_physical_sigma_lift_theorem.json)
 - restricted current-family common-refinement transport-frame absolute sector readout theorem:
-  [quark_current_family_transport_frame_absolute_sector_readout_theorem.json](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/flavor/quark_current_family_transport_frame_absolute_sector_readout_theorem.json)
+  [quark_current_family_transport_frame_absolute_sector_readout_theorem.json](runs/flavor/quark_current_family_transport_frame_absolute_sector_readout_theorem.json)
 - restricted current-family common-refinement transport-frame exact PDG completion:
-  [quark_current_family_transport_frame_exact_pdg_completion.json](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/flavor/quark_current_family_transport_frame_exact_pdg_completion.json)
+  [quark_current_family_transport_frame_exact_pdg_completion.json](runs/flavor/quark_current_family_transport_frame_exact_pdg_completion.json)
 - restricted current-family common-refinement transport-frame exact forward Yukawas:
-  [quark_current_family_transport_frame_exact_forward_yukawas.json](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/flavor/quark_current_family_transport_frame_exact_forward_yukawas.json)
+  [quark_current_family_transport_frame_exact_forward_yukawas.json](runs/flavor/quark_current_family_transport_frame_exact_forward_yukawas.json)
 - restricted current-family common-refinement end-to-end exact PDG derivation chain:
-  [quark_current_family_end_to_end_exact_pdg_derivation_chain.json](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/flavor/quark_current_family_end_to_end_exact_pdg_derivation_chain.json)
+  [quark_current_family_end_to_end_exact_pdg_derivation_chain.json](runs/flavor/quark_current_family_end_to_end_exact_pdg_derivation_chain.json)
 - public exact physical sigma-datum descent theorem:
-  [quark_public_physical_sigma_datum_descent.json](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/flavor/quark_public_physical_sigma_datum_descent.json)
+  [quark_public_physical_sigma_datum_descent.json](runs/flavor/quark_public_physical_sigma_datum_descent.json)
 - public exact end-to-end Yukawa theorem:
-  [quark_public_exact_yukawa_end_to_end_theorem.json](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/flavor/quark_public_exact_yukawa_end_to_end_theorem.json)
+  [quark_public_exact_yukawa_end_to_end_theorem.json](runs/flavor/quark_public_exact_yukawa_end_to_end_theorem.json)
 - public exact Yukawa promotion frontier:
-  [quark_public_exact_yukawa_promotion_frontier.json](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/flavor/quark_public_exact_yukawa_promotion_frontier.json)
+  [quark_public_exact_yukawa_promotion_frontier.json](runs/flavor/quark_public_exact_yukawa_promotion_frontier.json)
 - selected-class public closure summary:
-  [quark_public_strengthened_physical_sigma_lift_frontier.json](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/flavor/quark_public_strengthened_physical_sigma_lift_frontier.json)
+  [quark_public_strengthened_physical_sigma_lift_frontier.json](runs/flavor/quark_public_strengthened_physical_sigma_lift_frontier.json)
 
 These artifacts fix the quark claim boundary on the local code surface. The
 maximal theorem-emitted package consists of the D12 mass ray, the negative
@@ -245,6 +263,7 @@ python3 -m pytest \
   hadron/test_runtime_schedule_receipt_n_therm_and_n_sep.py \
   hadron/test_stable_channel_sequence_evaluation.py \
   hadron/test_current_hadron_lane_audit.py \
+  hierarchy/test_hierarchy_bundle.py \
   test_results_status_candidate_policy.py \
   test_results_status_quark_promotion_policy.py \
   test_results_status_structural_rows.py \
@@ -255,8 +274,8 @@ python3 -m pytest \
 
 The code here feeds the particle paper:
 
-- [deriving_the_particle_zoo_from_observer_consistency.tex](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/paper/deriving_the_particle_zoo_from_observer_consistency.tex)
-- [deriving_the_particle_zoo_from_observer_consistency.pdf](/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/paper/deriving_the_particle_zoo_from_observer_consistency.pdf)
+- [deriving_the_particle_zoo_from_observer_consistency.tex](../../paper/deriving_the_particle_zoo_from_observer_consistency.tex)
+- [deriving_the_particle_zoo_from_observer_consistency.pdf](../../paper/deriving_the_particle_zoo_from_observer_consistency.pdf)
 
 ## License And Patent Policy
 

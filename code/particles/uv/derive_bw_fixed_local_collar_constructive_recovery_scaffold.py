@@ -29,6 +29,10 @@ def _load_json(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def _artifact_ref(path: Path) -> str:
+    return f"code/{path.relative_to(ROOT).as_posix()}"
+
+
 def build_payload(raw_datum: dict[str, Any]) -> dict[str, Any]:
     cmi_component = raw_datum["contract"]["must_emit"][0]
     return {
@@ -56,15 +60,15 @@ def build_payload(raw_datum: dict[str, Any]) -> dict[str, Any]:
             "must_not_assume": raw_datum["contract"]["must_not_assume"],
         },
         "feeds_parent_schedule": {
-            "artifact": str(CARRIED_SCHEDULE),
+            "artifact": _artifact_ref(CARRIED_SCHEDULE),
             "formula": raw_datum["implies_schedule"]["formula"],
-            "other_term_still_needed_artifact": str(FAITHFUL_MODULAR_DEFECT),
+            "other_term_still_needed_artifact": _artifact_ref(FAITHFUL_MODULAR_DEFECT),
             "other_term_still_needed": "fixed_local_collar_faithful_modular_defect_vanishing",
         },
         "joint_schedule_term_frontier": build_schedule_term_frontier(
-            constructive_recovery_artifact=str(DEFAULT_OUT),
-            faithful_modular_defect_artifact=str(FAITHFUL_MODULAR_DEFECT),
-            carried_schedule_artifact=str(CARRIED_SCHEDULE),
+            constructive_recovery_artifact=_artifact_ref(DEFAULT_OUT),
+            faithful_modular_defect_artifact=_artifact_ref(FAITHFUL_MODULAR_DEFECT),
+            carried_schedule_artifact=_artifact_ref(CARRIED_SCHEDULE),
         ),
         "already_packaged_below_this_witness": raw_datum["already_packaged_below_this_datum"],
         "why_this_is_smaller": [
@@ -73,10 +77,10 @@ def build_payload(raw_datum: dict[str, Any]) -> dict[str, Any]:
             "It is independent of the exact-Markov comparison scaffold; both descend from the same collarwise Markov input but control different schedule terms.",
         ],
         "notes": [
-            "This scaffold does not claim the constructive recovery witness is already emitted on the live corpus.",
-            "By itself it does not close the carried-collar schedule because the faithfulness-weighted modular defect term still remains.",
+            "This scaffold does not claim the constructive recovery witness is emitted on the live corpus.",
+            "By itself it does not close the carried-collar schedule because the faithfulness-weighted modular defect term is separate.",
             "Together with the faithful modular-defect scaffold, it closes the two-term schedule contract consumed by cap-pair extraction.",
-            "The actual solver frontier above this witness is now recorded as the two-term pair, not as a separately targeted schedule object.",
+            "The actual solver frontier above this witness is recorded as the two-term pair, rather than as a separately targeted schedule object.",
         ],
     }
 

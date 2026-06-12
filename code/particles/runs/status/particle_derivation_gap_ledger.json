@@ -73,7 +73,39 @@
       "status": "keep_candidate_with_constructive_next_artifacts"
     }
   ],
-  "generated_utc": "2026-05-07T03:51:58Z",
+  "electroweak_hierarchy": {
+    "artifact_path": "particles/hierarchy",
+    "boundary": "This certificate closes the local P -> alpha_U -> v/E_star hierarchy lane. Excluded gates are the public Thomson endpoint transport, the Higgs RG naturality defect bound, theorem-grade W/Z promotion, and the full no-G clock stack for SI gravity.",
+    "claim_status": "closed_local_electroweak_hierarchy_certificate",
+    "dag_forbidden_paths": [],
+    "derivative_interval": {
+      "lower": "-10.995767998506369371985481516028357811043316285244607",
+      "upper": "-10.985284409796418191205377821955038437448873048903355"
+    },
+    "exists": true,
+    "interval": {
+      "lower": "0.041123336195630494",
+      "upper": "0.041125336195630496"
+    },
+    "krawczyk_image": {
+      "lower": "0.041124335718554498251685561120150817089903543894567180291985915541514084341979470",
+      "upper": "0.041124336672706466103571496781875444719601176485634484342812958790445912366833206"
+    },
+    "krawczyk_interior": true,
+    "may_feed_local_hierarchy_claim": true,
+    "public_endpoint_branch": {
+      "P": "1.630968209403959324879279847782648941",
+      "alpha_U": "0.041124336195630495",
+      "log10_E_star_over_v": "16.69465286086613",
+      "v_over_E_star": "2.0199803239725553e-17"
+    },
+    "source_audit_branch": {
+      "P": "1.63097209569432901817967892561191884270169",
+      "alpha_U": "0.04112424744557487",
+      "v_over_E_star": "2.0198114150099223e-17"
+    }
+  },
+  "generated_utc": "2026-06-12T05:21:42Z",
   "p_trunk": {
     "P": "1.63097210492078846050203640439",
     "alpha_inv": "136.994020662724205139718642793",

@@ -143,7 +143,7 @@
     "sigma_id": "sigma_phys_transport_frame_current_family",
     "tau": "CR::same_label_left::transport_frame::current_family_exact"
   },
-  "generated_utc": "2026-05-06T02:43:29Z",
+  "generated_utc": "2026-06-12T05:39:00Z",
   "induces_global_contract": {
     "id": "strengthened_quark_physical_sigma_ud_lift",
     "role": "public_same_label_left_handed_sigma_datum_on_selected_physical_frame_class"

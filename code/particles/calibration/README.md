@@ -12,8 +12,8 @@ target exactly. If different observables imply different `P` values, then the
 present bottleneck is not just decimal precision in `P`.
 
 The second tool is a scheme-freezing artifact for the current D10 branch. That
-artifact records the exact single-`P` running electroweak family already
-realized by the code and separates it from the mixed run/pole reporting
+artifact records the exact single-`P` running electroweak family realized by
+the code and separates it from the mixed run/pole reporting
 surface. If pole/effective reporting is required, the remaining exact missing
 object is then one common `EWTransportKernel_D10`, not more digits of `P`.
 
@@ -25,7 +25,7 @@ The active calibration scripts open with the same short derivation header:
   two-scalar carrier, the selector, and the public readout
 - `Mathematics`: which fixed-point, transport, or Jacobian step is being used
 - `OPH-derived inputs`: which calibration quantities come directly from the D10
-  core already emitted in `/particles`
+  core emitted in `/particles`
 - `Output`: which downstream calibration artifact the file is responsible for
 
 For the live branch, the main path is:
@@ -77,6 +77,13 @@ same branch satisfies the D10 pixel law this becomes `ellbar_shared = P/4`.
 That is the surface on which the local gravity readout uses the same emitted
 scalar as the D10 pixel law.
 
+The electroweak-hierarchy proof bundle lives in `../hierarchy`. It uses the
+public endpoint pixel and the source-audit pixel recorded by the P-derivation
+lane, then certifies the local `P -> alpha_U -> v/E_star` map with a declared
+DAG check and an `R_U` Krawczyk inclusion witness. It should not be merged into
+the rounded `1.63094` calibration carrier without a deliberate migration of all
+dependent artifacts.
+
 ## Commands
 
 Run the current implied-`P` audit:
@@ -87,7 +94,7 @@ python3 particles/calibration/implied_p_consistency_audit.py
 
 This writes:
 
-- [`particles/runs/calibration/implied_p_consistency.json`](/Users/muellerberndt/Projects/oph-meta/particles/runs/calibration/implied_p_consistency.json)
+- [`particles/runs/calibration/implied_p_consistency.json`](../runs/calibration/implied_p_consistency.json)
 
 Run the local calibration guard:
 
@@ -100,8 +107,8 @@ python3 particles/calibration/test_d10_ew_transport_kernel_artifact.py
 ```
 
 That guard checks the solver mechanics and the presence of the current D10
-calibration observables. It is not a claim that exact single-`P` closure has
-already been achieved.
+calibration observables. It is a mechanics guard, not a claim that exact
+single-`P` closure has been achieved.
 
 The D11 lane is split into one lower-rank companion branch and one live
 source-only pair theorem.
