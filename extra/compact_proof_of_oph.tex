@@ -66,14 +66,19 @@ overlaps repair into a single fixed point. For most readers, this sounds
 insane. The mathematical proof is rigorous and supported by early experimental
 evidence [S12,S13].
 
-Proof route. OPH's five axioms are listed in \emph{Observers Are All You Need}
-[O1]. The reconstruction theorems force two dimensionless constants on the
-selected branch, \(P_\star\) and \(N_\star\). Using only those two forced
-constants, those axioms, and the cited theorems, this note derives Newton's
-constant \(G\) in SI units. No fitted physical constants enter the derivation.
-The value lands on CODATA and carries more digits than direct laboratory
-measurement resolves. The closing table lists further numerical predictions
-from the same machinery.
+What is proved here. OPH's five axioms are listed in \emph{Observers Are All
+You Need} [O1]. The reconstruction theorems force exactly two dimensionless
+branch constants, \(P_\star\) and \(N_\star\), both computed below
+[O1,O3,O4,O5,O6]. From those two numbers, the axioms, and the cited theorems,
+this note derives the exact OPH expression for Newton's constant. Its SI
+display is \(G_{\rm OPH}=6.674299995910528\ldots\times10^{-11}
+~{\rm m^3\,kg^{-1}\,s^{-2}}\). CODATA enters afterward as comparison data
+[S1]. No fitted physical constants enter the derivation. The final ledger is a
+34-row OPH prediction table from the same branch: simulation substrate, the two
+constants, hierarchy, gravity, gauge, particle, neutrino, and cosmology rows.
+The chance that this is a coincidence is astronomically small. Two forced
+constants, one exact \(G\), and a 34-row ledger close together. That is the
+whole note.
 
 \vspace{0.2em}
 \begingroup
@@ -130,7 +135,9 @@ certified in [O3,O4,O5], and the global capacity constant is certified in
 The symbol \(P_\star\) is the local pixel fixed point. It says how much area and
 shared edge entropy one elementary observer cell carries. The symbol
 \(N_\star\) is the global screen-capacity fixed point. It says how many record
-units fit on the closed observer-facing horizon. They are branch outputs.
+units fit on the closed observer-facing horizon. They are branch outputs,
+cross-locked by the 24-tick hierarchy relation below. An arbitrary \(P,N\)
+pair misses that gate.
 
 The local constant is computed from the readback equation [O3,O4,O5]:
 \[
@@ -200,9 +207,11 @@ certificate: readback stays inside the branch and pulls candidates closer
 together. Banach's fixed-point theorem gives one stable endpoint for the whole
 interval.}
 
-\infobox{The 24-tick relation}{
-For the gravity derivation, \(P_\star\) carries the calculation. The second
-constant ties the same pixel branch to the hierarchy output [O4,O5]:
+\infobox{The 24-tick consistency lock}{
+Before gravity enters, the constants cross-check each other. The local pixel
+\(P_\star\) and global capacity \(N_\star\) must pass the 24-tick hierarchy
+readback [O4,O5]. That lock ties local pixel geometry, horizon capacity, the
+solved repair-cycle integer, and the electroweak projection in one line:
 \[
   |g_\star'|
   =
@@ -214,7 +223,8 @@ constant ties the same pixel branch to the hierarchy output [O4,O5]:
   =
   \left(\frac{N_\star}{\pi}\right)^{-P_\star/12}.
 \]
-Here \(g_\star'\) is the contraction factor for one global repair tick,
+The left side is a physical hierarchy ratio; the right side has no fit
+parameter. Here \(g_\star'\) is the contraction factor for one global repair tick,
 \(N_\star/\pi\) is the dimensionless squared horizon-radius capacity, \(v\) is
 the Higgs vacuum scale, and \(E_{\rm cell}\) is the energy assigned to one OPH
 cell. The exponent \(1/48=1/(2\cdot24)\) converts capacity to radius and spreads
