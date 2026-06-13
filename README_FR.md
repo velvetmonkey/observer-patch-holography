@@ -311,7 +311,9 @@ normalisation de Newton. Le pont de résonance de la hiérarchie est enregistré
 comme théorème sur la branche sélectionnée : le certificat de readback fini, le
 compte représentation-spectre $2(8+3+1)=24$ et le certificat exact du pont de
 capacité globale ferment le paquet local/global de hiérarchie. Les formules
-détaillées et les niveaux de revendication vivent dans les papiers.
+détaillées et les niveaux de revendication vivent dans les papiers. Sur cette
+branche exacte sélectionnée, OPH résout le problème de hiérarchie/naturalité
+électrofaible avec $\epsilon_H=0$ et sans entrée d'échelle faible mesurée.
 
 <p align="center">
   <a href="assets/OPH_Unification_Diagram.svg" target="_blank" rel="noopener noreferrer">

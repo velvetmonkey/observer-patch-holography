@@ -360,6 +360,8 @@ quantum that becomes the Newton normalization. The hierarchy-resonance bridge is
 recorded as a selected-branch theorem: the finite readback-resolution
 certificate, the representation-to-spectrum count $2(8+3+1)=24$, and the exact
 global-capacity bridge certificate close the local/global hierarchy package.
+On that selected exact branch, OPH solves the electroweak hierarchy/naturality
+problem with $\epsilon_H=0$ and no measured weak-scale input.
 The detailed formulas and claim tiers live in the papers.
 
 <p align="center">
