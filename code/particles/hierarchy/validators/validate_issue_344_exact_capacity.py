@@ -50,7 +50,15 @@ def main(path: str = "certificates/R_EW_global_capacity_certificate.json") -> in
         "weak_scale_forbidden": any("measured weak scale" in item for item in forbidden),
         "lambda_forbidden": any("measured Lambda" in item for item in forbidden),
         "rounded_display_forbidden": any("3.31e122" in item for item in forbidden),
-        "remaining_gates_are_two": len(boundary.get("not_closed_here", [])) == 2,
+        "finite_readback_recorded_elsewhere": any(
+            "R_readback_resolution_certificate" in item
+            for item in boundary.get("closed_elsewhere", [])
+        ),
+        "round_count_recorded_elsewhere": any(
+            "R_m_rep_24_certificate" in item
+            for item in boundary.get("closed_elsewhere", [])
+        ),
+        "no_remaining_boundary": boundary.get("not_closed_here", []) == [],
     }
     payload = {"checks": checks, "pass": all(checks.values())}
     print(json.dumps(payload, indent=2))

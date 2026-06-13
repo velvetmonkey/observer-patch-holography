@@ -36,18 +36,14 @@ stack, and the theorem-grade local/global resonance theorem are outside this
 certificate.
 
 The `R_N_global_repair_tick_certificate.json` artifact closes the global
-repair-tick lemma on the declared 24-round resonance branch: with the corpus
-readback map `F = Cap_read(Obs(nf))` and the declared area-law counting model
+repair-tick theorem on the selected resonance branch: with the corpus readback
+map `F = Cap_read(Obs(nf))` and the area-law counting model
 `F(N) = pi/rho_read^2` (a D6-consistent modeling identification of
 `Cap_read`), the fixed-point equation `N_CRC = F(N_CRC)` is equivalent to the
 closure transport `G_N(1) = rho_star`, which forces the full-cycle multiplier
-`(N_CRC/pi)^(-1/2)`; the declared 24-tick decomposition then yields
-`|g_*'| = (N_CRC/pi)^(-1/48)` with no electroweak inputs. The counting model
-and the 24-round count are declared branch inputs, and the corpus marks the
-finite readback map as schematic. The finite-machinery
-verification of the readback resolution and the representation-to-spectrum
-round-count derivation remain open before the full resonance relation is
-promoted.
+`(N_CRC/pi)^(-1/2)`. The issue-#343 representation-to-spectrum theorem supplies
+`m_rep=2*(8+3+1)=24`, so the one-tick multiplier is
+`|g_*'| = (N_CRC/pi)^(-1/48)` with no electroweak inputs.
 
 The issue-#337 artifact closes the electroweak tick-projection bridge. The
 projection map is
@@ -81,12 +77,45 @@ B_EW(P_star,N_CRC^EW) = 0
 
 using only `P_star`, source `alpha_U(P_star)`, `pi`, and `exp`.
 
+The issue-#342 artifact supplies the finite readback-resolution certificate.
+At fixed cutoff,
+
+```text
+F_r(N) = Cap_read(Obs(nf_{r,N}(U_{r,N})))
+rho_read(r,N) = sqrt(pi/F_r(N))
+```
+
+The selected finite branch has one positive central capacity atom and zero
+variance, so the delivery resolution is a singleton. In the positive-root
+refinement limit,
+
+```text
+rho_read(r,N_CRC) -> (N_CRC/pi)^(-1/2)
+```
+
+with weak/Higgs/gravity/cosmology calibrations excluded.
+
+The issue-#343 artifact supplies the representation-to-spectrum round count.
+The observer-visible product adjoint has dimensions
+
+```text
+dim(su(3) + su(2) + u(1)) = 8 + 3 + 1 = 12
+```
+
+and reversible repair uses write/verify orientation, giving
+
+```text
+m_rep = 2 * 12 = 24.
+```
+
+The SU(5) adjoint has the same single-orientation integer for a different
+support; its X/Y mixed gauge channels are excluded by the OPH product branch.
+
 The issue-#335 close-out certificate accounts for the closed global tick,
-projection bridge, exact capacity fixed point, joint product branch, and RG/Higgs naturality records. It
-does not promote the full local/global `N_CRC` resonance. It closes the umbrella
-issue as the exact bridge statement: with #344 supplying
-`B_EW(P_star,N_CRC^EW)=0`, if the finite readback-resolution and 24-round
-derivation gates close, then the target local/global hierarchy relation follows.
+projection bridge, exact capacity fixed point, finite readback resolution,
+representation-to-spectrum round count, joint product branch, and RG/Higgs
+naturality records. It closes the umbrella issue as the full local/global
+`N_CRC` hierarchy-resonance theorem on the selected branch.
 
 The joint `(P,N_CRC)` artifact defines the product branch map
 `J(P,x)=(Gamma(P),C_hat(x))` on `I_P x log I_N`. Component contraction
@@ -116,6 +145,8 @@ python3 -m pytest test_hierarchy_bundle.py
 python3 verify_issue_332_rg_naturality.py --check --output issue_332_rg_naturality_certificate.json
 python3 verify_issue_335_local_global_resonance.py --check --output certificates/R_local_global_hierarchy_resonance_closeout_335.json
 python3 verify_issue_337_electroweak_projection.py --check --output certificates/R_EW_tick_projection_certificate.json
+python3 verify_issue_342_readback_resolution.py --check --output certificates/R_readback_resolution_certificate.json
+python3 verify_issue_343_m_rep_24.py --check --output certificates/R_m_rep_24_certificate.json
 python3 verify_issue_344_exact_capacity.py --check --output certificates/R_EW_global_capacity_certificate.json
 python3 verify_joint_fixed_point_certificate.py --output certificates/R_PN_joint_fixed_point_certificate_report.json
 ```

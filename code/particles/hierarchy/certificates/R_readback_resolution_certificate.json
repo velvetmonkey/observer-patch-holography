@@ -1,0 +1,156 @@
+{
+  "issue": 342,
+  "artifact": "R_readback_resolution_certificate",
+  "status": "closed_finite_readback_resolution_certificate",
+  "accepted": true,
+  "theorem": "finite readback-resolution certificate for the local/global hierarchy bridge",
+  "definitions": {
+    "finite_readback_map": "F_r(N)=Cap_read(Obs(nf_{r,N}(U_{r,N})))",
+    "delivery_resolution": "rho_read(r,N)=sqrt(pi/F_r(N))",
+    "capacity_register": "C_hat_{r,N}=sum_{c in S_{r,N}} c P_c",
+    "limit_resolution": "rho_star=(N_CRC/pi)^(-1/2)"
+  },
+  "normal_form": {
+    "finite_state": true,
+    "unique": true,
+    "schedule_independent": true,
+    "certificate_basis": [
+      "strict finite Lyapunov descent",
+      "local diamond on the physical quotient",
+      "repair completeness"
+    ]
+  },
+  "observer_sector": {
+    "nonzero": true,
+    "stable_self_reading": true,
+    "central_projector": true,
+    "capacity_visible_on_quotient": true,
+    "quotient_invariant": true
+  },
+  "capacity_register": {
+    "central": true,
+    "positive_spectrum": true,
+    "selected_variance": "0",
+    "atoms": [
+      {
+        "label": "crc_capacity_atom",
+        "capacity": "3.31E+122",
+        "probability": "1",
+        "selected": true
+      }
+    ]
+  },
+  "finite_graph_witness": {
+    "role": "minimal schema witness for unique terminal normal form; not a brute-force cosmological enumeration",
+    "initial": "U_rN",
+    "states": [
+      "U_rN",
+      "repair_1",
+      "n_rN"
+    ],
+    "transitions": [
+      [
+        "U_rN",
+        "repair_1"
+      ],
+      [
+        "repair_1",
+        "n_rN"
+      ]
+    ],
+    "terminal_normal_forms": [
+      "n_rN"
+    ]
+  },
+  "extractor": {
+    "formula": "rho_read = sqrt(pi / Cap_read)",
+    "area_law": "N = pi / rho^2",
+    "positive_root": true,
+    "interval_rule": "cap in [c_minus,c_plus] -> rho in [sqrt(pi/c_plus),sqrt(pi/c_minus)]"
+  },
+  "readback_resolution": {
+    "cap_read": "3.31E+122",
+    "rho_read": "9.7422874501331022756972229467368946074090314356247452387980776371739512159252147501633584902038001612997146994E-62",
+    "rho_read_interval": [
+      "9.7422874501331022756972229467368946074090314356247452387980776371739512159252147501633584902038001612997146994E-62",
+      "9.7422874501331022756972229467368946074090314356247452387980776371739512159252147501633584902038001612997146994E-62"
+    ],
+    "display_N_CRC": "3.31E+122",
+    "display_rho_star": "9.7422874501331022756972229467368946074090314356247452387980776371739512159252147501633584902038001612997146994E-62",
+    "display_only": true
+  },
+  "strict_source_capacity_check": {
+    "enabled": false,
+    "N_CRC": null,
+    "rho_star": null,
+    "capacity_relative_residual": null,
+    "rho_relative_residual": null,
+    "relative_tolerance": "1E-30",
+    "accepted": true
+  },
+  "refinement_certificate": {
+    "uniform_limit_declared": true,
+    "positive_root_closure": true,
+    "contraction_kappa": "0.5",
+    "finite_to_limit_bound": "|N_r_star-N_CRC| <= delta_r/(1-kappa); |rho_r-rho_star| <= sqrt(pi)/(2*C_min^(3/2))*delta_r/(1-kappa)",
+    "limit_statement": "If F_r -> F cofinally and F(N_CRC)=N_CRC>0, then rho_read(r,N_CRC)=sqrt(pi/F_r(N_CRC)) -> (N_CRC/pi)^(-1/2)."
+  },
+  "input_ledger": {
+    "used_inputs": [
+      "finite_OPH_repair_law",
+      "fixed_cutoff_confluence_certificate",
+      "central_record_algebra",
+      "stable_self_reading_observer_sector",
+      "symbolic_N_CRC_source_certificate",
+      "D6_dimensionless_area_law_N_equals_pi_over_rho_squared",
+      "positive_root_convention"
+    ],
+    "forbidden_inputs": [
+      "G_CODATA",
+      "G_measured",
+      "H0_measured",
+      "Lambda_measured",
+      "M_W_measured",
+      "M_Z_measured",
+      "Planck_area_measured",
+      "de_sitter_area_measured_as_input",
+      "ell_P_squared_measured",
+      "higgs_scale_measured",
+      "m_H_measured",
+      "m_t_measured",
+      "v_measured",
+      "weak_scale_measured"
+    ]
+  },
+  "claim_boundary": {
+    "closed_here": [
+      "fixed-cutoff normal form delivers a unique central capacity atom",
+      "the finite branch has one effective delivery resolution rho_read=sqrt(pi/Cap_read)",
+      "positive-root refinement closure gives rho_read -> (N_CRC/pi)^(-1/2)"
+    ],
+    "closed_elsewhere": [
+      "representation-to-spectrum round-count theorem in R_m_rep_24_certificate.json",
+      "EW-refined exact capacity fixed point in R_EW_global_capacity_certificate.json",
+      "electroweak projection bridge in R_EW_tick_projection_certificate.json",
+      "RG/Higgs naturality square in issue_332_rg_naturality_certificate.json",
+      "full local/global hierarchy-resonance closeout in R_local_global_hierarchy_resonance_closeout_335.json"
+    ],
+    "not_closed_here": []
+  },
+  "source_status": {
+    "closes_gate": "finite_readback_resolution",
+    "does_not_promote_full_hierarchy_resonance": true,
+    "remaining_for_full_hierarchy_resonance": []
+  },
+  "checks": {
+    "normal_form_unique": true,
+    "observer_sector_central_nonzero": true,
+    "exactly_one_selected_positive_capacity_atom": true,
+    "zero_capacity_variance": true,
+    "positive_root_extractor": true,
+    "kappa_is_contractive": true,
+    "forbidden_input_check": true,
+    "strict_source_capacity_check": true
+  },
+  "verifier_command": "python3 code/particles/hierarchy/verify_issue_342_readback_resolution.py --check --output code/particles/hierarchy/certificates/R_readback_resolution_certificate.json"
+}

@@ -24,29 +24,38 @@ def main(path: str = "certificates/R_local_global_hierarchy_resonance_closeout_3
     checks = cert.get("checks", {})
     gate_checks = checks.get("remaining_promotion_gates_recorded", {})
     exact_capacity = cert.get("exact_capacity_certificate", {})
+    readback = cert.get("finite_readback_resolution_certificate", {})
+    round_count = cert.get("round_count_certificate", {})
 
     validation = {
         "issue_is_335": cert.get("issue") == 335,
-        "accepted_conditional_closeout": cert.get("accepted") is True,
-        "status_is_conditional_closeout": cert.get("status")
-        == "closed_as_exact_surviving_conditional_statement",
-        "full_theorem_not_promoted": cert.get("full_theorem_grade_resonance_promoted") is False,
+        "accepted_closeout": cert.get("accepted") is True,
+        "status_is_full_resonance_closeout": (
+            cert.get("status") == "closed_full_local_global_hierarchy_resonance"
+        ),
+        "full_theorem_promoted": cert.get("full_theorem_grade_resonance_promoted") is True,
         "all_dependencies_closed": all(deps.values()),
         "exact_capacity_supplied": (
             acceptance.get("exact_capacity_source_certificate_supplied") is True
             and D(exact_capacity.get("bridge_residual", "1")) == 0
         ),
-        "finite_readback_and_round_count_recorded": (
-            acceptance.get("finite_readback_and_round_count_remain_for_full_resonance") is True
+        "finite_readback_supplied": (
+            acceptance.get("finite_readback_resolution_supplied") is True
+            and readback.get("status") == "closed_finite_readback_resolution_certificate"
         ),
-        "full_theorem_status_false": acceptance.get("full_theorem_grade_resonance_proved") is False,
+        "round_count_supplied": (
+            acceptance.get("round_count_derivation_supplied") is True
+            and round_count.get("status") == "closed_representation_to_spectrum_round_count"
+            and round_count.get("m_rep") == 24
+        ),
+        "full_theorem_status_true": acceptance.get("full_theorem_grade_resonance_proved") is True,
         "exact_bridge_target_recorded": "3.5323546226929906511187512962330547600462" in (
             cert.get("exact_surviving_statement", {}).get("N_EW_public_endpoint", "")
         ),
         "rounded_capacity_rejected": obstruction.get("rounded_N_CRC_status")
         == "diagnostic_only_not_exact_bridge_certificate"
         and abs(D(obstruction.get("rounded_bridge_residual", "0"))) > Decimal("1e-6"),
-        "two_promotion_gates_recorded": len(gates) == 2
+        "no_promotion_gates_remain": len(gates) == 0
         and gate_checks.get("finite_readback_resolution") is True
         and gate_checks.get("round_count_derivation") is True
         and gate_checks.get("exact_capacity_source_certificate") is True,

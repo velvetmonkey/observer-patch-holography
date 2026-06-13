@@ -57,14 +57,15 @@ def main(cert_path: str = "certificates/R_N_global_repair_tick_certificate.json"
     derived_uses = set(cert["source_side_dependency_audit"]["derived_uses"])
     does_not_use = set(cert["source_side_dependency_audit"]["does_not_use"])
     derived_premises = cert["premises"]["derived"]
-    declared_inputs = cert["premises"]["declared_branch_inputs"]
     acceptance = cert["acceptance_criteria_status"]
 
     checks = {
-        "status_is_closed_lemma_on_declared_rounds": (
-            cert["status"] == "closed_global_repair_tick_lemma_on_declared_round_structure"
+        "status_is_closed_theorem_with_derived_round_count": (
+            cert["status"] == "closed_global_repair_tick_theorem_with_derived_round_count"
         ),
-        "theorem_kind_is_lemma_on_declared_branch": cert["theorem_kind"] == "lemma_on_declared_branch",
+        "theorem_kind_is_theorem_with_derived_round_count": (
+            cert["theorem_kind"] == "theorem_with_derived_round_count"
+        ),
         "object_id_matches": cert["object_id"] == "GlobalRepairTickLemma_R_N",
         "twenty_four_rounds": rounds == 24,
         "tick_exponent_is_minus_one_over_48": one_tick == Fraction(-1, 48),
@@ -89,11 +90,17 @@ def main(cert_path: str = "certificates/R_N_global_repair_tick_certificate.json"
             premise["id"] == "f_interface_realization_equivalence" and premise["discharged_here"] is True
             for premise in derived_premises
         ),
-        "round_count_is_declared_not_derived": any(
-            premise["id"] == "global_repair_round_count" and premise["discharged_here"] is False
-            for premise in declared_inputs
+        "round_count_is_derived": (
+            acceptance["round_count_derived_from_first_principles"] is True
+            and acceptance["round_count_certificate_recorded"] is True
+            and any(
+                premise["id"] == "global_repair_round_count" and premise["discharged_here"] is True
+                for premise in cert["premises"].get("derived_branch_inputs", [])
+            )
         ),
-        "round_count_boundary_flag_set": acceptance["round_count_derived_from_first_principles"] is False,
+        "round_count_source_recorded": (
+            cert["normalization"].get("round_count_source") == "R_m_rep_24_certificate.json"
+        ),
         "closure_transport_derived_from_f_interface": (
             acceptance.get("closure_transport_derived_from_F_interface") is True
         ),
@@ -104,19 +111,23 @@ def main(cert_path: str = "certificates/R_N_global_repair_tick_certificate.json"
                 for item in cert["claim_boundary"]["declared_not_derived"]
             )
         ),
-        "concrete_machinery_verification_listed_open": (
-            acceptance.get("concrete_finite_machinery_verification_open") is True
+        "finite_readback_resolution_certificate_recorded": (
+            acceptance.get("concrete_finite_machinery_verification_open") is False
+            and acceptance.get("finite_readback_resolution_certificate_recorded") is True
             and any(
-                "finite repair machinery" in item
-                for item in cert["claim_boundary"]["not_closed_by_certificate"]
+                "R_readback_resolution_certificate" in item
+                for item in cert["claim_boundary"].get("closed_elsewhere", [])
             )
         ),
         "fixed_point_emits_tick_contraction_on_declared_branch": (
             acceptance["proves_declared_screen_capacity_fixed_point_emits_tick_contraction"] is True
         ),
-        "open_round_count_derivation_listed": any(
-            "round count" in item or "24-round" in item
-            for item in cert["claim_boundary"]["not_closed_by_certificate"]
+        "no_open_round_count_boundary": (
+            cert["claim_boundary"]["not_closed_by_certificate"] == []
+            and any(
+                "R_m_rep_24_certificate" in item
+                for item in cert["claim_boundary"].get("closed_elsewhere", [])
+            )
         ),
         "ew_inputs_excluded_from_derived_uses": not (derived_uses & FORBIDDEN_EW_INPUTS),
         "ew_inputs_explicitly_excluded": FORBIDDEN_EW_INPUTS <= does_not_use,

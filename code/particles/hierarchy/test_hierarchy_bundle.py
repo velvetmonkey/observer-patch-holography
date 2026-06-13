@@ -26,7 +26,7 @@ def test_hierarchy_bundle_validators_pass() -> None:
     result = _run("validators/validate_bundle.py")
     payload = json.loads(result.stdout)
 
-    assert len(payload) == 9
+    assert len(payload) == 11
     assert all(entry["returncode"] == 0 for entry in payload)
     validator_outputs = [json.loads(entry["stdout"]) for entry in payload]
     assert all(output["pass"] is True for output in validator_outputs)
@@ -62,7 +62,7 @@ def test_hierarchy_numeric_witness_keeps_public_and_source_audit_branches_separa
     assert source_audit["v_over_E_star"] == "2.0198114150099223e-17"
 
 
-def test_global_repair_tick_lemma_is_closed_on_declared_rounds_with_claim_boundary() -> None:
+def test_global_repair_tick_lemma_is_closed_with_derived_round_count() -> None:
     result = _run(
         "validators/validate_global_repair_tick_certificate.py",
         "certificates/R_N_global_repair_tick_certificate.json",
@@ -70,7 +70,8 @@ def test_global_repair_tick_lemma_is_closed_on_declared_rounds_with_claim_bounda
     payload = json.loads(result.stdout)
 
     assert payload["pass"] is True
-    assert payload["status_is_closed_lemma_on_declared_rounds"] is True
+    assert payload["status_is_closed_theorem_with_derived_round_count"] is True
+    assert payload["theorem_kind_is_theorem_with_derived_round_count"] is True
     assert payload["tick_exponent_is_minus_one_over_48"] is True
     assert payload["tick_times_rounds_is_full_cycle"] is True
     assert payload["full_cycle_map_recorded"] is True
@@ -78,26 +79,34 @@ def test_global_repair_tick_lemma_is_closed_on_declared_rounds_with_claim_bounda
     assert payload["numeric_display_matches_formula"] is True
     assert payload["full_cycle_multiplier_is_derived_from_closure"] is True
     assert payload["f_interface_equivalence_derived"] is True
-    assert payload["round_count_is_declared_not_derived"] is True
+    assert payload["round_count_is_derived"] is True
+    assert payload["round_count_source_recorded"] is True
+    assert payload["no_open_round_count_boundary"] is True
     assert payload["ew_inputs_excluded_from_derived_uses"] is True
 
     cert = json.loads((ROOT / "certificates/R_N_global_repair_tick_certificate.json").read_text())
-    assert cert["status"] == "closed_global_repair_tick_lemma_on_declared_round_structure"
+    assert cert["status"] == "closed_global_repair_tick_theorem_with_derived_round_count"
+    assert cert["theorem_kind"] == "theorem_with_derived_round_count"
     assert cert["normalization"]["abs_g_star_prime"] == "(N_CRC/pi)^(-1/48)"
     assert cert["exponent_law"]["per_tick_exponent_for_m_ticks"] == "-1/(2m)"
+    assert cert["normalization"]["round_count_source"] == "R_m_rep_24_certificate.json"
     acceptance = cert["acceptance_criteria_status"]
     assert acceptance["proves_declared_screen_capacity_fixed_point_emits_tick_contraction"] is True
-    assert acceptance["round_count_derived_from_first_principles"] is False
+    assert acceptance["round_count_derived_from_first_principles"] is True
+    assert acceptance["round_count_certificate_recorded"] is True
     assert acceptance["closure_transport_derived_from_F_interface"] is True
     assert acceptance["readback_counting_model_is_modeling_identification"] is True
-    assert acceptance["concrete_finite_machinery_verification_open"] is True
+    assert acceptance["concrete_finite_machinery_verification_open"] is False
+    assert acceptance["finite_readback_resolution_certificate_recorded"] is True
     declared = cert["claim_boundary"]["declared_not_derived"]
     assert any("modeling identification" in item for item in declared)
     boundary = cert["claim_boundary"]["not_closed_by_certificate"]
-    assert any("round count" in item for item in boundary)
-    assert any("R_EW_tick_projection_certificate" in item for item in boundary)
-    assert any("R_EW_global_capacity_certificate" in item for item in boundary)
-    assert any("finite repair machinery" in item for item in boundary)
+    assert boundary == []
+    closed_elsewhere = cert["claim_boundary"]["closed_elsewhere"]
+    assert any("R_m_rep_24_certificate" in item for item in closed_elsewhere)
+    assert any("R_EW_tick_projection_certificate" in item for item in closed_elsewhere)
+    assert any("R_EW_global_capacity_certificate" in item for item in closed_elsewhere)
+    assert any("R_readback_resolution_certificate" in item for item in closed_elsewhere)
 
 
 def test_joint_pn_fixed_point_certificate_records_product_closure_and_coupled_boundary() -> None:
@@ -161,6 +170,54 @@ def test_issue_344_exact_capacity_certificate_is_fixed_point_source_record() -> 
     assert cert["exact_capacity_fixed_point"]["bridge_residual"] == "0.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
 
 
+def test_issue_342_readback_resolution_certificate_is_singleton_resolution() -> None:
+    result = _run(
+        "validators/validate_issue_342_readback_resolution.py",
+        "certificates/R_readback_resolution_certificate.json",
+    )
+    payload = json.loads(result.stdout)
+
+    assert payload["pass"] is True
+    checks = payload["checks"]
+    assert checks["one_selected_atom"] is True
+    assert checks["positive_root_extractor"] is True
+    assert checks["refinement_bound_recorded"] is True
+    assert checks["no_remaining_boundary"] is True
+    assert checks["round_count_recorded_elsewhere"] is True
+    assert checks["exact_capacity_recorded_elsewhere"] is True
+
+    cert = json.loads((ROOT / "certificates/R_readback_resolution_certificate.json").read_text())
+    assert cert["accepted"] is True
+    assert cert["status"] == "closed_finite_readback_resolution_certificate"
+    assert cert["source_status"]["remaining_for_full_hierarchy_resonance"] == []
+    assert cert["claim_boundary"]["not_closed_here"] == []
+    assert cert["capacity_register"]["selected_variance"] == "0"
+
+
+def test_issue_343_m_rep_certificate_derives_twenty_four_rounds() -> None:
+    result = _run(
+        "validators/validate_issue_343_m_rep_24.py",
+        "certificates/R_m_rep_24_certificate.json",
+    )
+    payload = json.loads(result.stdout)
+
+    assert payload["pass"] is True
+    checks = payload["checks"]
+    assert checks["component_dimensions_are_8_3_1"] is True
+    assert checks["oriented_support_is_24"] is True
+    assert checks["spectral_period_is_24"] is True
+    assert checks["su5_negative_control_recorded"] is True
+    assert checks["no_forbidden_inputs_used"] is True
+
+    cert = json.loads((ROOT / "certificates/R_m_rep_24_certificate.json").read_text())
+    assert cert["accepted"] is True
+    assert cert["status"] == "closed_representation_to_spectrum_round_count"
+    assert cert["representation_sector"]["unoriented_adjoint_dimension"] == 12
+    assert cert["representation_sector"]["oriented_support_dimension"] == 24
+    assert cert["result"]["specialized_exponent"] == "-1/48"
+    assert cert["claim_boundary"]["not_closed_here"] == []
+
+
 def test_issue_332_rg_higgs_naturality_certificate_is_zero_defect() -> None:
     result = _run(
         "validators/validate_issue_332_rg_naturality.py",
@@ -183,7 +240,7 @@ def test_issue_332_rg_higgs_naturality_certificate_is_zero_defect() -> None:
     assert any("measured Higgs" in item for item in forbidden)
 
 
-def test_issue_335_local_global_resonance_closes_as_conditional_statement() -> None:
+def test_issue_335_local_global_resonance_closes_as_full_selected_branch_statement() -> None:
     result = _run(
         "validators/validate_issue_335_local_global_resonance.py",
         "certificates/R_local_global_hierarchy_resonance_closeout_335.json",
@@ -192,17 +249,21 @@ def test_issue_335_local_global_resonance_closes_as_conditional_statement() -> N
 
     assert payload["pass"] is True
     checks = payload["checks"]
-    assert checks["full_theorem_not_promoted"] is True
+    assert checks["full_theorem_promoted"] is True
     assert checks["exact_capacity_supplied"] is True
-    assert checks["finite_readback_and_round_count_recorded"] is True
+    assert checks["finite_readback_supplied"] is True
+    assert checks["round_count_supplied"] is True
     assert checks["rounded_capacity_rejected"] is True
-    assert checks["two_promotion_gates_recorded"] is True
+    assert checks["no_promotion_gates_remain"] is True
 
     cert = json.loads((ROOT / "certificates/R_local_global_hierarchy_resonance_closeout_335.json").read_text())
     assert cert["accepted"] is True
-    assert cert["status"] == "closed_as_exact_surviving_conditional_statement"
-    assert cert["full_theorem_grade_resonance_promoted"] is False
+    assert cert["status"] == "closed_full_local_global_hierarchy_resonance"
+    assert cert["full_theorem_grade_resonance_promoted"] is True
     acceptance = cert["acceptance_criteria_status"]
     assert acceptance["prerequisite_steps_accounted_for"] is True
-    assert acceptance["full_theorem_grade_resonance_proved"] is False
+    assert acceptance["full_theorem_grade_resonance_proved"] is True
     assert acceptance["exact_capacity_source_certificate_supplied"] is True
+    assert acceptance["finite_readback_resolution_supplied"] is True
+    assert acceptance["round_count_derivation_supplied"] is True
+    assert cert["remaining_promotion_gates"] == []

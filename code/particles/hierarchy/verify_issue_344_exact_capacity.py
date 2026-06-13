@@ -180,10 +180,12 @@ def build_certificate(
         "claim_boundary": {
             "closed_here": "source-side contraction fixed point for N_CRC^EW satisfying B_EW(P_star,N_CRC^EW)=0",
             "rounded_display": "3.31e122 remains a capacity-scale display and fails the exact EW bridge residual.",
-            "not_closed_here": [
-                "finite-machinery verification that nf_{r,N} delivers a single well-defined effective readback resolution",
-                "representation-to-spectrum theorem deriving the 24-round repair count",
+            "closed_elsewhere": [
+                "finite readback-resolution certificate in R_readback_resolution_certificate.json",
+                "representation-to-spectrum round-count theorem in R_m_rep_24_certificate.json",
+                "full local/global hierarchy-resonance closeout in R_local_global_hierarchy_resonance_closeout_335.json",
             ],
+            "not_closed_here": [],
         },
         "verifier_command": (
             "python3 code/particles/hierarchy/verify_issue_344_exact_capacity.py "

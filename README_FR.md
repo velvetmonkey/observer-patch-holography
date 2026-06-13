@@ -308,10 +308,10 @@ particules, tout en fixant l'identité cellule/arête qui s'annule dans la lectu
 newtonienne. La branche $N_{\mathrm{CRC}}$ alimente la lecture de la constante
 cosmologique. Le certificat d'échelle fournit le quantum d'aire qui devient la
 normalisation de Newton. Le pont de résonance de la hiérarchie est enregistré
-comme énoncé conditionnel exact, non comme promotion au rang de théorème, tant
-que les portes du readback fini, de la dérivation des 24 tours et du certificat
-exact de capacité globale ne sont pas fermées. Les formules détaillées et les
-niveaux de revendication vivent dans les papiers.
+comme théorème sur la branche sélectionnée : le certificat de readback fini, le
+compte représentation-spectre $2(8+3+1)=24$ et le certificat exact du pont de
+capacité globale ferment le paquet local/global de hiérarchie. Les formules
+détaillées et les niveaux de revendication vivent dans les papiers.
 
 <p align="center">
   <a href="assets/OPH_Unification_Diagram.svg" target="_blank" rel="noopener noreferrer">

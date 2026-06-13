@@ -888,8 +888,8 @@ for all three coefficients in this edge-mode picture. What emerges here is
 unification-like running behavior, not an MSSM spectrum hidden inside OPH.
 
 MSSM means the Minimal Supersymmetric Standard Model, a popular extension of the
-Standard Model. OPH is not adding that particle spectrum here. It is comparing
-the running pattern of the couplings.
+Standard Model. OPH adds no MSSM particle spectrum here. It compares the
+running pattern of the couplings.
 
 The sharper structural prediction concerns *how* any unification-like closure would happen.
 
@@ -976,11 +976,29 @@ local pixel scale $P$ can resonate with the huge cosmic capacity $N$: particle
 physics samples one small piece of the same repair cycle that closes the whole
 horizon record.
 
+Those 24 layers have a simple group-theory origin. The visible product branch
+has eight color channels, three weak channels, and one hypercharge channel.
+Reversible repair reads each channel in two orientations, write and verify, so
+$2(8+3+1)=24$. The SU(5) adjoint lands on the same single-orientation number
+for a different support; its X/Y mixed gauge channels are absent from the OPH
+product branch.
+
 The compact bridge formula is
 $\Pi_{\mathrm{EW}}(P,N)=24\pi/(\alpha_U(P)\log(N/\pi))$. Equivalently,
 $N_{\mathrm{EW}}(P)=\pi\exp[6\pi/(P\alpha_U(P))]$, giving
 about $3.53235\times10^{122}$ on the public endpoint branch. The rounded
 $3.31\times10^{122}$ value is the capacity-scale display.
+
+In the technical papers this bridge value is also written as a fixed point in
+log-capacity coordinates. The book-level point is simpler: the exact bridge
+value belongs to the repair rhythm, while the rounded value is the de Sitter
+capacity-scale display.
+
+The readback side has a matching finite statement. At a finite cutoff, the
+closed observer record selects one public capacity atom, so the delivery
+resolution is a single value. No menu of incompatible scales remains. In the
+refinement limit, that resolution becomes the horizon-to-cell factor
+$(N_{\mathrm{CRC}}/\pi)^{-1/2}$ used by the repair tick.
 
 **Charge quantization.** All color-singlet particles have integer electric charge. No fractional charges like $\pm 1/3$ can exist outside hadrons. This follows from the global structure of the gauge group.
 

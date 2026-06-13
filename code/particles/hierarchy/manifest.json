@@ -2,7 +2,7 @@
   "bundle_id": "oph-hierarchy-proof-artifacts-r1473-2026-06-13",
   "generated_utc": "2026-06-13T00:00:00Z",
   "purpose": "Machine-readable artifacts for the OPH electroweak hierarchy proof obligation audit.",
-  "source_release_context": "OPH hierarchy source context with issue #332, #335, #337, #338, and #344 hierarchy closure artifacts.",
+  "source_release_context": "OPH hierarchy source context with issue #332, #335, #337, #338, #342, #343, and #344 hierarchy closure artifacts.",
   "claim_boundary": {
     "closed_by_bundle": [
       "public-branch numerical hierarchy witness",
@@ -12,14 +12,15 @@
       "R_U interval/Krawczyk witness using explicit interval derivative enclosure",
       "W/Z compare-only boundary ledger",
       "R_gamma no-G graph skeleton and missing-component gate ledger",
-      "R_N global repair-tick lemma on the declared 24-round structure",
+      "R_N global repair-tick theorem with derived m_rep=24 round count",
       "product-branch joint (P,N_CRC) fixed-point and stability theorem",
       "electroweak tick-projection bridge with exact bridge residual condition",
       "EW-refined exact global-capacity certificate satisfying B_EW(P_star,N_CRC^EW)=0",
-      "issue-#335 local/global resonance close-out as exact bridge statement with recorded finite-readback and round-count gates",
       "issue-#344 EW-refined exact global-capacity fixed-point certificate satisfying B_EW(P_star,N_CRC^EW)=0",
+      "issue-#342 finite readback-resolution certificate satisfying rho_read(r,N_CRC)->(N_CRC/pi)^(-1/2)",
+      "issue-#343 representation-to-spectrum certificate deriving m_rep=2*(8+3+1)=24",
       "RG/Higgs naturality defect epsilon_H=0 on the selected exact branch",
-      "issue #335 local/global hierarchy-resonance close-out as the exact surviving conditional statement, with full theorem-grade promotion explicitly not closed"
+      "issue-#335 full local/global hierarchy-resonance theorem on the selected branch"
     ],
     "not_closed_by_bundle": [
       "source-only A_T(P) hadronic endpoint transport for the public Thomson endpoint",
@@ -27,27 +28,24 @@
       "D10/D11 Higgs/top raw interval box for every internal input",
       "full R_gamma source stack: R_alpha, R_e_abs, R_QCD/nuc^133Cs, R_atom^133Cs",
       "W/Z theorem-grade target-free promotion certificate",
-      "finite-machinery verification of a single effective readback resolution for nf_{r,N}",
-      "representation-to-spectrum derivation of the 24-round repair count",
-      "coupled-map joint fixed-point theorem if future source branches introduce cross-feedback",
-      "full local/global N_CRC resonance theorem"
+      "coupled-map joint fixed-point theorem if future source branches introduce cross-feedback"
     ]
   },
   "files": [
     {
       "path": "README.md",
-      "sha256": "f8bdd1122eb44216d22fd7fa6800495abd2f4ed0392622a8bdc16dd7425c1a54",
-      "bytes": 5207
+      "sha256": "d328445e6818afd6c4e3cdde264eb895de6359f28bc7b96e29aa6a299ed45a6c",
+      "bytes": 6010
     },
     {
       "path": "STATUS.md",
-      "sha256": "bdb482dd2fe83f66b919e8b555e065649eed80289cf686f26402b5bdfbc9f691",
-      "bytes": 3762
+      "sha256": "81044f4957a56800965312c330e39e4cd53019b09dda0236eac0af061028b1cb",
+      "bytes": 4373
     },
     {
       "path": "INTEGRATION.md",
-      "sha256": "5249a7b7866e0bc14fde695898647ec3cbc2c60a7c8841d5fa8a39aade4b84e9",
-      "bytes": 4940
+      "sha256": "20abb83cd7c7d3b04197c6af54bbaad4d59fc35242f587730aec177fabdc1691",
+      "bytes": 5672
     },
     {
       "path": "certificates/DAG_U.json",
@@ -106,13 +104,13 @@
     },
     {
       "path": "certificates/R_N_global_repair_tick_certificate.json",
-      "sha256": "d297a10ba994510fd9b04ab41f3af094a72587d39b10b931f6b83feb49f61334",
-      "bytes": 11148
+      "sha256": "e6ef7c850795f7014003d12d10798e2a467f5ba8d01acab83f3875e10bef29f7",
+      "bytes": 11226
     },
     {
       "path": "certificates/local_global_resonance_audit.json",
-      "sha256": "bc7544aeab25f5537967146b950f628c4ddeeec4766bf24c93e882485c0f63f4",
-      "bytes": 2943
+      "sha256": "270a78d09260a49e99d743a51cea33572be4e05909005d0f43cfe675672c155d",
+      "bytes": 3566
     },
     {
       "path": "issue_332_rg_naturality_certificate.json",
@@ -131,13 +129,13 @@
     },
     {
       "path": "computations/derive_global_repair_tick_lemma.py",
-      "sha256": "ea5c68a083cf5733fbd177e7a77230e1bf7418b25a238880b878020368622f5f",
-      "bytes": 16825
+      "sha256": "e2d77882347b1fcc8ca6b439ade9c67ae0ddfdc5e38696edf06b2ec2aba39761",
+      "bytes": 16969
     },
     {
       "path": "theorem_package.md",
-      "sha256": "277527156c63f0f19695144f5ee5bc933f606303a441195cfe328557afc8b57b",
-      "bytes": 8105
+      "sha256": "1166c52a5aa481c6de69a0e68c9f504ed1f6664c517b9b4d58fb7f57f0844fd2",
+      "bytes": 10083
     },
     {
       "path": "verify_issue_332_rg_naturality.py",
@@ -151,13 +149,13 @@
     },
     {
       "path": "test_hierarchy_bundle.py",
-      "sha256": "5ab4a31e84699d20baae1c4fb4d9de01006ff9ba539f6a4ea58159d9f9d8102b",
-      "bytes": 9620
+      "sha256": "9da0ac2a45c642eea204c5816226d7a735052cdd94d425bbea5600bf58a495dc",
+      "bytes": 12623
     },
     {
       "path": "validators/validate_bundle.py",
-      "sha256": "e7a9bd51363819cdb518ca3cd7f2788f0acd19777d1e098b9744a1e8af37e52b",
-      "bytes": 1684
+      "sha256": "98c8b135a59c1653ddd048d1b0513a447c694fd27cb32ff599c11e8e1969a2f8",
+      "bytes": 1968
     },
     {
       "path": "validators/validate_dag.py",
@@ -181,8 +179,8 @@
     },
     {
       "path": "validators/validate_global_repair_tick_certificate.py",
-      "sha256": "7ac8729e8c3104cb3ea1f2d3519c76d633628626eb113687db6b1f905ece7a00",
-      "bytes": 6071
+      "sha256": "2d0bfb3c6747d6ccabdaccd294244fd2e16beeb190eae660cf26110bed102c29",
+      "bytes": 6494
     },
     {
       "path": "validators/validate_manifest.py",
@@ -196,8 +194,13 @@
     },
     {
       "path": "certificates/R_EW_global_capacity_certificate.json",
-      "sha256": "9e21c6d43699af162dd164fa6ed27caac05c7d8b8d66b80bfe992feead299c04",
-      "bytes": 5395
+      "sha256": "3f47b500631a345f0b810aa49cd141573f590617cd012131902e21939c4271b4",
+      "bytes": 5519
+    },
+    {
+      "path": "certificates/R_readback_resolution_certificate.json",
+      "sha256": "0ae548e90fa30433a59d296889b470a4cc25768e8bf4f6e95251f27264af372f",
+      "bytes": 5435
     },
     {
       "path": "verify_issue_337_electroweak_projection.py",
@@ -205,9 +208,14 @@
       "bytes": 9776
     },
     {
+      "path": "verify_issue_342_readback_resolution.py",
+      "sha256": "a7b3c5d9f8e059219ca3662c3c6c4cd8632877386cb2eb117fdc057dc73e8643",
+      "bytes": 10077
+    },
+    {
       "path": "verify_issue_344_exact_capacity.py",
-      "sha256": "a6f287eef5eebaec769bccabdc4beca171520e93fa16714844f6279108018d37",
-      "bytes": 9633
+      "sha256": "e96163e838bafbe661c631810e90d3b66ab5888d4e669fc5c5de89e25c91c9cf",
+      "bytes": 9775
     },
     {
       "path": "validators/validate_issue_337_electroweak_projection.py",
@@ -215,24 +223,44 @@
       "bytes": 1933
     },
     {
+      "path": "validators/validate_issue_342_readback_resolution.py",
+      "sha256": "eeeeba2f0e00ea831b02720f59d41c69b760cf90deaedb8ed5b82834bd6431ad",
+      "bytes": 3532
+    },
+    {
       "path": "validators/validate_issue_344_exact_capacity.py",
-      "sha256": "da5a34964fb42e3181c5d3edcfee49cd64af18e8b515759be809779f3d7f2c46",
-      "bytes": 2631
+      "sha256": "02ca2b6951f211a89367836f8f3b1ba2299625b91594c155cdbb2b440478b4ee",
+      "bytes": 2968
     },
     {
       "path": "certificates/R_local_global_hierarchy_resonance_closeout_335.json",
-      "sha256": "f60d5f14d1f0ce36f98d19c19375bbdf3e87a1bc2c6c78aed24976d99362436b",
-      "bytes": 5024
+      "sha256": "8a2664f2741ff29522918a25b43865760276f82751054c4948cdfe1873d2d33e",
+      "bytes": 5641
     },
     {
       "path": "verify_issue_335_local_global_resonance.py",
-      "sha256": "f792432cbc37668feb05fd821318dea599abf4da22b2e2eb1957683b1c930158",
-      "bytes": 9265
+      "sha256": "16e17dadf5747bc5f164bbab226544e1169f89c36072d9834c7c3f9ff8a780a0",
+      "bytes": 10526
     },
     {
       "path": "validators/validate_issue_335_local_global_resonance.py",
-      "sha256": "84610abf8feba909fa43c3defee8ad33fc0a634b7b4763c1495e266e00ae1456",
-      "bytes": 2978
+      "sha256": "c8ad7dbbec4289320168db9f14f9d48d8bfd3277b24dc8b5e2f91d48c4fcab24",
+      "bytes": 3407
+    },
+    {
+      "path": "certificates/R_m_rep_24_certificate.json",
+      "sha256": "867306cde4f5466fd147d4d108cbc48b4c86b5ce916b07bf9071aa8b8f312638",
+      "bytes": 5246
+    },
+    {
+      "path": "verify_issue_343_m_rep_24.py",
+      "sha256": "f767739c291bf2d793eba565e1bf147d30d2c27c3410c9b758882bbb2dc4d61b",
+      "bytes": 8219
+    },
+    {
+      "path": "validators/validate_issue_343_m_rep_24.py",
+      "sha256": "4fe57204504360bfa184941367b94898323e02d021dfc0827f5340317b2a481f",
+      "bytes": 2399
     }
   ]
 }

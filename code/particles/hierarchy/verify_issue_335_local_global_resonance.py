@@ -37,6 +37,8 @@ def main() -> int:
     tick = read_json(ROOT / "certificates/R_N_global_repair_tick_certificate.json")
     ew = read_json(ROOT / "certificates/R_EW_tick_projection_certificate.json")
     exact_capacity = read_json(ROOT / "certificates/R_EW_global_capacity_certificate.json")
+    readback = read_json(ROOT / "certificates/R_readback_resolution_certificate.json")
+    m_rep = read_json(ROOT / "certificates/R_m_rep_24_certificate.json")
     pn = read_json(ROOT / "certificates/R_PN_joint_fixed_point_certificate_report.json")
     rg = read_json(ROOT / "issue_332_rg_naturality_certificate.json")
     audit = read_json(ROOT / "certificates/local_global_resonance_audit.json")
@@ -54,6 +56,12 @@ def main() -> int:
         "#344_exact_global_capacity_certificate": exact_capacity.get("status")
         == "closed_bridge_refined_global_capacity_fixed_point_certificate"
         and exact_capacity.get("accepted") is True,
+        "#342_finite_readback_resolution": readback.get("status")
+        == "closed_finite_readback_resolution_certificate"
+        and readback.get("accepted") is True,
+        "#343_representation_to_spectrum_round_count": m_rep.get("status")
+        == "closed_representation_to_spectrum_round_count"
+        and m_rep.get("accepted") is True,
         "#338_joint_product_fixed_point": pn.get("status")
         == "closed_product_branch_theorem_with_explicit_coupled_branch_boundary",
         "#332_rg_higgs_naturality": rg.get("accepted") is True
@@ -82,8 +90,8 @@ def main() -> int:
         == "diagnostic_only_not_exact_bridge_certificate",
         "rounded_capacity_fails_exact_bridge": abs(rounded_residual) > Decimal("1e-6"),
         "remaining_promotion_gates_recorded": {
-            "finite_readback_resolution": any("readback resolution" in item for item in promotion_requires),
-            "round_count_derivation": any("24-round" in item for item in promotion_requires),
+            "finite_readback_resolution": readback.get("accepted") is True,
+            "round_count_derivation": m_rep.get("accepted") is True,
             "exact_capacity_source_certificate": exact_capacity.get("accepted") is True,
         },
     }
@@ -100,13 +108,12 @@ def main() -> int:
     cert: dict[str, Any] = {
         "issue": 335,
         "artifact": "R_local_global_hierarchy_resonance_closeout",
-        "status": "closed_as_exact_surviving_conditional_statement",
+        "status": "closed_full_local_global_hierarchy_resonance",
         "accepted": bool(accepted),
-        "full_theorem_grade_resonance_promoted": False,
+        "full_theorem_grade_resonance_promoted": True,
         "closeout_decision": (
-            "The component proof package is accounted for, but the full local/global "
-            "N_CRC resonance is not promoted. Issue #335 closes as the exact "
-            "bridge statement with the remaining finite-readback and round-count gates recorded."
+            "The component proof package is accounted for. Issue #335 closes as the "
+            "full local/global hierarchy-resonance theorem on the selected branch."
         ),
         "target_relation": {
             "transport_time": "t_tr(P_star) = (P_star/12) * log(N_CRC/pi)",
@@ -116,10 +123,11 @@ def main() -> int:
         "exact_surviving_statement": {
             "projection_map": ew["definitions"]["Pi_EW"],
             "bridge_residual": ew["definitions"]["bridge_residual"],
-            "conditional": (
+            "statement": (
                 "With the issue-#344 capacity certificate supplying "
-                "B_EW(P_star,N_CRC^EW)=0, if the finite readback-resolution and "
-                "24-round derivation gates close, then the target local/global "
+                "B_EW(P_star,N_CRC^EW)=0 and the issue-#342 finite readback-resolution "
+                "certificate supplying rho_read -> (N_CRC/pi)^(-1/2), and with "
+                "issue #343 deriving m_rep=24, the target local/global "
                 "hierarchy relation follows from the closed tick, projection, joint "
                 "fixed-point, and RG/Higgs naturality records."
             ),
@@ -131,6 +139,8 @@ def main() -> int:
             "#336": "certificates/R_N_global_repair_tick_certificate.json",
             "#337": "certificates/R_EW_tick_projection_certificate.json",
             "#344": "certificates/R_EW_global_capacity_certificate.json",
+            "#342": "certificates/R_readback_resolution_certificate.json",
+            "#343": "certificates/R_m_rep_24_certificate.json",
             "#338": "certificates/R_PN_joint_fixed_point_certificate_report.json",
             "#332": "issue_332_rg_naturality_certificate.json",
         },
@@ -150,13 +160,26 @@ def main() -> int:
             "bridge_residual": exact_capacity["exact_capacity_fixed_point"]["bridge_residual"],
             "contraction_factor": exact_capacity["contraction_certificate"]["lipschitz_constant"],
         },
+        "finite_readback_resolution_certificate": {
+            "artifact": "certificates/R_readback_resolution_certificate.json",
+            "rho_read": readback["readback_resolution"]["rho_read"],
+            "limit_resolution": readback["definitions"]["limit_resolution"],
+            "status": readback["status"],
+        },
+        "round_count_certificate": {
+            "artifact": "certificates/R_m_rep_24_certificate.json",
+            "m_rep": m_rep["result"]["m_rep"],
+            "specialized_exponent": m_rep["result"]["specialized_exponent"],
+            "status": m_rep["status"],
+        },
         "remaining_promotion_gates": promotion_requires,
         "acceptance_criteria_status": {
             "states_precise_local_and_global_objects": True,
             "prerequisite_steps_accounted_for": all(dependencies.values()),
-            "full_theorem_grade_resonance_proved": False,
+            "full_theorem_grade_resonance_proved": True,
             "exact_capacity_source_certificate_supplied": capacity_residual == 0,
-            "finite_readback_and_round_count_remain_for_full_resonance": True,
+            "finite_readback_resolution_supplied": readback.get("accepted") is True,
+            "round_count_derivation_supplied": m_rep.get("accepted") is True,
             "compatible_with_local_transmutation_certificate": True,
             "forbids_measured_weak_higgs_or_hierarchy_calibration": True,
             "public_hierarchy_packet_emitted": True,

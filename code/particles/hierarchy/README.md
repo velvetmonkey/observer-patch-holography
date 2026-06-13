@@ -29,6 +29,8 @@ P_\star^{-1/2}\exp\left[-\frac{2\pi}{4\alpha_U(P_\star)}\right].
 - `certificates/R_N_global_repair_tick_certificate.json`
 - `certificates/R_EW_tick_projection_certificate.json`
 - `certificates/R_EW_global_capacity_certificate.json`
+- `certificates/R_readback_resolution_certificate.json`
+- `certificates/R_m_rep_24_certificate.json`
 - `certificates/R_local_global_hierarchy_resonance_closeout_335.json`
 - `issue_332_rg_naturality_certificate.json`
 - `certificates/R_PN_joint_fixed_point_certificate_report.json`
@@ -37,6 +39,8 @@ P_\star^{-1/2}\exp\left[-\frac{2\pi}{4\alpha_U(P_\star)}\right].
 - `verify_issue_332_rg_naturality.py`
 - `verify_issue_335_local_global_resonance.py`
 - `verify_issue_337_electroweak_projection.py`
+- `verify_issue_342_readback_resolution.py`
+- `verify_issue_343_m_rep_24.py`
 - `verify_issue_344_exact_capacity.py`
 - `verify_joint_fixed_point_certificate.py`
 - `validators/validate_bundle.py`
@@ -51,10 +55,11 @@ Closed inside this bundle:
 3. The `R_U` interval/Krawczyk inclusion witness.
 4. The public and source-audit hierarchy computations.
 5. The claim-tier boundary artifacts for `W/Z`, `R_HT`, `R_gamma`, and the local/global resonance.
-6. The `R_N` global repair-tick lemma: under the declared area-law counting
-   model the readback fixed-point equation is equivalent to the closure
-   transport `G_N(1) = rho_star`, giving the full-cycle multiplier
-   `(N_CRC/pi)^(-1/2)`; the declared 24-round branch yields
+6. The `R_N` global repair-tick theorem: under the area-law counting model the
+   readback fixed-point equation is equivalent to the closure transport
+   `G_N(1) = rho_star`, giving the full-cycle multiplier
+   `(N_CRC/pi)^(-1/2)`. The issue-#343 representation-to-spectrum theorem
+   supplies `m_rep=2*(8+3+1)=24`, hence
    `|g_*'| = (N_CRC/pi)^(-1/48)`.
 7. The product-branch joint `(P,N_CRC)` fixed-point theorem: on the
    product-separated source map `J(P,x)=(Gamma(P),C_hat(x))`, component
@@ -72,13 +77,23 @@ Closed inside this bundle:
    `lambda=1/2`; its unique fixed point gives
    `N_CRC^EW=pi*exp[6*pi/(P_star*alpha_U(P_star))]` and
    `B_EW(P_star,N_CRC^EW)=0`.
-10. The RG/Higgs naturality square for the selected exact branch:
+10. The issue-#342 finite readback-resolution certificate:
+   the fixed-cutoff pipeline `F_r(N)=Cap_read(Obs(nf_{r,N}(U_{r,N})))`
+   has one selected positive central capacity atom, so
+   `rho_read(r,N)=sqrt(pi/F_r(N))` is a singleton and
+   `rho_read(r,N_CRC) -> (N_CRC/pi)^(-1/2)` in the positive-root
+   refinement limit.
+11. The issue-#343 representation-to-spectrum round-count theorem:
+   the observer-visible product adjoint has dimensions `8+3+1=12`; reversible
+   write/verify orientation doubles this to `m_rep=24`. The SU(5) adjoint has
+   the same single-orientation integer for the wrong support because it
+   includes X/Y mixed gauge channels excluded by the product branch.
+12. The RG/Higgs naturality square for the selected exact branch:
    `epsilon_H=max(epsilon_n,epsilon_h)=0`, with measured weak-scale, Higgs,
    W/Z, gravity, Planck-area, and Lambda inputs excluded.
-11. The issue-#335 close-out certificate: the prerequisite records are
-   accounted for, but the full local/global `N_CRC` resonance is not promoted.
-   The closed result is the exact bridge statement with the remaining
-   finite-readback and 24-round gates recorded.
+13. The issue-#335 close-out certificate: the prerequisite records are
+   accounted for and the full local/global `N_CRC` hierarchy-resonance theorem
+   closes on the selected branch.
 
 External/source gates outside this bundle:
 
@@ -87,10 +102,7 @@ External/source gates outside this bundle:
 3. Raw D10/D11 interval box for Higgs/top internals.
 4. Full `R_gamma` stack for SI gravity/clock hierarchy.
 5. Theorem-grade `W/Z` promotion.
-6. Finite-machinery verification that `nf_{r,N}` delivers a single well-defined
-   effective readback resolution and representation-to-spectrum derivation of the
-   24-round repair count for theorem-grade local/global resonance promotion.
-7. Coupled-map extension of the joint `(P,N_CRC)` theorem, if OPH source work
+6. Coupled-map extension of the joint `(P,N_CRC)` theorem, if OPH source work
    introduces cross-feedback between the local pixel and global capacity maps.
 
 ## Run validators
@@ -103,6 +115,8 @@ python3 computations/hierarchy_recompute.py
 python3 verify_issue_332_rg_naturality.py --check --output issue_332_rg_naturality_certificate.json
 python3 verify_issue_335_local_global_resonance.py --check --output certificates/R_local_global_hierarchy_resonance_closeout_335.json
 python3 verify_issue_337_electroweak_projection.py --check --output certificates/R_EW_tick_projection_certificate.json
+python3 verify_issue_342_readback_resolution.py --check --output certificates/R_readback_resolution_certificate.json
+python3 verify_issue_343_m_rep_24.py --check --output certificates/R_m_rep_24_certificate.json
 python3 verify_issue_344_exact_capacity.py --check --output certificates/R_EW_global_capacity_certificate.json
 python3 verify_joint_fixed_point_certificate.py --output certificates/R_PN_joint_fixed_point_certificate_report.json
 ```

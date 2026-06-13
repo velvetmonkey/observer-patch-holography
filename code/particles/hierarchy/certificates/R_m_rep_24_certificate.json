@@ -1,0 +1,150 @@
+{
+  "issue": 343,
+  "artifact": "R_m_rep_24_certificate",
+  "certificate_id": "issue-343-m-rep-24-doubled-sm-adjoint-v1",
+  "status": "closed_representation_to_spectrum_round_count",
+  "accepted": true,
+  "theorem": "representation-to-spectrum derivation of the 24-round repair count",
+  "claim": "The selected screen-capacity repair cycle has m_rep=24.",
+  "branch": {
+    "name": "OPH realized observer-visible Standard Model product branch",
+    "global_group": "(SU(3) x SU(2) x U(1)) / Z6",
+    "conditions": [
+      "realized compact-gauge branch",
+      "MAR-minimal one-Higgs branch",
+      "no extra visible low-scale U(1)",
+      "no simple-GUT X/Y mixed gauge bosons",
+      "observer-visible product adjoint only"
+    ]
+  },
+  "representation_sector": {
+    "name": "observer-visible compact-gauge adjoint sector",
+    "components": [
+      {
+        "factor": "SU(3)",
+        "representation": "adjoint",
+        "dimension_formula": "n^2 - 1",
+        "n": 3,
+        "dimension": 8
+      },
+      {
+        "factor": "SU(2)",
+        "representation": "adjoint",
+        "dimension_formula": "n^2 - 1",
+        "n": 2,
+        "dimension": 3
+      },
+      {
+        "factor": "U(1)",
+        "representation": "adjoint/Lie algebra",
+        "dimension_formula": "1",
+        "dimension": 1
+      }
+    ],
+    "unoriented_adjoint_dimension": 12,
+    "orientation_multiplier": 2,
+    "oriented_support_dimension": 24
+  },
+  "repair_grammar": {
+    "name": "spectrum-complete reversible adjoint repair grammar",
+    "alphabet_rule": "For each observer-visible compact-gauge adjoint generator a, include exactly two oriented primitive repair ticks a:+ and a:-.",
+    "orientation_meaning": "the two orientations are the action/coaction, write/verify, or ket/bra halves required by reversible overlap repair and record preservation",
+    "tick_count_observable": "rank of the active oriented adjoint support, equivalently the order of the cyclic scheduler on that support"
+  },
+  "spectral_object": {
+    "name": "cyclic repair clock on oriented adjoint support",
+    "operator": "C_rep: e_i -> e_{i+1 mod 24}",
+    "spectrum": "{exp(2*pi*i*k/24) : k=0,...,23}",
+    "period": 24,
+    "period_definition": "m_rep=min{m>0:C_rep^m=1}"
+  },
+  "result": {
+    "m_rep": 24,
+    "global_tick_law": "|g_*'| = (N_CRC/pi)^(-1/(2*m_rep))",
+    "specialized_exponent": "-1/48",
+    "exponent_denominator": 48
+  },
+  "negative_controls": [
+    {
+      "name": "unoriented product adjoint",
+      "m": 12,
+      "status": "reject",
+      "reason": "forgets the co-oriented verification half required by reversible record-preserving repair"
+    },
+    {
+      "name": "minimal coupled carrier",
+      "m": 6,
+      "status": "reject",
+      "reason": "counts the matter-coupled carrier, not the adjoint repair spectrum"
+    },
+    {
+      "name": "color-only doubled adjoint",
+      "m": 16,
+      "status": "reject",
+      "reason": "omits weak and hypercharge channels from the realized product branch"
+    },
+    {
+      "name": "color-plus-weak doubled without U(1)",
+      "m": 22,
+      "status": "reject",
+      "reason": "omits the hypercharge/electromagnetic channel"
+    },
+    {
+      "name": "single-orientation SU(5) adjoint",
+      "m": 24,
+      "status": "reject_despite_same_integer",
+      "reason": "wrong support: includes X/Y mixed gauge bosons and lacks orientation doubling"
+    },
+    {
+      "name": "doubled SU(5) adjoint",
+      "m": 48,
+      "status": "reject",
+      "reason": "wrong branch: contains X/Y channels excluded by the OPH product-group adjoint theorem"
+    },
+    {
+      "name": "include graviton in compact-gauge repair support",
+      "m": null,
+      "status": "reject",
+      "reason": "the graviton is the dynamical metric branch and fixes the radius/capacity chart, not an internal compact-gauge adjoint repair channel"
+    }
+  ],
+  "used_inputs": [
+    "SU(3) adjoint dimension = 8",
+    "SU(2) adjoint dimension = 3",
+    "U(1) Lie algebra dimension = 1",
+    "reversible two-orientation repair grammar",
+    "OPH product-branch exclusion of extra U(1) and X/Y gauge bosons"
+  ],
+  "forbidden_inputs": [
+    "N_CRC decimal value",
+    "Planck area hbar*G/c^3",
+    "electroweak bridge residual",
+    "hierarchy ratio v/E_cell",
+    "measured G",
+    "measured Higgs mass",
+    "measured Lambda",
+    "measured W mass",
+    "measured Z mass",
+    "measured top mass",
+    "measured weak scale"
+  ],
+  "forbidden_inputs_used": [],
+  "claim_boundary": {
+    "closed_here": [
+      "m_rep=2*dim(su(3)+su(2)+u(1))=24 on the realized product-gauge branch",
+      "the cyclic scheduler on the oriented adjoint support has spectral period 24",
+      "the global tick exponent specializes to -1/48"
+    ],
+    "not_closed_here": []
+  },
+  "verifier_checks": {
+    "component_dimensions_match": true,
+    "unoriented_adjoint_dimension_is_12": true,
+    "orientation_multiplier_is_2": true,
+    "m_rep_is_24": true,
+    "exponent_denominator_is_48": true,
+    "su5_same_integer_rejected": true,
+    "no_forbidden_inputs_used": true
+  },
+  "verifier_command": "python3 code/particles/hierarchy/verify_issue_343_m_rep_24.py --check --output code/particles/hierarchy/certificates/R_m_rep_24_certificate.json"
+}

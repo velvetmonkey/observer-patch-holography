@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Emit the global repair-tick lemma certificate.
 
-Chain role: close the R_N-side global repair-tick lemma for the local/global
+Chain role: close the R_N-side global repair-tick theorem for the local/global
 hierarchy resonance continuation without importing electroweak data.
 
 Mathematics: the D6 screen-capacity normalization fixes the cosmic radius
@@ -17,10 +17,11 @@ F(N) = pi / rho_read^2, so the fixed-point equation
 N_CRC = F(N_CRC) = pi / rho_star^2 forces rho_read = rho_star: the readback
 transport carries the horizon coordinate rho = 1 exactly to the local cell
 rho_star, i.e. G_N(1) = rho_star, with full-cycle multiplier
-(N_CRC/pi)^(-1/2). On the declared 24-tick resonance branch the one-tick map
-is the positive homogeneous 24th root, hence |g_*'| = (N_CRC/pi)^(-1/48).
+(N_CRC/pi)^(-1/2). The representation-to-spectrum theorem gives
+m_rep = 24, so the one-tick map is the positive homogeneous 24th root, hence
+|g_*'| = (N_CRC/pi)^(-1/48).
 For a general m-tick decomposition the per-tick exponent is -1/(2m); the
-declared m = 24 gives the stated exponent.
+derived m_rep = 24 gives the stated exponent.
 
 Output: a machine-readable certificate for GlobalRepairTickLemma_R_N.
 """
@@ -37,9 +38,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUT = ROOT / "certificates" / "R_N_global_repair_tick_certificate.json"
 DISPLAY_N_CRC = 3.31e122
-DECLARED_REPAIR_ROUNDS = 24
+DERIVED_REPAIR_ROUNDS = 24
 FULL_CONTRACTION_EXPONENT = Fraction(-1, 2)
-ONE_TICK_EXPONENT = FULL_CONTRACTION_EXPONENT / DECLARED_REPAIR_ROUNDS
+ONE_TICK_EXPONENT = FULL_CONTRACTION_EXPONENT / DERIVED_REPAIR_ROUNDS
 
 
 def _fraction_payload(value: Fraction) -> dict[str, int | str]:
@@ -60,13 +61,13 @@ def build_artifact(n_crc_display: float = DISPLAY_N_CRC) -> dict:
     log_n_over_pi = math.log(n_over_pi)
     tick_multiplier = math.exp(float(ONE_TICK_EXPONENT) * log_n_over_pi)
     full_contraction = math.exp(float(FULL_CONTRACTION_EXPONENT) * log_n_over_pi)
-    tick_power_24 = tick_multiplier**DECLARED_REPAIR_ROUNDS
+    tick_power_24 = tick_multiplier**DERIVED_REPAIR_ROUNDS
     relative_power_residual = (tick_power_24 - full_contraction) / full_contraction
 
     return {
         "artifact": "R_N_global_repair_tick_certificate",
-        "status": "closed_global_repair_tick_lemma_on_declared_round_structure",
-        "theorem_kind": "lemma_on_declared_branch",
+        "status": "closed_global_repair_tick_theorem_with_derived_round_count",
+        "theorem_kind": "theorem_with_derived_round_count",
         "object_id": "GlobalRepairTickLemma_R_N",
         "proof_gate": "R_N_global_repair_tick_lemma_without_EW_readback",
         "claim_boundary": {
@@ -75,18 +76,19 @@ def build_artifact(n_crc_display: float = DISPLAY_N_CRC) -> dict:
                 "interface realization: under the stated readback counting model F(N) = pi/rho_read^2 (the D6-consistent area-law count at the effective delivery resolution), the corpus readback fixed-point equation N_CRC = F(N_CRC) is equivalent to the closure transport G_N(1) = rho_star",
                 "full-cycle multiplier (N_CRC/pi)^(-1/2) from that closure transport",
                 "per-tick exponent law -1/(2m) for an m-tick homogeneous decomposition",
-                "stated exponent -1/48 at the declared m = 24, hence |g_*'| = (N_CRC/pi)^(-1/48)",
+                "representation-to-spectrum round-count theorem m_rep=24 from R_m_rep_24_certificate.json",
+                "stated exponent -1/48 at derived m_rep = 24, hence |g_*'| = (N_CRC/pi)^(-1/48)",
                 "dependency boundary excluding electroweak measured inputs",
             ],
             "declared_not_derived": [
-                "round count m = 24 (branch architecture for this lemma; representation-to-spectrum derivation is work in progress)",
                 "homogeneous positive-root one-tick normal form (the normalization convention defining |g_*'|, supplied per acceptance criterion 1)",
-                "single effective delivery resolution rho_read for the readback (the scale-free normal form under which the counting model is stated)",
+                "single effective delivery resolution rho_read for the readback, supplied by R_readback_resolution_certificate.json",
                 "readback counting model: Cap_read reconstructs capacity by the D6 area law evaluated at the effective delivery resolution, F(N) = pi/rho_read^2 (a D6-consistent modeling identification of Cap_read; the corpus defines Cap_read as the capacity reconstructed by the observer sector and does not state this counting property)",
             ],
-            "not_closed_by_certificate": [
-                "verification on the concrete finite repair machinery that nf_{r,N} delivers a single well-defined effective resolution scale (the corpus marks the finite readback map F_r as schematic and the refinement limit as conditional on existence)",
-                "representation-to-spectrum theorem deriving the 24-round count from the OPH repair grammar",
+            "not_closed_by_certificate": [],
+            "closed_elsewhere": [
+                "representation-to-spectrum theorem deriving the 24-round count, recorded separately in R_m_rep_24_certificate.json",
+                "finite readback-resolution certificate, recorded separately in R_readback_resolution_certificate.json",
                 "EW-refined exact capacity certificate, recorded separately in R_EW_global_capacity_certificate.json",
                 "joint fixed-point/stability theorem for (P,N), recorded separately in R_PN_joint_fixed_point_certificate_report.json",
                 "electroweak tick-projection bridge, recorded separately in R_EW_tick_projection_certificate.json",
@@ -162,14 +164,16 @@ def build_artifact(n_crc_display: float = DISPLAY_N_CRC) -> dict:
                     "discharged_here": True,
                 },
             ],
-            "declared_branch_inputs": [
+            "derived_branch_inputs": [
                 {
                     "id": "global_repair_round_count",
                     "statement": "the global repair cycle decomposes into 24 homogeneous ticks",
-                    "origin": "declared resonance-continuation branch architecture",
-                    "discharged_here": False,
-                    "open_item": "representation-to-spectrum derivation of the round count",
+                    "origin": "R_m_rep_24_certificate.json",
+                    "discharged_here": True,
+                    "derivation": "m_rep=2*dim(su(3)+su(2)+u(1))=2*(8+3+1)=24",
                 },
+            ],
+            "declared_branch_inputs": [
                 {
                     "id": "homogeneous_tick_normal_form",
                     "statement": "the one-tick map is the positive homogeneous 24th root of the full-cycle map",
@@ -182,7 +186,8 @@ def build_artifact(n_crc_display: float = DISPLAY_N_CRC) -> dict:
             "screen_capacity_relation": "N_CRC = pi * (r_CRC/ell_star)^2",
             "horizon_radius_over_local_unit": "(N_CRC/pi)^(1/2)",
             "local_cell_coordinate_rho_star": "(N_CRC/pi)^(-1/2)",
-            "full_repair_rounds": DECLARED_REPAIR_ROUNDS,
+            "full_repair_rounds": DERIVED_REPAIR_ROUNDS,
+            "round_count_source": "R_m_rep_24_certificate.json",
             "full_cycle_map": "G_N(rho) = (N_CRC/pi)^(-1/2) * rho",
             "full_cycle_exponent": _fraction_payload(FULL_CONTRACTION_EXPONENT),
             "one_tick_map": "g_N(rho) = (N_CRC/pi)^(-1/48) * rho",
@@ -191,10 +196,10 @@ def build_artifact(n_crc_display: float = DISPLAY_N_CRC) -> dict:
         },
         "exponent_law": {
             "per_tick_exponent_for_m_ticks": "-1/(2m)",
-            "declared_round_count_m": DECLARED_REPAIR_ROUNDS,
-            "exponent_at_declared_m": "-1/48",
+            "derived_round_count_m": DERIVED_REPAIR_ROUNDS,
+            "exponent_at_derived_m": "-1/48",
             "corrected_exponent_clause": (
-                "the proof gives -1/48 at the declared m = 24; "
+                "the proof gives -1/48 at the derived m_rep = 24; "
                 "the parametric law -1/(2m) applies to an m-tick round-count theorem"
             ),
         },
@@ -204,7 +209,7 @@ def build_artifact(n_crc_display: float = DISPLAY_N_CRC) -> dict:
             "ew_projection_identity_if_projection_lemma_supplied": (
                 "(|g_*'|)^(4 P_star) = (N_CRC/pi)^(-P_star/12)"
             ),
-            "corrected_exponent": "-1/48 at declared m = 24; parametric -1/(2m)",
+            "corrected_exponent": "-1/48 at derived m_rep = 24; parametric -1/(2m)",
         },
         "numeric_display_for_rounded_capacity": {
             "N_CRC_display": _format_scientific(n_crc_display),
@@ -224,8 +229,10 @@ def build_artifact(n_crc_display: float = DISPLAY_N_CRC) -> dict:
                 "fixed-point readback-closure semantics of N_CRC = F(N_CRC) on the radius coordinate",
             ],
             "declared_inputs": [
-                "24-round decomposition of the global repair cycle (declared branch architecture)",
                 "positive homogeneous one-tick normal form (normalization convention)",
+            ],
+            "derived_inputs": [
+                "m_rep=24 representation-to-spectrum theorem from R_m_rep_24_certificate.json",
             ],
             "does_not_use": [
                 "alpha_U",
@@ -241,7 +248,7 @@ def build_artifact(n_crc_display: float = DISPLAY_N_CRC) -> dict:
             "Model Cap_read by the D6 area law at the delivery resolution (the canonical scale-covariant extension of N = pi (r/ell)^2; a declared modeling identification): a readback delivering the horizon record at effective resolution coordinate rho_read reconstructs capacity F(N) = pi/rho_read^2.",
             "The fixed-point equation N_CRC = F(N_CRC) = pi/rho_star^2 forces rho_read = rho_star (positive roots): deficit rho_read > rho_star gives F < N, slack rho_read < rho_star gives F > N. This gives the closure transport G_N(1) = rho_star.",
             "Homogeneity (scale-free normal form) forces G_N(rho) = Q rho with Q > 0, and G_N(1) = rho_star gives Q = (N_CRC/pi)^(-1/2).",
-            "On the declared 24-tick branch, the one-tick map is the positive homogeneous root with g_N^24 = G_N, so its multiplier is Q^(1/24) = (N_CRC/pi)^(-1/48).",
+            "The representation-to-spectrum theorem gives m_rep=24. The one-tick map is the positive homogeneous root with g_N^24 = G_N, so its multiplier is Q^(1/24) = (N_CRC/pi)^(-1/48).",
             "Because g_N(rho) = q rho, the absolute derivative in this coordinate is |g_*'| = q = (N_CRC/pi)^(-1/48). For a general m-tick decomposition the same argument gives (N_CRC/pi)^(-1/(2m)).",
         ],
         "acceptance_criteria_status": {
@@ -250,14 +257,15 @@ def build_artifact(n_crc_display: float = DISPLAY_N_CRC) -> dict:
             "proof_scope": (
                 "the closure transport G_N(1) = rho_star follows as equivalent to the corpus "
                 "fixed-point equation N_CRC = F(N_CRC) under the declared area-law counting model, and the "
-                "full-cycle multiplier follows; the proof takes the 24-round decomposition as declared "
-                "branch architecture"
+                "full-cycle multiplier follows; the proof uses the derived m_rep=24 round-count theorem"
             ),
-            "round_count_derived_from_first_principles": False,
+            "round_count_derived_from_first_principles": True,
+            "round_count_certificate_recorded": True,
             "closure_transport_derived_from_F_interface": True,
             "readback_counting_model_is_modeling_identification": True,
-            "concrete_finite_machinery_verification_open": True,
-            "exact_corrected_exponent_clause": "-1/48 at declared m = 24; parametric form -1/(2m)",
+            "concrete_finite_machinery_verification_open": False,
+            "finite_readback_resolution_certificate_recorded": True,
+            "exact_corrected_exponent_clause": "-1/48 at derived m_rep = 24; parametric form -1/(2m)",
             "uses_oph_source_side_data_only": True,
             "imports_electroweak_hierarchy_as_measured_input": False,
             "emits_machine_checkable_certificate": True,

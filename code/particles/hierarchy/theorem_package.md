@@ -204,7 +204,81 @@ records the fixed-point residual, the bridge residual, the residual contraction
 check, and the rounded-capacity diagnostic. The rounded display `3.31e122`
 remains a capacity-scale display and fails the exact EW bridge residual.
 
-## Lemma F: Global repair-tick lemma
+## Theorem F: Finite readback-resolution certificate
+
+At fixed cutoff, define the finite readback pipeline
+
+```math
+F_r(N)=
+\operatorname{Cap}_{\rm read}
+\left(
+\operatorname{Obs}
+\left(
+\operatorname{nf}_{r,N}(\mathfrak U_{r,N})
+\right)
+\right).
+```
+
+The finite delivery resolution is the positive D6 root
+
+```math
+\rho_{\rm read}(r,N)=\sqrt{\pi/F_r(N)}.
+```
+
+On the selected finite branch, the observer-facing capacity register is a
+central finite record observable and the selected self-reading observer sector
+has support on exactly one positive capacity atom. Therefore the finite branch
+has one effective delivery resolution. If `F_r -> F` cofinally and
+`F(N_CRC)=N_CRC>0`, then
+
+```math
+\rho_{\rm read}(r,N_{\rm CRC})
+=
+\sqrt{\pi/F_r(N_{\rm CRC})}
+\to
+\sqrt{\pi/N_{\rm CRC}}
+=
+(N_{\rm CRC}/\pi)^{-1/2}.
+```
+
+The certificate is `certificates/R_readback_resolution_certificate.json`. It
+records the unique finite normal form, the central observer sector, the single
+positive capacity atom, the positive-root extractor, the refinement bound, and
+the forbidden-input ledger. It uses no measured weak/Higgs/gravity/cosmology
+calibration.
+
+## Theorem G: Representation-to-spectrum round count
+
+On the OPH realized product branch, the observer-visible compact gauge repair
+support is the product adjoint
+
+```math
+\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak u(1).
+```
+
+Its unoriented dimension is
+
+```math
+8+3+1=12.
+```
+
+Reversible record repair carries two orientations for each adjoint generator,
+the write/verify or action/coaction halves of the same public repair channel.
+Therefore
+
+```math
+m_{\rm rep}
+=2\dim(\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak u(1))
+=2(8+3+1)
+=24.
+```
+
+The cyclic repair scheduler on this oriented support has period 24. The SU(5)
+adjoint has the same single-orientation integer for a different support: it
+contains X/Y mixed gauge bosons, which are excluded by the OPH product branch.
+The certificate is `certificates/R_m_rep_24_certificate.json`.
+
+## Lemma H: Global repair-tick lemma
 
 Setting: the cosmic record-capacity fixed point `N_CRC = F(N_CRC)` with observed-branch
 readout `N_CRC = S_dS` and D6 normalization `N_CRC = pi * (r_CRC/ell_star)^2`. Coordinate:
@@ -237,8 +311,9 @@ equivalent to the corpus fixed-point equation, and homogeneity gives
 G_N(\rho) = (N_{CRC}/\pi)^{-1/2}\rho.
 ```
 
-On the declared 24-tick resonance branch (`G_N = g_N^{24}`, positive root) the one-tick
-normal form is
+Using the representation-to-spectrum theorem above, the selected repair branch
+has `m_rep=24`. With `G_N = g_N^{24}` and the positive root, the one-tick normal
+form is
 
 ```math
 g_N(\rho) = (N_{CRC}/\pi)^{-1/48}\rho,
@@ -246,16 +321,16 @@ g_N(\rho) = (N_{CRC}/\pi)^{-1/48}\rho,
 |g_*'| = (N_{CRC}/\pi)^{-1/48}.
 ```
 
-For a general `m`-tick decomposition the per-tick derivative is `(N_CRC/pi)^(-1/(2m))`;
-the declared `m = 24` gives the stated `-1/48` exponent.
+For a general `m`-tick decomposition the per-tick derivative is
+`(N_CRC/pi)^(-1/(2m))`; the derived `m_rep = 24` gives the stated `-1/48`
+exponent.
 
 Boundary: the closure transport follows at the interface level of `F`, conditional on the
-declared counting model above. The corpus marks the finite readback map `F_r` as schematic and
-its refinement limit as conditional on existence. The remaining promotion gates are the concrete
-finite-machinery verification that `nf_{r,N}` delivers a single well-defined effective
-resolution, the area-law readback count at that resolution, and a representation-to-spectrum
-theorem for the round count. The promoted hierarchy theorem
-does not use these as inputs.
+declared counting model above. The finite readback-resolution object is supplied by
+`R_readback_resolution_certificate.json`. The representation-to-spectrum round count is
+supplied by `R_m_rep_24_certificate.json`. The local/global hierarchy-resonance theorem
+closes on the selected branch. The promoted hierarchy row does not use the local/global
+resonance as an input.
 
 ## Boundary theorem: SI gravity/clock hierarchy
 

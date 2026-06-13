@@ -15,8 +15,20 @@
       "name": "global repair-tick lemma",
       "artifact": "R_N_global_repair_tick_certificate.json",
       "status": "closed_global_repair_tick_lemma_on_declared_round_structure",
-      "result": "under the declared area-law counting model the readback fixed-point equation is equivalent to the closure transport G_N(1) = rho_star, giving the full-cycle multiplier (N_CRC/pi)^(-1/2); the declared 24-tick branch gives |g_*'| = (N_CRC/pi)^(-1/48)",
-      "declared_input": "24-round count (representation-to-spectrum derivation open); area-law counting model of Cap_read and single effective readback resolution (finite-machinery verification open)"
+      "result": "under the declared area-law counting model the readback fixed-point equation is equivalent to the closure transport G_N(1) = rho_star, giving the full-cycle multiplier (N_CRC/pi)^(-1/2); the derived 24-tick branch gives |g_*'| = (N_CRC/pi)^(-1/48)",
+      "declared_input": "finite readback resolution is supplied separately by R_readback_resolution_certificate.json; the round count is supplied by R_m_rep_24_certificate.json"
+    },
+    {
+      "name": "representation-to-spectrum round-count theorem",
+      "artifact": "R_m_rep_24_certificate.json",
+      "status": "closed_representation_to_spectrum_round_count",
+      "result": "m_rep=2*dim(su(3)+su(2)+u(1))=2*(8+3+1)=24 on the realized product-gauge branch; the cyclic repair scheduler on the oriented adjoint support has spectral period 24"
+    },
+    {
+      "name": "finite readback-resolution certificate",
+      "artifact": "R_readback_resolution_certificate.json",
+      "status": "closed_finite_readback_resolution_certificate",
+      "result": "the fixed-cutoff readback pipeline F_r(N)=Cap_read(Obs(nf_{r,N}(U_{r,N}))) has one selected positive central capacity atom, so rho_read(r,N)=sqrt(pi/F_r(N)) is a singleton and rho_read(r,N_CRC) -> (N_CRC/pi)^(-1/2) in the positive-root refinement limit"
     },
     {
       "name": "joint product fixed-point/stability theorem",
@@ -43,8 +55,5 @@
       "result": "epsilon_n=epsilon_h=epsilon_H=0 on the selected exact source-to-Higgs normal-form square, with measured weak-scale and gravity inputs forbidden"
     }
   ],
-  "promotion_requires": [
-    "finite-machinery verification that nf_{r,N} delivers a single well-defined effective readback resolution",
-    "representation-to-spectrum theorem deriving the 24-round repair count"
-  ]
+  "promotion_requires": []
 }

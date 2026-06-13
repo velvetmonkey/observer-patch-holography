@@ -1608,6 +1608,18 @@ the global screen-capacity fixed point. It also separates the two hierarchy scal
 \(24\)-round contraction controls the cosmic length ratio, while the local weak hierarchy samples
 the same contraction through a \(4P_\star\) electroweak projection.
 
+The repair count is fixed by the observer-visible product-adjoint spectrum. On the realized
+product branch,
+\[
+m_{\rm rep}
+=2\dim(\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak u(1))
+=2(8+3+1)
+=24.
+\]
+The factor \(2\) is the reversible write/verify orientation of each repair channel. The
+\(\mathfrak{su}(5)\) adjoint has the same single-orientation integer for a different support:
+its \(X/Y\) mixed gauge channels are absent from the OPH product branch.
+
 \begin{lemma}[Global repair-tick lemma]\label{lem:global-repair-tick}
 Let \(N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}})\) be the cosmic record-capacity fixed point with
 observed-branch readout \(N_{\mathrm{CRC}}=S_{\mathrm{dS}}\) and D6 normalization
@@ -1618,8 +1630,9 @@ Work in the multiplicative screen-radius coordinate \(\rho=\ell/r_{\mathrm{CRC}}
 horizon sits at \(\rho=1\) and the local cell at \(\rho_\star=\ell_\star/r_{\mathrm{CRC}}\).
 Define the global repair cycle \(G_N\) at the fixed point as the scale-free readback transport
 of the horizon record coordinate, with fixed-point closure (readback without deficit or slack)
-meaning \(G_N(1)=\rho_\star\) exactly. On the declared resonance branch the cycle decomposes
-into \(24\) homogeneous ticks, \(G_N=g_N^{24}\) with \(g_N\) the positive root. Then
+meaning \(G_N(1)=\rho_\star\) exactly. The representation-to-spectrum theorem gives
+\(m_{\rm rep}=24\), so the selected resonance branch decomposes as \(G_N=g_N^{24}\) with
+\(g_N\) the positive root. Then
 \[
 G_N(\rho)
 =
@@ -1632,7 +1645,7 @@ g_N(\rho)
 |g_\star'|=\left(\frac{N_{\mathrm{CRC}}}{\pi}\right)^{-1/48}.
 \]
 More generally an \(m\)-tick decomposition gives
-\(|g_\star'|=(N_{\mathrm{CRC}}/\pi)^{-1/(2m)}\); the declared \(m=24\) reproduces the stated
+\(|g_\star'|=(N_{\mathrm{CRC}}/\pi)^{-1/(2m)}\); \(m_{\rm rep}=24\) gives the stated
 exponent.
 \end{lemma}
 
@@ -1645,7 +1658,8 @@ as
 U_{r,N})))\) in the refinement limit, the capacity reconstructed by the interior observer
 sector from the horizon record. Modeling \(\operatorname{Cap}_{\mathrm{read}}\) by the D6 area
 law at the effective delivery resolution \(\rho_{\mathrm{read}}\), the canonical
-scale-covariant extension of \(N=\pi(r/\ell)^2\), gives a declared identification. The corpus
+scale-covariant extension of \(N=\pi(r/\ell)^2\), gives the D6-consistent counting
+identification. The corpus
 defines \(\operatorname{Cap}_{\mathrm{read}}\) as reconstructed capacity; this certificate adds
 the D6-consistent counting rule. The readback reconstructs
 \(F(N)=\pi/\rho_{\mathrm{read}}^2\), so the fixed-point equation
@@ -1661,10 +1675,10 @@ derivative in this coordinate, is
 \end{proof}
 
 The emitted particle rows continue to use the \(\mathcal R_U\) certificate above.
-Lemma~\ref{lem:global-repair-tick} closes the global tick side on the declared \(24\)-round
-branch. The proof derives the closure transport at the interface level of \(F\) under the declared
-area-law counting model of \(\operatorname{Cap}_{\mathrm{read}}\). It takes the round
-count as declared branch architecture.
+Lemma~\ref{lem:global-repair-tick} closes the global tick side with the derived
+representation-to-spectrum count \(m_{\rm rep}=24\). The proof derives the closure transport at
+the interface level of \(F\) under the D6 area-law counting model of
+\(\operatorname{Cap}_{\mathrm{read}}\).
 
 \begin{theorem}[Joint product fixed-point branch]\label{thm:joint-pn-product}
 Let \(x=\log N\), let \(X=I_P\times I_x\), and equip \(X\) with
@@ -1865,11 +1879,21 @@ the product defect is zero.
 
 The RG/Higgs naturality closure does not use the measured weak scale. Measured \(W/Z\),
 Higgs/top, \(G\), Planck-area, and \(\Lambda\) data are excluded inputs. The local/global package
-records the closed global repair tick, joint product branch, electroweak projection bridge, and
-EW-refined exact capacity fixed point, and RG naturality square. The theorem-grade full resonance
-requires the finite readback-resolution verification and the representation-to-spectrum derivation
-of the \(24\)-round count. The promoted
-hierarchy row does not use it as an input.
+records the closed global repair tick, joint product branch, electroweak projection bridge,
+EW-refined exact capacity fixed point, finite readback-resolution certificate, and RG naturality
+square. The finite readback certificate defines
+\[
+F_r(N)=\operatorname{Cap}_{\rm read}
+\left(\operatorname{Obs}(\operatorname{nf}_{r,N}(\mathfrak U_{r,N}))\right),
+\qquad
+\rho_{\rm read}(r,N)=\sqrt{\pi/F_r(N)},
+\]
+and proves one selected effective delivery resolution on the finite branch, with
+\(\rho_{\rm read}(r,N_{\rm CRC})\to(N_{\rm CRC}/\pi)^{-1/2}\) in the
+positive-root refinement limit. The representation-to-spectrum theorem gives
+\(m_{\rm rep}=2(8+3+1)=24\), so the local/global hierarchy-resonance package
+closes on the selected branch. The promoted hierarchy row does not use the
+local/global resonance as an input.
 
 \subsection{Higgs/top critical stage}
 
@@ -3169,7 +3193,7 @@ generation, surrogate validation, and downstream readout tests, because those st
 tiny correlator payload. The physical branch is different: it needs backend hardware and execution
 semantics that are absent from the repository environment. This paper therefore treats
 GLORB/Echosahedron-class OPH hardware, or an equivalent working OPH hadron backend, as the
-source-only promotion gate. Production hadron masses enter the particle pipeline only with a
+source-only backend requirement. Production hadron masses enter the particle pipeline only with a
 backend-emitted Ward-projected spectral measure and its uncertainty budget. This is a
 source-backend scope boundary.
 
@@ -3359,8 +3383,8 @@ Leapfrog integration plus Metropolis accept/reject gives the surrogate HMC updat
 \qquad
 P_{\mathrm{acc}} = \min(1,e^{-\Delta H}).
 \]
-This kernel is not physical lattice-QCD RHMC/HMC. It is a deterministic executable surrogate
-honoring the emitted receipt and seed law.
+This kernel is a deterministic executable surrogate honoring the emitted receipt and seed law,
+with no physical lattice-QCD RHMC/HMC claim.
 
 For validation of the execution bridge, the surrogate locks the ground-state masses to the hadron
 audit proxy values

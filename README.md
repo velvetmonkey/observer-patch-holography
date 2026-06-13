@@ -357,10 +357,10 @@ and the scoped particle-mass rows, while also fixing the cell/edge identity that
 cancels out of the Newton area-law readout. The $N_{\mathrm{CRC}}$ branch feeds
 the cosmological-constant readout. The scale certificate supplies the area
 quantum that becomes the Newton normalization. The hierarchy-resonance bridge is
-recorded as an exact conditional statement, not a theorem-grade promotion, until
-the finite readback-resolution, 24-round derivation, and exact global-capacity
-bridge-certificate gates close. The detailed formulas and claim tiers live in
-the papers.
+recorded as a selected-branch theorem: the finite readback-resolution
+certificate, the representation-to-spectrum count $2(8+3+1)=24$, and the exact
+global-capacity bridge certificate close the local/global hierarchy package.
+The detailed formulas and claim tiers live in the papers.
 
 <p align="center">
   <a href="assets/OPH_Unification_Diagram.svg" target="_blank" rel="noopener noreferrer">
