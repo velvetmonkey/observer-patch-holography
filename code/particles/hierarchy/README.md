@@ -27,11 +27,13 @@ P_\star^{-1/2}\exp\left[-\frac{2\pi}{4\alpha_U(P_\star)}\right].
 - `certificates/R_WZ_boundary_certificate.json`
 - `certificates/R_gamma_noG_DAG_certificate.json`
 - `certificates/R_N_global_repair_tick_certificate.json`
+- `certificates/R_EW_tick_projection_certificate.json`
 - `issue_332_rg_naturality_certificate.json`
 - `certificates/R_PN_joint_fixed_point_certificate_report.json`
 - `certificates/local_global_resonance_audit.json`
 - `computations/derive_global_repair_tick_lemma.py`
 - `verify_issue_332_rg_naturality.py`
+- `verify_issue_337_electroweak_projection.py`
 - `verify_joint_fixed_point_certificate.py`
 - `validators/validate_bundle.py`
 - `validators/validate_manifest.py`
@@ -55,7 +57,13 @@ Closed inside this bundle:
    contraction certificates imply a unique joint branch and stability with
    `q=max(qP,qN)<1`. A genuinely coupled source map requires the recorded
    weighted-sup derivative condition.
-8. The RG/Higgs naturality square for the selected exact branch:
+8. The electroweak tick-projection bridge: the unique projection map is
+   `Pi_EW(P,N)=24*pi/(alpha_U(P)*log(N/pi))`; the target projection
+   `Pi_EW(P_star,N_CRC)=4P_star` is equivalent to
+   `B_EW(P,N)=alpha_U(P)*log(N/pi)-6*pi/P=0`. The certificate records the
+   exact bridge target `N_EW(P_star)` and keeps the rounded `3.31e122` capacity
+   label as a diagnostic.
+9. The RG/Higgs naturality square for the selected exact branch:
    `epsilon_H=max(epsilon_n,epsilon_h)=0`, with measured weak-scale, Higgs,
    W/Z, gravity, Planck-area, and Lambda inputs excluded.
 
@@ -67,11 +75,12 @@ External/source gates outside this bundle:
 4. Full `R_gamma` stack for SI gravity/clock hierarchy.
 5. Theorem-grade `W/Z` promotion.
 6. Finite-machinery verification that `nf_{r,N}` delivers a single well-defined
-   effective readback resolution, representation-to-spectrum derivation of the
-   24-round repair count, plus electroweak tick projection for theorem-grade
-   local/global resonance promotion.
+   effective readback resolution and representation-to-spectrum derivation of the
+   24-round repair count for theorem-grade local/global resonance promotion.
 7. Coupled-map extension of the joint `(P,N_CRC)` theorem, if OPH source work
    introduces cross-feedback between the local pixel and global capacity maps.
+8. Exact global capacity source certificate satisfying `B_EW(P_star,N_CRC)=0`
+   for the full local/global resonance theorem.
 
 ## Run validators
 
@@ -81,5 +90,6 @@ From this directory:
 python3 validators/validate_bundle.py
 python3 computations/hierarchy_recompute.py
 python3 verify_issue_332_rg_naturality.py --check --output issue_332_rg_naturality_certificate.json
+python3 verify_issue_337_electroweak_projection.py --check --output certificates/R_EW_tick_projection_certificate.json
 python3 verify_joint_fixed_point_certificate.py --output certificates/R_PN_joint_fixed_point_certificate_report.json
 ```

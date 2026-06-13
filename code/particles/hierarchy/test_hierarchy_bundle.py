@@ -26,7 +26,7 @@ def test_hierarchy_bundle_validators_pass() -> None:
     result = _run("validators/validate_bundle.py")
     payload = json.loads(result.stdout)
 
-    assert len(payload) == 6
+    assert len(payload) == 7
     assert all(entry["returncode"] == 0 for entry in payload)
     validator_outputs = [json.loads(entry["stdout"]) for entry in payload]
     assert all(output["pass"] is True for output in validator_outputs)
@@ -117,6 +117,26 @@ def test_joint_pn_fixed_point_certificate_records_product_closure_and_coupled_bo
     assert cert["product_contraction_certificate"]["status"] == "conditional_on_component_contractions"
     assert cert["coupled_contraction_certificate"]["status"] == "residual_coupled_branch_boundary"
     assert "CIRCULAR_DIAGNOSTIC_ONLY" in cert["N_backsolved_warning"]
+
+
+def test_issue_337_electroweak_projection_certificate_records_exact_bridge_condition() -> None:
+    result = _run(
+        "validators/validate_issue_337_electroweak_projection.py",
+        "certificates/R_EW_tick_projection_certificate.json",
+    )
+    payload = json.loads(result.stdout)
+
+    assert payload["pass"] is True
+    checks = payload["checks"]
+    assert checks["projection_exponent_matches_4P"] is True
+    assert checks["rounded_N_is_diagnostic"] is True
+    assert checks["rounded_N_fails_exact_bridge"] is True
+
+    cert = json.loads((ROOT / "certificates/R_EW_tick_projection_certificate.json").read_text())
+    assert cert["accepted"] is True
+    assert cert["status"] == "closed_projection_map_with_exact_bridge_condition"
+    assert cert["exact_bridge"]["bridge_residual"] == "0.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    assert cert["rounded_capacity_diagnostic"]["status"] == "diagnostic_only_not_exact_bridge_certificate"
 
 
 def test_issue_332_rg_higgs_naturality_certificate_is_zero_defect() -> None:

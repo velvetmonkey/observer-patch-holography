@@ -45,9 +45,27 @@ closure transport `G_N(1) = rho_star`, which forces the full-cycle multiplier
 `|g_*'| = (N_CRC/pi)^(-1/48)` with no electroweak inputs. The counting model
 and the 24-round count are declared, not derived, and the corpus marks the
 finite readback map as schematic. The finite-machinery
-verification of the readback resolution, the representation-to-spectrum
-round-count derivation, and the electroweak tick projection remain open before
-the full resonance relation is promoted.
+verification of the readback resolution and the representation-to-spectrum
+round-count derivation remain open before the full resonance relation is
+promoted.
+
+The issue-#337 artifact closes the electroweak tick-projection bridge. The
+projection map is
+
+```text
+Pi_EW(P,N) = 24*pi/(alpha_U(P)*log(N/pi))
+```
+
+and the target projection `Pi_EW(P_star,N_CRC)=4P_star` is equivalent to
+
+```text
+B_EW(P,N) = alpha_U(P)*log(N/pi) - 6*pi/P = 0
+```
+
+The certificate records the exact bridge target `N_EW(P_star)` and keeps the
+rounded `3.31e122` capacity label as a diagnostic. The full local/global
+resonance theorem requires the exact global capacity source certificate that
+satisfies `B_EW(P_star,N_CRC)=0`.
 
 The joint `(P,N_CRC)` artifact defines the product branch map
 `J(P,x)=(Gamma(P),C_hat(x))` on `I_P x log I_N`. Component contraction
@@ -75,5 +93,6 @@ python3 validators/validate_bundle.py
 python3 computations/hierarchy_recompute.py
 python3 -m pytest test_hierarchy_bundle.py
 python3 verify_issue_332_rg_naturality.py --check --output issue_332_rg_naturality_certificate.json
+python3 verify_issue_337_electroweak_projection.py --check --output certificates/R_EW_tick_projection_certificate.json
 python3 verify_joint_fixed_point_certificate.py --output certificates/R_PN_joint_fixed_point_certificate_report.json
 ```

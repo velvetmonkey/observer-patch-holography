@@ -985,10 +985,14 @@ electroweak inputs. The proof takes the 24-round count as branch
 architecture. The product joint branch for the local pixel fixed point and
 global capacity fixed point is stable when the two component fixed-point maps
 have their contraction certificates. A genuinely coupled branch needs a
-separate derivative bound. The remaining gates for the full local/global
-hierarchy resonance are the finite-machinery verification of the readback
-resolution, the derivation of the 24-round count, and the electroweak
-projection.
+separate derivative bound. The electroweak projection bridge defines
+$\Pi_{\mathrm{EW}}(P,N)=24\pi/(\alpha_U(P)\log(N/\pi))$ and the exact bridge
+residual
+$\mathcal B_{\mathrm{EW}}=\alpha_U(P)\log(N/\pi)-6\pi/P$. The remaining gates
+for the full local/global hierarchy resonance are the finite-machinery
+verification of the readback resolution, the derivation of the 24-round count,
+and the exact global capacity source certificate satisfying
+$\mathcal B_{\mathrm{EW}}=0$.
 
 **Charge quantization.** All color-singlet particles have integer electric charge. No fractional charges like $\pm 1/3$ can exist outside hadrons. This follows from the global structure of the gauge group.
 

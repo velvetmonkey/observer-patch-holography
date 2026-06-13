@@ -1577,8 +1577,8 @@ coarse-graining square has \(\epsilon_H=0\), with
 
 \subsection{Local/global resonance continuation for the hierarchy}
 
-A sharper continuation would identify the D10 transmutation exponent with a joint local/global
-closure involving the cosmic capacity branch. The proposed relation is
+The local/global hierarchy resonance compares the D10 transmutation exponent with the global
+capacity branch at the same joint pair \((P_\star,N_{\mathrm{CRC}})\). The target relation is
 \[
 t_{\mathrm{tr}}(P_\star)
 =
@@ -1708,6 +1708,80 @@ in the weighted sup metric. Without that bound, the coupled branch is residual f
 than a uniqueness theorem.
 \end{proof}
 
+\begin{theorem}[Electroweak tick-projection bridge]\label{thm:ew-tick-projection}
+On the selected D10 source branch,
+\[
+\frac{v}{E_{\mathrm{cell}}}
+=
+\exp\!\left[-\frac{2\pi}{4\alpha_U(P)}\right].
+\]
+Together with the global repair tick
+\[
+|g_\star'|=\left(\frac{N}{\pi}\right)^{-1/48},
+\]
+define the electroweak projection exponent by
+\[
+\Pi_{\mathrm{EW}}(P,N)
+:=
+\frac{-\log(v/E_{\mathrm{cell}})}{-\log |g_\star'|}
+=
+\frac{24\pi}{\alpha_U(P)\log(N/\pi)}.
+\]
+Since \(0<|g_\star'|<1\), this exponent is unique. The target projection
+\[
+\Pi_{\mathrm{EW}}(P_\star,N_{\mathrm{CRC}})=4P_\star
+\]
+is equivalent to the bridge residual
+\[
+\mathcal B_{\mathrm{EW}}(P,N)
+:=
+\alpha_U(P)\log(N/\pi)-\frac{6\pi}{P}
+=0.
+\]
+Equivalently, the exact bridge target is
+\[
+N_{\mathrm{EW}}(P)
+=
+\pi\exp\!\left[\frac{6\pi}{P\alpha_U(P)}\right].
+\]
+For the public endpoint branch,
+\[
+N_{\mathrm{EW}}(P_\star)
+=
+3.5323546226929906511187512962330547600462\times10^{122}.
+\]
+If the exact global capacity source certificate supplies
+\(\mathcal B_{\mathrm{EW}}(P_\star,N_{\mathrm{CRC}})=0\), then
+\[
+\frac{v}{E_{\mathrm{cell}}}
+=
+\left(\frac{N_{\mathrm{CRC}}}{\pi}\right)^{-P_\star/12}
+=
+|g_\star'|^{4P_\star}.
+\]
+The factor \(4\) is the electroweak transmutation multiplicity
+\(\beta_{\mathrm{EW}}=N_c+1=4\). The factor \(48\) is \(2\cdot24\) from the
+global repair tick, hence \(12=48/4\). The rounded
+\(N_{\mathrm{CRC}}\simeq3.31\times10^{122}\) display is a capacity-scale label
+and fails the exact bridge residual.
+\end{theorem}
+
+\begin{proof}
+The D10 relation gives
+\[
+-\log(v/E_{\mathrm{cell}})=\frac{2\pi}{4\alpha_U(P)}=\frac{\pi}{2\alpha_U(P)}.
+\]
+The global tick relation gives
+\[
+-\log|g_\star'|=\frac{1}{48}\log(N/\pi).
+\]
+Taking the ratio gives the displayed \(\Pi_{\mathrm{EW}}\). Setting
+\(\Pi_{\mathrm{EW}}=4P\) and rearranging gives
+\(\alpha_U(P)\log(N/\pi)=6\pi/P\), exactly
+\(\mathcal B_{\mathrm{EW}}(P,N)=0\). Substitution gives the displayed
+\(N_{\mathrm{EW}}(P)\) and the hierarchy identity.
+\end{proof}
+
 \begin{theorem}[RG/Higgs naturality closure]\label{thm:rg-higgs-naturality}
 On the selected exact hierarchy branch, let \(Q_s\) be the source hierarchy quotient and
 \(Q_H\) the Higgs/electroweak quotient. Define
@@ -1756,11 +1830,12 @@ the product defect is zero.
 \end{proof}
 
 The RG/Higgs naturality closure does not use the measured weak scale. Measured \(W/Z\),
-Higgs/top, \(G\), Planck-area, and \(\Lambda\) data are excluded inputs. The full local/global
-resonance relation remains a continuation target until the finite readback-resolution
-verification, the representation-to-spectrum derivation of the \(24\)-round count, and the
-electroweak tick-projection lemma are supplied. The promoted hierarchy row does not use it as an
-input.
+Higgs/top, \(G\), Planck-area, and \(\Lambda\) data are excluded inputs. The local/global package
+records the closed global repair tick, joint product branch, electroweak projection bridge, and
+RG naturality square. The theorem-grade full resonance requires the finite readback-resolution
+verification, the representation-to-spectrum derivation of the \(24\)-round count, and the exact
+global capacity source certificate satisfying \(\mathcal B_{\mathrm{EW}}=0\). The promoted
+hierarchy row does not use it as an input.
 
 \subsection{Higgs/top critical stage}
 

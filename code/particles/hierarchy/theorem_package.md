@@ -115,7 +115,65 @@ there is an `r>0` such that
 Without that bound, the coupled map is residual branch freedom rather than a
 theorem-grade uniqueness claim.
 
-## Lemma D: Global repair-tick lemma
+## Theorem D: Electroweak tick-projection bridge
+
+The local D10 transmutation law gives
+
+```math
+\frac{v}{E_{\rm cell}}
+=
+\exp\left[-\frac{2\pi}{4\alpha_U(P)}\right].
+```
+
+The global repair-tick lemma gives
+
+```math
+|g_*'|=(N/\pi)^{-1/48}.
+```
+
+Define the electroweak projection exponent by
+
+```math
+\Pi_{\rm EW}(P,N)
+=
+\frac{-\log(v/E_{\rm cell})}{-\log |g_*'|}
+=
+\frac{24\pi}{\alpha_U(P)\log(N/\pi)}.
+```
+
+Since \(0<|g_*'|<1\), this exponent is unique. The target projection
+`Pi_EW(P_star,N_CRC)=4P_star` is equivalent to the bridge residual
+
+```math
+B_{\rm EW}(P,N)
+=
+\alpha_U(P)\log(N/\pi)-\frac{6\pi}{P}
+=0.
+```
+
+Equivalently, the exact bridge target is
+
+```math
+N_{\rm EW}(P)=\pi\exp\left[\frac{6\pi}{P\alpha_U(P)}\right].
+```
+
+For the public endpoint branch this gives
+
+```math
+N_{\rm EW}
+=
+3.5323546226929906511187512962330547600462\times10^{122}.
+```
+
+The certificate is `certificates/R_EW_tick_projection_certificate.json`. It records the exact
+bridge target and the rounded-capacity diagnostic. The rounded display `3.31e122` is a
+capacity-scale label and fails the exact bridge residual.
+
+The factor `4` is the electroweak transmutation multiplicity
+`\beta_EW=N_c+1=4`. The factor `48` is `2*24` from the global repair tick. Hence
+`12=48/4`, and the sampling exponent is `4P_star`.
+
+## Lemma E: Global repair-tick lemma
 
 Setting: the cosmic record-capacity fixed point `N_CRC = F(N_CRC)` with observed-branch
 readout `N_CRC = S_dS` and D6 normalization `N_CRC = pi * (r_CRC/ell_star)^2`. Coordinate:
@@ -164,8 +222,8 @@ Boundary: the closure transport follows at the interface level of `F`, condition
 declared counting model above. The corpus marks the finite readback map `F_r` as schematic and
 its refinement limit as conditional on existence. The remaining promotion gates are the concrete
 finite-machinery verification that `nf_{r,N}` delivers a single well-defined effective
-resolution, the area-law readback count at that resolution, a representation-to-spectrum
-theorem for the round count, and the electroweak tick projection. The promoted hierarchy theorem
+resolution, the area-law readback count at that resolution, and a representation-to-spectrum
+theorem for the round count. The promoted hierarchy theorem
 does not use these as inputs.
 
 ## Boundary theorem: SI gravity/clock hierarchy
