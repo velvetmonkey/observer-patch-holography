@@ -150,8 +150,8 @@ def main() -> int:
             "rounded_bridge_residual": rounded.get("bridge_residual"),
             "rounded_v_error": rounded.get("v_error"),
             "meaning": (
-                "The rounded 3.31e122 cosmological capacity display is not an exact "
-                "hierarchy bridge certificate; the exact bridge target is supplied by issue #344."
+                "The rounded 3.31e122 cosmological capacity display remains a diagnostic label; "
+                "issue #344 supplies the exact hierarchy bridge target."
             ),
         },
         "exact_capacity_certificate": {

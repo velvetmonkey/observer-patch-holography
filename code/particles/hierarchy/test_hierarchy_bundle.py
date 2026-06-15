@@ -143,7 +143,7 @@ def test_issue_337_electroweak_projection_certificate_records_exact_bridge_condi
     assert checks["rounded_N_fails_exact_bridge"] is True
     assert checks["derivation_chain_has_seven_steps"] is True
     assert checks["step_3_derives_projection_formula"] is True
-    assert checks["step_4_discloses_resonance_target_definitionality"] is True
+    assert checks["step_4_records_resonance_target_scope"] is True
     assert checks["step_6_cites_capacity_certificate"] is True
     assert checks["step_7_derives_P_over_12_form"] is True
     assert checks["factor_origin_beta_EW_recorded"] is True
@@ -156,9 +156,9 @@ def test_issue_337_electroweak_projection_certificate_records_exact_bridge_condi
     assert checks["acceptance_factor_12_origin_documented"] is True
     assert checks["acceptance_compatible_with_local_D10"] is True
     assert checks["acceptance_no_measured_weak_inputs"] is True
-    assert checks["acceptance_resonance_target_disclosed_as_definitional"] is True
+    assert checks["acceptance_resonance_target_scoped_as_oph_condition"] is True
     assert checks["boundary_records_closed_elsewhere"] is True
-    assert checks["boundary_includes_honest_disclosure"] is True
+    assert checks["boundary_includes_scope_note"] is True
 
     cert = json.loads((ROOT / "certificates/R_EW_tick_projection_certificate.json").read_text())
     assert cert["accepted"] is True
@@ -172,7 +172,7 @@ def test_issue_337_electroweak_projection_certificate_records_exact_bridge_condi
     assert "beta_EW" in str(chain[0]["uses"]) or "beta_EW" in str(chain[0].get("conclusion", ""))
     assert "m_rep" in str(chain[1]["uses"]) or "m_rep" in str(chain[1].get("conclusion", ""))
     assert "Pi_EW" in chain[2]["conclusion"] and "24*pi" in chain[2]["conclusion"]
-    assert "honesty_flag" in chain[3]
+    assert "scope_note" in chain[3]
     assert "B_EW" in chain[4]["conclusion"]
     assert "R_EW_global_capacity" in chain[5]["source"]
     assert "(P_star/12)" in chain[6]["conclusion"] and "48/4" in chain[6]["conclusion"]
@@ -198,7 +198,7 @@ def test_issue_337_electroweak_projection_certificate_records_exact_bridge_condi
     assert acceptance["no_measured_higgs_top_W_Z_inputs"] is True
     assert acceptance["no_measured_gravity_inputs"] is True
     assert acceptance["rounded_N_display_rejected_as_high_precision_bridge"] is True
-    assert acceptance["honest_disclosure_resonance_target_is_definitional"] is True
+    assert acceptance["resonance_target_scoped_as_oph_condition"] is True
 
     boundary = cert["claim_boundary"]
     assert "derivation chain" in boundary["closed_here"]
@@ -207,10 +207,10 @@ def test_issue_337_electroweak_projection_certificate_records_exact_bridge_condi
     assert any("representation-to-spectrum" in item or "R_m_rep_24" in item for item in closed_elsewhere)
     assert any("global repair-tick" in item or "R_N_global_repair_tick" in item for item in closed_elsewhere)
     assert any("R_EW_global_capacity" in item or "EW-refined" in item for item in closed_elsewhere)
-    disclosure = boundary["honest_disclosure"]
-    assert "resonance target" in disclosure
-    assert "beta_EW" in disclosure
-    assert "EW-refined" in disclosure
+    scope = boundary["scope"]
+    assert "resonance target" in scope
+    assert "N_CRC^EW" in scope
+    assert "EW-refined" in scope
 
 
 def test_issue_344_exact_capacity_certificate_is_fixed_point_source_record() -> None:
