@@ -122,7 +122,7 @@ Hofstadter's name for this kind of thing is a strange loop: a
 ``paradoxical level-crossing feedback loop'' [S16]. In OPH, strange loops sit
 at the core of how the universe works. We fully realize that this sounds
 insane, but this is exactly where rigorous mathematics leads us. Measurements
-may point to the right branch. They are not allowed to set the answer. If OPH
+may point to the right branch. Their role is branch localization. If OPH
 is true, our exact universe, without exception, must emerge from the OPH
 closure coordinates and axioms [O1,O2,O3,O4,O5,O6,S12,S13]. The counted rows
 below use that rule for the Koide shape and hierarchy witnesses. The remaining
@@ -229,7 +229,7 @@ This is an exact structural output of the finite record algebra. It uses no
 Standard physics carries roughly thirty independent numerical inputs, depending
 on how the count is made. OPH leaves a
 local pixel coordinate and a global screen-capacity coordinate. They are fixed
-by closure equations rather than fitted inputs [O1,O3,O4,O5,O6]. That is the
+by closure equations from the OPH rules [O1,O3,O4,O5,O6]. That is the
 zero-parameter claim. Observations may tell us which branch to inspect. They
 do not set the endpoint.
 
@@ -385,12 +385,12 @@ P_{\rm src}=\Gamma_{\rm src}(P_{\rm src}),
 \]
 Reading the final identity backward with CODATA \(\alpha(0)\) gives
 \(P_C=\varphi+\alpha_{\rm CODATA}\sqrt\pi\). That is a useful comparison
-coordinate, not the OPH calculation. The code path in [C1] keeps external
+coordinate. The OPH calculation is the closure solve. The code path in [C1] keeps external
 comparison values out of the solver.}
 
 \infobox{OPH has one major weakpoint: hadronic refinements}{
-The weakpoint is precise. The public Thomson endpoint is not counted in the
-compact standalone proof. The pure OPH trunk emits
+The weakpoint is precise. The compact standalone proof excludes the public
+Thomson endpoint from its core count. The pure OPH trunk emits
 \(\alpha_{\rm cand}^{-1}=136.9948351646\ldots\). The measured CODATA endpoint
 is \(\alpha^{-1}(0)=137.035999177(21)\). The OPH trunk value is too low by
 \(\Delta_{\alpha^{-1}}=0.0411640124\ldots\), about \(3.0\times10^{-4}\)
@@ -412,8 +412,8 @@ finite-lattice QCD calculation that has to be emitted from the OPH rules. At
 the required resolution, the
 calculation is beyond conventional von Neumann hardware; OMEGA is the
 optical fixed-point compute lane for it [S14]. The source-side QCD map is
-absent from the compact proof; public \(\alpha(0)\) is empirical endpoint
-closure, not a compact proof row [O5,O6].
+absent from the compact proof. Public \(\alpha(0)\) therefore stays in the
+empirical endpoint-closure lane [O5,O6].
 
 The compact proof does not multiply the public \(\alpha(0)\) endpoint, hadron
 masses, or the SI \(G\) clock row into its core count. It uses the QCD-free
@@ -478,6 +478,12 @@ Standard Model quotient
   \qquad
   N_c=3,\qquad N_g=3 .
 \]
+The derivation has a specific route. Overlap holonomy and zero-obstruction
+transport first build a compact bosonic gauge category. DR/Tannaka
+reconstruction reads off a compact group from that category. MAR then selects
+the realized one-generation/one-Higgs matter package; anomaly cancellation,
+Yukawa invariance, and the central kernel of the realized action fix the
+hypercharge lattice and the \(\mathbb Z_6\) quotient [O4,A21].
 The same branch carries the protected massless photon, gluon, and graviton
 rows:
 \[
@@ -487,8 +493,8 @@ The same quotient fixes charge quantization:
 \(Q=T_3+Y\) and \(Q_{\rm color\ singlet}\in\mathbb Z\). Its connected adjoint is
 \((8,1,0)\oplus(1,3,0)\oplus(1,1,0)\). There are no mixed
 \((3,2,\pm5/6)\) \(X/Y\) gauge bosons, so the ordinary simple-GUT
-gauge-mediated proton-decay channel is absent on this branch [O4,A20].
-This is a discrete structural witness, not a fitted decimal. The same branch
+gauge-mediated proton-decay channel is absent on this branch [O4,A20,A21].
+This discrete structural witness sits upstream of the numerical rows. The same branch
 then emits the compact integer triple
 \[
   N_c=3,\qquad N_g=3,\qquad \beta_{\rm EW}=N_c+1=4.
@@ -689,7 +695,7 @@ without dependency on
   \frac{P_{\rm src}}{6\pi}\log(N_\star^{\rm EW}/\pi)
 \]
 contains zero under interval arithmetic. In the compact paper, the bridge
-coordinate is a derived display, not a compact proof row.
+coordinate stays in the derived-display lane.
 
 Ordinary particle physics treats the Higgs scale as a tuning problem. In OPH
 the weak scale is a branch output with zero naturality defect:
@@ -701,13 +707,13 @@ the weak scale is a branch output with zero naturality defect:
 Zero means there is no cancellation to arrange. There is no bare scalar dial to
 balance against a cutoff; the weak scale is the normal-form readout of the
 24-tick lock. That is the hierarchy problem in standard language, with the
-fine-tuning term removed rather than hidden [O4,O5].\par}
+standard fine-tuning term absent from the OPH normal form [O4,O5].\par}
 
 \vspace{0.22em}
 {\bfseries\color{pragmaCyanText}Discrete rigidity check}\par
 {\small
 The integers \(N_c=3\), \(N_g=3\), and \(\beta_{\rm EW}=4\) are branch data
-rather than extra measured decimals. The evidence is the overconstraint. Once the
+with no extra measured decimals. The evidence is the overconstraint. Once the
 Standard Model branch fixes this integer triple, the same \(\beta_{\rm EW}\)
 hits two unrelated readouts: the weak hierarchy and the charged-family shape.
 Hold the \(P_{\rm src}\) and \(\alpha_U(P_{\rm src})\) proof records fixed and
@@ -906,7 +912,7 @@ surfaces with their own status. The readable falsifiability map is
 Finite observer-patch normal form &
 Yes &
 Finite observer records, overlaps, mismatch scores, and repair maps define the
-fixed-point architecture. This row is mechanism, not a decimal fit. &
+fixed-point architecture. The row tests the mechanism before any decimal fit enters. &
 [O1,O2,C5]\\
 
 Born-Lueders and Tsirelson event surface &
@@ -922,7 +928,7 @@ Yes &
 \(N_c=3\), \(N_g=3\), protected massless carriers, charge quantization, and no
 \(X/Y\) gauge bosons are discrete structural outputs.
 The same integers feed the hierarchy and Koide witnesses. &
-[O3,O4,O5,A20]\\
+[O3,O4,O5,A20,A21]\\
 
 \(\alpha_U(P_{\rm src})\) interval check &
 Yes &
@@ -936,7 +942,7 @@ Yes, shape only &
 \(\delta_e=(N_c+1)/(2N_cN_g)=2/9\) and
 \(r_k=1+\sqrt2\cos(\delta_e+2\pi k/3)\) give \(Q_{\rm Koide}=2/3\).
 This fixes the scale-free charged-family direction at ppm contact with PDG
-charged-lepton ratios, not absolute lepton masses. &
+charged-lepton ratios. Absolute lepton masses stay outside this counted row. &
 [O5,O6,A15,A16]\\
 
 QCD-free hierarchy law &
@@ -1029,8 +1035,8 @@ gap statement. On the compact-gauge branch, the Yang-Mills mass gap is
 \par\smallskip
 \textbf{Dark energy:} OPH turns the cosmological-constant problem into global
 screen bookkeeping. The cosmological constant is the closed-screen capacity
-readout of the same Einstein branch, rather than an arbitrary vacuum-energy
-counterterm [O1,O4].
+readout of the same Einstein branch. Arbitrary vacuum-energy input has no role
+in that row [O1,O4].
 \par\smallskip
 \textbf{Dark matter:} OPH replaces an unseen-particle assumption by
 repair-stress bookkeeping on its declared dark branch. The public dark-sector
@@ -1055,12 +1061,12 @@ rows remain in the particle files with their declared status [O4,O5,C2].
 \textbf{String vacuum selection:} the same observer-patch constraints select
 the support-visible compact branch that the string-vacuum note uses as its
 vacuum selector. This is the precise sense in which OPH recovers string theory
-as an effective description rather than as an independent input [O9,S15].}
+as an effective description derived inside the OPH stack [O9,S15].}
 
 \infobox{Tests outside the compact proof count}{
 \small
-The next entries are clean ways to break OPH branches. They are not part of
-the compact proof unless their own calculation and checks are supplied without
+The next entries are clean ways to break OPH branches. They sit outside the
+compact proof until their own calculation and checks are supplied without
 reading the measured answer.
 \par\smallskip
 \textbf{Collider tests [O5,C2,S6].}
@@ -1233,6 +1239,7 @@ and is not counted in the compact anti-circularity proof.
 \textbf{[A18]} & \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/screen_microphysics_and_observer_synchronization.tex\#L384-L398}{Born-Lueders central-record theorem [O3:L384-398]}.\\
 \textbf{[A19]} & \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/tex_fragments/OBSERVERS_SYNTHESIS_SECTIONS.tex\#L1078-L1095}{Bell/CHSH Tsirelson event surface [O1 fragment:L1078-1095]}.\\
 \textbf{[A20]} & \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex\#L4951-L4960}{Product-group consequences and no \(X/Y\) proton-decay carrier [O4:L4951-4960]}.\\
+\textbf{[A21]} & \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex\#L4567-L4732}{Standard Model quotient and \(\mathbb Z_6\) kernel [O4:L4567-4732]}.\\
 \end{longtable}
 }
 
