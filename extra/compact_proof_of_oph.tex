@@ -193,6 +193,10 @@ Read the equation literally. The simulated record world enters the simulating
 readback rule, contradictory branches die, and the returned object is the same
 record world. That is the self-contained consistency computation [O1,O2]. A
 universe with unexplained external constants fails this test [O1,O3,O4].
+The finite OPH patch-carrier pipeline is the concrete fixed-cutoff carrier for
+this computation: a finite patch system with ports, central records, repair
+moves, checkpoints, and a terminal normal form. It carries the closure solve;
+it is not a frame renderer.
 
 The observer lock changes the meaning of experience. An observer in OPH is a
 finite record boundary with a comparison rule for nearby patches [O1,O2].
@@ -294,11 +298,12 @@ P_{\rm src}=\Gamma_P(P_{\rm src}),\qquad N_\star=F_N(N_\star).
 Changing either endpoint breaks the resonance between the simulator setting and
 the universe read from inside [O1,O3,O4,O5].}
 
-Twenty-four local repairs add up to one global screen update. The local half of
-the lock appears as the 12-port exponent in the hierarchy proof below. This is
-where the simulation model stops being a metaphor. The pixel value and the
-screen capacity resonate: changing either one breaks the pixel-screen closure
-and removes the consistent universe.
+The OPH screen branch supplies twelve curvature ports. Reversible write/check
+orientation doubles the product-adjoint repair register to \(24\). The local
+half of the lock appears as the 12-port exponent in the hierarchy proof below.
+This is where the fixed-point simulation stops being a metaphor. The pixel
+value and the screen capacity resonate: changing either one breaks the
+pixel-screen closure and removes the consistent universe.
 Measurements can label the basin; closure supplies the decimal.
 
 The local constant is computed from a readback equation that does not use
@@ -626,7 +631,7 @@ maximal finite rotation orbit \(A_5/C_5\), whose size is \(60/5=12\).
 Therefore the global screen depth \(D=\log(N/\pi)\) is sampled locally as
 \(D/12\).
 
-The oriented repair lock is the same count with verification included:
+The oriented repair register is the same count with verification included:
 \[
   m_{\rm rep}
   =
@@ -638,13 +643,12 @@ The oriented repair lock is the same count with verification included:
 \]
 The factor two is reversible write-and-check orientation.
 Since \(N=\pi R_{\rm dS}^2/\ell_\star^2\), the same \(D=\log(N/\pi)\) is the
-cosmic length ratio in logarithmic form. One update of the world consists of 24
-rounds of local repair. Those 24 rounds reduce local mismatch by exactly the
-amount required by the whole holographic screen capacity. The electroweak
-branch samples that world update through the 12 unoriented ports and the
-\(4P_{\rm src}\) projection below [O4,O5]. The word update names the OPH repair
-operator's fixed-point step; observer time is reconstructed from compatible
-records on the selected branch [O1,O2,O4].
+cosmic length ratio in logarithmic form. The OPH screen branch supplies twelve
+irreducible curvature ports. Including reversible write/check orientation gives
+a 24-slot oriented repair register. The hierarchy exponent uses this 24-fold
+repair normalization. The electroweak branch samples the global screen depth
+through the 12 unoriented ports and the \(4P_{\rm src}\) projection below
+[O4,O5].
 
 The local cell entropy is \(\ell_{\rm cell}=P_{\rm src}/4\), and the electroweak
 projection coefficient is \(\beta_{\rm EW}=N_c+1=4\). Therefore
@@ -671,7 +675,7 @@ the OPH-emitted \(\alpha_U(P_{\rm src})\), not \(G\), \(\Lambda\), \(M_W\),
 \(M_Z\), Higgs mass, the public Thomson endpoint, or a QCD hadronic endpoint
 [O5]. This is the QCD-free quantitative witness.
 
-The bridge coordinate rewrites the same exponent as a screen-capacity display:
+The bridge coordinate rewrites the same exponent as a screen-capacity readout:
 \[
   \frac{v}{E_{\rm cell}}
   =
@@ -681,24 +685,61 @@ The bridge coordinate rewrites the same exponent as a screen-capacity display:
   =
   \pi\exp\!\left[\frac{6\pi}{P_{\rm src}\alpha_U(P_{\rm src})}\right].
 \]
-\(N_{\rm bridge}^{\rm EW}\) is a derived capacity display by itself. It
-becomes a hard OPH bridge test if an independent global readback
-map \(F_{\rm EW}:I_N\to I_N\) emits
+\(N_{\rm bridge}^{\rm EW}\) is a derived capacity readout on the local/global
+hierarchy branch. The selected-branch certificate closes it as a fixed point of
+the log-capacity map
 \[
-  N_\star^{\rm EW}=F_{\rm EW}(N_\star^{\rm EW})
+  \mathcal C_{\rm EW}(P,x)
+  =
+  (1-\lambda)x+\lambda\frac{6\pi}{P\alpha_U(P)},
+  \qquad \lambda=\frac12 .
 \]
-without dependency on
-\(\alpha_U,v,M_W,M_Z,m_H,G,\Lambda,\alpha(0)\), or
-\(N_{\rm bridge}^{\rm EW}\), and if the residual
+For fixed \(P=P_{\rm src}\), this is a contraction with unique endpoint
+\[
+  x_\star=\frac{6\pi}{P_{\rm src}\alpha_U(P_{\rm src})},
+  \qquad
+  N_{\rm CRC}^{\rm EW}=\pi e^{x_\star}
+  =
+  3.5323546226929906\ldots\times10^{122}.
+\]
+The bridge residual
 \[
   R_{\rm EW}
   :=
   \alpha_U(P_{\rm src})^{-1}
   -
-  \frac{P_{\rm src}}{6\pi}\log(N_\star^{\rm EW}/\pi)
+  \frac{P_{\rm src}}{6\pi}\log(N_{\rm CRC}^{\rm EW}/\pi)
 \]
-contains zero under interval arithmetic. In the compact paper, the bridge
-coordinate stays in the derived-display lane.
+vanishes at that endpoint, equivalently
+\[
+  \alpha_U(P_{\rm src})\log(N_{\rm CRC}^{\rm EW}/\pi)
+  -
+  \frac{6\pi}{P_{\rm src}}
+  =
+  0.
+\]
+The finite readback-resolution certificate supplies the positive-root
+readback limit
+\[
+  \rho_{\rm read}(r,N_{\rm CRC}^{\rm EW})
+  \longrightarrow
+  (N_{\rm CRC}^{\rm EW}/\pi)^{-1/2}.
+\]
+Together with the 12-port screen sieve and the \(24\)-slot oriented repair
+register, this closes the selected-branch local/global hierarchy resonance:
+\[
+  t_{\rm tr}(P_{\rm src})
+  =
+  \frac{P_{\rm src}}{12}\log(N_{\rm CRC}^{\rm EW}/\pi),
+  \qquad
+  \frac{v}{E_{\rm cell}}
+  =
+  (N_{\rm CRC}^{\rm EW}/\pi)^{-P_{\rm src}/12}.
+\]
+The rounded \(3.31\times10^{122}\) screen capacity remains the cosmological
+capacity display; the exact electroweak bridge uses the contraction endpoint
+above. No measured \(v\), \(M_W\), \(M_Z\), \(m_H\), \(G\), \(\Lambda\), or
+public \(\alpha(0)\) enters this bridge certificate [O4,O5,C3].
 
 Ordinary particle physics treats the Higgs scale as a tuning problem. In OPH
 the weak scale is a branch output with zero naturality defect:
@@ -709,8 +750,9 @@ the weak scale is a branch output with zero naturality defect:
 \]
 Zero means there is no cancellation to arrange. There is no bare scalar dial to
 balance against a cutoff; the weak scale is the normal-form readout of the
-24-tick lock. That is the hierarchy problem in standard language, with the
-standard fine-tuning term absent from the OPH normal form [O4,O5].\par}
+\(24\)-slot oriented repair-register normalization. That is the hierarchy
+problem in standard language, with the standard fine-tuning term absent from
+the OPH normal form [O4,O5].\par}
 
 \vspace{0.22em}
 {\bfseries\color{pragmaCyanText}Discrete rigidity check}\par
@@ -912,10 +954,11 @@ surfaces with their own status. The readable falsifiability map is
 \midrule
 \endhead
 \endfoot
-Finite observer-patch normal form &
+Finite observer-patch normal form and patch-carrier pipeline &
 Yes &
-Finite observer records, overlaps, mismatch scores, and repair maps define the
-fixed-point architecture. The row tests the mechanism before any decimal fit enters. &
+Finite observer records, overlaps, mismatch scores, repair maps, checkpoints,
+and patch carriers define the fixed-point architecture. The row tests the
+mechanism before any decimal fit enters. &
 [O1,O2,C5]\\
 
 Born-Lueders and Tsirelson event surface &
@@ -1029,8 +1072,9 @@ quotient, hypercharge, three colors, and three generations in one
 observer-overlap reconstruction stack [O3,O4,O5].
 \par\smallskip
 \textbf{Hierarchy problem:} OPH naturally solves the hard Higgs naturality
-problem. The 24-tick repair lock emits the weak scale with \(\epsilon_H=0\), so
-the usual fine-tuning term disappears [O4,O5,C3].
+problem. The 12-port screen sieve, the \(24\)-slot oriented repair register,
+and the selected local/global capacity bridge emit the weak scale with
+\(\epsilon_H=0\), so the usual fine-tuning term disappears [O4,O5,C3].
 \par\smallskip
 \textbf{Yang-Mills gap:} OPH turns the Clay-style gap problem into a repair
 gap statement. On the compact-gauge branch, the Yang-Mills mass gap is
@@ -1218,7 +1262,7 @@ and is not counted in the compact anti-circularity proof.
 \multicolumn{2}{@{}l}{\bfseries Code and supporting data}\\
 \textbf{[C1]} & \href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/code/P_derivation}{Pixel-constant derivation code}.\\
 \textbf{[C2]} & \href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/code/particles}{Particle-branch code and supporting files}.\\
-\textbf{[C3]} & \href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/code/particles/hierarchy}{Hierarchy checks and 24-tick repair-lock code}.\\
+\textbf{[C3]} & \href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/code/particles/hierarchy}{Hierarchy certificates and local/global resonance code}.\\
 \textbf{[C4]} & \href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/code/dark_matter}{Dark-sector scorecard and continuation code}.\\
 \textbf{[C5]} & \href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/code/consensus}{Consensus and fixed-point architecture code}.\\
 \multicolumn{2}{@{}l}{\bfseries Direct reading anchors}\\

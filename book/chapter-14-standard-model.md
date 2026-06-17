@@ -973,21 +973,21 @@ coarse-graining square has zero defect, $\epsilon_H=0$, so the usual
 bare-Higgs-plus-cutoff split is a regulator coordinate description on that
 branch. The SI gravity decimal is a separate clock-scale readout.
 
-There is also a global capacity-side tick story. OPH treats reality as a
+There is also a global capacity-side register story. OPH treats reality as a
 continual repair of disagreements between local observers. In the hierarchy
 story, a local physics pixel has to synchronize with the cosmic
-record-capacity screen. One Universe tick is read locally as twenty-four
-repair rounds. The full tick carries the horizon-to-cell contraction; one
-local round carries one twenty-fourth of that contraction. This is the
-book-level picture behind the local/global hierarchy link: particle physics
-samples a small repeated piece of the same repair cycle that closes the whole
-horizon record.
+record-capacity screen. The screen side supplies twelve irreducible curvature
+ports. Reversible write/check orientation turns those ports into a 24-slot
+oriented repair register. The weak hierarchy uses this 24-fold normalization to
+read a local piece of the global screen depth. This is the book-level picture
+behind the local/global hierarchy link: particle physics samples the local
+screen readout of the same closure that fixes the whole horizon record.
 
-Those 24 layers have a simple group-theory origin. The visible product branch
-has eight color channels, three weak channels, and one hypercharge channel.
+The 24 slots have a simple group-theory origin. The visible product branch has
+eight color channels, three weak channels, and one hypercharge channel.
 Reversible repair reads each channel in two orientations, write and verify.
-Twelve one-way channels therefore become twenty-four local repair rounds. The
-SU(5) adjoint lands on the same single-orientation number for a different
+Twelve one-way channels therefore become a 24-slot oriented repair register.
+The SU(5) adjoint lands on the same single-orientation number for a different
 support; its X/Y mixed gauge channels are absent from the OPH product branch.
 
 The exact bridge capacity is about $3.53235\times10^{122}$ on the public

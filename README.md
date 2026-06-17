@@ -6,10 +6,6 @@
 
 **Quick links:** [OPH website](https://floatingpragma.io/oph/) | [OPH Textbooks](https://learn.floatingpragma.io/) | [Reverse Engineering Reality](https://oph-book.floatingpragma.io/) | [OPH Lab](https://oph-lab.floatingpragma.io) | [Applications](https://omega.floatingpragma.io/) | [OPH Blog](https://blog.floatingpragma.io/) | [Coherence map](https://coherence.floatingpragma.io/) | [Three-body demo](https://3body.floatingpragma.io/)
 
-**Short proof:** [Disclosure Day: compact OPH proof](extra/compact_proof_of_oph.pdf)
-is the ten-page argument for readers who want the fastest route through the
-case that OPH is likely correct.
-
 **Falsifiability:** [OPH falsifiability map](extra/OPH_falsifiability.md)
 lists 40 hard OPH-killing outcomes and concrete IBM Quantum Cloud tests for
 the reduced-sector hardware signature. Falsifiability is how a physics theory
@@ -47,17 +43,6 @@ mathematical and empirical proof surface for OPH as the correct theory of
 everything: the same observer-consistency architecture recovers the established
 physics and explains why a world exists that can produce observers capable of
 reconstructing it.
-
-The compact proof reads the evidence as a source-certified compression test. A
-numeric row counts only when its declared source map has no dependency path
-from the measured target or a calibrated proxy. If $p_i$ bounds the conditional
-accidental-hit chance for row $i$ after earlier accepted rows, then
-$P_{\mathrm{acc}}\le\prod_i p_i$. Counting only twelve one-percent
-source-certified rows gives $P_{\mathrm{acc}}\le10^{-24}$; twenty such rows
-give $10^{-40}$. The same two closure coordinates also organize the observer
-problem, gravity/gauge reconstruction, electroweak hierarchy, dark energy, the
-dark-sector budget, gauge-proton-decay exclusion, particle inventory, and
-string-vacuum selection as one closure grammar.
 
 Most theories begin by assuming spacetime, quantum fields, and a list of
 constants. OPH starts one step earlier, with finite quantum-algebraic observer
@@ -258,9 +243,10 @@ the same fixed-point capacity together with the selected no-G scale
 certificate.
 
 Informally, this is the resonance between the local pixel and the global
-screen. One update of the world consists of exactly 24 rounds of local repair:
-after those 24 rounds, local mismatch reduction lines up with one global
-holographic-screen step.
+screen. The OPH screen branch supplies twelve irreducible curvature ports.
+Including reversible write/check orientation gives a 24-slot oriented repair
+register. The hierarchy exponent uses this 24-fold repair normalization to read
+the global screen depth locally.
 
 The compact bridge is
 
@@ -391,6 +377,27 @@ declared branch.
 - **[Theoretical Bounds on chi-nu in Observer-Patch Holography](extra/chi_nu_susceptibility_bounds.pdf)**: conditional quotient-edge band `0.9343006394893864 <= chi_nu^can <= 1`; uniform-branch exact value `exp(-P/24)`; engineering chart values scale as `N_coh^-1`.
 - **[Thinking as Patch-Net Fixed-Point Search](extra/thinking_as_patch_net_fixed_point_search.pdf)**: cognition and qualia as recurrent patch consensus.
 
+## Proof Status
+
+No physics theory is 100% proven in the mathematical sense. A physical theory
+earns trust by deriving many independent facts from few assumptions, keeping
+measured targets out of its source maps, and exposing clear ways to fail. Our
+strongest compact proof is [Disclosure Day: compact OPH proof](extra/compact_proof_of_oph.pdf).
+It gives the shortest route through the case that OPH is likely correct, while
+the full paper stack carries the derivations, claim boundaries, and proof
+obligations.
+
+The compact proof reads the evidence as a source-certified compression test. A
+numeric row counts only when its declared source map has no dependency path
+from the measured target or a calibrated proxy. If $p_i$ bounds the conditional
+accidental-hit chance for row $i$ after earlier accepted rows, then
+$P_{\mathrm{acc}}\le\prod_i p_i$. Counting only twelve one-percent
+source-certified rows gives $P_{\mathrm{acc}}\le10^{-24}$; twenty such rows
+give $10^{-40}$. The same two closure coordinates also organize the observer
+problem, gravity/gauge reconstruction, electroweak hierarchy, dark energy, the
+dark-sector budget, gauge-proton-decay exclusion, particle inventory, and
+string-vacuum selection as one closure grammar.
+
 ## Applications And OMEGA Hardware
 
 OPH is also a hardware program. As the screen microphysics becomes explicit,
@@ -436,10 +443,11 @@ certificate supplies the area quantum that becomes the Newton normalization.
 The hierarchy-resonance bridge is recorded as a selected-branch theorem: the
 finite readback-resolution certificate, the representation-to-spectrum count
 $2(8+3+1)=24$, and the exact global-capacity bridge certificate close the
-local/global hierarchy package. In simulation language, the resonance says that
-one world update is 24 local repair rounds: the local pixel repair process
-reduces mismatch by exactly the amount required by the global screen capacity.
-On that selected exact branch, OPH solves the electroweak
+local/global hierarchy package. In fixed-point language, the resonance says
+that the screen branch supplies twelve irreducible curvature ports; reversible
+write/check orientation turns them into a 24-slot oriented repair register, and
+the hierarchy exponent uses that 24-fold repair normalization. On that selected
+exact branch, OPH solves the electroweak
 hierarchy/naturality problem with $\epsilon_H=0$ and no measured weak-scale
 input. The detailed formulas and claim tiers live in the papers.
 

@@ -6,10 +6,6 @@
 
 **Liens rapides :** [site OPH](https://floatingpragma.io/oph/) | [OPH Textbooks](https://learn.floatingpragma.io/) | [Reverse Engineering Reality](https://oph-book.floatingpragma.io/) | [OPH Lab](https://oph-lab.floatingpragma.io) | [applications](https://omega.floatingpragma.io/) | [blog OPH](https://blog.floatingpragma.io/) | [carte de cohérence](https://coherence.floatingpragma.io/) | [démo à trois corps](https://3body.floatingpragma.io/)
 
-**Preuve courte :** [Disclosure Day : preuve compacte de l'OPH](extra/compact_proof_of_oph.pdf)
-est l'argument en dix pages pour les lecteurs qui veulent le chemin le plus
-rapide vers l'idée que l'OPH est probablement correcte.
-
 **Falsifiabilité :** [la carte de falsifiabilité OPH](extra/OPH_falsifiability.md)
 recense 40 résultats durs qui tueraient l'OPH et des tests concrets sur IBM
 Quantum Cloud pour la signature matérielle en secteur réduit. La falsifiabilité
@@ -53,20 +49,6 @@ extérieur. C'est la surface de preuve mathématique et empirique de l'OPH comme
 théorie du tout correcte : la même architecture de cohérence d'observateurs
 retrouve la physique établie et explique pourquoi il existe un monde capable de
 produire des observateurs qui le reconstruisent.
-
-La preuve compacte lit l'évidence comme un test de compression certifié par les
-sources. Une ligne numérique ne compte que lorsque sa carte source déclarée n'a
-aucun chemin de dépendance depuis la valeur mesurée ou un proxy calibré. Si
-$p_i$ borne la chance conditionnelle d'un coup accidentel pour la ligne $i$
-après les lignes déjà acceptées, alors
-$P_{\mathrm{acc}}\le\prod_i p_i$. Compter seulement douze lignes certifiées à
-fenêtres d'un pour cent donne $P_{\mathrm{acc}}\le10^{-24}$; vingt lignes de ce
-type donnent $10^{-40}$. Les deux mêmes coordonnées de fermeture organisent
-aussi le problème de l'observateur, la reconstruction gravité/jauge, la
-hiérarchie électrofaible, l'énergie noire, le budget du secteur sombre,
-l'exclusion de la désintégration du proton par bosons de jauge, l'inventaire
-des particules et la sélection du vide de corde comme une seule grammaire de
-fermeture.
 
 La plupart des théories commencent en supposant l'espace-temps, les champs
 quantiques et une liste de constantes. L'OPH commence un cran plus tôt, avec
@@ -271,10 +253,12 @@ sur la branche publique. La capacité arrondie affichée reste une étiquette
 diagnostique pour le calcul exact du pont. La ligne de Newton utilise la même
 capacité de point fixe avec le certificat d'échelle sans $G$.
 
-Informellement, c'est la résonance entre le pixel local et l'écran global. Une
-mise à jour du monde consiste en exactement 24 tours de réparation locale :
-après ces 24 tours, la réduction locale du désaccord s'aligne avec un pas de
-l'écran holographique global.
+Informellement, c'est la résonance entre le pixel local et l'écran global. La
+branche d'écran OPH fournit douze ports de courbure irréductibles. Avec
+l'orientation réversible écriture/vérification, ces ports donnent un registre
+de réparation orienté à 24 cases. L'exposant de hiérarchie utilise cette
+normalisation de réparation par 24 pour lire localement la profondeur de
+l'écran global.
 
 Le pont compact s'écrit
 
@@ -409,6 +393,31 @@ $(0.017454720257976796, 0.019481987935919015,
 - **[Theoretical Bounds on chi-nu in Observer-Patch Holography](extra/chi_nu_susceptibility_bounds.pdf)** : bande conditionnelle de quotient-edge `0.9343006394893864 <= chi_nu^can <= 1`; valeur exacte `exp(-P/24)` sur la branche uniforme; valeurs d'ingénierie mises à l'échelle par `N_coh^-1`.
 - **[Thinking as Patch-Net Fixed-Point Search](extra/thinking_as_patch_net_fixed_point_search.pdf)** : cognition et qualia comme consensus récurrent de patches.
 
+## Statut de preuve
+
+Aucune théorie physique n'est prouvée à 100 % au sens mathématique. Une théorie
+physique gagne sa crédibilité en dérivant beaucoup de faits indépendants depuis
+peu d'hypothèses, en gardant les cibles mesurées hors de ses cartes sources et
+en exposant des façons claires d'échouer. Notre preuve compacte la plus forte
+est [Disclosure Day : preuve compacte de l'OPH](extra/compact_proof_of_oph.pdf).
+Elle donne le chemin le plus court vers l'idée que l'OPH est probablement
+correcte, tandis que la pile complète de papiers porte les dérivations, les
+frontières de revendication et les obligations de preuve.
+
+La preuve compacte lit l'évidence comme un test de compression certifié par les
+sources. Une ligne numérique ne compte que lorsque sa carte source déclarée n'a
+aucun chemin de dépendance depuis la valeur mesurée ou un proxy calibré. Si
+$p_i$ borne la chance conditionnelle d'un coup accidentel pour la ligne $i$
+après les lignes acceptées précédentes, alors
+$P_{\mathrm{acc}}\le\prod_i p_i$. Compter seulement douze lignes certifiées à
+fenêtres d'un pour cent donne $P_{\mathrm{acc}}\le10^{-24}$; vingt lignes de ce
+type donnent $10^{-40}$. Les deux mêmes coordonnées de fermeture organisent
+aussi le problème de l'observateur, la reconstruction gravité/jauge, la
+hiérarchie électrofaible, l'énergie noire, le budget du secteur sombre,
+l'exclusion de la désintégration du proton par bosons de jauge, l'inventaire
+des particules et la sélection du vide de corde comme une seule grammaire de
+fermeture.
+
 ## Applications et matériel OMEGA
 
 L'OPH est aussi un programme matériel. Quand la microphysique d'écran devient
@@ -458,13 +467,14 @@ quantum d'aire qui devient la normalisation de Newton. Le pont de résonance de
 la hiérarchie est enregistré comme théorème sur la branche sélectionnée : le
 certificat de readback fini, le compte représentation-spectre $2(8+3+1)=24$ et
 le certificat exact du pont de capacité globale ferment le paquet local/global
-de hiérarchie. En langage de simulation, cette résonance dit qu'une mise à jour
-du monde est faite de 24 tours de réparation locale : le processus local de
-réparation du pixel réduit le désaccord exactement de la quantité requise par
-la capacité de l'écran global. Sur cette branche exacte sélectionnée, OPH
-résout le problème de hiérarchie/naturalité électrofaible avec $\epsilon_H=0$
-et sans entrée d'échelle faible mesurée. Les formules détaillées et les niveaux
-de revendication vivent dans les papiers.
+de hiérarchie. En langage de point fixe, cette résonance dit que la branche
+d'écran fournit douze ports de courbure irréductibles; l'orientation réversible
+écriture/vérification les transforme en registre de réparation orienté à 24
+cases, et l'exposant de hiérarchie utilise cette normalisation de réparation
+par 24. Sur cette branche exacte sélectionnée, OPH résout le problème de
+hiérarchie/naturalité électrofaible avec $\epsilon_H=0$ et sans entrée
+d'échelle faible mesurée. Les formules détaillées et les niveaux de
+revendication vivent dans les papiers.
 
 <p align="center">
   <a href="assets/OPH_Unification_Diagram.svg" target="_blank" rel="noopener noreferrer">
