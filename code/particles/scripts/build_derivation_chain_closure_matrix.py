@@ -20,6 +20,9 @@ QUARK_GLOBAL_OBSTRUCTION = (
     PARTICLES_ROOT / "runs" / "flavor" / "quark_class_uniform_public_frame_descent_obstruction.json"
 )
 DIRECT_TOP_CONTRACT = PARTICLES_ROOT / "runs" / "calibration" / "direct_top_bridge_contract.json"
+HIERARCHY_RESONANCE = PARTICLES_ROOT / "hierarchy" / "certificates" / "R_local_global_hierarchy_resonance_closeout_335.json"
+HIERARCHY_EW_CAPACITY = PARTICLES_ROOT / "hierarchy" / "certificates" / "R_EW_global_capacity_certificate.json"
+HIERARCHY_NATURALITY = PARTICLES_ROOT / "hierarchy" / "issue_332_rg_naturality_certificate.json"
 DEFAULT_JSON_OUT = PARTICLES_ROOT / "runs" / "status" / "derivation_chain_closure_matrix.json"
 DEFAULT_MD_OUT = PARTICLES_ROOT / "DERIVATION_CHAIN_CLOSURE_MATRIX.md"
 
@@ -51,8 +54,12 @@ def build_payload() -> dict[str, Any]:
     charged_nonclosure = _load_json(CHARGED_NONCLOSURE)
     quark_global = _load_json(QUARK_GLOBAL_OBSTRUCTION)
     direct_top = _load_json(DIRECT_TOP_CONTRACT)
+    hierarchy_resonance = _load_json(HIERARCHY_RESONANCE)
+    hierarchy_capacity = _load_json(HIERARCHY_EW_CAPACITY)
+    hierarchy_naturality = _load_json(HIERARCHY_NATURALITY)
     predictions = _prediction_map(final_predictions)
     gates = _issue_map(pipeline)
+    hierarchy_capacity_root = hierarchy_capacity["exact_capacity_fixed_point"]
 
     rows = [
         {
@@ -91,6 +98,30 @@ def build_payload() -> dict[str, Any]:
             "closed_issue_refs": [224],
             "stage_gate": "certified P root after populated source spectral measure payload",
             "next_artifact": "code/P_derivation/runtime/r_q_residual_contract_current.json",
+        },
+        {
+            "chain": "hierarchy_naturality_bridge",
+            "status": "closed_selected_branch_local_global_hierarchy_naturality",
+            "claim_level": "selected_branch_source_side_theorem",
+            "outputs": {
+                "N_CRC_EW": hierarchy_capacity_root["N_CRC_EW"],
+                "bridge_residual": hierarchy_capacity_root["bridge_residual"],
+                "epsilon_H": hierarchy_naturality["epsilon_H"],
+            },
+            "promotable": True,
+            "open_gates": [],
+            "closed_issue_refs": [332, 335, 337],
+            "next_artifact": None,
+            "resonance_status": hierarchy_resonance["status"],
+            "full_theorem_grade_resonance_promoted": hierarchy_resonance[
+                "full_theorem_grade_resonance_promoted"
+            ],
+            "remaining_promotion_gates": hierarchy_resonance["remaining_promotion_gates"],
+            "claim_boundary": (
+                "Promotes the hierarchy and Higgs naturality rows only. The public Thomson endpoint, "
+                "W/Z mass promotion, charged-lepton absolute masses, source-only hadrons, Strong CP, "
+                "and full SI G remain separate surfaces."
+            ),
         },
         {
             "chain": "higgs_top_declared_surface",
@@ -180,6 +211,7 @@ def build_payload() -> dict[str, Any]:
             "closed_on_declared_d10_d11_surface_direct_top_no_go",
             "closed_current_corpus_charged_end_to_end_no_go",
             "closed_selected_public_class_global_classification_no_go",
+            "closed_selected_branch_local_global_hierarchy_naturality",
             "closed_weighted_cycle_absolute_attachment_with_comparison_tension_visible",
         }
     ]
@@ -209,19 +241,27 @@ def build_payload() -> dict[str, Any]:
             "final_predictions": "code/particles/runs/status/final_end_to_end_predictions.json",
             "pipeline_status": "code/particles/runs/status/particle_pipeline_closure_status.json",
             "blind_provenance": "code/particles/runs/status/blind_prediction_provenance.json",
+            "hierarchy_local_global_resonance": (
+                "code/particles/hierarchy/certificates/R_local_global_hierarchy_resonance_closeout_335.json"
+            ),
+            "hierarchy_ew_capacity": (
+                "code/particles/hierarchy/certificates/R_EW_global_capacity_certificate.json"
+            ),
+            "hierarchy_higgs_naturality": "code/particles/hierarchy/issue_332_rg_naturality_certificate.json",
         },
         "worker_policy": {
             "chrome_pro_workers_needed_now": False,
             "reason": (
                 "Hadron issues #153/#157 have a source-backend boundary and an empirical closure policy surface; "
-                "the P/electroweak source-only chain needs a populated source spectral measure payload and interval certificate. "
+                "the P/electromagnetic source-only endpoint needs a populated source spectral measure payload and interval certificate. "
+                "The hierarchy/naturality bridge is closed on the selected branch. "
                 "The charged absolute-anchor, quark global-classification, and direct-top auxiliary-codomain lanes "
                 "have corpus-limited no-go boundaries."
             ),
         },
         "particle_five_gates": {
             str(issue): gates[issue]
-            for issue in (32, 153, 199, 201, 207, 223, 224, 225, 234, 235)
+            for issue in (32, 153, 199, 201, 207, 223, 224, 225, 234, 235, 332, 335, 337)
             if issue in gates
         },
         "provenance_status": provenance["status"],

@@ -760,6 +760,14 @@ target-anchored witness uses an empirical anchor. A source-only prediction
 depends only on declared source inputs. A hadron row also needs QCD binding,
 which dominates hadron mass.
 
+The hierarchy/naturality row has its own status. The weak hierarchy is carried
+by the selected local/global bridge between the pixel scale and the screen
+capacity, with twelve screen ports, a 24-slot oriented repair register, zero
+bridge residual, and zero Higgs naturality defect. That strengthens the particle
+prediction ledger without promoting the weak-boson comparison pair, charged
+lepton absolute masses, source-only hadrons, Strong CP, or the SI gravity
+clock stack.
+
 The matter-stability diagram shows the ladder: screen excitations,
 particles, atoms, chemistry, and classical objects. A macroscopic object is
 not fundamental because it is large. It is public because environmental

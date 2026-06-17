@@ -29,6 +29,12 @@ def test_final_end_to_end_predictions_include_particle_five_gates_and_values() -
     assert payload["fine_structure"]["oph_plus_empirical_hadron_closure"]["alpha_inv"] == "137.035999177"
     assert payload["fine_structure"]["empirical_payload_policy"]["source_only_theorem_status"] == "not_promoted"
     assert payload["fine_structure"]["empirical_payload_policy"]["external_cross_section_data_integrated"] is False
+    hierarchy = payload["hierarchy_and_naturality"]
+    assert hierarchy["status"]["resonance_status"] == "closed_full_local_global_hierarchy_resonance"
+    assert hierarchy["status"]["full_theorem_grade_resonance_promoted"] is True
+    assert hierarchy["status"]["remaining_promotion_gates"] == []
+    assert hierarchy["factor_origins"]["higgs_naturality_defect"] == "0"
+    assert hierarchy["local_global_bridge"]["bridge_residual"].strip("0.") == ""
     gates = {gate["issue"]: gate for gate in payload["particle_five_issue_gates"]}
     assert set(gates) == {32, 153, 199, 201, 207, 223, 224, 225, 234, 235}
     assert gates[153]["state"] == "closed_out_of_scope_computationally_blocked"

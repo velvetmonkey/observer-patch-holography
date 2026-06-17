@@ -55,6 +55,62 @@
       "promotion_allowed": false,
       "status": "constructive_contract_emitted_not_production_data"
     },
+    "hierarchy_ew_capacity": {
+      "artifact": "R_EW_global_capacity_certificate",
+      "exists": true,
+      "path": "particles/hierarchy/certificates/R_EW_global_capacity_certificate.json",
+      "promotion_allowed": null,
+      "status": "closed_bridge_refined_global_capacity_fixed_point_certificate"
+    },
+    "hierarchy_ew_projection": {
+      "artifact": "R_EW_tick_projection_certificate",
+      "exists": true,
+      "path": "particles/hierarchy/certificates/R_EW_tick_projection_certificate.json",
+      "promotion_allowed": null,
+      "status": "closed_projection_map_with_exact_bridge_condition"
+    },
+    "hierarchy_joint_fixed_point": {
+      "artifact": null,
+      "exists": true,
+      "path": "particles/hierarchy/certificates/R_PN_joint_fixed_point_certificate_report.json",
+      "promotion_allowed": null,
+      "status": "closed_product_branch_theorem_with_explicit_coupled_branch_boundary"
+    },
+    "hierarchy_local_global_resonance": {
+      "artifact": "R_local_global_hierarchy_resonance_closeout",
+      "exists": true,
+      "path": "particles/hierarchy/certificates/R_local_global_hierarchy_resonance_closeout_335.json",
+      "promotion_allowed": null,
+      "status": "closed_full_local_global_hierarchy_resonance"
+    },
+    "hierarchy_m_rep_24": {
+      "artifact": "R_m_rep_24_certificate",
+      "exists": true,
+      "path": "particles/hierarchy/certificates/R_m_rep_24_certificate.json",
+      "promotion_allowed": null,
+      "status": "closed_representation_to_spectrum_round_count"
+    },
+    "hierarchy_readback_resolution": {
+      "artifact": "R_readback_resolution_certificate",
+      "exists": true,
+      "path": "particles/hierarchy/certificates/R_readback_resolution_certificate.json",
+      "promotion_allowed": null,
+      "status": "closed_finite_readback_resolution_certificate"
+    },
+    "hierarchy_rg_higgs_naturality": {
+      "artifact": null,
+      "exists": true,
+      "path": "particles/hierarchy/issue_332_rg_naturality_certificate.json",
+      "promotion_allowed": null,
+      "status": null
+    },
+    "hierarchy_screen_sieve": {
+      "artifact": null,
+      "exists": true,
+      "path": "particles/hierarchy/certificates/R_screen_sieve_icosahedral_certificate.json",
+      "promotion_allowed": null,
+      "status": "closed_on_declared_triangulated_screen_branch"
+    },
     "measured_endpoint_calibration": {
       "artifact": "oph_measured_fine_structure_endpoint_calibration",
       "exists": true,
@@ -144,6 +200,8 @@
   "finalization_gates": {
     "empirical_hadron_closure_policy_documented": true,
     "empirical_hadron_spectral_dataset_integrated": false,
+    "hierarchy_local_global_resonance_closed": true,
+    "higgs_naturality_defect_closed": true,
     "nonhadron_prediction_surface_buildable": true,
     "obstruction_only_worker_result_allowed": true,
     "p_trunk_candidate_only": true,
@@ -151,8 +209,34 @@
     "source_only_hadrons_suppressed_by_default": true,
     "source_spectral_stage_gate": "populated source spectral measure payload plus interval certificate"
   },
-  "generated_utc": "2026-05-07T03:51:58Z",
+  "generated_utc": "2026-06-17T03:22:30Z",
   "issue_gates": [
+    {
+      "chrome_workers": "not_needed_for_closed_certificate",
+      "closable_now": true,
+      "epsilon_H": "0",
+      "issue": 332,
+      "local_next_artifact": "particles/hierarchy/issue_332_rg_naturality_certificate.json",
+      "state": "closed_exact_selected_branch",
+      "title": "RG/Higgs naturality closure"
+    },
+    {
+      "chrome_workers": "not_needed_for_closed_certificate",
+      "closable_now": true,
+      "issue": 337,
+      "local_next_artifact": "particles/hierarchy/certificates/R_EW_tick_projection_certificate.json",
+      "state": "closed_projection_bridge_with_exact_residual",
+      "title": "Electroweak projection bridge"
+    },
+    {
+      "chrome_workers": "not_needed_for_closed_certificate",
+      "closable_now": true,
+      "full_theorem_grade_resonance_promoted": true,
+      "issue": 335,
+      "local_next_artifact": "particles/hierarchy/certificates/R_local_global_hierarchy_resonance_closeout_335.json",
+      "state": "closed_full_local_global_hierarchy_resonance",
+      "title": "Local/global hierarchy resonance"
+    },
     {
       "chrome_workers": "not_needed_for_closed_package",
       "closable_now": true,

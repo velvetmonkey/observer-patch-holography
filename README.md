@@ -76,44 +76,44 @@ OPH is formulated as a zero-input theory. Its quantitative surface uses two
 dimensionless closure coordinates and one selected no-G scale certificate, all
 fixed by closure:
 
-$$
+```math
 P_\star=\varphi+\frac{\sqrt{\pi}}{A_T(P_\star)}
-$$
+```
 
 for the local pixel ratio, and
 
-$$
+```math
 N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}})
-$$
+```
 
 for the global screen capacity, where $F(N)$ is the active horizon capacity read
 back by observers inside the universe supplied with capacity $N$. The selected
 scale certificate is most cleanly written as a dimensionless clock ratio,
 
-$$
+```math
 \gamma_\star=\frac{\ell_\star\nu_{\mathrm{Cs}}}{c},
 \qquad
 B_\star=\frac{3\pi}{\ell_\star^2},
 \qquad
 G_{\mathrm{SI}}=\frac{c^3\ell_\star^2}{\hbar}.
-$$
+```
 
 The finite count representation of the global capacity closure is
 
-$$
+```math
 N_\star=\mathrm{MAR}\,\mathrm{argmax}_{N}
 \bigl(\log|\Omega^{\mathrm{sc}}_N|-N\bigr)
-$$
+```
 
 Informally, $N_{\mathrm{CRC}}$ is the unique capacity where the universe reads
 back its own boundary without deficit or slack. In geometric units the
 cosmological readout is
 
-$$
+```math
 \Lambda_{\mathrm{CRC}}=\frac{3\pi}{G_{\mathrm{geom}} N_{\mathrm{CRC}}},
 \qquad
 G_{\mathrm{geom}}=\ell_\star^2.
-$$
+```
 
 The recovered electromagnetic branch gives Maxwell's equations on the ordinary
 photon lane. The fine-structure and particle rows sit downstream of $P_\star$ and the
@@ -126,7 +126,7 @@ a closed mathematical fixed structure, approximate measured values can locate
 the basin or observed branch. The exact OPH value must come from the declared
 fixed-point map and its Banach contraction, derivative-sign, strict-concavity,
 or equivalent uniqueness proof. This is the anti-circularity rule for the two
-main constants: \(P_\star\) and \(N_{\mathrm{CRC}}\) are computed endpoints,
+main constants: $P_\star$ and $N_{\mathrm{CRC}}$ are computed endpoints,
 not fitted variables. A measured value can identify the neighborhood. It
 cannot replace the closure solve.
 
@@ -219,16 +219,16 @@ The scale story has three roles: a global capacity closure, a local pixel
 closure, and a no-G scale readout. The global coordinate is the unique cosmic
 record-closure capacity,
 
-$$
+```math
 N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}}),
-$$
+```
 
 where the supplied horizon capacity and the observer-readback capacity agree.
 The finite-count target is the density
 
-$$
+```math
 \log|\Omega^{\mathrm{sc}}_N|-N.
-$$
+```
 
 On the observed branch this fixed point is the de Sitter entropy capacity. For
 the observed cosmological constant, the bare horizon area ratio is about
@@ -250,7 +250,7 @@ the global screen depth locally.
 
 The compact bridge is
 
-$$
+```math
 \frac{v}{E_{\mathrm{cell}}}
 =
 \left(\frac{N_{\mathrm{EW}}(P_\star)}{\pi}\right)^{-P_\star/12},
@@ -258,22 +258,22 @@ $$
 \alpha_U(P_\star)^{-1}
 =
 \frac{P_\star}{6\pi}\log\!\left(\frac{N_{\mathrm{EW}}(P_\star)}{\pi}\right).
-$$
+```
 
 The algebraic bridge belongs to the particle paper's hierarchy package. The
-geometric \(12\)-port screen-sieve theorem gives the origin of the exponent:
-on the triangulated \(S^2\) screen, \(\sum_v(6-\deg v)=12\). The screen
+geometric $12$-port screen-sieve theorem gives the origin of the exponent:
+on the triangulated $S^2$ screen, $\sum_v(6-\deg v)=12$. The screen
 therefore carries twelve unit fivefold curvature defects. Edge-center collars
-make them central ports, and \(A_5\) symmetry places them on the icosahedral
+make them central ports, and $A_5$ symmetry places them on the icosahedral
 vertex orbit.
 
 The local coordinate is the pixel ratio
 
-$$
+```math
 P=\frac{a_{\mathrm{cell}}}{\ell_\star^2},
 \qquad
 \ell_\star^2=\frac{3\pi}{B_\star}.
-$$
+```
 
 The scale certificate supplies $\ell_\star^2$; only after that readout is the
 area displayed as the Planck area. From the outside, $P$ is a geometric
@@ -298,11 +298,11 @@ cleaner standalone numerical stress test.
 
 On the gravity row the same local pixel scale supplies
 
-$$
+```math
 a_{\mathrm{cell}}=P\ell_\star^2,
 \qquad
 \bar{\ell}_{\mathrm{shared}}=\frac{P}{4}.
-$$
+```
 
 The factor $P$ cancels in the Newton area-law readout, leaving
 $G_{\mathrm{geom}}=\ell_\star^2$. The particle pipeline carries the local
@@ -430,26 +430,11 @@ gravity and inertia track also has a standalone engineering note:
 
 ## Detailed Diagram And Quantitative Surface
 
-The quantitative surface is organized around distinct fixed-readback roles: the
-pixel fixed point $P\simeq1.6309682094$, the global record-capacity fixed point
-$N_{\mathrm{CRC}}\simeq3.31\times10^{122}$, and the selected no-G scale
-certificate $\gamma_\star$, equivalently $B_\star=3\pi/\ell_\star^2$. The
-displayed capacity is approximate; precision rows use the fixed-point value and
-the scale certificate. The $P$ branch feeds the Ward-projected electromagnetic
-channel and the scoped particle-mass rows, while also fixing the cell/edge
-identity that cancels out of the Newton area-law readout. The
-$N_{\mathrm{CRC}}$ branch feeds the cosmological-constant readout. The scale
-certificate supplies the area quantum that becomes the Newton normalization.
-The hierarchy-resonance bridge is recorded as a selected-branch theorem: the
-finite readback-resolution certificate, the representation-to-spectrum count
-$2(8+3+1)=24$, and the exact global-capacity bridge certificate close the
-local/global hierarchy package. In fixed-point language, the resonance says
-that the screen branch supplies twelve irreducible curvature ports; reversible
-write/check orientation turns them into a 24-slot oriented repair register, and
-the hierarchy exponent uses that 24-fold repair normalization. On that selected
-exact branch, OPH solves the electroweak
-hierarchy/naturality problem with $\epsilon_H=0$ and no measured weak-scale
-input. The detailed formulas and claim tiers live in the papers.
+The diagram below is the visual index for the scale surface: the local pixel
+fixed point $P$, the global record-capacity fixed point $N_{\mathrm{CRC}}$, the
+selected no-G scale certificate, and the downstream particle, gravity, and
+cosmology readouts. It functions as a dependency map. The
+detailed hierarchy/naturality formulas and claim tiers live in the papers.
 
 <p align="center">
   <a href="assets/OPH_Unification_Diagram.svg" target="_blank" rel="noopener noreferrer">

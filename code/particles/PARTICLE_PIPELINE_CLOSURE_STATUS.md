@@ -1,6 +1,6 @@
 # Particle Pipeline Closure Status
 
-Generated: `2026-05-07T03:51:58Z`
+Generated: `2026-06-17T03:22:30Z`
 
 Single closure gate for source-only rows and empirical hadron closure rows.
 
@@ -16,6 +16,9 @@ Single closure gate for source-only rows and empirical hadron closure rows.
 
 | Issue | State | Closable | Local next artifact | Chrome policy |
 | --- | --- | --- | --- | --- |
+| #332 | `closed_exact_selected_branch` | `True` | `particles/hierarchy/issue_332_rg_naturality_certificate.json` | not_needed_for_closed_certificate |
+| #337 | `closed_projection_bridge_with_exact_residual` | `True` | `particles/hierarchy/certificates/R_EW_tick_projection_certificate.json` | not_needed_for_closed_certificate |
+| #335 | `closed_full_local_global_hierarchy_resonance` | `True` | `particles/hierarchy/certificates/R_local_global_hierarchy_resonance_closeout_335.json` | not_needed_for_closed_certificate |
 | #223 | `closed_blocker_isolated_endpoint_package` | `True` | `P_derivation/runtime/thomson_endpoint_package_current.json` | not_needed_for_closed_package |
 | #235 | `closed_blocker_isolated_source_residual_no_go` | `True` | `P_derivation/runtime/thomson_endpoint_contract_current.json` | not_needed_until_source_spectral_measure_payload_exists |
 | #224 | `closed_canonical_guarded_trunk_adoption` | `True` | `P_derivation/runtime/p_closure_trunk_current.json` | not_needed_for_guarded_codepath_closure |
@@ -70,3 +73,5 @@ Single closure gate for source-only rows and empirical hadron closure rows.
 - `obstruction_only_worker_result_allowed`: `True`
 - `paper_material_sync_complete_without_live_publish`: `True`
 - `source_spectral_stage_gate`: `populated source spectral measure payload plus interval certificate`
+- `hierarchy_local_global_resonance_closed`: `True`
+- `higgs_naturality_defect_closed`: `True`

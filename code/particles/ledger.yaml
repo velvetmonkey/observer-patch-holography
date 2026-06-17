@@ -1,10 +1,11 @@
 version: 1
-as_of: "2026-05-06"
+as_of: "2026-06-17"
 goal: "status-tiered particle-spectrum ledger from the candidate P-closure branch plus OPH axioms/theorem chain"
 notes:
   - "Candidate branch values: P = 1.63097210492078846050203640439 and alpha_cand^-1 = 136.994020662724205139718642793."
   - "This ledger is conservative: compare-only rows, target-anchored witnesses, and corpus-limited no-go boundaries sit outside live target-free predictions."
   - "Issues #199, #201, #207, #223, #224, #234, #235, and #32 have closed blocker, no-go, guarded-adoption, provenance, or declared-convention status."
+  - "Issues #332, #335, and #337 close the selected-branch electroweak hierarchy/naturality bridge with zero bridge residual and epsilon_H=0."
 entries:
   - id: structural.massless.photon
     output_keys: ["m_gamma"]
@@ -49,6 +50,25 @@ entries:
       W_target_free_continuation_GeV: 80.37700001539531
       Z_target_free_continuation_GeV: 91.18797807794321
     blocked_by: ["populated source spectral measure payload", "same-scheme interval certificate"]
+  - id: theorem.hierarchy_naturality.local_global_bridge
+    output_keys: ["N_CRC_EW", "B_EW", "epsilon_H"]
+    label: "Electroweak hierarchy/naturality bridge"
+    tier: selected_branch_theorem
+    branch: hierarchy
+    oph_derived_piece: "local P -> alpha_U -> v/E_star hierarchy lane, exact EW capacity fixed point, 12-port screen sieve, 24-slot oriented repair register, and source-to-Higgs normal-form square"
+    borrowed_qft_piece: null
+    extra_ansatz: "selected branch only; this does not promote W/Z masses, the public Thomson endpoint, charged-lepton absolute masses, source-only hadrons, Strong CP, or full SI G"
+    numeric_outputs:
+      N_CRC_EW: "3.5323546226929906511187512962330547600462096590942035604238177731136802717148740820434110040644403858228611984E+122"
+      bridge_residual: "0"
+      epsilon_H: "0"
+    status_summary: "Closed selected-branch theorem. The local/global resonance bridge has exact residual zero at N_CRC^EW, the 12-port screen sieve and 24-slot oriented repair register supply the hierarchy normalization, and the source-to-Higgs square has epsilon_H=0."
+    next_action: "Keep this theorem scoped to hierarchy/naturality. W/Z mass promotion, the public Thomson endpoint, charged-lepton absolute masses, source-only hadrons, Strong CP, and full SI G stay in their own ledgers."
+    caveats:
+      - "#332 closes the RG/Higgs naturality square with epsilon_H=0 on the selected exact branch."
+      - "#335 closes the full local/global hierarchy resonance on the selected branch."
+      - "#337 closes the electroweak tick-projection bridge with exact residual zero."
+    blocked_by: []
   - id: calibration.d11.higgs_top
     output_keys: ["crit_mt_MS", "crit_mt_pole", "crit_mH_tree"]
     label: "D11 Higgs/top calibration theorem"

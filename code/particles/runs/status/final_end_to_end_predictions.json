@@ -22,6 +22,8 @@
   "finalization_gates": {
     "empirical_hadron_closure_policy_documented": true,
     "empirical_hadron_spectral_dataset_integrated": false,
+    "hierarchy_local_global_resonance_closed": true,
+    "higgs_naturality_defect_closed": true,
     "nonhadron_prediction_surface_buildable": true,
     "obstruction_only_worker_result_allowed": true,
     "p_trunk_candidate_only": true,
@@ -65,7 +67,7 @@
       "status": "source_audit_without_hadronic_spectral_payload"
     }
   },
-  "generated_utc": "2026-05-07T03:51:58Z",
+  "generated_utc": "2026-06-17T03:22:30Z",
   "hadron_policy": {
     "empirical_hadron_closure_allowed_for_display": true,
     "empirical_payload_schema": "particles/hadron/empirical_ee_hadronic_spectral_measure.schema.json",
@@ -77,6 +79,68 @@
     "reason": "Source-only hadron outputs require a working OPH hadron backend. Empirical hadron closure values stay in a separate output class; the e+e- spectral payload has a source registry and schema.",
     "source_only_hadron_predictions_emitted": false,
     "source_registry": "particles/hadron/empirical_ee_hadrons_sources.yaml"
+  },
+  "hierarchy_and_naturality": {
+    "artifacts": {
+      "ew_capacity": "particles/hierarchy/certificates/R_EW_global_capacity_certificate.json",
+      "finite_readback": "particles/hierarchy/certificates/R_readback_resolution_certificate.json",
+      "higgs_naturality": "particles/hierarchy/issue_332_rg_naturality_certificate.json",
+      "local_global_resonance": "particles/hierarchy/certificates/R_local_global_hierarchy_resonance_closeout_335.json",
+      "m_rep": "particles/hierarchy/certificates/R_m_rep_24_certificate.json",
+      "screen_sieve": "particles/hierarchy/certificates/R_screen_sieve_icosahedral_certificate.json"
+    },
+    "claim_boundary": {
+      "does_not_promote": [
+        "public Thomson endpoint without the missing hadronic spectral payload",
+        "W/Z compare-only mass rows",
+        "charged-lepton absolute masses",
+        "source-only hadron masses",
+        "strong CP",
+        "SI G without the full no-G clock stack"
+      ],
+      "improves": "The hierarchy and Higgs naturality rows are promoted as selected-branch source-side results with zero bridge residual and epsilon_H=0."
+    },
+    "factor_origins": {
+      "curvature_charge": 12,
+      "higgs_naturality_defect": "0",
+      "m_rep": 24,
+      "screen_ports": 12,
+      "specialized_exponent": "-1/48"
+    },
+    "local_global_bridge": {
+      "N_CRC_EW": "3.5323546226929906511187512962330547600462096590942035604238177731136802717148740820434110040644403858228611984E+122",
+      "bridge_residual": "0.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "bridge_residual_formula": "B_EW(P,N)=alpha_U(P)*log(N/pi)-6*pi/P",
+      "exact_bridge_target": "N_EW(P)=pi*exp[6*pi/(P*alpha_U(P))]",
+      "fixed_point_residual_x": "0.00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "projection_map": "-log(v/E_cell)/(-log|g_*'|) = 24*pi/(alpha_U(P)*log(N/pi))",
+      "target_relation": {
+        "hierarchy_ratio": "v/E_cell = (N_CRC^EW/pi)^(-P_star/12)",
+        "tick_form": "v/E_cell = |g_*'|^(4*P_star)",
+        "transport_time": "t_tr(P_star) = (P_star/12) * log(N_CRC^EW/pi)"
+      },
+      "v_identity_error": "0.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "v_over_E_cell_source": "2.5797040595276223506583341903922018695490035369903290256096683452314630559578761079150341073645683725521032233E-17"
+    },
+    "source_values": {
+      "P_star": "1.6309682094039593248792798477826489413359828516279250606661507533907793398933432",
+      "alpha_U": "0.041124336195630495",
+      "alpha_U_interval": [
+        "0.041123336195630494",
+        "0.041125336195630496"
+      ]
+    },
+    "status": {
+      "accepted": true,
+      "ew_capacity_status": "closed_bridge_refined_global_capacity_fixed_point_certificate",
+      "full_theorem_grade_resonance_promoted": true,
+      "higgs_naturality_status": "closed_exact_selected_branch",
+      "m_rep_status": "closed_representation_to_spectrum_round_count",
+      "readback_status": "closed_finite_readback_resolution_certificate",
+      "remaining_promotion_gates": [],
+      "resonance_status": "closed_full_local_global_hierarchy_resonance",
+      "screen_sieve_status": "closed_on_declared_triangulated_screen_branch"
+    }
   },
   "output_classes": [
     "source_only_oph",
@@ -414,6 +478,9 @@
     "empirical_ee_hadrons_source_registry": "code/particles/hadron/empirical_ee_hadrons_sources.yaml",
     "exact_nonhadron": "code/particles/exact_nonhadron_masses.json",
     "hadron_policy": "HADRON.md",
+    "hierarchy_ew_capacity": "code/particles/hierarchy/certificates/R_EW_global_capacity_certificate.json",
+    "hierarchy_higgs_naturality": "code/particles/hierarchy/issue_332_rg_naturality_certificate.json",
+    "hierarchy_local_global_resonance": "code/particles/hierarchy/certificates/R_local_global_hierarchy_resonance_closeout_335.json",
     "measured_endpoint_calibration": "code/P_derivation/runtime/measured_endpoint_calibration_current.json",
     "p_trunk": "code/P_derivation/runtime/p_closure_trunk_current.json",
     "pipeline_status": "code/particles/runs/status/particle_pipeline_closure_status.json",

@@ -22,6 +22,13 @@ def test_gap_ledger_keeps_compressed_trunk_claim_safe() -> None:
     assert ledger["promotion_policy"]["address_remaining_blockers_one_by_one"] is False
     assert ledger["promotion_policy"]["obstruction_only_worker_result_allowed"] is True
     assert ledger["promotion_policy"]["hadron_backend_in_current_local_scope"] is False
+    assert ledger["electroweak_hierarchy"]["claim_status"] == (
+        "closed_local_global_hierarchy_and_naturality_certificate"
+    )
+    assert ledger["electroweak_hierarchy"]["full_theorem_grade_resonance_promoted"] is True
+    assert ledger["electroweak_hierarchy"]["remaining_promotion_gates"] == []
+    assert ledger["electroweak_hierarchy"]["bridge_residual"].strip("0.") == ""
+    assert ledger["electroweak_hierarchy"]["epsilon_H"] == "0"
     gap_ids = {row["id"] for row in ledger["rows"]}
     assert "d10.ward-projected-thomson-endpoint" in gap_ids
     assert "d10.source-residual-map-and-interval-certificate" in gap_ids

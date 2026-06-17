@@ -104,8 +104,11 @@ D10_MASS_PAIR_NOTE = (
     "`P_C = 1.630968209403959324879279847782648941`, "
     "`alpha_U(P_C) = 0.041124336195630495`, and "
     "`v/E_star = 2.0199803239725553e-17`, with a declared DAG check and an `R_U` Krawczyk inclusion witness. "
-    "That certificate closes the local `P -> alpha_U -> v/E_star` hierarchy lane. The public Thomson endpoint transport, "
-    "Higgs RG naturality defect bound, and full no-G clock stack are separate gates."
+    "That certificate closes the local `P -> alpha_U -> v/E_star` hierarchy lane. The local/global resonance package "
+    "also closes the selected-branch bridge `t_tr(P_star)=(P_star/12)*log(N_CRC^EW/pi)` with "
+    "`N_CRC^EW=3.5323546226929906511187512962330547600462e122`, zero bridge residual, the 12-port screen sieve, "
+    "the 24-slot oriented repair register, and `epsilon_H=0`. The public Thomson endpoint transport and full no-G "
+    "clock stack are separate gates."
 )
 D11_NOTE = (
     "Derived from `derive_d11_declared_calibration_surface.py -> derive_d10_ew_source_transport_pair.py -> "
@@ -1238,10 +1241,23 @@ def build_premise_boundaries() -> Dict[str, Any]:
 
 
 def build_companion_status_rows(ledger_entries: Dict[str, Dict[str, Any]]) -> List[Dict[str, Any]]:
+    rows: List[Dict[str, Any]] = []
+    hierarchy = ledger_entries.get("theorem.hierarchy_naturality.local_global_bridge")
+    if hierarchy is not None:
+        rows.append(
+            {
+                "topic_id": "hierarchy_naturality",
+                "topic": str(hierarchy.get("label", "Electroweak hierarchy/naturality bridge")),
+                "status": str(hierarchy.get("tier", "selected_branch_theorem")),
+                "summary": str(hierarchy.get("status_summary", "")).strip(),
+                "next_action": str(hierarchy.get("next_action", "")).strip(),
+                "blocked_by": list(hierarchy.get("blocked_by") or []),
+            }
+        )
     strong_cp = ledger_entries.get("continuation.qcd.strong_cp")
     if strong_cp is None:
-        return []
-    return [
+        return rows
+    rows.append(
         {
             "topic_id": "strong_cp",
             "topic": str(strong_cp.get("label", "Strong CP")),
@@ -1250,7 +1266,8 @@ def build_companion_status_rows(ledger_entries: Dict[str, Dict[str, Any]]) -> Li
             "next_action": str(strong_cp.get("next_action", "")).strip(),
             "blocked_by": list(strong_cp.get("blocked_by") or []),
         }
-    ]
+    )
+    return rows
 
 
 def render_markdown(
@@ -1384,7 +1401,7 @@ def render_markdown(
                 )
             lines.append("")
 
-    return "\n".join(lines)
+    return "\n".join(lines).rstrip()
 
 
 def main() -> int:

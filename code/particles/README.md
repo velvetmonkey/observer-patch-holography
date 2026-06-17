@@ -50,7 +50,10 @@ part of this canonical tree.
   `hierarchy/certificates/DAG_U.json ->
   hierarchy/certificates/R_U_interval_certificate.json ->
   hierarchy/certificates/R_U_krawczyk_certificate.json ->
-  hierarchy/computations/hierarchy_numeric_witness.json`
+  hierarchy/computations/hierarchy_numeric_witness.json ->
+  hierarchy/certificates/R_EW_global_capacity_certificate.json ->
+  hierarchy/certificates/R_local_global_hierarchy_resonance_closeout_335.json ->
+  hierarchy/issue_332_rg_naturality_certificate.json`
 - Higgs/top:
   `calibration/derive_d11_declared_calibration_surface.py ->
   calibration/derive_d11_forward_seed.py ->
@@ -104,8 +107,12 @@ calibration carrier. It records the public endpoint branch
 `v/E_star = 2.0199803239725553e-17`, together with a source-audit branch that
 keeps the public Thomson endpoint out of the upstream solve. Its Krawczyk
 certificate proves a unique source zero for the declared `R_U` formula stack
-inside the supplied interval. Full SI gravity remains gated by the no-G clock
-stack, and Higgs naturalness remains gated by the concrete RG defect bound.
+inside the supplied interval. The local/global bridge closes on the exact
+capacity value
+`N_CRC^EW = 3.5323546226929906511187512962330547600462e122`,
+with zero bridge residual, the 12-port screen sieve, the 24-slot oriented
+repair register, and `epsilon_H = 0` on the selected source-to-Higgs branch.
+Full SI gravity remains gated by the no-G clock stack.
 
 ## Main Outputs
 

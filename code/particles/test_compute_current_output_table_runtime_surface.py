@@ -39,7 +39,10 @@ def test_runtime_surface_preserves_repaired_neutrino_rows_and_canonical_refs(tmp
 
     assert active["neutrino_repaired_branch"] is True
     assert companion
-    assert companion[0]["topic_id"] == "strong_cp"
+    companion_by_id = {row["topic_id"]: row for row in companion}
+    assert companion_by_id["hierarchy_naturality"]["status"] == "selected_branch_theorem"
+    assert "epsilon_H=0" in companion_by_id["hierarchy_naturality"]["summary"]
+    assert companion_by_id["strong_cp"]["status"] == "open"
     assert payload["comparison_rows"]
     assert payload["inputs"]["hadron_profile"] == "suppressed"
     assert uv["prelimit_system_artifact"] == "code/particles/runs/uv/bw_realized_transported_cap_local_system.json"

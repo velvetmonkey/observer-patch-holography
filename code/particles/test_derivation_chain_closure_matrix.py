@@ -28,6 +28,7 @@ def test_derivation_chain_closure_matrix_keeps_stage_gates_explicit() -> None:
         "p_closure_root",
         "structural_massless_bosons",
         "electroweak_wz",
+        "hierarchy_naturality_bridge",
         "higgs_top_declared_surface",
         "charged_leptons",
         "selected_class_quarks",
@@ -41,6 +42,14 @@ def test_derivation_chain_closure_matrix_keeps_stage_gates_explicit() -> None:
         "populated source spectral measure payload + full interval certificate"
     )
     assert rows["structural_massless_bosons"]["promotable"] is True
+    assert rows["hierarchy_naturality_bridge"]["status"] == (
+        "closed_selected_branch_local_global_hierarchy_naturality"
+    )
+    assert rows["hierarchy_naturality_bridge"]["promotable"] is True
+    assert rows["hierarchy_naturality_bridge"]["open_gates"] == []
+    assert rows["hierarchy_naturality_bridge"]["closed_issue_refs"] == [332, 335, 337]
+    assert rows["hierarchy_naturality_bridge"]["outputs"]["epsilon_H"] == "0"
+    assert rows["hierarchy_naturality_bridge"]["full_theorem_grade_resonance_promoted"] is True
     assert rows["charged_leptons"]["status"] == "closed_current_corpus_charged_end_to_end_no_go"
     assert rows["charged_leptons"]["promotable"] is False
     assert rows["charged_leptons"]["open_gates"] == []
@@ -67,3 +76,6 @@ def test_derivation_chain_closure_matrix_keeps_stage_gates_explicit() -> None:
     assert payload["particle_five_gates"]["224"]["state"] == "closed_canonical_guarded_trunk_adoption"
     assert payload["particle_five_gates"]["225"]["state"] == "closed_material_sync_no_live_publish"
     assert payload["particle_five_gates"]["234"]["state"] == "closed_provenance_ledger_and_declared_sensitivity_taxonomy"
+    assert payload["particle_five_gates"]["332"]["state"] == "closed_exact_selected_branch"
+    assert payload["particle_five_gates"]["335"]["state"] == "closed_full_local_global_hierarchy_resonance"
+    assert payload["particle_five_gates"]["337"]["state"] == "closed_projection_bridge_with_exact_residual"

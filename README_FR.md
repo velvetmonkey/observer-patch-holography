@@ -85,28 +85,28 @@ L'OPH est formulée comme une théorie sans entrée externe. Sa surface
 quantitative utilise deux coordonnées de fermeture sans dimension et un
 certificat d'échelle sans $G$. Toutes viennent de conditions de fermeture :
 
-$$
+```math
 P_\star=\varphi+\frac{\sqrt{\pi}}{A_T(P_\star)}
-$$
+```
 
 pour le ratio local de pixel, et
 
-$$
+```math
 N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}})
-$$
+```
 
 pour la capacité globale de l'écran, où $F(N)$ est la capacité active de
 l'horizon relue par les observateurs à l'intérieur de l'univers fourni avec la
 capacité $N$. Le certificat d'échelle sélectionné s'écrit comme le rapport
 d'horloge sans $G$
 
-$$
+```math
 \gamma_\star=\frac{\ell_\star\nu_{\mathrm{Cs}}}{c},
 \qquad
 B_\star=\frac{3\pi}{\ell_\star^2},
 \qquad
 G_{\mathrm{SI}}=\frac{c^3\ell_\star^2}{\hbar}.
-$$
+```
 
 La représentation par comptage fini de la fermeture de capacité globale est
 $N_\star=\mathrm{MAR}\,\mathrm{argmax}_N(\log|\Omega^{\mathrm{sc}}_N|-N)$.
@@ -126,8 +126,8 @@ approximatives peuvent localiser le bassin ou la branche observée. La valeur
 OPH exacte doit venir de la carte de point fixe
 déclarée et de sa contraction de Banach, de son signe dérivé, de sa
 concavité stricte ou d'une preuve d'unicité équivalente. C'est la règle
-anti-circularité pour les deux constantes principales : \(P_\star\) et
-\(N_{\mathrm{CRC}}\) sont des points de fermeture calculés, pas des variables
+anti-circularité pour les deux constantes principales : $P_\star$ et
+$N_{\mathrm{CRC}}$ sont des points de fermeture calculés, pas des variables
 ajustées. Une mesure peut identifier le voisinage. Elle ne peut pas remplacer
 la résolution de fermeture.
 
@@ -230,16 +230,16 @@ La discussion d'échelle a trois rôles : une fermeture globale de capacité, un
 fermeture locale de pixel et une lecture d'échelle sans $G$. La coordonnée
 globale est la capacité unique de fermeture des enregistrements cosmiques,
 
-$$
+```math
 N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}}),
-$$
+```
 
 où la capacité d'horizon fournie et la capacité relue par les observateurs
 coïncident. La cible de comptage fini est la densité
 
-$$
+```math
 \log|\Omega^{\mathrm{sc}}_N|-N.
-$$
+```
 
 Sur la branche observée, ce point fixe est la capacité entropique de Sitter.
 Pour la constante cosmologique observée, le ratio nu d'aire d'horizon vaut
@@ -262,7 +262,7 @@ l'écran global.
 
 Le pont compact s'écrit
 
-$$
+```math
 \frac{v}{E_{\mathrm{cell}}}
 =
 \left(\frac{N_{\mathrm{EW}}(P_\star)}{\pi}\right)^{-P_\star/12},
@@ -270,23 +270,23 @@ $$
 \alpha_U(P_\star)^{-1}
 =
 \frac{P_\star}{6\pi}\log\!\left(\frac{N_{\mathrm{EW}}(P_\star)}{\pi}\right).
-$$
+```
 
 Le pont algébrique appartient au paquet hiérarchie du papier sur les
-particules. Le théorème géométrique du tamis d'écran à \(12\) ports donne
-l'origine de l'exposant : sur l'écran triangulé \(S^2\),
-\(\sum_v(6-\deg v)=12\). L'écran porte donc douze défauts de courbure
+particules. Le théorème géométrique du tamis d'écran à $12$ ports donne
+l'origine de l'exposant : sur l'écran triangulé $S^2$,
+$\sum_v(6-\deg v)=12$. L'écran porte donc douze défauts de courbure
 unitaires à cinq branches. Les colliers de centre d'arête en font des ports
-centraux, et la symétrie \(A_5\) les place sur l'orbite des sommets
+centraux, et la symétrie $A_5$ les place sur l'orbite des sommets
 icosaédriques.
 
 La coordonnée locale est le ratio de pixel
 
-$$
+```math
 P=\frac{a_{\mathrm{cell}}}{\ell_\star^2},
 \qquad
 \ell_\star^2=\frac{3\pi}{B_\star}.
-$$
+```
 
 Le certificat d'échelle fournit $\ell_\star^2$ ; après cette lecture, l'aire
 s'affiche comme aire de Planck. Vu de l'extérieur, $P$ est
@@ -313,11 +313,11 @@ est le test numérique autonome le plus propre.
 
 Sur la ligne gravitationnelle, le même pixel local fournit
 
-$$
+```math
 a_{\mathrm{cell}}=P\ell_\star^2,
 \qquad
 \bar{\ell}_{\mathrm{shared}}=\frac{P}{4}.
-$$
+```
 
 Le facteur $P$ s'annule dans la lecture de Newton et laisse
 $G_{\mathrm{geom}}=\ell_\star^2$. Le pipeline de particules porte l'échelle
@@ -452,29 +452,12 @@ voie gravité locale et inertie possède aussi une note d'ingénierie séparée 
 
 ## Diagramme détaillé et surface quantitative
 
-La surface quantitative de l'OPH s'organise autour de rôles distincts de
-fermeture et de relecture : le point fixe de pixel $P\simeq1.6309682094$, le
-point fixe global de capacité d'enregistrement
-$N_{\mathrm{CRC}}\simeq3.31\times10^{122}$ et le certificat d'échelle sans
-$G$, $\gamma_\star$, ou de façon équivalente
-$B_\star=3\pi/\ell_\star^2$. La capacité affichée est approximative; les lignes
-de précision utilisent la valeur de point fixe et le certificat d'échelle. La
-branche $P$ alimente le canal électromagnétique projeté par Ward et les lignes
-encadrées de masses de particules, tout en fixant l'identité cellule/arête qui
-s'annule dans la lecture newtonienne. La branche $N_{\mathrm{CRC}}$ alimente la
-lecture de la constante cosmologique. Le certificat d'échelle fournit le
-quantum d'aire qui devient la normalisation de Newton. Le pont de résonance de
-la hiérarchie est enregistré comme théorème sur la branche sélectionnée : le
-certificat de readback fini, le compte représentation-spectre $2(8+3+1)=24$ et
-le certificat exact du pont de capacité globale ferment le paquet local/global
-de hiérarchie. En langage de point fixe, cette résonance dit que la branche
-d'écran fournit douze ports de courbure irréductibles; l'orientation réversible
-écriture/vérification les transforme en registre de réparation orienté à 24
-cases, et l'exposant de hiérarchie utilise cette normalisation de réparation
-par 24. Sur cette branche exacte sélectionnée, OPH résout le problème de
-hiérarchie/naturalité électrofaible avec $\epsilon_H=0$ et sans entrée
-d'échelle faible mesurée. Les formules détaillées et les niveaux de
-revendication vivent dans les papiers.
+Le diagramme ci-dessous est l'index visuel de la surface d'échelle : le point
+fixe local de pixel $P$, le point fixe global de capacité d'enregistrement
+$N_{\mathrm{CRC}}$, le certificat d'échelle sans $G$ sélectionné, puis les
+lectures en aval pour les particules, la gravité et la cosmologie. Il sert de
+carte de dépendances. Les formules détaillées de hiérarchie/naturalité et les
+niveaux de revendication vivent dans les papiers.
 
 <p align="center">
   <a href="assets/OPH_Unification_Diagram.svg" target="_blank" rel="noopener noreferrer">

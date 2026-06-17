@@ -1,6 +1,6 @@
 # Final End-to-End Particle Predictions
 
-Generated: `2026-05-07T03:51:58Z`
+Generated: `2026-06-17T03:22:30Z`
 
 Scope: `nonhadron_particle_pipeline_with_empirical_hadron_closure_policy`
 Claim status: `final_nonhadron_predictions_with_separate_empirical_hadron_closure_surface`
@@ -65,6 +65,19 @@ Claim status: `final_nonhadron_predictions_with_separate_empirical_hadron_closur
 
 - Empirical residual at the public endpoint pixel: `0.04146586100522338905344871535731404448730208198590711656812056464944371240646525111663476` inverse-alpha units
 - Empirical payload policy: `schema_and_source_registry_present_without_integrated_dataset`
+
+## Hierarchy And Naturality
+
+- Resonance status: `closed_full_local_global_hierarchy_resonance`
+- Full theorem-grade resonance promoted: `True`
+- Remaining promotion gates: `[]`
+- Exact EW bridge capacity: `3.5323546226929906511187512962330547600462096590942035604238177731136802717148740820434110040644403858228611984E+122`
+- Bridge residual: `0.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000`
+- Source `v/E_cell`: `2.5797040595276223506583341903922018695490035369903290256096683452314630559578761079150341073645683725521032233E-17`
+- Factor origins: `ports=12`, `m_rep=24`, `exponent=-1/48`
+- Higgs naturality defect: `epsilon_H=0`
+- Boundary: The hierarchy and Higgs naturality rows are promoted as selected-branch source-side results with zero bridge residual and epsilon_H=0.
+- Not promoted by this bridge: public Thomson endpoint without the missing hadronic spectral payload, W/Z compare-only mass rows, charged-lepton absolute masses, source-only hadron masses, strong CP, SI G without the full no-G clock stack
 
 ## Direct-Top Auxiliary Comparison
 

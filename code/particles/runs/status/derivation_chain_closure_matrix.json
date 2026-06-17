@@ -4,6 +4,7 @@
     "all_derivation_chains_claimed_closed": false,
     "closed_or_scoped_chains": [
       "structural_massless_bosons",
+      "hierarchy_naturality_bridge",
       "higgs_top_declared_surface",
       "charged_leptons",
       "selected_class_quarks",
@@ -21,7 +22,7 @@
       "hadrons"
     ]
   },
-  "generated_utc": "2026-05-07T03:51:58Z",
+  "generated_utc": "2026-06-17T03:22:30Z",
   "particle_five_gates": {
     "153": {
       "chrome_workers": "do_not_use_for_backend_execution",
@@ -130,6 +131,32 @@
       "promotion_allowed": false,
       "state": "closed_declared_convention_contract",
       "title": "RG matching and threshold structure"
+    },
+    "332": {
+      "chrome_workers": "not_needed_for_closed_certificate",
+      "closable_now": true,
+      "epsilon_H": "0",
+      "issue": 332,
+      "local_next_artifact": "particles/hierarchy/issue_332_rg_naturality_certificate.json",
+      "state": "closed_exact_selected_branch",
+      "title": "RG/Higgs naturality closure"
+    },
+    "335": {
+      "chrome_workers": "not_needed_for_closed_certificate",
+      "closable_now": true,
+      "full_theorem_grade_resonance_promoted": true,
+      "issue": 335,
+      "local_next_artifact": "particles/hierarchy/certificates/R_local_global_hierarchy_resonance_closeout_335.json",
+      "state": "closed_full_local_global_hierarchy_resonance",
+      "title": "Local/global hierarchy resonance"
+    },
+    "337": {
+      "chrome_workers": "not_needed_for_closed_certificate",
+      "closable_now": true,
+      "issue": 337,
+      "local_next_artifact": "particles/hierarchy/certificates/R_EW_tick_projection_certificate.json",
+      "state": "closed_projection_bridge_with_exact_residual",
+      "title": "Electroweak projection bridge"
     }
   },
   "provenance_status": "closed_provenance_ledger_and_declared_sensitivity_taxonomy",
@@ -178,6 +205,28 @@
       "promotable": false,
       "stage_gate": "certified P root after populated source spectral measure payload",
       "status": "compare_only_reproduction_not_prediction_theorem"
+    },
+    {
+      "chain": "hierarchy_naturality_bridge",
+      "claim_boundary": "Promotes the hierarchy and Higgs naturality rows only. The public Thomson endpoint, W/Z mass promotion, charged-lepton absolute masses, source-only hadrons, Strong CP, and full SI G remain separate surfaces.",
+      "claim_level": "selected_branch_source_side_theorem",
+      "closed_issue_refs": [
+        332,
+        335,
+        337
+      ],
+      "full_theorem_grade_resonance_promoted": true,
+      "next_artifact": null,
+      "open_gates": [],
+      "outputs": {
+        "N_CRC_EW": "3.5323546226929906511187512962330547600462096590942035604238177731136802717148740820434110040644403858228611984E+122",
+        "bridge_residual": "0.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "epsilon_H": "0"
+      },
+      "promotable": true,
+      "remaining_promotion_gates": [],
+      "resonance_status": "closed_full_local_global_hierarchy_resonance",
+      "status": "closed_selected_branch_local_global_hierarchy_naturality"
     },
     {
       "chain": "higgs_top_declared_surface",
@@ -266,11 +315,14 @@
   "source_artifacts": {
     "blind_provenance": "code/particles/runs/status/blind_prediction_provenance.json",
     "final_predictions": "code/particles/runs/status/final_end_to_end_predictions.json",
+    "hierarchy_ew_capacity": "code/particles/hierarchy/certificates/R_EW_global_capacity_certificate.json",
+    "hierarchy_higgs_naturality": "code/particles/hierarchy/issue_332_rg_naturality_certificate.json",
+    "hierarchy_local_global_resonance": "code/particles/hierarchy/certificates/R_local_global_hierarchy_resonance_closeout_335.json",
     "pipeline_status": "code/particles/runs/status/particle_pipeline_closure_status.json"
   },
   "status": "executable_nonhadron_chain_matrix_emitted",
   "worker_policy": {
     "chrome_pro_workers_needed_now": false,
-    "reason": "Hadron issues #153/#157 have a source-backend boundary and an empirical closure policy surface; the P/electroweak source-only chain needs a populated source spectral measure payload and interval certificate. The charged absolute-anchor, quark global-classification, and direct-top auxiliary-codomain lanes have corpus-limited no-go boundaries."
+    "reason": "Hadron issues #153/#157 have a source-backend boundary and an empirical closure policy surface; the P/electromagnetic source-only endpoint needs a populated source spectral measure payload and interval certificate. The hierarchy/naturality bridge is closed on the selected branch. The charged absolute-anchor, quark global-classification, and direct-top auxiliary-codomain lanes have corpus-limited no-go boundaries."
   }
 }

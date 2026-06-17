@@ -1,6 +1,6 @@
 # Particle Derivation Gap Ledger
 
-Generated: `2026-06-12T05:21:42Z`
+Generated: `2026-06-17T03:23:28Z`
 
 Systematic claim-safe queue after the five-equation P-trunk simplification.
 
@@ -18,8 +18,9 @@ Systematic claim-safe queue after the five-equation P-trunk simplification.
 
 - Artifact: `particles/hierarchy`
 - Exists: `True`
-- Claim status: `closed_local_electroweak_hierarchy_certificate`
+- Claim status: `closed_local_global_hierarchy_and_naturality_certificate`
 - May feed local hierarchy claim: `True`
+- May feed Higgs naturality claim: `True`
 - Public endpoint P: `1.630968209403959324879279847782648941`
 - Public endpoint alpha_U: `0.041124336195630495`
 - Public endpoint v/E_star: `2.0199803239725553e-17`
@@ -32,15 +33,20 @@ Systematic claim-safe queue after the five-equation P-trunk simplification.
 - Derivative interval: `[-10.995767998506369371985481516028357811043316285244607, -10.985284409796418191205377821955038437448873048903355]`
 - Krawczyk interior inclusion: `True`
 - Forbidden DAG paths into protected targets: `[]`
-- Boundary: This certificate closes the local P -> alpha_U -> v/E_star hierarchy lane. Excluded gates are the public Thomson endpoint transport, the Higgs RG naturality defect bound, theorem-grade W/Z promotion, and the full no-G clock stack for SI gravity.
-- Local/global tick status: `particles/hierarchy/certificates/R_N_global_repair_tick_certificate.json` closes the global repair-tick theorem with derived round count: under the area-law counting model `F(N)=pi/rho_read^2` (a D6-consistent modeling identification of `Cap_read`), the corpus readback fixed-point equation `N_CRC=F(N_CRC)` is equivalent to the closure transport `G_N(1)=rho_star`, which forces the full-cycle multiplier `(N_CRC/pi)^(-1/2)`. The representation-to-spectrum certificate `R_m_rep_24_certificate.json` derives `m_rep=2*(8+3+1)=24` from the doubled observer-visible product-adjoint repair spectrum, giving one-tick contraction `|g_*'|=(N_CRC/pi)^(-1/48)` with no electroweak inputs.
-- Local/global EW projection status: `particles/hierarchy/certificates/R_EW_tick_projection_certificate.json` closes the electroweak tick-projection bridge for the EW-refined capacity `N_CRC^EW`. The projection map `Pi_EW(P,N)=24*pi/(alpha_U(P)*log(N/pi))` is derived from the D10 transmutation law `t_tr=2*pi/(beta_EW*alpha_U)` and the global tick `|g_*'|=(N/pi)^(-1/48)` by ratio. Under the OPH local/global EW resonance condition `Pi_EW(P_star,N_CRC^EW)=4*P_star=beta_EW*P_star`, this is equivalent to the bridge residual `B_EW(P,N)=alpha_U(P)*log(N/pi)-6*pi/P=0`, with the integer factor `4=beta_EW=N_c+1` traced to the D10 transmutation theorem and `12=2*m_rep/beta_EW=48/4` traced algebraically to the global repair-tick and representation-to-spectrum theorems plus D10. The exact-capacity certificate `R_EW_global_capacity_certificate.json` supplies the unique source-side bridge fixed point `N_CRC^EW=pi*exp[6*pi/(P_star*alpha_U(P_star))]` as a `lambda=1/2` Banach contraction. The rounded `3.31e122` cosmological capacity display remains a diagnostic label. The certificate emits a machine-readable `derivation_chain`, `factor_origins`, `acceptance_criteria_status`, and scope record for the resonance target. The icosahedral screen-sieve theorem `R_screen_sieve_icosahedral_certificate.json` supplies the geometric strengthening by deriving the `1/12` port-read factor from the `A5/C5` orbit on the declared triangulated S^2 screen branch, and is wired into the umbrella closeout below.
-- Finite readback-resolution status: `particles/hierarchy/certificates/R_readback_resolution_certificate.json` closes the finite readback-resolution gate by composing eight steps of corpus-cited foundational axioms (finite OPH patch-carrier pipeline; fixed-cutoff Lyapunov+local-diamond+repair-completeness confluence theorem; stable self-reading observer sector with central projector; central record algebra with sharp central spectrum on the OPH-stable branch; D6 dimensionless area law) with the EW-refined exact-capacity Banach contraction certificate (`R_EW_global_capacity_certificate.json`) loaded as a machine-checkable dependency. Steps 1-4 pin down `nf_{r,N}`, `Obs`, and `Cap_read` and force a single positive central capacity atom, closing the single-effective-readback-resolution acceptance criterion and excluding multiple incompatible readback scales; step 5 supplies the positive-root extractor `rho_read=sqrt(pi/Cap_read)` as the unique positive solution of the D6 area law; step 6 composes the finite pipeline `F_r(N)=Cap_read(Obs(nf_{r,N}(U_{r,N})))` into a single-valued resolution; step 7 loads `N_CRC^EW(P_star)=pi*exp[6*pi/(P_star*alpha_U(P_star))]` from the EW exact-capacity certificate, supplying `F(N_CRC^EW)=N_CRC^EW>0` as the source-side fixed-point hypothesis required by the global repair-tick lemma; step 8 closes the positive-root refinement-limit `rho_read(r,N_CRC^EW) -> rho_star=(N_CRC^EW/pi)^(-1/2)` at the quantitative `lambda=1/2` Banach rate `sqrt(pi)/(2*C_min^(3/2))*delta_r/(1-lambda)`. The selected positive central capacity atom is fixed to the exact `N_CRC^EW`; the rounded `3.31e122` cosmological label is recorded under `obstruction_record` and rejected as a bridge witness. The cell-entropy / measured weak/Higgs/G/Planck-area/Lambda calibration ledger forbids hidden empirical inputs; the rounded `3.31e122` capacity display is also enumerated in `forbidden_inputs`.
-- Local/global resonance status: `particles/hierarchy/certificates/R_local_global_hierarchy_resonance_closeout_335.json` closes the full local/global hierarchy-resonance theorem on the selected branch, composing the eight prerequisite theorems (global repair-tick, representation-to-spectrum, finite readback-resolution, joint product fixed point, icosahedral screen-sieve, EW tick-projection, EW-refined exact-capacity, RG/Higgs naturality) into the target relation `t_tr(P_star)=(P_star/12)*log(N_CRC^EW/pi)` via a machine-readable nine-step `derivation_chain`. The umbrella `factor_origins` traces every integer factor (`4=beta_EW` from D10; `24=2*dim(su(3)+su(2)+u(1))` from the representation-to-spectrum theorem; `48=2*m_rep` from the global tick; `12=|A5|/|C5|=60/5` from the icosahedral screen-sieve theorem; total curvature charge `12` from discrete Gauss-Bonnet) to a corpus theorem with an explicit source artifact. The only residual definitional residue, scoped under `factor_origins.cell_entropy_factor_one_over_four`, is the OPH structural identification `cell entropy = P/beta_EW = P/4`, consumed by the screen-sieve composition as input. The promotion flag `full_theorem_grade_resonance_promoted` is computed from the conjunction of all dependency-status checks plus the bridge-residual checks; no promotion gates remain open in the hierarchy package on the selected branch (OPH product gauge branch + declared triangulated S^2 screen branch + selected RG/Higgs natural exact branch + product-separated joint branch).
+- Local/global resonance status: `closed_full_local_global_hierarchy_resonance`
+- Full theorem-grade resonance promoted: `True`
+- Remaining promotion gates: `[]`
+- Exact EW bridge capacity: `3.5323546226929906511187512962330547600462096590942035604238177731136802717148740820434110040644403858228611984E+122`
+- Bridge residual: `0.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000`
+- Fixed-point residual in log capacity: `0.00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000`
+- Source v/E_cell: `2.5797040595276223506583341903922018695490035369903290256096683452314630559578761079150341073645683725521032233E-17`
+- Higgs naturality defect: `epsilon_H=0`
+- Higgs naturality interval: `[0, 0]`
+- Boundary: This certificate closes the selected local P -> alpha_U -> v/E_star hierarchy lane, the local/global resonance bridge, and the Higgs naturality defect epsilon_H=0. Separate non-promoted gates are the public Thomson endpoint transport, theorem-grade W/Z promotion, charged-lepton absolute masses, source-only hadron masses, Strong CP, and the full no-G clock stack for SI gravity.
 
 ## Bundle Execution Plan
 
-Open work is grouped into coupled closure packets with bundle-level promotion questions.
+Open work is grouped into coupled closure packets rather than a one-blocker-at-a-time queue.
 
 | Bundle | Status | Gaps | Promotion question |
 | --- | --- | --- | --- |
@@ -80,6 +86,6 @@ Open work is grouped into coupled closure packets with bundle-level promotion qu
 ## Claim Policy
 
 - The compressed P trunk is an audit/candidate artifact until the endpoint and certificate gates close.
-- Open blockers should be worked as coupled bundles.
+- Open blockers should be worked as coupled bundles rather than isolated one-off fixes.
 - The particle pipeline must keep compare-only, continuation, selected-class, and theorem-grade rows mechanically distinct.
-- Golden-ratio torus or resonance language requires a separate representation-to-spectrum theorem before it can serve as a derivation input.
+- Golden-ratio torus or resonance language is not a derivation input unless a separate representation-to-spectrum theorem is supplied.

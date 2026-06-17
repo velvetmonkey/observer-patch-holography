@@ -23,6 +23,8 @@ def test_particle_pipeline_closure_status_scope_locks_hadrons_and_workers() -> N
     assert status["finalization_gates"]["obstruction_only_worker_result_allowed"] is True
     assert status["finalization_gates"]["empirical_hadron_closure_policy_documented"] is True
     assert status["finalization_gates"]["empirical_hadron_spectral_dataset_integrated"] is False
+    assert status["finalization_gates"]["hierarchy_local_global_resonance_closed"] is True
+    assert status["finalization_gates"]["higgs_naturality_defect_closed"] is True
     assert status["artifacts"]["measured_endpoint_calibration"]["status"] == (
         "oph_plus_empirical_hadron_closure_endpoint"
     )
@@ -42,6 +44,12 @@ def test_particle_pipeline_closure_status_scope_locks_hadrons_and_workers() -> N
     assert gates[157]["closed_as_out_of_scope"] is True
     assert gates[157]["chrome_workers"] == "do_not_use_for_backend_execution"
     assert gates[223]["state"] == "closed_blocker_isolated_endpoint_package"
+    assert gates[332]["state"] == "closed_exact_selected_branch"
+    assert gates[332]["closable_now"] is True
+    assert gates[337]["state"] == "closed_projection_bridge_with_exact_residual"
+    assert gates[337]["closable_now"] is True
+    assert gates[335]["state"] == "closed_full_local_global_hierarchy_resonance"
+    assert gates[335]["closable_now"] is True
     assert gates[223]["closable_now"] is True
     assert gates[223]["successor_issue"] == 235
     assert gates[223]["chrome_workers"] == "not_needed_for_closed_package"

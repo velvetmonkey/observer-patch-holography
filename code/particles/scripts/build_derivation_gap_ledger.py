@@ -23,6 +23,9 @@ HIERARCHY_ROOT = PARTICLES_ROOT / "hierarchy"
 HIERARCHY_WITNESS = HIERARCHY_ROOT / "computations" / "hierarchy_numeric_witness.json"
 HIERARCHY_KRAWCZYK = HIERARCHY_ROOT / "certificates" / "R_U_krawczyk_certificate.json"
 HIERARCHY_DAG = HIERARCHY_ROOT / "certificates" / "DAG_U.json"
+HIERARCHY_RESONANCE = HIERARCHY_ROOT / "certificates" / "R_local_global_hierarchy_resonance_closeout_335.json"
+HIERARCHY_EW_CAPACITY = HIERARCHY_ROOT / "certificates" / "R_EW_global_capacity_certificate.json"
+HIERARCHY_NATURALITY = HIERARCHY_ROOT / "issue_332_rg_naturality_certificate.json"
 DEFAULT_JSON_OUT = PARTICLES_ROOT / "runs" / "status" / "particle_derivation_gap_ledger.json"
 DEFAULT_MD_OUT = PARTICLES_ROOT / "DERIVATION_GAP_LEDGER.md"
 
@@ -55,7 +58,15 @@ def _load_p_trunk_summary() -> dict[str, Any]:
 
 
 def _load_hierarchy_summary() -> dict[str, Any]:
-    if not (HIERARCHY_WITNESS.exists() and HIERARCHY_KRAWCZYK.exists() and HIERARCHY_DAG.exists()):
+    required = (
+        HIERARCHY_WITNESS,
+        HIERARCHY_KRAWCZYK,
+        HIERARCHY_DAG,
+        HIERARCHY_RESONANCE,
+        HIERARCHY_EW_CAPACITY,
+        HIERARCHY_NATURALITY,
+    )
+    if not all(path.exists() for path in required):
         return {
             "artifact_path": str(HIERARCHY_ROOT.relative_to(ROOT)),
             "exists": False,
@@ -66,13 +77,28 @@ def _load_hierarchy_summary() -> dict[str, Any]:
     witness = json.loads(HIERARCHY_WITNESS.read_text(encoding="utf-8"))
     krawczyk = json.loads(HIERARCHY_KRAWCZYK.read_text(encoding="utf-8"))
     dag = json.loads(HIERARCHY_DAG.read_text(encoding="utf-8"))
+    resonance = json.loads(HIERARCHY_RESONANCE.read_text(encoding="utf-8"))
+    ew_capacity = json.loads(HIERARCHY_EW_CAPACITY.read_text(encoding="utf-8"))
+    naturality = json.loads(HIERARCHY_NATURALITY.read_text(encoding="utf-8"))
     public = witness["public_endpoint_branch"]
     source_audit = witness["source_audit_branch"]
+    exact_capacity = ew_capacity["exact_capacity_fixed_point"]
     return {
         "artifact_path": str(HIERARCHY_ROOT.relative_to(ROOT)),
         "exists": True,
-        "claim_status": "closed_local_electroweak_hierarchy_certificate",
+        "claim_status": "closed_local_global_hierarchy_and_naturality_certificate",
         "may_feed_local_hierarchy_claim": True,
+        "may_feed_naturality_claim": True,
+        "local_global_resonance_status": resonance["status"],
+        "full_theorem_grade_resonance_promoted": resonance["full_theorem_grade_resonance_promoted"],
+        "remaining_promotion_gates": resonance["remaining_promotion_gates"],
+        "ew_capacity_status": ew_capacity["status"],
+        "N_CRC_EW": exact_capacity["N_CRC_EW"],
+        "bridge_residual": exact_capacity["bridge_residual"],
+        "fixed_point_residual_x": exact_capacity["fixed_point_residual_x"],
+        "v_over_E_cell_source": exact_capacity["v_over_E_cell_source"],
+        "epsilon_H": naturality["epsilon_H"],
+        "epsilon_H_interval": naturality["epsilon_H_interval"],
         "public_endpoint_branch": {
             "P": public["P_C"],
             "alpha_U": public["alpha_U_display"],
@@ -90,9 +116,11 @@ def _load_hierarchy_summary() -> dict[str, Any]:
         "krawczyk_interior": krawczyk["inclusion"]["K_I_subset_interior_I_U"],
         "dag_forbidden_paths": dag["validation_result"]["forbidden_paths_to_protected_targets"],
         "boundary": (
-            "This certificate closes the local P -> alpha_U -> v/E_star hierarchy lane. "
-            "Excluded gates are the public Thomson endpoint transport, the Higgs RG naturality "
-            "defect bound, theorem-grade W/Z promotion, and the full no-G clock stack for SI gravity."
+            "This certificate closes the selected local P -> alpha_U -> v/E_star hierarchy lane, "
+            "the local/global resonance bridge, and the Higgs naturality defect epsilon_H=0. "
+            "Separate non-promoted gates are the public Thomson endpoint transport, theorem-grade "
+            "W/Z promotion, charged-lepton absolute masses, source-only hadron masses, Strong CP, "
+            "and the full no-G clock stack for SI gravity."
         ),
     }
 
@@ -536,6 +564,7 @@ def render_markdown(ledger: dict[str, Any]) -> str:
             f"- Exists: `{hierarchy['exists']}`",
             f"- Claim status: `{hierarchy['claim_status']}`",
             f"- May feed local hierarchy claim: `{hierarchy['may_feed_local_hierarchy_claim']}`",
+            f"- May feed Higgs naturality claim: `{hierarchy.get('may_feed_naturality_claim', False)}`",
         ]
     )
     if hierarchy.get("exists"):
@@ -544,6 +573,7 @@ def render_markdown(ledger: dict[str, Any]) -> str:
         interval = hierarchy["interval"]
         k_image = hierarchy["krawczyk_image"]
         derivative = hierarchy["derivative_interval"]
+        epsilon_interval = hierarchy["epsilon_H_interval"]
         lines.extend(
             [
                 f"- Public endpoint P: `{public['P']}`",
@@ -558,6 +588,15 @@ def render_markdown(ledger: dict[str, Any]) -> str:
                 f"- Derivative interval: `[{derivative['lower']}, {derivative['upper']}]`",
                 f"- Krawczyk interior inclusion: `{hierarchy['krawczyk_interior']}`",
                 f"- Forbidden DAG paths into protected targets: `{hierarchy['dag_forbidden_paths']}`",
+                f"- Local/global resonance status: `{hierarchy['local_global_resonance_status']}`",
+                f"- Full theorem-grade resonance promoted: `{hierarchy['full_theorem_grade_resonance_promoted']}`",
+                f"- Remaining promotion gates: `{hierarchy['remaining_promotion_gates']}`",
+                f"- Exact EW bridge capacity: `{hierarchy['N_CRC_EW']}`",
+                f"- Bridge residual: `{hierarchy['bridge_residual']}`",
+                f"- Fixed-point residual in log capacity: `{hierarchy['fixed_point_residual_x']}`",
+                f"- Source v/E_cell: `{hierarchy['v_over_E_cell_source']}`",
+                f"- Higgs naturality defect: `epsilon_H={hierarchy['epsilon_H']}`",
+                f"- Higgs naturality interval: `[{epsilon_interval[0]}, {epsilon_interval[1]}]`",
                 f"- Boundary: {hierarchy['boundary']}",
             ]
         )

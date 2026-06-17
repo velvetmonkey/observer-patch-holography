@@ -228,6 +228,6 @@
     }
   ],
   "excluded_lane": "hadrons_compute_bound",
-  "generated_utc": "2026-05-07T03:51:58Z",
+  "generated_utc": "2026-06-17T03:22:30Z",
   "status": "exact_output_lane_closed_nonhadron_only"
 }

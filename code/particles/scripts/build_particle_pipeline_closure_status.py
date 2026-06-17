@@ -40,6 +40,17 @@ EMPIRICAL_EE_REGISTRY = PARTICLES_ROOT / "hadron" / "empirical_ee_hadrons_source
 EMPIRICAL_EE_SCHEMA = PARTICLES_ROOT / "hadron" / "empirical_ee_hadronic_spectral_measure.schema.json"
 EXACT_NONHADRON = PARTICLES_ROOT / "exact_nonhadron_masses.json"
 RESULTS_STATUS = PARTICLES_ROOT / "results_status.json"
+HIERARCHY_ROOT = PARTICLES_ROOT / "hierarchy"
+HIERARCHY_NATURALITY = HIERARCHY_ROOT / "issue_332_rg_naturality_certificate.json"
+HIERARCHY_EW_PROJECTION = HIERARCHY_ROOT / "certificates" / "R_EW_tick_projection_certificate.json"
+HIERARCHY_EW_CAPACITY = HIERARCHY_ROOT / "certificates" / "R_EW_global_capacity_certificate.json"
+HIERARCHY_READBACK = HIERARCHY_ROOT / "certificates" / "R_readback_resolution_certificate.json"
+HIERARCHY_M_REP = HIERARCHY_ROOT / "certificates" / "R_m_rep_24_certificate.json"
+HIERARCHY_SCREEN_SIEVE = HIERARCHY_ROOT / "certificates" / "R_screen_sieve_icosahedral_certificate.json"
+HIERARCHY_JOINT_FIXED_POINT = HIERARCHY_ROOT / "certificates" / "R_PN_joint_fixed_point_certificate_report.json"
+HIERARCHY_LOCAL_GLOBAL_RESONANCE = (
+    HIERARCHY_ROOT / "certificates" / "R_local_global_hierarchy_resonance_closeout_335.json"
+)
 
 
 def _now_utc() -> str:
@@ -135,6 +146,14 @@ def build_status() -> dict[str, Any]:
     hadron_spectral = _load_json(HADRON_SPECTRAL_CONTRACT)
     exact = _load_json(EXACT_NONHADRON)
     results_status = _load_json(RESULTS_STATUS)
+    hierarchy_naturality = _load_json(HIERARCHY_NATURALITY)
+    hierarchy_ew_projection = _load_json(HIERARCHY_EW_PROJECTION)
+    hierarchy_ew_capacity = _load_json(HIERARCHY_EW_CAPACITY)
+    hierarchy_readback = _load_json(HIERARCHY_READBACK)
+    hierarchy_m_rep = _load_json(HIERARCHY_M_REP)
+    hierarchy_screen_sieve = _load_json(HIERARCHY_SCREEN_SIEVE)
+    hierarchy_joint_fixed_point = _load_json(HIERARCHY_JOINT_FIXED_POINT)
+    hierarchy_local_global = _load_json(HIERARCHY_LOCAL_GLOBAL_RESONANCE)
 
     return {
         "artifact": "oph_particle_pipeline_closure_status",
@@ -189,8 +208,48 @@ def build_status() -> dict[str, Any]:
                 "status": "schema_present",
                 "row_class": "oph_plus_empirical_hadron_closure",
             },
+            "hierarchy_rg_higgs_naturality": _artifact_status(HIERARCHY_NATURALITY, hierarchy_naturality),
+            "hierarchy_ew_projection": _artifact_status(HIERARCHY_EW_PROJECTION, hierarchy_ew_projection),
+            "hierarchy_ew_capacity": _artifact_status(HIERARCHY_EW_CAPACITY, hierarchy_ew_capacity),
+            "hierarchy_readback_resolution": _artifact_status(HIERARCHY_READBACK, hierarchy_readback),
+            "hierarchy_m_rep_24": _artifact_status(HIERARCHY_M_REP, hierarchy_m_rep),
+            "hierarchy_screen_sieve": _artifact_status(HIERARCHY_SCREEN_SIEVE, hierarchy_screen_sieve),
+            "hierarchy_joint_fixed_point": _artifact_status(
+                HIERARCHY_JOINT_FIXED_POINT, hierarchy_joint_fixed_point
+            ),
+            "hierarchy_local_global_resonance": _artifact_status(
+                HIERARCHY_LOCAL_GLOBAL_RESONANCE, hierarchy_local_global
+            ),
         },
         "issue_gates": [
+            {
+                "issue": 332,
+                "title": "RG/Higgs naturality closure",
+                "state": "closed_exact_selected_branch",
+                "closable_now": True,
+                "local_next_artifact": _rel(HIERARCHY_NATURALITY),
+                "epsilon_H": (hierarchy_naturality or {}).get("epsilon_H"),
+                "chrome_workers": "not_needed_for_closed_certificate",
+            },
+            {
+                "issue": 337,
+                "title": "Electroweak projection bridge",
+                "state": "closed_projection_bridge_with_exact_residual",
+                "closable_now": True,
+                "local_next_artifact": _rel(HIERARCHY_EW_PROJECTION),
+                "chrome_workers": "not_needed_for_closed_certificate",
+            },
+            {
+                "issue": 335,
+                "title": "Local/global hierarchy resonance",
+                "state": "closed_full_local_global_hierarchy_resonance",
+                "closable_now": True,
+                "local_next_artifact": _rel(HIERARCHY_LOCAL_GLOBAL_RESONANCE),
+                "full_theorem_grade_resonance_promoted": bool(
+                    (hierarchy_local_global or {}).get("full_theorem_grade_resonance_promoted", False)
+                ),
+                "chrome_workers": "not_needed_for_closed_certificate",
+            },
             {
                 "issue": 223,
                 "title": "Ward-projected Thomson endpoint package",
@@ -358,6 +417,10 @@ def build_status() -> dict[str, Any]:
             "obstruction_only_worker_result_allowed": True,
             "paper_material_sync_complete_without_live_publish": True,
             "source_spectral_stage_gate": "populated source spectral measure payload plus interval certificate",
+            "hierarchy_local_global_resonance_closed": bool(
+                (hierarchy_local_global or {}).get("full_theorem_grade_resonance_promoted", False)
+            ),
+            "higgs_naturality_defect_closed": (hierarchy_naturality or {}).get("epsilon_H") == "0",
         },
         "latest_nonhadron_predictions": _latest_nonhadron_predictions(exact),
     }
