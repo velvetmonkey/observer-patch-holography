@@ -40,8 +40,8 @@
     },
     {
       "path": "STATUS.md",
-      "sha256": "24695ff050c275a03b03dd8e285bf72f28a1ad63d0b5a3e46d9dc4094dc621b4",
-      "bytes": 4970
+      "sha256": "9363fb9eb846a3a3635efc49c4fb0af8cdf32d54da2b88ea02049c09ccf07738",
+      "bytes": 5441
     },
     {
       "path": "INTEGRATION.md",
@@ -150,8 +150,8 @@
     },
     {
       "path": "test_hierarchy_bundle.py",
-      "sha256": "2c67850b6904828b7f6c41e193b0ee7e28a13f547d4dc5414fc53c11f19b6fcf",
-      "bytes": 19856
+      "sha256": "7d2be80f2f343f55ea437cbb68243dc3fc11558e873e921cd068b72c25e80cdb",
+      "bytes": 22516
     },
     {
       "path": "validators/validate_bundle.py",
@@ -250,18 +250,18 @@
     },
     {
       "path": "certificates/R_local_global_hierarchy_resonance_closeout_335.json",
-      "sha256": "ef3aa5ebe9f9e50c889c229c1e59742f620b3fa2d25c063dba908ac736d9ba68",
-      "bytes": 5627
+      "sha256": "8b6a1ded9bafe7a529003d1110f94f7efa8b1b34df84b2dbc702bddb13528f97",
+      "bytes": 17149
     },
     {
       "path": "verify_issue_335_local_global_resonance.py",
-      "sha256": "bb990df82277c6709cec2d4e41d5c822295ed5b1bafac530b7c504e415b4c486",
-      "bytes": 10511
+      "sha256": "7d70dea513852e96030cb2e3f3d5566a829cbb3909db1e0ed915b409197263f3",
+      "bytes": 24737
     },
     {
       "path": "validators/validate_issue_335_local_global_resonance.py",
-      "sha256": "c8ad7dbbec4289320168db9f14f9d48d8bfd3277b24dc8b5e2f91d48c4fcab24",
-      "bytes": 3407
+      "sha256": "6d8ddef5bc68cb56ae7c3870cb7c147969f3e67768e37e3c5ebbaf31adb5d00d",
+      "bytes": 7599
     },
     {
       "path": "certificates/R_m_rep_24_certificate.json",
