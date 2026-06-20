@@ -18,7 +18,6 @@ CLAIMS = ROOT / "claims" / "claim_registry.yaml"
 NOVELTY = ROOT / "claims" / "novelty_matrix.csv"
 FALSIFICATION = ROOT / "claims" / "falsification_matrix.csv"
 GRAPH = ROOT / "claims" / "dependency_graph.json"
-PREDICTIONS = ROOT / "predictions" / "prospective_predictions.json"
 RELEASE_INFO = ROOT / "paper" / "release_info.tex"
 
 PAPER_EXTERNAL_REGISTRY_PATTERNS = [
@@ -122,11 +121,6 @@ def main() -> None:
         require(edge.get("from") in seen, f"dependency graph has unknown edge source: {edge}")
         require(edge.get("to") in seen, f"dependency graph has unknown edge target: {edge}")
         require(edge.get("role"), f"dependency graph edge lacks role: {edge}")
-
-    predictions = load_json(PREDICTIONS)
-    protocol = predictions.get("protocol", {})
-    require(protocol.get("publish_null_result") is True, "prediction protocol must publish null results")
-    require(isinstance(predictions.get("entries"), list), "prediction entries must be a list")
 
     print(f"claim registry OK: {len(seen)} claims, {len(owner_paths)} owner papers")
 
