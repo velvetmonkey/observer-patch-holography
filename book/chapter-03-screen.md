@@ -102,7 +102,7 @@ Bekenstein sharpened the point further. Pack enough energy into a region and the
 
 This is the jump from thermodynamics to geometry.
 
-If the largest possible entropy in a region is controlled by its boundary, a boundary-first description stops looking like a metaphor. It becomes the natural bookkeeping choice. The bulk may still be the world we experience, but the independent data is organized more economically on the boundary.
+If the largest possible entropy in a region is controlled by its boundary, a boundary-first description stops looking like a metaphor. It becomes the natural bookkeeping choice. The bulk may be the world we experience, but the independent data is organized more economically on the boundary.
 
 This is the holographic idea in its simplest form. A two-dimensional surface can encode a three-dimensional description, just as a hologram stores depth information on a film.
 
@@ -418,7 +418,7 @@ This is a truly enormous number-but it is finite. The observable universe contai
 
 **A solar-mass black hole**: Schwarzschild radius $R_s \approx 3$ km. Number of bits: $N \approx 10^{77}$.
 
-This is still huge, but much smaller than the observable universe. Yet it's far more than the entropy of the Sun as a normal star (about $10^{58}$). Collapse increases entropy because the horizon has vastly more microstates than ordinary matter.
+This is huge, but much smaller than the observable universe. Yet it's far more than the entropy of the Sun as a normal star (about $10^{58}$). Collapse increases entropy because the horizon has vastly more microstates than ordinary matter.
 
 In the finite-resolution screen picture used here, continuous space is an effective approximation. The screen description is the fundamental descriptive layer.
 

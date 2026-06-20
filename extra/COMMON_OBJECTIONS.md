@@ -289,7 +289,7 @@ For the Lorentz issue, the relevant question is whether the observable patch net
 
 For the parameter/circularity issue, the relevant question is how `P` is used in the particle-physics chain. That is addressed separately in Objection 1 above.
 
-So even if one wanted to debate the status of `P`, that would still not show that Lorentz invariance fails.
+So even if one wanted to debate the status of `P`, that would not show that Lorentz invariance fails.
 
 ---
 
@@ -522,7 +522,7 @@ and downstream Lorentz / null-modular / Einstein branch are closed on
 their declared surface, while the microphysics paper handles fixed-cutoff
 implementation and nonunique UV realization.
 
-The UEET replacement argument, as stated in the critique, still does not solve
+The UEET replacement argument, as stated in the critique, does not solve
 the modular-algebraic problem it raises; it answers a different question.
 
 ## Sources for Objection 3

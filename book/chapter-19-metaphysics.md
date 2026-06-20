@@ -6,7 +6,7 @@
 
 In 1996, philosopher David Chalmers asked us to imagine a zombie. Chalmers meant a creature physically identical to you in every way, with the same neurons firing, the same behaviors, and the same words coming out of its mouth, and no one inside. No inner experience. No "what it's like" to be it. The lights are on, with no one watching.
 
-Chalmers argued that such a zombie is *conceivable*. You can imagine it without contradiction. And if you can conceive of it, then consciousness must be something over and above the physical facts. This is the "hard problem": even if we mapped every neuron and explained every behavior, we'd still have to explain why there's *experience* at all.
+Chalmers argued that such a zombie is *conceivable*. You can imagine it without contradiction. And if you can conceive of it, then consciousness must be something over and above the physical facts. This is the "hard problem": even if we mapped every neuron and explained every behavior, we would have to explain why there's *experience* at all.
 
 The hard problem has haunted philosophy for three decades. Physicalists insist zombies are impossible; dualists see them as proof that mind transcends matter; mysterians throw up their hands and declare consciousness forever beyond human understanding.
 
@@ -55,10 +55,10 @@ But what counts as a measurement? When exactly does collapse happen? Does consci
 
 OPH cuts through this by removing the problematic assumption: that the measurement problem is about a single observer-independent state description that must somehow connect to lived experience.
 
-The formalism can still contain a global quantum state, but no observer occupies
+The formalism can contain a global quantum state, but no observer occupies
 a God's-eye position outside the system. What observers actually have are
 patch-level descriptions. At book level, a superposition is a description that
-still admits multiple compatible continuations. When two patches that had no
+admits multiple compatible continuations. When two patches that had no
 shared access come to share access to a system, their descriptions must agree
 on that overlap. That shared record relation is what the chapter is calling
 "measurement." "Collapse" is the patch-level update into a definite public
@@ -144,7 +144,7 @@ This is the oldest question in philosophy. Leibniz asked it. Heidegger called it
 
 Notice the hidden assumption: that "nothing" is the default state, and existence requires justification. OPH inverts this.
 
-Consider: what would "nothing" actually look like? Empty space is still something, with geometry and quantum fields. True nothing would be the absence of all structure, all information, all distinction. A state with no information is indistinguishable from random noise. It has no features that could distinguish it from anything else.
+Consider: what would "nothing" actually look like? Empty space is something, with geometry and quantum fields. True nothing would be the absence of all structure, all information, all distinction. A state with no information is indistinguishable from random noise. It has no features that could distinguish it from anything else.
 
 The process described by OPH, observer patches enforcing consistency and
 carving stable structures from the space of possibilities, is precisely how
@@ -294,7 +294,7 @@ stops asking for an external cause standing outside the whole structure.
 
 The observer-first picture leaves little room for a personal God standing outside the universe and directing it from beyond. There is no outside vantage point in the framework. The system is self-contained.
 
-That still leaves a more interesting religious intuition. On the strange-loop
+That leaves a more interesting religious intuition. On the strange-loop
 reading, the universe becomes explicit to itself through the observers it
 produces. Observers do not sit above reality. They are one of the ways reality
 reflects on itself. That is closer to a naturalized pantheist picture than to
@@ -311,7 +311,7 @@ observer-community we help stabilize. Science, art, institutions, and ethics
 matter for that reason. They are memetic survival systems through which finite
 observers deepen and stabilize the shared world they inhabit.
 
-This is far from nihilism. A universe without intrinsic labels can still carry
+This is far from nihilism. A universe without intrinsic labels can carry
 significance through what its observers build together.
 
 ---

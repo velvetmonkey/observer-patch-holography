@@ -172,7 +172,7 @@ The three-dimensional bulk inside the horizon is treated holographically as data
 When an object falls toward the horizon, it gets redshifted and appears to freeze onto the surface, its information smeared across the screen.
 
 The horizon is the natural screen for cosmology. It is the last place where
-an observer can still trade signals with the rest of the patch. If physics is
+an observer can trade signals with the rest of the patch. If physics is
 organized around what observers can compare, then the cosmological horizon is
 exactly where that comparison structure has to live.
 
@@ -227,7 +227,8 @@ space size:
 $$
 \Pi(N)=|\Omega^{\mathrm{sc}}_N|e^{-N},
 \qquad
-N_\star=\mathrm{MAR}\,\mathrm{argmax}_N\left(\log|\Omega^{\mathrm{sc}}_N|-N\right).
+N_\star=\operatorname*{argmax}_{N\ \mathrm{admissible}}
+\left(\log|\Omega^{\mathrm{sc}}_N|-N\right).
 $$
 
 Equivalently, with $\ell(N)=\log|\Omega^{\mathrm{sc}}_N|-N$, the OPH-derived
@@ -238,7 +239,7 @@ stable self-reading records do not have enough active capacity; above it, added
 capacity is slack, redundancy, or de Sitter dilution. On the observed branch
 this fixed point is the de Sitter entropy capacity. The current
 reverse-engineering claim is uniqueness plus observed read-off; a from-scratch
-prediction still requires deriving $F$ or $A(N)$ from the finite grammar.
+prediction requires deriving $F$ or $A(N)$ from the finite grammar.
 
 This is the informal $N_{\mathrm{CRC}}$ story. From the outside the datum is
 total horizon capacity. From the inside the datum is total observer-accessible
@@ -322,7 +323,7 @@ OPH suggests a different route.
 
 In Chapter 11, we saw that a first-variation Einstein relation emerges from an entanglement-equilibrium argument in the scaling regime, and that the same branch can be upgraded to the semiclassical Einstein equation. The continuation below is not part of that recovered-core gravity chain. It asks what happens when one moves away from the ideal recoverability limit.
 
-In the phenomenological continuation considered here, the Markov condition is treated as only approximate. Some residual correlation is then not perfectly captured by the boundary alone. The primary BW theorem is still the support-visible cap automorphism identity. In the special type-I or effective local representation where one can write a modular generator, that imperfection is packaged as an extra term:
+In the phenomenological continuation considered here, the Markov condition is treated as only approximate. Some residual correlation is then not perfectly captured by the boundary alone. The primary BW theorem is the support-visible cap automorphism identity. In the special type-I or effective local representation where one can write a modular generator, that imperfection is packaged as an extra term:
 
 $$K_C = 2\pi B_C + K_C^{(\text{anom})} + \text{const}$$
 
@@ -404,6 +405,6 @@ package.
 
 The arena is a finite static patch bounded by a holographic horizon. What populates this arena? What are the particles and forces we observe, and why do they have the peculiar properties they do?
 
-The next chapter treats the Standard Model of particle physics as an effective structure. It does not follow from gluing in one jump. First, overlap gluing classifies which sectors can be transported as ordinary compact-gauge data. Then compact-gauge reconstruction reads a compact group from those sectors. Finally, MAR and the one-Higgs matter package select the realized Standard Model branch.
+The next chapter treats the Standard Model of particle physics as an effective structure. It does not follow from gluing in one jump. First, overlap gluing classifies which sectors can be transported as ordinary compact-gauge data. Then compact-gauge reconstruction reads a compact group from those sectors. The one-Higgs matter package and minimal admissible selection pick the realized Standard Model branch.
 
 This is **Chapter 14: The Standard Model from Consistency**.

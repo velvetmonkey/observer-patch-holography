@@ -43,9 +43,9 @@ from Observer Overlap Consistency}
 \OPHPaperReleaseBanner
 
 \begin{abstract}
-Observer-Patch Holography starts from a finite screen and one rule: neighboring observer patches must agree on their overlap. This compact paper gives the short technical route from that rule to the main structural branch of the theory.
+Observer-Patch Holography starts from a finite screen and one rule: neighboring observer patches must agree on their overlap. The compact argument takes that rule to the main structural branch of the theory.
 
-The main achievements are Lorentz and null structure, the Einstein branch with its Newton limit, compact gauge reconstruction, the Standard Model gauge quotient, exact hypercharge and charge quantization, three colors, three generations, the Maxwell sector on the realized electromagnetic branch, the Yang--Mills form/equations and gap claim on its stated compact-gauge branch, and the de Sitter capacity relation. The quantitative layer is fixed readback: the local pixel \(P\) feeds the fine-structure and particle branches, while the cosmic capacity \(N_{\mathrm{CRC}}\) feeds the dimensionless cosmological row. On the selected exact branch, OPH also solves the electroweak hierarchy/naturality problem: the weak scale is emitted from the source branch and the Higgs naturality defect is \(\epsilon_H=0\).
+Finite repair and support-visible modular geometry lead to the Jacobson-type Einstein branch and compact gauge reconstruction. On the realized branch this gives the Standard Model quotient, exact hypercharge and charge quantization, three colors, three generations, the Maxwell sector, and the Yang--Mills form with its stated compact-gauge gap claim. The cosmological term is closed by the de Sitter capacity relation. The quantitative layer is read from fixed points: the local pixel \(P\) feeds the fine-structure and particle branches, and the cosmic capacity \(N_{\mathrm{CRC}}\) feeds the dimensionless cosmological row. On the selected exact branch, the same stack emits the weak scale and gives Higgs naturality defect \(\epsilon_H=0\).
 \end{abstract}
 
 \section{Introduction}
@@ -73,7 +73,7 @@ neighboring observers must agree on overlaps, and the reconstruction is driven b
 consistency conditions. Under the five axioms and the branch hypotheses and theorems stated below,
 that structure feeds a Lorentzian modular-phase classification, a Jacobson-type Einstein branch,
 compact gauge reconstruction in a bosonic internal-gauge sector, color and electroweak charge
-quantization, and the low-energy architecture fixed on the realized MAR gauge branch.
+quantization, and the low-energy architecture fixed on the realized Minimal Admissible Realization (MAR) gauge branch.
 Black-hole spectroscopy, Page-curve/island claims, dark-sector models, and particle-family
 continuations belong to companion or continuation surfaces.
 
@@ -109,6 +109,93 @@ construction on that declared branch.
 \item A bare overlap net is a finite constraint code: codewords are the globally overlap-consistent states \(C=\Phi^{-1}(0)\). Overlap repair admits a unique schedule-independent normal form from each fixed initial physical quotient state on the stated finite patch-net hypotheses, where Lyapunov descent gives termination and the local-diamond plus repair-completeness clauses give confluence. Same-boundary uniqueness additionally requires a preserved boundary/sector map whose consistent quotient fiber has a unique extension. The same package induces refinement-limit normal-form and holonomy classes on separated cofinal refinement systems with compatible projections, and makes reconciliation commute with coarse-graining up to explicitly declared normal-form and obstruction defects. QECC distance, min-cut resilience, exponential convergence, BFT wall-clock liveness, and hardware speedup are separate certified branches, not consequences of a generic overlap graph.
 \item The fixed-cutoff topological UV package closes on the ordinary branch, the central-defect branch, and the genuinely noncentral branch through a compact crossed-module higher-gauge collar theorem; the support-visible continuum BW/geometric lift is supplied by Theorem~\ref{thm:bw}, while the realized compact-gauge branch is supplied by the compact-gauge witness and physical-UV landing theorem below.
 \end{enumerate}
+
+\subsection*{What This Paper Contributes}
+
+The compact paper is the technical bridge from observer overlap to the familiar structural laws.
+Its ingredients are deliberately recognizable. Lyapunov descent and Newman's lemma handle
+finite repair. Bisognano--Wichmann modular theory supplies the modular-geometric template.
+Jacobson's 1995 and 2016 arguments supply the entropy-to-Einstein comparison target
+\cite{jacobson95,jacobson16}. Doplicher--Roberts/Tannaka reconstruction supplies the compact
+group reconstruction language.
+
+The OPH addition is the observer-patch route into those tools. Repair is a recovery-derived move
+on visible overlaps, with holonomy marking the place where local agreement fails globally. The
+Lorentz branch is read from support-visible cap modular flow after the finite collar and recovery
+controls are carried through the scaling limit. The Einstein branch is Jacobson-type, and OPH supplies the fixed-cap
+generalized-entropy stationarity theorem, null-stress bridge, internal small-ball bridge, carried
+remainders, and the all-directions tensor upgrade on its stated branch.
+
+The gauge result is equally specific. Compact gauge structure is reconstructed from the
+zero-obstruction transportable sector category, then MAR selects the realized Standard Model
+quotient on the declared one-Higgs chiral matter package. The same branch fixes exact
+hypercharge, charge quantization, the realized color triplet, and the generation count. The
+cosmological term is handled globally: the local Einstein branch leaves the metric term open, and
+the global screen-capacity fixed point closes it on the de Sitter capacity row. This is the
+dark-energy result carried by the compact paper.
+
+The later quantitative rows use the structural branch as their carrier. They add \(P_\star\),
+\(N_{\mathrm{CRC}}\), and the selected scale certificate as fixed-point/readback coordinates with
+declared uniqueness tests. Failure of one quantitative row does not erase the recovered core unless
+that row is a parent of the theorem being used.
+
+\subsection*{Jacobson comparison and reduction limit}
+
+The gravity result is Jacobson-type by design. The intellectual debt is explicit: Jacobson's 1995
+argument uses local Rindler horizons and the Clausius relation; Jacobson's 2016 argument uses
+small geodesic balls and fixed-volume entanglement equilibrium. OPH adds the observer-patch
+machinery that gets to that route from finite support-visible data.
+
+\begingroup
+\footnotesize
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.18\textwidth}>{\raggedright\arraybackslash}p{0.20\textwidth}>{\raggedright\arraybackslash}p{0.22\textwidth}>{\raggedright\arraybackslash}p{0.28\textwidth}@{}}
+\toprule
+Dimension & Jacobson 1995 & Jacobson 2016 & OPH \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+Basic region & local Rindler horizon & small geodesic ball & observer-visible screen cap or local diamond \\
+Entropic premise & Clausius relation & fixed-volume entanglement equilibrium & derived fixed-cap generalized-entropy stationarity on the realized cap-label-preserving family \\
+Modular input & Unruh/Rindler structure & small-ball modular input & support-visible cap modular flow and null bridge \\
+UV handling & continuum thermodynamics & continuum QFT & finite collar, recovery map, refinement limit \\
+Error handling & thermodynamic approximation & first-order and matter caveats & explicit collar and derivative remainders on the stated branch \\
+Tensor upgrade & all local horizons & all ball directions & overlap-supplied local directions and reference-state clauses \\
+Cosmological term & integration ambiguity & reference-state term & separate cosmic record-capacity closure \\
+Claimed OPH delta & foundational result imported & foundational result imported & finite observer-patch route, regulator/collar control, and separate global closure \\
+\end{longtable}
+\endgroup
+
+\begin{proposition}[Reduction to the Jacobson small-ball limit]\label{prop:oph-jacobson-reduction}
+On the type-I, exact-Markov, vanishing-collar-remainder, maximally symmetric small-cap limit of the
+OPH Einstein branch, the fixed-cap stationarity relation of Theorem~\ref{thm:equilibrium} reduces
+to Jacobson's fixed-volume small-ball entanglement-equilibrium relation.
+\end{proposition}
+
+\begin{proof}
+The type-I clause turns the cap modular generator into the special operator form used by the
+small-ball modular Hamiltonian. Exact Markovity removes the recovery defect in the collar split.
+The vanishing-collar-remainder assumption removes the OPH finite-cutoff correction terms carried
+by the null bridge and the small-ball transport. The maximally symmetric small-cap limit identifies
+the OPH cap-label-preserving MaxEnt variation with the fixed-volume ball variation. Under those
+identifications, the OPH fixed-cap generalized-entropy stationarity equation has the same first
+variation as Jacobson's entanglement-equilibrium relation. The subsequent local quadratic
+polarization/tensor step is the standard upgrade listed in the D5 row.
+\end{proof}
+
+\begin{proposition}[OPH delta relative to the Jacobson limit]\label{prop:oph-jacobson-delta}
+Relative to the reduction limit of Proposition~\ref{prop:oph-jacobson-reduction}, the OPH branch
+adds support-visible modular extraction, finite-cutoff collar recovery, explicit remainder
+bookkeeping, observer-overlap direction completion, and an independent global capacity closure for
+the cosmological term.
+\end{proposition}
+
+\begin{proof}
+The added clauses are exactly the hypotheses and outputs of Theorem~\ref{thm:bw},
+Theorem~\ref{thm:stress}, Theorem~\ref{thm:equilibrium}, Lemma~\ref{lem:smallball},
+Corollary~\ref{cor:einstein}, and Theorem~\ref{thm:lambda-stack}. Removing those clauses leaves
+the Jacobson-type limit described above; keeping them is the OPH-specific branch.
+\end{proof}
 
 \subsection*{Famous recovered formulas by claim tier}
 
@@ -3950,7 +4037,7 @@ which is the Newton-Poisson equation with coupling \(G_{\mathrm{geom}}\). The ge
 \end{proof}
 
 \begin{remark}[Dependencies and forbidden inputs for Theorem~\ref{thm:edge-entropy-newton-coupling}]\label{rem:edge-entropy-newton-coupling-scope}
-\textbf{Dependencies.} The proof composes Axioms~\ref{ax:screen}--\ref{ax:entropy} (screen net, overlap consistency, MaxEnt, MAR, recoverable generalized entropy), Assumption~\ref{ass:technical}, Theorem~\ref{thm:bw} (BW scaling theorem on the prime geometric subnet), Theorem~\ref{thm:stress} (half-line generator/null-stress identification), Lemma~\ref{lem:nullreconstruct} (null-data uniqueness modulo a metric term), Proposition~\ref{prop:gensplit} (generalized-entropy split), Definition~\ref{def:newton} (refinement-scaling area-term identification), Theorem~\ref{thm:equilibrium} (derived fixed-cap generalized-entropy stationarity), Lemma~\ref{lem:smallball} (internal \(d=4\) small-ball bridge), Theorem~\ref{thm:einstein} (Jacobson-type rest-frame relation), and Corollary~\ref{cor:einstein} (internal tensor upgrade). Part (ii) additionally invokes Proposition~\ref{prop:sharededgeentropy} (shared edge-entropy identity on the realized product-group branch with the D10 pixel law) and Proposition~\ref{prop:gsi} (local scale-certificate package on the gravity row, supplying \(a_{\mathrm{cell}}=P\,\ell_\star^2\) from the no-\(G\) scale certificate of Theorem~\ref{thm:scale-bridge-desitter}). Part (iii) uses only the standard linearization of part (i) on a flat background; it imports no further OPH structure beyond the validity of the small-ball/scaling regime that already supports Theorem~\ref{thm:einstein} and Corollary~\ref{cor:einstein}.
+\textbf{Dependencies.} The proof composes Axioms~\ref{ax:screen}--\ref{ax:entropy} (screen net, overlap consistency, MaxEnt, MAR, recoverable generalized entropy), Assumption~\ref{ass:technical}, Theorem~\ref{thm:bw} (BW scaling theorem on the prime geometric subnet), Theorem~\ref{thm:stress} (half-line generator/null-stress identification), Lemma~\ref{lem:nullreconstruct} (null-data uniqueness modulo a metric term), Proposition~\ref{prop:gensplit} (generalized-entropy split), Definition~\ref{def:newton} (refinement-scaling area-term identification), Theorem~\ref{thm:equilibrium} (derived fixed-cap generalized-entropy stationarity), Lemma~\ref{lem:smallball} (internal \(d=4\) small-ball bridge), Theorem~\ref{thm:einstein} (Jacobson-type rest-frame relation), and Corollary~\ref{cor:einstein} (internal tensor upgrade). Part (ii) additionally invokes Proposition~\ref{prop:sharededgeentropy} (shared edge-entropy identity on the realized product-group branch with the D10 pixel law) and Proposition~\ref{prop:gsi} (local scale-certificate package on the gravity row, supplying \(a_{\mathrm{cell}}=P\,\ell_\star^2\) from the no-\(G\) scale certificate of Theorem~\ref{thm:scale-bridge-desitter}). Part (iii) uses only the standard linearization of part (i) on a flat background; it imports no further OPH structure beyond the validity of the small-ball/scaling regime that supports Theorem~\ref{thm:einstein} and Corollary~\ref{cor:einstein}.
 
 \textbf{Forbidden inputs.} The proof of Theorem~\ref{thm:edge-entropy-newton-coupling} does not use:
 \begin{itemize}[leftmargin=2em]

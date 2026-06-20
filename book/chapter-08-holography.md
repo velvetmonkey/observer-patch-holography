@@ -66,7 +66,7 @@ In 1993, Dutch physicist Gerard 't Hooft made a wild suggestion. He proposed tha
 
 If the holographic principle is true, then the 3D world we experience is somehow encoded on 2D surfaces. The third dimension is an illusion-a convenient description of correlations on a boundary.
 
-Leonard Susskind developed these ideas further, connecting them to string theory. The holographic principle still remained vague: a principle, without a calculation.
+Leonard Susskind developed these ideas further, connecting them to string theory. The holographic principle remained vague: a principle, without a calculation.
 
 Information capacity scales with area. The bulk seems three-dimensional, while its information fits on a two-dimensional surface.
 
@@ -88,10 +88,10 @@ Gabor called this a "hologram" from the Greek *holos* (whole) and *gramma* (mess
 
 ### The Strange Property of Holograms
 
-There's a stranger fact about holograms. Cut one into pieces and each piece still shows the whole object, just with less detail. The entire image is encoded everywhere on the film, redundantly.
+There's a stranger fact about holograms. Cut one into pieces and each piece shows the whole object, just with less detail. The entire image is encoded everywhere on the film, redundantly.
 
 The analogy fits the observer picture. Each patch contains a partial image:
-blurred, incomplete, yet still tied to the same world. The overlap between
+blurred, incomplete, yet tied to the same world. The overlap between
 patches plays the role of the interference pattern. That is how the shared
 account stays consistent.
 
@@ -119,7 +119,7 @@ Imagine you live inside a soup can. This one is infinitely tall and wide, yet a 
 
 This is **anti-de Sitter space**, or AdS. It's a spacetime with constant negative curvature. If flat space is a sheet of paper, AdS is a saddle that keeps curving in every direction. Light rays curve back toward the center. Nothing drifts away forever.
 
-Our universe is different. It has positive curvature, with an accelerating expansion driven by dark energy. AdS is still a remarkable training ground. It has a clear boundary, clean symmetry, and a setting where gravity and quantum physics meet in calculable ways.
+Our universe is different. It has positive curvature, with an accelerating expansion driven by dark energy. AdS is a remarkable training ground. It has a clear boundary, clean symmetry, and a setting where gravity and quantum physics meet in calculable ways.
 
 Imagine the label on the can as a living quantum field theory with particles, forces, and fluctuations. It has no gravity of its own. It just lives on the surface.
 
@@ -175,7 +175,7 @@ The "CFT" in AdS/CFT stands for Conformal Field Theory. What makes these theorie
 
 A conformal field theory has no preferred length scale. Zoom in or out and the physics looks the same. This is called **scale invariance**.
 
-Why does this matter for observers? A conformal theory embodies scale-free agreement. If two observers use different rulers, they still agree on the form of correlations. The CFT is a natural candidate for a boundary record, a universal language for observations.
+Why does this matter for observers? A conformal theory embodies scale-free agreement. If two observers use different rulers, they agree on the form of correlations. The CFT is a natural candidate for a boundary record, a universal language for observations.
 
 ### Key Properties
 
@@ -300,7 +300,7 @@ The kernel $K$ answers a practical question: which boundary observables do you n
 
 This is the mechanism behind the slogan that the bulk is encoded on the boundary. A bulk point is not stored in one place. It is reconstructed from a weighted average of many boundary observables.
 
-HKLL is valuable because it answers the skeptical question hovering over holography. If the boundary is fundamental, why does the interior ever look local? The answer is that certain collective boundary patterns reconstruct localized bulk operators with semiclassical accuracy. Locality is emergent and still physically real at the semiclassical level.
+HKLL is valuable because it answers the skeptical question hovering over holography. If the boundary is fundamental, why does the interior ever look local? The answer is that certain collective boundary patterns reconstruct localized bulk operators with semiclassical accuracy. Locality is emergent and physically real at the semiclassical level.
 
 ### Implications
 

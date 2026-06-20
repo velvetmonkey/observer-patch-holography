@@ -104,7 +104,7 @@ Second, quantum mechanics quantizes other continuous quantities. Energy comes in
 
 In finite-cutoff pictures of the OPH type, you do not need to traverse infinitely many intervals because the description is discretized below the cutoff.
 
-Zeno was not deriving Planck-scale discreteness. His paradoxes still sharpen
+Zeno was not deriving Planck-scale discreteness. His paradoxes sharpen
 the pressure points in naive continuum intuition.
 
 ## 2.4 The Skeptics: The Contextualism Hint
@@ -140,7 +140,7 @@ Different measurement contexts reveal different aspects of the system. Niels Boh
 The Skeptics' "compared to what?" turns out to be essential physics. Properties are relational, not intrinsic. The honey is sweet-relative-to-healthy-observers, just as the electron has position-relative-to-position-measurements.
 
 The Skeptics were not doing quantum contextuality in the modern technical
-sense. Their context-dependence arguments still resonate with later
+sense. Their context-dependence arguments resonate with later
 measurement-theoretic lessons.
 
 ## 2.5 Descartes: The Observer-First Hint
@@ -244,7 +244,7 @@ This is the particle-first view. The universe is like a Lego set. Complex things
 
 Aristotle (384-322 BCE) didn't believe in atoms. He believed in Form. What made a table a table, for Aristotle, was its structure: the arrangement and the purpose.
 
-You could make a table from wood, metal, glass, or ice. It would still be a table if it had the right structure and function.
+You could make a table from wood, metal, glass, or ice. It would remain a table if it had the right structure and function.
 
 ### The Intuitive Picture
 
@@ -469,7 +469,7 @@ conditions under which it is encountered. Descartes is powerful because he
 notices that the observer cannot be erased from the act of knowing. Kant is
 powerful because he asks whether space is the stage of experience or part of
 the form by which experience is organized. Aristotle, Peirce, James, Godel,
-and Hofstadter add still more pieces: form, practice, proof, self-reference,
+and Hofstadter add more pieces: form, practice, proof, self-reference,
 and strange loops.
 
 None of those pieces is OPH. None is a substitute for black-hole entropy,

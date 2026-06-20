@@ -157,7 +157,7 @@ recovery statement is not the same as an exact Markov factorization; exact
 splice formulas require zero CMI or a fixed-collar replacement limit.
 
 OPH uses this formula to explain why a finite, noisy, horizon-limited world
-can still have stable history. Information need not be copied into one place.
+can have stable history. Information need not be copied into one place.
 It can be recoverable from structured correlations.
 
 ## The Ryu-Takayanagi Formula
@@ -229,7 +229,7 @@ point. It is a target to recover in the smooth, thermodynamic, entanglement
 equilibrium limit.
 
 The weak-field limit reduces this structure to Newtonian gravity. That is why
-the book can honor general relativity while still asking for a deeper
+the book can honor general relativity while asking for a deeper
 observer-screen architecture.
 
 ## The de Sitter Radius
@@ -417,7 +417,7 @@ failure.
 The visual inspection step is part of the content process, not a cosmetic
 afterthought. Equations can overflow. Captions can detach from diagrams.
 Long glossary entries can create awkward page breaks. SVG conversion can
-change line weights or crop labels. A page can compile while still being bad
+change line weights or crop labels. A page can compile while being bad
 for a reader. The obligation is to inspect the rendered pages because the
 reader receives pages, not Markdown files.
 
@@ -438,7 +438,7 @@ summary become the only place where a claim is explained. Summaries are useful
 for orientation, but the durable book should contain the slower version: the
 symbols, the assumptions, the known lineage, the status label, and the open
 edge. If a reader arrives from the website, a social post, a bot answer, or a
-download link, the PDF should still give them enough context to audit the
+download link, the PDF should give them enough context to audit the
 claim without guessing what the shorthand meant. That is why the appendices
 exist, and why the publication process should preserve them as first-class
 book material.

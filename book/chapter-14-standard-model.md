@@ -120,7 +120,7 @@ You cannot simultaneously know both position and momentum with arbitrary precisi
 
 Bohr and Heisenberg developed what became the "Copenhagen interpretation." The wave function doesn't describe objective reality. It describes our knowledge. When we measure, the wave function "collapses" to a definite value.
 
-This interpretation was never universally accepted. Einstein famously objected: "God does not play dice." The mathematics still works. Quantum mechanics makes predictions, and those predictions are confirmed to extraordinary precision.
+This interpretation was never universally accepted. Einstein famously objected: "God does not play dice." The mathematics works. Quantum mechanics makes predictions, and those predictions are confirmed to extraordinary precision.
 
 The core lesson is operational. Quantum theory gives probabilities for measurement outcomes with extraordinary accuracy. What those probabilities mean ontologically depends on the interpretation.
 
@@ -324,7 +324,7 @@ $-1$, the neutrino at $0$. The real explanation is anomaly cancellation.
 
 ### What Is an Anomaly?
 
-A quantum theory can look symmetrical in its classical dress and still tear at
+A quantum theory can look symmetrical in its classical dress and tear at
 the seams once quantization is done. That failure is an anomaly. If it hits a
 gauge symmetry, the theory stops being self-consistent.
 
@@ -500,13 +500,13 @@ Why does the realized group have the form SU(3) x SU(2) x U(1) up to finite quot
 
 The reconstruction step by itself gives a compact gauge group from the
 transportable sector category. It does not yet say that Nature chose the
-Standard Model. That choice enters through MAR: among the admissible one-Higgs
-low-energy sector packages, choose the minimal package that still satisfies the
+Standard Model. That choice enters through minimal admissible selection: among the admissible one-Higgs
+low-energy sector packages, choose the minimal package that satisfies the
 transport, anomaly, refinement, Yukawa, CP, and weak-sector conditions.
 Equivalently, the logic factors into classification and selection. Overlap
 gluing gives an obstruction class; zero obstruction gives an ordinary
 transportable sector category; tensor reconstruction gives a compact group.
-Only after that does MAR act on realized matter packages.
+Only after that does the selector act on realized matter packages.
 
 Once you ask for the smallest matter sector that can carry color, weak
 interactions, chirality, and ordinary charge, the answer is forced into a
@@ -723,7 +723,7 @@ the algebra net closes on itself.
 ### The Particle Rows In One Picture
 
 The particle picture can be told as one continuous line. The framework first reconstructs compact
-gauge data from zero-obstruction transportable sectors; MAR then selects the realized Standard Model
+gauge data from zero-obstruction transportable sectors; minimal admissible selection then picks the realized Standard Model
 quotient, the hypercharge lattice, and the generation-color counting. The same
 structure keeps the photon, gluons, and graviton on protected zero lines. From
 there the pixel fixed point organizes the electroweak sector, the Higgs/top
@@ -1035,7 +1035,7 @@ String theory is often credited with predicting gravity. OPH reaches the same
 kind of conclusion through its own architecture.
 
 The quarks and leptons are not arbitrary. Their charges are fixed on the
-MAR-selected gauge-consistency branch. Three colors and three generations are not inserted
+minimally selected gauge-consistency branch. Three colors and three generations are not inserted
 by hand. They follow there from the combined demands of anomaly cancellation,
 chirality, the minimal coupled color carrier, CKM CP capability, and
 ultraviolet consistency.

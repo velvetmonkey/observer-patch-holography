@@ -175,7 +175,7 @@ applying the relevant consistency operation again does not move it.
 structure. The Standard Model uses $SU(3)\times SU(2)\times U(1)$, with a
 quotient by a shared discrete center in the full global structure. OPH tries
 to reconstruct gauge structure from persistent charge bookkeeping across
-patches; MAR is the later selection rule that picks the realized one-Higgs
+patches; minimal admissible selection is the later rule that picks the realized one-Higgs
 Standard Model branch.
 
 **Generalized entropy.** Generalized entropy combines a geometric area term
@@ -293,7 +293,7 @@ patterns emerging from screen, symmetry, and consistency structure.
 
 **Patch graph.** A patch graph represents observers or local regions as nodes
 and overlaps as edges. Loops in the graph create nontrivial consistency
-conditions. Tree-like graphs are simpler, but quantum compatibility can still
+conditions. Tree-like graphs are simpler, but quantum compatibility can
 be subtle.
 
 **Petz map.** The Petz map is a canonical recovery map in quantum information

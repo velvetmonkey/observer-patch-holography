@@ -17,6 +17,7 @@
 \newtheorem{assumption}[theorem]{Assumption}
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{claim}[theorem]{Claim}
+\newtheorem{conjecture}[theorem]{Conjecture}
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
 \theoremstyle{plain}
@@ -31,10 +32,25 @@ Patch Hardware, Records, and Observer Synchronization in OPH}
 \OPHPaperReleaseBanner
 
 \begin{abstract}
-This paper gives OPH a finite microphysical carrier. Observers see finite screen cuts. The model turns those cuts into patch bodies with ports, records, repair channels, and synchronization rules.
+OPH needs a finite carrier for screen cuts. Observers see finite pieces of the screen, and this model turns those pieces into patch bodies with ports, records, repair channels, and synchronization rules.
 
-The main achievements are regulated patch embedding, the twelve-port screen-sieve theorem, edge-sector weights, central-record Born--L\"uders readout, Bell/CHSH event surfaces with the Tsirelson bound, and checkpoint restoration. The paper also fixes the evidence rule for hardware claims. A run counts as evidence when hashes, manifests, calibration records, and exact verifier receipts are public.
+Echosahedral ports give the twelve-port screen sieve, edge sectors carry the heat-kernel/Casimir weights used downstream, central records give the Born--L\"uders event surface, Bell/CHSH records give the Tsirelson bound, and checkpoint restoration states what observer continuation means after repair. The evidence rule is concrete: a hardware run carries paper weight only when hashes, manifests, calibration records, and exact verifier receipts are public.
 \end{abstract}
+
+\section*{What This Paper Contributes}
+
+The rest of the OPH stack talks about observer patches, records, repairs, and screen cuts. This
+paper gives those words a finite carrier. It separates the abstract observer patch from its
+geometric support chart and from any physical or digital implementation. That distinction is what
+prevents the theory from depending on a particular piece of hardware or a convenient drawing of a
+sphere.
+
+The concrete contribution is the regulated screen architecture. Echosahedral carriers supply a
+twelve-port reference interface, edge sectors supply the heat-kernel/Casimir weights used by the
+quantitative branch, central records give the Born--L\"uders event surface, Bell/CHSH records give
+the Tsirelson bound, and checkpoint restoration states what it means for an observer to continue
+after repair. Hardware claims are kept behind a public evidence rule: manifests, hashes,
+calibration records, raw or reduced traces, and exact verifier receipts carry the weight.
 
 \tableofcontents
 \newpage
@@ -60,6 +76,70 @@ The paper's contract is:
 \item require a public hardware evidence protocol before hardware claims receive paper
 weight.
 \end{enumerate}
+
+\section{Canonical Observer-Patch Semantics}
+
+This paper owns the fixed-cutoff observer vocabulary used by the rest of the OPH stack. An
+observer patch is first an operational algebraic object:
+\[
+\mathsf O_i=
+\left(
+\mathcal A_i,\rho_i,\mathcal R_i,
+\{(\mathcal I_e,\pi_{i,e})\}_{e\ni i},
+\mathcal U_i,\mathrm{Chk}_i
+\right).
+\]
+Here \(\mathcal A_i\) is the finite or regulated accessible algebra, \(\rho_i\) is the accessible
+state, \(\mathcal R_i\subseteq Z(\mathcal A_i)\) is the exact central record algebra or a declared
+approximate record algebra, \(\mathcal I_e\) is an overlap-visible interface algebra,
+\(\pi_{i,e}:\mathcal A_i\to\mathcal I_e\) is the visible restriction map, \(\mathcal U_i\) is the
+allowed family of update and repair instruments, and \(\mathrm{Chk}_i\) is checkpoint data
+sufficient for the declared continuation problem.
+
+\begin{definition}[Abstract observer patch]
+An abstract observer patch is the tuple \(\mathsf O_i\) above, considered up to isomorphism of
+accessible algebras, record statistics, visible restrictions, repair instruments, and checkpoint
+continuation.
+\end{definition}
+
+\begin{definition}[Support patch]
+A support patch is a geometric chart for an abstract observer patch on a branch with reconstructed
+geometry. Examples are a cap \(P_i\subset S^2\), a collar, or a causal diamond.
+The support patch supplies chart data for modular flow, entropy variation, and overlap comparison.
+\end{definition}
+
+\begin{definition}[Carrier patch]
+A carrier patch is a physical or digital implementation satisfying
+\[
+\operatorname{Realize}_{\varepsilon}(H_i)\longrightarrow \mathsf O_i ,
+\]
+meaning that the implementation induces the declared accessible algebra, visible interface
+statistics, record readout, repair instruments, and checkpoint continuation within error
+\(\varepsilon\).
+\end{definition}
+
+The echosahedral body used below is a reference carrier architecture. It is a finite implementation
+surface for twelve-port interfaces, records, repair channels, and recurrent subchannels. The
+observer identity lives in the quotient data exposed by \(\mathsf O_i\), so a change of hidden
+coordinates, port labels, or substrate presentation is physically silent when it preserves the
+visible interface and record process.
+
+\begin{claim}[Implementation-invariance target]\label{claim:implementation-invariance}
+Two carrier patches that induce isomorphic visible interface algebras, record statistics, repair
+maps, and checkpoint continuation are physically equivalent for all OPH observables in the declared
+quotient.
+\end{claim}
+
+This claim is theorem-grade only on a branch that supplies the required quotient isomorphism and
+error bound. It fails if a predicted OPH observable depends on hidden carrier coordinates after the
+visible algebra, record statistics, repair maps, and checkpoint data have been held fixed.
+
+\begin{definition}[Operational observer test]\label{def:operational-observer-test}
+A candidate physical system realizes an observer patch when it supplies a bounded accessible
+interface, durable re-readable records, self-read or internal state estimation, record-conditioned
+future behavior, boundary prediction better than shuffled-record controls, and checkpoint
+continuation within a declared error.
+\end{definition}
 
 \section{Claim Taxonomy}
 
@@ -257,7 +337,7 @@ ports. It can recycle boundary information, support settling dynamics, and expos
 or phase-locking observables.
 
 This matters because global scalar order parameters are often misleading in recurrent local
-systems. A toroidal or ring-like patch may fail to show global alignment while still selecting a
+systems. A toroidal or ring-like patch may fail to show global alignment while selecting a
 stable winding class, a local coherence island, or a persistent twisted state. Therefore the
 validation metrics for toroidal subchannels should include:
 \begin{enumerate}[leftmargin=2em]

@@ -93,7 +93,7 @@ not wandering forever when the state space is finite. It does not by itself
 prove that every repair order lands in the same result. That stronger claim is
 confluence, and OPH treats it as a separate local-diamond plus repair-completeness
 condition on the observer-facing quotient.
-The theorem is relative to the fixed initial quotient state. A still stronger
+The theorem is relative to the fixed initial quotient state. A stronger
 "same boundary data gives the same answer" statement also needs a unique
 consistent extension in that boundary or sector fiber.
 
@@ -199,7 +199,7 @@ structure in relativity, quantum field theory, statistical mechanics, and
 information theory. The screen is a meeting point, not an isolated invention.
 
 The practical lesson is this: once capacity is finite, continuum language
-becomes effective language. Smooth geometry is still useful, just as fluid
+becomes effective language. Smooth geometry remains useful, just as fluid
 dynamics is useful although water is molecular. The screen chapter asks what
 kind of microscopic or finite-resolution bookkeeping could make smooth space
 appear.
@@ -534,7 +534,7 @@ system.
 ## Chapter 12: Symmetry
 
 Chapter 12 treats symmetry as the translation manual for observers. If two
-descriptions differ by an allowed transformation but still describe the same
+descriptions differ by an allowed transformation but describe the same
 physics, something is preserved. Noether's theorem is the formal bridge.
 
 The action
@@ -652,8 +652,8 @@ isospin. $U(1)$ is hypercharge. Fermions come in representations of this
 group. A representation tells how a field transforms under the symmetry.
 
 In OPH, zero-obstruction transport and tensor reconstruction classify the
-compact gauge group carried by persistent sectors. MAR is the later selection
-step that acts on realized one-Higgs matter packages.
+compact gauge group carried by persistent sectors. Minimal admissible selection
+is the later step that acts on realized one-Higgs matter packages.
 
 Hypercharge is written $Y$. Electric charge is related by
 

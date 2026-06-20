@@ -214,7 +214,7 @@ By the equivalence principle, light must also bend in a gravitational field. Gra
 
 But wait. Light travels in straight lines. If light bends near massive objects, maybe "straight" isn't what we think.
 
-Einstein's radical proposal: massive objects curve spacetime itself. Light still travels along the straightest possible paths. But in curved spacetime, the straightest paths are curves.
+Einstein's radical proposal: massive objects curve spacetime itself. Light travels along the straightest possible paths. But in curved spacetime, the straightest paths are curves.
 
 A geodesic is the straightest path in a curved geometry. On a sphere, geodesics are great circles. On Earth, the shortest flight from New York to London curves north over the Atlantic.
 
@@ -534,7 +534,7 @@ On the stated scaling branch, this is the semiclassical Einstein equation,
 obtained by combining the thermodynamic argument with patch consistency.
 
 The lower-case indices $a,b$ again label spacetime directions. The angle
-brackets around $T_{ab}$ mean expectation value: matter is still quantum, so
+brackets around $T_{ab}$ mean expectation value: matter remains quantum, so
 the geometry responds to the averaged stress-energy seen in the effective
 state. This is why the equation is semiclassical. Geometry is classical in the
 approximation, while matter retains quantum expectation values.
@@ -563,7 +563,7 @@ follows in the same effective regime.
 
 So classical mechanics is a derived consequence. The familiar laws of motion and gravity emerge from the deeper framework when we consider the appropriate limit. Newton's physics remains valid in its domain and belongs to the effective level.
 
-## 15.10 Why Emergent Gravity Still Works
+## 15.10 Why Emergent Gravity Works
 
 If spacetime geometry emerges from information theory, why does general relativity work so well?
 

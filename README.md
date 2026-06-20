@@ -13,6 +13,18 @@ pays rent. OPH is highly falsifiable: a massive graviton, a gauge-mediated
 proton decay event, a fourth light matter generation, a charge-lattice outlier,
 or neutrino data excluding the OPH branch would destroy OPH as stated.
 
+**Claim registry:** [claims/claim_registry.yaml](claims/claim_registry.yaml)
+is the stack-wide development mirror of the paper claim ledgers. The papers are
+standalone; the registry exists so release checks can catch cross-paper drift.
+Each top-level claim records its owner paper, claim tier, imported mathematics,
+OPH-specific construction, assumptions, evidence, falsifier, and consequence of
+failure. The matching
+[novelty matrix](claims/novelty_matrix.csv),
+[falsification matrix](claims/falsification_matrix.csv), and
+[assumption dictionary](claims/assumption_dictionary.md) keep theorem claims,
+branch conditions, quantitative closures, continuations, and interpretations
+separate.
+
 If you want the existential answer first, jump straight to **Paper 6.
 [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf)**.
 The short version is direct: yes, this universe is a simulation in the OPH
@@ -44,19 +56,29 @@ everything: the same observer-consistency architecture recovers the established
 physics and explains why a world exists that can produce observers capable of
 reconstructing it.
 
+In the paper stack, an observer patch means an abstract algebraic object with
+accessible algebra, state, record algebra, visible overlap interfaces, repair
+instruments, and checkpoint data. A support patch is a geometric chart for that
+object, such as a cap on \(S^2\) or a causal diamond. A carrier patch is a
+physical or digital realization of the same visible interface and record
+statistics within a declared error. This distinction keeps the theory from
+depending on a particular hardware analogy. The stronger claim that information
+and computation are ontologically primary is interpretation unless a branch
+supplies a distinct empirical discriminator.
+
 Most theories begin by assuming spacetime, quantum fields, and a list of
 constants. OPH starts one step earlier, with finite quantum-algebraic observer
 patches whose descriptions must agree where their patches overlap. Pushing that
 requirement through the support-visible BW/geometric scaling branch gives a
-3+1-dimensional Lorentzian spacetime and a Jacobson-style Einstein equation.
+3+1-dimensional Lorentzian spacetime and a Jacobson-type Einstein equation.
 Finite cells serve as the regulator. The Lorentz branch is the extracted prime
 geometric cap-pair limit with fixed-collar Markov/recovery remainders carried
 through regularized modular transport, support-readable modular covariance, and
 KMS/BW normalization.
 
 The gauge lane treats zero-obstruction as a transportability condition: it
-reconstructs a compact gauge group from the persistent sector category. MAR
-plus the explicit one-Higgs matter package selects the realized Standard Model
+reconstructs a compact gauge group from the persistent sector category. Minimal
+Admissible Realization (MAR) plus the explicit one-Higgs matter package selects the realized Standard Model
 quotient $SU(3)\times SU(2)\times U(1)/\mathbb Z_6$, including the exact
 hypercharge lattice, the realized color triplet $N_c=3$, and the generation
 count $N_g=3$. Quantum mechanics is the algebraic information language carried
@@ -101,7 +123,7 @@ G_{\mathrm{SI}}=\frac{c^3\ell_\star^2}{\hbar}.
 The finite count representation of the global capacity closure is
 
 ```math
-N_\star=\mathrm{MAR}\,\mathrm{argmax}_{N}
+N_\star=\operatorname*{argmax}_{N\ \mathrm{admissible}}
 \bigl(\log|\Omega^{\mathrm{sc}}_N|-N\bigr)
 ```
 
@@ -317,7 +339,7 @@ when the raw artifacts and verifier receipts are available.
 
 This table keeps the rows that are easiest to compare directly with PDG and
 NIST values. Structural results such as the 3+1-dimensional Lorentzian spacetime, the
-MAR-selected Standard Model quotient $SU(3)\times SU(2)\times U(1)/\mathbb Z_6$, the exact hypercharge
+Standard Model quotient selected by Minimal Admissible Realization, $SU(3)\times SU(2)\times U(1)/\mathbb Z_6$, the exact hypercharge
 lattice, the realized color triplet $N_c=3$, and the generation count
 $N_g=3$ live in the papers. The
 quick view here sticks to direct numeric rows and exact zeros.
@@ -361,7 +383,7 @@ declared branch.
 ## Papers
 
 - **Paper 1. [Observers Are All You Need](paper/observers_are_all_you_need.pdf)**: broad synthesis of the OPH reconstruction program, from finite observers to the recovered effective universe.
-- **Paper 2. [Recovering Relativity and the Standard Model from Observer Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)**: compact technical core for relativity, gravity, zero-obstruction compact-gauge reconstruction, MAR-selected realized Standard Model structure, Maxwell equations on the ordinary photon branch, and the support-visible compact-gauge Yang-Mills form/gap theorem under its declared branch assumptions.
+- **Paper 2. [Recovering Relativity and the Standard Model from Observer Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)**: compact technical core for relativity, gravity, zero-obstruction compact-gauge reconstruction, the realized Standard Model structure selected by Minimal Admissible Realization, Maxwell equations on the ordinary photon branch, and the support-visible compact-gauge Yang-Mills form/gap theorem under its declared branch assumptions.
 - **Paper 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)**: particle derivations, mass rows, coupling structure, and the quantitative comparison surface.
 - **Paper 4. [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf)**: fixed-point repair dynamics, record stability, and the consensus picture of public reality.
 - **Paper 5. [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf)**: federated patch-carrier architecture, the twelve-port screen-sieve theorem, $A_5$-icosahedral and $E_8$-type symmetry framing, public hardware-evidence rules, records, recovery moves, and observer synchronization.

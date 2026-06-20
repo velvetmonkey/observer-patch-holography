@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "nodes": [
+    "OPH-SYN-FORMAL-BASIS",
+    "OPH-OBS-PATCH-DEF",
+    "OPH-CONS-D1",
+    "OPH-GR-D5",
+    "OPH-GR-D6-CAPACITY",
+    "OPH-GAUGE-D7-D9",
+    "OPH-Q-PN-CLOSURE",
+    "OPH-HIER-EW",
+    "OPH-ALPHA-PIXEL",
+    "OPH-DM-CONT",
+    "OPH-YM-GAP",
+    "OPH-CHI-NU",
+    "OPH-STRING-SELECTOR",
+    "OPH-POW-PHOTONIC",
+    "OPH-THINKING-PATCH",
+    "OPH-PARADISE"
+  ],
+  "edges": [
+    {"from": "OPH-SYN-FORMAL-BASIS", "to": "OPH-OBS-PATCH-DEF", "role": "defines observer-facing primitive"},
+    {"from": "OPH-OBS-PATCH-DEF", "to": "OPH-CONS-D1", "role": "supplies finite visible patch object"},
+    {"from": "OPH-CONS-D1", "to": "OPH-GR-D5", "role": "supplies overlap/repair quotient and collar branch"},
+    {"from": "OPH-GR-D5", "to": "OPH-GR-D6-CAPACITY", "role": "local Einstein branch leaves cosmological term for global closure"},
+    {"from": "OPH-CONS-D1", "to": "OPH-GAUGE-D7-D9", "role": "supplies transportable visible sector setting"},
+    {"from": "OPH-GAUGE-D7-D9", "to": "OPH-Q-PN-CLOSURE", "role": "supplies realized structural branch used by quantitative rows"},
+    {"from": "OPH-Q-PN-CLOSURE", "to": "OPH-HIER-EW", "role": "supplies fixed P/N closure coordinates"},
+    {"from": "OPH-GR-D6-CAPACITY", "to": "OPH-HIER-EW", "role": "supplies global capacity coordinate used by the electroweak bridge"},
+    {"from": "OPH-Q-PN-CLOSURE", "to": "OPH-ALPHA-PIXEL", "role": "supplies local pixel fixed-point coordinate"},
+    {"from": "OPH-GR-D5", "to": "OPH-DM-CONT", "role": "supplies gravitational stress bookkeeping"},
+    {"from": "OPH-GR-D6-CAPACITY", "to": "OPH-DM-CONT", "role": "supplies cosmological branch context"},
+    {"from": "OPH-GAUGE-D7-D9", "to": "OPH-YM-GAP", "role": "supplies compact-gauge branch"},
+    {"from": "OPH-DM-CONT", "to": "OPH-CHI-NU", "role": "supplies dark-sector scalar channel"},
+    {"from": "OPH-GAUGE-D7-D9", "to": "OPH-STRING-SELECTOR", "role": "supplies target Standard Model branch"},
+    {"from": "OPH-CONS-D1", "to": "OPH-POW-PHOTONIC", "role": "supplies patch-net constraint and repair language"},
+    {"from": "OPH-CONS-D1", "to": "OPH-THINKING-PATCH", "role": "supplies fixed-point consensus model"},
+    {"from": "OPH-SYN-FORMAL-BASIS", "to": "OPH-PARADISE", "role": "supplies observer record and continuation vocabulary"}
+  ]
+}

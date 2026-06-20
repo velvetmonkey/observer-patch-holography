@@ -136,7 +136,7 @@ $\rho_B(s)$ are Alice's and Bob's probability distributions over those states.
 The integrals add the observable's value over all possible states, weighted by
 the probabilities each observer assigns.
 
-In general overlap graphs, the classical marginal problem can still fail and is computationally hard; agreement on pairwise overlaps is not always sufficient.
+In general overlap graphs, the classical marginal problem can fail and is computationally hard; agreement on pairwise overlaps is not always sufficient.
 
 ### Why Quantum Consistency Is Hard
 
@@ -337,7 +337,7 @@ Kochen-Specker says: no such cheat sheet exists.
 
 The sharp lesson is narrower and more precise: there is no single noncontextual cheat sheet assigning pre-existing values to all observables at once. Any viable hidden-variable picture must therefore be contextual, and the measurement setting cannot be treated as irrelevant bookkeeping.
 
-This matters because it closes one of the most attractive escape routes from quantum strangeness. You cannot say, "The system still carries a full secret list of answers, and measurement merely reveals whichever answer belongs to the question I happened to ask." Kochen-Specker says that picture cannot be made globally consistent. The question itself belongs to the physics.
+This matters because it closes one of the most attractive escape routes from quantum strangeness. You cannot say, "The system carries a full secret list of answers, and measurement merely reveals whichever answer belongs to the question I happened to ask." Kochen-Specker says that picture cannot be made globally consistent. The question itself belongs to the physics.
 
 The practical consequence is easy to state. Quantum systems do not come with a sealed answer key that every possible experiment simply reads out. A measuring setup selects a compatible family of questions, and the consistency conditions live inside that family. Change the family, and the bookkeeping changes with it. OPH leans on exactly that point. What observers can stably compare depends on the overlap algebra they actually share.
 
@@ -371,7 +371,7 @@ That gives the theorem a direct narrative role in the book. The world does not s
 
 The consistency challenge becomes even more striking when observers themselves become part of the system.
 
-In 1961, Eugene Wigner proposed a thought experiment that still troubles physicists today.
+In 1961, Eugene Wigner proposed a thought experiment that troubles physicists today.
 
 Wigner's friend is in a sealed laboratory, measuring a quantum system. From the friend's perspective, the measurement has produced a definite outcome record-say, spin-up. In standard textbook language, the friend would update the system to the corresponding outcome state.
 
@@ -380,19 +380,19 @@ But Wigner is outside the lab. He describes the entire lab-including his friend-
 Who's right?
 
 From the friend's view: the measurement record is definite.
-From Wigner's view: the isolated lab can still be described by a superposed quantum state until he interacts with it.
+From Wigner's view: the isolated lab can be described by a superposed quantum state until he interacts with it.
 
 Both descriptions are internally consistent. The problem arises at the overlap-when Wigner opens the door and compares notes with his friend.
 
 This is the nested-observer version of the whole book. One observer can carry a
-finished record while another still treats that record as part of a larger
+finished record while another treats that record as part of a larger
 superposed description, provided they have not compared notes. The tension
 appears when communication begins and the two descriptions have to settle into
 one common account.
 
 Wigner's friend matters beyond foundations theater because it is the simplest
 clean model of nested access. One observer inhabits a definite record, another
-still treats that record as part of a larger quantum state, and both
+treats that record as part of a larger quantum state, and both
 descriptions remain admissible until communication forces a common restriction.
 The whole OPH project keeps asking how such restrictions line up without
 contradiction.
@@ -459,13 +459,13 @@ What we're adding is a precise mathematical model. The consistency conditions ar
 
 With many observers, each pair of overlapping patches must agree on their intersection. This forms a web of constraints.
 
-If Alice and Bob agree on their overlap (AB), and Bob and Carol agree on their overlap (BC), then Bob can mediate indirect compatibility between them on simple tree-like covers. Local pairwise consistency can help enforce global structure there, but loops or more general covers can still produce frustration unless higher-order constraints are satisfied.
+If Alice and Bob agree on their overlap (AB), and Bob and Carol agree on their overlap (BC), then Bob can mediate indirect compatibility between them on simple tree-like covers. Local pairwise consistency can help enforce global structure there, but loops or more general covers can produce frustration unless higher-order constraints are satisfied.
 
 But beware of loops. Go from Alice to Bob to Carol and back to Alice-you should return with the same state on shared overlaps. If not, you have **frustration**: local assignments can't all be true simultaneously.
 
 This is analogous to gauge theory and geometry. Move a vector around a loop; if it comes back rotated, there is nontrivial holonomy. Holonomy is the leftover mismatch that appears after a full circuit. Likewise, a loop that does not close cleanly signals an obstruction to global gluing, with no simple globally consistent assignment.
 
-The public extra demo at [3body.floatingpragma.io](https://3body.floatingpragma.io) applies this gluing lens to the OPH finite patch-net formulation of the three-body problem. It treats the familiar three-body difficulty as a loop holonomy obstruction: pairwise Newtonian data can look locally simple while the closed three-body circuit still has to glue.
+The public extra demo at [3body.floatingpragma.io](https://3body.floatingpragma.io) applies this gluing lens to the OPH finite patch-net formulation of the three-body problem. It treats the familiar three-body difficulty as a loop holonomy obstruction: pairwise Newtonian data can look locally simple while the closed three-body circuit has to glue.
 
 ## 6.11 Formal Statement
 
@@ -504,7 +504,7 @@ make the same predictions for questions both can actually ask.
 The patches form a graph whose nodes are observers and whose edges connect
 overlapping patches.
 
-The topology of this graph determines what kind of global structure can emerge. Loops in the graph create constraints. On tree-like covers, local consistency is much easier to promote toward global structure, but in the quantum setting that still depends on the relevant compatibility hypotheses. If there are loops, you need to check that going around each loop is consistent.
+The topology of this graph determines what kind of global structure can emerge. Loops in the graph create constraints. On tree-like covers, local consistency is much easier to promote toward global structure, but in the quantum setting that depends on the relevant compatibility hypotheses. If there are loops, you need to check that going around each loop is consistent.
 
 ## 6.12 What Overlap Predicts
 
@@ -548,6 +548,6 @@ That tension is sharper here. Overlap is contextual, entanglement is limited,
 and global compatibility can be brutally hard to check. A world built from such
 ingredients should feel fragile. The next chapter explains why it does not.
 
-That is where the next chapter picks up. If overlap is contextual, limited, and sometimes globally hard, why does the world feel stable at all? Why do broken traces, partial records, and scrambled signals so often still lead back to one shared history?
+That is where the next chapter picks up. If overlap is contextual, limited, and sometimes globally hard, why does the world feel stable at all? Why do broken traces, partial records, and scrambled signals so often lead back to one shared history?
 
 That brings us to **Recovery**-the discovery that the universe has built-in mechanisms to recover missing information, ensuring the web of consistency holds together even when individual links appear broken.

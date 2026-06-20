@@ -83,7 +83,7 @@ The working idea is simple: non-commutativity is part of what makes overlap cons
 
 Consider the overlap condition. When two observers compare notes, they must agree on their shared observables. In a commutative world-where all measurements are compatible-the problem is much closer to the classical marginal setting. Pre-existing values can often be assigned more straightforwardly, especially on simple overlap structures, but compatibility is not automatic on arbitrary overlap graphs.
 
-The Quantum Marginal Problem shows that the difficulty survives in a sharper form. Pairwise-compatible reduced states can still fail to come from one global state. Non-commutativity intensifies the quantum consistency problem, but it is not the only obstruction to gluing.
+The Quantum Marginal Problem shows that the difficulty survives in a sharper form. Pairwise-compatible reduced states can fail to come from one global state. Non-commutativity intensifies the quantum consistency problem, but it is not the only obstruction to gluing.
 
 **Non-commutativity makes the quantum consistency problem especially hard.** If measurements all commuted, the overlap conditions would be much closer to the classical case. Physics could have rich laws and dynamics, while missing the specifically quantum constraint structure highlighted here.
 
@@ -263,13 +263,13 @@ observables. Bigger regions carry more questions. Smaller regions carry fewer.
 Once observables are attached to regions, they form a net. The intuitive rules
 are exactly the ones one would hope for. A smaller region gives you fewer
 questions than a larger one. Regions outside causal contact cannot kick each
-other, which is why their observables commute and why quantum theory still
+other, which is why their observables commute and why quantum theory
 refuses to send signals faster than light.
 
 ### Causal Diamonds
 
 In relativistic physics, the natural region is a causal diamond: the
-intersection of what an observer can still influence with what can still
+intersection of what an observer can influence with what can
 influence them. Its algebra is the observer's local menu of possible
 measurements. When two diamonds overlap, that shared region is where observers
 can compare notes.
@@ -362,9 +362,9 @@ The key distinction: **correlations** are not **influence**.
 
 Alice and Bob share an entangled pair. Alice measures and gets "up." She can then infer that Bob will measure "up." She has learned about their shared state. She has not sent a signal to Bob.
 
-The commutation relation above says Alice's measurement operator doesn't change Bob's statistics. Before Alice measures, Bob has 50/50 odds. After Alice measures, Bob still has 50/50 odds. Alice's knowledge changed, but not Bob's physics.
+The commutation relation above says Alice's measurement operator doesn't change Bob's statistics. Before Alice measures, Bob has 50/50 odds. After Alice measures, Bob has 50/50 odds. Alice's knowledge changed, but not Bob's physics.
 
-Bell's theorem shows these correlations cannot be explained by local hidden variables. The correlations are genuinely quantum. They still respect causality: no signal can be sent using entanglement alone.
+Bell's theorem shows these correlations cannot be explained by local hidden variables. The correlations are genuinely quantum. They respect causality: no signal can be sent using entanglement alone.
 
 That algebraic locality condition is the mathematical statement that consistency and causality can coexist, even with entanglement.
 

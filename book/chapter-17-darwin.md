@@ -340,7 +340,7 @@ Planck length when the same idea is written in Planck-area units. Patterns
 that demand more independent information than the screen can carry are not
 available as public laws. When the text speaks of compression, it means that
 a law must summarize many observations with fewer bits than a raw lookup
-table would need. A universe with no compressible regularities could still
+table would need. A universe with no compressible regularities could
 have events, but it could not have science in the sense this book needs.
 
 That is the human moral of the chapter. The laws we write down are not

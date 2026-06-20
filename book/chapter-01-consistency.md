@@ -5,7 +5,7 @@
 
 ## 1.1 The Intuitive Picture
 
-Let's start with what seems obvious-the picture that humans believed for millennia and that still matches our everyday intuition.
+Let's start with what seems obvious-the picture humans believed for millennia and that matches our everyday intuition.
 
 There exists an objective, three-dimensional reality that is completely
 independent of observers. Objects have definite positions and definite
@@ -71,7 +71,7 @@ This was one of the most important null results in the history of science. It ki
 
 Einstein was 26 years old in 1905, working as a patent clerk in Bern, Switzerland. He had been thinking about the speed of light problem for years.
 
-The Michelson-Morley result meant the speed of light was the same for everyone. But this seemed logically impossible. If I'm standing still and you're running toward a light beam at half the speed of light, shouldn't you measure the light moving at 1.5c relative to you? That's how velocities add in everyday experience.
+The Michelson-Morley result meant the speed of light was the same for everyone. But this seemed logically impossible. If I'm standing at rest and you're running toward a light beam at half the speed of light, shouldn't you measure the light moving at 1.5c relative to you? That's how velocities add in everyday experience.
 
 Einstein realized something had to give. If the speed of light is truly constant for all observers, then our intuitions about space and time must be wrong.
 
@@ -81,7 +81,7 @@ The result was special relativity. It was a revolution disguised as bookkeeping.
 
 A reference frame is an observer's chosen grid of clocks and rulers. Special
 relativity says different moving frames slice the same events into space and
-time differently, while still agreeing on the laws and on the speed of light.
+time differently, while agreeing on the laws and on the speed of light.
 
 ### The Surprising Conclusion
 
@@ -216,7 +216,7 @@ A symmetry says "this thing looks the same from different perspectives."
 
 **Rotation symmetry**: Turn your lab bench 90 degrees, the laws don't change. If physics depended on which way you're facing, observers with different orientations couldn't agree.
 
-**Lorentz symmetry**: You're standing still, I'm flying past at half light-speed. We measure different times and distances, but we agree on the laws. If physics depended on your velocity, observers in relative motion couldn't agree.
+**Lorentz symmetry**: You're standing at rest, I'm flying past at half light-speed. We measure different times and distances, but we agree on the laws. If physics depended on your velocity, observers in relative motion couldn't agree.
 
 **Gauge symmetry**: You use one mathematical description, I use another. As long as they're related by a gauge transformation, we make the same physical predictions. A gauge choice is like choosing coordinates for an internal bookkeeping system. Different choices can describe the same physical situation. This lets different mathematical formalisms agree on reality.
 

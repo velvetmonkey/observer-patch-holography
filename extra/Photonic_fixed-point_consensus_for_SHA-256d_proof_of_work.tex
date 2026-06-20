@@ -69,10 +69,25 @@
 \end{center}
 
 \begin{abstract}
-Proof-of-work mining is a search problem with an exact digital verifier. This paper asks a narrow question: can an optical OPH-style patch machine enrich the stream of SHA-256d candidates that reach that verifier?
+Proof-of-work mining has an unusually clean judge: the SHA-256d verifier. The question here is narrow enough to test. An optical OPH-style patch machine proposes candidates, and the exact digital verifier decides whether the candidate stream has been enriched.
 
-The setup compiles one mining instance into constraint patches for nonce choice, message schedule, compression, and target checking. The main achievement is an audit-ready test contract for candidate enrichment. The optical path proposes candidates. The digital verifier judges them. The metric is verifier-ready candidate enrichment per settling event, under blinded routes, label shuffles, operator-alignment checks, and exact SHA-256d receipts.
+One mining instance is compiled into constraint patches for nonce choice, message schedule, compression, and target checking. The deliverable is the scorebook: verifier-ready candidate enrichment per settling event, checked under blinded routes, label shuffles, operator-alignment controls, and exact SHA-256d receipts.
 \end{abstract}
+
+\section*{What This Paper Contributes}
+
+Proof of work has an unusually clean judge: the digital verifier. This paper
+uses that fact to make an OPH hardware claim testable. The known side is
+SHA-256d, exact verification, blinded controls, and the ideal-hash baseline.
+The OPH addition is a physical patch representation that may enrich the stream
+of candidates before the exact verifier sees them.
+
+The contribution is the scorebook. It states what counts as enrichment, what
+controls can expose route leakage or operator alignment, and which receipts
+must be public. A positive result would be verifier-ready candidate enrichment
+per settling event. A null result would be published as a hardware-negative
+branch with no cryptographic-break claim and no automatic consequence for the
+OPH core.
 
 \noindent\textbf{Keywords:} SHA-256; proof of work; Kaspa; kHeavyHash;
 physical cryptanalysis; optical computing; analog computing; Grover search;

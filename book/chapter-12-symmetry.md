@@ -160,7 +160,7 @@ $$G_{SM} = SU(3) \times SU(2) \times U(1)$$
 
 Start with the word **group**. A group is a set of moves that can be followed
 by other moves, can be undone, and includes a do-nothing move. Rotations form a
-group: rotate a cup, rotate it again, and the result is still a rotation. Every
+group: rotate a cup, rotate it again, and the result remains a rotation. Every
 rotation has an inverse rotation that takes you back.
 
 In physics, the moves are often not visible rotations of ordinary objects. They
@@ -198,7 +198,7 @@ A **gauge group** is a group of transformations that change the mathematical
 description without changing the physical situation. The word gauge adds one
 extra feature: the transformation can be chosen locally. Different observers,
 or different points in spacetime, may use different internal bookkeeping
-choices, and the predictions must still agree. Gauge fields are what make that
+choices, and the predictions must agree. Gauge fields are what make that
 local agreement possible.
 
 $SU(3)$ carries the strong-force color bookkeeping. $SU(2)$ carries the weak
@@ -232,7 +232,7 @@ A conserved current on the screen creates a gauge boson in the bulk.
 
 ### Our Route: Gauge Group from Gluing
 
-In this book we take a different route. The gauge group is not assumed in advance. Instead, we look at what happens when you glue observer patches together: fixed-cutoff edge charges fuse in specific ways, their transport data persists coherently across refinement, and the compatible multiplicity spaces descend with them. A reconstruction theorem then lets you work backward from that persistent sector package to the symmetry group behind it. This is classification, not selection: zero obstruction says which sectors can be transported and which compact group their tensor data reconstructs. On the realized one-Higgs low-energy branch, MAR then selects the physical gauge group $SU(3) \times SU(2) \times U(1)/\mathbb{Z}_6$. On that same branch, the minimal coupled carrier fixes the realized color triplet, while CKM phase counting together with weak-sector ultraviolet consistency picks the minimal viable generation count.
+In this book we take a different route. The gauge group is not assumed in advance. Instead, we look at what happens when you glue observer patches together: fixed-cutoff edge charges fuse in specific ways, their transport data persists coherently across refinement, and the compatible multiplicity spaces descend with them. A reconstruction theorem then lets you work backward from that persistent sector package to the symmetry group behind it. This is classification rather than selection: zero obstruction says which sectors can be transported and which compact group their tensor data reconstructs. On the realized one-Higgs low-energy branch, minimal admissible selection picks the physical gauge group $SU(3) \times SU(2) \times U(1)/\mathbb{Z}_6$. On that same branch, the minimal coupled carrier fixes the realized color triplet, while CKM phase counting together with weak-sector ultraviolet consistency picks the minimal viable generation count.
 
 The notation looks forbidding, but the roles are practical. $SU(3)$ is the
 color accounting system for quarks. $SU(2)$ is the weak doublet accounting
@@ -415,7 +415,7 @@ This turns symmetry from beauty into bookkeeping. A symmetry is a rule for
 translating descriptions while preserving what can be checked. In OPH language,
 it is a compatibility rule
 for patches. Two observers may use different coordinates, phases, frames, or
-local bases. If their translation rule is a true symmetry, they still agree
+local bases. If their translation rule is a true symmetry, they agree
 on the shared content.
 
 The Standard Model gauge group

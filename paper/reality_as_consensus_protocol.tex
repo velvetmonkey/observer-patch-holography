@@ -31,10 +31,25 @@ The Fixed-Point Computation That Implements Physics}
 \OPHPaperReleaseBanner
 
 \begin{abstract}
-This paper gives the consensus layer of Observer-Patch Holography. A universe is modeled as a finite network of observer patches. Patches can carry mismatched overlap data. Repair moves reduce the mismatch until the public state settles. The computation is fixed-point selection of a public normal form. The word simulation is used in that fixed-point sense: the computation solves for the observer-facing structure whose internal readout is a world containing observers. Cosmic history is the internal readout of the normal form.
+The consensus layer of OPH models a universe as a finite network of observer patches. Patches can carry mismatched overlap data. Repair moves reduce the mismatch until the public state settles. The computation is fixed-point selection of a public normal form, and cosmic history is the internal readout of that normal form.
 
-The main achievements are the finite patch-net mechanics used by the rest of the stack. Descent gives termination. Confluence gives a schedule-independent normal form. Loop obstructions identify the exact places where global agreement fails. The same bookkeeping gives stable records with Born--L\"uders readout on the central event surface, refinement control, and a fair-block statement for noisy consensus.
+The finite patch-net mechanics are the working layer used by the rest of the OPH stack. Accepted repair moves descend a mismatch potential until termination, the local-diamond and repair-completeness clauses give a schedule-independent normal form, and loop holonomy marks the exact places where local agreement fails globally. The same bookkeeping carries stable records with Born--L\"uders readout on the central event surface, refinement control, and a fair-block theorem for noisy consensus.
 \end{abstract}
+
+\section*{What This Paper Contributes}
+
+The mathematics of repair is old in the right places. Constraint satisfaction, rewriting systems,
+Lyapunov descent, local-diamond confluence, inverse limits, and recovery channels all enter this
+paper with their standard meanings. OPH adds the physical reading: each variable is an observer
+patch, each constraint is an overlap-visible record check, and each accepted rewrite is a local
+repair move that must descend to the quotient seen by neighboring observers.
+
+That turns consensus into the implementation layer of the theory. The paper proves when finite
+patch repair terminates, when the terminal public state is schedule-independent, how boundary data
+control uniqueness, and how cycle holonomy records the exact obstruction to global agreement. It
+also explains why a bare overlap graph is only a finite constraint code. Stronger language such as
+quantum error correction, min-cut distance, BFT liveness, or hardware speedup needs its own
+certificate.
 
 \section{Introduction}
 
@@ -1745,7 +1760,7 @@ rewrite system on \(\Sigma\). Under Theorem~\ref{thm:confluence}, every accepted
 most \(|\Phi(\Sigma)|-1\le |\Sigma|-1\) nontrivial steps, because each accepted move strictly
 lowers \(\Phi\) and the value set \(\Phi(\Sigma)\) is finite. Exact normal-form computation is
 therefore decidable by direct iteration of accepted local repairs. This step bound is a termination
-statement; the schedule-independent answer still depends on the local-diamond and repair-completeness
+statement; the schedule-independent answer depends on the local-diamond and repair-completeness
 clauses of Theorem~\ref{thm:confluence}. What this paper does
 \emph{not} prove is a uniform polynomial-time bound, a sharper complexity-class placement for
 families of growing patch nets, or any hardness lower bound.

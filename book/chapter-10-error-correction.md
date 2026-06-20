@@ -334,7 +334,7 @@ correction would fail.
 
 Holographic reconstruction has the same flavor. A bulk degree of freedom is
 encoded across an extended boundary
-region. Erase some of the boundary and the bulk operator can still be
+region. Erase some of the boundary and the bulk operator can be
 reconstructed from what remains, as long as the entanglement wedge supports
 it. The formula is not identical to a lab surface code, and gravity only
 gives approximate codes at finite $N$. But the logic is close enough to be

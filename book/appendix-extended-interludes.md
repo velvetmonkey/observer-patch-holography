@@ -235,7 +235,7 @@ A common intuition says that if information is damaged locally, it is gone.
 Quantum error correction shows why that intuition is too small. Information
 can be stored nonlocally in a pattern. Damage to a part of the carrier does
 not necessarily damage the logical message. What matters is whether the error
-has learned the protected information and whether the remaining system still
+has learned the protected information and whether the remaining system
 contains enough syndrome data to repair it.
 
 This distinction changes how one thinks about the past. A burned document is
@@ -295,7 +295,7 @@ change the underlying physics.
 
 This is why symmetry fits OPH so naturally. Different observer patches need
 not use the same coordinates, phases, gauges, or local frames. If their
-descriptions are related by a valid symmetry, they can still agree on
+descriptions are related by a valid symmetry, they can agree on
 shared records. Symmetry is the translation manual that keeps local freedom
 from becoming public contradiction.
 
@@ -461,7 +461,7 @@ Every fact is a stabilized achievement inside the same world it describes.
 
 ## Interlude 10: How to Read the Book's Equations
 
-A reader who is not a physicist can still read the equations productively. The
+A reader who is not a physicist can read the equations productively. The
 goal is to identify what each equation is asserting and what kind of constraint
 it represents.
 
@@ -744,7 +744,7 @@ cleanly defined short-distance masses. Quark masses run with scale and depend
 on renormalization scheme. Hadron masses are physical observables, but their
 relation to quark masses requires QCD dynamics.
 
-Neutrinos are still stranger. Oscillation experiments measure mass-squared
+Neutrinos are stranger. Oscillation experiments measure mass-squared
 differences and mixing angles, not all absolute masses directly. Cosmology
 puts limits on sums of masses. Beta decay and neutrinoless double-beta decay
 searches constrain different combinations. Any theory that quotes individual
@@ -932,7 +932,7 @@ disturbances. A public fact is the signal that survives after these error
 sources are modeled, bounded, rejected, or carried as uncertainty.
 
 That is why the recovery chapters matter. Recovery is not a fantasy of
-perfect restoration. It is the mathematical study of which correlations still
+perfect restoration. It is the mathematical study of which correlations
 contain enough information to rebuild a useful description. In classical
 error correction, redundant bits protect a message. In quantum error
 correction, information is stored in correlations that local damage cannot

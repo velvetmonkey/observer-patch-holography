@@ -96,7 +96,7 @@ refinement, and descend with compatible finite-dimensional multiplicity spaces,
 the gauge group is reconstructed from that persistent charge bookkeeping
 itself. This reconstruction classifies the compact group carried by the
 transportable sector package; it does not make the Standard Model choice by
-itself. MAR then selects the minimal admissible one-Higgs matter branch. On that
+itself. Minimal admissible selection picks the one-Higgs matter branch. On that
 realized branch, the group is
 
 $$
@@ -140,7 +140,7 @@ weak interaction, and hadrons are composite particles such as protons and
 neutrons.
 
 That is the twist. The Standard Model stops looking like a cabinet full of
-unrelated entries. It looks like the smallest MAR-admissible charged world that
+unrelated entries. It looks like the smallest admissible charged world that
 lets the observer records close.
 
 ## 18.6 Closure Coordinates And Scale Certificate

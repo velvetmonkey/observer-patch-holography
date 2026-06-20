@@ -65,7 +65,7 @@ additive. If one box has $W_1$ possibilities and another has $W_2$, the pair
 has $W_1W_2$ possibilities, and $\ln(W_1W_2)=\ln W_1+\ln W_2$.
 
 Boltzmann did not win this argument by rhetoric. He was working in a period
-when many leading physicists still doubted that atoms were real. The entropy
+when many leading physicists doubted that atoms were real. The entropy
 formula became part of a larger historical turn: chemistry, kinetic theory,
 Brownian motion, and later Perrin's experiments all converged on the same
 conclusion. The statistical view of heat was not one person's guess. It was a
@@ -220,7 +220,7 @@ $$S_A = -\text{Tr}(\rho_A \ln \rho_A)$$
 where $\rho_A$ is the reduced density matrix after tracing out the other subsystem.
 
 "Tracing out" means deliberately ignoring a subsystem and asking what state is
-left for the part you still observe. It is the quantum version of looking only
+left for the part you observe. It is the quantum version of looking only
 at one column of a larger data table after summing over the rest.
 
 For the Bell state, $S_A = \ln 2$ (one bit). For a product state (no entanglement), $S_A = 0$.

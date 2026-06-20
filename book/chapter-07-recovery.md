@@ -74,7 +74,7 @@ But is the information *really* gone?
 
 This question haunted Ludwig Boltzmann in the 1870s. His colleague Josef Loschmidt pointed out something troubling: the fundamental laws of physics are reversible. Newton's equations run equally well forward or backward. If you knew the exact position and momentum of every molecule of smoke and ash-every atom that had been paper and ink-you could, in principle, reverse their trajectories and reconstruct the scrolls.
 
-The information isn't destroyed. It's scrambled. Hidden in correlations among billions of particles, diluted into the environment until no practical measurement could extract it. But mathematically, physically, it's still there.
+The information isn't destroyed. It's scrambled. Hidden in correlations among billions of particles, diluted into the environment until no practical measurement could extract it. But mathematically, physically, it remains there.
 
 ### The Universe's Error Correction
 
@@ -193,7 +193,7 @@ When $X$ leads to $Y$ leads to $Z$, we say $Y$ screens off $X$ from $Z$. Once
 you know $Y$, $X$ adds nothing new about $Z$. All $X$-$Z$ correlation is
 mediated through $Y$. The middle system carries everything relevant.
 
-This matters. It means you can throw away X and still have full access to anything X could have told you about Z-as long as you keep Y.
+This matters. It means you can throw away X and keep full access to anything X could have told you about Z-as long as you keep Y.
 
 ### Physical Examples
 
@@ -506,7 +506,7 @@ time. The past is not erased. It is encrypted with a key we will never find.
 
 Information can remain recoverable without being freely copied. No-cloning
 blocks duplication. Recovery survives because the information is encoded across
-extended correlations. That is how a noisy world can still
+extended correlations. That is how a noisy world can
 carry history. It is why observers can agree on a past they never saw. It is
 why black holes do not behave like cosmic shredders. And it is why spacetime
 starts to look like a code, a structure whose geometry and stability are tied

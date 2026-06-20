@@ -259,7 +259,7 @@ In OPH, several things stop that.
 
 Spacetime is reconstructed from a net of overlapping patch algebras. Pairwise entanglement alone does not determine the geometry. The global overlap pattern has to be consistent across the whole net.
 
-This is why the CS companion paper proves a cycle-obstruction theorem: all pairwise overlaps can look locally consistent while the global system still carries a nontrivial holonomy obstruction. In OPH that obstruction is the prototype of topologically protected defect structure.
+This is why the CS companion paper proves a cycle-obstruction theorem: all pairwise overlaps can look locally consistent while the global system carries a nontrivial holonomy obstruction. In OPH that obstruction is the prototype of topologically protected defect structure.
 
 Topology is determined by the global consistency class of the overlap data, not by the amount of entanglement between two parties taken in isolation.
 

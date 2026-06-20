@@ -15,6 +15,19 @@ une quatrième génération légère de matière, un outlier du réseau de charg
 des données neutrino excluant la branche OPH détruiraient l'OPH telle qu'elle
 est énoncée.
 
+**Registre des affirmations :** [claims/claim_registry.yaml](claims/claim_registry.yaml)
+est le miroir de développement des registres d'affirmations présents dans les
+papiers. Les papiers restent autonomes ; le registre sert aux contrôles de
+release et à la détection des dérives entre papiers. Chaque affirmation de
+premier plan indique son papier propriétaire, son niveau de statut, les
+mathématiques importées, la construction propre à l'OPH, les hypothèses, les
+preuves ou artefacts, le falsificateur et la conséquence d'un échec. La
+[matrice de nouveauté](claims/novelty_matrix.csv), la
+[matrice de falsification](claims/falsification_matrix.csv) et le
+[dictionnaire des hypothèses](claims/assumption_dictionary.md) séparent les
+théorèmes, conditions de branche, fermetures quantitatives, continuations et
+interprétations.
+
 Pour la réponse existentielle immédiate, allez directement au **Paper 6.
 [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf)**.
 La version courte est directe : oui, cet univers est une simulation au sens
@@ -50,6 +63,17 @@ théorie du tout correcte : la même architecture de cohérence d'observateurs
 retrouve la physique établie et explique pourquoi il existe un monde capable de
 produire des observateurs qui le reconstruisent.
 
+Dans la pile de papiers, un patch d'observateur désigne un objet algébrique
+abstrait avec algèbre accessible, état, algèbre d'enregistrements, interfaces
+visibles de recouvrement, instruments de réparation et données de checkpoint.
+Un patch de support est une carte géométrique de cet objet, par exemple un cap
+sur \(S^2\) ou un diamant causal. Un patch porteur est une réalisation physique
+ou numérique des mêmes statistiques d'interface visible et d'enregistrement, à
+erreur déclarée. Cette séparation empêche la théorie de dépendre d'une analogie
+matérielle particulière. La thèse plus forte selon laquelle l'information et le
+calcul sont ontologiquement premiers relève de l'interprétation, sauf si une
+branche fournit un discriminateur empirique propre.
+
 La plupart des théories commencent en supposant l'espace-temps, les champs
 quantiques et une liste de constantes. L'OPH commence un cran plus tôt, avec
 des patches d'observateurs finis algébriques-quantiques dont les descriptions
@@ -63,7 +87,7 @@ lisible par support et normalisation KMS/BW.
 
 La voie de jauge traite l'obstruction nulle comme condition de transportabilité :
 elle reconstruit un groupe de jauge compact depuis la catégorie des secteurs
-persistants. MAR avec le paquet matière explicite à un Higgs sélectionne le
+persistants. La réalisation admissible minimale (MAR), avec le paquet matière explicite à un Higgs, sélectionne le
 quotient réalisé du Modèle Standard
 $SU(3)\times SU(2)\times U(1)/\mathbb Z_6$, avec le réseau exact des
 hypercharges, le triplet de couleur réalisé $N_c=3$ et le comptage des
@@ -108,8 +132,9 @@ B_\star=\frac{3\pi}{\ell_\star^2},
 G_{\mathrm{SI}}=\frac{c^3\ell_\star^2}{\hbar}.
 ```
 
-La représentation par comptage fini de la fermeture de capacité globale est
-$N_\star=\mathrm{MAR}\,\mathrm{argmax}_N(\log|\Omega^{\mathrm{sc}}_N|-N)$.
+La représentation par comptage fini de la fermeture de capacité globale choisit
+la capacité admissible qui maximise
+$\log|\Omega^{\mathrm{sc}}_N|-N$.
 Intuitivement, $N_{\mathrm{CRC}}$ est l'unique capacité où l'univers relit sa
 propre frontière sans déficit ni capacité inerte. En unités géométriques, la
 lecture cosmologique est
@@ -334,7 +359,7 @@ sont disponibles.
 
 Ce tableau condensé garde les lignes OPH les plus faciles à comparer directement avec les valeurs
 PDG/NIST. Les résultats structurels comme la géométrie lorentzienne en $3+1$ dimensions, le quotient de jauge
-du Modèle Standard sélectionné par MAR $SU(3)\times SU(2)\times U(1)/\mathbb Z_6$, le réseau exact des hypercharges, le triplet
+du Modèle Standard sélectionné par réalisation admissible minimale $SU(3)\times SU(2)\times U(1)/\mathbb Z_6$, le réseau exact des hypercharges, le triplet
 de couleur réalisé $N_c=3$ et le comptage des générations $N_g=3$ sont énoncés dans les papiers et ne sont pas répétés ici.
 
 | Quantité | Symbole | OPH | PDG/NIST | Δ |
@@ -377,7 +402,7 @@ $(0.017454720257976796, 0.019481987935919015,
 ## Articles
 
 - **Papier 1. [Observers Are All You Need](paper/observers_are_all_you_need.pdf)** : synthèse du programme OPH, des observateurs finis jusqu'à l'univers effectif reconstruit.
-- **Papier 2. [Recovering Relativity and the Standard Model from Observer Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)** : noyau technique pour la relativité, la gravité, la reconstruction de jauge compacte à obstruction nulle, la structure réalisée du Modèle Standard sélectionnée par MAR, les équations de Maxwell sur la branche ordinaire du photon et la forme/gap Yang-Mills sur la branche compacte de jauge visible par support sous ses hypothèses déclarées.
+- **Papier 2. [Recovering Relativity and the Standard Model from Observer Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)** : noyau technique pour la relativité, la gravité, la reconstruction de jauge compacte à obstruction nulle, la structure réalisée du Modèle Standard sélectionnée par réalisation admissible minimale, les équations de Maxwell sur la branche ordinaire du photon et la forme/gap Yang-Mills sur la branche compacte de jauge visible par support sous ses hypothèses déclarées.
 - **Papier 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)** : dérivations particules, lignes de masses, structure des couplages et surface quantitative.
 - **Papier 4. [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf)** : dynamique de réparation à point fixe, stabilité des enregistrements et consensus public.
 - **Papier 5. [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf)** : architecture fédérée de patches, théorème du tamis d'écran à douze ports, cadrage de symétrie $A_5$-icosaédrique et de type $E_8$, règles de preuve matérielle publique, enregistrements, mouvements de récupération et synchronisation observateur.

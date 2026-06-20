@@ -112,7 +112,7 @@ thought of as passing through a sequence of nearby inertial frames. Step by
 step, their time evolution is built from tiny Lorentz boosts.
 
 An observer accelerating uniformly sees only the **Rindler wedge**, the part of
-spacetime from which signals can still reach that observer. A horizon forms
+spacetime from which signals can reach that observer. A horizon forms
 behind them. For the vacuum state restricted to this wedge, the
 Bisognano-Wichmann theorem shows that the modular Hamiltonian is exactly the
 generator of Lorentz boosts.
