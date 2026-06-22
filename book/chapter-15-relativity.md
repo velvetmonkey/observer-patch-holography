@@ -332,6 +332,13 @@ Lorentz invariant. Only in the special type-I case can this be represented as
 \(K_C = 2\pi B_C + \text{const}\). In the generic continuum case, the
 automorphism identity is the result.
 
+The finite-to-continuum version is narrower still. A finite regulator can be
+compared to the geometric flow only through transported regularized modular
+actions on fixed support-visible local algebras, with a multiresolution
+reference tower, state-error bounds, and a cutoff schedule. Worker steps,
+finite-cell coordinates, and unregularized full finite-cap modular groups do
+not define Lorentz invariance.
+
 That is the bridge. The clock defined by the state becomes the same clock
 spacetime symmetry was looking for.
 
@@ -425,6 +432,13 @@ all observers read the same conformal light-cone structure.
 Different observers have different modular flows. On the geometric branch, the
 inter-observer relations are carried by conformal transformations of $S^2$.
 The Lorentz group is the corresponding symmetry of the shared causal structure.
+
+The neutral-bulk simulator gate is weaker and separate. It can certify a common
+quotient-visible pseudometric or metric on observer features after chart
+transport, missingness, invariance, refinement, and held-out controls. A
+positive metric by itself is not Lorentzian spacetime. The relativity claim
+needs causal order, time separation, and the modular/geometric branch that
+identifies the shared light-cone structure.
 
 ## 15.9 Recovering General Relativity
 
@@ -598,6 +612,11 @@ metric $g_{ab}$ organizes the leading overlap relations between nearby modular
 flows. The metric is the compressed description that captures that common
 structure.
 
+This compression is not read from raw concatenated rows. The paper-level object
+under a neutral reconstruction is the quotient-visible distance on terminal
+normal-form observer features; only the separate modular and Einstein branch
+upgrades the relevant geometric data to spacetime dynamics.
+
 General relativity is the natural effective dynamics associated with this compression. It's not arbitrary. It's the simplest theory that respects the recovered structure.
 
 ## 15.11 What the Framework Resolves
@@ -668,7 +687,12 @@ effective term.
 
 It gravitates because missing recoverability has physical weight in the
 bookkeeping. This supplies a structural ingredient for a dark sector without
-introducing new particle species.
+introducing new particle species. For cosmology this structural ingredient is
+not enough by itself: scalar anomaly tables must be lifted to a finite
+covariant packet parent that closes stress-energy, keeps the baryon response
+gauge-independent, supplies recipient stress for nonzero repair exchange, and
+freezes source/solver/likelihood hashes before any CMB or growth likelihood is
+read.
 
 ### Why It's Dark
 
@@ -690,7 +714,11 @@ This lands near the empirical MOND acceleration scale. The proximity matters
 because it ties galaxy-scale anomalies back to the same de Sitter capacity
 logic that shaped the horizon from the start. That benchmark is
 continuation-level: it does not by itself derive a full galaxy-scale
-source/response law.
+source/response law. The same boundary applies to early-universe claims:
+OPH can conditionally identify the collar scalar with uniform-density
+curvature, but a source-only primordial spectrum still needs source-stress,
+single-clock, repair-gap, freeze-out, adiabatic-mode, isocurvature,
+phase-coherence, radial-lift, null-space, and forward-residual receipts.
 
 ## 15.13 Reverse Engineering Summary
 

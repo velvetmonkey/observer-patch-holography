@@ -349,6 +349,14 @@ be geometric. Entanglement wedges then say that two observers may reconstruct
 the same interior region from different boundary data. If they do, agreement
 is not optional. The shared wedge is the geometric version of an overlap.
 
+For the finite simulator, that overlap language has a strict neutral-bulk
+version. Observer features from different shards are comparable only after
+gauge and port presentation labels have been quotiented, terminal normal forms
+have been reached, and interface transport has glued the charts without hidden
+cycle holonomy. A distance built from the descended features is first a
+pseudometric. It becomes a metric only after feature collisions are quotiented
+or the features are proved jointly separating.
+
 ## 9.12 Reverse Engineering Summary
 
 Space is not a passive backdrop. The vacuum is a web of quantum correlations,

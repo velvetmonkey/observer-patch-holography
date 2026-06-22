@@ -34,7 +34,8 @@ is why it works so well.
 
 Think of the screen chart as a high-resolution, quantum information canvas.
 Most patterns are noisy and ephemeral. Some are stable: they survive overlap
-consistency, persist under modular time, and can be tracked across patches.
+consistency, persist under modular time, and, when the H3 record-worldline
+certificate passes, can be stitched across real patch interfaces.
 Those stable patterns are what we call **particles**.
 
 Matter is not a primitive substance. Particles are not tiny billiard balls.
@@ -216,6 +217,15 @@ away. A particle is the stable way an excitation shows up under the
 symmetries of the world. Wigner taught physics to catalogue those recurring
 roles by mass and spin, and OPH inherits the same catalogue once Lorentz
 kinematics emerges from screen dynamics.
+
+That statement is about sector or family identity. It should not be confused
+with the narrower bookkeeping question of whether two localized detector
+records are the same continuing token across a chart boundary. The paper now
+treats that second question as a conditional H3 certificate: the stitch needs a
+declared hyperboloid chart, common clock, real transverse interface,
+sector/gauge transport, an ID-independent assignment gap, and a refinement
+check. Without those receipts, the honest output is ambiguity, not a forced
+track.
 
 Mass tells you how the excitation answers time translations. Spin tells you how
 it answers rotations. Once Lorentz symmetry is in place, energy and momentum

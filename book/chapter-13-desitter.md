@@ -399,7 +399,16 @@ gravity. The statement does not introduce a new particle species. The
 cosmological constant and the galaxy-scale anomaly then sit inside one de
 Sitter picture, but the
 galaxy-scale response law itself is not part of the recovered-core theorem
-package.
+package. OPH conditionally identifies the collar scalar with uniform-density
+curvature, but primordial conservation and mode purity remain gated by
+source-stress, single-clock, freeze-out, isocurvature, phase-coherence,
+radial-lift, null-space, and forward-residual certificates. Until those
+receipts pass, CMB spectra are diagnostics or continuation tests, not
+source-only primordial predictions. A dark/anomaly CMB or growth claim has an
+additional gate: a finite covariant collar-packet parent must emit the stress
+moments, the anomaly-frame baryon response, any recipient stress for nonzero
+repair exchange, convergence receipts, and frozen source/solver/likelihood
+hashes before likelihood data are read.
 
 ---
 

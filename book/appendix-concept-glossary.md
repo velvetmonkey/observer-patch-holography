@@ -272,7 +272,11 @@ public reality as the stable result of overlap repair. Termination only says
 the repair process stops; confluence is the extra condition that different
 allowed schedules from the same initial quotient state stop at the same
 observer-facing quotient result. Same-boundary uniqueness additionally needs
-that boundary or sector to have a unique consistent extension.
+that boundary or sector to have a unique consistent extension. In the current
+technical statement, overlapping repairs commit through atomic transactions:
+read snapshots, boundary data, and exact descent are checked before a step is
+accepted. A normal-form hash is evidence that two quotient outputs match; it is
+not allowed to select between two physically distinct consistent endpoints.
 
 **Observer patch.** An observer patch is the finite operational domain
 available to an observer. It has a local algebra, a state, records, and

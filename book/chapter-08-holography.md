@@ -400,6 +400,15 @@ because it behaves like an equilibrium description of horizon entropy. The
 geometry we observe is then read as the effective configuration favored by that
 entropy bookkeeping under matter constraints.
 
+This should not be confused with a neutral-bulk data analysis shortcut. OPH
+does not let shard-local observer tables become a bulk merely by being joined.
+Before a neutral geometry claim is available, raw rows must descend to terminal
+quotient charts, interface transports must have no hidden holonomy, features
+must be quotient-visible, and the resulting distance is only a pseudometric
+until feature collisions are removed or joint separation is proved. The
+thermodynamic and modular arguments identify the physical branch only after
+that certificate surface has been cleared.
+
 ## 8.13 What We Borrow from AdS/CFT (and What We Don't)
 
 Our universe isn't AdS. It's closer to de Sitter space, with positive cosmological constant, accelerating expansion, and a cosmological horizon. There's no timelike boundary at infinity. So what is the relationship between OPH and AdS/CFT?

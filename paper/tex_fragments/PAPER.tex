@@ -374,24 +374,34 @@ weighted parent-copy repair strictly lowers \(\Phi\), normal forms are exactly c
 assignments, and the classical full-support Petz channel is CPTP and trace-norm contractive on
 its positive-support-gap domain. Gauge-invariant observables factor through the quotient normal
 form on that verified branch. The declared touched-overlap acceptance contract makes \(\Phi\) the
-finite-patch Lyapunov functional for accepted moves, and the support-local disjoint-commutation
-plus restriction-compatible union-collar glue that turn overlap associativity into the local
-diamond are part of the declared repair law itself. On the same fixed-cutoff quantum lift, the
-terminal expectation functional on each declared physical observable algebra is therefore unique
-even when microscopic representative lifts differ by gauge labels globally or by sector labels
-inside one quotient-local glued state.
+finite-patch Lyapunov functional for primitive repair proposals on the scalar branch, but a
+proposal becomes a physical step only through the transactional acceptance layer: snapshot-current
+read sets, unchanged-outside-write validation, preserved boundary/sector/holonomy data, and exact
+well-founded descent. The read set is validation-complete: it contains every support of every
+measure term that can change under the write. Overlapping primitive proposals are aggregated by connected conflict
+component; the restriction-compatible union-collar glue supplies the canonical aggregate payload,
+while primitive members of that component do not commit independently. On the same fixed-cutoff
+quantum lift, the terminal expectation functional on each declared physical observable algebra is
+therefore unique even when microscopic representative lifts differ by gauge labels globally or by
+sector labels inside one quotient-local glued state.
 The unqualified coding statement at this stage is only a finite constraint-code statement:
 the overlap-net codewords are the globally consistent states \(C=\Phi^{-1}(0)\). A bare graph does
 not determine code distance--the same graph can carry constant readouts with distance \(1\) or
 repetition constraints with distance \(|V|\). Topological-code distance/min-cut, Knill--Laflamme
 resilience, spectral-gap convergence, BFT wall-clock liveness, and hardware search-work reduction
 therefore require their own certificates and are not imported by the core overlap graph.
-The logic is not ``termination implies uniqueness'': Lyapunov descent gives termination, while the
-local diamond on the physical quotient plus repair completeness gives confluence. The theorem
-therefore gives one schedule-independent terminal quotient normal form from a fixed initial
-quotient state. A stronger same-boundary conclusion requires a preserved boundary/sector map and
-at most one consistent quotient extension in that boundary fiber. If accepted schedules terminate
-at different observer-facing quotient normal forms without a declared holonomy or higher-gauge
+The logic is not ``termination implies uniqueness'': exact descent gives termination, while the
+atomic conflict-component diamond on the physical quotient plus repair completeness gives
+confluence. The theorem therefore gives one schedule-independent terminal quotient normal form
+from a fixed initial quotient state. A stronger same-boundary conclusion requires a preserved
+boundary/sector map and at most one consistent quotient extension in that boundary fiber; the
+functional selected-fiber theorem discharges that condition on rooted packet presentations by
+constructing the single candidate from the boundary/root data and then checking all non-tree,
+sector, and holonomy obstructions. On that branch, multiple same-boundary candidate interiors can
+be present, inconsistent candidates are eliminated, and all surviving candidates share one
+quotient normal form. Normal-form hashes are public equality receipts after quotienting, not
+selectors among physically distinct minimizing endpoints. If accepted schedules terminate at
+different observer-facing quotient normal forms without a declared holonomy or higher-gauge
 obstruction, that repair law is outside the OPH consensus theorem.
 For separated cofinal refinement systems, the consensus paper adds an inverse-limit bridge:
 if finite-stage restriction maps commute with the quotient normal-form maps and holonomy maps,
@@ -408,7 +418,55 @@ run presents one finite universe only when it starts from one global carrier and
 projects to a legal monolithic repair path, a physical stutter, or a certified rollback to an
 earlier committed projection. The required certificate names the global graph, initial state,
 partition, cut interfaces, observer registry, run/config/code hashes, linearized commits,
-restart roots, final monolithic normal form, and recomputed readout. The same
+restart roots, final monolithic normal form, and recomputed readout. This does not yet identify
+executor order with observer history. Observer-clock naturality additionally requires a
+history-augmented quotient with semantic event keys independent of worker ID, repair iteration,
+queue position, timestamp, and retry metadata; a global observer registry descended from local
+registry groupoids with disjoint patch/cap/future namespaces and explicit lineage arrows; a
+state-preserving observer-algebra extraction functor from terminal augmented normal forms; a
+support-visible cap chart map natural with that extraction; and an operational clock instrument
+whose readout is calibrated up to the declared affine reparameterization and residual bound.
+Until those objects or proof-producing finite certificates are supplied, modular-time/readback
+naturality is a named gate, not a consequence of simulator bookkeeping. The same
+quotient boundary applies to neutral-bulk readout. For each shard \(s\), raw record rows
+\(\Sigma_s\) must first be quotient by the declared presentation groupoid \(\Gamma_s\) and then
+sent through the terminal normal-form map \(n_s\), producing
+\[
+X_s=n_s(\Sigma_s/\Gamma_s).
+\]
+Interface maps \(\tau_{ts}:U_{st}\to U_{ts}\) between these terminal charts must satisfy the
+identity, inverse, cocycle, and zero-cycle-holonomy checks before rows from different shards are
+compared. A global neutral readout is the quotient
+\[
+Q_{\mathrm{vis}}=\left(\bigsqcup_s X_s\right)/\!\sim_\tau ,
+\]
+not the concatenation of shard-local tables. Channel features \(F_{s,c}\) descend to
+\(Q_{\mathrm{vis}}\) only when their domains and values are transported by the same atlas. For a
+complete declared channel set \(\mathcal C_\star\), the neutral distance is
+\[
+d_{\mathrm{neu}}(x,y)=
+\left(\sum_{c\in\mathcal C_\star}w_c\,d_c(F_c(x),F_c(y))^p\right)^{1/p}.
+\]
+This is always stated first as a quotient-visible pseudometric. It becomes a metric only after
+quotienting zero-distance feature-collision classes or proving that the channels jointly
+separate points. Pairwise available-channel comparison is explicitly excluded: missingness is
+handled only by complete cases, a fixed quotient-visible missing symbol, or a train-only
+imputation map labelled as an imputed-representation metric. Presentation changes--gauge
+representatives, port relabelings, observer order, schedules, and shard partitions--preserve the
+metric only when they induce a bijection of \(Q_{\mathrm{vis}}\) together with channel
+isometries; refinement claims additionally require a cofinally vanishing distance tail modulus.
+Finite Euclidean claims require the double-centered Gram certificate
+\[
+B=-\frac12H(D^{\circ2})H\succeq0
+\]
+and noisy runs must report negative spectral mass, rank/effective-rank data, held-out stress, and
+planted/shuffled controls. Statistical certificates split independent generative shard batches
+before preprocessing; chart alignment, scaling, imputation, weights, graph construction,
+dimension choice, and thresholds are train/validation objects, and a test batch, seed, boundary
+condition, trajectory family, duplicate, or descendant appearing in more than one split blocks
+the claim. These theorems establish at most a common finite quotient metric or pseudometric.
+Identifying it with a physical Riemannian bulk or with Lorentzian/Einstein spacetime requires the
+separate modular/geometric branch below. The same
 consensus surface is classified explicitly as a
 finite-state exact theorem package plus this controlled inverse-limit bridge: decidable
 normal-form computation with the Lyapunov step bound, automatic approximate stability only
@@ -654,6 +712,8 @@ has an infinite-dimensional null space unless a radial prior or finite parametri
 declared. The simulator may therefore run conventional free-scalar and lattice-gauge baselines,
 but those baselines carry closed OPH-native-vacuum and primordial-promotion receipts until these
 gates pass.
+
+\input{tex_fragments/PRIMORDIAL_BRIDGE_THEOREMS.tex}
 
 \textbf{Receipt contract.} Every ensemble run must record the immutable ensemble id, claim tier,
 regulator id, representative schema hash, gauge action hash, quotient canonicalizer hash, base
@@ -998,7 +1058,161 @@ then the regularized support-visible modular matrix elements converge on that fi
 
 \textbf{Proof sketch.} On the spectral interval \([a,\infty)\), the logarithm is operator-Lipschitz at the scale used above by its integral representation. Splitting the comparison into the support above \(a\), the \(a\)-tail, and the trace-distance error gives the displayed bound. The three displayed conditions make the three error terms vanish. QED.
 
-\textbf{BW-side closure status.} Proposition 2.6a blocks the stronger unregularized full-algebra conclusion from the proved finite-cutoff package. The regularized theorem supplies the constructive replacement used by the paper: support-visible modular transport is controlled with an explicit cutoff schedule, and Theorem 4.2 uses exactly that observer-facing content to close the BW/geometric cap-pair statement. Uniform-on-compact-time convergence of the regularized modular automorphism groups would require an additional equicontinuity, strong-resolvent, or Trotter-style lemma. A black-box AQFT/BW reconstruction route would require separately verifying conformal-net properties such as locality, additivity, duality, standardness, positive energy, and suitable modular inclusions.
+\textbf{Definition 2.6c (explicit multiresolution reference branch).}\label{def:explicit-multiresolution-reference-branch}
+The finite-to-continuum bridge is evaluated on a declared reference branch, not on an
+unstructured sequence of finite plots. A regulator is
+\[
+r=(m,L,b),
+\]
+where \(m\) is the refinement depth, \(L\) is the finite support or volume scale, and \(b\)
+is a boundary/phase label. The screen branch uses nested icosahedral subdivisions of \(S^2\);
+Euclidean branches use dyadic mesh \(a_m=a_0 2^{-m}\), with an additional temporal spacing
+\(a_t\) when a transfer matrix is present. Each newly exposed cell, collar, edge-center, or
+support-visible channel \(j\) carries
+\[
+D_j=\bigoplus_{\alpha\in S_j}M_{d_{j,\alpha}}(\mathbb C)
+\]
+and a faithful detail state \(\tau_j\). At regulator \(r\),
+\[
+\widetilde M_r=\bigotimes_{j\in\mathcal J_r}D_j,\qquad
+\widetilde\omega_r=\bigotimes_{j\in\mathcal J_r}\tau_j .
+\]
+A finite-depth local presentation circuit \(\Gamma_r:\widetilde M_r\to M_r\) changes from
+multiresolution coordinates to the OPH patch, port, collar, and gauge coordinates. For
+\(r\preceq s\), write
+\[
+\widetilde M_s=\widetilde M_r\otimes D_{s\setminus r},\qquad
+\tau_{s\setminus r}=\bigotimes_{j\in\mathcal J_s\setminus\mathcal J_r}\tau_j .
+\]
+The canonical refinement and coarse-graining maps are
+\[
+\iota_{rs}(A)=
+\Gamma_s\!\left[\Gamma_r^{-1}(A)\otimes\mathbf1\right],
+\]
+and
+\[
+Q_{sr}(X)=
+\Gamma_r\!\left[
+(\operatorname{id}\otimes\tau_{s\setminus r})
+\bigl(\Gamma_s^{-1}(X)\bigr)
+\right].
+\]
+The embedded conditional expectation is \(E_{sr}=\iota_{rs}Q_{sr}\). The reference state is
+\(\widehat\omega_r=\widetilde\omega_r\circ\Gamma_r^{-1}\).
+
+\textbf{Theorem 2.6d (exact modular-compatible reference tower).}\label{thm:explicit-oph-reference-tower}
+The data
+\[
+(M_r,\widehat\omega_r,\iota_{rs},E_{sr})_{r\preceq s}
+\]
+form a directed tower. The maps \(\iota_{rs}\) are unital injective
+\(*\)-homomorphisms with \(\iota_{st}\iota_{rs}=\iota_{rt}\). The \(Q_{sr}\) are faithful
+state-preserving completely positive coarse-grainings with \(Q_{tr}=Q_{sr}Q_{ts}\). The maps
+\(E_{sr}\) are faithful conditional expectations onto \(\iota_{rs}(M_r)\), and
+\[
+\widehat\omega_s\circ\iota_{rs}=\widehat\omega_r,\qquad
+\widehat\omega_r\circ Q_{sr}=\widehat\omega_s,\qquad
+\widehat\omega_s\circ E_{sr}=\widehat\omega_s .
+\]
+Moreover the finite reference modular groups are exactly compatible:
+\[
+\sigma_t^{\widehat\omega_s}(\iota_{rs}A)
+=
+\iota_{rs}(\sigma_t^{\widehat\omega_r}(A)).
+\]
+This theorem uses no full-algebra spectral floor uniform in \(r\); in bare coordinates it is only
+the identity \(A\mapsto A\otimes\mathbf1\), partial expectation against faithful detail states,
+and conjugation by \(\Gamma_r,\Gamma_s\).
+
+\textbf{Theorem 2.6e (canonical renormalization and correlation Cauchy bound).}\label{thm:martingale-renormalization}
+Let \(\mathfrak A\) be the \(C^\ast\)-inductive limit with embeddings \(j_r:M_r\to\mathfrak A\).
+There is a unique state \(\widehat\omega\) with
+\(\widehat\omega\circ j_r=\widehat\omega_r\), and the maps \(Q_{sr}\) induce
+state-preserving conditional expectations
+\[
+\mathbb E_r:\mathfrak A\to j_r(M_r)
+\]
+such that \(\|\mathbb E_r(A)-A\|\to0\) for every \(A\in\mathfrak A\). The finite-regulator
+realization of a continuum test observable is
+\[
+\mathcal R_r(A)=j_r^{-1}(\mathbb E_rA).
+\]
+For \(\|A_k\|\le M\),
+\[
+\left|
+\widehat\omega_r\!\left(\prod_{k=1}^n\mathcal R_r(A_k)\right)
+-
+\widehat\omega\!\left(\prod_{k=1}^n A_k\right)
+\right|
+\le
+M^{n-1}\sum_{k=1}^n\|A_k-\mathbb E_rA_k\|.
+\]
+Thus the operator mixing matrix and additive subtraction at finite cutoff are outputs of
+\(\mathcal R_r\), not free fits to the target continuum answer. Independent lattice-spacing,
+volume, and boundary sweeps must publish the corresponding martingale-tail or physical-error
+envelopes before a finite simulation is read as continuum evidence.
+
+\textbf{Theorem 2.6f (compact-time modular convergence on fixed local algebras).}\label{thm:compact-time-modular-convergence}
+Let \(\rho^{\rm phys}_{s\downarrow r}\) be the density matrix of the physical state at fine stage
+\(s\), restricted to the embedded fixed local algebra \(M_r\), and let
+\[
+\epsilon_{s,r}:=\|\rho^{\rm phys}_{s\downarrow r}-\widehat\rho_r\|_1 .
+\]
+For a regularizer \(\eta_s>0\), define
+\[
+K_{s\downarrow r}^{(\eta_s)}
+=-\log(\rho^{\rm phys}_{s\downarrow r}+\eta_s\mathbf1).
+\]
+If \(\lambda_r=\lambda_{\min}(\widehat\rho_r)>0\), then for every \(A\in M_r\) and every
+\(T<\infty\),
+\[
+\sup_{|t|\le T}
+\left\|
+e^{-itK_{s\downarrow r}^{(\eta_s)}}A e^{itK_{s\downarrow r}^{(\eta_s)}}
+-
+\sigma_t^{\widehat\omega_r}(A)
+\right\|
+\le
+2T\|A\|
+\left[
+\frac{\epsilon_{s,r}}{\eta_s}
++\log\!\left(1+\frac{\eta_s}{\lambda_r}\right)
+\right].
+\]
+Hence \(\eta_s\to0\) and \(\epsilon_{s,r}/\eta_s\to0\) give uniform-on-compact-time convergence
+on each fixed support-visible local algebra. For a countable cofinal local test tower, pointwise
+\(\epsilon_{s,r}\to0\) admits a diagonal subsequence and one cutoff schedule. The phrase
+``finite-stage modular action'' below means this transported, regularized local action; it does
+not mean the unregularized full finite-cap modular group.
+
+\textbf{Theorem 2.6g (finite positive transfer and Lorentzian handoff gate).}\label{thm:positive-transfer-gate}
+On Euclidean repair branches, let \(P_{C,r}\) be the orthogonal conditional expectation onto the
+complete repaired visible datum for active collar \(C\), choose \(c_{C,r}\ge0\), and set
+\[
+L_r^{\rm rep}=\sum_C c_{C,r}(I-P_{C,r}),\qquad
+T_r(a_t)=e^{-a_tL_r^{\rm rep}} .
+\]
+Then \(L_r^{\rm rep}=L_r^{\rm rep\,*}\ge0\), \(0<T_r(a_t)\le I\), \(T_r(a_t)\mathbf1=\mathbf1\),
+and the stationary Euclidean path measure is reflection positive:
+\[
+\mathbb E_r[(\Theta F)F]\ge0
+\]
+for positive-time cylinder functions \(F\). A Lorentzian unitary statement requires this finite
+positivity plus either exact shell-additive direct-limit semigroup identities or a Mosco /
+strong-resolvent substitute, including vacuum-projection and intertwiner convergence. Weak-\(*\)
+state convergence alone is not a transfer theorem.
+
+\textbf{BW-side closure status.} Proposition 2.6a blocks the stronger unregularized full-algebra
+conclusion from the proved finite-cutoff package. Theorems 2.6c--2.6g supply the explicit
+reference-tower certificate needed for the finite-to-continuum reading: continuum correlations
+come from the conditional-expectation renormalization map, compact-time modular group convergence
+is only for transported regularized physical marginals on fixed support-visible local algebras,
+and Lorentzian transfer needs reflection positivity or an equivalent positive-transfer
+certificate. Theorem 4.2 then uses exactly the observer-facing support-visible content to close
+the BW/geometric cap-pair automorphism statement. Without the multiresolution regulator
+certificate, finite simulations remain regulator evidence. A black-box AQFT/BW reconstruction
+route would require separately verifying conformal-net properties such as locality, additivity,
+duality, standardness, positive energy, and suitable modular inclusions.
 \subsection{Overlap Consistency and Gluing}\label{3-overlap-consistency-and-gluing}
 
 The constructive part of overlap consistency is the tree-gluing theorem below. The structural part is the origin of the gluing redundancy itself. On the ordinary or central-defect branch, gauge-as-gluing is the finite-regulator overlap redundancy of local chart presentations: once the overlap algebras are realized in finite-dimensional charts, overlap-consistent rechartings of a cut form a compact unitary transition system. The collar theorem of Section 2.3 should therefore be read with its boundary group \(G_\Sigma\) understood as shorthand for this derived compact boundary action, not as a model-specific add-on. On the genuinely noncentral branch, the same weak gluing data are encoded by a compact crossed-module change system, so the fixed-cutoff collar theorem upgrades to a higher-gauge statement rather than failing. The fixed-cutoff topological package is therefore closed on all three branches.
@@ -1357,9 +1571,14 @@ is confined to the shrinking collar up to the carried errors \(r_{\mathrm{FR}}(\
 \[
 K_C=2\pi B_C;
 \]
-otherwise the automorphism identity is the full statement and the action is outer. Consequently, replacing the finite-stage modular action by the geometric cap-dilation action incurs only the carried collar and support-visible regularization errors, and these vanish in the refinement limit.
+otherwise the automorphism identity is the full statement and the action is outer. Consequently,
+on a branch carrying the multiresolution reference-tower certificate of Theorems 2.6c--2.6f, the
+transported regularized modular action on every fixed support-visible geometric local algebra
+converges uniformly on compact modular-time intervals to the geometric cap-dilation action.
+Without that certificate, this theorem identifies only the scaling-limit cap-pair modular
+automorphism and does not assert compact-time convergence of finite-regulator modular groups.
 
-\textbf{Proof.} Markov locality localizes the modular defect to the shrinking collar, with carried finite-stage errors \(r_{\mathrm{FR}}(\varepsilon_\delta)\) and \(\delta^{\mathrm M}\). Proposition 2.6a shows why a full-algebra unregularized floor is unavailable in general. Theorem 2.6b supplies the replacement: regularized support-visible modular matrix elements converge on every fixed local collar model under an explicit cutoff schedule. Projective replacement compatibility and the support-visible convergence audit ensure that the emitted modular limit is independent of the chosen exact-Markov comparison family. Support-visible cap-pair extraction on the local GNS support quotient uses weak-\(*\) compactness of finite-stage state spaces and the consensus refinement mechanism to supply local limit states, then applies GNS construction to obtain the scaling-limit cap pair. Support-readable modular covariance reads the modular group as a cap-local support map, and round-cap rigidity from surviving cut data identifies the scaling-limit modular automorphism group with the standard cap-preserving conformal flow up to normalization:
+\textbf{Proof.} Markov locality localizes the modular defect to the shrinking collar, with carried finite-stage errors \(r_{\mathrm{FR}}(\varepsilon_\delta)\) and \(\delta^{\mathrm M}\). Proposition 2.6a shows why a full-algebra unregularized floor is unavailable in general. Theorem 2.6b supplies the matrix-element replacement on fixed collar models, and Theorem 2.6f supplies the stronger compact-time group estimate only for transported regularized local actions with the stated reference-tower certificate. Projective replacement compatibility and the support-visible convergence audit ensure that the emitted modular limit is independent of the chosen exact-Markov comparison family. Support-visible cap-pair extraction on the local GNS support quotient uses weak-\(*\) compactness of finite-stage state spaces and the consensus refinement mechanism to supply local limit states, then applies GNS construction to obtain the scaling-limit cap pair. Support-readable modular covariance reads the modular group as a cap-local support map, and round-cap rigidity from surviving cut data identifies the scaling-limit modular automorphism group with the standard cap-preserving conformal flow up to normalization:
 \[
 \sigma_t^{\omega_\infty^{\mathrm{geo},C}}
 =
@@ -1381,7 +1600,7 @@ observer's relative time parameter. This is a declared BW-branch reading of the 
 modular flow derived in Theorem 4.2; it is not an additional proof that arbitrary operational
 clocks, global time, or the full problem of time have been derived from the axioms.
 
-\textbf{Scope note.} The theorem fixes the \(2\pi\) normalization and the carried refinement limit on the support-visible extracted geometric cap pair. The UV-side scaffold is the realized transported geometric cap-local system, regularized support-visible modular transport on fixed local collars, support-visible cap-pair extraction on the local GNS support quotient, support-readable modular covariance, and round-cap rigidity from surviving cut data. No separate cap-isotropy input is used, and the conformal support-map clause is the explicit scaling-limit branch condition rather than a finite-regulator Lorentz premise. Stronger compact-time group convergence or a black-box conformal-net BW reconstruction would be extra analytic certificates, not hidden steps in this theorem.
+\textbf{Scope note.} The theorem fixes the \(2\pi\) normalization and the carried refinement limit on the support-visible extracted geometric cap pair. The UV-side scaffold is the realized transported geometric cap-local system, regularized support-visible modular transport on fixed local collars, support-visible cap-pair extraction on the local GNS support quotient, support-readable modular covariance, and round-cap rigidity from surviving cut data. No separate cap-isotropy input is used, and the conformal support-map clause is the explicit scaling-limit branch condition rather than a finite-regulator Lorentz premise. Compact-time convergence of finite-regulator modular groups is available only through the transported-local certificate of Theorem 2.6f; a black-box conformal-net BW reconstruction would be an additional validation route, not a hidden premise.
 \subsubsection{\texorpdfstring{Theorem: \(\mathrm{BW}_{S^2}\) implies Lorentz kinematics}{4.3 Theorem: \textbackslash mathrm\{BW\}\_\{S\^{}2\} implies Lorentz kinematics}}\label{43-theorem-mathrmbw_s2-implies-lorentz-kinematics}
 
 \textbf{Theorem 4.3 (Lorentz kinematics on the screen).} Under the hypotheses of Theorem~\ref{42-theorem-mathrmbw_s2-from-markov-locality-symmetry-regularity},
@@ -2946,6 +3165,22 @@ claim must instead expose the variables needed by an Einstein--Boltzmann impleme
   B_A(k,a),\quad
   \Gamma_{\mathrm{rec}}(k,a).
 \]
+The first, source-side no-go is that
+\(\bar\rho_A(a)\), \(\bar\rho_{A,\mathrm{eq}}(a)\), and \(B_A(k,a)\) alone do
+not define a physical Boltzmann source.  A physical source must be emitted by a
+finite covariant collar-packet parent
+\[
+\mathcal P_r[X,g]=(C_r,Z_r,A_r,R_r,G_r,\pi_r[X],L_r[X],Q_r,D_r),
+\]
+whose finite packet states split the anomaly and any repair recipient, whose
+repair generator and reaction channels close the total stress tensor, and whose
+causal response data set the pressure, sound speed, anisotropic stress, exchange
+current, and repair rate.  \(B_A\) is gauge-invariant only when built from the
+anomaly-frame baryon density \(n_b^{(A)}=-u_{A\mu}J_b^\mu\).  If
+\(\Gamma_{\mathrm{rec}}>0\), explicit recipient stress is mandatory; otherwise
+the repair term is not a closed stress-energy source.  Physical likelihood
+status additionally requires immutable source, solver, and likelihood hashes
+frozen before the data comparison.
 The cold transported limit is the check case: when exchange, pressure, sound-speed, and anisotropic
 stress corrections are turned off, the anomaly slot must reduce to a CDM-like component before
 recombination. Any nonzero-field response, late-time growth suppression, or \(S_8\)-relief branch
@@ -4016,7 +4251,7 @@ Euclidean evolution for "time" A (the area of a cylinder in 2D YM) gives weight(
 t_\mathrm{phys} = \frac{g^2 A}{2} \quad \text{(in 2D YM, no ambiguity).}
 \]
 
-This shows that the Laplacian + MaxEnt \ensuremath{\to} heat-kernel structure is exact in a solvable two-dimensional Yang-Mills case. The coefficient in front of C\textsubscript{2} is fixed. This normalization anchor is a two-dimensional edge-theory check, separate from the compact paper's support-visible compact-gauge repair-gap theorem. In any regime where the edge theory reduces to an effective 2D YM with known "Euclidean thickness" A\_eff:
+This shows that the Laplacian + MaxEnt \ensuremath{\to} heat-kernel structure is exact in a solvable two-dimensional Yang-Mills case. The coefficient in front of C\textsubscript{2} is fixed. This normalization anchor is a two-dimensional edge-theory check, separate from the compact paper's conditional support-visible compact-gauge repair-gap theorem. In any regime where the edge theory reduces to an effective 2D YM with known "Euclidean thickness" A\_eff:
 
 \[
 g^2(\mu) = \frac{2}{A_\mathrm{eff}(\mu)} \cdot \frac{\Delta_R(\mu)}{C_2(R)},
@@ -4313,9 +4548,9 @@ phase split is:
 \toprule
 Phase & Nodes & Meaning \\
 \midrule
-I & D1--D5, D7--D9 & Recovered core: fixed-cutoff overlap repair and collar structure; the Lorentz/null-modular/Einstein branch; bosonic compact gauge reconstruction; the support-visible four-dimensional Euclidean Yang--Mills form and repair-gap theorem on the compact-gauge branch; realized-branch Standard Model quotient, exact hypercharge, structural electroweak force content, \(N_c=3\), and \(N_g=3\) under the explicit matter-package and admissibility inputs. \\
+I & D1--D5, D7--D9 & Recovered core: fixed-cutoff overlap repair and collar structure; the Lorentz/null-modular/Einstein branch; bosonic compact gauge reconstruction; the support-visible four-dimensional Euclidean Yang--Mills form and conditional repair-gap theorem on the compact-gauge continuum/transfer branch; realized-branch Standard Model quotient, exact hypercharge, structural electroweak force content, \(N_c=3\), and \(N_g=3\) under the explicit matter-package and admissibility inputs. \\
 II & D6, D10 & Quantitative closures: screen-capacity closure of the same Einstein branch and the \(P\)-driven electroweak/gauge-coupling branch. These depend on declared external or branch-specific inputs. \\
-III & D12 & Continuations: flavor details beyond the stated theorem surfaces, dark-sector proposals, conditional screen-spectrum and CMB/inflation-replacement kernels, \(H_0/S_8\) and growth branches, heuristic baryogenesis branches, spectroscopy, hadrons, and string/worldsheet effective-description branches. \\
+III & D12 & Continuations: flavor details beyond the stated theorem surfaces, \(H^3\) record-worldline stitch certificates, dark-sector proposals, conditional screen-spectrum and CMB/inflation-replacement kernels, \(H_0/S_8\) and growth branches, heuristic baryogenesis branches, spectroscopy, hadrons, and string/worldsheet effective-description branches. \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -4327,10 +4562,11 @@ particular, the conditional screen-spectrum branch reaches a MaxEnt Gaussian scr
 after the quotient-ensemble selector, quotient-normal-form scalar field, positive repair operator,
 operator-tilt, and fixed expected quadratic scalar-release-energy receipts pass. A primordial
 curvature spectrum also needs a screen-to-radial lift receipt, and physical TT/TE/EE spectra remain
-behind Boltzmann transfer and likelihood gates.
+behind finite covariant source, Boltzmann transfer, and frozen-likelihood gates.
 Low-\(\ell\) CMB kernels, parity envelopes, inflation-replacement claims, and dark/anomaly
 \(H_0/S_8\) growth modifications therefore remain continuation gates until their finite-collar
-source functions and likelihood contracts are supplied.
+source functions, recipient-stress closures, refinement ladders, and immutable likelihood contracts
+are supplied.
 
 The effective low-energy summary is
 \[
@@ -4390,6 +4626,10 @@ upper bounds on GR deviations wherever the Markov/mixing hypotheses apply.
 \(\Delta_8/\Delta_3=9/4\) for the SU(3) edge-sector benchmark, test the heat-kernel mechanism.
 \item \textbf{Quantitative particle checks}: the \(P\)-driven electroweak, Higgs/top, quark, charged, and
 neutrino lanes are compared on their declared surfaces in Ref.~\cite{ophparticles}, with \(W/Z\) compare-only, Higgs/top exact on the declared D10/D11 surface, quarks selected-class exact, charged absolute masses closed as a current-corpus no-go, and neutrinos theorem-grade on the weighted-cycle branch.
+\item \textbf{H3 record-token continuation}: Ref.~\cite{ophparticles} also contains a conditional
+\(H^3\) record-worldline stitch theorem. It is a certificate for localized observer-visible tokens
+crossing real chart or partition interfaces after sector/gauge transport, not a derivation of
+particle species, masses, gauge charges, or scattering amplitudes.
 \item \textbf{Continuation templates}: black-hole combs, PBH burst templates, dark-sector
 response laws, heuristic baryogenesis continuations, and critical-string lifts are not recovered-core tests.
 \end{itemize}
@@ -4405,8 +4645,8 @@ late-stage spectroscopy templates;
 \item inflation-replacement, CMB low-\(\ell\)/parity kernels, \(H_0/S_8\) growth modifications,
 and cosmological dark/anomaly Boltzmann kernels beyond the contract stated in Section~\ref{515-dark-matter-as-modular-anomaly};
 \item a primordial curvature spectrum or physical TT/TE/EE spectra from the screen-spectrum
-continuation unless the operator-tilt, scalar-release-energy, radial-lift, transfer, and likelihood
-receipts have passed;
+continuation unless the operator-tilt, scalar-release-energy, radial-lift, finite covariant source,
+transfer, frozen-likelihood, and no-data-use receipts have passed;
 \item Page-curve/island closure, PBH/LIGO comb claims, or critical-superstring completion;
 \item a theorem selecting equal-sized primitive observer carriers, fixed primitive observer
 capacity, or an isomorphic local cell algebra from \(P_\star\) and \(N_{\mathrm{CRC}}\) alone;

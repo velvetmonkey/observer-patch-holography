@@ -85,8 +85,11 @@ $SU(3)\times SU(2)\times U(1)/\mathbb Z_6$, avec le réseau des hypercharges,
 trois couleurs et trois générations. La mécanique quantique est le langage
 algébrique d'information porté par cette architecture de patches
 d'observateurs. Sous les hypothèses de jauge compacte indiquées, la même pile
-donne la forme euclidienne de Yang-Mills et identifie le gap de Yang-Mills au
-gap de réparation OPH.
+donne la forme euclidienne de Yang-Mills et un mécanisme fini de gap de
+réparation. L'identification de ce mécanisme au gap de Yang-Mills
+quadridimensionnel exige le certificat déclaré de limite continue
+multirésolution, de positivité par réflexion, de transfert/intertwiner et de
+non-trivialité.
 
 Le mécanisme est la boucle de consensus à point fixe. Les observateurs locaux
 n'accèdent pas à un état global depuis l'extérieur. Ils portent des états de
@@ -110,10 +113,32 @@ par travailleurs ne compte comme preuve d'un seul univers que si elle part d'un
 porteur fini global unique, émet le graphe porteur, l'état initial, la carte de
 partition, les interfaces de coupure, le registre des observateurs, les hachages
 d'exécution/configuration/code, et prouve que les événements validés par les
-travailleurs se projettent sur des réparations monolithiques, des stutters
-physiques ou des rollbacks certifiés. Les graines locales de shard, les
-manifestes périmés et les animations synthétiques de couture sont des
-diagnostics, pas des reçus physiques.
+travailleurs se projettent sur des réparations transactionnelles monolithiques,
+des stutters physiques ou des rollbacks certifiés. Les reçus de descente de
+couture, commit atomique, diamant local, complétude de réparation, élimination
+de branche et hachage de forme normale sont des contrats de preuve, pas des
+sélecteurs de branche. Les graines locales de shard, les manifestes périmés et
+les animations synthétiques de couture sont des diagnostics, pas des reçus
+physiques.
+
+La géométrie de bulk neutre a une porte propre. Des lignes d'observateurs
+locales aux shards ne deviennent pas un bulk global par concaténation. Elles
+doivent d'abord descendre par les quotients de jauge/ports, les formes normales
+terminales, le transport commun d'interface et les canaux de traits visibles au
+quotient. La distance produit obtenue est un pseudomètre jusqu'à ce que les
+collisions de traits soient quotientées ou que la séparation conjointe soit
+démontrée. Les valeurs manquantes, changements de présentation, repartitions de
+shards, raffinements, plongements euclidiens et statistiques sur lots tenus à
+l'écart demandent tous des reçus explicites avant qu'une exécution finie puisse
+revendiquer plus qu'une géométrie neutre diagnostique.
+
+Les affirmations sur l'horloge de l'observateur ont une porte supplémentaire.
+Les identifiants de worker, itérations de réparation, positions de file,
+horodatages et latences de paquets sont de la provenance d'exécution, pas le
+temps de l'observateur. Une histoire d'observateur indépendante du planificateur
+demande des clés d'événements sémantiques, un registre global d'observateurs à
+espaces de noms séparés, des flèches de lignée et un instrument d'horloge avec
+certificat de résidu affine.
 
 ## Le piège de l'espace-temps
 
@@ -299,12 +324,18 @@ $m_t=172.35235532883115\,\mathrm{GeV}$ selon la convention PDG de masse top par
 section efficace. La branche neutrino pondérée émet
 $(0.017454720257976796, 0.019481987935919015,
 0.05307522145074924)\,\mathrm{eV}$ sous les hypothèses neutrino indiquées.
+Son résultat de ligne d'enregistrement H3 est séparé : il certifie
+conditionnellement la continuation trans-frontière de jetons d'enregistrement
+localisés et visibles par l'observateur à partir d'un atlas hyperboloïde déclaré,
+d'une interface réelle, du transport, d'un écart d'assignation et d'un reçu de
+raffinement. Ce n'est pas une dérivation d'espèce de particule, de masse, de
+charge ou d'amplitude de diffusion.
 
 ## Articles
 
 - **Papier 1. [Observers Are All You Need](paper/observers_are_all_you_need.pdf)** : synthèse du programme OPH, des observateurs finis jusqu'à l'univers effectif reconstruit.
-- **Papier 2. [Recovering Relativity and the Standard Model from Observer Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)** : noyau technique pour la relativité, la gravité, la reconstruction de jauge, la structure du Modèle Standard sélectionnée par réalisation admissible minimale, les équations de Maxwell sur la branche ordinaire du photon et la route vers le gap de Yang-Mills sous ses hypothèses déclarées.
-- **Papier 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)** : dérivations particules, lignes de masses, structure des couplages et surface quantitative.
+- **Papier 2. [Recovering Relativity and the Standard Model from Observer Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)** : noyau technique pour la relativité, la gravité, la reconstruction de jauge, la structure du Modèle Standard sélectionnée par réalisation admissible minimale, les équations de Maxwell sur la branche ordinaire du photon et la route conditionnelle vers le gap de Yang-Mills sous ses hypothèses de limite continue et de transfert.
+- **Papier 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)** : dérivations particules, lignes de masses, structure des couplages, surfaces quantitatives et certificat conditionnel de couture de lignes d'enregistrement H3.
 - **Papier 4. [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf)** : comment des observateurs locaux comparent leurs enregistrements, réparent les désaccords et convergent vers la réalité partagée sur laquelle ils peuvent s'accorder.
 - **Papier 5. [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf)** : architecture fédérée de patches, théorème du tamis d'écran à douze ports, cadrage de symétrie $A_5$-icosaédrique et de type $E_8$, règles de preuve matérielle publique, enregistrements, mouvements de récupération et synchronisation observateur.
 - **Papier 6. [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf)** : manifeste final de la couche de sens OPH : pourquoi il existe quelque chose, pourquoi ce monde est compatible avec les observateurs, boucle étrange, candidats créateurs, paradis sur Terre ou dans des environnements de continuation, enfer comme isolement ou privation imposés, résurrection comme continuation d'observateur, justice selon les enregistrements de tort et de réparation, évolution mémétique, sentience animale et responsabilité symbolique humaine.
@@ -314,7 +345,7 @@ $(0.017454720257976796, 0.019481987935919015,
 - **[Photonic Fixed-Point Consensus for SHA-256d Proof of Work](extra/Photonic_fixed-point_consensus_for_SHA-256d_proof_of_work.pdf)** : enrichissement photonique de candidats pour la preuve de travail SHA-256d.
 - **[The Fine-Structure Constant as an OPH Pixel Fixed Point](extra/fine_structure_constant_derivation.pdf)** : point fixe source, frontière du point final hadronique empirique et ligne de comparaison.
 - **[Observer-Patch Holography as a String-Vacuum Selector](extra/observer_patch_holography_as_string_vacuum_selector.pdf)** : émergence des cordes comme description effective des dynamiques de bord OPH et crible de vides de cordes conventionnels, témoin hétérotique Bouchard-Donagi à une paire de Higgs, couche de sûreté `Z4R` et portes de verrouillage des moduli ; ce n'est pas un raccourci de promotion vers un vide natif OPH.
-- **[Explaining the Yang-Mills Mass Gap with Observer-Patch Repair Dynamics](extra/yang_mills_gap_clay_problem.pdf)** : route OPH vers le problème de Yang-Mills de Clay sous les hypothèses de jauge compacte, avec identification du gap de Yang-Mills au gap de réparation OPH.
+- **[Explaining the Yang-Mills Mass Gap with Observer-Patch Repair Dynamics](extra/yang_mills_gap_clay_problem.pdf)** : mécanisme OPH fini de gap de réparation et route conditionnelle vers le problème de Yang-Mills de Clay ; l'égalité entre le gap de Yang-Mills et le gap de réparation OPH exige le certificat quadridimensionnel de limite continue et de transfert.
 - **[Observer-Patch Holography and the Dark Matter Phenomenon](extra/oph_dark_matter_paper.pdf)** : phénoménologie de la matière noire et limite galactique de type MOND.
 - **[Theoretical Bounds on chi-nu in Observer-Patch Holography](extra/chi_nu_susceptibility_bounds.pdf)** : bande conditionnelle de quotient-edge `0.9343006394893864 <= chi_nu^can <= 1`; valeur exacte `exp(-P/24)` sur la branche uniforme; valeurs d'ingénierie mises à l'échelle par `N_coh^-1`.
 - **[Thinking as Patch-Net Fixed-Point Search](extra/thinking_as_patch_net_fixed_point_search.pdf)** : cognition et qualia comme consensus récurrent de patches.
@@ -342,6 +373,19 @@ hiérarchie électrofaible, l'énergie noire, le budget du secteur sombre,
 l'exclusion de la désintégration du proton par bosons de jauge, l'inventaire
 des particules et la sélection du vide de corde comme une seule grammaire de
 fermeture.
+
+Les continuations spectre d'écran et CMB sont sur une porte séparée. OPH
+identifie conditionnellement le scalaire de collier, après retrait monopôle et
+dipôle, avec la courbure à densité totale uniforme, mais un spectre primordial
+source-only exige les reçus de stress source, horloge unique, gap de réparation,
+freeze-out, mode adiabatique, isocourbure, cohérence de phase, lift
+écran-vers-radial, espace nul radial et résidu de projection avant que `A_s`,
+`n_s`, le running ou les spectres TT/TE/EE comptent comme prédictions OPH.
+Toute revendication CMB ou croissance du secteur sombre/anomalie exige en plus
+un parent fini covariant de paquets de collier, un stress récepteur explicite
+pour tout échange de réparation non nul, la convergence du régulateur, la
+récupération de la limite CDM et des hachages source/solveur/vraisemblance
+gelés avant la lecture des données de vraisemblance.
 
 ## Applications et matériel OMEGA
 

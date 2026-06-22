@@ -118,11 +118,14 @@ compact-gauge holonomy data, the four-dimensional scaling chart, the
 reflection-positive ordinary vacuum sector, the local maximum-entropy Gibbs
 scaling limit, and the branch condition that no additional gauge-invariant
 relevant dimension-four pure-gauge operator survives besides the positive
-curvature-squared invariant. The gap comes from repair: exact local repair
-turns into a positive Euclidean relaxation generator, and the first nonzero
-repair eigenvalue is the first nonzero Yang-Mills energy. As a Clay-facing
-claim, that result stays branch-scoped to the support-visible continuum
-construction used there.
+curvature-squared invariant. The gap mechanism comes from repair: exact local
+repair turns into a positive Euclidean relaxation generator. Reading the first
+nonzero repair eigenvalue as the first nonzero Yang-Mills energy requires the
+extra continuum certificate: renormalized correlations, reflection positivity,
+Euclidean covariance and locality, nontriviality, and transfer/intertwiner
+convergence. Thus the book should keep three layers separate: the exact
+multiresolution reference tower, a physical simulator's certified distance
+from that tower, and the field-theory identification of the continuum limit.
 
 The color triplet follows from the minimal coupled carrier, and the
 three-generation count follows from CKM phase counting, weak-sector
@@ -375,7 +378,14 @@ chance around $10^{-24}$; twenty gives $10^{-40}$. The deeper point is the
 compression: the same two closure coordinates organize the observer problem,
 gravity/gauge reconstruction, hierarchy bridge, dark energy, the dark-sector
 budget, the absence of simple-GUT proton decay, particle inventory, and
-the string-vacuum sieve.
+the string-vacuum sieve. Screen-spectrum and CMB continuations are not counted
+as source-only primordial rows until the source-stress, single-clock,
+repair-gap, freeze-out, adiabatic, isocurvature, phase-coherence,
+screen-to-radial lift, null-space, and forward-residual certificates are
+present. Dark/anomaly CMB and growth rows also need a finite covariant
+collar-packet parent, explicit recipient stress for nonzero repair exchange,
+regulator convergence, CDM-limit recovery, and frozen source/solver/likelihood
+hashes before they can leave diagnostic status.
 
 ## 18.7 Why de Sitter Fits
 
@@ -423,7 +433,19 @@ The simulation question lands differently here. Ordinary simulation theory
 imagines an external programmer standing beyond the physics. OPH describes a
 certified fixed-point computation whose settled output is read internally as a
 world. The certificate includes records, repair, branch elimination, and clock
-closure. The stronger image is stranger.
+closure. Repair is transactional in the theorem-grade sense: an update must
+validate its read snapshot, preserve the selected boundary and sector data, and
+descend before it can count as a physical step. Branch elimination is likewise a
+quotient statement, not a hash picking one attractive endpoint. Observer time
+has its own gate: semantic record events, namespace-safe observer identities,
+lineage arrows, and an operational clock instrument have to survive scheduler
+changes before a distributed run can claim observer-clock naturality. The
+neutral-bulk gate is similarly quotient-first: raw observer rows must descend
+through gauge/port quotients, terminal normal forms, common interface
+transport, quotient-visible features, metric-safe missingness, presentation
+invariance, refinement, and batch-held-out controls before a finite run can
+claim more than a diagnostic neutral pseudometric. The
+stronger image is stranger.
 A world of finite observers closes back on itself through the very minds it
 generates. The loop is conceptual before it is
 technological: observers reverse engineer the hardware and software of the

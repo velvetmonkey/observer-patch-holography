@@ -5,6 +5,67 @@ This appendix carries the cosmology- and continuation-facing technical statement
 synthesis paper. They do not enlarge the recovered core; they make the structural continuation
 boundary explicit on the synthesis surface.
 
+\subsection{Observer Registry and Clock-Naturality Certificate Contract}
+\label{app:observer-registry-clock-contract}
+
+For finite exported observer systems, a theorem-faithful evidence bundle separates executor
+metadata from observer semantics. It contains:
+\begin{enumerate}[label=(\roman*),leftmargin=2em]
+\item a semantic history DAG or labeled poset \(\mathsf H_O=(E_O,\preceq_O,\ell_O)\), with event
+keys computed from semantic payload, observer token, visible footprint, and semantic parents;
+\item a provenance envelope containing worker ID, repair iteration, retry count, queue position,
+timestamp, and packet latency, none of which may enter the semantic event key unless declared as
+physical input;
+\item local observer registry groupoids with disjoint patch-observer, cap-observer, and
+future-observer namespaces, explicit birth-event classes, continuation arrows, split/merge lineage
+arrows, and overlap functors preserving those data;
+\item a global registry descent certificate: cocycle agreement, trivial monodromy, no duplicate
+global observer identifiers, no mixed patch/cap/future namespace collisions, and no reuse of local
+anchor-patch identifiers as local observer indices;
+\item observer-algebra extraction data
+\[
+\mathsf{ObsAlg}(\widehat q_{\mathrm{nf}})
+=
+(\mathcal A_O,\omega_O,\mathcal R_O,\ldots)
+\]
+whose outputs are state-preserving isomorphic for history-equivalent or implementation-equivalent
+terminal augmented normal forms;
+\item a support-cap chart map \(J_O\) natural with those observer-algebra isomorphisms; and
+\item a clock instrument \(\Theta_O\) with affine reparameterization and residual bound for state,
+calibration, and record-readout errors.
+\end{enumerate}
+
+\begin{theorem}[Finite observer-clock certificate soundness]\label{thm:finite-observer-clock-certificate}
+On a finite exported model, suppose the augmented repair relation on
+\(\widehat Q=\{(q,[\mathsf H])\}\) terminates, terminal states are exactly the consistent physical
+states with completed semantic records, every augmented critical pair has a history-coherent join,
+implementation steps are linearizable to semantic commits or stutters, registry descent passes the
+groupoid cocycle and monodromy checks, and the observer-algebra/chart/clock maps satisfy the
+state-preserving and affine-residual certificates above. Then worker count, queue order, retry
+delivery, scheduler counters, and packet latency that is not declared physical input do not change
+the observer-readable history class, registry class, or clock law beyond the declared affine clock
+residual.
+\end{theorem}
+
+\begin{proof}
+Termination plus the augmented local diamond gives confluence by Newman's lemma, now for terminal
+history classes rather than only physical quotient states. Linearizability says every
+implementation execution projects to the same semantic relation up to stutters, so executor
+metadata cannot create new semantic events. Registry descent identifies the same global observer
+groupoid across local presentations. State-preserving observer-algebra extraction and natural
+support-cap charts transport the modular flow along the same observer identity, while the clock
+instrument certificate bounds the operational readout after the declared affine reparameterization.
+\end{proof}
+
+\begin{remark}[Falsifiers]\label{rem:observer-clock-falsifiers}
+The certificate fails if semantic event identifiers depend on worker IDs, timestamps, queue
+positions, repair iteration counters, or retries; if duplicate retry delivery creates two visible
+record commits; if two namespaces collide in the global registry; if registry cocycles or lineage
+arrows fail on overlaps; if histories from two executors are not labeled-poset isomorphic; or if
+clock residuals exceed the declared bound. These are public evidence-bundle failures, not merely
+field-name mismatches.
+\end{remark}
+
 \subsection{Cosmological Principle}
 
 \paragraph{\textbf{Lemma 4.1 (MaxEnt symmetry inheritance).}}

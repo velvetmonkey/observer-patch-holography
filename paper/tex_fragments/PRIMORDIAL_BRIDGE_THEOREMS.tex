@@ -1,0 +1,276 @@
+\subsubsection{Source-only primordial bridge theorem}\label{subsec:primordial-bridge-theorems}
+
+The finite screen covariance theorem is a screen theorem.  To read it as a
+source-only primordial curvature spectrum one must add the following bridge
+objects and receipts.  The dependency chain is
+\[
+\boxed{
+\operatorname{nf}(\mathcal Q_r)
+\to
+(g,T_I)
+\to
+q_\zeta=\zeta_\rho
+\to
+\text{single clock}
+\to
+\text{freeze-out}
+\to
+\text{coherent growing mode}
+\to
+\Delta_\zeta^2(k).
+}
+\]
+No successful fit of a screen \(C_\ell\) or a TT spectrum may replace one of
+these hypotheses.
+
+\textbf{Definition (source stress readout).}\label{def:oph-source-stress}
+On a reconstructed branch with relational metric \(g_{ab}\), let
+\[
+S_{\rm src}=\sum_I S_I[g,\Psi_I],
+\qquad
+T^I_{ab}=-\frac{2}{\sqrt{-g}}\frac{\delta S_I}{\delta g^{ab}},
+\qquad
+T^{\rm tot}_{ab}=\sum_I T^I_{ab},
+\]
+where \(I\) ranges over every active sector, including ordinary matter,
+radiation, neutrinos, OPH anomaly or repair sectors, and any auxiliary source
+kept in the run.  At finite regulator this is a quotient-visible map
+\[
+\mathsf{StressRead}_r:
+\operatorname{nf}(\mathcal Q_r)\longrightarrow \{T^I_{r,ab}\}_I .
+\]
+All source stress components must be read from the same global normal form as
+the collar scalar.
+
+\textbf{Source-stress closure theorem.}\label{thm:oph-source-stress-closure}
+Assume each \(S_I\) is relationally diffeomorphism invariant, the source
+equations hold, sector exchanges satisfy
+\[
+\nabla_aT_I^{ab}=Q_I^b,\qquad \sum_I Q_I^b=0,
+\]
+and \(\mathsf{StressRead}_r\) descends to the physical quotient and converges.
+Then
+\[
+\nabla_aT_{\rm tot}^{ab}=0.
+\]
+On the recovered Einstein branch,
+\[
+G_{ab}+\Lambda g_{ab}=8\pi G\,T^{\rm tot}_{ab}.
+\]
+The simulator must also report the non-circular comparison
+\[
+E_T^{ab}=
+T_{\rm src}^{ab}
+-
+\frac{G^{ab}+\Lambda g^{ab}}{8\pi G};
+\]
+using the geometric right-hand side alone is a geometry diagnostic, not a
+source-only primordial receipt.
+
+\textbf{Total-energy frame and curvature covector.}
+When \(T^a{}_b\) has a unique future timelike unit eigenvector \(u^a\), define
+\[
+T^a{}_bu^b=-\rho u^a,\qquad
+h_{ab}=g_{ab}+u_au_b,
+\]
+and decompose
+\[
+T^{ab}=\rho u^au^b+p h^{ab}+\pi^{ab},
+\qquad
+u_a\pi^{ab}=0,\qquad \pi^a{}_a=0.
+\]
+Let \(\Theta=\nabla_a u^a\) and let \(\sigma_{ab}\) be the shear.  Total
+energy conservation gives
+\[
+\dot\rho+\Theta(\rho+p)+\sigma_{ab}\pi^{ab}=0,
+\qquad
+\dot f:=u^a\nabla_a f.
+\]
+On an expanding branch, define
+\[
+p_{\rm eff}=p+\frac{\sigma_{ab}\pi^{ab}}{\Theta};
+\]
+then \(\dot\rho+\Theta(\rho+p_{\rm eff})=0\).
+
+\textbf{Theorem (exact total-curvature evolution).}\label{thm:oph-total-curvature-evolution}
+Let
+\[
+\dot\alpha=\Theta/3,\qquad
+\zeta_a=\nabla_a\alpha-\frac{\dot\alpha}{\dot\rho}\nabla_a\rho,
+\]
+and
+\[
+\Gamma^{\rm eff}_a=
+\nabla_a p_{\rm eff}
+-
+\frac{\dot p_{\rm eff}}{\dot\rho}\nabla_a\rho .
+\]
+Then, exactly and without a long-wavelength approximation,
+\[
+\mathcal L_u\zeta_a
+=
+-\frac{\Theta}{3(\rho+p_{\rm eff})}\Gamma^{\rm eff}_a .
+\]
+Hence a barotropic effective source, \(p_{\rm eff}=p_{\rm eff}(\rho)\),
+conserves \(\zeta_a\).
+
+\textbf{Collar scalar corollary.}\label{cor:oph-collar-curvature}
+For relational rods Lie-dragged by the total-energy flow, the collar-volume
+Jacobian satisfies
+\[
+J_X=\lambda\sqrt{\det\sigma_{AB}},
+\qquad
+\frac{d}{d\tau}\frac13\log J_X=\frac{\Theta}{3}.
+\]
+Relative to a frozen background,
+\[
+q_\zeta=\frac13\log\frac{J_X}{\bar J_X}.
+\]
+On the uniform-total-density cut,
+\[
+q_\zeta=\zeta_\rho+\hbox{constant}.
+\]
+After removing the monopole and dipole,
+\[
+q=\Pi_{\ell\ge2}q_\zeta=\Pi_{\ell\ge2}\zeta_\rho,
+\qquad
+Z_q=1.
+\]
+This is the source-only quotient scalar on the OPH screen; by itself it is
+still typed \textsc{ScreenCurvature}, not \textsc{PrimordialCurvature}.
+
+\textbf{Definition (rank-one single-clock branch).}\label{def:oph-single-clock}
+Let
+\[
+\mathcal F(x)=
+(\rho,p_{\rm eff},\{\rho_I,p_I,Q_I\}_{I=1}^N)
+\]
+be the scalar source map on the source moduli space.  A branch is rank-one
+single-clock when \(\operatorname{rank}d\mathcal F=1\), \(d\rho\ne0\), every
+level set of \(\rho\) is connected, all sector velocities agree with \(u^a\),
+and orthogonal momentum transfer vanishes or is interval-bounded.  At finite
+cutoff this requires a quotient-visible clock \(\chi_r\) and a factorization
+\[
+\mathcal F_r=\widehat{\mathcal F}_r\circ\chi_r .
+\]
+
+\textbf{Theorem (single-clock adiabaticity).}\label{thm:oph-single-clock-adiabaticity}
+On a rank-one single-clock branch,
+\[
+p_{\rm eff}=p_{\rm eff}(\rho),\qquad
+S_a^{IJ}=3(\zeta_a^I-\zeta_a^J)=0,
+\]
+and the intrinsic nonadiabatic pressure and transfer covectors obey
+\[
+\Gamma_a^I=0,\qquad \Xi_a^I=0 .
+\]
+Therefore \(\mathcal L_u\zeta_a=0\).  The proof is the chain rule through the
+single clock: every source scalar is a function of the same \(\chi\), and
+connected \(\rho\)-fibers remove residual branch labels.
+
+\textbf{Theorem (entropy repair gap).}\label{thm:oph-entropy-repair-gap}
+Let the linearized scalar repair/evolution block be
+\[
+\delta Y_{n+1}=L_r\delta Y_n+\eta_n,
+\]
+and let \(P_\perp\) project away gauge directions, constrained zero modes, and
+the adiabatic growing direction.  If there is a positive metric \(H_r\) such
+that
+\[
+\|P_\perp L_rP_\perp\|_{H_r}\le e^{-\gamma_r}<1,
+\]
+then
+\[
+\|P_\perp\delta Y_n\|_{H_r}
+\le
+e^{-n\gamma_r}\|P_\perp\delta Y_0\|_{H_r}
++
+\sum_{j=0}^{n-1}e^{-(n-1-j)\gamma_r}\|P_\perp\eta_j\|_{H_r}.
+\]
+In the unforced case the orthogonal entropy, decaying, and repair scalar
+modes vanish.  Eigenvalues alone do not certify this theorem for nonnormal
+repair matrices; a norm bound or a discrete Lyapunov inequality
+\[
+L_\perp^{\mathsf T}H L_\perp\preceq e^{-2\gamma}H
+\]
+is required.
+
+\textbf{Theorem (growing-mode coherence).}\label{thm:oph-growing-mode-coherence}
+Let \(X(k)\) collect the scalar initial-condition variables for curvature,
+radiation, baryons, CDM/anomaly, neutrinos, and repair-sector scalars, and let
+\(v_+(k)\) be the normalized adiabatic growing vector.  If the single-clock
+and repair-gap theorems hold through readout and no independent stochastic
+source acts afterward, then
+\[
+X(k)=v_+(k)\zeta(k),
+\qquad
+\mathcal P_X(k)=\mathcal P_\zeta(k)v_+(k)v_+(k)^\dagger .
+\]
+Thus \(\operatorname{rank}\mathcal P_X(k)=1\), source-side isocurvature
+fractions vanish, and all species share a deterministic growing-mode phase.
+Finite runs must report \(\lambda_2/\lambda_1\), \(\beta_{\rm iso}(k)\),
+decaying-mode fraction, and phase-convention defects as source diagnostics.
+
+\textbf{Theorem (screen-to-primordial bridge).}\label{thm:oph-screen-to-primordial}
+Assume the geometric record and causal-area metric receipts, the collar
+identity \(q_\zeta=\zeta_\rho\), source-stress closure, rank-one normal form,
+positive repair gap, freeze-out, adiabatic growing-mode, isocurvature, and
+phase-coherence receipts all pass.  Then the low-mode-removed OPH screen
+scalar is the source-only primordial curvature field restricted to the
+declared shell or radial window:
+\[
+q(\hat n)=
+\Pi_{\ell\ge2}\int dr\,W(r)\zeta_\star(r\hat n).
+\]
+For a thin shell, \(q(\hat n)=\Pi_{\ell\ge2}\zeta_\star(R_\star\hat n)\).  The
+forward spectrum is exactly
+\[
+C_\ell^q
+=
+4\pi\int_0^\infty d\ln k\,
+\Delta_\zeta^2(k)|\Psi_\ell(k)|^2,
+\qquad
+\Psi_\ell(k)=\int dr\,W(r)j_\ell(kr),
+\]
+and for a thin shell
+\[
+C_\ell^q
+=
+4\pi\int_0^\infty d\ln k\,
+\Delta_\zeta^2(k)j_\ell^2(kR_\star).
+\]
+
+\textbf{Radial prior, null space, and residual receipt.}
+The map above is a forward projection, not a free inversion.  With finite
+bins \(p_j\) for \(\Delta_\zeta^2\),
+\[
+A_{\ell j}=4\pi\int_{\hbox{\scriptsize bin }j}d\ln k\,
+b_j(k)|\Psi_\ell(k)|^2,
+\qquad
+C^q=Ap .
+\]
+The simulator must declare the basis, support, prior \(p_0,Q\), positivity
+conditions, singular spectrum of \(AQ^{-1/2}\), effective rank, null basis,
+resolution kernels, prior sensitivity, and every forward residual
+\[
+r_\ell=C_\ell^q-\widehat C_\ell .
+\]
+Only after the radial prior, null-space report, positivity test, source-only
+ancestry proof, and forward residual pass may the run emit \(A_s\), \(n_s\),
+and \(\alpha_s\).  Otherwise the typed output is
+\textsc{ScreenCurvature} or \textsc{ConditionalRadialContinuation}.
+
+\[
+\begin{array}{ll}
+\mbox{\texttt{TOTAL\_STRESS\_CLOSURE\_RECEIPT}} & T_I^{ab},Q_I^a,E_T,\nabla_aT^{ab} \\
+\mbox{\texttt{SINGLE\_CLOCK\_NORMAL\_FORM\_RECEIPT}} & \chi_r,\operatorname{rank}d\mathcal F,\hbox{ connected fibers} \\
+\mbox{\texttt{ENTROPY\_REPAIR\_GAP\_RECEIPT}} & L_\perp,H,\gamma,\hbox{ forcing/refinement bounds} \\
+\mbox{\texttt{CURVATURE\_EVOLUTION\_RECEIPT}} & \zeta_a,\Gamma_a^{\rm eff},\hbox{ evolution residual, freeze bound} \\
+\mbox{\texttt{ADIABATIC\_MODE\_RECEIPT}} & S_{IJ},\Gamma_I,\Xi_I,\hbox{ growing-mode projection} \\
+\mbox{\texttt{ISOCURVATURE\_BOUND\_REPORT}} & \beta_{\rm iso}(k)\hbox{ and source covariance} \\
+\mbox{\texttt{PRIMORDIAL\_PHASE\_COHERENCE\_RECEIPT}} & \lambda_2/\lambda_1,\hbox{ phase and decaying-mode defects} \\
+\mbox{\texttt{SCREEN\_TO\_RADIAL\_LIFT\_RECEIPT}} & W(r),R_\star,\Psi_\ell(k),\hbox{ source hashes} \\
+\mbox{\texttt{RADIAL\_NULL\_SPACE\_REPORT\_RECEIPT}} & \hbox{singular values, null basis, resolution kernels} \\
+\mbox{\texttt{FORWARD\_PROJECTION\_RESIDUAL\_RECEIPT}} & r_\ell,\hbox{ aggregate norms, quadrature and solver errors}.
+\end{array}
+\]

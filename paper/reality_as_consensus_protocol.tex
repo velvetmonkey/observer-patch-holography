@@ -33,13 +33,13 @@ The Fixed-Point Computation That Implements Physics}
 \begin{abstract}
 The consensus layer of OPH models a universe as a finite network of observer patches. Patches can carry mismatched overlap data. Repair moves reduce the mismatch until the public state settles. The computation is fixed-point selection of a public normal form, and cosmic history is the internal readout of that normal form.
 
-The finite patch-net mechanics are the working layer used by the rest of the OPH stack. Accepted repair moves descend a mismatch potential until termination, the local-diamond and repair-completeness clauses give a schedule-independent normal form, and loop holonomy marks the exact places where local agreement fails globally. The same bookkeeping carries stable records with Born--L\"uders readout on the central event surface, refinement control, and a fair-block theorem for noisy consensus.
+The finite patch-net mechanics are the working layer used by the rest of the OPH stack. Accepted repair moves pass transactional validation and descend an exact measure until termination; atomic conflict-component commits and repair completeness give a schedule-independent normal form, and loop holonomy marks the exact places where local agreement fails globally. The same bookkeeping carries stable records with Born--L\"uders readout on the central event surface, refinement control, and a fair-block theorem for noisy consensus.
 \end{abstract}
 
 \section*{What This Paper Contributes}
 
 The mathematics of repair is old in the right places. Constraint satisfaction, rewriting systems,
-Lyapunov descent, local-diamond confluence, inverse limits, and recovery channels all enter this
+well-founded descent, local-diamond confluence, inverse limits, and recovery channels all enter this
 paper with their standard meanings. OPH adds the physical reading: each variable is an observer
 patch, each constraint is an overlap-visible record check, and each accepted rewrite is a local
 repair move that must descend to the quotient seen by neighboring observers.
@@ -73,14 +73,16 @@ The resulting theorem package has two layers. The bare overlap network is only a
 constraint code: its codewords are the globally overlap-consistent states. Quantum
 error-correction, code-distance / min-cut resilience, exponential mixing, wall-clock BFT
 liveness, and hardware speedup are separate certified branches with additional data. The first
-core consensus layer concerns convergence: the declared
-local-fit contract on touched overlaps makes \(\Phi\) a Lyapunov functional for accepted repair
-moves, so termination is derived on the finite patch net; the fixed-cutoff union-collar gluing
-package then turns competing local repairs into a local diamond on the physical quotient, so
-under repair completeness every initial quotient state has a unique schedule-independent normal
-form. The stronger claim that all interiors with the same boundary data settle to the same state
-requires preservation of that boundary data plus a unique consistent extension in the corresponding
-fiber. The second concerns obstructions: pairwise overlap agreement does not ensure a
+core consensus layer concerns convergence: primitive recovery proposals are eligible only when
+they satisfy the touched-overlap local-fit contract, but a proposal becomes physical only through
+transactional acceptance with snapshot validation, protected-boundary preservation, and exact
+well-founded descent. Connected conflict components commit atomically through canonical
+union-collar payloads, so under repair completeness every initial quotient state has a unique
+schedule-independent normal form. The stronger claim that all interiors with the same boundary
+data settle to the same state requires preservation of that boundary data plus a unique consistent
+extension in the corresponding fiber; the functional selected-fiber branch proves that condition
+by constructing the single rooted extension and checking the remaining sector/holonomy
+obstructions. The second concerns obstructions: pairwise overlap agreement does not ensure a
 global solution, and the obstruction is holonomic. On the abelian branch it is the cycle sum of
 edge data; on the genuinely noncentral branch it is a crossed-module \v{C}ech class.
 
@@ -103,9 +105,9 @@ its codewords are exactly the globally consistent states, and \(C=\Phi^{-1}(0)\)
 (Proposition~\ref{prop:constraint-code}). This is the default meaning of ``the overlap network is
 a code.'' It is not, by itself, a quantum error-correcting code and does not imply a graph
 min-cut formula for distance (Theorem~\ref{thm:no-free-mincut}).
-\item \textbf{Asynchronous confluence.} For the declared accepted repair law, the local-fit contract makes \(\Phi\) a Lyapunov functional and hence gives termination, while the fixed-cutoff union-collar gluing package gives the local diamond on the physical quotient; under repair completeness, every fixed initial quotient state has a unique normal form, independent of update schedule (Theorem~\ref{thm:confluence}).
+\item \textbf{Asynchronous confluence.} For the declared accepted repair law, primitive recovery proposals pass through transactional snapshot/read/write validation, boundary/sector preservation, and exact descent. Atomic conflict-component commits give the local diamond on the physical quotient; under repair completeness, every fixed initial quotient state has a unique normal form, independent of update schedule (Theorem~\ref{thm:confluence}).
 \item \textbf{Cycle obstruction.} For affine overlap constraints over an abelian group, global consistency holds if and only if the holonomy vanishes on every cycle (Theorem~\ref{thm:holonomy}). The parity triangle gives the minimal frustrated example, and Theorem~\ref{thm:higherdefects} extends the same logic to the crossed-module higher-gauge defect hierarchy used later in the framework.
-\item \textbf{Gauge quotient and observable-level confluence.} When local repair is induced on the overlap-invariant quotient, the normal-form map descends to that quotient, and the induced terminal state on every declared physical observable algebra is unique there even when microscopic representatives differ by gauge or sector relabelings inside one quotient-local glued state. If a boundary/sector map is preserved and each consistent boundary fiber has at most one quotient extension, then all initial states with that boundary value settle to the same quotient normal form (Theorems~\ref{thm:gauge}, \ref{thm:boundary-conditioned-uniqueness}, \ref{thm:obsconfluence}).
+\item \textbf{Gauge quotient, selected fibers, and observable-level confluence.} When local repair is induced on the overlap-invariant quotient, the normal-form map descends to that quotient, and the induced terminal state on every declared physical observable algebra is unique there even when microscopic representatives differ by gauge or sector relabelings inside one quotient-local glued state. If a boundary/sector map is preserved and each consistent boundary fiber has at most one quotient extension, then all initial states with that boundary value settle to the same quotient normal form; the functional selected-fiber branch proves a nontrivial case where multiple same-boundary interiors exist, inconsistent candidates are eliminated, and surviving candidates share one quotient normal form (Theorems~\ref{thm:gauge}, \ref{thm:boundary-conditioned-uniqueness}, \ref{thm:functional-selected-fiber}, Corollary~\ref{cor:branch-elimination}, and Theorem~\ref{thm:obsconfluence}).
 \item \textbf{Refinement-limit consensus classes.} On a separated cofinal refinement system whose restriction maps commute with the finite-stage normal-form and holonomy maps, the quotient normal forms and holonomy obstructions assemble into unique inverse-limit classes with finite-stage visibility (Theorem~\ref{thm:refinement-consensus}).
 \item \textbf{Coarse-graining compatibility.} On any refinement system whose coarse-graining maps shadow finite-stage normal forms and holonomy maps with declared errors, reconciling first and then coarse-graining gives the same macroscopic law data as coarse-graining first and then reconciling, up to those errors; in the exact natural case the error is zero (Theorem~\ref{thm:coarse-grain-consensus}).
 \item \textbf{Record algebra and stability.} On the fixed-cutoff observer-accessible surface, central record projectors carry Born/L\"uders measurement directly, and approximate record projectors inherit explicit \((\varepsilon,\delta_{\mathrm{rec}})\) stability bounds on the same event surface (Theorem~\ref{thm:crdt}).
@@ -131,10 +133,11 @@ The repair step itself is a concrete recovery move, not a free rewrite primitive
 fixed-cutoff collar branch, a local update is obtained from exact Markov splice or from a
 declared Petz/Fawzi--Renner recovery channel and then read on overlap-invariant physical data.
 The fixed-point theorem below isolates the separate branch conditions cleanly: the declared
-repair law includes the touched-overlap local-fit contract that yields Lyapunov descent of
-\(\Phi\) on accepted moves, while the fixed-cutoff gluing package supplies the
-parenthesization-independent union-collar glue used for the local diamond. What sits above
-that step is repair completeness and, on the Petz branch, the support/CPTP clause stated later in
+repair law includes the touched-overlap local-fit contract for primitive proposals, while
+transactional acceptance validates snapshots, protected data, unchanged registers, and exact
+descent. The fixed-cutoff gluing package supplies the parenthesization-independent union-collar
+payload used for atomic conflict-component commits. What sits above that step is repair
+completeness and, on the Petz branch, the support/CPTP clause stated later in
 Proposition~\ref{prop:petz-cptp}.
 A nontrivial exported rooted-tree packet domain where these clauses are proved is recorded in
 Definition~\ref{def:tree-packet-domain} and Theorem~\ref{thm:tree-packet-domain}.
@@ -238,10 +241,10 @@ of the input collar state encoded by \(s\):
       Definition~\ref{def:oph-repair-map} and Theorem~\ref{thm:splice}.
 \end{enumerate}
 The decoder back to \(S_i\) is bookkeeping for the finite patch presentation; the physical content
-is the repaired collar state on the declared fixed-cutoff branch. Write \(s\to_i t\) iff
-\(t=T_i^\lambda(s)\neq s\). Let \(\to := \bigcup_{i\in V}\to_i\), and let \(\to^*\) be its
-reflexive-transitive closure. A state \(s\in\Sigma\) is a \textbf{normal form} iff
-\(T_i^\lambda(s)=s\) for all \(i\in V\).
+is the repaired collar state on the declared fixed-cutoff branch. Write
+\(s\rightsquigarrow_i t\) iff \(t=T_i^\lambda(s)\neq s\). These are primitive proposals, not yet
+accepted physical rewrite steps. A proposal is committed only through the transactional acceptance
+layer below.
 \end{definition}
 
 \begin{definition}[Touched-overlap potential and accepted local-fit contract]\label{def:localfit}
@@ -260,17 +263,18 @@ Define the touched-overlap potential
 \sum_{e=\{u,v\}\in E_i^{\mathrm{touch}}}
 w_e\, d_e\!\bigl(\pi_{u,e}(s_u),\pi_{v,e}(s_v)\bigr).
 \]
-On the declared fixed-cutoff branch, a recovery-derived candidate is committed only if it
-strictly lowers this touched-overlap score:
+On the declared fixed-cutoff branch, a recovery-derived primitive candidate is eligible for
+transactional commitment only if it strictly lowers this touched-overlap score:
 \[
-s\to_i t \implies \Phi_i(t)<\Phi_i(s).
+s\rightsquigarrow_i t \implies \Phi_i(t)<\Phi_i(s).
 \]
 This is the patch-net form of the regulator-side monotone local-fit contract carried by the
 declared repair package.
 \end{definition}
 
 \begin{definition}[Overlap-associative union-collar gluing]\label{def:assoc}
-Fix \(s\in\Sigma\) and two enabled repairs \(s\to_i t\), \(s\to_j u\). Write
+Fix \(s\in\Sigma\) and two enabled primitive proposals \(s\rightsquigarrow_i t\),
+\(s\rightsquigarrow_j u\). Write
 \[
 E_{ij}^{\mathrm{touch}}
 :=
@@ -278,16 +282,94 @@ E_i^{\mathrm{touch}}\cup E_j^{\mathrm{touch}}.
 \]
 The declared repair branch is \textbf{overlap-associative} if the following hold.
 \begin{enumerate}[label=(\roman*),leftmargin=2em]
-\item If \(E_i^{\mathrm{touch}}\cap E_j^{\mathrm{touch}}=\varnothing\), the two accepted local
-updates have disjoint support on the declared branch and therefore commute.
+\item If \(E_i^{\mathrm{touch}}\cap E_j^{\mathrm{touch}}=\varnothing\), the two local proposals
+have disjoint support on the declared branch and therefore commute if they are committed as
+separate transactions.
 \item If \(E_i^{\mathrm{touch}}\cap E_j^{\mathrm{touch}}\neq\varnothing\), there is a finite union
 collar \(U_{ij}\) covering the interfaces in \(E_{ij}^{\mathrm{touch}}\) such that the physical
 glued state on \(U_{ij}\) is parenthesization-independent on the quotient, in the sense of
 Proposition~\ref{prop:assocglue}, and the local decoders/lifts of
 Definition~\ref{def:repair} are restriction-compatible on nested collars.
 \end{enumerate}
-This is the concrete compatibility package used below to complete the local diamond.
+This is the concrete compatibility package used below to build canonical aggregate payloads for
+conflicting repair components.
 \end{definition}
+
+\begin{definition}[Transactional acceptance layer]\label{def:transactional-repair}
+Let \(X\) denote the finite physical presentation on which a repair step is being checked: before
+quotienting one may take \(X=\Sigma\), and on the physical branch \(X\) is the quotient by hidden
+representatives. Registers are the finite patch, interface, sector, and record coordinates. Fix a
+boundary/sector/holonomy record map
+\[
+B:X\to\mathcal B
+\]
+and a well-founded exact measure
+\[
+\mu:X\to(W,\prec),
+\]
+for example a lexicographic integer vector
+\((N_{\mathrm{hard}},\Phi,N_{\mathrm{unresolved}})\).
+
+A prepared transaction is a tuple
+\[
+\tau=(R_\tau,W_\tau,\sigma_\tau,p_\tau)
+\]
+with read set, write set, read snapshot, and payload. It commits at \(x\in X\) only if all of the
+following hold:
+\begin{enumerate}[label=(\roman*),leftmargin=2em]
+\item the snapshot is current: \(x|_{R_\tau}=\sigma_\tau\);
+\item the payload changes no register outside \(W_\tau\);
+\item boundary, sector, holonomy, and protected record data are preserved:
+      \(B(\operatorname{Apply}_\tau(x))=B(x)\);
+\item exact descent holds:
+      \[
+      \mu(\operatorname{Apply}_\tau(x))\prec \mu(x).
+      \]
+\end{enumerate}
+A stale, aborted, ambiguous, or obstructed transaction is not a rewrite step. The read set is
+\textbf{validation-complete} for \(\mu\): if a term of \(\mu\) can change when a register in
+\(W_\tau\) changes, the whole support of that term lies in \(R_\tau\). For seam potentials this
+means reading both endpoints of every seam whose score can change.
+
+At a state \(x\), form the conflict graph of enabled primitive repair proposals, with
+\[
+\tau\#\sigma
+\quad\Longleftrightarrow\quad
+W_\tau\cap(R_\sigma\cup W_\sigma)\ne\varnothing
+\ \text{or}\
+W_\sigma\cap(R_\tau\cup W_\tau)\ne\varnothing .
+\]
+Each connected conflict component \(K\) is replaced by exactly one canonical aggregate transaction
+\(\tau_K\), computed on the union-collar or conflict-component support. Primitive members of
+\(K\) never commit separately. Write \(x\to y\) for a successful aggregate transaction commit, and
+let \(\to^*\) be its reflexive-transitive closure. A state is a \textbf{normal form} when no
+aggregate transaction is enabled.
+\end{definition}
+
+\begin{proposition}[Validation support for local mismatch measures]\label{prop:validation-support}
+Suppose the exact repair measure has finite local supports,
+\[
+\mu(x)=\sum_{a\in A}\mu_a(x|_{S_a}).
+\]
+If a transaction writes \(W\), then only terms with \(S_a\cap W\ne\varnothing\) can change.
+Consequently, the descent validation is snapshot-local once the read set contains
+\[
+R^\mu(W):=\bigcup_{a:S_a\cap W\ne\varnothing}S_a .
+\]
+For the OPH overlap potential
+\[
+\Phi(x)=\sum_{e=\{i,j\}}w_e\,d_e\!\bigl(\pi_{i,e}(x_i),\pi_{j,e}(x_j)\bigr),
+\]
+this means reading both endpoints of every overlap whose score may change when a written register
+changes.
+\end{proposition}
+
+\begin{proof}
+If \(S_a\cap W=\varnothing\), the transaction leaves every register read by \(\mu_a\) unchanged,
+so that term cancels between the pre- and post-state. Every remaining term is determined by the
+payload together with the restriction to \(R^\mu(W)\). The displayed edge-potential formula has
+one two-endpoint support for each overlap term, giving the stated seam rule.
+\end{proof}
 
 \begin{remark}[Inputs and branch conditions]\label{rem:repair-burdens}
 The repair step is therefore not an abstract rewrite primitive. Its declared inputs are the
@@ -298,8 +380,9 @@ disjoint-commutation clause and the restriction-compatible union-collar package 
 Definition~\ref{def:assoc}. The
 parenthesization-independent quotient-local glue used there is supplied by
 Proposition~\ref{prop:assocglue} from the fixed-cutoff center-sector / higher-gauge gluing
-package. The theorem package takes repair completeness as an explicit branch condition.
-On the Petz branch, full CPTP action on all inputs also requires the support clause
+package. The actual accepted step is the validated aggregate transaction of
+Definition~\ref{def:transactional-repair}. The theorem package takes repair completeness as an
+explicit branch condition. On the Petz branch, full CPTP action on all inputs also requires the support clause
 recorded in Proposition~\ref{prop:petz-cptp}. On broader branches one must also prove that
 the declared union-collar compatibility is preserved under refinement or branch change.
 \end{remark}
@@ -307,7 +390,8 @@ the declared union-collar compatibility is preserved under refinement or branch 
 The theorem package separates the imported repair-law data from the theorem-local inputs cleanly:
 
 \begin{assumption}[Repair completeness]\label{ass:complete}
-$s\in C \iff \forall\, i\in V,\; T_i^\lambda(s)=s.$
+For the accepted transactional relation \(\to\), \(s\in C\) if and only if no aggregate repair
+transaction is enabled at \(s\).
 \end{assumption}
 
 Normal forms are exactly the globally consistent states. The dynamics is neither too weak (missing some inconsistencies) nor too strong (repairing things that were fine).
@@ -356,7 +440,9 @@ terminates at the unique state
 x_i=x_r\quad\text{for all }i\in V,
 \]
 with all hidden labels \(k_i\) unchanged. The normal-form map descends to the quotient by hidden
-gauge relabeling. The four-vertex instance with edges \(r\!-\!a\), \(a\!-\!b\), \(a\!-\!c\),
+gauge relabeling. If several tree repairs lie in one conflict component, the canonical aggregate
+transaction applies them in increasing tree depth and is the same as the corresponding serial
+tree repair path. The four-vertex instance with edges \(r\!-\!a\), \(a\!-\!b\), \(a\!-\!c\),
 alphabet \(A=\mathbb Z_3\), hidden labels \(K_i=\mathbb Z_2\), and weights \(5,1,1\) is exported
 as \path{code/consensus/runs/verified_tree_packet_net_domain.json}.
 \end{theorem}
@@ -478,22 +564,21 @@ If \(\sigma_B(b)=0\), the factor \(\sigma_B^{-1/2}\) has no value on that sector
 there by an input is outside the Petz support domain. That is the claimed obstruction.
 \end{proof}
 
-\begin{proposition}[Accepted repair moves are Lyapunov-decreasing]\label{prop:lyapunov-descent}
-For the accepted repair law of Definitions~\ref{def:repair} and \ref{def:localfit}, every enabled
-repair strictly decreases the inconsistency potential:
+\begin{proposition}[Accepted repair moves are decreasing]\label{prop:lyapunov-descent}
+For the accepted transactional repair law of
+Definitions~\ref{def:repair}--\ref{def:transactional-repair}, every enabled repair strictly
+decreases the declared exact measure:
 \[
-s\to t \implies \Phi(t)<\Phi(s).
+s\to t \implies \mu(t)\prec\mu(s).
 \]
+On the scalar \(\Phi\)-branch, this specializes to \(\Phi(t)<\Phi(s)\).
 \end{proposition}
 
 \begin{proof}
-Write \(s\to_i t\). If \(e\notin E_i^{\mathrm{touch}}\), then the interface data on \(e\) are
-unchanged by \(T_i^\lambda\), so the corresponding term in \(\Phi\) is the same for \(s\) and
-\(t\). Therefore
-\[
-\Phi(t)-\Phi(s)=\Phi_i(t)-\Phi_i(s)<0
-\]
-by Definition~\ref{def:localfit}.
+This is part of the commit validation in Definition~\ref{def:transactional-repair}. For a
+single-site scalar-\(\Phi\) transaction it reduces to the touched-overlap contract of
+Definition~\ref{def:localfit}; for an aggregate conflict component it is checked on the aggregate
+payload before the component can commit.
 \end{proof}
 
 \begin{proposition}[Termination from the OPH Lyapunov functional]\label{prop:lyapunov-termination}
@@ -502,16 +587,16 @@ repair relation \(\to\) is terminating.
 \end{proposition}
 
 \begin{proof}
-Because each \(S_i\) is finite, the global state space \(\Sigma=\prod_{i\in V}S_i\) is finite, so
-the value set \(\Phi(\Sigma)\subset\mathbb{R}_{\ge 0}\) is finite as well. Along any nontrivial
-repair step \(s\to t\), Proposition~\ref{prop:lyapunov-descent} gives \(\Phi(t)<\Phi(s)\). An infinite repair
-sequence would therefore produce an infinite strictly descending chain in the finite ordered set
-\(\Phi(\Sigma)\), which is impossible.
+Along any nontrivial repair step \(s\to t\), Proposition~\ref{prop:lyapunov-descent} gives
+\(\mu(t)\prec\mu(s)\). The measure order is well founded, so an infinite strictly descending chain
+is impossible. On the scalar-\(\Phi\) branch this is the older finite-value argument on
+\(\Phi(\Sigma)\).
 \end{proof}
 
 \begin{proposition}[Finite repair step bound]\label{prop:finite-step-bound}
 Let \(s_0\in\Sigma\). Under Proposition~\ref{prop:lyapunov-descent}, every accepted repair run
-starting at \(s_0\) has length at most
+starting at \(s_0\) has length at most the number of distinct \(\mu\)-values reachable below
+\(\mu(s_0)\) minus one. On the scalar-\(\Phi\) branch this gives
 \[
 \bigl|\{\,\Phi(s):s\in\Sigma,\ \Phi(s)\le \Phi(s_0)\,\}\bigr|-1
 \le |\Phi(\Sigma)|-1.
@@ -526,7 +611,9 @@ probability-one scheduling statement, and not spectral or exponential convergenc
 \end{proposition}
 
 \begin{proof}
-The values of \(\Phi\) strictly decrease along the run, so no value in
+The values of \(\mu\) strictly decrease along the run, so no \(\mu\)-value can occur twice. This
+gives the finite reachable-value bound. On the scalar-\(\Phi\) branch, the values of \(\Phi\)
+strictly decrease along the run, so no value in
 \(\{\,\Phi(s):s\in\Sigma,\ \Phi(s)\le \Phi(s_0)\,\}\) can occur twice. This gives the finite
 value-set bound. If each move lowers \(\Phi\) by at least \(\eta\), after \(T\) moves the value has
 dropped by at least \(T\eta\). Since \(\Phi\ge0\), \(T\eta\le\Phi(s_0)\), giving the displayed
@@ -543,36 +630,32 @@ with no declared holonomy or higher-gauge obstruction and no mere gauge-represen
 then the proposed repair law is not OPH-admissible as a consensus mechanism.
 \end{remark}
 
-\begin{proposition}[Local confluence from overlap-associative gluing]\label{prop:local-confluence}
-For the accepted repair law of Definitions~\ref{def:repair}, \ref{def:localfit}, and
-\ref{def:assoc}, the repair relation is locally confluent.
+\begin{proposition}[Local confluence from atomic conflict-component commits]\label{prop:local-confluence}
+For the accepted repair law of
+Definitions~\ref{def:repair}--\ref{def:transactional-repair}, the transactional repair relation
+is locally confluent.
 \end{proposition}
 
 \begin{proof}
-Take \(s\to_i t\) and \(s\to_j u\).
-If \(E_i^{\mathrm{touch}}\cap E_j^{\mathrm{touch}}=\varnothing\), then
-Definition~\ref{def:assoc}(i) gives
-\[
-T_j^\lambda(T_i^\lambda(s))=T_i^\lambda(T_j^\lambda(s)).
-\]
-So with \(v:=T_j^\lambda(T_i^\lambda(s))\) we have \(t\to_j v\) and \(u\to_i v\).
+Take a one-step peak \(t\leftarrow s\to u\), and let the two committed aggregate transactions
+come from enabled conflict components \(K\) and \(L\) at \(s\). If \(K=L\), the canonical
+component rule in Definition~\ref{def:transactional-repair} gives the same aggregate payload, so
+\(t=u\).
 
-Assume \(E_i^{\mathrm{touch}}\cap E_j^{\mathrm{touch}}\neq\varnothing\). Let \(U_{ij}\) be the
-union collar from Definition~\ref{def:assoc}(ii), and let \(\overline v_{ij}(s)\) denote the
-quotient-local glued state on \(U_{ij}\) determined by the exterior marginals of \(s\).
-Proposition~\ref{prop:assocglue} makes this state independent of whether the local
-splice/recovery is parenthesized as \(i\) then \(j\) or \(j\) then \(i\). Because the local
-decoders are restriction-compatible on nested collars, the one-site repairs \(s\to_i t\) and
-\(s\to_j u\) are precisely the \(i\)- and \(j\)-restrictions of \(\overline v_{ij}(s)\).
-Applying that same restriction-compatible decoder to the unfinished subcollar therefore produces
-the complementary accepted local step from \(t\) and from \(u\) into representatives of the same
-quotient-local union-collar state. Hence there exists \(v\in\Sigma\) with \(t\to^* v\) and
-\(u\to^* v\), where \(v\) is any representative of \(\overline v_{ij}(s)\).
+Assume \(K\ne L\). Then no write set in one component intersects any read-or-write set in the
+other. Therefore each transaction's snapshot is still current after the other commits, and the
+unchanged-outside-write test is unaffected. Validation-complete read sets ensure that every
+measure term whose value can change under one component was read by that component, so the
+descent check made at \(s\) remains the same after the other disjoint component is committed.
+Boundary and sector preservation are likewise checked on disjoint protected supports or on
+unchanged data. Thus each transaction can be committed after the other, and the two applications
+write disjoint registers to the same values. The two length-two paths therefore meet at an
+identical state \(v\). This is the local diamond.
 \end{proof}
 
 \begin{theorem}[Asynchronous confluence / fixed-point law]\label{thm:confluence}
-For the accepted repair law of Definitions~\ref{def:repair}, \ref{def:localfit}, and
-\ref{def:assoc}, under Assumption~\ref{ass:complete}, each fixed initial state $s\in\Sigma$ has a unique normal form
+For the accepted repair law of Definitions~\ref{def:repair}--\ref{def:transactional-repair},
+under Assumption~\ref{ass:complete}, each fixed initial state $s\in\Sigma$ has a unique normal form
 \[
 \operatorname{nf}_\lambda(s)\in C,
 \]
@@ -729,10 +812,12 @@ packet domain of Theorem~\ref{thm:tree-packet-domain} proves repair completeness
 descent on a nontrivial exported packet net, while Proposition~\ref{prop:classical-petz-packet}
 proves the classical full-support Petz clause used by that domain. A broader fixed-cutoff
 branch requires repair completeness for the chosen exported packet net and the
-support/CPTP clause on the Petz branch where that channel is used. The touched-overlap local-fit contract gives Lyapunov \(\Phi\)-descent on
-accepted moves, and Proposition~\ref{prop:assocglue} together with
-Definition~\ref{def:assoc} supplies the quotient-local compatibility package used for the local
-diamond. Stability of that package under refinement or branch change is a separate question.
+support/CPTP clause on the Petz branch where that channel is used. The touched-overlap local-fit
+contract gives scalar \(\Phi\)-descent for primitive proposals on the corresponding branch, while
+the transaction layer supplies exact accepted-step descent. Proposition~\ref{prop:assocglue}
+together with Definition~\ref{def:assoc} supplies the quotient-local compatibility package used
+to build canonical aggregate payloads; the local diamond then comes from atomic conflict-component
+commits. Stability of that package under refinement or branch change is a separate question.
 The point here is also that no extra gauge-covariance axiom is needed once repair is formulated
 on the quotient.
 
@@ -755,15 +840,17 @@ Hence the normal-form map descends to the quotient:
 \end{theorem}
 
 \begin{proof}
-Suppose $s\to_i t$, so $t=T_i^\lambda(s)\neq s$. If $s'=\gamma\cdot s$, then
+Let \(s\to t\) be an accepted aggregate transaction, and let \(\overline\tau\) be its quotient
+payload. If \(s'=\gamma\cdot s\), the representative-lift hypothesis gives an accepted lift
+\(s'\to t'\) of the same quotient transaction, and
 \[
-q\bigl(T_i^\lambda(s')\bigr)
+q(t')
 =
-\overline T_i^\lambda\bigl(q(s')\bigr)
+\overline\tau\bigl(q(s')\bigr)
 =
-\overline T_i^\lambda\bigl(q(s)\bigr)
+\overline\tau\bigl(q(s)\bigr)
 =
-q\bigl(T_i^\lambda(s)\bigr).
+q(t).
 \]
 Thus gauge-equivalent inputs induce the same repaired orbit, and by induction the orbit reached
 after any repair sequence depends only on the initial orbit. Every maximal repair sequence from
@@ -812,6 +899,81 @@ B(\overline{\operatorname{nf}}_\lambda([s']))=B([s']).
 If \(B([s])=B([s'])=b\), both quotient normal forms lie in \(C_b\). By the unique consistent
 extension assumption, \(C_b\) has at most one element, so the quotient normal forms are equal.
 \end{proof}
+
+\begin{theorem}[Functional selected-fiber uniqueness]\label{thm:functional-selected-fiber}
+Let \(Q_b:=B^{-1}(b)\subseteq\Sigma/\Gamma\) be a same-boundary quotient fiber presented on a
+rooted finite overlap graph with spanning tree \(T\), root \(r\), and patch state sets \(X_v\).
+Assume the boundary value fixes the root value
+\[
+u_r=\beta(b),
+\]
+and every non-root vertex has a deterministic extension map
+\[
+f_v:X_{p(v)}\times\mathcal B\to X_v .
+\]
+Define \(u_b\) recursively by
+\[
+u_v=f_v(u_{p(v)},b).
+\]
+Evaluate all non-tree overlap equations, sector constraints, and holonomy checks on this
+candidate. If they all pass, then \(C_b=\{u_b\}\). If any check fails, then \(C_b=\varnothing\).
+\end{theorem}
+
+\begin{proof}
+Every consistent state in \(Q_b\) must have root value \(\beta(b)\). Along each tree edge, the
+deterministic extension equation forces the child value to be
+\(f_v(u_{p(v)},b)\). Induction over tree depth therefore forces every consistent state in the
+fiber to equal the single recursively constructed candidate \(u_b\). The remaining constraints are
+exactly the non-tree overlaps, sector equations, and holonomy checks. If they pass, \(u_b\) is a
+consistent state and no other state can be. If one fails, the only tree-compatible candidate is
+inconsistent, so no element of \(C_b\) exists.
+\end{proof}
+
+\begin{proposition}[Tree repair realizes the selected extension]\label{prop:tree-selected-descent}
+Under the hypotheses of Theorem~\ref{thm:functional-selected-fiber}, choose positive weights
+\[
+w_v>\sum_{c:p(c)=v}w_c
+\]
+and set
+\[
+\Phi_T(x)=\sum_{v\ne r}w_v\,\mathbf 1[x_v\ne f_v(x_{p(v)},b)] .
+\]
+The repair that sets a non-root vertex to \(f_v(x_{p(v)},b)\) strictly decreases \(\Phi_T\), and
+the aggregate transaction for a connected tree-repair conflict component computes the same result
+in increasing tree depth.
+\end{proposition}
+
+\begin{proof}
+Repairing \(v\) removes the \(v\)-term of weight \(w_v\). Only children of \(v\) can become newly
+unmatched, contributing at most \(\sum_{c:p(c)=v}w_c\), which is strictly smaller than \(w_v\).
+Thus the tree potential decreases. For a connected conflict component, applying parent repairs
+before child repairs is forced by the same extension equations, and any different
+parenthesization has the same quotient result because each child value is a deterministic function
+of the repaired parent and \(b\).
+\end{proof}
+
+\begin{corollary}[Nontrivial branch elimination]\label{cor:branch-elimination}
+Assume transactional confluence, boundary preservation, repair completeness, and
+Theorem~\ref{thm:functional-selected-fiber}. If a selected boundary fiber has \(|Q_b|\ge2\) and
+\(C_b=\{u_b\}\), then
+\[
+\overline{\operatorname{nf}}_\lambda(Q_b)=\{u_b\},
+\]
+while \(Q_b\setminus C_b\ne\varnothing\). Thus multiple candidate interiors exist, inconsistent
+candidates are eliminated by repair, and all surviving candidates share one quotient normal form.
+If \(C_b=\varnothing\), the branch is obstructed. If a union solver returns two physically
+distinct consistent quotient endpoints for the same selected data, the correct status is
+\textsc{ambiguous-union-repair} or an explicit continuation gate, not selection by hash.
+\end{corollary}
+
+\begin{remark}[Receipts do not replace the theorem]\label{rem:receipt-boundary}
+Simulator receipts named seam descent, atomic commit, distributed local diamond, repair
+completeness, same-boundary multistart confluence, and quotient normal-form canonical hash are
+public evidence contracts for the finite theorem hypotheses above. They are not proof substitutes.
+In particular, a normal-form hash certifies that two emitted quotient normal forms agree after the
+declared quotienting; it is not allowed to choose between two physically distinct minimizing
+states.
+\end{remark}
 
 \begin{corollary}[Gauge-invariant law]\label{cor:gaugeinv}
 If $M:\Sigma\to Y$ is gauge-invariant ($M(\gamma\cdot s)=M(s)$ for all $\gamma$), then $M(\operatorname{nf}_\lambda(s))$ depends only on the gauge orbit $[s]$, not the representative.
@@ -1796,6 +1958,88 @@ recomputed from the projected state. Missing, stale, shard-local, or synthetic r
 these fields fail closed. The exact branch uses this contract; noisy branches additionally need
 the fair-block constants of Theorem~\ref{thm:noisy-fair-block-consensus}.
 
+\section{Quotient Chart Transport and Neutral Geometry}
+\label{sec:quotient-neutral-geometry}
+
+The distributed certificate above proves that a worker presentation is one finite quotient
+system. A separate step is needed before observer rows from different shards may be read as a
+common neutral geometry.
+
+\begin{definition}[Common quotient chart atlas]\label{def:neutral-quotient-atlas-consensus}
+For a shard \(s\), let \(\Sigma_s\) be raw records, let \(\Gamma_s\) be the groupoid of declared
+presentation-only moves such as gauge representative changes and local port relabelings, and set
+\[
+\overline Q_s:=\Sigma_s/\Gamma_s,\qquad X_s:=n_s(\overline Q_s),
+\]
+where \(n_s\) is the schedule-independent normal-form map. An interface atlas is a family of
+domains \(U_{st}\subseteq X_s\), \(U_{ts}\subseteq X_t\), and bijections
+\[
+\tau_{ts}:U_{st}\to U_{ts}
+\]
+satisfying identity, inverse, and cocycle laws, with zero closed-path holonomy on graph-shaped
+systems. A channel registry assigns each channel \(c\) a metric space \((Z_c,d_c)\), weight
+\(w_c>0\), and local features \(F_{s,c}:D_{s,c}\subseteq X_s\to Z_c\). The channel descends
+through the atlas when both domain membership and values are transported:
+\[
+x\in D_{s,c}\Longleftrightarrow \tau_{ts}x\in D_{t,c},
+\qquad
+F_{t,c}(\tau_{ts}x)=F_{s,c}(x).
+\]
+\end{definition}
+
+\begin{theorem}[Quotient-visible neutral readout]\label{thm:neutral-quotient-readout-consensus}
+Under Definition~\ref{def:neutral-quotient-atlas-consensus}, the relation generated by interface
+transport on \(\bigsqcup_sX_s\) is an equivalence relation and defines
+\[
+Q_{\mathrm{vis}}:=\left(\bigsqcup_sX_s\right)/\!\sim_\tau .
+\]
+The canonical maps \(X_s\to Q_{\mathrm{vis}}\) agree with transport, and zero closed-path
+holonomy makes them injective. Every compatible family of local channel maps descends uniquely
+to partial maps \(F_c:Q_{\mathrm{vis}}\dashrightarrow Z_c\). Therefore, on the complete channel
+domain
+\[
+Q_\star=\{x:F_c(x)\ \text{exists for every }c\in\mathcal C_\star\},
+\]
+the product formula
+\[
+d_{\mathrm{neu}}(x,y)
+=
+\left(\sum_{c\in\mathcal C_\star}w_c\,d_c(F_c(x),F_c(y))^p\right)^{1/p}
+\]
+is a well-defined pseudometric. It is a metric only after quotienting by zero-distance feature
+collisions, or after proving that the declared channel family separates points.
+\end{theorem}
+
+\begin{proof}
+Identity, inverse, and cocycle laws give reflexivity, symmetry, and transitivity. The transport
+compatibility of local features is exactly the universal-property condition for descent through
+the quotient. The weighted product distance is then independent of the representative. Its
+triangle inequality is Minkowski's inequality applied to the channel metrics. The only possible
+failure of identity of indiscernibles is equality of all declared feature values, which is
+removed by quotienting feature-collision classes or by a joint-separation proof.
+\end{proof}
+
+\paragraph{Certificate boundary.}
+Pairwise available-channel comparison is not a metric policy: different pairs can share different
+channels and violate the triangle inequality. A neutral-geometry run must therefore use complete
+cases, a fixed missing symbol whose mask is quotient-visible, or train-only imputation labelled
+as an imputed-representation metric. Presentation invariance requires a bijection of
+\(Q_{\mathrm{vis}}\) and channel isometries, so gauge changes, port relabelings, observer order,
+repair schedule, and shard partition changes are checked on distance matrices, not on displayed
+coordinates. Refinement requires a cofinally vanishing tail modulus for the finite-stage
+distances. Euclidean claims require the double-centered Gram test
+\[
+B=-\frac12H(D^{\circ2})H\succeq0
+\]
+and noisy runs report negative spectral mass, rank/effective rank, held-out stress, and
+positive/negative controls. Statistical certificates split independent generative batches before
+preprocessing; chart alignment, scaling, imputation, weights, graph construction, dimension
+selection, and thresholds are train/validation objects. Any shared shard batch, seed, boundary
+condition, trajectory family, duplicate, descendant, or repeated test-set inspection blocks the
+held-out theorem. This section certifies a common quotient metric or pseudometric only; physical
+Riemannian or Lorentzian spacetime identification belongs to the separate modular/geometric
+branch.
+
 \section{Noisy Fair-Block Approximate Consensus}
 \label{sec:noisy-fair-block-consensus}
 
@@ -1816,14 +2060,15 @@ Let \(q_{t+1}=\widetilde T_{i_t,t}(q_t)\) be a noisy asynchronous repair process
 filtration \((\mathcal F_t)_t\). Assume:
 \begin{enumerate}[(G1)]
 \item \textbf{Exact quotient target.} The ideal repair relation on \(Q\) has the exact OPH
-normal-form package: finite descent, quotient-local confluence, and repair completeness, so every
-fixed initial quotient state has a schedule-independent exact normal form in \(\mathcal N\).
+normal-form package: finite exact descent, atomic conflict-component confluence, and repair
+completeness, so every fixed initial quotient state has a schedule-independent exact normal form
+in \(\mathcal N\).
 \item \textbf{Fair asynchronous blocks.} There are stopping times
 \[
 0=\tau_0<\tau_1<\tau_2<\cdots
 \]
 such that each interval \([\tau_m,\tau_{m+1})\) contains enough local repairs to expose and act on
-every active mismatch class required by the exact local-diamond and repair-completeness
+every active mismatch class required by the exact transaction/confluence and repair-completeness
 certificate, with uniformly bounded length \(\tau_{m+1}-\tau_m\le L\). Write the noisy block map
 as
 \[
@@ -2212,7 +2457,8 @@ This paper provides the finite patch-net foundation for the broader companion co
 
 This paper proves the fixed-point consensus spine of OPH: schedule-independent normal forms from
 fixed initial quotient states, boundary-conditioned uniqueness when a preserved boundary/sector
-fiber has a unique consistent extension, holonomy obstructions, gauge-quotient invariance,
+fiber has a unique consistent extension, nontrivial functional selected-fiber branch elimination,
+holonomy obstructions, gauge-quotient invariance,
 separated cofinal refinement-limit consensus classes, controlled coarse-graining compatibility,
 the fixed-cutoff operator-record theorem, distributed one-universe realization for admissible
 worker presentations of a single global carrier, and conditional noisy fair-block convergence once a
@@ -2227,11 +2473,13 @@ beyond the consensus results proved here.
 \paragraph{Complexity boundary.}
 On a fixed finite patch net, the accepted reconciliation dynamics is a finite-state asynchronous
 rewrite system on \(\Sigma\). Under Theorem~\ref{thm:confluence}, every accepted repair run has at
-most \(|\Phi(\Sigma)|-1\le |\Sigma|-1\) nontrivial steps, because each accepted move strictly
-lowers \(\Phi\) and the value set \(\Phi(\Sigma)\) is finite. Exact normal-form computation is
-therefore decidable by direct iteration of accepted local repairs. This step bound is a termination
-statement; the schedule-independent answer depends on the local-diamond and repair-completeness
-clauses of Theorem~\ref{thm:confluence}. What this paper does
+most the number of distinct reachable \(\mu\)-values below its start value minus one, because each
+accepted transaction strictly lowers the declared exact measure. On the scalar \(\Phi\)-branch
+this specializes to the older \(|\Phi(\Sigma)|-1\le |\Sigma|-1\) bound. Exact normal-form
+computation is therefore decidable by direct iteration of accepted aggregate transactions. This
+step bound is a termination statement; the schedule-independent answer depends on the atomic
+conflict-component local diamond and repair-completeness clauses of Theorem~\ref{thm:confluence}.
+What this paper does
 \emph{not} prove is a uniform polynomial-time bound, a sharper complexity-class placement for
 families of growing patch nets, or any hardness lower bound.
 
@@ -2266,7 +2514,7 @@ With those boundaries explicit, the consensus-paper boundaries and companion int
 
 \item \textbf{Distributed implementation certificates.} Theorem~\ref{thm:distributed-one-universe} proves invariance for a worker presentation only after the implementation supplies one global carrier, authoritative ownership, cut interfaces, projection-preserving events, rollback roots, and final monolithic normal-form/readout certificates. Shard-local seeds, missing cut artifacts, stale manifests, synthetic seam trajectories, or worker-id histories do not certify a one-universe realization.
 
-\item \textbf{Global approximate-consensus stability.} Theorem~\ref{thm:splice} and Theorem~\ref{thm:crdt} supply the collar-local perturbative controls carried by this paper. The rooted-tree packet domain proves the exact finite repair package on one nontrivial exported domain. Theorem~\ref{thm:noisy-fair-block-consensus} closes the long-run noisy branch only after a fair-block contraction certificate is supplied. What remains absent is an automatic theorem showing that arbitrary approximate recovery moves on arbitrary packet-closed exported overlap nets are repair-complete, preserve support-local disjoint commutation and nested-collar restriction compatibility, satisfy the support/CPTP clause on every Petz branch used there, and meet that fair-block contraction certificate.
+\item \textbf{Global approximate-consensus stability.} Theorem~\ref{thm:splice} and Theorem~\ref{thm:crdt} supply the collar-local perturbative controls carried by this paper. The rooted-tree packet domain proves the exact finite repair package on one nontrivial exported domain. Theorem~\ref{thm:noisy-fair-block-consensus} closes the long-run noisy branch only after a fair-block contraction certificate is supplied. What remains absent is an automatic theorem showing that arbitrary approximate recovery moves on arbitrary packet-closed exported overlap nets are repair-complete, preserve transactional validation and atomic conflict-component confluence, satisfy the support/CPTP clause on every Petz branch used there, and meet that fair-block contraction certificate.
 
 \item \textbf{Expressive power / universality.} A universality claim would require an explicit uniform family of patch nets and repair laws that simulates arbitrary circuits or machines with stated encoding overhead and robustness under asynchronous schedules. This paper supplies no such construction, so universality is outside the theorem-grade output.
 
@@ -2307,7 +2555,7 @@ assumption-dependent or conjectural and are not part of the core theorem package
 \textbf{Desired statement} & \textbf{Required certificate} \\
 \hline
 Overlap network is a code & finite constraint-code data of Proposition~\ref{prop:constraint-code} \\
-Repair converges & finite Lyapunov descent; confluence additionally needs local diamond and repair completeness \\
+Repair converges & finite exact descent; confluence additionally needs atomic conflict-component local diamond and repair completeness \\
 Distance equals min-cut & topological-code certificate with homological logicals and matching systole/min-cut geometry \\
 Corrects \(t\) corrupted carriers & code projector, error family, Knill--Laflamme condition, and certified \(t<d/2\) distance bound \\
 Exponential convergence & declared transfer/channel operator with stationary projection and spectral gap \\

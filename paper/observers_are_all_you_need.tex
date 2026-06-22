@@ -243,6 +243,68 @@ definition. Physical predictions attach to quotient data: visible interface stat
 readout, repair maps, and checkpoint continuation. A carrier implementation is admissible only when
 those data remain invariant within its declared error model.
 
+\begin{definition}[Semantic observer history]\label{def:semantic-observer-history}
+For an observer token \(O\), the observer-readable history is a labeled causal poset
+\[
+\mathsf H_O=(E_O,\preceq_O,\ell_O).
+\]
+The elements of \(E_O\) are semantic record events, \(\preceq_O\) is physical or informational
+dependence, and \(\ell_O\) is the observer-visible event label. Event identity is derived from the
+canonical semantic payload, observer token, visible footprint, and semantic causal parents. It is
+not derived from worker ID, repair iteration, queue position, retry counter, timestamp, or packet
+latency metadata. Latency is execution gauge only when it does not alter semantic causality,
+delivered data, timeout-sensitive operations, or operational clock records.
+\end{definition}
+
+\begin{definition}[Observer registry groupoid and namespaces]\label{def:observer-registry-groupoid}
+Observer identities live in a registry groupoid, not in a flat UUID table. Objects are observer
+tokens
+\[
+\mathrm{RID}(O)=\bigl(\mathrm{kind}(O),[\mathrm{birth}(O)]_{\mathsf H},\mathrm{lineage}(O)\bigr),
+\]
+where \(\mathrm{kind}(O)\) lies in the disjoint namespace
+\[
+\{\text{patch observer},\ \text{cap observer},\ \text{future observer}\}.
+\]
+The birth event is a semantic event class in \(\mathsf H\), and lineage is carried by explicit
+continuation, split, and merge arrows. Local registries on overlapping presentations must preserve
+observer kind, birth event, lineage arrows, visible observer structure, and checkpoint cuts. The
+global registry is the descent groupoid or colimit of those local registries when the cocycle and
+trivial-monodromy checks pass. A split creates child tokens with parent links; it does not silently
+assign one identity to multiple descendants.
+\end{definition}
+
+\begin{definition}[Operational observer clock]\label{def:operational-observer-clock}
+The modular parameter of a support-visible cap pair is not, by itself, an arbitrary operational
+clock reading. A clock claim supplies an observer-accessible instrument
+\[
+\Theta_O:\mathrm{Chk}_O(D)\to\operatorname{Prob}(\mathbb R)
+\]
+and a declared affine calibration law. For a corresponding observer \(O'\), the required finite
+or exact certificate has the form
+\[
+\Theta_{O'}(\Phi_{O*}\rho)
+\approx
+(A_{a,b})_*\Theta_O(\rho),
+\qquad
+A_{a,b}(\tau)=a\tau+b,
+\]
+with an explicit residual bound from state mismatch, calibration error, and record-readout error.
+Execution counters are provenance; observer record order, modular parameter, and clock
+uncertainty are separate semantic or operational fields.
+\end{definition}
+
+\begin{remark}[Observer-clock naturality gate]\label{rem:observer-clock-naturality-gate}
+The present paper proves observer-first quotient and readback claims only where the cited theorem
+surface supplies the required data. Scheduler-independent observer history and clock naturality
+require a history-augmented quotient relation with history-coherent diamonds, registry descent,
+state-preserving observer-algebra extraction, support-cap chart naturality, and the operational
+clock instrument above. A public evidence bundle can falsify the claim by showing counter-dependent
+semantic event keys, duplicate or namespace-colliding registry identities, broken registry
+cocycles, non-isomorphic semantic history DAGs across executors, or clock residuals exceeding the
+declared bound. Simulator field names alone are not the proof.
+\end{remark}
+
 This definition leaves the primitive observer size open. The axioms require finite or regulated
 access at fixed cutoff and permit connected support regions with different finite or regulated
 algebras. A primitive observer may therefore be a variable finite federation of screen cells. The

@@ -162,7 +162,14 @@ There is no God's-eye view. There is no absolute description of reality that exi
 
 This is the turnaround: **subjective perspectives are primary**. The “objective world” is the fixed point of consistency across many observer patches.
 
-![Many local descriptions for a fixed boundary problem can be repaired in different orders, yet converge to one shared normal form when the overlap rules satisfy the confluence conditions.](../assets/book_diagrams/consensus-funnel.svg){width=72%}
+![Many local descriptions for a fixed boundary problem can be repaired in different orders, yet converge to one shared normal form when the overlap rules satisfy the transactional confluence conditions.](../assets/book_diagrams/consensus-funnel.svg){width=72%}
+
+In the technical papers, a repair proposal is not automatically a physical
+step. Overlapping proposals are grouped into an atomic transaction, checked
+against the current read snapshot, required to preserve the boundary and sector
+data, and committed only when the exact repair measure descends. The normal
+form is shared because that transaction layer is confluent, not because a
+simulation chooses the most convenient branch.
 
 This is the **overlap test**: If two observers share a region of experience, their accounts must agree in that overlap.
 
@@ -380,6 +387,13 @@ declared partition, real cut interfaces, stable observer identities, and a
 public event log proving that worker commits project to the same monolithic
 repair system. Worker queues, local seeds, restart files, and display seams are
 bookkeeping unless that projection certificate is present.
+
+The same caution applies to time. A repair-cycle counter is not automatically
+an observer clock. Worker IDs, retry counters, queue order, timestamps, and
+packet latency belong to execution provenance unless the model declares them as
+physical inputs. The observer-facing history has to be keyed by semantic record
+events and causal parents, and the clock readout needs its own calibration
+certificate.
 
 You might ask: "If reality is a computation, what is it computing?" It is computing one closed
 structure whose geometry, particles, observers, records, and hardware belong to one

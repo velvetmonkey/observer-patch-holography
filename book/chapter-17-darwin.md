@@ -188,6 +188,11 @@ branch, and quarks close on a selected public frame class. Charged leptons
 remain more target-anchored, and composite particles like hadrons demand
 stronger computational control of the strong interaction; empirical hadron
 closure values use a separate \(e^+e^-\to\mathrm{hadrons}\) payload class.
+Cross-boundary H3 record-worldline stitching is another conditional layer: it
+can certify that localized observer-visible records form a nonbranching token
+path, but only after the atlas, clock, interface, transport, assignment-gap, and
+refinement receipts pass. It does not by itself select a particle species or
+close a mass row.
 
 ### Topological Protection
 

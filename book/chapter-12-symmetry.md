@@ -264,16 +264,19 @@ The mass gap uses a separate spectral argument on the same branch. Exact local
 repair on an active collar acts as projection onto the repaired visible data.
 After the ground-state transform, Euclidean time evolution becomes a sum of
 active collar relaxations. A uniform positive repair rate gives a positive lower
-bound for the first nonzero compact-gauge energy. The accounting is literal on
-that branch:
+bound for the first nonzero compact-gauge repair energy. To read that as a
+four-dimensional Yang-Mills energy, the branch must also provide the continuum
+certificate: renormalized Schwinger-function convergence, reflection
+positivity, Euclidean covariance and locality, nontriviality, and convergence
+of transfer/intertwiner data. With that certificate, the accounting is literal:
 
 $$
 \Delta_{\mathrm{YM}}=\Delta_{\mathrm{rep}}.
 $$
 
-On that branch, the Yang-Mills gap is the repair gap.
-As a Clay-facing theorem, this remains scoped to that declared branch and to
-the support-visible continuum construction carried there.
+On that certified branch, the Yang-Mills gap is the repair gap. Without the
+certificate, the finite repair result remains a regulator mechanism, not a
+Clay-admissible four-dimensional construction.
 
 ## 12.8 Symmetry Breaking
 

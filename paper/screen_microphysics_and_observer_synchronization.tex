@@ -230,6 +230,29 @@ Each patch has:
 \item a checkpoint interface that exposes enough observer-accessible data to define continuation.
 \end{enumerate}
 
+\begin{definition}[Finite source-bridge readouts]\label{def:finite-source-bridge-readouts}
+For cosmology runs that attempt a source-only primordial bridge, the carrier must also expose
+quotient-visible maps
+\[
+\mathsf{StressRead}_r,\qquad
+\mathsf{ScalarSourceMap}_r,\qquad
+\mathsf{ClockRead}_r,\qquad
+\mathsf{RepairTangent}_r .
+\]
+They are defined on the same normal-form carrier used for the geometric record packet and must
+factor through the physical quotient: hidden carrier coordinates, port relabelings, and accepted
+repair schedules cannot change their output.  The finite packet must expose enough data to
+reconstruct, for every active sector,
+\[
+T_I^{ab},\quad Q_I^a,\quad u_I^a,\quad
+\rho_I,\quad p_I,\quad \pi_I^{ab}.
+\]
+The source-bridge maps are instrumentation for the screen-to-radial theorem.  They do not turn a
+screen covariance into a primordial spectrum unless the source-stress, single-clock, repair-gap,
+freeze-out, isocurvature, phase-coherence, radial-prior, null-space, and forward-residual receipts
+also pass.
+\end{definition}
+
 A spherical screen is then a coarse chart over a federation of such patches. It is what a
 particular observer-facing support cut looks like after quotienting hidden implementation details
 and choosing a geometric presentation. The microscopic carrier may be graph-like, federated,
@@ -266,6 +289,77 @@ The carrier is \emph{observer-facing} when every physical claim is made through 
 restrictions \(\pi_{i,e}\), record algebras \(\mathcal R_i\), and the quotient-local observables
 specified by the OPH consensus package. Hidden coordinates may exist, but they are not directly
 physical.
+
+\subsection{Canonical multiresolution regulator chart}
+
+\begin{definition}[Reference multiresolution carrier]\label{def:microphysics-multiresolution-carrier}
+Choose the nested geodesic icosahedral subdivisions of \(S^2\). A regulator is
+\[
+r=(m,L,b),
+\]
+where \(m\) is the subdivision depth, \(L\) is the finite support or volume scale of the exported
+carrier, and \(b\) is a boundary/phase label. Every newly exposed cell, collar, edge-center, or
+support-visible channel \(j\) carries a finite algebra
+\[
+D_j=\bigoplus_{\alpha\in S_j}M_{d_{j,\alpha}}(\mathbb C)
+\]
+and a faithful detail state \(\tau_j\). At regulator \(r\),
+\[
+\widetilde M_r=\bigotimes_{j\in\mathcal J_r}D_j,\qquad
+\widetilde\omega_r=\bigotimes_{j\in\mathcal J_r}\tau_j .
+\]
+A finite-depth local presentation circuit \(W_r\) maps these multiresolution coordinates to the
+declared patch, port, collar, and gauge coordinates:
+\[
+M_r=\operatorname{Ad}(W_r)(\widetilde M_r),\qquad
+\widehat\omega_r=\widetilde\omega_r\circ\operatorname{Ad}(W_r^*).
+\]
+For \(r\preceq s\), refinement adds detail factors. The refinement embedding and coarse-graining
+are
+\[
+\iota_{rs}(A)=W_s\bigl[(W_r^*AW_r)\otimes\mathbf1\bigr]W_s^*,
+\]
+and
+\[
+Q_{sr}(X)=W_r\bigl[(\operatorname{id}\otimes\tau_{s\setminus r})
+(W_s^*XW_s)\bigr]W_r^* .
+\]
+The embedded map \(E_{sr}=\iota_{rs}Q_{sr}\) is the canonical state-preserving conditional
+expectation.
+\end{definition}
+
+\begin{theorem}[Fixed-cutoff regulator certificate]\label{thm:microphysics-regulator-certificate}
+The maps in Definition~\ref{def:microphysics-multiresolution-carrier} are unital, completely
+positive, composition-compatible, and preserve the faithful reference states. The refinement
+embeddings are unital injective \(*\)-homomorphisms, the \(E_{sr}\) are faithful conditional
+expectations, and the reference modular groups restrict exactly along the tower. The inductive
+limit has canonical finite-regulator renormalization maps given by these conditional
+expectations; their martingale tails are the finite-volume and lattice-spacing Cauchy errors used
+by the compact and main papers.
+\end{theorem}
+
+\begin{proof}
+In bare coordinates all statements reduce to tensoring an observable with the identity and
+averaging the detail factors against the faithful product state. Composition follows from
+product-state associativity. Conjugating by the presentation circuits gives the physical patch
+coordinates without changing the algebraic identities.
+\end{proof}
+
+\begin{remark}[Reference state, ground state, and vacuum]
+The state \(\widehat\omega_r\) is the finite-regulator reference state. It may be called a
+finite-volume ground state only after a positive self-adjoint transfer or Hamiltonian has been
+constructed and shown to have that state as its ground state. The term continuum vacuum is reserved
+for the GNS/OS limit after positive energy and the declared vacuum-sector uniqueness or
+superselection condition have been proved.
+\end{remark}
+
+\begin{remark}[Simulator promotion rule]
+A simulator implements this regulator branch only when it exports the factor list, presentation
+circuit, refinement maps, conditional-expectation identities, transported state errors,
+renormalized observable tails, and positive-transfer or reflected-Gram certificates. A finite
+cellulation, finite-group score, or stable numerical extrapolation by itself remains a
+regulator-chart result.
+\end{remark}
 
 \section{The Echosahedral Patch Object}
 
@@ -436,36 +530,39 @@ pattern in a patch or patch subfederation with persistent access to:
 \end{enumerate}
 
 \begin{definition}[Federated observer checkpoint]
-For an observer-supporting patch subfederation \(O\), a checkpoint at cycle \(t\) is
+For an observer-supporting patch subfederation \(O\), a checkpoint at semantic cut \(D\) is
 \[
-\mathrm{Chk}_O(t)=
+\mathrm{Chk}_O(D)=
 \bigl(
-\mathcal R_O(t),
-\rho_O^{\mathrm{acc}}(t),
-\mathfrak I_O^{\mathrm{ext}}(t),
-\nu_{\ge t},
-\mathfrak B_O(t)
+\mathcal R_O(D),
+\rho_O^{\mathrm{acc}}(D),
+\mathfrak I_O^{\mathrm{ext}}(D),
+\mathcal L_O^{\mathrm{sem}}(D),
+\mathfrak B_O(D)
 \bigr),
 \]
-where \(\mathcal R_O(t)\) is the observer-accessible record algebra,
-\(\rho_O^{\mathrm{acc}}(t)\) is the state restricted to observer-accessible records and visible
-interfaces, \(\mathfrak I_O^{\mathrm{ext}}(t)\) is the external port-interface tuple,
-\(\nu_{\ge t}\) is the future update schedule class, and \(\mathfrak B_O(t)\) is the public or
-internal bundle of provenance data needed to replay the checkpoint at the declared accuracy.
+where \(\mathcal R_O(D)\) is the observer-accessible record algebra,
+\(\rho_O^{\mathrm{acc}}(D)\) is the state restricted to observer-accessible records and visible
+interfaces, \(\mathfrak I_O^{\mathrm{ext}}(D)\) is the external port-interface tuple,
+\(\mathcal L_O^{\mathrm{sem}}(D)\) is the semantic future-law class for the same physical
+instruments and event algebra, and \(\mathfrak B_O(D)\) is the public or internal provenance bundle
+needed to replay the checkpoint at the declared accuracy. Worker IDs, queue positions, retry
+counters, repair-cycle indices, timestamps, and packet latencies live in \(\mathfrak B_O(D)\)
+unless a branch declares them physical inputs; they are not observer identity or observer time.
 \end{definition}
 
 \begin{theorem}[Checkpoint continuation at fixed cutoff]
 If two federated observer checkpoints agree exactly on
-\(\mathcal R_O(t)\), \(\rho_O^{\mathrm{acc}}(t)\), \(\mathfrak I_O^{\mathrm{ext}}(t)\), and
-\(\nu_{\ge t}\), then they induce the same future probability law on the observer-accessible
+\(\mathcal R_O(D)\), \(\rho_O^{\mathrm{acc}}(D)\), \(\mathfrak I_O^{\mathrm{ext}}(D)\), and
+\(\mathcal L_O^{\mathrm{sem}}(D)\), then they induce the same future probability law on the observer-accessible
 event algebra. If their accessible states differ by trace distance at most \(\varepsilon\), then
 the induced future history laws differ in total variation by at most \(\varepsilon\).
 \end{theorem}
 
 \begin{proof}
 All future observer-accessible probabilities are computed by applying the same completely
-positive update maps and the same event-readout maps to the same accessible algebra and external
-interface data. Exact equality gives equality of all future event probabilities. In the
+positive update maps and the same event-readout maps from the same semantic future-law class to the
+same accessible algebra and external interface data. Exact equality gives equality of all future event probabilities. In the
 approximate case, contractivity of trace distance under completely positive trace-preserving maps
 gives the stated total-variation bound.
 \end{proof}
@@ -555,7 +652,11 @@ quotient form.
 The four-dimensional Yang--Mills form, reflection-positive ordinary vacuum branch, support-visible
 continuum extraction, and equality between the Yang--Mills gap and the repair gap belong to the
 compact/Yang--Mills theorem surface. Hardware evidence may test implementation discipline, but it
-does not supply the Clay-admissible construction.
+does not supply the Clay-admissible construction. A public evidence bundle that is used for any
+continuum or Lorentzian claim must therefore include the multiresolution regulator certificate:
+factor manifest, presentation-circuit hash, refinement/expectation identity defects,
+transported-state errors, renormalized-observable tails, and positive-transfer or reflected-Gram
+receipts.
 Conventional free-field or lattice-gauge vacuum baselines used for simulator calibration are
 reference ensembles only. They are not OPH-native vacuum promotion unless the quotient-ensemble
 selector and transfer/reflection-positive gate are supplied on the compact theorem surface.

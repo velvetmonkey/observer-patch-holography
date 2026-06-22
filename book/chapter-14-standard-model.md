@@ -710,6 +710,15 @@ settle into a stable excitation that survives local time evolution, keeps its
 identity across overlaps, and transforms in a repeatable way under the emergent
 symmetries, the theory has found a particle.
 
+There is a finer record-level question underneath that sentence. A stable
+sector can be transported without automatically proving that two localized
+detector records on opposite sides of a chart boundary are the same continuing
+token. OPH treats that token-stitch question as a separate H3 certificate: it
+requires a declared hyperboloid chart, common observer clock, real transverse
+interface, sector/gauge transport, an ID-independent assignment gap, and a
+refinement check. If those records do not separate the alternatives by a
+positive margin, the correct output is ambiguity.
+
 Put more simply, a particle is a recurring role in the screen's drama. Once the
 screen yields Lorentz kinematics, those roles sort themselves by mass and spin,
 just as Wigner taught physics to expect. An electron is a stable pattern with

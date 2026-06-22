@@ -390,3 +390,64 @@ calibration package. Equivalently, the benchmark ratio
 \frac{\Delta b_3}{\Delta b_2}\approx 0.91
 \]
 sits close to the MSSM comparison value \(0.96\).
+
+\section{H3 Worldline-Stitch Certificate}\label{app:h3-worldline-certificate}
+
+This appendix records the finite simulator-facing certificate for
+Theorem~\ref{thm:h3-record-worldline-stitching}. It is separate from the D10 heat-kernel
+calibration package above. A passing certificate is a record-continuation statement in a declared
+\(H^3\) observer chart, not a particle-species, mass, charge, or scattering-amplitude theorem.
+
+The certificate payload has the following required blocks.
+\begin{enumerate}
+\item \textbf{Atlas.} It declares the hyperboloid model \(H^3_{R_H}\subset\mathbb R^{1,3}\),
+the Lorentz signature \((-+++)\), the curvature radius \(R_H\), chart domains, and chart
+transitions \(G_{ji}\in\mathrm{SO}^{+}(1,3)\). Transition residuals must certify Lorentz
+inner-product preservation, orientation, and future-sheet preservation.
+\item \textbf{Clock map.} Each local record interval is mapped to a common comparison-time line.
+The observer-time adjacency margin must dominate the declared clock uncertainty.
+\item \textbf{Chart-natural extraction.} Raw local records are connected components of a frozen
+detector scalar on the \(H^3\) chart. The detector scalar, thresholds, support collars, and
+chart-naturality residuals are included. Simulator record IDs are not inputs.
+\item \textbf{Overlap descent.} Records are first descended across genuine chart overlaps. The
+payload records same-component join margins, distinct-component separation margins, support
+errors, and triple-overlap cocycle residuals.
+\item \textbf{Interface crossing.} A candidate stitch must cross a real interface in adjacent
+clock intervals. It includes oriented signed-distance margins and a positive lower bound on
+normal velocity. Tangential, grazing, and file-boundary-only contacts are rejected.
+\item \textbf{Transport.} The candidate edge is evaluated in a common chart after sector and
+gauge transport. The atlas holonomy comparison is separate from the gauge-holonomy comparison.
+\item \textbf{Assignment.} The matching is one-to-one with appearance/disappearance interval
+costs. The proposed winner has an upper cost bound, every competitor has a lower cost bound, and
+\[
+\Delta_{\mathrm{cert}}
+=\min_{M\ne M_*}\underline C(M)-\overline C(M_*)>0 .
+\]
+Record IDs, global IDs, stitch keys, and shard-local IDs are forbidden in admissibility, costs,
+and tie-breaking.
+\item \textbf{Refinement.} A coarse/fine pair supplies \(Q_{sr}\), a distortion bound
+\(\eta_{sr}\), and a contracted-graph isomorphism check. The coarse gap must satisfy
+\(\Delta_r>2\eta_{sr}\).
+\item \textbf{Interaction firewall.} A free-propagation slab is required. If an interaction marker
+is present, the terminal status is \(\mathrm{H3\_INTERACTION\_REQUIRED}\) and the event is handed
+to the interaction solver.
+\end{enumerate}
+
+The allowed terminal statuses are
+\[
+\begin{gathered}
+\mathrm{H3\_STITCH\_CERTIFIED},\quad
+\mathrm{H3\_STITCH\_AMBIGUOUS},\quad
+\mathrm{H3\_STITCH\_REJECTED},\\
+\mathrm{H3\_INTERACTION\_REQUIRED},\quad
+\mathrm{H3\_ATLAS\_INVALID},\quad
+\mathrm{H3\_CERTIFICATE\_INCOMPLETE}.
+\end{gathered}
+\]
+\(\mathrm{H3\_STITCH\_CERTIFIED}\) is emitted only when every block above passes and the robust
+assignment gap is positive. Equal-cost matchings, preserved nontrivial permutations of the visible
+data, or coarse/fine gaps below margin force \(\mathrm{H3\_STITCH\_AMBIGUOUS}\). Missing fields
+force \(\mathrm{H3\_CERTIFICATE\_INCOMPLETE}\). Failed atlas, interface, metric, or transport gates
+force rejection or atlas invalidity. In particular, Euclidean distances on
+\(\texttt{h3SpatialPoint}\) coordinates are not certificate distances; the certificate distance is
+the hyperboloid geodesic \(d_H\) from Section~\ref{sec:h3-record-worldlines}.
