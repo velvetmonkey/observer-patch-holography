@@ -61,40 +61,29 @@
 {\scriptsize\color{pragmaMuted}Paper release: \texttt{\OPHPaperReleaseID}\quad Released: \OPHPaperReleaseDate}\par
 \tightline
 
-Mathematical certainty belongs to theorem proving. Empirical physics works
-differently. A theory earns trust when a small set of principles emits a large
-amount of observed structure without reading the answers from measurement. The
-stronger version also says where it can fail.
+OPH makes a falsifiable compression claim: five axioms plus two closure constants
+generate the observer-facing structure of our Universe, including many measured
+quantities, without using those measurements as inputs. Once the rules and
+readout maps are fixed before comparison, the finite branch has one output; OPH
+is wrong if that output leaks targets, admits an equally valid branch, misses
+the measured structures it claims to generate, or fails the stated tests.
 
-This note separates two claims.  The mathematical claim is that a declared
-finite OPH branch has a unique observer-facing normal form and unique quotient
-readouts once its source maps, branch rules, quotient maps, and readout maps
-are frozen.  The empirical claim is different: our universe should be identified
-with that branch only if the frozen output compresses held-out observations
-better than the declared alternatives after the full description length is
-charged.
-
-The compact proof counts a small load-bearing slice: the finite OPH simulation
-certificate, the exact quantum event surface, the Standard Model branch
-integers, one charged-family shape prediction, the QCD-free hierarchy witness,
-and dimensionless gravity normalization.  Familiar numbers such as public
-\(\alpha(0)\), SI \(G\), measured hadronic inputs, selected PDG frames,
-cosmology scorecards, hardware lanes, and bridge-defined capacities are
-comparison or falsification data unless their own source calculations are
-supplied without reading the measured answer.  This is a proof of unique
-generation from a frozen finite branch, not a proof that the generated branch
-is the physical universe.
+This proof counts the cleanest pieces: the OPH
+simulation test, quantum event surface, Standard Model integer branch, one
+charged-family shape, the QCD-free hierarchy result, and dimensionless
+gravity normalization. Numbers like \(\alpha(0)\), SI \(G\), hadronic
+inputs, PDG tables, cosmology scorecards, hardware lanes, and bridge-defined
+capacities are checks and failure points until OPH derives them without using
+the measured answer.
 
 \infobox{What this proof contributes}{
-The proof compresses the OPH stack into one readable path. Standard tools such
-as modular theory, fixed-point analysis, entropy gravity, compact gauge
-reconstruction, and ordinary comparison data are used with their usual
-meanings. OPH adds the finite observer-patch closure, the source pixel
-coordinate \(P_{\rm src}=P_{\rm cand}\), the global capacity target
-\(N_\star\), and the rule that a numerical row counts only when its endpoint is
-emitted by the declared map. On that basis the note collects the Standard Model
-branch integers, the hierarchy witness, the charged-family shape, the Newton
-normalization identity, and the main failure tests in one short argument.}
+The proof gives one readable path through OPH. Companion papers carry the
+longer derivations. Standard tools keep their usual meanings.
+OPH adds finite observer-patch closure, \(P_{\rm src}=P_{\rm cand}\),
+\(N_\star\), and the rule that a row counts only when the declared map emits
+it. That small source has to carry observer patches, quantum readout, Standard
+Model branch integers, charged-family shape, weak hierarchy, gravity
+normalization, and failure tests in one argument.}
 
 \infobox{Anti-fitting rule}{
 A numerical row is counted in our argument only if the paper or code
@@ -200,15 +189,16 @@ selected-packet result, and Remark \path{rem:oph-simulation-falsifiers} gives th
 This compact note cites that package instead of repeating its proof.
 
 \infobox{Conditional OPH closure theorem}{
-Fix the OPH axioms, branch-selection rules, source maps, quotient maps, and
-readout maps before consulting the test data.  Let
+Fix OPH axioms, branch rules, and quotient/readout maps before test data, and
+require source maps to be forced by those rules up to
+observer-invisible equivalence.  Let
 \[
   \Gamma_P:I_P\to I_P,\qquad \Gamma_N:I_N\to I_N
 \]
-be computable source-only maps with certified contraction constants
-\(q_P,q_N<1\).  Suppose their dependency graphs contain no path from any
-held-out empirical target, and suppose the resulting finite OPH packet satisfies
-the nontrivial simulation certificate of [O2,A23].  Then
+be source-only contractions.  Suppose their dependency graphs contain no
+held-out target path, no admissible source-map deformation survives the
+axioms/MAR rules, and the finite packet satisfies the simulation
+certificate of [O2,A23].  Then
 \[
   P_\star=\Gamma_P(P_\star),\qquad N_\star=\Gamma_N(N_\star)
 \]
@@ -217,8 +207,10 @@ have unique solutions.  Every declared quotient observable
   Y_i=\pi_i\!\left(\operatorname{nf}_{\rm OPH}(P_\star,N_\star)\right)
 \]
 is uniquely determined and invariant under admissible implementation,
-scheduling, and hidden-carrier changes.  This theorem proves unique generation
-from the frozen branch.  It does not prove that the branch is our universe.}
+scheduling, and hidden-carrier changes.  The hard part is showing that OPH
+leaves no rival source map; Banach then supplies endpoint uniqueness.
+The theorem proves unique generation from the frozen branch, not that the
+branch is our universe.}
 
 Read the equation literally. The simulated record world enters the simulating
 readback rule, contradictory branches die, and the returned object is the same
@@ -326,11 +318,11 @@ Solving \(N=F_N(N)\) gives the simulating-side capacity setting \(N_\star\).
 The simulated-side horizon readout comes from the same computed endpoint:
 \(\Lambda_\star=R_N(N_\star)\).
 
-The solvers may start in intervals suggested by observation. The equations
-themselves must contain no measured \(\alpha\), measured \(\Lambda\), weak
-masses, or calibrated target residuals. If \(\Gamma_P:I_P\to I_P\) and
-\(F_N:I_N\to I_N\) stay inside their declared intervals and shrink candidates,
-Banach gives one local endpoint and one global endpoint:
+Solvers may start in observation-suggested intervals. The equations themselves
+must contain no measured \(\alpha\), measured \(\Lambda\), weak
+masses, calibrated target residuals, or equally admissible deformations. Once
+the source maps are fixed and contractive, Banach gives one local endpoint and
+one global endpoint:
 \[
 P_{\rm src}=\Gamma_P(P_{\rm src}),\qquad N_\star=F_N(N_\star).
 \]
@@ -1095,8 +1087,8 @@ multiplied into the compact anti-circularity argument. &
 
 PIXEL, IBM, OMEGA, and hardware lanes &
 Experimental surface &
-Hardware lanes are experimental surfaces unless their public bundles supply
-task definitions, raw readouts, controls, manifests, and verifier logs. &
+Hardware lanes test named lemmas, not the universe claim. They count only with
+public task definitions, raw readouts, controls, manifests, and verifier logs. &
 [S12,S13,S14]\\
 
 \bottomrule
@@ -1112,9 +1104,11 @@ papers and the public code in
 \href{https://github.com/FloatingPragma/observer-patch-holography}{\texttt{github.com/FloatingPragma/observer-patch-holography}}.}
 
 \sect{5. Falsifiers and evidence classes}
-This note does not assign a numerical probability to OPH. The correct empirical
-test is a frozen compression score. Freeze the theory text, executable source
-maps, branch selectors, numerical tolerances, uncertainty model, admissible
+OPH has many ways to be wrong: source leakage, nonunique closure, a MAR rival,
+carrier-dependent readout, hidden-scale bridge, or missed frozen prediction.
+One failure demotes its row; a central failure kills the compact claim. The
+empirical test is a frozen compression score. Freeze the theory, source maps,
+branch selectors, tolerances, uncertainty model,
 comparison theories, and held-out dataset \(D_{\rm test}\). Then compare
 \[
   \Delta_{\rm bits}
@@ -1126,19 +1120,20 @@ comparison theories, and held-out dataset \(D_{\rm test}\). Then compare
   \bigl[L(M_{\rm OPH})-L(M_{\rm ref})\bigr].
 \]
 The length \(L(M)\) charges the full description of the model: axioms, MAR,
-source equations, branch rules, discrete selectors, tolerances, and search.
+source equations, branch rules, selectors, tolerances, and search.
 The empirical identification claim is that a source-locked OPH generation
 compresses the preregistered held-out observations by at least the declared
 threshold \(\Delta_0\) bits more than the reference class.
 
 \infobox{OPH source-lock bundle}{
-A counted empirical row needs a public bundle: theory commit hash, source-code
-hash, environment or container hash, complete dependency DAG, source-versus-
+A counted row needs theory/code hashes, environment/container hash, dependency
+DAG, source-versus-
 comparison input manifest, interval-arithmetic receipts, branch-enumeration
 output, frozen predictions, and independent reproduction receipt. It fails if a
-target leaks into a source calculation, a closure is nonunique, an admissible
-implementation changes the output, an unreported branch choice is needed, the
-held-out score is nonpositive, or a frozen prospective prediction is excluded.}
+target leaks into a source path, a hidden third constant enters, an admissible
+source-map deformation or MAR branch survives, a closure is nonunique, a
+carrier changes the output, a bridge fails, the held-out score is nonpositive,
+or a frozen prospective prediction is excluded.}
 
 \infobox{Physics problems that become easy to solve with OPH}{
 \small
@@ -1329,9 +1324,10 @@ What this note can say is that OPH emits the slice shown above, and the same
 stack extends the pattern to observer records, quantum event surfaces,
 spacetime, gravity, gauge structure, charge quantization, the hierarchy, dark
 energy, dark matter, particle structure, and falsifiable neutrino targets.
-A critic can kill the compact proof by finding a path from a measured answer
-into a counted calculation, breaking a uniqueness or interval check, or
-falsifying the phase-fixed charged-family shape or QCD-free hierarchy witness.
+A critic can kill the compact proof by finding a measured-answer path, an
+equally admissible source map or MAR branch, a hidden third constant, a failed
+bridge, or falsifying the phase-fixed charged-family shape or QCD-free
+hierarchy witness.
 The empirical identification claim is decided by source-locked held-out
 compression, not by informal coincidence language. Supporting rows have their
 own tests and their own claim classes. Every counted row says exactly what is
