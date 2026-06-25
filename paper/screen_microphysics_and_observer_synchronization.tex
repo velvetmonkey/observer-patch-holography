@@ -231,42 +231,76 @@ Each patch has:
 \item a checkpoint interface that exposes enough observer-accessible data to define continuation.
 \end{enumerate}
 
+\begin{definition}[Sphere fold]\label{def:sphere-fold}
+Fix a regulator \(r\). Let \(\Sigma_r\) be the finite presentation space of a patch
+federation, let \(\Gamma_r\) be the presentation-redundancy groupoid, and let
+\[
+Q_r=\Sigma_r/\Gamma_r
+\]
+be the physical quotient. Let \(\pi_r:\Sigma_r\to Q_r\) be the quotient map, let
+\[
+n_r:Q_r\to Q_{r,\mathrm{nf}}
+\]
+be the accepted repair normal-form map on the declared physical quotient, and let
+\[
+\chi_{S,r}:Q_{r,\mathrm{nf}}\to \mathsf{Chart}_S(r)
+\]
+be the support-visible spherical screen chart. Its outputs are caps, collars, cuts,
+edge-sector records, boundary data, and geometric readouts. The sphere fold of a finite
+presentation \(s\in\Sigma_r\) is
+\[
+\operatorname{Fold}_{S,r}(s)
+:=
+\chi_{S,r}\!\left(n_r(\pi_r(s))\right).
+\]
+Two finite presentations have the same sphere fold exactly when their repaired quotient
+normal forms induce the same support-visible caps, collars, edge-sector records, and
+observer-facing screen readouts.
+\end{definition}
+
+The fold adds no independent dynamics. Repair is the finite patch operation that compares
+overlaps, updates records, and reaches the accepted normal form. Folding names the spherical
+chart presentation of that repaired quotient state. In plain language, sphere folding is what
+overlap repair looks like on the observer-facing screen.
+
 \begin{definition}[Finite source-bridge readouts]\label{def:finite-source-bridge-readouts}
 For cosmology runs that attempt a first-principles primordial bridge, the carrier must also expose
 quotient-visible maps
 \[
-\mathsf{StressRead}_r,\qquad
-\mathsf{ScalarSourceMap}_r,\qquad
-\mathsf{ClockRead}_r,\qquad
-\mathsf{RepairTangent}_r,\qquad
-\mathsf{VolumeJacobianRead}_r,\qquad
-\mathsf{ScreenMassMatrixRead}_r,\qquad
-\mathsf{LowModeProjectorRead}_r,\qquad
-\mathsf{ScalarPrecisionRead}_r,\qquad
-\mathsf{QuotientMeasureRead}_r,\qquad
-\mathsf{ScalarReleaseEnergyRead}_r,\qquad
-\mathsf{DiamondRead}_r,\qquad
-\mathsf{ProperScaleRead}_r,\qquad
-\mathsf{ModularRemainderRead}_r,\qquad
-\mathsf{StressMomentRead}_r,\qquad
-\mathsf{FaceFluxRead}_r,\qquad
-\mathsf{ReactionRead}_r,\qquad
-\mathsf{TetradRead}_r,\qquad
-\mathsf{ScalarRefinementRead}_{sr},\qquad
-\mathsf{RadialWindowRead}_r,\qquad
-\mathsf{SpatialGeometryRead}_r,\qquad
-\mathsf{AreaVolumeRead}_r,\qquad
-\mathsf{LapseShiftRead}_r,\qquad
-\mathsf{LineageRead}_r,\qquad
-\mathsf{ScreenEmbeddingRead}_r,\qquad
-\mathsf{ModeFormRead}_r,\qquad
-\mathsf{CosmoGeomRead}_r,\qquad
-\mathsf{ProperTimeRead}_r,\qquad
-\mathsf{ComovingMetricRead}_r,\qquad
-\mathsf{SpatialModeRead}_r,\qquad
-\mathsf{AngularProjectorRead}_r,\qquad
-\mathsf{FreezeoutMapRead}_r,\qquad
+\begin{gathered}
+\mathsf{StressRead}_r,\quad
+\mathsf{ScalarSourceMap}_r,\quad
+\mathsf{ClockRead}_r,\quad
+\mathsf{RepairTangent}_r,\\
+\mathsf{VolumeJacobianRead}_r,\quad
+\mathsf{ScreenMassMatrixRead}_r,\quad
+\mathsf{LowModeProjectorRead}_r,\\
+\mathsf{ScalarPrecisionRead}_r,\quad
+\mathsf{QuotientMeasureRead}_r,\quad
+\mathsf{ScalarReleaseEnergyRead}_r,\\
+\mathsf{DiamondRead}_r,\quad
+\mathsf{ProperScaleRead}_r,\quad
+\mathsf{ModularRemainderRead}_r,\quad
+\mathsf{StressMomentRead}_r,\\
+\mathsf{FaceFluxRead}_r,\quad
+\mathsf{ReactionRead}_r,\quad
+\mathsf{TetradRead}_r,\quad
+\mathsf{ScalarRefinementRead}_{sr},\\
+\mathsf{RadialWindowRead}_r,\quad
+\mathsf{SpatialGeometryRead}_r,\quad
+\mathsf{AreaVolumeRead}_r,\quad
+\mathsf{LapseShiftRead}_r,\\
+\mathsf{LineageRead}_r,\quad
+\mathsf{ScreenEmbeddingRead}_r,\quad
+\mathsf{ModeFormRead}_r,\quad
+\mathsf{CosmoGeomRead}_r,\\
+\mathsf{ProperTimeRead}_r,\quad
+\mathsf{ComovingMetricRead}_r,\quad
+\mathsf{SpatialModeRead}_r,\quad
+\mathsf{AngularProjectorRead}_r,\\
+\mathsf{FreezeoutMapRead}_r,\quad
 \mathsf{FreezeoutSurfaceRead}_r .
+\end{gathered}
 \]
 They are defined on the same settled-form carrier used for the geometric record packet and must
 factor through the physical quotient: hidden carrier coordinates, port relabelings, and accepted

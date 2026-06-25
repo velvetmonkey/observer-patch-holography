@@ -57,7 +57,7 @@
 \arrayrulecolor{pragmaLine}
 
 {\LARGE\bfseries\color{pragmaCyanText}Disclosure Day}\par
-{\Large\bfseries\color{pragmaCyanText}How can we prove that we're most likely inside an Observer Patch Holography simulation?}\par
+{\Large\bfseries\color{pragmaCyanText}What can a compact proof of Observer Patch Holography establish?}\par
 {\scriptsize\color{pragmaMuted}Paper release: \texttt{\OPHPaperReleaseID}\quad Released: \OPHPaperReleaseDate}\par
 \tightline
 
@@ -66,45 +66,35 @@ differently. A theory earns trust when a small set of principles emits a large
 amount of observed structure without reading the answers from measurement. The
 stronger version also says where it can fail.
 
-This note makes that case for Observer Patch Holography. OPH starts with
-finite observer patches, five axioms, and two closure coordinates. Those two
-coordinates are not free variables. They are fixed points of the local pixel loop
-and the global screen-capacity loop. Let the axioms and the closures run, and
-the construction unfolds into a universe: observer records, public spacetime,
-Lorentz structure with the three-dimensional \(H^3\) spatial chart, Einstein
-structure, compact gauge reconstruction, the Standard
-Model quotient, the charged-family shape, the weak hierarchy, gravity
-normalization, and frozen particle and cosmology tests.
+This note separates two claims.  The mathematical claim is that a declared
+finite OPH branch has a unique observer-facing normal form and unique quotient
+readouts once its source maps, branch rules, quotient maps, and readout maps
+are frozen.  The empirical claim is different: our universe should be identified
+with that branch only if the frozen output compresses held-out observations
+better than the declared alternatives after the full description length is
+charged.
 
-This short paper has one main goal. It shows a small load-bearing slice of the
-structure and numerical values of our universe from practically nothing: the
-OPH axioms plus the two solutions of the self-referential closure equations.
-One equation makes the local pixel readback compatible between the simulating
-side, the outer readback, and the simulated side, the inner readout. The other
-does the same for global screen capacity. From that starting point, the slice
-emits the Standard Model branch integers, the Koide charged-family shape, the
-QCD-free hierarchy witness, and dimensionless gravity normalization. It looks
-like our universe in places where accidental fits are cheap, so the
-anti-fitting rule below says exactly what counts. The note ends by pointing to
-the detailed papers that show how OPH naturally and elegantly solves hard
-problems in contemporary physics. Every theorem or proof omitted here is
-referenced where it is used. Familiar numbers such as public \(\alpha(0)\), SI
-\(G\), measured hadronic inputs, selected PDG frames, cosmology scorecards,
-hardware lanes, and bridge-defined capacities are comparison or falsification
-data unless their own calculations are supplied without reading the measured
-answer. We believe any reasonable reader will conclude that the output
-universe fits our experience too well to be mere coincidence.
+The compact proof counts a small load-bearing slice: the finite OPH simulation
+certificate, the exact quantum event surface, the Standard Model branch
+integers, one charged-family shape prediction, the QCD-free hierarchy witness,
+and dimensionless gravity normalization.  Familiar numbers such as public
+\(\alpha(0)\), SI \(G\), measured hadronic inputs, selected PDG frames,
+cosmology scorecards, hardware lanes, and bridge-defined capacities are
+comparison or falsification data unless their own source calculations are
+supplied without reading the measured answer.  This is a proof of unique
+generation from a frozen finite branch, not a proof that the generated branch
+is the physical universe.
 
 \infobox{What this proof contributes}{
 The proof compresses the OPH stack into one readable path. Standard tools such
 as modular theory, fixed-point analysis, entropy gravity, compact gauge
 reconstruction, and ordinary comparison data are used with their usual
-meanings. OPH adds the finite observer-patch closure, the two fixed-point
-coordinates \(P_{\rm src}\) and \(N_\star\), and the rule that a numerical row
-counts only when its endpoint is emitted by the declared map. On that basis the
-note collects the dark-energy capacity closure, the \(H^3\) spatial chart, the
-Standard Model branch integers, the hierarchy witness, the Koide-family shape, the Newton
-normalization row, and the main failure tests in one short argument.}
+meanings. OPH adds the finite observer-patch closure, the source pixel
+coordinate \(P_{\rm src}=P_{\rm cand}\), the global capacity target
+\(N_\star\), and the rule that a numerical row counts only when its endpoint is
+emitted by the declared map. On that basis the note collects the Standard Model
+branch integers, the hierarchy witness, the charged-family shape, the Newton
+normalization identity, and the main failure tests in one short argument.}
 
 \infobox{Anti-fitting rule}{
 A numerical row is counted in our argument only if the paper or code
@@ -132,12 +122,9 @@ records, overlaps, mismatch scores, repair moves, and checkpoint continuation
 observers read it as history and experience that reading as time.
 Hofstadter's name for this kind of thing is a strange loop: a
 ``paradoxical level-crossing feedback loop'' [S16]. In OPH, strange loops sit
-at the core of how the universe works. We fully realize that this sounds
-insane, but this is exactly where rigorous mathematics leads us. Measurements
-may point to the right branch. Their role is branch localization. If OPH
-is true, our exact universe, without exception, must emerge from the OPH
-closure coordinates and axioms [O1,O2,O3,O4,O5,O6,S12,S13]. The counted rows
-below use that rule for the Koide shape and hierarchy witnesses. The remaining
+at the core of the finite observer construction. Measurements may point to the
+right branch. Their role is branch localization. The counted rows below use
+that rule for the charged-family shape and hierarchy witnesses. The remaining
 rows are comparison data or falsification surfaces with declared claim classes.
 
 Bracketed source keys matter. When this note names a theorem without printing
@@ -169,8 +156,9 @@ horizon closure seen in cosmology.}\par
 
 OPH's five axioms are listed in \emph{Observers Are All You Need} [O1]. Think
 of them as the toolchain. The argument below uses the finite observer-patch
-normal form, the exact quantum event surface, the two closure coordinates, the
-recovered Standard Model branch, and one compact three-scalar cross-lock:
+normal form, the exact quantum event surface, the source pixel coordinate, the
+global capacity target, the recovered Standard Model branch, and one compact
+three-scalar cross-lock:
 \[
   (N_c,N_g,\beta_{\rm EW})
   =
@@ -210,6 +198,27 @@ certificate can fail. Direct lookup in the consensus paper: Definition
 \path{def:oph-simulation} states the certificate, Theorem \path{thm:oph-simulation} proves the
 selected-packet result, and Remark \path{rem:oph-simulation-falsifiers} gives the falsifiers.
 This compact note cites that package instead of repeating its proof.
+
+\infobox{Conditional OPH closure theorem}{
+Fix the OPH axioms, branch-selection rules, source maps, quotient maps, and
+readout maps before consulting the test data.  Let
+\[
+  \Gamma_P:I_P\to I_P,\qquad \Gamma_N:I_N\to I_N
+\]
+be computable source-only maps with certified contraction constants
+\(q_P,q_N<1\).  Suppose their dependency graphs contain no path from any
+held-out empirical target, and suppose the resulting finite OPH packet satisfies
+the nontrivial simulation certificate of [O2,A23].  Then
+\[
+  P_\star=\Gamma_P(P_\star),\qquad N_\star=\Gamma_N(N_\star)
+\]
+have unique solutions.  Every declared quotient observable
+\[
+  Y_i=\pi_i\!\left(\operatorname{nf}_{\rm OPH}(P_\star,N_\star)\right)
+\]
+is uniquely determined and invariant under admissible implementation,
+scheduling, and hidden-carrier changes.  This theorem proves unique generation
+from the frozen branch.  It does not prove that the branch is our universe.}
 
 Read the equation literally. The simulated record world enters the simulating
 readback rule, contradictory branches die, and the returned object is the same
@@ -262,21 +271,24 @@ by closure equations from the OPH rules [O1,O3,O4,O5,O6]. That is the
 zero-parameter claim. Observations may tell us which branch to inspect. They
 do not set the endpoint.
 
-For the compact hierarchy row, write \(P_{\rm src}\) for the selected
-pixel-branch coordinate consumed by the bridge certificate. The public endpoint
-coordinate is
+For every counted compact calculation, write
+\[
+  P_{\rm src}:=P_{\rm cand}
+  =
+  1.630972095694329\ldots .
+\]
+This is the source-side pixel candidate emitted by the declared OPH trunk. The
+public comparison coordinate is
 \[
   P_C:=\varphi+\alpha_{\rm CODATA}\sqrt\pi
   =
   1.630968209403959\ldots .
 \]
-For this compact row, \(P_{\rm src}\) denotes that selected endpoint. The public
-endpoint is a branch locator only; it supplies no upstream source-map input.
-The source-side diagnostic candidate \(P_{\rm cand}\) remains a parallel witness for the
-same formula, with the public endpoint excluded upstream. The hadron-completed
-endpoint is \(P_{\rm full}\). It becomes a compact
-endpoint row only when the missing QCD/hadronic electromagnetic endpoint map is
-emitted by the OPH rules [O5,O6]. The global screen coordinate remains
+The public endpoint is a branch locator and comparison column only; it supplies
+no upstream source-map input. The hadron-completed endpoint is
+\(P_{\rm full}\). It becomes a counted endpoint row only when the missing
+QCD/hadronic electromagnetic endpoint map is emitted by the OPH rules [O5,O6].
+The global screen target remains
 \[
   N_\star\simeq N_{\rm scr}^{\rm dS}\simeq3.31\times10^{122}.
 \]
@@ -300,7 +312,7 @@ Local loop: try a pixel \(P_k\). The OPH branch reads its field width
   P_{k+1}=\Gamma_P(P_k)=\varphi+\alpha_k\sqrt\pi .
 \]
 Solving \(P=\Gamma_P(P)\) gives the simulating-side pixel setting for that
-branch. In the compact hierarchy row this coordinate is \(P_{\rm src}\). The
+branch. In the compact hierarchy row this coordinate is \(P_{\rm src}=P_{\rm cand}\). The
 simulated-side field width comes from the same endpoint:
 \(\alpha_{\rm src}=R_P(P_{\rm src})\).
 
@@ -380,7 +392,8 @@ tolerance. In fixed-point notation, the same loop is
   \qquad
   P_{k+1}=\varphi+\alpha_{k+1}\sqrt\pi .
 \]
-The compact hierarchy output is the pair \((P_{\rm src},\alpha_{\rm src})\).
+The compact hierarchy output is the pair
+\((P_{\rm src},\alpha_{\rm src})=(P_{\rm cand},\alpha_{\rm cand})\).
 CODATA never enters this map; it can only be printed after the solve as a
 comparison.
 
@@ -456,7 +469,7 @@ the required resolution, the
 calculation is beyond conventional von Neumann hardware; OMEGA is the
 optical fixed-point compute lane for it [S14]. The source-side QCD map is
 absent from the compact proof. Public \(\alpha(0)\) therefore stays in the
-empirical endpoint-closure lane [O5,O6].
+calibrated comparison lane [O5,O6].
 
 The compact proof does not multiply the public \(\alpha(0)\) endpoint, hadron
 masses, or the SI \(G\) clock row into its core count. It uses the QCD-free
@@ -543,22 +556,22 @@ then emits the compact integer triple
   N_c=3,\qquad N_g=3,\qquad \beta_{\rm EW}=N_c+1=4.
 \]
 These three integers feed both compact numerical witnesses below. The same
-\(4\) controls the charged-family Koide phase and the weak hierarchy
+\(4\) controls the charged-family phase and the weak hierarchy
 exponent [O3,O4,O5]. One source branch gives one huge hierarchy and a
 two-coordinate lepton-family shape.\par}
 
 \vspace{0.22em}
-{\bfseries\color{pragmaCyanText}The charged-family Koide front door.}\quad
+{\bfseries\color{pragmaCyanText}Phase-rigidity charged-family prediction.}\quad
 {\small
-The charged-family row is the clean first hit: no QCD, no \(G\), no public
-\(\alpha(0)\), and no charged-lepton masses enter as inputs. On the realized
-Standard Model branch,
+The charged-family row is one correlated family-shape prediction: no QCD, no
+\(G\), no public \(\alpha(0)\), and no charged-lepton masses enter as inputs.
+On the realized Standard Model branch,
 \[
   N_c=3,\qquad N_g=3,\qquad \beta_{\rm EW}=N_c+1=4 .
 \]
 The OPH-specific claim is the phase selector. A balanced three-family carrier
-would sit on the Koide cone for any phase; OPH fixes the phase from branch
-integers:
+sits on the Koide cone for any phase; Koide itself is not the hit. OPH fixes
+the phase from branch integers:
 \[
   \delta_e=\frac{\beta_{\rm EW}}{2N_cN_g}=\frac29 .
 \]
@@ -598,7 +611,8 @@ If charged square-root masses lie on this OPH carrier direction,
   =
   \frac23 .
 \]
-The same direction predicts the scale-free charged-family ratios
+The phase-fixed direction predicts the two ordered scale-free charged-family
+ratios
 \[
 \begin{aligned}
   \frac{m_\mu}{m_e}
@@ -618,12 +632,14 @@ Using the PDG lepton summary masses
 \(m_\tau=1776.86\,{\rm MeV}\), the deviations are about
 \(9.8\) ppm, \(70\) ppm, and \(60\) ppm respectively [S8].
 The Koide value computed from those same pole masses is about \(9.2\) ppm
-below \(2/3\). The mechanism is stronger than a Koide parametrization: OPH
-fixes the phase \(\delta_e=2/9\) from the same integer triple that appears
-again in the hierarchy exponent below. This row fails if \(N_c,N_g\), or
-\(\beta_{\rm EW}\) are not independently fixed by the Standard Model branch,
-if \(\delta_e=2/9\) is chosen from charged-lepton masses, or if the
-charged-family shape misses the sorted lepton direction [O5,O6,A15,A16].\par}
+below \(2/3\). The compact row does not count Koide, \(m_\mu/m_e\), and
+\(m_\tau/m_e\) as three independent successes. It counts the single
+phase-rigidity prediction: \(\delta_e=2/9\) fixes the normalized charged-family
+direction, and the two ordered ratios test that direction jointly. This row
+fails if \(N_c,N_g\), or \(\beta_{\rm EW}\) are not independently fixed by the
+Standard Model branch, if \(\delta_e=2/9\) is chosen from charged-lepton
+masses, or if the charged-family shape misses the sorted lepton direction
+[O5,O6,A15,A16].\par}
 
 \vspace{0.22em}
 {\bfseries\color{pragmaCyanText}The QCD-free hierarchy witness}\par
@@ -720,9 +736,8 @@ The bridge coordinate rewrites the same exponent as a screen-capacity readout:
   \pi\exp\!\left[\frac{6\pi}{P_{\rm src}\alpha_U(P_{\rm src})}\right].
 \]
 \(N_{\rm bridge}^{\rm EW}\) is a derived capacity readout on the local/global
-hierarchy branch. On the public-endpoint pixel branch used by this compact
-certificate, the selected-branch proof closes it as a fixed point of the
-log-capacity map
+hierarchy branch. It is useful bookkeeping, not a second empirical closure.
+The affine map
 \[
   \mathcal C_{\rm EW}(P,x)
   =
@@ -737,7 +752,7 @@ For fixed \(P=P_{\rm src}\), this is a contraction with unique endpoint
   =
   3.5323546226929906\ldots\times10^{122}.
 \]
-The bridge residual
+The residual
 \[
   R_{\rm EW}
   :=
@@ -745,7 +760,7 @@ The bridge residual
   -
   \frac{P_{\rm src}}{6\pi}\log(N_{\rm CRC}^{\rm EW}/\pi)
 \]
-vanishes at that endpoint, equivalently
+vanishes at that endpoint by definition, equivalently
 \[
   \alpha_U(P_{\rm src})\log(N_{\rm CRC}^{\rm EW}/\pi)
   -
@@ -761,7 +776,7 @@ readback limit
   (N_{\rm CRC}^{\rm EW}/\pi)^{-1/2}.
 \]
 Together with the 12-port screen sieve and the \(24\)-slot oriented repair
-register, this closes the selected-branch local/global hierarchy resonance:
+register, this gives an identity form of the hierarchy witness:
 \[
   t_{\rm tr}(P_{\rm src})
   =
@@ -771,11 +786,11 @@ register, this closes the selected-branch local/global hierarchy resonance:
   =
   (N_{\rm CRC}^{\rm EW}/\pi)^{-P_{\rm src}/12}.
 \]
-The rounded \(3.31\times10^{122}\) screen capacity remains the cosmological
-capacity display; the exact electroweak bridge uses the contraction endpoint
-above. No measured \(v\), \(M_W\), \(M_Z\), \(m_H\), \(G\), \(\Lambda\), or
-public \(\alpha(0)\) enters as an upstream source-map input for this bridge
-certificate [O4,O5,C3].
+The compact count is therefore one computed hierarchy closure and one global
+capacity target.  A source-only global capacity row carries empirical weight
+only after an independently motivated executable map computes screen capacity
+without measured \(\Lambda\), horizon radius, age, or \(N_{\rm scr}\), and then
+compares the frozen output with cosmology [O4,O5,C3].
 
 Ordinary particle physics treats the Higgs scale as a tuning problem. In OPH
 the weak scale is a branch output with zero naturality defect:
@@ -823,7 +838,7 @@ positive electron root without fitting charged masses [O4,O5,C3].\par}
 {\bfseries\color{pragmaCyanText}Prediction escrow: rows exposed to failure}\par
 {\small
 Known constants can point to branch neighborhoods. They cannot carry the whole
-case. OPH has to freeze outputs that are not used by the Koide or hierarchy
+case. OPH has to freeze outputs that are not used by the charged-family or hierarchy
 rows and then let external measurements attack them.
 
 \textbf{Neutrino weighted-cycle branch.}
@@ -980,14 +995,16 @@ shared})=G_{\rm geom}\). The factor of \(4\) is the ratio
 \(\kappa_{\rm OPH}/(8\pi)\).
 
 \sect{4. Compact proof rows}
-The compact argument counts only the rows that pass the anti-fitting rule:
+The compact argument separates three evidence classes. Internal theorems show
+mathematical coherence of the declared branch. Retrodictive matches compare
+source-only outputs with known quantities. Prospective predictions are frozen
+outputs exposed to later tests. The compact proof surface consists of:
 observer-patch architecture, the exact quantum event surface, the Standard
-Model structural branch, the QCD-free Koide shape witness, the QCD-free
-hierarchy witness, and the geometric gravity normalization. OPH claims to
-describe the whole machine, so the longer
-particle, cosmology, dark-sector, hardware, and SI rows matter. They stay
-outside this compact surface unless their own calculations pass the same rule
-[O1,O4,O5,C2,C3].
+Model structural branch, the phase-fixed charged-family shape, the QCD-free
+hierarchy witness, and the geometric gravity normalization identity. OPH
+claims to describe the whole machine, so the longer particle, cosmology,
+dark-sector, hardware, and SI rows matter. They stay outside this compact
+surface unless their own calculations pass the same rule [O1,O4,O5,C2,C3].
 
 Rows outside the compact count remain useful evidence and falsification
 surfaces with their own claim classes. The readable falsifiability map is
@@ -1002,81 +1019,82 @@ surfaces with their own claim classes. The readable falsifiability map is
 \begin{longtable}{@{}L{0.28\linewidth}L{0.15\linewidth}L{0.38\linewidth}L{0.13\linewidth}@{}}
 \toprule
 \rowcolor{pragmaPanelTwo}
-\textbf{Witness} & \textbf{Counted here?} & \textbf{Why} & \textbf{Refs}\\
+\textbf{Witness} & \textbf{Evidence class} & \textbf{Why} & \textbf{Refs}\\
 \midrule
 \endhead
 \endfoot
 Finite observer-patch normal form and patch-carrier pipeline &
-Yes &
+Internal theorem &
 Finite observer records, overlaps, mismatch scores, repair maps, checkpoints,
 and patch carriers define the fixed-point architecture. The row tests the
 mechanism before any decimal fit enters. &
 [O1,O2,C5]\\
 
 Born-Lueders and Tsirelson event surface &
-Yes &
+Internal theorem &
 The finite central record algebra gives
 \(\mathbb P(E)=\operatorname{Tr}(\rho P_E)\), Lueders conditioning, and
 \(|S_{\rm CHSH}|\le2\sqrt2\) on the declared Bell event surface. &
 [O1,O3,A18,A19]\\
 
 Standard Model structural branch &
-Yes &
+Internal theorem &
 \(\mathrm{SU}(3)_c\times\mathrm{SU}(2)_L\times\mathrm{U}(1)_Y/\mathbb Z_6\),
 \(N_c=3\), \(N_g=3\), protected massless carriers, charge quantization, and no
 \(X/Y\) gauge bosons are discrete structural outputs.
-The same integers feed the hierarchy and Koide witnesses. &
+The same integers feed the hierarchy and charged-family witnesses. &
 [O3,O4,O5,A20,A21]\\
 
 \(\alpha_U(P_{\rm src})\) interval check &
-Yes &
+Internal theorem &
 The unified-coupling row is checked by an interval/Krawczyk calculation that
 does not read measured electroweak masses, low-energy couplings, \(G\), Planck
 units, or \(\Lambda\). &
 [O5,C2,A8]\\
 
-Charged-family Koide shape &
-Yes, shape only &
-\(\delta_e=(N_c+1)/(2N_cN_g)=2/9\) and
-\(r_k=1+\sqrt2\cos(\delta_e+2\pi k/3)\) give \(Q_{\rm Koide}=2/3\).
-This fixes the scale-free charged-family direction at ppm contact with PDG
-charged-lepton ratios. Absolute lepton masses stay outside this counted row. &
+Phase-fixed charged-family shape &
+Retrodictive match &
+\(\delta_e=(N_c+1)/(2N_cN_g)=2/9\) fixes the scale-free charged-family
+direction. Koide is an identity of the carrier; the two ordered lepton ratios
+test the single normalized direction. Absolute lepton masses stay outside this
+row. &
 [O5,O6,A15,A16]\\
 
 QCD-free hierarchy law &
-Yes &
+Retrodictive match &
 \(\displaystyle v/E_\star=P_{\rm src}^{-1/2}
 \exp[-2\pi/(4\alpha_U(P_{\rm src}))]\). The weak scale is emitted without
-the QCD/hadronic endpoint and \(\epsilon_H=0\). &
+the QCD/hadronic endpoint and \(\epsilon_H=0\), conditional on the independent
+meaning of \(E_\star\). &
 [O5,C3,A10]\\
 
 Geometric gravity normalization &
-Yes, normalization &
+Internal identity &
 \(G_{\rm geom}=\ell_\star^2\). This fixes the OPH area normalization. It is
 not the SI Newton-constant decimal. &
 [O3,O4,A7]\\
 
 Public \(\alpha(0)\) and \(P_C\) &
-No &
+Comparison only &
 The public endpoint uses the missing QCD/hadronic electromagnetic transport.
 \(P_C=\varphi+\alpha_{\rm CODATA}\sqrt\pi\) is a comparison coordinate under
 the declared missing-map condition. &
 [O5,O6,A13]\\
 
 SI \(G\) &
-No &
+Comparison only &
 The SI decimal counts only when the no-\(G\) cesium clock hierarchy emits
 \(\varepsilon_{\rm Cs}\) without measured \(G\) or gravity-calibrated proxies. &
 [O4,A6]\\
 
 Particle, dark-sector, neutrino, cosmology, and collider rows &
-No &
+Prospective prediction &
 These rows remain useful tests with their declared claim classes. They are not
 multiplied into the compact anti-circularity argument. &
 [O5,O7,O8,C2,C4]\\
 
 PIXEL, IBM, OMEGA, and hardware lanes &
-No &
+Experimental surface &
 Hardware lanes are experimental surfaces unless their public bundles supply
 task definitions, raw readouts, controls, manifests, and verifier logs. &
 [S12,S13,S14]\\
@@ -1094,11 +1112,33 @@ papers and the public code in
 \href{https://github.com/FloatingPragma/observer-patch-holography}{\texttt{github.com/FloatingPragma/observer-patch-holography}}.}
 
 \sect{5. Falsifiers and evidence classes}
-This note does not assign a numerical probability to OPH. That would be
-unrealistic. OPH outputs the basic structure of our universe, compresses the
-necessary constants to two unique fixed points, and turns the hard physics
-problems below into consequences of one closure grammar.
-A random fit has to work much harder than this.
+This note does not assign a numerical probability to OPH. The correct empirical
+test is a frozen compression score. Freeze the theory text, executable source
+maps, branch selectors, numerical tolerances, uncertainty model, admissible
+comparison theories, and held-out dataset \(D_{\rm test}\). Then compare
+\[
+  \Delta_{\rm bits}
+  =
+  \log_2
+  \frac{p(D_{\rm test}\mid M_{\rm OPH})}
+       {p(D_{\rm test}\mid M_{\rm ref})}
+  -
+  \bigl[L(M_{\rm OPH})-L(M_{\rm ref})\bigr].
+\]
+The length \(L(M)\) charges the full description of the model: axioms, MAR,
+source equations, branch rules, discrete selectors, tolerances, and search.
+The empirical identification claim is that a source-locked OPH generation
+compresses the preregistered held-out observations by at least the declared
+threshold \(\Delta_0\) bits more than the reference class.
+
+\infobox{OPH source-lock bundle}{
+A counted empirical row needs a public bundle: theory commit hash, source-code
+hash, environment or container hash, complete dependency DAG, source-versus-
+comparison input manifest, interval-arithmetic receipts, branch-enumeration
+output, frozen predictions, and independent reproduction receipt. It fails if a
+target leaks into a source calculation, a closure is nonunique, an admissible
+implementation changes the output, an unreported branch choice is needed, the
+held-out score is nonpositive, or a frozen prospective prediction is excluded.}
 
 \infobox{Physics problems that become easy to solve with OPH}{
 \small
@@ -1155,7 +1195,7 @@ unification-style while the realized product quotient has no simple-GUT
 leptoquark generators [O4,O5].
 \par\smallskip
 \textbf{Particle inventory:} the compact proof counts structural carriers,
-gauge quotient data, the charged-family Koide shape witness, the
+gauge quotient data, the phase-fixed charged-family shape witness, the
 \(\alpha_U(P)\) interval check, and the QCD-free hierarchy witness. \(W/Z\),
 absolute charged-lepton masses, selected-frame quarks, Higgs/top, and neutrino
 rows remain in the particle files with their declared support levels [O4,O5,C2].
@@ -1281,21 +1321,20 @@ branch. Fastest kill tests are listed in the
 \(\Delta m^2_{32}=2.4374312781\times10^{-3}{\rm eV}^2\), the listed mixing
 angles, and \(\delta=305.581^\circ\).}
 
-In this note, we show that the output universe of an Observer Patch Holography
-simulation looks suspiciously like our universe. The fourteen-paper OPH stack
-cannot be printed inside a short note; that is what the papers, code, and
-empirical evidence notes in the OPH repository are for:
+This note shows the compact theorem surface of Observer Patch Holography. The
+fourteen-paper OPH stack cannot be printed inside a short note; that is what
+the papers, code, and empirical evidence notes in the OPH repository are for:
 \href{https://github.com/FloatingPragma/observer-patch-holography}{\texttt{github.com/FloatingPragma/observer-patch-holography}}.
-What we can say here is that OPH emits the slice shown above, and the same
+What this note can say is that OPH emits the slice shown above, and the same
 stack extends the pattern to observer records, quantum event surfaces,
 spacetime, gravity, gauge structure, charge quantization, the hierarchy, dark
 energy, dark matter, particle structure, and falsifiable neutrino targets.
-Given that evidence, it seems very unlikely that we are not observer patches in
-an OPH simulation.
 A critic can kill the compact proof by finding a path from a measured answer
 into a counted calculation, breaking a uniqueness or interval check, or
-falsifying the Koide shape or QCD-free hierarchy witness. Supporting rows have
-their own tests and their own claim classes. Every counted row says exactly what is
+falsifying the phase-fixed charged-family shape or QCD-free hierarchy witness.
+The empirical identification claim is decided by source-locked held-out
+compression, not by informal coincidence language. Supporting rows have their
+own tests and their own claim classes. Every counted row says exactly what is
 being counted.
 
 \vspace{0.55em}

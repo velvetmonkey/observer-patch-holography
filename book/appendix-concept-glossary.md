@@ -181,6 +181,12 @@ or map. In OPH, fixed points appear in consensus repair, pixel-ratio
 selection, and self-consistency conditions. A fixed point is stable because
 applying the relevant consistency operation again does not move it.
 
+**Folded screen.** A folded screen is the spherical chart presentation of a
+repaired quotient normal form. Local patch repair does the work: overlaps are
+compared, records are updated, and hidden carrier details are quotiented away.
+The fold is what the settled state looks like as caps, collars, cuts, edge
+sectors, and boundary records on the observer-facing screen.
+
 **Gauge group.** A gauge group organizes local redundancy and charge
 structure. The Standard Model uses $SU(3)\times SU(2)\times U(1)$, with a
 quotient by a shared discrete center in the full global structure. OPH tries

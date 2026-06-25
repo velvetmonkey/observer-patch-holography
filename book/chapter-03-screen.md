@@ -355,6 +355,12 @@ physical.
 
 *The patch federation does the work. The screen is the chart. Reality is what observer patches agree on.*
 
+In this book I sometimes call the chart readout a **folded screen**. The phrase
+has a narrow meaning. Local patches compare overlaps, repair mismatches, and
+settle to a quotient normal form. The spherical screen chart displays that
+settled state as caps, collars, cuts, edge sectors, and boundary records.
+Folding is the screen-facing presentation of repair.
+
 One concrete model is a finite quantum machine. The specialist literature gives
 that family of pictures names such as quantum link models, but the image itself
 has to be handled carefully. The sphere is a working chart for what an
