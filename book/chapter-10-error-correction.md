@@ -194,8 +194,12 @@ Don Page argued that if evaporation is unitary, radiation entropy should rise un
 In 2019, the "island formula" showed how to derive this in specific semiclassical holographic models. After Page time, an **island** appears inside the black hole that is encoded in the radiation. Including the island contribution, radiation entropy follows the expected Page-curve turn and decreases as unitarity requires in those models.
 
 This is a vivid example of error correction in holography. In OPH it functions
-as external support for encoded interior data. It is not a proved OPH
-evaporation theorem.
+as external support for encoded interior data. A finite reconstruction
+threshold in an OPH archive is not, by itself, a Page curve. A finite
+conditional-information gain is not, by itself, a geometric island. Physical
+evaporation needs an exterior time, a radiation algebra, an energy-flux channel,
+and a no-leakage bridge from the finite record system to the black-hole
+spacetime being claimed.
 
 ## 10.7 Observer Consistency as Error Correction
 
