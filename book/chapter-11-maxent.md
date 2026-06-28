@@ -253,7 +253,7 @@ screen-capacity branch closes it later.
 
 Jacobson inverted the logic of physics. Usually we think of gravity as fundamental, implying thermodynamic properties for horizons. Jacobson showed the reverse: **if you assume thermodynamics is fundamental, gravity is derived.**
 
-**On Jacobson's thermodynamic reading, gravity is not fundamental in the usual force-law sense; it is what local thermodynamic equilibrium looks like geometrically.**
+**On Jacobson's thermodynamic reading, gravity is local thermodynamic equilibrium written geometrically; the usual force-law picture is secondary.**
 
 The force of the argument lies in its austerity. Jacobson does not start with planets tracing curves through a manifold. He starts with heat flow, horizon entropy, and the insistence that the same thermodynamic accounting must work in every infinitesimal causal patch. Einstein's equation is what that insistence looks like when written geometrically.
 

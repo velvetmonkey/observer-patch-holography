@@ -275,8 +275,8 @@ In those models, the island formula reproduces the Page curve and shows how the 
 The island formula shows what holographic encoding can do. Information that
 looks lost in one description can remain stored in a nonlocal way and reappear
 when the right radiation data are assembled. That is the lesson the book needs.
-The black-hole interior is an encoded part of the same quantum description
-rather than a second hidden storage room.
+The black-hole interior is encoded inside the same quantum description. It is
+no separate hidden storage room.
 
 ## 9.10 From Entanglement to the Classical World
 

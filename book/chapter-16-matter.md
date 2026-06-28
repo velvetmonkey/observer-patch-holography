@@ -97,22 +97,19 @@ benchmarks for the weak-sector transport family. They are checks against known
 weak-boson masses, not a separate derivation lane for new particles.
 
 The same family follows the unbroken electromagnetic channel to the
-long-distance Thomson limit. The source-side no-hadron trunk gives
-$\alpha_{\rm root}^{-1}=136.9948351646\ldots$, and source plus bare
-$\alpha_U(P_\star)$ gives $137.0359595008\ldots$. With the empirical hadron
-closure supplied, the endpoint branch displays
+long-distance Thomson limit. The undressed source/root inverse coupling gives
+$136.9948351646\ldots$. Adding the finite-screen unified gauge-width
+contribution gives $137.0359595008\ldots$, the source calculation with hadrons
+withheld. With the empirical hadronic endpoint contribution supplied, the
+laboratory Thomson endpoint is $137.035999177(21)$, with the pixel ratio
+$P\simeq1.6309682094$.
 
-$$
-\alpha^{-1}(0)=137.035999177(21), \qquad
-P\simeq1.6309682094.
-$$
-
-$\alpha$ is the electromagnetic fine-structure constant. The inverse
-$\alpha^{-1}(0)$ is quoted in the long-distance, zero-momentum Thomson limit.
-The number in parentheses gives the uncertainty in the last digits. $P$ is the
-screen pixel ratio, the local ruler that the OPH fixed-point calculation reads
-from both geometric and electromagnetic sides. The endpoint row includes the
-low-energy hadronic spectral contribution in the same electromagnetic scheme.
+Here $\alpha$ is the electromagnetic fine-structure constant, and
+$\alpha^{-1}(0)$ is its long-distance, zero-momentum inverse. The number in
+parentheses gives the uncertainty in the last digits. $P$ is the screen pixel
+ratio, the local ruler that the OPH fixed-point calculation reads from both
+geometric and electromagnetic sides. The endpoint row includes the low-energy
+hadronic spectral contribution in the same electromagnetic scheme.
 
 The calculation starts with the golden-ratio screen balance, uses the boundary
 $\sqrt{\pi}$ normalization for the electromagnetic detuning, runs the source

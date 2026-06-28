@@ -99,13 +99,59 @@ closure, and comparison display.
 The goal is to make every mathematical step visible and keep the physics boundary clear.
 
 \begin{quote}\small
-\textbf{Pure source calculation.} The executable source map solves the OPH fixed point without importing the measured Thomson value. Its no-hadron output is \(\alphainv_{\mathrm{root}}=136.9948351646\ldots\). Adding the emitted public-branch unification width \(\alpha_U(P_\star)\) gives the source-side no-hadron prediction \(A_{\alpha_U}^{\mathrm{fp}}=137.0359595008\ldots\), a number close to the laboratory Thomson endpoint and distinct from it.
+\textbf{Pure source calculation.} The executable source map solves the OPH fixed point without importing the measured Thomson value. Its no-hadron output is the undressed source/root inverse coupling \(\alphainv_{\mathrm{root}}=136.9948351646\ldots\). Adding the emitted finite-screen unified gauge-width contribution \(\alpha_U(P_\star)\) gives the source-side no-hadron near-endpoint \(A_{\alpha_U}^{\mathrm{fp}}=137.0359595008\ldots\), a number close to the laboratory Thomson endpoint and distinct from it.
 
 \textbf{Hadron-completed endpoint target.} The public endpoint value is \(\alphainv(0)=137.035999177(21)\). The OPH source calculation reaches it only if the low-energy hadronic spectral step is supplied in the same endpoint convention as the source map. The published electroweak number \(\Delta\alpha_{\mathrm{had}}^{(5)}(M_Z^2)\simeq0.0276\) is the measured running-alpha input behind that physics, but it is not itself the additive inverse-alpha correction used here.
 \end{quote}
 
+\paragraph*{Intuitive picture: three readings of one pixel.}
+The three fine-structure numbers are not three unrelated corrections. They are
+three increasingly observer-facing readings of the same local pixel branch:
+\[
+\text{source pixel}
+\longrightarrow
+\text{gauge-width dressed pixel}
+\longrightarrow
+\text{fully observed Thomson endpoint},
+\]
+or numerically,
+\[
+136.9948351646\ldots
+\longrightarrow
+137.0359595008\ldots
+\longrightarrow
+137.035999177(21).
+\]
+The root value \(\alpha_{\mathrm{root}}^{-1}\) is the naked source/root inverse
+coupling: the electromagnetic width emitted when one screen cell closes as a
+geometric self-consistency object before the low-energy charged vacuum is
+attached. The outside reading is the pixel detuning
+\((P-\varphi)/\sqrt\pi\); the inside reading is the electromagnetic observation
+strength on the same branch. The fixed point says those two readings must name
+one cell.
+
+The contribution \(\alpha_U(P_\star)\) is the finite-screen unified gauge-width
+contribution. It is the main high-scale gauge-sector width carried by the same
+pixel: the weak and color representation content must fit the pixel budget
+\(P/4\), and the D10 heat-kernel closure supplies the executable certificate.
+Adding this width to the root gives the source-side no-hadron near-endpoint
+\(A_{\alpha_U}^{\mathrm{fp}}\). It is close to the laboratory endpoint because
+it supplies almost all of the inverse-alpha gap from the naked source value, but
+it is not itself the observed fine-structure constant.
+
+The factor \(C_{24,Q}\) is the small endpoint dressing required after the
+gauge-width contribution is added. It is near one because \(\alpha_U(P_\star)\)
+supplies the large part of the correction. Its excess
+\(\alpha_U(P_\star)(C_{24,Q}-1)\) represents the remaining same-scheme
+low-energy hadronic endpoint transport. A zero-momentum laboratory photon does
+not probe an empty charged vacuum; it sees the Ward-projected \(\mathrm U(1)_Q\)
+current after charged-lepton vacuum polarization, confined-quark/hadron
+spectral transport, and finite endpoint matching. In short, the observer
+measures the dressed Thomson endpoint, not the naked pixel and not the
+source-plus-unified-gauge-width near-endpoint.
+
 \paragraph*{Folklore version.}
-The OPH source-plus-bare-\(\alpha_U\) calculation lands at
+The OPH source-plus-unified-gauge-width calculation lands at
 \[
 A_{\alpha_U}^{\mathrm{fp}}=137.0359595008\ldots.
 \]
@@ -123,7 +169,7 @@ has to agree with itself. The stripped source value is
 \[
 \alpha_{\mathrm{root}}^{-1}=136.9948351646\ldots.
 \]
-Putting back the high-energy unification-width contribution shifts the root value to
+Putting back the finite-screen unified gauge-width contribution shifts the root value to
 \[
 A_{\alpha_U}^{\mathrm{fp}}=137.0359595008\ldots.
 \]
@@ -808,7 +854,7 @@ A_{\mathrm C}=137.035999177,
 \end{equation}
 Here \(A_{\mathrm C}\) is the CODATA/NIST 2022 inverse fine-structure constant \cite{nist-value,nist-2022}. The source value \(A_{\mathrm{calc}}(P_{\mathrm{root}})=\alpha_{\mathrm{root}}^{-1}\) is the reproducible OPH fixed-point solve \cite{oph-code}. Equation~\eqref{eq:Dempfp} is a calibrated hadronic correction in inverse-alpha units.
 
-It is tempting to identify the correction with the public-branch unification width
+It is tempting to identify the correction with the finite-screen unified gauge-width contribution
 \(\alpha_U(P_\star)=0.041124336195630495\), but the exact arithmetic does not support that
 identity. Adding only the bare 24-register-scale contribution gives
 \begin{equation}
@@ -840,7 +886,7 @@ C_{24,Q}=1.0009647859732326253849511140702475\ldots.
 The factor \(C_{24,Q}\) is a compact accounting of the finite same-scheme hadronic endpoint
 transport missing from the source-only proof; the 24-register argument does not emit it.
 
-Informally: the source calculation lands short by a small number with a known physical meaning. The source plus bare-\(\alpha_U\) result is the OPH no-hadron prediction. Adding the hadronic correction calibrated from the measured value lands on the CODATA/NIST central value. It does not predict extra digits, because the hadronic part has not been derived mathematically inside OPH.
+Informally: the source calculation lands short by a small number with a known physical meaning. The source plus finite-screen unified gauge-width result is the OPH no-hadron prediction. Adding the hadronic correction calibrated from the measured value lands on the CODATA/NIST central value. It does not predict extra digits, because the hadronic part has not been derived mathematically inside OPH.
 
 Why this step is needed: this is the public numerical result, and it marks the limit of the calculation. More digits require a source-derived hadronic spectral calculation, not more decimal padding.
 
@@ -1222,7 +1268,7 @@ with
 \[
 P=1.630968209403959324879279847782648941\ldots.
 \]
-Adding the emitted unification-width scale gives the source-side no-hadron prediction,
+Adding the emitted finite-screen unified gauge-width contribution gives the source-side no-hadron near-endpoint,
 \[
 A_{\alpha_U}^{\mathrm{fp}}=137.035959500817279952949994585787\ldots.
 \]

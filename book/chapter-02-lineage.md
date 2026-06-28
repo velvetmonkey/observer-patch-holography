@@ -281,7 +281,7 @@ The traditional answer was correspondence: an idea is true if it matches reality
 
 The pragmatists' hint: **truth is what survives testing**.
 
-Truth is what a community of inquirers would agree on after enough investigation. It is not a static property of statements; it is a destination we converge toward through collective inquiry.
+Truth is the stable result a community of inquirers would reach under enough investigation. It functions as a convergence condition for collective inquiry.
 
 An idea is true if it works-if it guides you safely through the world, if it lets you predict and control, if other people using it get the same results.
 

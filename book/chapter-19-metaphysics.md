@@ -92,54 +92,26 @@ low-energy fine structure constant land near $1/137$, more precisely at
 $\alpha^{-1}(0)=137.035999177(21)$? Why three spatial
 dimensions, not four or seven?
 
-The fine-structure lane treats the public Thomson-limit value as a fixed-point
-endpoint readout of the same local screen cell after the hadronic endpoint
-transport is supplied. The local pixel ratio is
+The fine-structure lane treats the public Thomson-limit value as the endpoint
+readout of one local screen cell after the hadronic endpoint transport is
+supplied. The same pixel has two descriptions. From outside the encoded world,
+it is a tiny screen area, sitting slightly above the golden-ratio balance point.
+From inside the encoded world, the same displacement is the smallest
+electromagnetic observation strength available to observers.
 
-\[
-P=a_{\mathrm{cell}}/\ell_\star^2.
-\]
+The endpoint branch gives a pixel ratio near $1.6309682094$ and the public
+inverse fine-structure value $137.035999177(21)$. The no-hadron source
+calculation lands lower: $136.9948351646\ldots$ before the unified gauge-width
+contribution, and $137.0359595008\ldots$ after that contribution. The public
+value includes the same-scheme hadronic endpoint correction. The constant
+therefore represents the electromagnetic width of the smallest
+observer-supporting pixel.
 
-It is given two readings. The scale $\ell_\star^2$ comes from the selected
-scale bridge and is displayed as the Planck area only after that branch emits
-$G_{\mathrm{SI}}=c^3\ell_\star^2/\hbar$. From outside the encoded world, $P$
-is the screen-cell area in units of the emitted scale area, sitting slightly
-above the exact golden-ratio balance point $\varphi$. From inside the encoded
-world, the same displacement is read as the smallest electromagnetic
-observation strength available to observers. The closure condition is
-
-$$P=\varphi+\alpha_{\mathrm{in}}(P)\sqrt{\pi}.$$
-
-Here $\alpha_{\mathrm{in}}(P)$ is the inside electromagnetic observation
-strength. The source-side computation sends the same trial pixel through the
-unification scale, running gauge couplings, electroweak anchor, and
-long-distance electromagnetic endpoint. The endpoint branch gives
-
-$$P\simeq1.6309682094.$$
-
-with
-
-$$\alpha^{-1}(0)=137.035999177(21).$$
-
-The no-hadron source value is
-$\alpha_{\rm root}^{-1}=136.9948351646\ldots$, and source plus bare
-$\alpha_U(P_\star)$ gives $137.0359595008\ldots$. The public value includes the
-same-scheme hadronic endpoint correction. The constant represents the
-electromagnetic width of the smallest observer-supporting pixel. Its value is
-fixed because the inside and outside descriptions of that pixel have to land on
-the same number.
-
-The symbol $\varphi$ is the golden ratio. $P$ is the pixel area ratio,
-the area of a screen cell in units of $\ell_\star^2$.
-$\sqrt{\pi}$ is the boundary Gaussian normalization used in the local
-ruler discussion. The inverse $\alpha^{-1}(0)$ is the long-distance
-fine-structure readout. The parenthesized digits again indicate the quoted
-uncertainty in the final digits.
-The pixel ratio and global capacity closure fix dimensionless geometry; they do
-not fix the SI size of $\ell_\star^2$ without the selected scale bridge. For
-the displayed Thomson endpoint, the hadronic spectral contribution enters
-through the standard empirical \(e^+e^-\to\mathrm{hadrons}\) data. The
-first-principles calculation is kept in the technical table.
+The pixel ratio and global capacity closure fix dimensionless geometry. The SI
+size of the scale area comes from the selected scale bridge. For the displayed
+Thomson endpoint, the hadronic spectral contribution enters through the
+standard empirical \(e^+e^-\to\mathrm{hadrons}\) data. The first-principles
+payload belongs in the technical table.
 
 Here the philosophical point is that a famous "free
 constant" is tied to the same local screen scale that organizes the particle

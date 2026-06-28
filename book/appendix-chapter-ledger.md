@@ -7,8 +7,8 @@ path again, chapter by chapter, and asks three questions each time. What is
 the chapter trying to reverse engineer? Which symbols or equations should the
 reader keep steady? Which communities of builders made that chapter possible?
 
-The guide is deliberately plain. It is not a second paper, and it is not a
-replacement for the chapters. It is a reader's workbench. If a symbol appears
+The guide is deliberately plain. It is a reader's workbench for the chapters.
+If a symbol appears
 earlier than its full technical life in the book, the note here gives the
 plain-language meaning. If a discovery is associated with one famous name, the
 note widens the frame enough to show the relay team behind it. OPH itself is

@@ -116,7 +116,7 @@ If Bob walked up to you and said, "That's a nice blue elephant," you would have 
 
 **Objectivity is simply the process of checking for agreement.**
 
-If all three of you agree on the overlap of your visual fields-"Red Car"-then you conclude the car is real. The "object" emerges from the intersection of your views. Reality is not a pre-existing container; it is the consensus arrived at by a network of observers.
+If all three of you agree on the overlap of your visual fields-"Red Car"-then you conclude the car is real. The "object" emerges from the intersection of your views. Reality is the consensus arrived at by a network of observers.
 
 ### Why Classical Consistency Is Easy
 

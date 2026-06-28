@@ -42,7 +42,7 @@ patches carry local records, compare only what their overlaps expose, repair
 mismatches through declared recovery moves, and settle into stable fixed points
 that survive refinement. The public world is what remains stable after those
 local views are made mutually consistent. OPH simulation language names this
-self-consistent observer network rather than a hidden machine drawing a movie.
+self-consistent observer network at the operating level.
 The case for OPH is mathematical and empirical: the same
 observer-consistency architecture recovers established physics and explains why
 a world exists that can produce observers capable of reconstructing it.
@@ -260,7 +260,7 @@ exact hypercharge, $N_c=3$, and $N_g=3$ live in the papers.
 | --- | --- | --- | --- | --- |
 | Gravitational constant | G | 6.6742999959e-11, scale/clock display | 6.67430(15)e-11 | 0.00003σ |
 | Speed of light | c | structural Lorentz speed; SI value conventional | 299792458 exact by definition | not a numeric prediction |
-| Fine-structure (inv) | \(A_{\alpha_U}^{\mathrm{fp}}\) | best source prediction \(137.0359595008\), from \(\alpha_{\mathrm{root}}^{-1}=136.994835\) plus bare \(\alpha_U(P_\star)\); remaining endpoint gap \(3.9676\times10^{-5}\) is the QCD/hadronic closure payload | 137.035999177(21) | low by \(2.90\times10^{-7}\) relative |
+| Fine-structure (inv) | \(A_{\alpha_U}^{\mathrm{fp}}\) | source-side no-hadron near-endpoint \(137.0359595008\), from the undressed source/root inverse coupling \(\alpha_{\mathrm{root}}^{-1}=136.994835\) plus the finite-screen unified gauge-width contribution \(\alpha_U(P_\star)\); remaining endpoint gap \(3.9676\times10^{-5}\) is the QCD/hadronic closure payload | 137.035999177(21) | low by \(2.90\times10^{-7}\) relative |
 | Photon mass | m_γ | 0 eV | <1e-18 eV | below bound |
 | Gluon mass | m_g | 0 GeV | 0 GeV | match |
 | Graviton mass | m_grav | 0 eV | <1.76e-23 eV | below bound |

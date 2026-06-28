@@ -43,7 +43,7 @@ spreadsheet of pre-existing answers.
 
 **The hint**: Observable quantities don't commute. The order of questions changes the answers.
 
-**The lesson**: Objects don't have pre-existing values for all properties. Measurement is not passive reading; it is active intervention.
+**The lesson**: Measurement actively intervenes. Objects do not carry a full spreadsheet of pre-existing values.
 
 **The first-principles reframing**: Questions come with an algebra, a set of rules for combining them. This algebra is non-commutative. The consistency conditions we seek must respect this algebraic structure.
 

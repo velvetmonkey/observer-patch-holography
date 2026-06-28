@@ -226,25 +226,19 @@ Renormalization works for some theories (called "renormalizable") but not others
 
 A strange consequence of renormalization: coupling constants change with energy.
 
-The fine structure constant alpha measures the strength of electromagnetism. The
-source-side no-hadron OPH trunk gives
-$\alpha_{\rm root}^{-1}=136.9948351646\ldots$. Adding the bare
-$\alpha_U(P_\star)$ contribution gives the no-hadron source prediction
-$137.0359595008\ldots$. The public long-distance Thomson row is
-$\alpha^{-1}(0)=137.035999177(21)$ after empirical hadron closure. At higher
-energies, it increases. At the Z boson mass, it is about $1/128$.
+The fine-structure constant measures the strength of electromagnetism. OPH keeps
+three readings separate. The undressed source/root pixel gives
+$136.9948351646\ldots$. Adding the finite-screen unified gauge-width
+contribution gives the source calculation with hadrons withheld:
+$137.0359595008\ldots$. The number measured in the laboratory is the
+long-distance Thomson endpoint, $137.035999177(21)$, after the empirical
+hadronic endpoint contribution is supplied.
 
 That low-energy number sits inside the same particle sector as the weak bosons.
-Once the electroweak transport family is read from the selected local fixed point,
-electromagnetism is read as the unbroken channel left after the weak and
-hypercharge sectors mix. On the endpoint branch, the OPH $P$-closure reads the
-long-distance Thomson value only after Ward-projected transport includes the
-empirical hadron closure:
-
-$$\alpha^{-1}(0)=137.035999177(21).$$
-
-The fine-structure constant belongs to the same transport family that yields
-the $W$ and $Z$ benchmarks.
+Once the electroweak transport family is read from the selected local fixed
+point, electromagnetism is the unbroken channel left after the weak and
+hypercharge sectors mix. The fine-structure constant therefore belongs to the
+same transport family that yields the $W$ and $Z$ benchmarks.
 
 The strong force coupling runs the opposite way. At low energies, it's strong (hence the name). At high energies, it weakens. This is "asymptotic freedom," discovered by Gross, Wilczek, and Politzer in 1973.
 
@@ -855,21 +849,17 @@ local electromagnetic width of the observer-supporting pixel. From there the
 same construction continues into the weak sector, the Higgs/top relation, the
 running quark sector, and one neutrino branch. Hadrons come later, because
 protons and mesons are bound states of quarks and gluons. A first-principles
-hadron calculation needs the strong-binding machinery. The displayed
-fine-structure endpoint uses the measured Thomson value, and the hadronic
-spectral data enter through the standard \(e^+e^-\to\mathrm{hadrons}\)
-channel.
-This is why an observer does not measure the undressed source diagnostic
-\(1/136.994835\ldots\) as the laboratory fine-structure constant. A low-energy
-electromagnetic measurement sees the dressed Thomson current after lepton
-vacuum polarization, confined-quark/hadron spectral transport, and finite
-endpoint matching. Adding only the bare \(\alpha_U(P_\star)=0.041124336195630495\)
-shift gives the source-side no-hadron inverse alpha,
-\(137.0359595008\ldots\), below the public endpoint. The calibrated residual is \(\alpha_U C_{24,Q}\), with
-\(C_{24,Q}=1.00096478597323262538\ldots\). Source-only closure requires the
-hadronic spectral factor without target leakage. A 24-register hadronic spectral
-object fitted after seeing the residual would reproduce the number but would not
-be a prediction.
+hadron calculation needs the strong-binding machinery.
+
+For that reason, a laboratory observer does not measure the undressed source
+diagnostic as the fine-structure constant. A low-energy electromagnetic
+measurement sees the dressed Thomson current after lepton vacuum polarization,
+confined-quark/hadron spectral transport, and finite endpoint matching. The
+source calculation with the unified gauge-width contribution reaches
+$137.0359595008\ldots$, just below the public endpoint. The remaining gap has a
+specific address: the same-scheme hadronic endpoint transport. Fitting that gap
+after seeing the Thomson value would reproduce the number. That fit would be
+accounting, with no source-prediction status.
 
 The screen cell wants to sit at the golden-ratio balance point, the exact
 self-similar equilibrium of the local entropy hierarchy. A universe with

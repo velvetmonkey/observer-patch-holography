@@ -249,19 +249,10 @@ gravity calculation emits $G_{\mathrm{SI}}=c^3\ell_\star^2/\hbar$. Dividing by
 $\ell_\star^2$ makes $P$ dimensionless: it is a pure ratio between the cell
 area and the emitted scale area.
 
-The important point is that this local ruler can be read from two sides of the
-same world. Feed a trial value of $P$ through the electroweak chain and the
-theory returns an inner electromagnetic observation scale. Closure asks for the
-value of $P$ where the outer pixel reading and the inner observational reading
-agree:
-
-$$
-P=\phi+\alpha_{\mathrm{in}}(P)\sqrt{\pi}.
-$$
-
-Equivalently, if $A_T(P)=\alpha_{\mathrm{in}}(P)^{-1}$ is the inverse Thomson
-endpoint readout, the realized pixel solves
-$P=\phi+\sqrt{\pi}/A_T(P)$.
+The local ruler can be read from two sides of the same world. Feed a trial
+pixel value through the electroweak chain and the theory returns an inner
+electromagnetic observation scale. Closure asks for the pixel value where the
+outer geometric reading and the inner observational reading agree.
 
 The computation has a definite order. The golden-ratio balance gives the
 reference value $\phi$. The boundary Gaussian normalization gives the
@@ -270,10 +261,10 @@ running gauge couplings, and the electroweak anchor. The unbroken
 electromagnetic channel is then transported to the long-distance Thomson
 endpoint.
 
-The symbol $\phi$ is the golden ratio. $\alpha_{\mathrm{in}}(P)$ is the
-inner electromagnetic readout produced from the trial pixel value $P$. The
-fixed point is the value of $P$ for which the geometric pixel and the
-electromagnetic readout name the same local scale.
+The golden ratio supplies the reference balance. The inner electromagnetic
+readout is produced from the trial pixel value. The fixed point is the value of
+$P$ for which the geometric pixel and the electromagnetic readout name the same
+local scale.
 
 The value is forced in OPH because the same cell cannot choose one value for
 its geometry and another value for electromagnetic observation. The
@@ -281,13 +272,11 @@ fine-structure constant is the electromagnetic width that makes both readings
 describe the same local pixel.
 
 The electroweak hierarchy uses the same local branch. Once the unified coupling
-$\alpha_U(P_\star)$ is fixed by the source branch, the weak scale
-is read as
-$v/E_\star=P_\star^{-1/2}\exp[-2\pi/(4\alpha_U(P_\star))]$. The particle paper
-and the Observers paper give the exact local hierarchy relation. The selected
-source-to-Higgs coarse-graining square has
-$\epsilon_H=0$, so the Higgs naturality reading is carried by the same
-source-to-Higgs branch. An independent bare scalar input is absent from this
+is fixed by the source branch, the weak scale is read from the local hierarchy
+relation given in the particle paper and the Observers paper. The selected
+source-to-Higgs coarse-graining square has zero defect, so the Higgs naturality
+reading is carried by the same source-to-Higgs branch. An independent bare
+scalar input is absent from this
 proof object. The full SI gravity readout depends on the complete no-G clock
 bridge.
 
@@ -332,59 +321,38 @@ resolution is a single value. No menu of incompatible scales remains. In the
 refinement limit, that single atom becomes the horizon-to-cell factor used by
 the repair tick.
 
-This is the cleanest way to say what the fine-structure constant means in OPH.
-It is the nonzero detuning of a holographic screen cell. From the outside, the
-cell is displaced from perfect self-similar equilibrium. From the inside, the
-same displacement appears as the smallest electromagnetic observation scale
-available to the observers living on that screen.
+The cleanest book-level phrasing is this: the fine-structure constant is the
+nonzero detuning of a holographic screen cell. From the outside, the cell is
+displaced from perfect self-similar equilibrium. From the inside, the same
+displacement appears as the smallest electromagnetic observation scale available
+to the observers living on that screen.
 
 Perfect equilibrium would be too quiet. A world with records needs a small
 departure from silence: enough asymmetry for light, detectors, and durable
 differences, yet small enough for the screen geometry to remain coherent. The
 fine-structure constant measures that minimal electromagnetic disturbance.
 
-The Newton normalization uses the same local cell without using it to solve for the
-scale. Once the selected scale bridge supplies
-$\ell_\star^2=3\pi/B_\star$, the shared readings are
-$a_{\mathrm{cell}}=P\ell_\star^2$ and
-$\bar{\ell}_{\mathrm{shared}}=P/4$. The area-law expression gives
-$G_{\mathrm{geom}}=a_{\mathrm{cell}}/(4\bar{\ell}_{\mathrm{shared}})
-=\ell_\star^2$. Thus the pixel ratio fixes the cell/edge identity, while $P$
-cancels out of Newton's constant.
+The Newton normalization uses the same local cell without using it to solve for
+the scale. The selected scale bridge supplies the scale area. The pixel ratio
+then fixes the cell/edge identity, while that ratio cancels out of Newton's
+constant. In the book-level picture, fine structure reads the pixel's
+electromagnetic detuning; Newton's constant reads the emitted scale bridge.
 
 The long-distance fine-structure readout gives
+$P\simeq1.6309682094$ and an inverse fine-structure constant of
+$137.035999177(21)$. The notation $(21)$ means uncertainty in the last quoted
+digits. The number is the zero-momentum electromagnetic strength familiar from
+precision physics.
 
-$$
-P\simeq1.6309682094
-$$
-
-and
-
-$$
-\alpha^{-1}(0)=137.035999177(21).
-$$
-
-The ellipsis means the decimal continues. The notation $(21)$ on
-$\alpha^{-1}(0)$ means uncertainty in the last quoted digits. The number is
-the inverse fine-structure constant at zero momentum, the low-energy
-electromagnetic strength familiar from precision physics.
-
-The first-principles calculation gives inverse alpha
-$136.9948351646\ldots$ at pixel $1.6309720956943290\ldots$. The displayed
-endpoint uses the same OPH fixed-point equation with measured
-\(e^+e^-\to\mathrm{hadrons}\) input for the empirical hadronic contribution.
-Adding the bare \(\alpha_U(P_\star)=0.041124336195630495\) scale contribution
-gives the source-side no-hadron inverse alpha,
-\(137.0359595008\ldots\), below the Thomson endpoint.
-The calibrated endpoint residual is
-\(\alpha_U C_{24,Q}\), with
-\(C_{24,Q}=1.00096478597323262538\ldots\). That factor names the remaining
-same-scheme hadronic endpoint transport. Source-only closure requires an OPH
-source derivation with no target leakage. An exact 24-register spectral fit made
-after seeing the residual would be accounting, not a source prediction.
+The source calculation tells a narrower story. The undressed source/root pixel
+lands at $136.9948351646\ldots$. Adding the finite-screen unified gauge-width
+contribution gives $137.0359595008\ldots$, with the hadronic endpoint step
+withheld. The remaining gap to the Thomson value has a physical address:
+low-energy hadronic spectral transport in the same electromagnetic convention.
+The book leaves the exact payload to the technical paper.
 
 The phrase $e^+e^-\to\mathrm{hadrons}$ names electron-positron annihilation
-into strongly interacting composite particles. Those data help account for the
+into strongly interacting composite particles. Those data account for the
 hadronic contribution to the long-distance electromagnetic running used in the
 displayed endpoint.
 

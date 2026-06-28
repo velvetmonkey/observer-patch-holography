@@ -215,8 +215,9 @@ P&=\decnum{1.63097209569432901817967892561191884270169},\\
 The approximately \(0.041\) inverse-alpha gap to the public Thomson endpoint is the declared
 QCD/hadronic electromagnetic input. The endpoint row is therefore a public fixed-point result with
 empirical hadron closure records, while the QCD-free hierarchy witness is the cleaner first-principles
-stress test. Adding the emitted \(\alpha_U(P_\star)\) width gives the source-side no-hadron
-inverse-alpha prediction, \(137.0359595008\ldots\), below the Thomson endpoint.
+stress test. Adding the emitted finite-screen unified gauge-width contribution
+\(\alpha_U(P_\star)\) gives the source-side no-hadron near-endpoint,
+\(137.0359595008\ldots\), below the Thomson endpoint.
 The detailed endpoint table appears in Section~\ref{sec:particle-input-ledger}.
 The separate
 cosmic record-closure target \(N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}})\), with count representation
@@ -426,7 +427,7 @@ Detailed scope statements are collected in the support sections that follow.
 \toprule
 Chain & OPH output & Role \\
 \midrule
-\(P\)-closure and fine structure & \(\alpha_{\mathrm{root}}^{-1}=136.9948351646\ldots\); \(A_{\alpha_U}^{\mathrm{fp}}=137.0359595008\ldots\); endpoint \(\alpha^{-1}(0)=137.035999177(21)\) & source-side no-hadron prediction plus empirical endpoint closure \\
+\(P\)-closure and fine structure & \(\alpha_{\mathrm{root}}^{-1}=136.9948351646\ldots\); \(A_{\alpha_U}^{\mathrm{fp}}=137.0359595008\ldots\); endpoint \(\alpha^{-1}(0)=137.035999177(21)\) & source-side no-hadron near-endpoint plus empirical endpoint closure \\
 Structural massless carriers & \(m_\gamma=m_g=m_{\mathrm{grav}}=0\) & symmetry-protected zeros \\
 Electroweak \(W/Z\) & \(\begin{gathered}80.377\\91.18797809193725\end{gathered}~\mathrm{GeV}\) & weak-sector benchmark pair \\
 Electroweak hierarchy/naturality & \(\begin{gathered}N_{\mathrm{CRC}}^{\mathrm{EW}}\simeq3.53235\times10^{122}\\ \mathcal B_{\mathrm{EW}}=0,\ \epsilon_H=0\end{gathered}\) & selected local/global bridge \\
@@ -557,15 +558,17 @@ Thomson residual. At the implemented fixed point the residual is
 \[
 0.041164012378350542050005414212806738
 \]
-inverse-alpha units. Adding only the bare public-branch \(\alpha_U\) contribution gives the
-source-side no-hadron prediction
+inverse-alpha units. Adding the finite-screen unified gauge-width contribution
+\(\alpha_U(P_\star)\) to the undressed source/root inverse coupling gives the
+source-side no-hadron near-endpoint
 \[
 A_{\alpha_U}^{\mathrm{fp}}
 =136.994835164621649457949994585787\ldots
 +0.041124336195630495
 =137.035959500817279952949994585787\ldots,
 \]
-The bare \(\alpha_U\) or 24-register scale contribution lands close to the Thomson endpoint
+The sum \(\alpha_{\mathrm{root}}^{-1}+\alpha_U(P_\star)\), not \(\alpha_U(P_\star)\) by
+itself, is the source-side no-hadron near-endpoint. It lands close to the Thomson endpoint
 and does not reach it. OPH source-only closure requires the Ward-projected hadronic spectral
 transport. The remaining inverse-alpha shortfall is
 \[
@@ -4066,7 +4069,7 @@ on the weighted-cycle branch. The ledger also marks four separate row classes: t
 \(P\)-closure source audit, the electroweak \(W/Z\) validation row, the charged-lepton
 absolute-mass landing, and the hadron backend plus empirical closure split.
 The \(W/Z\) row is a frozen compare-only adapter with its own public validation records. The
-Ward-projected Thomson lane records a source-side no-hadron value, the source-plus-bare-\(\alpha_U\)
+Ward-projected Thomson lane records a source-side no-hadron value, the source-plus-unified-gauge-width
 prediction, and the empirical hadron-completed endpoint as separate rows on the declared
 \(P\)-closure surface. In the charged lane the theorem surface carries an exact
 same-family witness, a determinant-line lift, and an algebraic mass readout from

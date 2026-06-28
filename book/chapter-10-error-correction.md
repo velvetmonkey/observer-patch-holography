@@ -36,7 +36,7 @@ In 1995, Peter Shor published a nine-qubit code that proved quantum error correc
 The three-qubit bit-flip code encodes:
 $$|\psi_L\rangle = \alpha|000\rangle + \beta|111\rangle$$
 
-This isn't copying-it's entangling. The information about alpha and beta is spread across correlations between the three qubits.
+The code entangles the information about alpha and beta across correlations between the three qubits.
 
 The subscript $L$ means "logical." $|\psi_L\rangle$ is the protected qubit as
 seen by the code, while the three slots inside $|000\rangle$ and
@@ -47,7 +47,7 @@ state in a three-body pattern.
 
 To detect errors without measuring the data, you measure **parity**-whether pairs of qubits match. This reveals which qubit flipped without revealing whether the qubits are 0 or 1. The superposition survives.
 
-![A logical qubit is not copied into several carriers; it is hidden in a pattern that can survive local damage.](../assets/book_diagrams/error-correction-layers.svg){width=80%}
+![A logical qubit is hidden in a pattern that can survive local damage.](../assets/book_diagrams/error-correction-layers.svg){width=80%}
 
 Quantum error correction is possible. Information can be protected without
 copying by spreading it across entangled patterns. The universe permits durable
@@ -226,12 +226,12 @@ score. When the repair law respects the overlap contract, every accepted move
 lowers that score, and compatible repair orders from the same fixed quotient
 problem converge to the same public description.
 
-That public description is the fixed point. It is not a vote and it is not a
-view from nowhere. It is the state that remains after the observer network has
-repaired all checkable disagreement it is allowed to repair. The measurement
-layer then singles out the records that observers can actually compare, with
-the usual Born probabilities and measurement updates on that accessible record
-structure. The Bell analysis stays within the standard quantum limits as well.
+That public description is the fixed point: a shared state produced by the
+allowed observer-network repairs, with no vote and no view from nowhere. The
+measurement layer then singles out the records that observers can actually
+compare, with the usual Born probabilities and measurement updates on that
+accessible record structure. The Bell analysis stays within the standard
+quantum limits as well.
 Stable public facts appear when many local correction steps settle on one
 common answer.
 

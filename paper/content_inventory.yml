@@ -95,7 +95,7 @@ style_policy:
     - lead with theory content ahead of ledgers
     - use claim-boundary ledgers late in synthesis papers
     - cite companion papers for sector detail
-    - keep abstracts short, readable, and informal while still naming the main results
+    - keep abstracts short, readable, and informal, and name the main results
     - do not use internal dependency-node labels, code identifiers, or schema-style names in abstracts or informal summaries
     - define named selectors and acronyms before any shortened form is used
   prose:

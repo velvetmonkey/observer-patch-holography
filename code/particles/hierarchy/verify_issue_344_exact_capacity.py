@@ -126,7 +126,7 @@ def build_derivation_chain() -> list[dict[str, Any]]:
                 "R_PN_joint_fixed_point_certificate_report.json and defined by the closure equation "
                 "P = phi + sqrt(pi)/A_T(P) of R_P_public_pixel_certificate.json at the declared endpoint "
                 f"convention A_T_public = {PUBLIC_ENDPOINT_A_T}. alpha_U(P_star) = 0.041124336195630495 is "
-                "the Krawczyk-inclusion-certified unification width center from R_U_krawczyk_certificate.json. "
+                "the Krawczyk-inclusion-certified finite-screen unified gauge-width center from R_U_krawczyk_certificate.json. "
                 "Neither value uses the measured weak-scale v, Higgs, top, W, Z, G, Planck area, Lambda, "
                 "or hierarchy-ratio. The parallel source-audit branch (R_P_source_audit_pixel_certificate.json, "
                 "P_cand = 1.63097209569432901817967892561191884270169) is a separate witness whose full "
@@ -532,7 +532,7 @@ def build_certificate(
         "allowed_inputs": [
             "public-endpoint OPH local pixel fixed point P_star = P_public from R_P_public_pixel_certificate.json (closure P = phi + sqrt(pi)/A_T(P)) recorded with full precision in R_PN_joint_fixed_point_certificate_report.json",
             f"public Thomson endpoint A_T_public = {PUBLIC_ENDPOINT_A_T} as a declared endpoint convention / branch locator (allowed by R_P_public_pixel_certificate.json's dependency_boundary.allowed list)",
-            "Krawczyk-inclusion-certified unification width center alpha_U(P_star) = 0.041124336195630495 from R_U_krawczyk_certificate.json with K(I_U) subset interior(I_U)",
+            "Krawczyk-inclusion-certified finite-screen unified gauge-width center alpha_U(P_star) = 0.041124336195630495 from R_U_krawczyk_certificate.json with K(I_U) subset interior(I_U)",
             "D10 transmutation theorem fixing beta_EW = N_c + 1 = 4",
             "representation-to-spectrum round-count theorem fixing m_rep = 24",
             "EW tick-projection bridge fixing Pi_EW(P,N) = 24*pi/(alpha_U(P)*log(N/pi)) and the resonance target Pi_EW(P_star, N_CRC^EW) = 4*P_star",

@@ -299,7 +299,7 @@ papiers.
 | --- | --- | --- | --- | --- |
 | Constante gravitationnelle | G | 6.6742999959e-11, affichage échelle/horloge | 6.67430(15)e-11 | 0.00003σ |
 | Vitesse de la lumière | c | vitesse lorentzienne structurelle; valeur SI conventionnelle | 299792458 exact par définition | pas une prédiction numérique |
-| Structure fine (inv.) | \(A_{\alpha_U}^{\mathrm{fp}}\) | meilleure prédiction source \(137.0359595008\), depuis \(\alpha_{\mathrm{root}}^{-1}=136.994835\) plus \(\alpha_U(P_\star)\) nu; l'écart restant au point final \(3.9676\times10^{-5}\) est le payload de fermeture QCD/hadronique | 137.035999177(21) | plus bas de \(2.90\times10^{-7}\) relatif |
+| Structure fine (inv.) | \(A_{\alpha_U}^{\mathrm{fp}}\) | quasi-point-final source sans hadrons \(137.0359595008\), depuis le couplage inverse source/racine déshabillé \(\alpha_{\mathrm{root}}^{-1}=136.994835\) plus la contribution de largeur de jauge unifiée d'écran fini \(\alpha_U(P_\star)\); l'écart restant au point final \(3.9676\times10^{-5}\) est le payload de fermeture QCD/hadronique | 137.035999177(21) | plus bas de \(2.90\times10^{-7}\) relatif |
 | Masse du photon | m_γ | 0 eV | <1e-18 eV | sous la borne |
 | Masse du gluon | m_g | 0 GeV | 0 GeV | match |
 | Masse du graviton | m_grav | 0 eV | <1.76e-23 eV | sous la borne |

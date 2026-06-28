@@ -296,9 +296,9 @@ environment, not raw data dumps.
 
 Think of observers as stable vortices in a fluid.
 
-The fluid is the quantum state on the horizon-constantly evolving, highly correlated. A vortex isn't separate from the fluid; it's a pattern within the fluid. It persists over time. It has a definite location. It interacts with other patterns.
+The fluid is the quantum state on the horizon: constantly evolving, highly correlated. A vortex is a pattern within the fluid. It persists over time. It has a definite location. It interacts with other patterns.
 
-An observer is like that. It's not a ghostly presence watching from outside. It's a stable, self-reinforcing pattern within the data on the screen. The pattern has access to a local region (its patch), maintains internal structure (its records), and can interact with nearby patterns (other observers, measured systems).
+An observer is like that: a stable, self-reinforcing pattern within the data on the screen. The pattern has access to a local region (its patch), maintains internal structure (its records), and can interact with nearby patterns (other observers, measured systems).
 
 ### Movement and Time
 

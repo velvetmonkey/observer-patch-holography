@@ -206,7 +206,7 @@ Your skin is a Markov blanket. It screens your internal organs from the external
 
 An observer's patch works the same way. It carries all accessible information
 about what lies beyond. In the ideal recovery limit, the patch is a sufficient
-summary rather than a window.
+summary of what can be recovered from outside.
 
 ## 7.7 Quantum Recovery: The Petz Map
 
