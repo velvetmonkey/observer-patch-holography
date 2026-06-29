@@ -289,7 +289,10 @@ An idea is true if it works-if it guides you safely through the world, if it let
 
 This is exactly our thesis about laws.
 
-Why are the laws of physics true? Not because they were written before the Big Bang. They are true because they *work*-they survive the overlap test, they enable agreement between observers, they keep generating correct predictions.
+Why are the laws of physics true? Not because they were written outside
+cosmic history. They are true because they *work*: they survive the overlap
+test, they enable agreement between observers, they keep generating correct
+predictions.
 
 Laws become patterns stable enough to survive the consistency filter, the configurations that keep working when observers compare notes.
 

@@ -25,8 +25,13 @@ def test_particle_pipeline_closure_status_scope_locks_hadrons_and_workers() -> N
     assert status["finalization_gates"]["empirical_hadron_spectral_dataset_integrated"] is False
     assert status["finalization_gates"]["hierarchy_local_global_resonance_closed"] is True
     assert status["finalization_gates"]["higgs_naturality_defect_closed"] is True
+    assert status["finalization_gates"]["pixel_screen_resonance_summary_closed"] is True
     assert status["artifacts"]["measured_endpoint_calibration"]["status"] == (
         "oph_plus_empirical_hadron_closure_endpoint"
+    )
+    assert status["artifacts"]["hierarchy_pixel_screen_resonance"]["exists"] is True
+    assert status["artifacts"]["hierarchy_pixel_screen_resonance"]["status"] == (
+        "closed_receipt_summary_from_existing_hierarchy_certificates"
     )
     assert status["artifacts"]["empirical_ee_hadrons_source_registry"]["exists"] is True
     assert status["artifacts"]["empirical_ee_hadronic_spectral_measure_schema"]["exists"] is True

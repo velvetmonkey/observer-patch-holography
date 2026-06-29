@@ -83,7 +83,8 @@ As the gas evolves randomly, it wanders through microstates. It spends almost al
 
 **The hint**: The Second Law is statistics. Entropy increases because high-entropy states are overwhelmingly more probable.
 
-**The lesson**: Irreversibility doesn't come from the laws-it comes from initial conditions and counting.
+**The lesson**: Irreversibility doesn't come from the laws. It comes from
+boundary conditions and counting.
 
 ![Record formation consumes low-entropy resources and exports the cost as heat and waste entropy.](../assets/book_diagrams/entropy-arrow.svg){width=78%}
 
@@ -95,24 +96,33 @@ The microscopic laws are time-reversible. If you film molecules bouncing and pla
 
 How can irreversibility emerge from reversible laws?
 
-Boltzmann's answer puts the arrow of time in the initial conditions rather than
+Boltzmann's answer puts the arrow of time in boundary conditions rather than
 in the microscopic laws.
 
-The universe started in a very low-entropy state. Given that starting point, entropy almost certainly increases. If the universe had started in equilibrium, it would stay there-no arrow of time, no memory, no observers.
+The record we inhabit is anchored on a very low-entropy side. Given that
+asymmetry, entropy almost certainly increases along the direction in which
+records accumulate. An equilibrium history would have no arrow of time, no
+memory, and no observers.
 
 ## 4.3 The Past Hypothesis
 
-This idea-that the arrow of time traces back to a special beginning-is called the **Past Hypothesis**.
+This idea, that the arrow of time traces back to a special low-entropy side of
+the record, is called the **Past Hypothesis**.
 
-### What Low Entropy Means for the Early Universe
+### What Low Entropy Means Cosmologically
 
-The early universe was extremely hot-billions of degrees and far beyond ordinary laboratory scales. Hot systems usually have high entropy. So how was it low entropy?
+The hot dense side of the standard cosmological reconstruction was far beyond
+ordinary laboratory scales. Hot systems usually have high entropy. So how can
+that part of the record count as low entropy?
 
 **Gravity reverses the usual intuition**.
 
 For a gas in a box with no gravity, uniform is high entropy-it's the most probable configuration. But for a self-gravitating system, uniform is *low* entropy. Gravity wants to clump matter together. Stars, galaxies, and black holes are gravitationally collapsed states with far more microstates than uniform distribution.
 
-The early universe was a tightly wound spring. The gravitational degrees of freedom were almost completely unexploited. Over 13.8 billion years, gravity has been unwinding that spring-forming stars, galaxies, and black holes, increasing entropy all the way.
+The hot dense record is like a tightly wound spring. The gravitational degrees
+of freedom were almost completely unexploited. Along the observed cosmological
+history, gravity unwinds that spring by forming stars, galaxies, and black
+holes, increasing entropy all the way.
 
 ### Black Holes as Entropy Sinks
 
@@ -131,19 +141,24 @@ We exist in a brief window when entropy is high enough for complexity but low en
 Time is a fundamental dimension. The arrow of time should come from fundamental
 laws.
 
-**The hint**: The microscopic laws are time-symmetric. Irreversibility is statistical, not fundamental. The arrow traces to the low-entropy initial condition.
+**The hint**: The microscopic laws are time-symmetric. Irreversibility is
+statistical, not fundamental. The arrow traces to the low-entropy side of the
+record.
 
-**The reframing**: OPH gives the Past Hypothesis a consistency role. Standard physics usually treats the low-entropy beginning as a brute fact, an unexplained initial condition. This picture suggests why low-entropy beginnings are structurally important.
+**The reframing**: OPH gives the Past Hypothesis a consistency role. Standard
+physics usually treats the low-entropy side of the cosmological record as a
+brute fact, an unexplained boundary condition. This picture suggests why that
+boundary is structurally important.
 
 Consider: for observers to exist at all, they must be able to form consistent records. Records require entropy gradients-you can only write information by pushing entropy somewhere else. A universe in thermal equilibrium has no observers, no records, no consistency-checking, no reality in the sense we've been developing.
 
 The MaxEnt principle tells us to assign the maximum-entropy state *given our constraints*. But what are the constraints? If one of them is "observers exist to apply MaxEnt," then equilibrium states are ruled out by construction. The very act of asking "what state should I assign?" presupposes a questioner embedded in an entropy gradient.
 
-This does not derive the specific low entropy of the Big Bang from pure logic.
-It does show why the Past Hypothesis is structurally important in this picture.
-A universe with durable observers checking for consistency requires a
-significant departure from equilibrium. The low-entropy past is therefore a
-structural precondition for the consistency-building present.
+The specific entropy of the hot dense record needs physical cosmology, not pure
+logic. The structural point is narrower and stronger: durable observers
+checking for consistency require a significant departure from equilibrium. The
+low-entropy side of the record is therefore a precondition for the
+consistency-building present.
 
 ## 4.4 Information is Physical
 
@@ -417,7 +432,7 @@ Their memory has an energy cost. Their accessible information is bounded by
 patch area. Entanglement patterns on the screen control both entropy and
 geometry. The work of making observations agree consumes free energy and
 generates entropy. Durable observers therefore require entropy gradients, and
-entropy gradients point back toward a low-entropy beginning.
+entropy gradients point back toward a low-entropy side of the record.
 
 On this reading, the Past Hypothesis belongs to the deep structure required
 for records, comparison, and public reality.
@@ -429,8 +444,8 @@ dissolve into noise.
 The Second Law gives the direction. Landauer gives the price. Entanglement
 gives the geometry. Black holes reveal the area budget in its starkest form.
 Observers live inside that budget. Their memory, records, and shared facts are
-possible only because the universe began far enough from equilibrium to make
-those things worth tracking.
+possible only because the accessible history contains a low-entropy side far
+enough from equilibrium to make those things worth tracking.
 
 The next chapter builds the algebra of observables-the mathematical structure describing what observers can measure and how their measurements must relate across patches.
 

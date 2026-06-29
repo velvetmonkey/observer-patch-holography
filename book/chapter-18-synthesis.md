@@ -401,11 +401,11 @@ and clock data are supplied. Renaming preserves the same bookkeeping; a physical
 claim needs a new bridge.
 
 The cosmology story is narrower where the sky becomes finely detailed. The
-de Sitter capacity closure belongs to the global gravity story. Screen spectra,
-CMB curves, growth curves, and dark-sector anomaly models then ask for source
-physics, clocks, stress-energy, and statistical confrontation with data. The
-questions stay at the edge of the story without turning the chapter into a lab
-notebook.
+de Sitter capacity closure belongs to the global gravity story. Screen patterns
+become CMB curves, growth curves, and dark-sector sky predictions only after
+source physics, clocks, stress-energy, and statistical confrontation with data
+enter the story. The questions stay at the edge of the book without turning
+the chapter into a lab notebook.
 
 ## 18.7 Why de Sitter Fits
 

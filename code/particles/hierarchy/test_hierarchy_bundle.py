@@ -678,3 +678,36 @@ def test_issue_335_local_global_resonance_closes_as_full_selected_branch_stateme
     assert (
         screen_sieve_summary["status"] == "closed_on_declared_triangulated_screen_branch"
     )
+
+
+def test_pixel_screen_resonance_summary_records_tile_and_cosmology_identities() -> None:
+    result = _run("verify_pixel_screen_resonance_summary.py", "--check")
+    payload = json.loads(result.stdout)
+
+    assert payload["accepted"] is True
+    assert payload["status"] == "closed_receipt_summary_from_existing_hierarchy_certificates"
+    assert payload["source_pair"]["P_star_branch"] == "public_endpoint_branch"
+    assert payload["source_pair"]["N_CRC_EW_source_artifact"] == (
+        "certificates/R_EW_global_capacity_certificate.json"
+    )
+
+    tile = payload["pixel_screen_tile_identity"]
+    assert tile["cell_entropy_formula"] == "ell_cell = P_star/4"
+    assert tile["cell_count_formula"] == "K_cell = N_CRC^EW / (P_star/4) = 4*N_CRC^EW/P_star"
+    assert tile["reconstruction_formula"] == "K_cell*(P_star/4) = N_CRC^EW"
+    assert tile["relative_reconstruction_error"] == "0"
+
+    lock = payload["shared_12_24_port_lock"]
+    assert lock["screen_ports"] == 12
+    assert lock["repair_register_slots"] == 24
+    assert lock["hierarchy_readout"] == "v/E_cell = (N_CRC^EW/pi)^(-P_star/12)"
+
+    ds = payload["dimensionless_de_sitter_coordinate"]
+    assert ds["Lambda_lstar2_formula"] == "Lambda_CRC*l_star^2 = 3*pi/N_CRC^EW"
+    assert ds["Lambda_a_cell_formula"] == "Lambda_CRC*a_cell = 3*pi*P_star/N_CRC^EW"
+    assert ds["Lambda_a_cell_count_formula"] == "Lambda_CRC*a_cell = 12*pi/K_cell"
+    assert ds["relative_cell_coordinate_error"] == "0"
+
+    boundary = payload["claim_boundary"]
+    assert "primitive one-cell" in str(boundary["not_closed_here"])
+    assert "SI Lambda" in str(boundary["not_closed_here"])

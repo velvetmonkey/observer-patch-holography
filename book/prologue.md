@@ -57,9 +57,10 @@ outputs, meter readings, detector clicks, interference patterns, we reconstruct
 the underlying logic.
 
 This is reverse engineering at its most extreme. The "program" we're analyzing
-is the universe. It's been running for 13.8 billion years. We've been
-seriously probing it for maybe four centuries. And the complexity is beyond
-anything human engineers have ever built.
+is the universe as it appears from inside. Standard cosmology gives our
+observable branch a deep thermal history. We've been seriously probing it for
+maybe four centuries. And the complexity is beyond anything human engineers
+have ever built.
 
 Thousands of the smartest humans who ever lived have contributed to this
 project: Newton, Maxwell, Einstein, Bohr, Heisenberg, Feynman, Hawking. Each
@@ -276,10 +277,9 @@ The epilogue turns the picture outward one final time.
 
 ## Begin
 
-Reality is the strangest program ever written. It's been running since the
-Big Bang, processing inputs and producing outputs according to rules physics
-seeks to decode. Thousands of brilliant minds have contributed to the reverse
-engineering effort.
+Reality is the strangest program ever written. We meet it from the inside,
+through records, horizons, detectors, clocks, and shared facts. Thousands of
+brilliant minds have contributed to the reverse engineering effort.
 
 The naive model, a 3D world of independent objects moving through absolute
 time and existing whether or not anyone observes it, turns out to be the

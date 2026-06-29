@@ -27,6 +27,7 @@ def test_final_particle_pipeline_orders_contracts_before_predictions() -> None:
     ]
     assert ids.index("pipeline_closure_status_bootstrap") < ids.index("blind_prediction_provenance")
     assert ids.index("blind_prediction_provenance") < ids.index("pipeline_closure_status_finalize")
+    assert ids.index("pixel_screen_resonance_summary") < ids.index("pipeline_closure_status_bootstrap")
     assert ids.index("pipeline_closure_status_finalize") < ids.index("final_end_to_end_predictions")
     assert ids.index("final_end_to_end_predictions") < ids.index("derivation_chain_closure_matrix")
     assert ids[-1] == "mass_derivation_svg"
@@ -37,4 +38,11 @@ def test_final_particle_pipeline_orders_contracts_before_predictions() -> None:
     assert "particles/hadron/derive_ward_projected_spectral_measure_contract.py" in scripts
     assert "particles/flavor/derive_quark_class_uniform_public_frame_descent_obstruction.py" in scripts
     assert "particles/leptons/derive_charged_end_to_end_impossibility_theorem.py" in scripts
+    assert "particles/hierarchy/verify_pixel_screen_resonance_summary.py" in scripts
     assert "particles/scripts/build_derivation_chain_closure_matrix.py" in scripts
+    pixel_screen = steps[ids.index("pixel_screen_resonance_summary")]
+    assert pixel_screen.args == (
+        "--check",
+        "--output",
+        "particles/hierarchy/certificates/R_pixel_screen_resonance_summary.json",
+    )

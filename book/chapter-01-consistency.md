@@ -312,7 +312,10 @@ In OPH, the laws of physics, Lorentz symmetry, gauge structure, and conservation
 
 **The laws of physics can be read as survivors of a selection process.**
 
-Think of the early universe as a chaos of competing possibilities: different geometries, different dynamics, different rules. Most configurations were inconsistent. They could not support stable patterns. They could not enable multiple observers to share a coherent reality.
+Think of the observer patch before stable records as a chaos of competing
+possibilities: different geometries, different dynamics, different rules. Most
+configurations are inconsistent. They cannot support stable patterns. They
+cannot enable multiple observers to share a coherent reality.
 
 The surviving structures are the consistent ones. The laws we see, gravity, quantum mechanics, and thermodynamics included, are the patterns stable enough to persist.
 

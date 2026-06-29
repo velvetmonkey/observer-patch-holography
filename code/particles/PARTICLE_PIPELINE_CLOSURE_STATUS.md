@@ -1,6 +1,6 @@
 # Particle Pipeline Closure Status
 
-Generated: `2026-06-24T12:59:33Z`
+Generated: `2026-06-29T05:24:08Z`
 
 Single closure gate for source-only rows and empirical hadron closure rows.
 
@@ -75,3 +75,4 @@ Single closure gate for source-only rows and empirical hadron closure rows.
 - `source_spectral_stage_gate`: `populated source spectral measure payload plus interval certificate`
 - `hierarchy_local_global_resonance_closed`: `True`
 - `higgs_naturality_defect_closed`: `True`
+- `pixel_screen_resonance_summary_closed`: `True`

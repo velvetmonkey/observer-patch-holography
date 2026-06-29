@@ -67,7 +67,7 @@
       "status": "source_audit_without_hadronic_spectral_payload"
     }
   },
-  "generated_utc": "2026-06-24T12:58:30Z",
+  "generated_utc": "2026-06-29T05:24:08Z",
   "hadron_policy": {
     "empirical_hadron_closure_allowed_for_display": true,
     "empirical_payload_schema": "particles/hadron/empirical_ee_hadronic_spectral_measure.schema.json",
@@ -87,6 +87,7 @@
       "higgs_naturality": "particles/hierarchy/issue_332_rg_naturality_certificate.json",
       "local_global_resonance": "particles/hierarchy/certificates/R_local_global_hierarchy_resonance_closeout_335.json",
       "m_rep": "particles/hierarchy/certificates/R_m_rep_24_certificate.json",
+      "pixel_screen_resonance": "particles/hierarchy/certificates/R_pixel_screen_resonance_summary.json",
       "screen_sieve": "particles/hierarchy/certificates/R_screen_sieve_icosahedral_certificate.json"
     },
     "claim_boundary": {
@@ -121,6 +122,66 @@
       },
       "v_identity_error": "0.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
       "v_over_E_cell_source": "2.5797040595276223506583341903922018695490035369903290256096683452314630559578761079150341073645683725521032233E-17"
+    },
+    "pixel_screen_resonance": {
+      "accepted": true,
+      "checks": {
+        "capacity_certificate_accepted": true,
+        "cell_count_reconstructs_capacity": true,
+        "cosmological_cell_coordinate_matches_count_form": true,
+        "joint_product_branch_recorded": true,
+        "primitive_carrier_not_selected_here": true,
+        "readback_uses_same_n_crc_ew": true,
+        "resonance_certificate_promoted": true,
+        "screen_sieve_supplies_twelve_ports": true,
+        "si_lambda_not_promoted_here": true
+      },
+      "claim_boundary": {
+        "closed_here": "Receipt-level composition only: K_cell=4*N_CRC^EW/P_star, K_cell*(P_star/4)=N_CRC^EW, Lambda_CRC*l_star^2=3*pi/N_CRC^EW, and Lambda_CRC*a_cell=3*pi*P_star/N_CRC^EW=12*pi/K_cell.",
+        "not_closed_here": [
+          "a primitive one-cell or fixed-block carrier theorem",
+          "an SI Lambda value without the selected scale certificate",
+          "an SI G or no-G clock-stack promotion",
+          "a coupled (P,N_CRC) source-map theorem beyond the recorded product branch"
+        ]
+      },
+      "dimensionless_de_sitter_coordinate": {
+        "Lambda_a_cell": "4.35163364854546390531706595052572619796186038532042556267635563207283708445543891356372392920329326325643602008052438546251964114620657599797572484903134644052003905527478316407586E-122",
+        "Lambda_a_cell_count_formula": "Lambda_CRC*a_cell = 12*pi/K_cell",
+        "Lambda_a_cell_formula": "Lambda_CRC*a_cell = 3*pi*P_star/N_CRC^EW",
+        "Lambda_a_cell_from_cell_count": "4.35163364854546390531706595052572619796186038532042556267635563207283708445543891356372392920329326325643602008052438546251964114620657599797572484903134644052003905527478316407586E-122",
+        "Lambda_lstar2": "2.66812904350586780702335375926932344083795060921617125136534539902014235531813807541667039485448943695866032960207619152749770889355150469615617668311197310222823802830288751871387E-122",
+        "Lambda_lstar2_formula": "Lambda_CRC*l_star^2 = 3*pi/N_CRC^EW",
+        "relative_cell_coordinate_error": "0",
+        "si_display_boundary": "SI Lambda requires the selected scale certificate and is not emitted here."
+      },
+      "shared_12_24_port_lock": {
+        "hierarchy_readout": "v/E_cell = (N_CRC^EW/pi)^(-P_star/12)",
+        "repair_register_slots": 24,
+        "repair_register_source": "certificates/R_m_rep_24_certificate.json",
+        "screen_port_source": "certificates/R_screen_sieve_icosahedral_certificate.json",
+        "screen_ports": 12,
+        "tick_form": "v/E_cell = |g_*'|^(4*P_star)",
+        "transport_time": "t_tr(P_star) = (P_star/12) * log(N_CRC^EW/pi)"
+      },
+      "source_pair": {
+        "N_CRC_EW": "3.5323546226929906511187512962330547600462096590942035604238177731136802717148740820434110040644403858228611984E+122",
+        "N_CRC_EW_source_artifact": "certificates/R_EW_global_capacity_certificate.json",
+        "P_star": "1.6309682094039593248792798477826489413359828516279250606661507533907793398933432",
+        "P_star_branch": "public_endpoint_branch",
+        "P_star_source_artifact": "certificates/R_P_public_pixel_certificate.json",
+        "same_pair_scope": "The summary consumes the selected public-endpoint P_star and the EW-refined exact capacity fixed point N_CRC^EW(P_star)."
+      },
+      "status": "closed_receipt_summary_from_existing_hierarchy_certificates",
+      "tile_identity": {
+        "cell_count": "8.66320901247706572587563970537442861468419211825926398394872480269703639649248928576491836430581038877242898688332472902633613098347835366964707239263907022000340981274703022750512E+122",
+        "cell_count_formula": "K_cell = N_CRC^EW / (P_star/4) = 4*N_CRC^EW/P_star",
+        "cell_entropy": "0.4077420523509898312198199619456622353339957129069812651665376883476948349733358",
+        "cell_entropy_formula": "ell_cell = P_star/4",
+        "reconstructed_capacity": "3.53235462269299065111875129623305476004620965909420356042381777311368027171487408204341100406444038582286119840000000000000000000000000000000000000000000000000000000000000000000000E+122",
+        "reconstruction_formula": "K_cell*(P_star/4) = N_CRC^EW",
+        "relative_reconstruction_error": "0"
+      }
     },
     "source_values": {
       "P_star": "1.6309682094039593248792798477826489413359828516279250606661507533907793398933432",
@@ -481,6 +542,7 @@
     "hierarchy_ew_capacity": "code/particles/hierarchy/certificates/R_EW_global_capacity_certificate.json",
     "hierarchy_higgs_naturality": "code/particles/hierarchy/issue_332_rg_naturality_certificate.json",
     "hierarchy_local_global_resonance": "code/particles/hierarchy/certificates/R_local_global_hierarchy_resonance_closeout_335.json",
+    "hierarchy_pixel_screen_resonance": "code/particles/hierarchy/certificates/R_pixel_screen_resonance_summary.json",
     "measured_endpoint_calibration": "code/P_derivation/runtime/measured_endpoint_calibration_current.json",
     "p_trunk": "code/P_derivation/runtime/p_closure_trunk_current.json",
     "pipeline_status": "code/particles/runs/status/particle_pipeline_closure_status.json",

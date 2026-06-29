@@ -27,7 +27,8 @@ Almost all our fundamental laws are time-reversible. Newton's F = ma works the s
 
 Film a planet orbiting a star and play it backward-it looks perfectly physical. But film an egg breaking and play it backward? Absurd.
 
-This is the **Arrow of Time**. Where does it come from? It's not in the microscopic laws.
+This is the **Arrow of Time**. Where does it come from? The microscopic laws
+are the wrong place to look.
 
 ### No Preferred Time in GR
 
@@ -145,21 +146,27 @@ This is also the point where modular theory stops sounding like rarefied operato
 
 In Chapter 4, we saw Boltzmann's insight: entropy $S = k \ln W$ measures the number of microstates compatible with a macrostate, and entropy increases because high-entropy states vastly outnumber low-entropy ones.
 
-But why did the universe start with low entropy in the first place?
+But why does the accessible cosmological record have a low-entropy side?
 
 ### The Past Hypothesis
 
-The deeper answer to the arrow of time is the **Past Hypothesis**: the universe began in a state of extraordinarily low entropy.
+The deeper answer to the arrow of time is the **Past Hypothesis**: the record
+we inhabit is anchored on a state of extraordinarily low entropy.
 
-We are riding the expansion from a very special initial condition: the Big Bang. The early universe was hot and smooth, with matter spread almost uniformly. That uniformity is low gravitational entropy.
+Standard cosmology describes the hot dense side of our branch as smooth, with
+matter spread almost uniformly. That uniformity is low gravitational entropy.
 
-Why was the Big Bang low entropy? Standard physics treats this as an unexplained initial condition. OPH gives the condition a role in record formation.
+Why is that side low entropy? Standard physics treats this as an unexplained
+boundary condition. OPH gives the condition a role in record formation.
 
 **The Past Hypothesis as a consistency requirement**: For observers to exist at all, they must be able to form and compare records. Records require entropy gradients-you can only write information by pushing entropy elsewhere. A universe in thermal equilibrium contains no observers, no records, no consistency-checking.
 
 The MaxEnt principle says: assign the maximum-entropy state consistent with your constraints. But one constraint is that someone must exist to apply MaxEnt. This rules out equilibrium. The very existence of observers selecting MaxEnt states presupposes a universe far from equilibrium.
 
-This doesn't derive the specific numerical entropy of the Big Bang. But it reframes the question: the Past Hypothesis isn't an arbitrary input to be explained by some deeper theory. It can be read as a consistency requirement. A universe containing observers who check for consistency appears to require a low-entropy beginning. The arrow of time points in the direction that allows records to be made.
+The specific numerical entropy of the hot dense record belongs to physical
+cosmology. The OPH point is the consistency role: observers who compare records
+require a low-entropy side, and the arrow of time points in the direction that
+allows records to be made.
 
 ## 11.5 Jaynes: Entropy as Ignorance
 
@@ -216,7 +223,10 @@ compatibility is what later supports a shared causal structure.
 
 Why do we all agree on a "cosmic time"?
 
-If the global state synchronizes many local modular flows, a shared coarse-grained cosmic time can emerge as an effective collective clock rather than a second fundamental time parameter.
+If many local modular flows synchronize across accessible records, a shared
+coarse-grained cosmic time can emerge as an effective collective clock rather
+than a second fundamental time parameter. It is a clock inside the reconstructed
+branch, not a God's-eye age of spacetime.
 
 ### From Modular Time to Gravity
 
@@ -389,7 +399,7 @@ The physical world fits this picture with surprising loyalty. Accelerating
 observers inherit Unruh temperature from the same horizon logic that produces
 Hawking radiation. Jacobson's thermodynamic route points toward Einstein's
 equation. The microscopic laws are largely time-symmetric, while the arrow of
-time rides on low-entropy initial conditions and the thermodynamics of record
+time rides on a low-entropy record boundary and the thermodynamics of record
 making.
 
 ---

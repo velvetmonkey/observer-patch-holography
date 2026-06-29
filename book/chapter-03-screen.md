@@ -193,9 +193,9 @@ In those symmetric light-cone constructions, the sphere is a consequence of the 
 
 The cosmic microwave background (CMB) illustrates this beautifully.
 
-The CMB is light from about 380,000 years after the Big Bang, when the universe
-cooled enough for atoms to form and light to travel freely. This light appears
-as a sphere around us: the **last scattering surface**.
+In the standard FLRW reconstruction, the CMB is light from the era when the
+cosmic plasma cooled enough for atoms to form and photons to travel freely.
+This light appears as a sphere around us: the **last scattering surface**.
 
 We're at the center of this sphere, but so is everyone else. Every observer in the universe sees themselves at the center of their own CMB sphere.
 
@@ -227,7 +227,10 @@ by that chart.
 
 Any function on the sphere can be expanded in **spherical harmonics**, $Y_\ell^m(\theta, \phi)$. These are the natural modes of vibration of the sphere.
 
-The CMB temperature variations are analyzed by expanding in spherical harmonics. The **power spectrum**-how much power at each angular scale $\ell$-tells us about the early universe.
+The CMB temperature variations are analyzed by expanding in spherical
+harmonics. The **power spectrum**, meaning how much power sits at each angular
+scale $\ell$, records the hot dense side of the standard cosmological
+reconstruction.
 
 ### Finite Resolution
 

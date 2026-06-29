@@ -48,6 +48,7 @@ HIERARCHY_READBACK = HIERARCHY_ROOT / "certificates" / "R_readback_resolution_ce
 HIERARCHY_M_REP = HIERARCHY_ROOT / "certificates" / "R_m_rep_24_certificate.json"
 HIERARCHY_SCREEN_SIEVE = HIERARCHY_ROOT / "certificates" / "R_screen_sieve_icosahedral_certificate.json"
 HIERARCHY_JOINT_FIXED_POINT = HIERARCHY_ROOT / "certificates" / "R_PN_joint_fixed_point_certificate_report.json"
+HIERARCHY_PIXEL_SCREEN = HIERARCHY_ROOT / "certificates" / "R_pixel_screen_resonance_summary.json"
 HIERARCHY_LOCAL_GLOBAL_RESONANCE = (
     HIERARCHY_ROOT / "certificates" / "R_local_global_hierarchy_resonance_closeout_335.json"
 )
@@ -153,6 +154,7 @@ def build_status() -> dict[str, Any]:
     hierarchy_m_rep = _load_json(HIERARCHY_M_REP)
     hierarchy_screen_sieve = _load_json(HIERARCHY_SCREEN_SIEVE)
     hierarchy_joint_fixed_point = _load_json(HIERARCHY_JOINT_FIXED_POINT)
+    hierarchy_pixel_screen = _load_json(HIERARCHY_PIXEL_SCREEN)
     hierarchy_local_global = _load_json(HIERARCHY_LOCAL_GLOBAL_RESONANCE)
 
     return {
@@ -216,6 +218,9 @@ def build_status() -> dict[str, Any]:
             "hierarchy_screen_sieve": _artifact_status(HIERARCHY_SCREEN_SIEVE, hierarchy_screen_sieve),
             "hierarchy_joint_fixed_point": _artifact_status(
                 HIERARCHY_JOINT_FIXED_POINT, hierarchy_joint_fixed_point
+            ),
+            "hierarchy_pixel_screen_resonance": _artifact_status(
+                HIERARCHY_PIXEL_SCREEN, hierarchy_pixel_screen
             ),
             "hierarchy_local_global_resonance": _artifact_status(
                 HIERARCHY_LOCAL_GLOBAL_RESONANCE, hierarchy_local_global
@@ -421,6 +426,9 @@ def build_status() -> dict[str, Any]:
                 (hierarchy_local_global or {}).get("full_theorem_grade_resonance_promoted", False)
             ),
             "higgs_naturality_defect_closed": (hierarchy_naturality or {}).get("epsilon_H") == "0",
+            "pixel_screen_resonance_summary_closed": bool(
+                (hierarchy_pixel_screen or {}).get("accepted", False)
+            ),
         },
         "latest_nonhadron_predictions": _latest_nonhadron_predictions(exact),
     }

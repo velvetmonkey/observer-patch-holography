@@ -743,7 +743,9 @@ This lands near the empirical MOND acceleration scale. The proximity matters
 because it ties galaxy-scale anomalies back to the same de Sitter capacity
 logic that shaped the horizon from the start. Chapter 13 tells the longer
 cosmological version: the galaxy-scale anomaly and the dark-energy horizon are
-two faces of the same finite-patch story.
+linked by the same infrared capacity scale. The galaxy law is the settled,
+low-acceleration limit. Clusters, the CMB, and structure growth require the
+transported stress version of the story.
 
 ## 15.13 Reverse Engineering Summary
 

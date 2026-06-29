@@ -25,9 +25,10 @@ class PipelineStep:
     id: str
     script: str
     description: str
+    args: tuple[str, ...] = ()
 
     def command(self) -> list[str]:
-        return [sys.executable, self.script]
+        return [sys.executable, self.script, *self.args]
 
 
 FINAL_PIPELINE_STEPS: tuple[PipelineStep, ...] = (
@@ -117,6 +118,16 @@ FINAL_PIPELINE_STEPS: tuple[PipelineStep, ...] = (
         "Refresh the exact-fit-only surface.",
     ),
     PipelineStep(
+        "pixel_screen_resonance_summary",
+        "particles/hierarchy/verify_pixel_screen_resonance_summary.py",
+        "Refresh the pixel-screen resonance summary receipt.",
+        (
+            "--check",
+            "--output",
+            "particles/hierarchy/certificates/R_pixel_screen_resonance_summary.json",
+        ),
+    ),
+    PipelineStep(
         "pipeline_closure_status_bootstrap",
         "particles/scripts/build_particle_pipeline_closure_status.py",
         "Refresh closure status before provenance rebuild.",
@@ -182,6 +193,7 @@ def _dry_run_payload() -> dict[str, object]:
             {
                 "id": step.id,
                 "script": step.script,
+                "args": list(step.args),
                 "description": step.description,
             }
             for step in build_steps()

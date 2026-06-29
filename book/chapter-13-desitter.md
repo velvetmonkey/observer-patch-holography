@@ -46,11 +46,13 @@ calibrations, and arguments about what the sky was actually saying.
 
 In the simplest late-time fit, a positive cosmological constant, Lambda greater
 than zero, creates a repulsive large-scale tendency that grows with distance.
-At early times, when matter density was high, gravity dominated. As the
-universe expanded and matter diluted, the dark-energy component took over.
+In the conventional late-time reconstruction, matter once dominated the
+large-scale stress budget. As the effective expansion diluted matter, the
+dark-energy component took over.
 
-The expansion began accelerating about 5 billion years ago. The standard fit
-summarizes the universe as about 68% dark energy.
+The standard fit places the transition to accelerated expansion about 5 billion
+years back along our reconstructed branch and summarizes the cosmic budget as
+about 68% dark energy.
 
 If that component is a true cosmological constant, the future approaches a de
 Sitter phase. The DESI-era data keep dynamical dark energy on the table, so this
@@ -99,9 +101,11 @@ radiates like a black body:
 $$T_{dS} = \frac{\hbar H}{2\pi k_B}$$
 
 For our universe, this is about 10^{-30} Kelvin, far below direct detection.
-During inflation, horizon-scale quantum fluctuations were stretched and later
-seeded structure formation; the de Sitter temperature is one thermodynamic way
-of characterizing that regime.
+In conventional inflationary cosmology, horizon-scale quantum fluctuations are
+stretched and later seed structure formation. OPH assigns that job to finite
+observer-screen synchronization: screen geometry and source release supply
+candidate large-scale coherence, and ordinary Boltzmann transfer carries finite
+source data to the sky.
 
 The symbols echo earlier horizon physics. $T_{dS}$ is the de Sitter
 temperature. $\hbar$ is Planck's constant divided by $2\pi$. $H$ is the Hubble
@@ -304,6 +308,33 @@ with the gravity relation from the earlier chapters and a positive
 cosmological constant, that gives the familiar FLRW geometry used in
 cosmology.
 
+### What "Early Universe" Means Here
+
+In OPH, the Big Bang names an effective boundary in a reconstruction made from
+records inside finite observer patches, rather than a God's-eye first instant
+at which spacetime objectively begins. The CMB, light element abundances,
+galaxy surveys, supernovae, and lensing data are real records. The global
+story built from them is a powerful model of our branch, with no view from
+outside the universe smuggled into the account.
+
+So the "early universe" in this book means the hot dense side of the
+reconstructed record: the side where the effective plasma is opaque, radiation
+dominates the bookkeeping, and the later CMB surface has not yet become
+transparent. It names a record-side limit rather than an absolute origin of
+being. Likewise, "cosmic time" is an effective clock that appears when many
+local records synchronize, an internal clock rather than an external stopwatch
+measuring spacetime from outside.
+
+Inflation is where this distinction becomes operational. Standard cosmology
+introduces an inflaton field to explain flatness, horizon coherence, and the
+nearly scale-invariant pattern in the CMB. OPH assigns those jobs to finite
+observer-screen synchronization.
+Flatness belongs to the selected spatial branch, horizon coherence to shared
+boundary repair, the near scale-invariant pattern to screen geometry and
+release, and the acoustic peaks to ordinary Boltzmann evolution once finite
+source data are fixed. The CMB and growth curves are empirical tests of that
+source story.
+
 ## 13.7 Scrambling and Chaos
 
 De Sitter space is a **fast scrambler**-perhaps the fastest possible.
@@ -356,16 +387,16 @@ should have behaved differently.
 The modern evidence is broader than rotation curves. Galaxy clusters bend light
 more strongly than their visible matter allows. The Bullet Cluster separates
 hot gas from the gravitational lensing map. The cosmic microwave background
-carries the imprint of extra gravitational weight in the early universe. This
-is what physicists call the dark sector: the part of the cosmic budget inferred
-from gravity rather than from light.
+carries the imprint of extra gravitational weight on the hot dense side of the
+standard reconstruction. This is what physicists call the dark sector: the part
+of the cosmic budget inferred from gravity rather than from light.
 
 The standard answer is dark matter: new particles that clump around galaxies,
 pull on stars and light, and mostly ignore electromagnetism. That answer works
 well in large-scale cosmology, but the particles themselves have not shown up
 in detectors. MOND takes the opposite route and changes the low-acceleration
 law of gravity. It captures a surprising amount of galaxy phenomenology, while
-clusters and the early universe remain difficult terrain.
+clusters and precision cosmology remain difficult terrain.
 
 OPH reads the same evidence through the observer screen. A galaxy is luminous
 matter, dust, gas, and dark gravitational behavior inside a finite de Sitter

@@ -324,7 +324,7 @@ when records cross overlaps.
 ## Interlude 7: Cosmology, Capacity, and the Dark Sector
 
 Cosmology is science under a severe access constraint. We cannot rerun the
-universe with different initial conditions. We cannot move galaxies into a
+universe with different boundary data. We cannot move galaxies into a
 controlled chamber. We observe one sky from one cosmic location, then use
 many instruments, wavelengths, surveys, and statistical methods to infer the
 large-scale story. That makes cosmology naturally observer-aware.
@@ -333,7 +333,8 @@ The discovery of expansion changed the meaning of the universe.
 Slipher's redshifts, Leavitt's distance ladder, Hubble's relation, Friedmann's
 solutions, and Lemaitre's interpretation turned the cosmos from a static
 stage into an evolving system. The cosmic microwave background then made the
-early hot dense phase visible. Nucleosynthesis, galaxy surveys, lensing,
+hot dense side of the standard reconstruction visible. Nucleosynthesis, galaxy
+surveys, lensing,
 cluster counts, baryon acoustic oscillations, and supernovae added more
 cross-checks.
 
@@ -345,20 +346,20 @@ $r_{dS}=\sqrt{3/\Lambda}$ and a finite entropy capacity. For OPH that capacity
 is the observed-branch readout of the cosmic record-closure fixed point selected
 by terminal observer normal forms.
 
-The dark-sector continuation is deliberately careful. The modular anomaly
-idea ties residual mismatch in modular-geometric bookkeeping to an effective
-gravitating component that is dark by construction. It does not couple
-electromagnetically like ordinary matter. It gravitates because it contributes
-to the effective stress-energy side of the equations. The acceleration scale
+The dark-sector branch is deliberately careful. The modular anomaly idea ties
+residual mismatch in modular-geometric bookkeeping to an effective gravitating
+component that is dark by construction. It does not couple electromagnetically
+like ordinary matter. It gravitates because it contributes to the effective
+stress-energy side of the equations. The acceleration scale
 $a_0^{(\mathrm{OPH})}=(15/8\pi^2)c^2/r_{dS}$ lands near the empirical MOND
-scale, which makes the continuation worth taking seriously.
+scale, which makes the galaxy connection physically suggestive.
 
-But "worth taking seriously" is not the same as "settled." Galaxy rotation
-curves, lensing, cluster dynamics, cosmic microwave background peaks,
-structure formation, and precision cosmology all constrain the dark sector.
-Any OPH continuation has to face that whole test suite. The book's value here
-is narrower: it ties a possible infrared anomaly scale to the same de Sitter
-capacity that belongs to the observer-patch architecture.
+Galaxy rotation curves are only one lane. Lensing, cluster dynamics, cosmic
+microwave background peaks, structure formation, and precision cosmology all
+constrain the dark sector. OPH treats the settled galaxy law as one limit of a
+transported stress story. The book's value here is narrower: it ties a possible
+infrared anomaly scale to the same de Sitter capacity that belongs to the
+observer-patch architecture.
 
 The human chain includes observers and instrument builders as much as
 theorists: Leavitt, Slipher, Hubble, Friedmann, Lemaitre, Zwicky, Rubin,
@@ -397,8 +398,7 @@ architecture reproduces a known value. An empirically anchored witness uses a
 measured target as part of the derivation or normalization. A first-principles
 prediction is stronger because it does not use the target. Externally supplied
 data include hadronic spectral information. An assumption-dependent
-continuation depends on assumptions whose first-principles derivation is work
-in progress.
+continuation depends on assumptions outside the recovered-core derivation.
 
 The reader should treat these labels as part of the theory, not as legal
 small print. They tell you how much weight each line can carry. They also
@@ -947,15 +947,14 @@ claims that say exactly what support they have.
 OPH asks for the same thing at the level of physics. A local patch carries
 bounded access. Another patch carries different bounded access. Their shared
 region is where the test happens. The public world is the structure that
-survives compatible comparison. This is not a sociology of science pasted on
-top of physics. It is the physical problem of making records agree under
-finite access, finite memory, finite noise, and finite horizons.
+survives compatible comparison. The point is physical rather than sociological:
+records have to agree under finite access, finite memory, finite noise, and
+finite horizons.
 
-The cumulative nature of the theory follows from that. OPH is not the work of
-one isolated author. No theory at this scale could be. It draws on thermal
+The cumulative nature of the theory follows from that. OPH draws on thermal
 physics, quantum mechanics, relativity, gauge theory, representation theory,
-operator algebras, cosmology, particle experiments, quantum information,
-error correction, holography, neuroscience, philosophy, and computer science.
+operator algebras, cosmology, particle experiments, quantum information, error
+correction, holography, neuroscience, philosophy, and computer science.
 The book should read like a map of that inheritance. When it introduces a
 claim, the reader should be able to see the relay behind it.
 
@@ -997,11 +996,10 @@ Einstein branch. The Standard Model reconstruction is audited by separating
 structural theorems, quantitative theorem statements, benchmark checks,
 first-principles boundaries, and empirical closure checks.
 
-The dark-sector continuation needs confrontation with the full cosmological
-and astrophysical data suite. Matching an acceleration scale is interesting,
-but it is not enough. Lensing, clusters, cosmic microwave background peaks,
-large-scale structure, galaxy diversity, and precision expansion history all
-matter.
+The dark-sector branch faces the full cosmological and astrophysical data
+suite. Matching an acceleration scale is interesting, but it is not enough.
+Lensing, clusters, cosmic microwave background peaks, large-scale structure,
+galaxy diversity, and precision expansion history all matter.
 
 The matter support boundaries require care. Quark masses, hadron inputs,
 neutrino assumptions, and electroweak scheme choices must stay explicit. The

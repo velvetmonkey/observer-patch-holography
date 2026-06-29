@@ -28,6 +28,7 @@ HIERARCHY_READBACK = HIERARCHY_ROOT / "certificates" / "R_readback_resolution_ce
 HIERARCHY_M_REP = HIERARCHY_ROOT / "certificates" / "R_m_rep_24_certificate.json"
 HIERARCHY_SCREEN_SIEVE = HIERARCHY_ROOT / "certificates" / "R_screen_sieve_icosahedral_certificate.json"
 HIERARCHY_NATURALITY = HIERARCHY_ROOT / "issue_332_rg_naturality_certificate.json"
+HIERARCHY_PIXEL_SCREEN = HIERARCHY_ROOT / "certificates" / "R_pixel_screen_resonance_summary.json"
 DEFAULT_JSON_OUT = PARTICLES_ROOT / "runs" / "status" / "final_end_to_end_predictions.json"
 DEFAULT_MD_OUT = PARTICLES_ROOT / "FINAL_END_TO_END_PREDICTIONS.md"
 
@@ -143,6 +144,7 @@ def _hierarchy_surface() -> dict[str, Any]:
     m_rep = _load_optional_json(HIERARCHY_M_REP)
     screen_sieve = _load_optional_json(HIERARCHY_SCREEN_SIEVE)
     naturality = _load_optional_json(HIERARCHY_NATURALITY)
+    pixel_screen = _load_optional_json(HIERARCHY_PIXEL_SCREEN)
 
     exact_capacity = dict((ew_capacity or {}).get("exact_capacity_fixed_point") or {})
     source_values = dict((ew_capacity or {}).get("source_values") or {})
@@ -205,6 +207,18 @@ def _hierarchy_surface() -> dict[str, Any]:
                 "SI G without the full no-G clock stack",
             ],
         },
+        "pixel_screen_resonance": {
+            "status": (pixel_screen or {}).get("status"),
+            "accepted": bool((pixel_screen or {}).get("accepted", False)),
+            "source_pair": (pixel_screen or {}).get("source_pair"),
+            "tile_identity": (pixel_screen or {}).get("pixel_screen_tile_identity"),
+            "shared_12_24_port_lock": (pixel_screen or {}).get("shared_12_24_port_lock"),
+            "dimensionless_de_sitter_coordinate": (pixel_screen or {}).get(
+                "dimensionless_de_sitter_coordinate"
+            ),
+            "claim_boundary": (pixel_screen or {}).get("claim_boundary"),
+            "checks": (pixel_screen or {}).get("checks"),
+        },
         "artifacts": {
             "local_global_resonance": _rel(HIERARCHY_RESONANCE),
             "ew_capacity": _rel(HIERARCHY_EW_CAPACITY),
@@ -212,6 +226,7 @@ def _hierarchy_surface() -> dict[str, Any]:
             "m_rep": _rel(HIERARCHY_M_REP),
             "screen_sieve": _rel(HIERARCHY_SCREEN_SIEVE),
             "higgs_naturality": _rel(HIERARCHY_NATURALITY),
+            "pixel_screen_resonance": _rel(HIERARCHY_PIXEL_SCREEN),
         },
     }
 
@@ -261,6 +276,9 @@ def build_payload() -> dict[str, Any]:
             ),
             "hierarchy_higgs_naturality": (
                 "code/particles/hierarchy/issue_332_rg_naturality_certificate.json"
+            ),
+            "hierarchy_pixel_screen_resonance": (
+                "code/particles/hierarchy/certificates/R_pixel_screen_resonance_summary.json"
             ),
         },
         "p_closure": {
@@ -367,6 +385,9 @@ def render_markdown(payload: dict[str, Any]) -> str:
     hierarchy_status = hierarchy["status"]
     hierarchy_bridge = hierarchy["local_global_bridge"]
     hierarchy_factors = hierarchy["factor_origins"]
+    pixel_screen = hierarchy["pixel_screen_resonance"]
+    tile_identity = pixel_screen.get("tile_identity") or {}
+    ds_coordinate = pixel_screen.get("dimensionless_de_sitter_coordinate") or {}
     lines.extend(
         [
             "",
@@ -408,6 +429,17 @@ def render_markdown(payload: dict[str, Any]) -> str:
             f"- Higgs naturality defect: `epsilon_H={hierarchy_factors['higgs_naturality_defect']}`",
             f"- Boundary: {hierarchy['claim_boundary']['improves']}",
             f"- Not promoted by this bridge: {', '.join(hierarchy['claim_boundary']['does_not_promote'])}",
+            "",
+            "## Pixel-Screen Resonance",
+            "",
+            f"- Receipt label: `{_display_status(pixel_screen['status'])}`",
+            f"- Accepted: `{pixel_screen['accepted']}`",
+            f"- Cell count: `{tile_identity.get('cell_count')}`",
+            f"- Cell entropy: `{tile_identity.get('cell_entropy')}`",
+            f"- Capacity reconstruction error: `{tile_identity.get('relative_reconstruction_error')}`",
+            f"- Dimensionless `Lambda*l_star^2`: `{ds_coordinate.get('Lambda_lstar2')}`",
+            f"- Dimensionless `Lambda*a_cell`: `{ds_coordinate.get('Lambda_a_cell')}`",
+            f"- Boundary: {pixel_screen.get('claim_boundary', {}).get('closed_here')}",
             "",
             "## Direct-Top Auxiliary Comparison",
             "",

@@ -33,6 +33,7 @@ P_\star^{-1/2}\exp\left[-\frac{2\pi}{4\alpha_U(P_\star)}\right].
 - `certificates/R_readback_resolution_certificate.json`
 - `certificates/R_m_rep_24_certificate.json`
 - `certificates/R_local_global_hierarchy_resonance_closeout_335.json`
+- `certificates/R_pixel_screen_resonance_summary.json`
 - `issue_332_rg_naturality_certificate.json`
 - `certificates/R_PN_joint_fixed_point_certificate_report.json`
 - `certificates/local_global_resonance_audit.json`
@@ -44,6 +45,7 @@ P_\star^{-1/2}\exp\left[-\frac{2\pi}{4\alpha_U(P_\star)}\right].
 - `verify_issue_342_readback_resolution.py`
 - `verify_issue_343_m_rep_24.py`
 - `verify_issue_344_exact_capacity.py`
+- `verify_pixel_screen_resonance_summary.py`
 - `verify_joint_fixed_point_certificate.py`
 - `validators/validate_bundle.py`
 - `validators/validate_manifest.py`
@@ -101,6 +103,13 @@ Closed inside this bundle:
 14. The issue-#335 close-out certificate: the prerequisite records are
    accounted for and the full local/global `N_CRC` hierarchy-resonance theorem
    closes on the selected branch.
+15. The pixel-screen resonance summary receipt: the selected `(P_*,N_CRC^EW)`
+   branch emits `K_cell=4*N_CRC^EW/P_*`, checks
+   `K_cell*(P_*/4)=N_CRC^EW`, and records the dimensionless de Sitter
+   coordinate pair `Lambda_CRC*l_star^2=3*pi/N_CRC^EW` and
+   `Lambda_CRC*a_cell=3*pi*P_*/N_CRC^EW=12*pi/K_cell`. This is a receipt-level
+   composition of existing certificates, not a new primitive-carrier or SI
+   Lambda theorem.
 
 External/source gates outside this bundle:
 
@@ -126,5 +135,6 @@ python3 verify_screen_sieve_theorem.py --check --output certificates/R_screen_si
 python3 verify_issue_342_readback_resolution.py --check --output certificates/R_readback_resolution_certificate.json
 python3 verify_issue_343_m_rep_24.py --check --output certificates/R_m_rep_24_certificate.json
 python3 verify_issue_344_exact_capacity.py --check --output certificates/R_EW_global_capacity_certificate.json
+python3 verify_pixel_screen_resonance_summary.py --check --output certificates/R_pixel_screen_resonance_summary.json
 python3 verify_joint_fixed_point_certificate.py --output certificates/R_PN_joint_fixed_point_certificate_report.json
 ```

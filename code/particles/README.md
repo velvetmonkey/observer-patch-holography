@@ -52,6 +52,7 @@ part of this canonical tree.
   hierarchy/computations/hierarchy_numeric_witness.json ->
   hierarchy/certificates/R_EW_global_capacity_certificate.json ->
   hierarchy/certificates/R_local_global_hierarchy_resonance_closeout_335.json ->
+  hierarchy/certificates/R_pixel_screen_resonance_summary.json ->
   hierarchy/issue_332_rg_naturality_certificate.json`
 - Higgs/top:
   `calibration/derive_d11_declared_calibration_surface.py ->
@@ -111,6 +112,14 @@ capacity value
 `N_CRC^EW = 3.5323546226929906511187512962330547600462e122`,
 with zero bridge residual, the 12-port screen sieve, the 24-slot oriented
 repair register, and `epsilon_H = 0` on the selected source-to-Higgs branch.
+The pixel-screen receipt records the same selected `(P_*,N_CRC^EW)` pair as an
+equal-area screen chart:
+`K_cell = 4*N_CRC^EW/P_*`,
+`K_cell*(P_*/4)=N_CRC^EW`,
+`Lambda_CRC*l_star^2=3*pi/N_CRC^EW`, and
+`Lambda_CRC*a_cell=3*pi*P_*/N_CRC^EW=12*pi/K_cell`.
+It is a summary receipt of the existing certificates, not an SI Lambda or
+primitive-carrier promotion.
 Full SI gravity remains gated by the no-G clock stack.
 
 ## Main Outputs

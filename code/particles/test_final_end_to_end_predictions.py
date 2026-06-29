@@ -35,6 +35,16 @@ def test_final_end_to_end_predictions_include_particle_five_gates_and_values() -
     assert hierarchy["status"]["remaining_promotion_gates"] == []
     assert hierarchy["factor_origins"]["higgs_naturality_defect"] == "0"
     assert hierarchy["local_global_bridge"]["bridge_residual"].strip("0.") == ""
+    pixel_screen = hierarchy["pixel_screen_resonance"]
+    assert pixel_screen["accepted"] is True
+    assert pixel_screen["tile_identity"]["cell_count_formula"] == (
+        "K_cell = N_CRC^EW / (P_star/4) = 4*N_CRC^EW/P_star"
+    )
+    assert pixel_screen["tile_identity"]["relative_reconstruction_error"] == "0"
+    assert pixel_screen["dimensionless_de_sitter_coordinate"]["Lambda_a_cell_formula"] == (
+        "Lambda_CRC*a_cell = 3*pi*P_star/N_CRC^EW"
+    )
+    assert pixel_screen["dimensionless_de_sitter_coordinate"]["relative_cell_coordinate_error"] == "0"
     gates = {gate["issue"]: gate for gate in payload["particle_five_issue_gates"]}
     assert set(gates) == {32, 153, 199, 201, 207, 223, 224, 225, 234, 235}
     assert gates[153]["state"] == "closed_out_of_scope_computationally_blocked"

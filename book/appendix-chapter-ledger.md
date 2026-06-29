@@ -35,13 +35,12 @@ checked later or by someone else. An **overlap** is a shared region, shared
 interface, or shared algebra on which two descriptions can be compared. A
 **fixed point** is a stable result of an update or repair process: apply the
 consistency rule again and nothing relevant changes. A **consensus process**
-is not a vote about taste. It is a repair dynamic in which incompatible
-descriptions are rejected or adjusted until the overlap-visible records agree.
+is a repair dynamic rather than a vote about taste: incompatible descriptions
+are rejected or adjusted until the overlap-visible records agree.
 
 The prologue also introduces the local pixel ratio $P$. In the detailed OPH
 program, $P$ is the small dimensionless ratio that sets the effective local
-grain of the screen description. It is not a decorative constant. It is the
-local fixed point at which the outside screen geometry and the inside
+grain of the screen description. It is the local fixed point at which the outside screen geometry and the inside
 electromagnetic readout are required to match. Later chapters ask how far
 that same fixed point can travel through the weak sector, the electromagnetic
 coupling, the Higgs-top surface, quark structure, neutrinos, and the
@@ -185,7 +184,7 @@ patches, caps, and overlaps.
 
 The chapter's screen diagram shows two observer patches and the
 lens-shaped overlap where their descriptions can be compared. That overlap is
-not a decorative shading. It is the operational hinge of the book. There is one
+the operational hinge of the book, not decorative shading. There is one
 shared screen net idealization, many observer-facing access cuts, and many
 finite patches. A private patch can carry more than the shared lens. Public
 reality is built from what many such lenses force to agree.
@@ -208,8 +207,8 @@ appear.
 
 Chapter 4 explains why records have a direction. The basic puzzle is that many
 microscopic laws can be run backward, while ordinary life cannot. The answer
-is not a new force called time's arrow. The answer is low-entropy initial
-conditions plus overwhelming counting.
+is not a new force called time's arrow. The answer is a low-entropy record
+boundary plus overwhelming counting.
 
 Carnot's formula
 
@@ -264,8 +263,8 @@ divided by $2\pi$. The uncertainty relation
 $$\Delta X\,\Delta P\geq \frac{\hbar}{2}$$
 
 uses $\Delta X$ and $\Delta P$ for spreads of possible outcomes in a state.
-It is not a statement about poor instruments. It is a statement about the
-state and the algebra.
+The statement concerns the state and the algebra, rather than poor
+instruments.
 
 The chapter's question-order diagram is meant to remove the mystery from the
 notation. Asking A then B can be physically different from asking B then A.
@@ -284,8 +283,7 @@ restricted state.
 The builders are Planck, Einstein, Bohr, Heisenberg, Born, Jordan,
 Schrodinger, Dirac, von Neumann, Stone, Gelfand, Segal, Haag, Kastler,
 Tomita, Takesaki, Connes, Rovelli, and many more. The algebra of questions is
-not a taste for abstraction. It is what survived when the old orbit picture
-failed.
+what survived when the old orbit picture failed.
 
 ## Chapter 6: Overlap Consistency
 
@@ -305,9 +303,9 @@ the shared questions.
 
 The chapter also uses Bell's CHSH expression. The classical bound is
 $|S|\leq 2$, while quantum mechanics permits $|S|\leq 2\sqrt2$. Here $S$ is
-not entropy. It is a correlation combination built from four measurement
-settings. The Bell lesson is that overlap agreement cannot be explained by
-local hidden instruction sheets.
+a correlation combination built from four measurement settings, not entropy.
+The Bell lesson is that overlap agreement cannot be explained by local hidden
+instruction sheets.
 
 The reduced-state notation $\rho_A=\mathrm{Tr}_B\rho_{AB}$ says that the
 state on subsystem $A$ is obtained by tracing out subsystem $B$. $\rho$ is a
@@ -615,7 +613,7 @@ input-free global closure is
 $N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}})$, with
 $\log|\Omega^{\mathrm{sc}}_N|-N$ as its finite-count representation.
 
-The modular-anomaly continuation introduces an effective dark component. The
+The modular-anomaly branch introduces an effective dark component. The
 benchmark acceleration
 
 $$a_0^{(\mathrm{OPH})}
@@ -625,8 +623,7 @@ $$
 
 uses the de Sitter radius to set a deep-infrared scale. The proximity to the
 empirical MOND scale is the reason the chapter treats galaxy-scale anomalies
-as a serious assumption-dependent continuation outside the recovered-core
-theorem package.
+as an extension branch outside the recovered-core theorem package.
 
 The builders include de Sitter, Friedmann, Lemaitre, Hubble, Slipher,
 Gamow, Penzias, Wilson, Guth, Starobinsky, Linde, Riess, Perlmutter, Schmidt,
@@ -638,9 +635,9 @@ surveys, calibrations, and cross-checks.
 ## Chapter 14: The Standard Model
 
 Chapter 14 is the longest technical reconstruction chapter because particle
-physics is full of structure. The Standard Model is not one fact. It is a
-gauge group, representation assignments, anomaly cancellations, generations,
-mixing, masses, symmetry breaking, and measured couplings. OPH asks how much
+physics is full of structure. The Standard Model bundles a gauge group,
+representation assignments, anomaly cancellations, generations, mixing, masses,
+symmetry breaking, and measured couplings. OPH asks how much
 of that structure can be organized by consistency.
 
 The gauge group is
@@ -852,9 +849,9 @@ itself: partial perspectives are forced to meet.
 
 Chapter 19 asks what the physics means for experience, objectivity, and
 existence. Its discipline is to keep metaphysics downstream of the technical
-structure. Experience is not added as a ghostly substance. It is read as the
-inside of observer patches. Objectivity is not a God's-eye inventory. It is
-the overlap-stable public record.
+structure. Experience is read as the inside of observer patches, rather than a
+ghostly substance added afterward. Objectivity is the overlap-stable public
+record, with no God's-eye inventory underneath it.
 
 The mathematical metaphor of a sheaf is central. Local data are assigned to
 regions. If local data agree on overlaps, they may glue to a global section.

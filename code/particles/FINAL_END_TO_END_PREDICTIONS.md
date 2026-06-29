@@ -1,6 +1,6 @@
 # Final End-to-End Particle Predictions
 
-Generated: `2026-06-24T12:58:30Z`
+Generated: `2026-06-29T05:24:08Z`
 
 Scope: `nonhadron_particle_pipeline_with_empirical_hadron_closure_policy`
 Claim label: `final_nonhadron_predictions_with_separate_empirical_hadron_closure_surface`
@@ -78,6 +78,17 @@ Claim label: `final_nonhadron_predictions_with_separate_empirical_hadron_closure
 - Higgs naturality defect: `epsilon_H=0`
 - Boundary: The hierarchy and Higgs naturality rows are promoted as selected-branch source-side results with zero bridge residual and epsilon_H=0.
 - Not promoted by this bridge: public Thomson endpoint without the missing hadronic spectral payload, W/Z compare-only mass rows, charged-lepton absolute masses, source-only hadron masses, strong CP, SI G without the full no-G clock stack
+
+## Pixel-Screen Resonance
+
+- Receipt label: `closed_receipt_summary_from_existing_hierarchy_certificates`
+- Accepted: `True`
+- Cell count: `8.66320901247706572587563970537442861468419211825926398394872480269703639649248928576491836430581038877242898688332472902633613098347835366964707239263907022000340981274703022750512E+122`
+- Cell entropy: `0.4077420523509898312198199619456622353339957129069812651665376883476948349733358`
+- Capacity reconstruction error: `0`
+- Dimensionless `Lambda*l_star^2`: `2.66812904350586780702335375926932344083795060921617125136534539902014235531813807541667039485448943695866032960207619152749770889355150469615617668311197310222823802830288751871387E-122`
+- Dimensionless `Lambda*a_cell`: `4.35163364854546390531706595052572619796186038532042556267635563207283708445543891356372392920329326325643602008052438546251964114620657599797572484903134644052003905527478316407586E-122`
+- Boundary: Receipt-level composition only: K_cell=4*N_CRC^EW/P_star, K_cell*(P_star/4)=N_CRC^EW, Lambda_CRC*l_star^2=3*pi/N_CRC^EW, and Lambda_CRC*a_cell=3*pi*P_star/N_CRC^EW=12*pi/K_cell.
 
 ## Direct-Top Auxiliary Comparison
 

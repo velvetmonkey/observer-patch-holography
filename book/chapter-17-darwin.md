@@ -4,8 +4,8 @@
 
 Start with the Platonic picture of law.
 
-The laws of physics are eternal, unchanging mathematical truths. They existed
-before the Big Bang. They will exist after the heat death. Newton's laws,
+The laws of physics are eternal, unchanging mathematical truths. They stand
+outside cosmic history. They will exist after the heat death. Newton's laws,
 Maxwell's equations, and Einstein's field equations are discovered, not
 invented. They describe timeless constraints on reality.
 
@@ -227,16 +227,17 @@ longer, and replicate more faithfully than others.
 Memes evolve by the same Darwinian logic as genes. They vary as they pass from
 mind to mind, successful versions get copied, and the ideas that resonate or
 predict better spread further. The history of science is memetic evolution.
-Phlogiston lost to oxygen. Steady-state cosmology lost to Big Bang. Memes that
-fit the data survive the selection pressure of empirical testing.
+Phlogiston lost to oxygen. Steady-state cosmology lost to hot expanding
+cosmology. Memes that fit the data survive the selection pressure of empirical
+testing.
 
 Science is therefore not a chain of solitary revelations. Lavoisier's oxygen
 chemistry depended on careful balances and a community willing to make mass
-accounting decisive. Big Bang cosmology drew on general relativity, galaxy
-redshifts, nuclear physics, radio astronomy, and the discovery of the cosmic
-microwave background by Penzias and Wilson. Darwin himself shared the stage
-with Alfred Russel Wallace. Good ideas survive because many observers can
-stress them from different sides.
+accounting decisive. Hot expanding cosmology drew on general relativity,
+galaxy redshifts, nuclear physics, radio astronomy, and the discovery of the
+cosmic microwave background by Penzias and Wilson. Darwin himself shared the
+stage with Alfred Russel Wallace. Good ideas survive because many observers
+can stress them from different sides.
 
 ### The Fixed-Point Computation Meme
 
