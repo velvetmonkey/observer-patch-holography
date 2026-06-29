@@ -114,6 +114,29 @@ def _classify_entry(entry: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def _classify_withheld_entry(entry: dict[str, Any]) -> dict[str, Any]:
+    exact_kind = entry.get("exact_kind", "")
+    if "target_anchored" in exact_kind:
+        target_use = "target_values_or_target_derived_datum_used"
+        blind_status = "withheld_not_blind"
+    elif "compare_only" in exact_kind:
+        target_use = "compare_only_reference_or_absolute_attachment_used"
+        blind_status = "withheld_compare_only"
+    else:
+        target_use = "withheld_by_public_output_policy"
+        blind_status = "withheld"
+    return {
+        "particle_id": entry["particle_id"],
+        "exact_kind": exact_kind,
+        "scope": entry.get("scope"),
+        "promotable": bool(entry.get("promotable", False)),
+        "target_use": target_use,
+        "blind_status": blind_status,
+        "source_artifact": entry.get("source_artifact"),
+        "reason": entry.get("reason", "not_public_prediction_output"),
+    }
+
+
 def build_payload() -> dict[str, Any]:
     exact = _load_json(EXACT_NONHADRON)
     results = _load_json(RESULTS_STATUS)
@@ -122,6 +145,7 @@ def build_payload() -> dict[str, Any]:
     thomson = _load_json(THOMSON_CONTRACT)
     thomson_package = _load_json(THOMSON_PACKAGE)
     rows = [_classify_entry(entry) for entry in exact.get("entries", [])]
+    withheld_rows = [_classify_withheld_entry(entry) for entry in exact.get("withheld_entries", [])]
 
     return {
         "artifact": "oph_blind_prediction_provenance_audit",
@@ -142,6 +166,7 @@ def build_payload() -> dict[str, Any]:
         "finalization_gates": pipeline.get("finalization_gates", {}),
         "row_counts": {
             "total": len(rows),
+            "withheld_non_prediction": len(withheld_rows),
             "promotable": sum(1 for row in rows if row["promotable"]),
             "not_promotable": sum(1 for row in rows if not row["promotable"]),
             "blind_or_conditionally_blind": sum(
@@ -149,6 +174,7 @@ def build_payload() -> dict[str, Any]:
             ),
         },
         "rows": rows,
+        "withheld_rows": withheld_rows,
         "convention_sensitivity": {
             "status": "declared_taxonomy_emitted_numeric_sweep_stage_gated",
             "rg_contract_status": rg.get("status"),
@@ -231,6 +257,24 @@ def render_markdown(payload: dict[str, Any]) -> str:
             f"| `{row['particle_id']}` | `{value}` | `{row['row_class']}` | `{row['blind_status']}` | "
             f"{row['target_use']} | `{row['promotable']}` | {row['convention_sensitivity']} |"
         )
+    withheld_rows = payload.get("withheld_rows") or []
+    if withheld_rows:
+        lines.extend(
+            [
+                "",
+                "## Withheld Non-Prediction Rows",
+                "",
+                "These rows have audit artifacts but no public prediction value in the output tables.",
+                "",
+                "| Particle | Claim label | Blind status | Target use | Reason |",
+                "| --- | --- | --- | --- | --- |",
+            ]
+        )
+        for row in withheld_rows:
+            lines.append(
+                f"| `{row['particle_id']}` | `{row['exact_kind']}` | `{row['blind_status']}` | "
+                f"{row['target_use']} | {row['reason']} |"
+            )
     lines.extend(
         [
             "",

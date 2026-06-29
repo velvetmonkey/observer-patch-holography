@@ -1,12 +1,10 @@
 #!/usr/bin/env python3
-"""Build a canonical exact non-hadron mass bundle.
+"""Build the public non-hadron mass-output bundle.
 
-This bundle consolidates the strongest exact non-hadron mass outputs on the
-declared local surfaces into one deduplicated view: structural zeros, exact
-electroweak sidecar masses, exact Higgs readout, exact charged-lepton
-`current_family_only` witness, exact quark `current_family_only` witness plus
-restricted transport-frame completion, and the theorem-grade weighted-cycle
-absolute neutrino family.
+The public `entries` list is deliberately stricter than the exact-fit audit
+surface: target-anchored witnesses and compare-only absolute attachments are
+withheld from prediction tables. They remain available in `EXACT_FITS_ONLY`
+and in the generated `withheld_entries` metadata for audit/debug use.
 """
 
 from __future__ import annotations
@@ -97,7 +95,35 @@ def _neutrino_absolute_promotable(payload: dict[str, Any] | None) -> bool:
     )
 
 
-def build_entries() -> list[dict[str, Any]]:
+def _is_public_mass_output(entry: dict[str, Any]) -> bool:
+    exact_kind = str(entry.get("exact_kind", ""))
+    if "target_anchored" in exact_kind:
+        return False
+    if "compare_only" in exact_kind:
+        return False
+    return True
+
+
+def _withheld_entry(entry: dict[str, Any]) -> dict[str, Any]:
+    exact_kind = str(entry.get("exact_kind", ""))
+    if "target_anchored" in exact_kind:
+        reason = "target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction"
+    elif "compare_only" in exact_kind:
+        reason = "compare_only_absolute_or_adapter_surface_kept_out_of_public_prediction_table"
+    else:
+        reason = "not_public_prediction_output"
+    return {
+        "particle_id": entry["particle_id"],
+        "label": entry.get("label"),
+        "exact_kind": exact_kind,
+        "scope": entry.get("scope"),
+        "promotable": bool(entry.get("promotable", False)),
+        "source_artifact": entry.get("source_artifact"),
+        "reason": reason,
+    }
+
+
+def build_all_entries() -> list[dict[str, Any]]:
     references = _load_json(REFERENCE_JSON)["entries"]
     ew_exact = _load_json(EW_EXACT_JSON)
     d11_exact = _load_json(D11_EXACT_JSON)
@@ -288,7 +314,7 @@ def build_entries() -> list[dict[str, Any]]:
                 "Exact source-only Higgs theorem on the declared D10/D11 surface. "
                 "The same theorem emits the exact Higgs row together with a companion top coordinate by direct Jacobian readout from the live D10 repair tuple. "
                 "At PDG quoting precision the Higgs row lands on the 2025 Higgs average. "
-                "The exact public running-top row uses the PDG 2025 cross-section entry `Q007TP4`. "
+                "The target-anchored selected-class running-top witness uses the PDG 2025 cross-section entry `Q007TP4`, but it is audit-only under the strict public-output policy. "
                 "The auxiliary direct-top average `Q007TP` is compare-only; "
                 "[#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207) is closed as a corpus-limited no-go by "
                 "`code/particles/runs/calibration/direct_top_bridge_contract.json`."
@@ -490,33 +516,22 @@ def build_entries() -> list[dict[str, Any]]:
     ]
 
 
+def build_entries() -> list[dict[str, Any]]:
+    return [entry for entry in build_all_entries() if _is_public_mass_output(entry)]
+
+
 def build_markdown(generated_utc: str, entries: list[dict[str, Any]]) -> str:
-    quark_selected_class = any(
-        entry["particle_id"] == "up_quark"
-        and entry["exact_kind"] == "selected_class_theorem_grade_exact_forward_quark_closure"
-        for entry in entries
-    )
     lines = [
-        "# Exact Non-Hadron Masses",
+        "# Public Non-Hadron Mass Outputs",
         "",
         f"Generated: `{generated_utc}`",
         "",
-        "This bundle gives exact mass outputs for public non-hadron particle rows on declared OPH surfaces.",
-        "It records exact-output surfaces rather than one uniform theorem tier and excludes compare-only frozen-target adapters.",
-        (
-            "For quarks, the exact theorem surface matches the official PDG 2025 API running-quark target surface on the selected public physical quark frame class chosen by `P`."
-            if quark_selected_class
-            else "For quarks, the exact carrier-restricted witness surface matches the official PDG 2025 API running-quark target surface on `current_family_only`."
-        ),
-        (
-            "The same selected-class theorem emits explicit exact forward Yukawas `Y_u` and `Y_d`, and the same sextet is also realized on `current_family_only` and on the restricted current-family common-refinement transport-frame carrier."
-            if quark_selected_class
-            else "The same sextet is also realized on the restricted current-family common-refinement transport-frame carrier, which emits explicit exact forward Yukawas `Y_u` and `Y_d` on that declared carrier."
-        ),
-        "For charged leptons, this bundle records the exact same-family witness surface. The theorem surface also contains the live same-label `q_e` readback, a source-side determinant character for a fixed formal source multiplicity vector, a conditional determinant-line lift, and an algebraic charged-mass readout once theorem-grade `A_ch(P)` is given. Issue #201 is closed as a corpus-limited no-go: the available corpus does not attach that source-side character to the physical charged determinant line.",
-        "The top coordinate uses the PDG 2025 cross-section mass entry `Q007TP4`. The auxiliary direct-top entry `Q007TP` is compare-only; [#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207) is closed as a corpus-limited no-go by `code/particles/runs/calibration/direct_top_bridge_contract.json`.",
+        "This bundle gives numeric non-hadron mass outputs that are not target-anchored witness rows.",
+        "Target-anchored exact fits and compare-only absolute attachments are withheld from this prediction table and kept in `EXACT_FITS_ONLY.md` for audit/debug use.",
+        "Charged-lepton and quark exact same-family/current-family surfaces remain available as exact-fit audit witnesses, but their numeric values are not public mass outputs under the strict non-circularity policy.",
+        "Absolute neutrino masses are likewise withheld here while the absolute attachment remains compare-only; dimensionless PMNS and mass-splitting-ratio comparisons stay in `RESULTS_STATUS.md`.",
         "",
-        "| Particle | Exact Mass | Kind | Scope | Source |",
+        "| Particle | Mass Output | Kind | Scope | Source |",
         "| --- | ---: | --- | --- | --- |",
     ]
     for entry in entries:
@@ -538,13 +553,17 @@ def main() -> int:
     args = parser.parse_args()
 
     generated_utc = _timestamp()
-    entries = build_entries()
+    all_entries = build_all_entries()
+    entries = [entry for entry in all_entries if _is_public_mass_output(entry)]
+    withheld_entries = [_withheld_entry(entry) for entry in all_entries if not _is_public_mass_output(entry)]
     payload = {
         "artifact": "oph_exact_nonhadron_mass_bundle",
         "generated_utc": generated_utc,
-        "status": "exact_output_lane_closed_nonhadron_only",
+        "status": "public_mass_outputs_with_target_anchored_witnesses_withheld",
         "entries": entries,
+        "withheld_entries": withheld_entries,
         "excluded_lane": "hadrons_compute_bound",
+        "audit_surface": "code/particles/EXACT_FITS_ONLY.md",
     }
 
     markdown_out = pathlib.Path(args.markdown_out)

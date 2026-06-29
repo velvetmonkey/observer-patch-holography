@@ -104,7 +104,7 @@ def build_entries() -> list[dict[str, Any]]:
                 "a conditional split candidate on the declared D10/D11 surface. "
                 "That surface emits `m_H = 125.1995304097179 GeV` and a companion top coordinate "
                 "`m_t = 172.3523553288312 GeV`, but strict promotion is blocked until the D10 target-free repair closes. "
-                "The exact public running-top row uses the PDG 2025 cross-section entry `Q007TP4`. "
+                "The target-anchored selected-class running-top witness uses the PDG 2025 cross-section entry `Q007TP4`, but it is audit-only under the strict public-output policy. "
                 "The auxiliary direct-top average `Q007TP` is compare-only; "
                 "[#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207) is closed as a corpus-limited no-go by "
                 "`code/particles/runs/calibration/direct_top_bridge_contract.json`."

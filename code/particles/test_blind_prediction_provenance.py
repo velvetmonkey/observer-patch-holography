@@ -23,13 +23,18 @@ def test_blind_prediction_provenance_records_target_use_and_declared_sensitivity
     assert payload["closure_gate"]["closable_now"] is True
     assert payload["convention_sensitivity"]["status"] == "declared_taxonomy_emitted_numeric_sweep_stage_gated"
     row_map = {row["particle_id"]: row for row in payload["rows"]}
+    withheld_map = {row["particle_id"]: row for row in payload["withheld_rows"]}
     assert row_map["photon"]["blind_status"] == "blind_structural"
     assert "w_boson" not in row_map
     assert "z_boson" not in row_map
-    assert row_map["electron"]["target_use"] == "target_values_used_to_anchor_current_family_witness"
+    assert "electron" not in row_map
+    assert withheld_map["electron"]["target_use"] == "target_values_or_target_derived_datum_used"
+    assert withheld_map["electron"]["blind_status"] == "withheld_not_blind"
     assert row_map["higgs"]["blind_status"] == "conditionally_blind_on_declared_surface"
-    assert row_map["top_quark"]["row_class"] == "selected_class_target_anchored_witness"
-    assert row_map["electron_neutrino"]["target_use"] == "compare_only_C_nu_used_for_absolute_attachment_candidate"
+    assert "top_quark" not in row_map
+    assert withheld_map["top_quark"]["target_use"] == "target_values_or_target_derived_datum_used"
+    assert "electron_neutrino" not in row_map
+    assert withheld_map["electron_neutrino"]["target_use"] == "compare_only_reference_or_absolute_attachment_used"
     workflows = {workflow["id"]: workflow for workflow in payload["preregistered_blind_workflows"]}
     assert workflows["new_quantity_pre_reference_lock"]["status"] == "protocol_emitted_unexercised"
     assert workflows["convention_sensitivity_sweep"]["status"] == "declared_taxonomy_emitted_numeric_sweep_stage_gated"

@@ -27,7 +27,7 @@
     "log_shift_d": -2.0197060598177545,
     "log_shift_u": -0.16896334594579177
   },
-  "generated_utc": "2026-06-29T06:17:25Z",
+  "generated_utc": "2026-06-29T07:35:28Z",
   "interpretation": {
     "current_family_exact_value_target": "If the fixed A_ud/B_ud affine readout law is retained, any theorem-grade lift to exact current-family quark values must emit this sigma target or an equivalent sigma datum.",
     "next_public_bridge": "quark_physical_sigma_ud_lift",

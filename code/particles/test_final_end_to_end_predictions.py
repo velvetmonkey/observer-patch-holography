@@ -63,10 +63,18 @@ def test_final_end_to_end_predictions_include_particle_five_gates_and_values() -
     assert "w_boson" not in predictions
     assert "z_boson" not in predictions
     assert predictions["higgs"]["value"] == 125.1995304097179
-    assert predictions["electron"]["value"] == 0.0005109989499999994
-    assert predictions["top_quark"]["value"] == 172.35235532883115
-    assert predictions["electron_neutrino"]["unit"] == "eV"
-    assert predictions["electron_neutrino"]["value"] == 0.017454720257976796
+    assert "electron" not in predictions
+    assert "top_quark" not in predictions
+    assert "electron_neutrino" not in predictions
+    withheld = {row["particle_id"]: row for row in payload["withheld_non_prediction_rows"]}
+    assert withheld["electron"]["reason"] == "target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction"
+    assert withheld["top_quark"]["reason"] == "target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction"
+    assert withheld["electron_neutrino"]["reason"] == (
+        "compare_only_absolute_or_adapter_surface_kept_out_of_public_prediction_table"
+    )
+    assert payload["direct_top_auxiliary_comparison"]["value_policy"] == (
+        "compare_only_codomain_values_withheld_from_final_prediction_output"
+    )
     assert payload["direct_top_auxiliary_comparison"]["bridge_status"] == (
         "hard_no_go_current_corpus_compare_only_direct_top_codomain"
     )

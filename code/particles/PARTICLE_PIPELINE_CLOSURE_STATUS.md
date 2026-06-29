@@ -1,6 +1,6 @@
 # Particle Pipeline Closure Status
 
-Generated: `2026-06-29T06:58:53Z`
+Generated: `2026-06-29T07:33:23Z`
 
 Single closure gate for source-only rows and empirical hadron closure rows.
 
@@ -44,22 +44,27 @@ Single closure gate for source-only rows and empirical hadron closure rows.
 
 | Particle ID | Mass |
 | --- | ---: |
-| `bottom_quark` | `4.182999999999994 GeV` |
-| `charm_quark` | `1.2729999999999992 GeV` |
-| `down_quark` | `0.004699999999999999 GeV` |
-| `electron` | `0.0005109989499999994 GeV` |
-| `electron_neutrino` | `0.017454720257976796 eV` |
 | `gluon` | `0.0 GeV` |
 | `graviton` | `0.0 GeV` |
 | `higgs` | `125.1995304097179 GeV` |
-| `muon` | `0.10565837550000004 GeV` |
-| `muon_neutrino` | `0.019481987935919015 eV` |
 | `photon` | `0.0 GeV` |
-| `strange_quark` | `0.09349999999999999 GeV` |
-| `tau` | `1.7769324651340912 GeV` |
-| `tau_neutrino` | `0.05307522145074924 eV` |
-| `top_quark` | `172.35235532883115 GeV` |
-| `up_quark` | `0.0021600000000000005 GeV` |
+
+## Withheld Non-Prediction Rows
+
+| Particle ID | Claim label | Reason |
+| --- | --- | --- |
+| `electron` | `exact_target_anchored_current_family_witness` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
+| `muon` | `exact_target_anchored_current_family_witness` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
+| `tau` | `exact_target_anchored_current_family_witness` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
+| `up_quark` | `selected_class_target_anchored_exact_witness` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
+| `charm_quark` | `selected_class_target_anchored_exact_witness` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
+| `top_quark` | `selected_class_target_anchored_exact_witness` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
+| `down_quark` | `selected_class_target_anchored_exact_witness` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
+| `strange_quark` | `selected_class_target_anchored_exact_witness` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
+| `bottom_quark` | `selected_class_target_anchored_exact_witness` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
+| `electron_neutrino` | `scale_free_weighted_cycle_theorem_with_compare_only_absolute_attachment_candidate` | compare_only_absolute_or_adapter_surface_kept_out_of_public_prediction_table |
+| `muon_neutrino` | `scale_free_weighted_cycle_theorem_with_compare_only_absolute_attachment_candidate` | compare_only_absolute_or_adapter_surface_kept_out_of_public_prediction_table |
+| `tau_neutrino` | `scale_free_weighted_cycle_theorem_with_compare_only_absolute_attachment_candidate` | compare_only_absolute_or_adapter_surface_kept_out_of_public_prediction_table |
 
 ## Finalization Gates
 

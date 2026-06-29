@@ -60,6 +60,10 @@ def build_payload() -> dict[str, Any]:
     predictions = _prediction_map(final_predictions)
     gates = _issue_map(pipeline)
     hierarchy_capacity_root = hierarchy_capacity["exact_capacity_fixed_point"]
+    withheld_by_id = {
+        entry["particle_id"]: entry for entry in final_predictions.get("withheld_non_prediction_rows", [])
+    }
+    quark_withheld = [pid for pid in ("up_quark", "down_quark", "strange_quark", "charm_quark", "bottom_quark", "top_quark") if pid in withheld_by_id]
 
     rows = [
         {
@@ -130,7 +134,6 @@ def build_payload() -> dict[str, Any]:
             "claim_level": predictions["higgs"]["exact_kind"],
             "outputs": {
                 "higgs": predictions["higgs"]["value"],
-                "top_companion": predictions["top_quark"]["value"],
             },
             "promotable": predictions["higgs"]["promotable"],
             "open_gates": []
@@ -143,12 +146,11 @@ def build_payload() -> dict[str, Any]:
         {
             "chain": "charged_leptons",
             "status": "closed_current_corpus_charged_end_to_end_no_go",
-            "claim_level": predictions["electron"]["exact_kind"],
-            "outputs": {
-                "electron": predictions["electron"]["value"],
-                "muon": predictions["muon"]["value"],
-                "tau": predictions["tau"]["value"],
-            },
+            "claim_level": "target_anchored_witness_withheld_no_public_charged_mass_output",
+            "outputs": {},
+            "withheld_non_prediction_rows": [
+                withheld_by_id[pid] for pid in ("electron", "muon", "tau") if pid in withheld_by_id
+            ],
             "promotable": False,
             "open_gates": [],
             "closed_issue_refs": [201],
@@ -159,21 +161,18 @@ def build_payload() -> dict[str, Any]:
             "chain": "selected_class_quarks",
             "status": (
                 "closed_selected_public_class_global_classification_no_go"
-                if predictions["top_quark"]["promotable"]
+                if predictions.get("top_quark", {}).get("promotable")
                 else "selected_class_target_anchored_exact_witness_not_strict_source"
             ),
-            "claim_level": predictions["top_quark"]["exact_kind"],
-            "outputs": {
-                "up": predictions["up_quark"]["value"],
-                "down": predictions["down_quark"]["value"],
-                "strange": predictions["strange_quark"]["value"],
-                "charm": predictions["charm_quark"]["value"],
-                "bottom": predictions["bottom_quark"]["value"],
-                "top": predictions["top_quark"]["value"],
-            },
-            "promotable": predictions["top_quark"]["promotable"],
+            "claim_level": (
+                predictions.get("top_quark", {}).get("exact_kind")
+                or "selected_class_target_anchored_exact_witness_withheld_not_public_output"
+            ),
+            "outputs": {},
+            "withheld_non_prediction_rows": [withheld_by_id[pid] for pid in quark_withheld],
+            "promotable": bool(predictions.get("top_quark", {}).get("promotable", False)),
             "open_gates": []
-            if predictions["top_quark"]["promotable"]
+            if predictions.get("top_quark", {}).get("promotable")
             else ["quark_public_physical_sigma_source_datum_no_target_leak"],
             "closed_issue_refs": [199, 207, 212],
             "next_artifact": "code/particles/runs/flavor/quark_class_uniform_public_frame_descent_obstruction.json",
@@ -183,19 +182,27 @@ def build_payload() -> dict[str, Any]:
             "chain": "neutrino_absolute_attachment",
             "status": (
                 "closed_weighted_cycle_absolute_attachment_with_comparison_tension_visible"
-                if predictions["electron_neutrino"]["promotable"]
+                if predictions.get("electron_neutrino", {}).get("promotable")
                 else "scale_free_weighted_cycle_with_compare_only_absolute_attachment_candidate"
             ),
-            "claim_level": predictions["electron_neutrino"]["exact_kind"],
+            "claim_level": (
+                predictions.get("electron_neutrino", {}).get("exact_kind")
+                or "scale_free_weighted_cycle_with_compare_only_absolute_attachment_withheld"
+            ),
             "outputs": {
-                "electron_neutrino": predictions["electron_neutrino"]["value"],
-                "muon_neutrino": predictions["muon_neutrino"]["value"],
-                "tau_neutrino": predictions["tau_neutrino"]["value"],
+                particle: predictions[particle]["value"]
+                for particle in ("electron_neutrino", "muon_neutrino", "tau_neutrino")
+                if particle in predictions
             },
+            "withheld_non_prediction_rows": [
+                withheld_by_id[pid]
+                for pid in ("electron_neutrino", "muon_neutrino", "tau_neutrino")
+                if pid in withheld_by_id
+            ],
             "unit": "eV",
-            "promotable": predictions["electron_neutrino"]["promotable"],
+            "promotable": bool(predictions.get("electron_neutrino", {}).get("promotable", False)),
             "open_gates": []
-            if predictions["electron_neutrino"]["promotable"]
+            if predictions.get("electron_neutrino", {}).get("promotable")
             else ["source_emitted_neutrino_C_nu_no_compare_target"],
             "next_artifact": None,
         },

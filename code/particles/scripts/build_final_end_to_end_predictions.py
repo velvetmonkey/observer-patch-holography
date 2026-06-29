@@ -292,6 +292,7 @@ def build_payload() -> dict[str, Any]:
             "compare_only",
             "work_in_progress",
         ],
+        "withheld_non_prediction_rows": exact.get("withheld_entries", []),
         "fine_structure": _fine_structure_surface(measured_endpoint),
         "hierarchy_and_naturality": _hierarchy_surface(),
         "finalization_gates": pipeline["finalization_gates"],
@@ -312,12 +313,10 @@ def build_payload() -> dict[str, Any]:
             "github_issues": [153, 157],
         },
         "direct_top_auxiliary_comparison": {
-            "current_top_coordinate_gev": direct_top["current_theorem_coordinate"]["value_gev"],
             "current_top_codomain": direct_top["current_theorem_coordinate"]["pdg_summary_id"],
-            "auxiliary_direct_top_gev": direct_top["auxiliary_direct_top_coordinate"]["value_gev"],
             "auxiliary_direct_top_codomain": direct_top["auxiliary_direct_top_coordinate"]["pdg_summary_id"],
-            "direct_minus_current_coordinate_gev": direct_top["comparison_only_readout"]["direct_minus_current_coordinate_gev"],
-            "pull_in_combined_sigma": direct_top["comparison_only_readout"]["pull_in_combined_sigma"],
+            "value_policy": "compare_only_codomain_values_withheld_from_final_prediction_output",
+            "audit_artifact": "code/particles/runs/calibration/direct_top_bridge_contract.json",
             "bridge_status": direct_top["status"],
         },
     }
@@ -378,6 +377,23 @@ def render_markdown(payload: dict[str, Any]) -> str:
             f"| `{entry['particle_id']}` | `{entry['value']} {entry['unit']}` | "
             f"`{entry['exact_kind']}` | `{entry['scope']}` | `{entry['promotable']}` |"
         )
+    withheld = payload.get("withheld_non_prediction_rows") or []
+    if withheld:
+        lines.extend(
+            [
+                "",
+                "## Withheld Non-Prediction Rows",
+                "",
+                "These rows are retained in audit surfaces but are not numeric predictions.",
+                "",
+                "| Particle | Claim label | Reason |",
+                "| --- | --- | --- |",
+            ]
+        )
+        for row in withheld:
+            lines.append(
+                f"| `{row['particle_id']}` | `{row['exact_kind']}` | {row['reason']} |"
+            )
     direct = payload["direct_top_auxiliary_comparison"]
     hierarchy = payload["hierarchy_and_naturality"]
     hierarchy_status = hierarchy["status"]
@@ -441,10 +457,10 @@ def render_markdown(payload: dict[str, Any]) -> str:
             "",
             "## Direct-Top Auxiliary Comparison",
             "",
-            f"- Top theorem coordinate: `{direct['current_top_coordinate_gev']} GeV` on `{direct['current_top_codomain']}`",
-            f"- Auxiliary direct-top coordinate: `{direct['auxiliary_direct_top_gev']} GeV` on `{direct['auxiliary_direct_top_codomain']}`",
-            f"- Difference: `{direct['direct_minus_current_coordinate_gev']} GeV`",
-            f"- Pull: `{direct['pull_in_combined_sigma']}` combined sigma",
+            f"- Current codomain: `{direct['current_top_codomain']}`",
+            f"- Auxiliary codomain: `{direct['auxiliary_direct_top_codomain']}`",
+            f"- Value policy: `{direct['value_policy']}`",
+            f"- Audit artifact: `{direct['audit_artifact']}`",
             f"- Bridge label: `{_display_status(direct['bridge_status'])}`",
             "",
             "## Hadrons",

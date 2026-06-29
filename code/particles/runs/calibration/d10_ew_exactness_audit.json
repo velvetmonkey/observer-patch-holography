@@ -222,7 +222,7 @@
     "stricter_still_open_object": "EWTargetFreeRepairValueLaw_D10",
     "target_free_predictive_emission_closed": false
   },
-  "generated_utc": "2026-06-12T05:38:50Z",
+  "generated_utc": "2026-06-29T07:35:18Z",
   "notes": [
     "This audit computes a purely inverse reference-W/Z slice for diagnosis only; that slice is not a predictive artifact and is not emitted by the live D10 source-pair builder.",
     "Any coherent family matching those reference W/Z values forces sin2(theta_W) = 1 - (MW/MZ)^2, so the current mixed reference surface cannot be hit exactly by one simple tree-level family.",
@@ -521,7 +521,7 @@
     },
     "conclusion": {
       "meaning": "On the frozen authoritative D10 target surface, the exact repair package and coherent repaired quintet are fully emitted.",
-      "still_compare_only": false,
+      "still_compare_only": true,
       "stricter_still_open_object": "EWTargetFreeRepairValueLaw_D10",
       "stricter_still_open_statement": "Emit the same nonzero repair directly from P alone with no frozen target input."
     },

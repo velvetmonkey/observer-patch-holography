@@ -38,17 +38,21 @@ def test_exact_nonhadron_mass_bundle_is_complete() -> None:
         )
         payload = json.loads(js.read_text(encoding="utf-8"))
         assert payload["artifact"] == "oph_exact_nonhadron_mass_bundle"
-        assert payload["status"] == "exact_output_lane_closed_nonhadron_only"
+        assert payload["status"] == "public_mass_outputs_with_target_anchored_witnesses_withheld"
         entries = {entry["particle_id"]: entry for entry in payload["entries"]}
-        assert len(entries) == 16
+        withheld = {entry["particle_id"]: entry for entry in payload["withheld_entries"]}
+        assert len(entries) == 4
         assert entries["photon"]["mass_gev"] == pytest.approx(0.0, abs=1.0e-18)
         assert "w_boson" not in entries
         assert "z_boson" not in entries
         assert entries["higgs"]["mass_gev"] == pytest.approx(125.1995304097179, abs=1.0e-12)
-        assert entries["electron"]["mass_gev"] == pytest.approx(0.00051099895, abs=1.0e-15)
-        assert entries["top_quark"]["mass_gev"] == pytest.approx(172.3523553288312, abs=1.0e-10)
-        assert entries["tau_neutrino"]["mass_eV"] == pytest.approx(0.05307522145074924, abs=1.0e-15)
+        assert "electron" not in entries
+        assert "top_quark" not in entries
+        assert "tau_neutrino" not in entries
+        assert withheld["electron"]["reason"] == "target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction"
+        assert withheld["top_quark"]["reason"] == "target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction"
+        assert withheld["tau_neutrino"]["reason"] == "compare_only_absolute_or_adapter_surface_kept_out_of_public_prediction_table"
         markdown = md.read_text(encoding="utf-8")
-        assert "Exact Non-Hadron Masses" in markdown
-        assert "Bottom Quark" in markdown
-        assert "Tau Neutrino" in markdown
+        assert "Public Non-Hadron Mass Outputs" in markdown
+        assert "Bottom Quark" not in markdown
+        assert "Tau Neutrino" not in markdown

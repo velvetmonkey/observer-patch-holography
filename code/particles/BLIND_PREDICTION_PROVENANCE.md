@@ -1,6 +1,6 @@
 # Blind Prediction Provenance
 
-Generated: `2026-06-29T06:58:53Z`
+Generated: `2026-06-29T07:33:23Z`
 
 This ledger records target-use and convention-sensitivity status for the public quantitative particle rows.
 
@@ -18,18 +18,25 @@ This ledger records target-use and convention-sensitivity status for the public 
 | `gluon` | `0.0 GeV` | `structural_blind_zero` | `blind_structural` | no_mass_target_used | `True` | none_for_mass_zero |
 | `graviton` | `0.0 GeV` | `structural_blind_zero` | `blind_structural` | no_mass_target_used | `True` | none_for_mass_zero |
 | `higgs` | `125.1995304097179 GeV` | `conditional_declared_surface_candidate` | `conditionally_blind_on_declared_surface` | candidate_upstream_d10_repair_not_source_promoted | `False` | depends_on_declared_D10_D11_running_matching_threshold_surface |
-| `electron` | `0.0005109989499999994 GeV` | `target_anchored_witness` | `not_blind` | target_values_used_to_anchor_current_family_witness | `False` | not_promotable_until_source_attachment_closes |
-| `muon` | `0.10565837550000004 GeV` | `target_anchored_witness` | `not_blind` | target_values_used_to_anchor_current_family_witness | `False` | not_promotable_until_source_attachment_closes |
-| `tau` | `1.7769324651340912 GeV` | `target_anchored_witness` | `not_blind` | target_values_used_to_anchor_current_family_witness | `False` | not_promotable_until_source_attachment_closes |
-| `up_quark` | `0.0021600000000000005 GeV` | `selected_class_target_anchored_witness` | `selected_class_target_anchored_not_blind` | target_derived_sigma_datum_used_for_selected_class_exact_witness | `False` | quark_scheme_and_frame_class_scope_must_remain_visible |
-| `charm_quark` | `1.2729999999999992 GeV` | `selected_class_target_anchored_witness` | `selected_class_target_anchored_not_blind` | target_derived_sigma_datum_used_for_selected_class_exact_witness | `False` | quark_scheme_and_frame_class_scope_must_remain_visible |
-| `top_quark` | `172.35235532883115 GeV` | `selected_class_target_anchored_witness` | `selected_class_target_anchored_not_blind` | target_derived_sigma_datum_used_for_selected_class_exact_witness | `False` | quark_scheme_and_frame_class_scope_must_remain_visible |
-| `down_quark` | `0.004699999999999999 GeV` | `selected_class_target_anchored_witness` | `selected_class_target_anchored_not_blind` | target_derived_sigma_datum_used_for_selected_class_exact_witness | `False` | quark_scheme_and_frame_class_scope_must_remain_visible |
-| `strange_quark` | `0.09349999999999999 GeV` | `selected_class_target_anchored_witness` | `selected_class_target_anchored_not_blind` | target_derived_sigma_datum_used_for_selected_class_exact_witness | `False` | quark_scheme_and_frame_class_scope_must_remain_visible |
-| `bottom_quark` | `4.182999999999994 GeV` | `selected_class_target_anchored_witness` | `selected_class_target_anchored_not_blind` | target_derived_sigma_datum_used_for_selected_class_exact_witness | `False` | quark_scheme_and_frame_class_scope_must_remain_visible |
-| `electron_neutrino` | `0.017454720257976796 eV` | `scale_free_theorem_with_compare_only_absolute_attachment_candidate` | `scale_free_blind_absolute_scale_not_promoted` | compare_only_C_nu_used_for_absolute_attachment_candidate | `False` | pmns_comparison_tension_reported_separately |
-| `muon_neutrino` | `0.019481987935919015 eV` | `scale_free_theorem_with_compare_only_absolute_attachment_candidate` | `scale_free_blind_absolute_scale_not_promoted` | compare_only_C_nu_used_for_absolute_attachment_candidate | `False` | pmns_comparison_tension_reported_separately |
-| `tau_neutrino` | `0.05307522145074924 eV` | `scale_free_theorem_with_compare_only_absolute_attachment_candidate` | `scale_free_blind_absolute_scale_not_promoted` | compare_only_C_nu_used_for_absolute_attachment_candidate | `False` | pmns_comparison_tension_reported_separately |
+
+## Withheld Non-Prediction Rows
+
+These rows have audit artifacts but no public prediction value in the output tables.
+
+| Particle | Claim label | Blind status | Target use | Reason |
+| --- | --- | --- | --- | --- |
+| `electron` | `exact_target_anchored_current_family_witness` | `withheld_not_blind` | target_values_or_target_derived_datum_used | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
+| `muon` | `exact_target_anchored_current_family_witness` | `withheld_not_blind` | target_values_or_target_derived_datum_used | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
+| `tau` | `exact_target_anchored_current_family_witness` | `withheld_not_blind` | target_values_or_target_derived_datum_used | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
+| `up_quark` | `selected_class_target_anchored_exact_witness` | `withheld_not_blind` | target_values_or_target_derived_datum_used | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
+| `charm_quark` | `selected_class_target_anchored_exact_witness` | `withheld_not_blind` | target_values_or_target_derived_datum_used | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
+| `top_quark` | `selected_class_target_anchored_exact_witness` | `withheld_not_blind` | target_values_or_target_derived_datum_used | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
+| `down_quark` | `selected_class_target_anchored_exact_witness` | `withheld_not_blind` | target_values_or_target_derived_datum_used | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
+| `strange_quark` | `selected_class_target_anchored_exact_witness` | `withheld_not_blind` | target_values_or_target_derived_datum_used | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
+| `bottom_quark` | `selected_class_target_anchored_exact_witness` | `withheld_not_blind` | target_values_or_target_derived_datum_used | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
+| `electron_neutrino` | `scale_free_weighted_cycle_theorem_with_compare_only_absolute_attachment_candidate` | `withheld_compare_only` | compare_only_reference_or_absolute_attachment_used | compare_only_absolute_or_adapter_surface_kept_out_of_public_prediction_table |
+| `muon_neutrino` | `scale_free_weighted_cycle_theorem_with_compare_only_absolute_attachment_candidate` | `withheld_compare_only` | compare_only_reference_or_absolute_attachment_used | compare_only_absolute_or_adapter_surface_kept_out_of_public_prediction_table |
+| `tau_neutrino` | `scale_free_weighted_cycle_theorem_with_compare_only_absolute_attachment_candidate` | `withheld_compare_only` | compare_only_reference_or_absolute_attachment_used | compare_only_absolute_or_adapter_surface_kept_out_of_public_prediction_table |
 
 ## Preregistered Workflows
 

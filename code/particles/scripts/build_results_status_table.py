@@ -125,14 +125,15 @@ D11_NOTE = (
     "`m_t = 172.3523553288312 GeV` and `m_H = 125.1995304097179 GeV` on that same surface. "
     "Strict promotion of the Higgs mass row is blocked until the D10 target-free repair closes. "
     "The same surface emits a companion top coordinate `m_t = 172.3523553288312 GeV`. "
-    "The exact public running-top row is carried by the selected-class target-anchored quark witness and uses the PDG 2025 "
-    "cross-section entry `Q007TP4`. The auxiliary direct-top average "
+    "The selected-class quark numeric witness uses the PDG 2025 cross-section top entry `Q007TP4`, "
+    "but its values are withheld from public OPH-value columns because the witness remains target-anchored. "
+    "The auxiliary direct-top average "
     "`Q007TP = 172.56 +- 0.31 GeV` is a compare-only extraction codomain; "
     "[#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207) is closed as a "
     "corpus-limited no-go by `code/particles/runs/calibration/direct_top_bridge_contract.json`. "
     "The old one-scalar seed `sigma_D11_HT = alpha_u * cos(2*theta_W0) / sqrt(pi)` remains on disk as the fixed-ray companion branch beneath this split theorem. "
     "The compare-only exact Higgs/top inverse slice remains a validation surface and does not define the predictive lane. "
-    "The repo-wide exact public top row is also carried by the selected-class target-anchored quark witness."
+    "The repo-wide selected-class top witness is audit-only until the target-derived sigma datum is replaced by a no-target source theorem."
 )
 _NEUTRINO_EXACT_BRIDGE_COORDINATE = (
     json.loads(NEUTRINO_EXACT_ADAPTER_BRIDGE_COORDINATE.read_text(encoding="utf-8"))

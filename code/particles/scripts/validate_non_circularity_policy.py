@@ -91,6 +91,9 @@ def validate() -> dict[str, Any]:
         )
 
     entries = {entry["particle_id"]: entry for entry in payloads["exact_nonhadron"]["entries"]}
+    withheld_entries = {
+        entry["particle_id"]: entry for entry in payloads["exact_nonhadron"].get("withheld_entries", [])
+    }
     for particle_id in ("photon", "gluon", "graviton"):
         _require(entries[particle_id].get("promotable") is True, failures, f"{particle_id} structural zero is not promotable")
         _require(
@@ -99,11 +102,37 @@ def validate() -> dict[str, Any]:
             f"{particle_id} structural zero depends on quantitative particle pipeline",
         )
     for particle_id in ("up_quark", "down_quark", "strange_quark", "charm_quark", "bottom_quark", "top_quark"):
-        if entries[particle_id].get("exact_kind") == "selected_class_target_anchored_exact_witness":
-            _require(entries[particle_id].get("promotable") is False, failures, f"{particle_id} target-anchored quark witness promotes")
+        _require(particle_id not in entries, failures, f"{particle_id} target-anchored quark witness is a public entry")
+        _require(
+            withheld_entries.get(particle_id, {}).get("exact_kind") == "selected_class_target_anchored_exact_witness",
+            failures,
+            f"{particle_id} target-anchored quark witness is not withheld",
+        )
+        _require(
+            withheld_entries.get(particle_id, {}).get("promotable") is False,
+            failures,
+            f"{particle_id} target-anchored quark witness promotes",
+        )
+    for particle_id in ("electron", "muon", "tau"):
+        _require(particle_id not in entries, failures, f"{particle_id} target-anchored charged witness is a public entry")
+        _require(
+            withheld_entries.get(particle_id, {}).get("exact_kind") == "exact_target_anchored_current_family_witness",
+            failures,
+            f"{particle_id} target-anchored charged witness is not withheld",
+        )
     for particle_id in ("electron_neutrino", "muon_neutrino", "tau_neutrino"):
-        if entries[particle_id].get("exact_kind") == "scale_free_weighted_cycle_theorem_with_compare_only_absolute_attachment_candidate":
-            _require(entries[particle_id].get("promotable") is False, failures, f"{particle_id} compare-only absolute attachment promotes")
+        _require(particle_id not in entries, failures, f"{particle_id} compare-only absolute attachment is a public entry")
+        _require(
+            withheld_entries.get(particle_id, {}).get("exact_kind")
+            == "scale_free_weighted_cycle_theorem_with_compare_only_absolute_attachment_candidate",
+            failures,
+            f"{particle_id} compare-only absolute attachment is not withheld",
+        )
+        _require(
+            withheld_entries.get(particle_id, {}).get("promotable") is False,
+            failures,
+            f"{particle_id} compare-only absolute attachment promotes",
+        )
 
     return {
         "artifact": "oph_particle_non_circularity_policy_validation",

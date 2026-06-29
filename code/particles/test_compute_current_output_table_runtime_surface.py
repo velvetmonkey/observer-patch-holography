@@ -57,17 +57,17 @@ def test_runtime_surface_preserves_repaired_neutrino_rows_and_canonical_refs(tmp
     )
     assert "## Companion Claim Boundaries" in markdown
     assert "## Neutrino Oscillation Comparison" in markdown
-    assert exact_nonhadron["status"] == "exact_output_lane_closed_nonhadron_only"
+    assert exact_nonhadron["status"] == "public_mass_outputs_with_target_anchored_witnesses_withheld"
     assert exact_fit_surface["artifact"] == "oph_exact_fits_only_surface"
-    assert exact_entries["top_quark"]["mass_gev"] == pytest.approx(172.3523553288312, abs=1.0e-12)
-    assert exact_entries["bottom_quark"]["mass_gev"] == pytest.approx(4.182999999999994, abs=1.0e-15)
-    assert (
-        exact_entries["bottom_quark"]["supporting_scope_closure_artifact"]
-        == "code/particles/runs/flavor/quark_current_family_selected_sheet_closure.json"
+    withheld_entries = {entry["particle_id"]: entry for entry in exact_nonhadron["withheld_entries"]}
+    assert "top_quark" not in exact_entries
+    assert "bottom_quark" not in exact_entries
+    assert "electron" not in exact_entries
+    assert withheld_entries["top_quark"]["reason"] == (
+        "target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction"
     )
-    assert (
-        exact_entries["electron"]["supporting_scope_closure_artifact"]
-        == "code/particles/runs/leptons/lepton_current_family_affine_anchor_theorem.json"
+    assert withheld_entries["electron"]["reason"] == (
+        "target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction"
     )
     assert exact_fit_entries["charged_current_family_exact_witness"]["supporting_scope_closure_artifact"] == (
         "code/particles/runs/leptons/lepton_current_family_affine_anchor_theorem.json"
@@ -88,6 +88,12 @@ def test_runtime_surface_preserves_repaired_neutrino_rows_and_canonical_refs(tmp
     assert (current_dir / "BLIND_PREDICTION_PROVENANCE.md").exists()
     final_predictions = json.loads((current_dir / "runs" / "status" / "final_end_to_end_predictions.json").read_text())
     assert final_predictions["artifact"] == "oph_final_current_end_to_end_particle_predictions"
+    assert {entry["particle_id"] for entry in final_predictions["predictions"]} == {
+        "photon",
+        "gluon",
+        "graviton",
+        "higgs",
+    }
     assert (current_dir / "FINAL_END_TO_END_PREDICTIONS.md").exists()
     direct_top = json.loads((current_dir / "runs" / "calibration" / "direct_top_bridge_contract.json").read_text())
     assert direct_top["status"] == "hard_no_go_current_corpus_compare_only_direct_top_codomain"

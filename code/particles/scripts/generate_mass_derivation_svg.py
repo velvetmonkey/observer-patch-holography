@@ -100,7 +100,7 @@ PARTICLE_INFO: Dict[str, Dict[str, str]] = {
     "w_boson": {"symbol": "W", "plain": "Charged weak-force boson used in beta-decay-type processes."},
     "z_boson": {"symbol": "Z", "plain": "Neutral weak-force boson from the same electroweak sector as the W."},
     "higgs": {"symbol": "H", "plain": "Higgs boson tied to the Standard Model mass-giving field."},
-    "top_quark": {"symbol": "t", "plain": "Heaviest known quark. Its public row on this chart comes from the selected-class target-anchored quark witness surface."},
+    "top_quark": {"symbol": "t", "plain": "Heaviest known quark. The selected-class quark theorem surface is tracked here, with target-anchored numeric witness values withheld from public prediction output."},
     "electron": {"symbol": "e", "plain": "Light charged matter particle found in atoms."},
     "muon": {"symbol": "mu", "plain": "Heavier unstable cousin of the electron."},
     "tau": {"symbol": "tau", "plain": "Heaviest charged lepton; a short-lived electron cousin."},
@@ -132,7 +132,7 @@ STATUS_EXPLAINER = {
     "secondary_quantitative": "quantitative secondary branch with a separate proof package",
     "declared_surface_theorem": "theorem surface on declared running and matching conventions",
     "target_anchored_witness_no_go_boundary": "target-anchored witness with a corpus-limited no-go boundary",
-    "selected_class_theorem": "selected-class target-anchored quark witness on the public frame class selected by P",
+    "selected_class_theorem": "selected-class quark theorem surface with target-anchored numeric witness withheld",
     "continuation": "declared continuation or witness surface outside theorem-grade public output",
     "simulation_dependent": "source-backend-absent surface with empirical closure policy",
 }
@@ -144,7 +144,7 @@ STATUS_NEXT_STEP = {
     "secondary_quantitative": "This row belongs to a quantitative secondary branch with its own proof surface.",
     "declared_surface_theorem": "This row belongs to a theorem surface on declared running and matching conventions.",
     "target_anchored_witness_no_go_boundary": "This row belongs to a target-anchored witness with a corpus-limited no-go boundary.",
-    "selected_class_theorem": "This row belongs to a selected-class target-anchored quark witness on the public frame class selected by P.",
+    "selected_class_theorem": "This row belongs to a selected-class quark theorem surface; target-anchored numeric witness values are withheld from public prediction outputs.",
     "continuation": "This row belongs to a declared continuation or witness surface outside theorem-grade public output.",
     "simulation_dependent": "This source-only row requires a backend bundle and publication-grade systematics. Empirical closure values use a separate e+e- payload class.",
 }
@@ -218,8 +218,8 @@ LANES: List[Dict[str, Any]] = [
             "is a lower-rank one-scalar branch. The split theorem emits a shared Higgs/top scalar together "
             "with source-only residual selectors for the top and Higgs channels, then reads out "
             "`m_t = 172.3523553288312 GeV` and `m_H = 125.1995304097179 GeV`. The pair remains conditional "
-            "on the declared D10/D11 surface and is not promoted until the D10 target-free repair closes. The exact public running-top row is also carried by the selected-class "
-            "quark witness. The auxiliary direct-top PDG row is compare-only with a corpus-limited no-go boundary."
+            "on the declared D10/D11 surface and is not promoted until the D10 target-free repair closes. The selected-class "
+            "quark numeric witness is target-anchored and therefore withheld from public prediction output. The auxiliary direct-top PDG row is compare-only with a corpus-limited no-go boundary."
         ),
         "frontier_text": "Claim boundary: the exact Higgs/top pair is a conditional declared-surface candidate; the one-scalar seed is a lower-rank fixed-ray branch; the exact inverse slice is compare-only; the direct-top auxiliary conversion has a corpus-limited no-go boundary.",
         "prediction_surface": "Electroweak split surface with a conditional Higgs row and companion top coordinate on the declared readout surface.",
@@ -243,14 +243,14 @@ LANES: List[Dict[str, Any]] = [
             "The required closure object is the sector-isolated trace-lift attachment on the charged determinant channel."
         ),
         "frontier_text": "Frontier statement: the same-family witness, the source-side determinant character, the conditional determinant-line lift, and the algebraic mass readout are part of the charged theorem surface. The absolute-mass lane has a corpus-limited no-go boundary. Promotion requires a sector-isolated trace-lift attachment.",
-        "prediction_surface": "Charged theorem surface with an exact same-family witness, a conditional determinant-line lift on theorem-grade physical charged data, and an algebraic charged-mass readout from theorem-grade absolute charged data.",
+        "prediction_surface": "Charged theorem surface with a target-anchored same-family witness withheld from public prediction output, a conditional determinant-line lift on theorem-grade physical charged data, and an algebraic charged-mass readout from theorem-grade absolute charged data.",
         "particles": ["electron", "muon", "tau"],
     },
     {
         "key": "quarks",
         "title": "Quarks",
-        "summary": "The quark lane contains an exact running-mass sextet witness, a restricted transport-frame chain, explicit forward Yukawas, and a separate target-free mass bridge on the emitted ray.",
-        "takeaway": "The selected public physical quark frame class chosen by P carries an exact sextet witness, but the physical sigma datum is target-derived. This is not a strict source-only prediction or a global classification of quark frame classes.",
+        "summary": "The quark lane contains an exact running-mass sextet witness, a restricted transport-frame chain, explicit forward Yukawas, and a separate target-free mass bridge on the emitted ray. The numeric sextet witness is withheld from public prediction output because its physical sigma datum is target-derived.",
+        "takeaway": "The selected public physical quark frame class chosen by P carries an exact sextet witness, but the physical sigma datum is target-derived. The numeric values remain audit witnesses, not strict source-only predictions or a global classification of quark frame classes.",
         "logic": (
             "The local quark path takes the shared flavor data, emits the quark sector mean split, assembles the "
             "quark descent, builds the forward Yukawa matrices, and fixes the ordered source-readback shell. The even "
@@ -265,8 +265,8 @@ LANES: List[Dict[str, Any]] = [
             "forward Yukawas. The theorem does not claim "
             "a global classification of all quark frame classes."
         ),
-        "frontier_text": "Selected-class boundary: the public physical quark frame class chosen by P carries an exact sextet witness, but the physical sigma datum is target-derived. Global classification and alternative transfer routes remain outside this selected-class surface.",
-        "prediction_surface": "Public quark surface: selected-class target-anchored exact sextet witness, explicit forward Yukawas on that selected class, supporting exact witness surfaces, and the separate target-free mass bridge on the emitted ray.",
+        "frontier_text": "Selected-class boundary: the public physical quark frame class chosen by P carries an exact sextet witness, but the physical sigma datum is target-derived. The numeric witness is withheld from public prediction output. Global classification and alternative transfer routes remain outside this selected-class surface.",
+        "prediction_surface": "Public quark surface: selected-class theorem/frontier with target-anchored numeric witness withheld, explicit forward Yukawas on that selected class, supporting exact witness surfaces, and the separate target-free mass bridge on the emitted ray.",
         "particles": ["up_quark", "down_quark", "strange_quark", "charm_quark", "bottom_quark", "top_quark"],
     },
     {
@@ -636,9 +636,9 @@ def public_exact_surface(row: Dict[str, Any], exact_entry: Dict[str, Any]) -> st
     if particle_id == "higgs":
         return "conditional declared D10/D11 Higgs/top candidate"
     if particle_id in {"electron", "muon", "tau"}:
-        return "target-anchored same-family witness"
+        return "target-anchored same-family witness withheld from public prediction output"
     if particle_id.endswith("_quark"):
-        return "selected-class target-anchored exact quark witness"
+        return "selected-class target-anchored exact quark witness withheld from public prediction output"
     if particle_id.endswith("_neutrino"):
         return "scale-free weighted-cycle branch with compare-only absolute attachment"
     return STATUS_EXPLAINER.get(row["status"], "tracked particle row")
@@ -653,7 +653,7 @@ def public_exact_caveat(row: Dict[str, Any], exact_entry: Dict[str, Any]) -> str
     if particle_id in {"electron", "muon", "tau"}:
         return "Exact same-family witness. The charged-lepton absolute-mass lane has a corpus-limited no-go boundary because the determinant-line attachment is absent."
     if particle_id.endswith("_quark"):
-        return "Exact selected-class running quark witness. The physical sigma datum is target-derived, so this is not a strict source-only prediction."
+        return "Exact selected-class running quark witness. The physical sigma datum is target-derived, so its numeric values are withheld from public prediction output."
     if particle_id.endswith("_neutrino"):
         return "Scale-free weighted-cycle branch with a compare-only absolute attachment candidate; the absolute mass normalization is not promoted."
     return STATUS_NEXT_STEP.get(row["status"], "")
@@ -679,10 +679,13 @@ def particle_body(row: Dict[str, Any], exact_entry: Dict[str, Any] | None = None
         lines.extend(
             [
                 f"Surface class: {STATUS_TEXT[status]} meaning {STATUS_EXPLAINER[status]}.",
-                f"OPH output: {row['prediction_display_gev']} GeV.",
                 f"Reference: {row['reference_display']}.",
             ]
         )
+        if row["prediction_display_gev"] == "n/a":
+            lines.insert(-1, "OPH output: no public numeric mass output.")
+        else:
+            lines.insert(-1, f"OPH output: {row['prediction_display_gev']} GeV.")
         if row["delta_display"] != "n/a":
             lines.append(f"Gap vs reference: {row['delta_display']}.")
         lines.append(f"Caveat: {STATUS_NEXT_STEP[status]}")
@@ -1310,7 +1313,7 @@ def build_svg(results: Dict[str, Any], exact_by_id: Dict[str, Dict[str, Any]]) -
                 "structural = massless or exact structural rows",
                 "electroweak frontier = no public W/Z row until target-free D10 repair promotes",
                 "secondary = quantitative branch built on a declared electroweak layer",
-                "selected-class = target-anchored quark witness on the public frame class selected by P",
+                "selected-class = quark theorem/frontier with target-anchored numeric witness withheld",
                 "continuation = declared continuation or witness surface",
                 "simulation = execution-bound lane with backend and systematics prerequisites",
             ],

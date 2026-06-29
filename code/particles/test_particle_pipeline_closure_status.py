@@ -83,7 +83,10 @@ def test_particle_pipeline_closure_status_scope_locks_hadrons_and_workers() -> N
     assert gates[198]["closable_now"] is True
     assert status["latest_nonhadron_predictions"]["higgs"]["value"] == 125.1995304097179
     assert status["latest_nonhadron_predictions"]["higgs"]["unit"] == "GeV"
-    assert status["latest_nonhadron_predictions"]["top_quark"]["value"] == 172.35235532883115
-    assert status["latest_nonhadron_predictions"]["top_quark"]["unit"] == "GeV"
-    assert status["latest_nonhadron_predictions"]["electron_neutrino"]["value"] == 0.017454720257976796
-    assert status["latest_nonhadron_predictions"]["electron_neutrino"]["unit"] == "eV"
+    assert "top_quark" not in status["latest_nonhadron_predictions"]
+    assert "electron_neutrino" not in status["latest_nonhadron_predictions"]
+    withheld = {row["particle_id"]: row for row in status["withheld_non_prediction_rows"]}
+    assert withheld["top_quark"]["reason"] == "target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction"
+    assert withheld["electron_neutrino"]["reason"] == (
+        "compare_only_absolute_or_adapter_surface_kept_out_of_public_prediction_table"
+    )

@@ -1,6 +1,6 @@
 # Final End-to-End Particle Predictions
 
-Generated: `2026-06-29T06:58:53Z`
+Generated: `2026-06-29T07:33:23Z`
 
 Scope: `nonhadron_particle_pipeline_with_empirical_hadron_closure_policy`
 Claim label: `final_nonhadron_predictions_with_separate_empirical_hadron_closure_surface`
@@ -41,18 +41,25 @@ Claim label: `final_nonhadron_predictions_with_separate_empirical_hadron_closure
 | `gluon` | `0.0 GeV` | `structural_zero` | `structural` | `True` |
 | `graviton` | `0.0 GeV` | `structural_zero` | `structural` | `True` |
 | `higgs` | `125.1995304097179 GeV` | `conditional_declared_surface_higgs_top_candidate` | `declared_d10_d11_running_matching_threshold_surface_only` | `False` |
-| `electron` | `0.0005109989499999994 GeV` | `exact_target_anchored_current_family_witness` | `current_family_only` | `False` |
-| `muon` | `0.10565837550000004 GeV` | `exact_target_anchored_current_family_witness` | `current_family_only` | `False` |
-| `tau` | `1.7769324651340912 GeV` | `exact_target_anchored_current_family_witness` | `current_family_only` | `False` |
-| `up_quark` | `0.0021600000000000005 GeV` | `selected_class_target_anchored_exact_witness` | `selected_public_physical_quark_frame_class_only_but_sigma_datum_target_derived` | `False` |
-| `down_quark` | `0.004699999999999999 GeV` | `selected_class_target_anchored_exact_witness` | `selected_public_physical_quark_frame_class_only_but_sigma_datum_target_derived` | `False` |
-| `strange_quark` | `0.09349999999999999 GeV` | `selected_class_target_anchored_exact_witness` | `selected_public_physical_quark_frame_class_only_but_sigma_datum_target_derived` | `False` |
-| `charm_quark` | `1.2729999999999992 GeV` | `selected_class_target_anchored_exact_witness` | `selected_public_physical_quark_frame_class_only_but_sigma_datum_target_derived` | `False` |
-| `bottom_quark` | `4.182999999999994 GeV` | `selected_class_target_anchored_exact_witness` | `selected_public_physical_quark_frame_class_only_but_sigma_datum_target_derived` | `False` |
-| `top_quark` | `172.35235532883115 GeV` | `selected_class_target_anchored_exact_witness` | `selected_public_physical_quark_frame_class_only_but_sigma_datum_target_derived` | `False` |
-| `electron_neutrino` | `0.017454720257976796 eV` | `scale_free_weighted_cycle_theorem_with_compare_only_absolute_attachment_candidate` | `weighted_cycle_bridge_rigid_absolute_family` | `False` |
-| `muon_neutrino` | `0.019481987935919015 eV` | `scale_free_weighted_cycle_theorem_with_compare_only_absolute_attachment_candidate` | `weighted_cycle_bridge_rigid_absolute_family` | `False` |
-| `tau_neutrino` | `0.05307522145074924 eV` | `scale_free_weighted_cycle_theorem_with_compare_only_absolute_attachment_candidate` | `weighted_cycle_bridge_rigid_absolute_family` | `False` |
+
+## Withheld Non-Prediction Rows
+
+These rows are retained in audit surfaces but are not numeric predictions.
+
+| Particle | Claim label | Reason |
+| --- | --- | --- |
+| `electron` | `exact_target_anchored_current_family_witness` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
+| `muon` | `exact_target_anchored_current_family_witness` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
+| `tau` | `exact_target_anchored_current_family_witness` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
+| `up_quark` | `selected_class_target_anchored_exact_witness` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
+| `charm_quark` | `selected_class_target_anchored_exact_witness` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
+| `top_quark` | `selected_class_target_anchored_exact_witness` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
+| `down_quark` | `selected_class_target_anchored_exact_witness` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
+| `strange_quark` | `selected_class_target_anchored_exact_witness` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
+| `bottom_quark` | `selected_class_target_anchored_exact_witness` | target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction |
+| `electron_neutrino` | `scale_free_weighted_cycle_theorem_with_compare_only_absolute_attachment_candidate` | compare_only_absolute_or_adapter_surface_kept_out_of_public_prediction_table |
+| `muon_neutrino` | `scale_free_weighted_cycle_theorem_with_compare_only_absolute_attachment_candidate` | compare_only_absolute_or_adapter_surface_kept_out_of_public_prediction_table |
+| `tau_neutrino` | `scale_free_weighted_cycle_theorem_with_compare_only_absolute_attachment_candidate` | compare_only_absolute_or_adapter_surface_kept_out_of_public_prediction_table |
 
 ## Fine Structure
 
@@ -90,10 +97,10 @@ Claim label: `final_nonhadron_predictions_with_separate_empirical_hadron_closure
 
 ## Direct-Top Auxiliary Comparison
 
-- Top theorem coordinate: `172.35235532883115 GeV` on `Q007TP4`
-- Auxiliary direct-top coordinate: `172.5590883453979 GeV` on `Q007TP`
-- Difference: `0.20673301656674425 GeV`
-- Pull: `0.28458848947515303` combined sigma
+- Current codomain: `Q007TP4`
+- Auxiliary codomain: `Q007TP`
+- Value policy: `compare_only_codomain_values_withheld_from_final_prediction_output`
+- Audit artifact: `code/particles/runs/calibration/direct_top_bridge_contract.json`
 - Bridge label: `hard_no_go_corpus_limited_compare_only_direct_top_codomain`
 
 ## Hadrons

@@ -144,7 +144,7 @@
     "tau": "CR::same_label_left::transport_frame::current_family_exact"
   },
   "display_allowed_as_selected_class_witness": true,
-  "generated_utc": "2026-06-29T06:17:26Z",
+  "generated_utc": "2026-06-29T07:35:28Z",
   "induces_global_contract": {
     "id": "strengthened_quark_physical_sigma_ud_lift",
     "role": "public_same_label_left_handed_sigma_datum_on_selected_physical_frame_class"

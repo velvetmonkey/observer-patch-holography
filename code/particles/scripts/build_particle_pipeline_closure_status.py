@@ -431,6 +431,7 @@ def build_status() -> dict[str, Any]:
             ),
         },
         "latest_nonhadron_predictions": _latest_nonhadron_predictions(exact),
+        "withheld_non_prediction_rows": (exact or {}).get("withheld_entries", []),
     }
 
 
@@ -488,6 +489,20 @@ def render_markdown(status: dict[str, Any]) -> str:
     )
     for particle_id, prediction in sorted(status["latest_nonhadron_predictions"].items()):
         lines.append(f"| `{particle_id}` | `{prediction['value']} {prediction['unit']}` |")
+
+    withheld = status.get("withheld_non_prediction_rows") or []
+    if withheld:
+        lines.extend(
+            [
+                "",
+                "## Withheld Non-Prediction Rows",
+                "",
+                "| Particle ID | Claim label | Reason |",
+                "| --- | --- | --- |",
+            ]
+        )
+        for row in withheld:
+            lines.append(f"| `{row['particle_id']}` | `{row['exact_kind']}` | {row['reason']} |")
 
     lines.extend(
         [

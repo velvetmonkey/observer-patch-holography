@@ -52,7 +52,8 @@ def test_d10_source_transport_readout_uses_predictive_seed_trial() -> None:
     assert public["MZ_pole"] > 0.0
     assert payload["predictive_mass_promotion_allowed"] is False
     assert payload["predictive_promotion_allowed"] is False
-    assert payload["public_surface_candidate_allowed"] is True
+    assert payload["public_surface_candidate_allowed"] is False
+    assert payload["display_allowed_as_compare_only"] is True
     assert payload["predictive_population_closed"] is True
     assert payload["predictive_population_verdict"] == "closed_current_carrier_nonexact_running_quintet"
     assert payload["exact_closure_beyond_current_carrier_status"] == "closed"
