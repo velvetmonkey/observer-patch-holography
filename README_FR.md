@@ -275,39 +275,20 @@ papiers.
 | Constante gravitationnelle | G | 6.6742999959e-11, affichage échelle/horloge | 6.67430(15)e-11 | 0.00003σ |
 | Vitesse de la lumière | c | vitesse lorentzienne structurelle; valeur SI conventionnelle | 299792458 exact par définition | pas une prédiction numérique |
 | Structure fine (inv.) | $A_{\alpha_U}^{\mathrm{fp}}=\alpha_{\mathrm{root}}^{-1}+\alpha_U(P_\star)$ | prédiction OPH source sans hadrons 137.03595950081728; tronc d'audit racine seul 136.99483516462165 | 137.035999177(21) | seul reste le petit correctif QCD/hadronique du point final : 0.00003967618 en unités d'alpha inverse, soit environ 2.9e-7 relatif |
+| Boson de Higgs | $m_H$ | 125.1995304097179 GeV, candidat conditionnel sur la surface D10/D11 déclarée | 125.20 ± 0.11 GeV | pas encore promu; attend la porte de réparation D10 sans cible |
 | Masse du photon | m_γ | 0 GeV, zéro structurel | <1e-18 eV | sous la borne |
 | Masse du gluon | m_g | 0 GeV, zéro structurel | pas de ligne de masse de gluon libre isolé | porteur de jauge confiné |
 | Masse du graviton | m_grav | 0 GeV, zéro structurel | <1e-32 GeV | sous la borne |
 
 `Δ` donne l'écart en sigma lorsque le PDG ou le NIST publie une incertitude à un sigma. Sinon, il
-indique le statut de support déclaré. Un accord numérique sur une surface cible
-ou témoin n'est pas une prédiction de masse source seule promue, sauf si le
-statut dit qu'il est structurel.
-
-Le statut courant du code particules est plus strict qu'une table de nombres
-qui coïncident. Il n'y a pas de ligne publique de prédiction de masse $W/Z$
-pour le moment; l'adaptateur gelé sur cible est une reproduction diagnostique
-et reste hors des tables de prédiction. Des lignes publiques $W/Z$ exigent une
-réparation D10 sans cible promouvable ainsi que la pile de certificats de point
-final à impulsion nulle et de racine. La valeur Higgs
-$m_H=125.1995304097179\,\mathrm{GeV}$ est une candidate conditionnelle sur la
-surface D10/D11 déclarée, non promue tant que la réparation D10 sans cible
-n'est pas fermée. Les masses des leptons chargés et des quarks sont des témoins
-exacts ancrés sur cible sur leurs surfaces d'audit déclarées de famille courante
-ou de classe sélectionnée; leurs valeurs numériques restent donc seulement dans
-les artefacts d'audit et ne sont pas listées ici comme lignes publiques de
-prédiction. Sous les hypothèses neutrino indiquées, la
-branche pondérée sans échelle garde les masses absolues comme attachements en
-comparaison seule; ces valeurs absolues sont donc elles aussi retenues hors des
-colonnes publiques de prédiction. Les surfaces de statut générées sont
+indique le statut de support déclaré. Les accords numériques sur des surfaces
+cibles ou témoins ne sont pas des prédictions publiques de masse source seule,
+sauf si la ligne déclare un statut structurel ou un statut théorématique
+conditionnel explicite. Le statut complet du code particules, y compris les
+lignes $W/Z$, leptons chargés, quarks et masses absolues de neutrinos retenues,
+est généré dans
 [`code/particles/FINAL_END_TO_END_PREDICTIONS.md`](code/particles/FINAL_END_TO_END_PREDICTIONS.md)
 et [`code/particles/EXACT_NONHADRON_MASSES.md`](code/particles/EXACT_NONHADRON_MASSES.md).
-Son résultat de ligne d'enregistrement est séparé : il certifie
-conditionnellement la continuation trans-frontière de jetons d'enregistrement
-localisés et visibles par l'observateur à partir d'un atlas hyperboloïde déclaré,
-d'une interface réelle, du transport, d'un écart d'assignation et d'un reçu de
-raffinement. Les espèces de particules, masses, charges et amplitudes de
-diffusion restent hors de ce certificat.
 
 ## Articles
 

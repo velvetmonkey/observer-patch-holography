@@ -243,36 +243,19 @@ exact hypercharge, $N_c=3$, and $N_g=3$ live in the papers.
 | Gravitational constant | G | 6.6742999959e-11, scale/clock display | 6.67430(15)e-11 | 0.00003σ |
 | Speed of light | c | structural Lorentz speed; SI value conventional | 299792458 exact by definition | not a numeric prediction |
 | Fine-structure (inv) | $A_{\alpha_U}^{\mathrm{fp}}=\alpha_{\mathrm{root}}^{-1}+\alpha_U(P_\star)$ | source-side OPH no-hadron prediction 137.03595950081728; root-only audit trunk 136.99483516462165 | 137.035999177(21) | only the small QCD/hadronic endpoint correction remains: 0.00003967618 inverse-alpha units, about 2.9e-7 relative |
+| Higgs boson | $m_H$ | 125.1995304097179 GeV, conditional declared D10/D11 surface candidate | 125.20 ± 0.11 GeV | not yet promoted; waits on the D10 target-free repair gate |
 | Photon mass | m_γ | 0 GeV, structural zero | <1e-18 eV | below bound |
 | Gluon mass | m_g | 0 GeV, structural zero | no isolated free-gluon mass row | confined gauge carrier |
 | Graviton mass | m_grav | 0 GeV, structural zero | <1e-32 GeV | below bound |
 
 $\Delta$ reports the sigma distance where PDG or NIST quotes a one-standard-deviation
-uncertainty. Otherwise it records the declared support status. A numeric match
-on a target or witness surface is not a promotable source-only mass prediction
-unless the status says structural.
-
-Current particle-code status is stricter than a table of matching numbers.
-There is no public $W/Z$ mass prediction row right now; the frozen-target
-adapter is a diagnostic reproduction and is kept out of the prediction tables.
-Public $W/Z$ rows require a promotable target-free D10 repair plus the
-zero-momentum endpoint/root certificate stack. The Higgs value
-$m_H=125.1995304097179\,\mathrm{GeV}$ is a conditional declared D10/D11
-surface candidate, not promoted until the D10 target-free repair closes.
-Charged-lepton and quark masses are exact target-anchored witnesses on their
-declared current-family or selected-class audit surfaces, so their numeric
-values are kept only in audit artifacts and are not listed as public prediction
-rows here. Under the stated neutrino
-assumptions, the scale-free weighted-cycle branch keeps absolute masses as
-compare-only attachments, so those absolute values are also withheld from
-public prediction columns. The generated status surfaces are
+uncertainty. Otherwise it records the declared support status. Numeric matches
+on target or witness surfaces are not public source-only mass predictions unless
+the row states a structural or explicit conditional theorem status. The full
+particle-code status, including withheld $W/Z$, charged-lepton, quark, and
+absolute-neutrino rows, is generated in
 [`code/particles/FINAL_END_TO_END_PREDICTIONS.md`](code/particles/FINAL_END_TO_END_PREDICTIONS.md)
 and [`code/particles/EXACT_NONHADRON_MASSES.md`](code/particles/EXACT_NONHADRON_MASSES.md).
-Its record-worldline result is separate: it conditionally certifies
-cross-boundary continuation of localized observer-visible record tokens from a
-declared hyperboloid atlas, real interface, transport, assignment-gap, and
-refinement receipt. It is not a particle-species, mass, charge, or scattering
-derivation.
 
 ## Papers
 
