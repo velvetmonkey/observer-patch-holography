@@ -274,24 +274,26 @@ papiers.
 | --- | --- | --- | --- | --- |
 | Constante gravitationnelle | G | 6.6742999959e-11, affichage échelle/horloge | 6.67430(15)e-11 | 0.00003σ |
 | Vitesse de la lumière | c | vitesse lorentzienne structurelle; valeur SI conventionnelle | 299792458 exact par définition | pas une prédiction numérique |
-| Structure fine (inv.) | \(A_{\alpha_U}^{\mathrm{fp}}\) | quasi-point-final source sans hadrons \(137.0359595008\), depuis le couplage inverse source/racine déshabillé \(\alpha_{\mathrm{root}}^{-1}=136.994835\) plus la contribution de largeur de jauge unifiée d'écran fini \(\alpha_U(P_\star)\); l'écart restant au point final \(3.9676\times10^{-5}\) est le payload de fermeture QCD/hadronique | 137.035999177(21) | plus bas de \(2.90\times10^{-7}\) relatif |
-| Masse du photon | m_γ | 0 eV | <1e-18 eV | sous la borne |
-| Masse du gluon | m_g | 0 GeV | 0 GeV | match |
-| Masse du graviton | m_grav | 0 eV | <1.76e-23 eV | sous la borne |
+| Structure fine (inv.) | \(A_{\alpha_U}^{\mathrm{fp}}\) | OPH source seule \(136.99483516462165\), non promue sans payload spectral hadronique; la fermeture OPH+hadron empirique \(137.035999177\) reste une classe d'affichage séparée | 137.035999177(21) | écart source seule \(0.0411640124\) en unités d'alpha inverse; la fermeture empirique atteint la valeur centrale |
+| Masse du photon | m_γ | 0 GeV, zéro structurel | <1e-18 eV | sous la borne |
+| Masse du gluon | m_g | 0 GeV, zéro structurel | pas de ligne de masse de gluon libre isolé | porteur de jauge confiné |
+| Masse du graviton | m_grav | 0 GeV, zéro structurel | <1e-32 GeV | sous la borne |
 
 **Secteur des quarks**
 
 | Quark | Symbole | OPH | PDG | Δ |
 | --- | --- | --- | --- | --- |
-| Bottom | m_b(m_b) | 4.183 GeV | 4.183 ± 0.007 | match |
-| Charm | m_c(m_c) | 1.273 GeV | 1.2730 ± 0.0046 | match |
-| Strange | m_s(2 GeV) | 93.5 MeV | 93.5 ± 0.8 | match |
-| Down | m_d(2 GeV) | 4.70 MeV | 4.70 ± 0.07 | match |
-| Up | m_u(2 GeV) | 2.16 MeV | 2.16 ± 0.07 | match |
-| Top | m_t, ligne section efficace | 172.35235532883115 GeV | 172.3523553288312 | match sélectionné |
+| Bottom | m_b(m_b) | 4.183 GeV | 4.183 ± 0.007 | témoin sélectionné ancré sur cible |
+| Charm | m_c(m_c) | 1.273 GeV | 1.2730 ± 0.0046 | témoin sélectionné ancré sur cible |
+| Strange | m_s(2 GeV) | 93.5 MeV | 93.5 ± 0.8 | témoin sélectionné ancré sur cible |
+| Down | m_d(2 GeV) | 4.70 MeV | 4.70 ± 0.07 | témoin sélectionné ancré sur cible |
+| Up | m_u(2 GeV) | 2.16 MeV | 2.16 ± 0.07 | témoin sélectionné ancré sur cible |
+| Top | m_t, ligne section efficace | 172.35235532883115 GeV | 172.3523553288312 | témoin sélectionné ancré sur cible |
 
 `Δ` donne l'écart en sigma lorsque le PDG ou le NIST publie une incertitude à un sigma. Sinon, il
-indique `match` ou `sous la borne`.
+indique le statut de support déclaré. Un accord numérique sur une surface cible
+ou témoin n'est pas une prédiction de masse source seule promue, sauf si le
+statut dit qu'il est structurel.
 
 Pour les quarks, le PDG utilise ses conventions standard : `u`, `d` et `s` à `2 GeV`, et `c` et
 `b` dans le schéma `MS` à leur propre échelle de masse.
@@ -299,13 +301,24 @@ Les papiers contiennent aussi les dérivations structurelles du Modèle Standard
 ainsi qu'une famille neutrino, qui n'apparaît pas dans ce tableau faute de ligne de comparaison
 PDG/NIST directe à un seul nombre.
 
-La surface particules porte aussi des valeurs $W/Z$ en comparaison seule
-$80.377\,\mathrm{GeV}$ et $91.18797809193725\,\mathrm{GeV}$, une valeur Higgs
-$m_H=125.1995304097179\,\mathrm{GeV}$ et une valeur top sélectionnée
+Le statut courant du code particules est plus strict qu'une table de nombres
+qui coïncident. Il n'y a pas de ligne publique de prédiction de masse $W/Z$
+pour le moment; l'adaptateur gelé sur cible est une reproduction diagnostique
+et reste hors des tables de prédiction. Des lignes publiques $W/Z$ exigent une
+réparation D10 sans cible promouvable ainsi que la pile de certificats de point
+final à impulsion nulle et de racine. La valeur Higgs
+$m_H=125.1995304097179\,\mathrm{GeV}$ est une candidate conditionnelle sur la
+surface D10/D11 déclarée, non promue tant que la réparation D10 sans cible
+n'est pas fermée. Les masses des leptons chargés et des quarks sont des témoins
+exacts ancrés sur cible sur leurs surfaces déclarées de famille courante ou de
+classe sélectionnée; la coordonnée top sélectionnée est
 $m_t=172.35235532883115\,\mathrm{GeV}$ selon la convention PDG de masse top par
-section efficace. La branche neutrino pondérée émet
+section efficace. Sous les hypothèses neutrino indiquées, la branche
+pondérée sans échelle avec attachement absolu en comparaison seule donne
 $(0.017454720257976796, 0.019481987935919015,
-0.05307522145074924)\,\mathrm{eV}$ sous les hypothèses neutrino indiquées.
+0.05307522145074924)\,\mathrm{eV}$. Les surfaces de statut générées sont
+[`code/particles/FINAL_END_TO_END_PREDICTIONS.md`](code/particles/FINAL_END_TO_END_PREDICTIONS.md)
+et [`code/particles/EXACT_NONHADRON_MASSES.md`](code/particles/EXACT_NONHADRON_MASSES.md).
 Son résultat de ligne d'enregistrement est séparé : il certifie
 conditionnellement la continuation trans-frontière de jetons d'enregistrement
 localisés et visibles par l'observateur à partir d'un atlas hyperboloïde déclaré,
@@ -447,7 +460,7 @@ frontières des revendications vivent dans les papiers.
   </a>
 </p>
 
-<p align="center"><sub>Vue compacte de la voie particules. Cliquez pour ouvrir le SVG complet.</sub></p>
+<p align="center"><sub>Vue compacte actuelle de la voie particules, avec les frontières de revendication strictes et le reçu de capacité pixel-écran. Cliquez pour ouvrir le SVG complet.</sub></p>
 
 ## Plus
 

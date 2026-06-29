@@ -217,7 +217,7 @@
     "source_only_hadrons_suppressed_by_default": true,
     "source_spectral_stage_gate": "populated source spectral measure payload plus interval certificate"
   },
-  "generated_utc": "2026-06-29T06:18:41Z",
+  "generated_utc": "2026-06-29T06:58:53Z",
   "issue_gates": [
     {
       "chrome_workers": "not_needed_for_closed_certificate",
@@ -503,20 +503,6 @@
       "scope": "selected_public_physical_quark_frame_class_only_but_sigma_datum_target_derived",
       "unit": "GeV",
       "value": 0.0021600000000000005
-    },
-    "w_boson": {
-      "exact_kind": "exact_frozen_target_compare_only_adapter",
-      "promotable": false,
-      "scope": "frozen_authoritative_target_surface",
-      "unit": "GeV",
-      "value": 80.377
-    },
-    "z_boson": {
-      "exact_kind": "exact_frozen_target_compare_only_adapter",
-      "promotable": false,
-      "scope": "frozen_authoritative_target_surface",
-      "unit": "GeV",
-      "value": 91.18797809193725
     }
   },
   "purpose": "Single closure gate for source-only rows and empirical hadron closure rows.",

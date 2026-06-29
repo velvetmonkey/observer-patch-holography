@@ -35,26 +35,6 @@
       "source_artifact": "structural_diffeomorphism_redundancy_surface"
     },
     {
-      "exact_kind": "exact_frozen_target_compare_only_adapter",
-      "label": "W Boson",
-      "mass_gev": 80.377,
-      "note": "Exact on the frozen D10 repair surface.",
-      "particle_id": "w_boson",
-      "promotable": false,
-      "scope": "frozen_authoritative_target_surface",
-      "source_artifact": "code/particles/runs/calibration/d10_ew_w_anchor_neutral_shear_factorization_official_pdg_2025_update.json"
-    },
-    {
-      "exact_kind": "exact_frozen_target_compare_only_adapter",
-      "label": "Z Boson",
-      "mass_gev": 91.18797809193725,
-      "note": "Exact on the frozen D10 repair surface.",
-      "particle_id": "z_boson",
-      "promotable": false,
-      "scope": "frozen_authoritative_target_surface",
-      "source_artifact": "code/particles/runs/calibration/d10_ew_w_anchor_neutral_shear_factorization_official_pdg_2025_update.json"
-    },
-    {
       "exact_kind": "conditional_declared_surface_higgs_top_candidate",
       "label": "Higgs Boson",
       "mass_gev": 125.1995304097179,
@@ -231,6 +211,6 @@
     }
   ],
   "excluded_lane": "hadrons_compute_bound",
-  "generated_utc": "2026-06-29T06:18:41Z",
+  "generated_utc": "2026-06-29T06:58:53Z",
   "status": "exact_output_lane_closed_nonhadron_only"
 }

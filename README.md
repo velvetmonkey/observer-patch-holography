@@ -242,24 +242,26 @@ exact hypercharge, $N_c=3$, and $N_g=3$ live in the papers.
 | --- | --- | --- | --- | --- |
 | Gravitational constant | G | 6.6742999959e-11, scale/clock display | 6.67430(15)e-11 | 0.00003σ |
 | Speed of light | c | structural Lorentz speed; SI value conventional | 299792458 exact by definition | not a numeric prediction |
-| Fine-structure (inv) | \(A_{\alpha_U}^{\mathrm{fp}}\) | source-side no-hadron near-endpoint \(137.0359595008\), from the undressed source/root inverse coupling \(\alpha_{\mathrm{root}}^{-1}=136.994835\) plus the finite-screen unified gauge-width contribution \(\alpha_U(P_\star)\); remaining endpoint gap \(3.9676\times10^{-5}\) is the QCD/hadronic closure payload | 137.035999177(21) | low by \(2.90\times10^{-7}\) relative |
-| Photon mass | m_γ | 0 eV | <1e-18 eV | below bound |
-| Gluon mass | m_g | 0 GeV | 0 GeV | match |
-| Graviton mass | m_grav | 0 eV | <1.76e-23 eV | below bound |
+| Fine-structure (inv) | \(A_{\alpha_U}^{\mathrm{fp}}\) | source-only OPH \(136.99483516462165\), not promoted without the hadronic spectral payload; OPH+empirical hadron closure \(137.035999177\) is a separate display class | 137.035999177(21) | source-only gap \(0.0411640124\) inverse-alpha units; empirical closure hits the central value |
+| Photon mass | m_γ | 0 GeV, structural zero | <1e-18 eV | below bound |
+| Gluon mass | m_g | 0 GeV, structural zero | no isolated free-gluon mass row | confined gauge carrier |
+| Graviton mass | m_grav | 0 GeV, structural zero | <1e-32 GeV | below bound |
 
 **Quark sector**
 
 | Quark | Symbol | OPH | PDG | Δ |
 | --- | --- | --- | --- | --- |
-| Bottom | m_b(m_b) | 4.183 GeV | 4.183 ± 0.007 | match |
-| Charm | m_c(m_c) | 1.273 GeV | 1.2730 ± 0.0046 | match |
-| Strange | m_s(2 GeV) | 93.5 MeV | 93.5 ± 0.8 | match |
-| Down | m_d(2 GeV) | 4.70 MeV | 4.70 ± 0.07 | match |
-| Up | m_u(2 GeV) | 2.16 MeV | 2.16 ± 0.07 | match |
-| Top | m_t cross-section value | 172.35235532883115 GeV | 172.3523553288312 | selected-frame match |
+| Bottom | m_b(m_b) | 4.183 GeV | 4.183 ± 0.007 | selected-class target-anchored witness |
+| Charm | m_c(m_c) | 1.273 GeV | 1.2730 ± 0.0046 | selected-class target-anchored witness |
+| Strange | m_s(2 GeV) | 93.5 MeV | 93.5 ± 0.8 | selected-class target-anchored witness |
+| Down | m_d(2 GeV) | 4.70 MeV | 4.70 ± 0.07 | selected-class target-anchored witness |
+| Up | m_u(2 GeV) | 2.16 MeV | 2.16 ± 0.07 | selected-class target-anchored witness |
+| Top | m_t cross-section value | 172.35235532883115 GeV | 172.3523553288312 | selected-class target-anchored witness |
 
 $\Delta$ reports the sigma distance where PDG or NIST quotes a one-standard-deviation
-uncertainty. Otherwise it records "match" or "below bound".
+uncertainty. Otherwise it records the declared support status. A numeric match
+on a target or witness surface is not a promotable source-only mass prediction
+unless the status says structural.
 
 For quarks, PDG uses its standard mass conventions: `u`, `d`, and `s` at
 `2 GeV`, with `c` and `b` in the `MS` scheme at their own mass scale. The
@@ -267,13 +269,23 @@ papers also carry the structural Standard Model derivations listed above and a
 neutrino family, but those do not collapse to one simple PDG or NIST row and
 are left out of this table.
 
-The particle paper also reports $W/Z$ values $80.377\,\mathrm{GeV}$ and
-$91.18797809193725\,\mathrm{GeV}$, a Higgs value
-$m_H=125.1995304097179\,\mathrm{GeV}$, and a selected-frame top value
+Current particle-code status is stricter than a table of matching numbers.
+There is no public $W/Z$ mass prediction row right now; the frozen-target
+adapter is a diagnostic reproduction and is kept out of the prediction tables.
+Public $W/Z$ rows require a promotable target-free D10 repair plus the
+zero-momentum endpoint/root certificate stack. The Higgs value
+$m_H=125.1995304097179\,\mathrm{GeV}$ is a conditional declared D10/D11
+surface candidate, not promoted until the D10 target-free repair closes.
+Charged-lepton and quark masses are exact target-anchored witnesses on their
+declared current-family or selected-class surfaces; the selected-frame top
+coordinate is
 $m_t=172.35235532883115\,\mathrm{GeV}$ using the PDG cross-section top-mass
-convention. Under the stated neutrino assumptions, the weighted-cycle neutrino
-calculation gives
-$(0.017454720257976796, 0.019481987935919015, 0.05307522145074924)\,\mathrm{eV}$.
+convention. Under the stated neutrino assumptions, the scale-free
+weighted-cycle branch with compare-only absolute attachment gives
+$(0.017454720257976796, 0.019481987935919015,
+0.05307522145074924)\,\mathrm{eV}$. The generated status surfaces are
+[`code/particles/FINAL_END_TO_END_PREDICTIONS.md`](code/particles/FINAL_END_TO_END_PREDICTIONS.md)
+and [`code/particles/EXACT_NONHADRON_MASSES.md`](code/particles/EXACT_NONHADRON_MASSES.md).
 Its record-worldline result is separate: it conditionally certifies
 cross-boundary continuation of localized observer-visible record tokens from a
 declared hyperboloid atlas, real interface, transport, assignment-gap, and
@@ -410,7 +422,7 @@ formulas and claim boundaries live in the papers.
   </a>
 </p>
 
-<p align="center"><sub>A compact view of the particle lane. Click to open the full SVG.</sub></p>
+<p align="center"><sub>A compact current view of the particle lane, including the strict claim boundaries and the pixel-screen capacity receipt. Click to open the full SVG.</sub></p>
 
 ## More
 

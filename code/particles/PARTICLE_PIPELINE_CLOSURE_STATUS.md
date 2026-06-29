@@ -1,6 +1,6 @@
 # Particle Pipeline Closure Status
 
-Generated: `2026-06-29T06:18:41Z`
+Generated: `2026-06-29T06:58:53Z`
 
 Single closure gate for source-only rows and empirical hadron closure rows.
 
@@ -60,8 +60,6 @@ Single closure gate for source-only rows and empirical hadron closure rows.
 | `tau_neutrino` | `0.05307522145074924 eV` |
 | `top_quark` | `172.35235532883115 GeV` |
 | `up_quark` | `0.0021600000000000005 GeV` |
-| `w_boson` | `80.377 GeV` |
-| `z_boson` | `91.18797809193725 GeV` |
 
 ## Finalization Gates
 

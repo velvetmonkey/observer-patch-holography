@@ -60,7 +60,8 @@ def test_final_end_to_end_predictions_include_particle_five_gates_and_values() -
     assert companion["Strong CP"]["state"] == "open_theta_qcd_bar_theta_vanishing_gap"
     predictions = {entry["particle_id"]: entry for entry in payload["predictions"]}
     assert predictions["photon"]["value"] == 0.0
-    assert predictions["w_boson"]["value"] == 80.377
+    assert "w_boson" not in predictions
+    assert "z_boson" not in predictions
     assert predictions["higgs"]["value"] == 125.1995304097179
     assert predictions["electron"]["value"] == 0.0005109989499999994
     assert predictions["top_quark"]["value"] == 172.35235532883115

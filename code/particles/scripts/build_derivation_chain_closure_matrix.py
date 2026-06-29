@@ -86,17 +86,14 @@ def build_payload() -> dict[str, Any]:
             "next_artifact": None,
         },
         {
-            "chain": "electroweak_wz",
-            "status": "compare_only_reproduction_not_prediction_theorem",
-            "claim_level": predictions["w_boson"]["exact_kind"],
-            "outputs": {
-                "w_boson": predictions["w_boson"]["value"],
-                "z_boson": predictions["z_boson"]["value"],
-            },
+            "chain": "electroweak_massive_bosons",
+            "status": "no_public_prediction_row_target_free_d10_repair_not_promoted",
+            "claim_level": "gap_frontier",
+            "outputs": {},
             "promotable": False,
             "open_gates": [],
             "closed_issue_refs": [224],
-            "stage_gate": "certified P root after populated source spectral measure payload",
+            "stage_gate": "promotable target-free D10 repair plus certified P/root endpoint stack",
             "next_artifact": "code/P_derivation/runtime/r_q_residual_contract_current.json",
         },
         {

@@ -24,7 +24,8 @@ def test_blind_prediction_provenance_records_target_use_and_declared_sensitivity
     assert payload["convention_sensitivity"]["status"] == "declared_taxonomy_emitted_numeric_sweep_stage_gated"
     row_map = {row["particle_id"]: row for row in payload["rows"]}
     assert row_map["photon"]["blind_status"] == "blind_structural"
-    assert row_map["w_boson"]["row_class"] == "compare_only_reproduction"
+    assert "w_boson" not in row_map
+    assert "z_boson" not in row_map
     assert row_map["electron"]["target_use"] == "target_values_used_to_anchor_current_family_witness"
     assert row_map["higgs"]["blind_status"] == "conditionally_blind_on_declared_surface"
     assert row_map["top_quark"]["row_class"] == "selected_class_target_anchored_witness"

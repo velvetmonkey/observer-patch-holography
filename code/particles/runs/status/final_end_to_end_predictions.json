@@ -68,7 +68,7 @@
       "status": "source_audit_without_hadronic_spectral_payload"
     }
   },
-  "generated_utc": "2026-06-29T06:18:41Z",
+  "generated_utc": "2026-06-29T06:58:53Z",
   "hadron_policy": {
     "empirical_hadron_closure_allowed_for_display": true,
     "empirical_payload_schema": "particles/hadron/empirical_ee_hadronic_spectral_measure.schema.json",
@@ -94,7 +94,7 @@
     "claim_boundary": {
       "does_not_promote": [
         "public Thomson endpoint without the missing hadronic spectral payload",
-        "W/Z compare-only mass rows",
+        "electroweak massive-boson mass rows",
         "charged-lepton absolute masses",
         "source-only hadron masses",
         "strong CP",
@@ -359,28 +359,6 @@
       "supporting_scope_closure_artifact": null,
       "unit": "GeV",
       "value": 0.0
-    },
-    {
-      "exact_kind": "exact_frozen_target_compare_only_adapter",
-      "label": "W Boson",
-      "particle_id": "w_boson",
-      "promotable": false,
-      "scope": "frozen_authoritative_target_surface",
-      "source_artifact": "code/particles/runs/calibration/d10_ew_w_anchor_neutral_shear_factorization_official_pdg_2025_update.json",
-      "supporting_scope_closure_artifact": null,
-      "unit": "GeV",
-      "value": 80.377
-    },
-    {
-      "exact_kind": "exact_frozen_target_compare_only_adapter",
-      "label": "Z Boson",
-      "particle_id": "z_boson",
-      "promotable": false,
-      "scope": "frozen_authoritative_target_surface",
-      "source_artifact": "code/particles/runs/calibration/d10_ew_w_anchor_neutral_shear_factorization_official_pdg_2025_update.json",
-      "supporting_scope_closure_artifact": null,
-      "unit": "GeV",
-      "value": 91.18797809193725
     },
     {
       "exact_kind": "conditional_declared_surface_higgs_top_candidate",

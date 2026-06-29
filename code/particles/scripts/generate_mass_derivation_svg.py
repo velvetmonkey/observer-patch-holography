@@ -18,7 +18,7 @@ RESULTS_JSON = ROOT / "particles" / "results_status.json"
 EXACT_NONHADRON_JSON = ROOT / "particles" / "exact_nonhadron_masses.json"
 DEFAULT_OUTPUT = ROOT / "particles" / "particle_mass_derivation_graph.svg"
 PUBLIC_PIXEL_DISPLAY = "1.630968"
-PUBLIC_CAPACITY_DISPLAY = "3.31e122"
+PUBLIC_CAPACITY_DISPLAY = "3.5323546e122"
 
 WIDTH = 2560
 MARGIN_X = 72
@@ -84,7 +84,7 @@ STATUS_BAR = {
 STATUS_TEXT = {
     "structural": "structural",
     "calibration": "electroweak closure",
-    "candidate_trunk_compare_only": "EW compare",
+    "candidate_trunk_compare_only": "EW frontier",
     "secondary_quantitative": "secondary",
     "declared_surface_theorem": "declared-surface theorem",
     "target_anchored_witness_no_go_boundary": "witness boundary",
@@ -100,7 +100,7 @@ PARTICLE_INFO: Dict[str, Dict[str, str]] = {
     "w_boson": {"symbol": "W", "plain": "Charged weak-force boson used in beta-decay-type processes."},
     "z_boson": {"symbol": "Z", "plain": "Neutral weak-force boson from the same electroweak sector as the W."},
     "higgs": {"symbol": "H", "plain": "Higgs boson tied to the Standard Model mass-giving field."},
-    "top_quark": {"symbol": "t", "plain": "Heaviest known quark. Its public row on this chart comes from the selected-class quark theorem surface."},
+    "top_quark": {"symbol": "t", "plain": "Heaviest known quark. Its public row on this chart comes from the selected-class target-anchored quark witness surface."},
     "electron": {"symbol": "e", "plain": "Light charged matter particle found in atoms."},
     "muon": {"symbol": "mu", "plain": "Heavier unstable cousin of the electron."},
     "tau": {"symbol": "tau", "plain": "Heaviest charged lepton; a short-lived electron cousin."},
@@ -128,11 +128,11 @@ GROUP_ROW_TEXT = {
 STATUS_EXPLAINER = {
     "structural": "exact structural theorem surface",
     "calibration": "implemented P-driven electroweak quantitative-closure surface",
-    "candidate_trunk_compare_only": "compare-only W/Z validation surface",
+    "candidate_trunk_compare_only": "electroweak massive-boson frontier without public W/Z rows",
     "secondary_quantitative": "quantitative secondary branch with a separate proof package",
     "declared_surface_theorem": "theorem surface on declared running and matching conventions",
     "target_anchored_witness_no_go_boundary": "target-anchored witness with a corpus-limited no-go boundary",
-    "selected_class_theorem": "theorem-grade closure on the public quark frame class selected by P",
+    "selected_class_theorem": "selected-class target-anchored quark witness on the public frame class selected by P",
     "continuation": "declared continuation or witness surface outside theorem-grade public output",
     "simulation_dependent": "source-backend-absent surface with empirical closure policy",
 }
@@ -140,11 +140,11 @@ STATUS_EXPLAINER = {
 STATUS_NEXT_STEP = {
     "structural": "This row belongs to the structural zero surface.",
     "calibration": "This row belongs to the implemented P-driven electroweak closure surface.",
-    "candidate_trunk_compare_only": "This row belongs to the compare-only W/Z validation surface.",
+    "candidate_trunk_compare_only": "This row belongs to the electroweak massive-boson frontier.",
     "secondary_quantitative": "This row belongs to a quantitative secondary branch with its own proof surface.",
     "declared_surface_theorem": "This row belongs to a theorem surface on declared running and matching conventions.",
     "target_anchored_witness_no_go_boundary": "This row belongs to a target-anchored witness with a corpus-limited no-go boundary.",
-    "selected_class_theorem": "This row belongs to a theorem-grade closure on the public quark frame class selected by P.",
+    "selected_class_theorem": "This row belongs to a selected-class target-anchored quark witness on the public frame class selected by P.",
     "continuation": "This row belongs to a declared continuation or witness surface outside theorem-grade public output.",
     "simulation_dependent": "This source-only row requires a backend bundle and publication-grade systematics. Empirical closure values use a separate e+e- payload class.",
 }
@@ -192,36 +192,37 @@ LANES: List[Dict[str, Any]] = [
     },
     {
         "key": "d10",
-        "title": "Electroweak Closure Surface",
-        "summary": "This lane starts from the shared pixel ratio P, builds the electroweak running family, and records the W/Z comparison surface together with the electromagnetic endpoint lane.",
-        "takeaway": "This lane uses the selected pixel ratio P to organize the electroweak sector. The W and Z rows are comparison outputs. Low-energy electromagnetic closure is a separate frontier.",
+        "status": "candidate_trunk_compare_only",
+        "title": "Electroweak Massive-Boson Frontier",
+        "summary": "This lane starts from the shared pixel ratio P and builds the electroweak running family, but emits no public W/Z mass prediction row.",
+        "takeaway": "The frozen W/Z adapter is a diagnostic reproduction, not a prediction. Public W/Z rows stay hidden until the target-free D10 repair and endpoint/root stack are promoted.",
         "logic": (
             "From P the calculation builds the unification scale, solves the shared coupling constraint, gets the "
             "electroweak scale, runs the couplings to the Z scale, and emits the source basis that feeds the "
-            "mass chart. The W/Z rows sit on that source trunk as compare-only validation. The electromagnetic "
+            "mass chart. The frozen W/Z adapter sits on that source trunk as a diagnostic reproduction, not as a public particle prediction. The electromagnetic "
             "side is tracked separately as an outer/inner closure problem for the same pixel. The running-family "
             "anchor at the Z scale is a consistency surface outside final zero-momentum closure."
         ),
-        "frontier_text": "Frontier statement: this trunk records the W/Z comparison lane. The electromagnetic frontier is the direct zero-momentum closure for the same pixel.",
-        "prediction_surface": "P-driven electroweak running family plus W/Z comparison lane. The low-energy electromagnetic row is tracked separately as a closure problem for the same pixel.",
-        "particles": ["w_boson", "z_boson"],
+        "frontier_text": "Frontier statement: public W/Z mass rows require promotable target-free D10 repair, the Ward-projected zero-momentum endpoint theorem, and the same-scheme interval/root certificate.",
+        "prediction_surface": "No public W/Z particle row is emitted. The low-energy electromagnetic row is tracked separately as a closure problem for the same pixel.",
+        "particles": [],
     },
     {
         "key": "d11",
         "title": "Higgs/Top Split Theorem",
-        "summary": "The Higgs/top lane closes as one source-only split theorem on the declared running, matching, and threshold surface. The one-scalar seed is a lower-rank fixed-ray branch.",
-        "takeaway": "The electroweak theorem emits the exact Higgs row and a companion top coordinate from the forward repair tuple and the declared readout surface.",
+        "summary": "The Higgs/top lane emits a conditional exact candidate on the declared running, matching, and threshold surface. The one-scalar seed is a lower-rank fixed-ray branch.",
+        "takeaway": "The exact Higgs value and companion top coordinate are retained as declared-surface candidates, not promoted source-only particle predictions.",
         "logic": (
             "Take the electroweak substrate, impose the critical-surface condition, then use the synchronized "
             "transport core on the declared running, matching, and threshold surface. The fixed-ray certificate "
             "is a lower-rank one-scalar branch. The split theorem emits a shared Higgs/top scalar together "
             "with source-only residual selectors for the top and Higgs channels, then reads out "
-            "`m_t = 172.3523553288312 GeV` and `m_H = 125.1995304097179 GeV`. The compare-only exact pair "
-            "is a validation surface. The exact public running-top row is also carried by the selected-class "
-            "quark theorem. The auxiliary direct-top PDG row is compare-only with a corpus-limited no-go boundary."
+            "`m_t = 172.3523553288312 GeV` and `m_H = 125.1995304097179 GeV`. The pair remains conditional "
+            "on the declared D10/D11 surface and is not promoted until the D10 target-free repair closes. The exact public running-top row is also carried by the selected-class "
+            "quark witness. The auxiliary direct-top PDG row is compare-only with a corpus-limited no-go boundary."
         ),
-        "frontier_text": "Claim boundary: the exact source-only electroweak Higgs theorem is closed on the declared running, matching, and threshold surface; the one-scalar seed is a lower-rank fixed-ray branch; the exact inverse slice is compare-only; the direct-top auxiliary conversion has a corpus-limited no-go boundary.",
-        "prediction_surface": "Electroweak split-theorem surface with an exact Higgs row and a companion top coordinate on the declared readout surface.",
+        "frontier_text": "Claim boundary: the exact Higgs/top pair is a conditional declared-surface candidate; the one-scalar seed is a lower-rank fixed-ray branch; the exact inverse slice is compare-only; the direct-top auxiliary conversion has a corpus-limited no-go boundary.",
+        "prediction_surface": "Electroweak split surface with a conditional Higgs row and companion top coordinate on the declared readout surface.",
         "particles": ["higgs"],
     },
     {
@@ -248,8 +249,8 @@ LANES: List[Dict[str, Any]] = [
     {
         "key": "quarks",
         "title": "Quarks",
-        "summary": "The quark lane contains an exact running-mass sextet, a restricted transport-frame chain, explicit forward Yukawas, a separate target-free mass bridge, and a closed selected-class public theorem on the physical quark frame class chosen by P.",
-        "takeaway": "The selected public physical quark frame class chosen by P carries the exact physical sigma datum, the exact PDG 2025 running-quark sextet, and explicit exact forward Yukawas. This is selected-class closure only. It does not claim a global classification of all quark frame classes.",
+        "summary": "The quark lane contains an exact running-mass sextet witness, a restricted transport-frame chain, explicit forward Yukawas, and a separate target-free mass bridge on the emitted ray.",
+        "takeaway": "The selected public physical quark frame class chosen by P carries an exact sextet witness, but the physical sigma datum is target-derived. This is not a strict source-only prediction or a global classification of quark frame classes.",
         "logic": (
             "The local quark path takes the shared flavor data, emits the quark sector mean split, assembles the "
             "quark descent, builds the forward Yukawa matrices, and fixes the ordered source-readback shell. The even "
@@ -259,21 +260,20 @@ LANES: List[Dict[str, Any]] = [
             "against the official PDG 2025 running-mass target surface, with the top coordinate taken from the PDG "
             "cross-section entry. A restricted theorem surface reconstructs the same sextet and emits explicit exact "
             "forward Yukawas. A separate direct public descent theorem closes on the selected public physical quark "
-            "frame class chosen by P. Diagonal rephasing is quotient-trivial on that selected class, so the exact "
-            "physical sigma datum descends to target-free public data. The affine mean law then emits the quark means "
+            "frame class chosen by P, but the exact physical sigma datum remains target-derived on the current public surface. The affine mean law then emits the quark means "
             "algebraically, and the exact forward construction emits the same sextet together with explicit exact "
             "forward Yukawas. The theorem does not claim "
             "a global classification of all quark frame classes."
         ),
-        "frontier_text": "Selected-class theorem statement: the public physical quark frame class chosen by P carries the exact physical sigma datum. The affine mean law emits the quark means algebraically, and the exact forward construction emits the exact sextet together with explicit exact forward Yukawas. Global classification and alternative transfer routes remain outside this selected-class surface.",
-        "prediction_surface": "Public quark surface: theorem-grade exact sextet on the selected public physical quark frame class, explicit exact forward Yukawas on that selected class, supporting exact witness surfaces, and the separate target-free mass bridge on the emitted ray.",
+        "frontier_text": "Selected-class boundary: the public physical quark frame class chosen by P carries an exact sextet witness, but the physical sigma datum is target-derived. Global classification and alternative transfer routes remain outside this selected-class surface.",
+        "prediction_surface": "Public quark surface: selected-class target-anchored exact sextet witness, explicit forward Yukawas on that selected class, supporting exact witness surfaces, and the separate target-free mass bridge on the emitted ray.",
         "particles": ["up_quark", "down_quark", "strange_quark", "charm_quark", "bottom_quark", "top_quark"],
     },
     {
         "key": "neutrinos",
         "title": "Neutrinos",
-        "summary": "The neutrino lane closes the weighted-cycle mixing/hierarchy branch and the bridge-rigid absolute family, with exact positive-segment adapters retained as diagnostic sidecars.",
-        "takeaway": "The weighted-cycle bridge-rigidity and absolute-attachment theorems emit one absolute neutrino family together with the PMNS and hierarchy observables. The positive-segment exact adapters sit below that theorem surface as compare-only diagnostics.",
+        "summary": "The neutrino lane closes the scale-free weighted-cycle mixing/hierarchy branch; the absolute family is retained as a compare-only attachment candidate.",
+        "takeaway": "The weighted-cycle branch emits PMNS and hierarchy observables. The absolute neutrino masses use a compare-only normalization and are not promoted source-only predictions.",
         "logic": (
             "The lane derives the light-neutrino scale from the electroweak core, builds the family-response tensor, the "
             "Majorana holonomy lift, the pullback metric, the forward Majorana matrix, and the splitting/ordering "
@@ -288,10 +288,10 @@ LANES: List[Dict[str, Any]] = [
             "No hidden discrete branch remains on that repaired lane; once the normalizer is fixed, the residual quotient is exactly the positive rescaling orbit. "
             "On that positive selector segment, the two-parameter exact adapter moves one selector coordinate and one positive rescaling to hit the representative central splittings exactly. "
             "That same compare-only branch also carries explicit bridge coordinates `(B_nu, C_nu)`, evaluated on the exact adapter without feeding back into theorem state. "
-            "The bridge-rigidity theorem emits `C_nu`, the emitted proxy is `P_nu = I_nu^0.5 * ratio_hat^0.5 * sum_defect^-1`, the paper-facing amplitude is `B_nu = P_nu * C_nu`, and the absolute-attachment theorem emits the positive normalization scalar and the absolute neutrino family."
+            "The bridge-rigidity theorem emits `C_nu`, the emitted proxy is `P_nu = I_nu^0.5 * ratio_hat^0.5 * sum_defect^-1`, and the paper-facing amplitude is `B_nu = P_nu * C_nu`. The absolute-attachment value uses a compare-only normalization candidate, so the absolute neutrino family is not promoted."
         ),
-        "frontier_text": "Claim boundary: the weighted-cycle bridge-rigidity and absolute-attachment pair emits the absolute neutrino family. Positive-segment exact adapters and bridge-coordinate readouts are diagnostic sidecars.",
-        "prediction_surface": "Weighted-cycle neutrino theorem surface with PMNS/hierarchy closure, emitted bridge invariant `C_nu`, emitted proxy `P_nu`, paper-facing amplitude `B_nu`, and the bridge-rigid absolute family. Exact positive-segment adapters remain compare-only diagnostics.",
+        "frontier_text": "Claim boundary: the weighted-cycle branch is scale-free; positive-segment exact adapters, bridge-coordinate readouts, and absolute mass normalization remain compare-only diagnostics.",
+        "prediction_surface": "Weighted-cycle neutrino surface with PMNS/hierarchy closure, emitted bridge invariant `C_nu`, emitted proxy `P_nu`, paper-facing amplitude `B_nu`, and a compare-only absolute attachment candidate.",
         "particles": ["electron_neutrino", "muon_neutrino", "tau_neutrino"],
     },
     {
@@ -634,13 +634,13 @@ def public_exact_surface(row: Dict[str, Any], exact_entry: Dict[str, Any]) -> st
     if particle_id in {"w_boson", "z_boson"}:
         return "compare-only exact sidecar"
     if particle_id == "higgs":
-        return "declared electroweak Higgs/top theorem surface"
+        return "conditional declared D10/D11 Higgs/top candidate"
     if particle_id in {"electron", "muon", "tau"}:
         return "target-anchored same-family witness"
     if particle_id.endswith("_quark"):
-        return "selected-class exact quark theorem"
+        return "selected-class target-anchored exact quark witness"
     if particle_id.endswith("_neutrino"):
-        return "weighted-cycle absolute neutrino theorem"
+        return "scale-free weighted-cycle branch with compare-only absolute attachment"
     return STATUS_EXPLAINER.get(row["status"], "tracked particle row")
 
 
@@ -649,13 +649,13 @@ def public_exact_caveat(row: Dict[str, Any], exact_entry: Dict[str, Any]) -> str
     if particle_id in {"w_boson", "z_boson"}:
         return "Compare-only frozen-adapter row. Promotion requires the candidate P root, source spectral measure payload, and interval certificate."
     if particle_id == "higgs":
-        return "Exact Higgs row on the declared electroweak calibration surface. The companion top coordinate is carried by the same surface. The auxiliary direct-top average is compare-only."
+        return "Conditional Higgs candidate on the declared electroweak calibration surface. It is not promoted until the D10 target-free repair closes."
     if particle_id in {"electron", "muon", "tau"}:
         return "Exact same-family witness. The charged-lepton absolute-mass lane has a corpus-limited no-go boundary because the determinant-line attachment is absent."
     if particle_id.endswith("_quark"):
-        return "Exact selected-class running quark row. The top coordinate uses the PDG cross-section mass convention. Global classification of all quark frame classes is outside this theorem."
+        return "Exact selected-class running quark witness. The physical sigma datum is target-derived, so this is not a strict source-only prediction."
     if particle_id.endswith("_neutrino"):
-        return "Theorem-grade weighted-cycle absolute neutrino mass from the bridge-rigidity and absolute-attachment pair."
+        return "Scale-free weighted-cycle branch with a compare-only absolute attachment candidate; the absolute mass normalization is not promoted."
     return STATUS_NEXT_STEP.get(row["status"], "")
 
 
@@ -707,8 +707,8 @@ def draw_particle_card(
     w: float,
     exact_entry: Dict[str, Any] | None = None,
 ) -> Tuple[str, float]:
-    badge_text = "exact sidecar" if exact_entry is not None and not exact_entry.get("promotable", False) else STATUS_TEXT[row["status"]]
-    badge_color = COLORS["task_complete"] if exact_entry is not None else STATUS_BAR[row["status"]]
+    badge_text = "not promoted" if exact_entry is not None and not exact_entry.get("promotable", False) else STATUS_TEXT[row["status"]]
+    badge_color = COLORS["task_pending"] if exact_entry is not None and not exact_entry.get("promotable", False) else (COLORS["task_complete"] if exact_entry is not None else STATUS_BAR[row["status"]])
     height = particle_card_height(row, w, exact_entry)
     return (
         draw_box(
@@ -837,6 +837,8 @@ def lane_status(lane: Dict[str, Any], rows_by_id: Dict[str, Dict[str, Any]]) -> 
     particle_ids = lane_particle_ids(lane, rows_by_id)
     if particle_ids:
         return rows_by_id[particle_ids[0]]["status"]
+    if "status" in lane:
+        return lane["status"]
     return "simulation_dependent"
 
 
@@ -1306,9 +1308,9 @@ def build_svg(results: Dict[str, Any], exact_by_id: Dict[str, Dict[str, Any]]) -
             "Status colors",
             [
                 "structural = massless or exact structural rows",
-                "electroweak compare = W/Z validation on the implemented P-driven electroweak chain",
+                "electroweak frontier = no public W/Z row until target-free D10 repair promotes",
                 "secondary = quantitative branch built on a declared electroweak layer",
-                "selected-class theorem = theorem-grade closure on the public quark frame class selected by P",
+                "selected-class = target-anchored quark witness on the public frame class selected by P",
                 "continuation = declared continuation or witness surface",
                 "simulation = execution-bound lane with backend and systematics prerequisites",
             ],

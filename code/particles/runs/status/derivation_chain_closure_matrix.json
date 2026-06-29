@@ -13,7 +13,7 @@
     "policy": "Do not promote candidate, compare-only, witness-only, corpus-limited no-go, or source-backend-absent chains as closed theorem predictions.",
     "remaining_nonclosed_chains": [
       "p_closure_root",
-      "electroweak_wz",
+      "electroweak_massive_bosons",
       "higgs_top_declared_surface",
       "selected_class_quarks",
       "neutrino_absolute_attachment"
@@ -22,7 +22,7 @@
       "hadrons"
     ]
   },
-  "generated_utc": "2026-06-29T06:18:41Z",
+  "generated_utc": "2026-06-29T06:58:53Z",
   "particle_five_gates": {
     "153": {
       "chrome_workers": "do_not_use_for_backend_execution",
@@ -191,20 +191,17 @@
       "status": "closed_structural_zero"
     },
     {
-      "chain": "electroweak_wz",
-      "claim_level": "exact_frozen_target_compare_only_adapter",
+      "chain": "electroweak_massive_bosons",
+      "claim_level": "gap_frontier",
       "closed_issue_refs": [
         224
       ],
       "next_artifact": "code/P_derivation/runtime/r_q_residual_contract_current.json",
       "open_gates": [],
-      "outputs": {
-        "w_boson": 80.377,
-        "z_boson": 91.18797809193725
-      },
+      "outputs": {},
       "promotable": false,
-      "stage_gate": "certified P root after populated source spectral measure payload",
-      "status": "compare_only_reproduction_not_prediction_theorem"
+      "stage_gate": "promotable target-free D10 repair plus certified P/root endpoint stack",
+      "status": "no_public_prediction_row_target_free_d10_repair_not_promoted"
     },
     {
       "chain": "hierarchy_naturality_bridge",

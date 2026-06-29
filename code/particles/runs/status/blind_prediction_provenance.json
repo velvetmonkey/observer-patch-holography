@@ -37,7 +37,7 @@
     "source_only_hadrons_suppressed_by_default": true,
     "source_spectral_stage_gate": "populated source spectral measure payload plus interval certificate"
   },
-  "generated_utc": "2026-06-29T06:18:41Z",
+  "generated_utc": "2026-06-29T06:58:53Z",
   "github_issue": 234,
   "pipeline_inputs": {
     "P": 1.630968209403959,
@@ -74,9 +74,9 @@
   "promotion_allowed": false,
   "row_counts": {
     "blind_or_conditionally_blind": 4,
-    "not_promotable": 15,
+    "not_promotable": 13,
     "promotable": 3,
-    "total": 18
+    "total": 16
   },
   "rows": [
     {
@@ -120,34 +120,6 @@
       "target_use": "no_mass_target_used",
       "unit": "GeV",
       "value": 0.0
-    },
-    {
-      "blind_status": "not_blind",
-      "convention_sensitivity": "inherits_declared_electroweak_surface",
-      "exact_kind": "exact_frozen_target_compare_only_adapter",
-      "particle_id": "w_boson",
-      "promotable": false,
-      "row_class": "compare_only_reproduction",
-      "scope": "frozen_authoritative_target_surface",
-      "source_artifact": "code/particles/runs/calibration/d10_ew_w_anchor_neutral_shear_factorization_official_pdg_2025_update.json",
-      "supporting_scope_closure_artifact": null,
-      "target_use": "target_used_as_frozen_reference",
-      "unit": "GeV",
-      "value": 80.377
-    },
-    {
-      "blind_status": "not_blind",
-      "convention_sensitivity": "inherits_declared_electroweak_surface",
-      "exact_kind": "exact_frozen_target_compare_only_adapter",
-      "particle_id": "z_boson",
-      "promotable": false,
-      "row_class": "compare_only_reproduction",
-      "scope": "frozen_authoritative_target_surface",
-      "source_artifact": "code/particles/runs/calibration/d10_ew_w_anchor_neutral_shear_factorization_official_pdg_2025_update.json",
-      "supporting_scope_closure_artifact": null,
-      "target_use": "target_used_as_frozen_reference",
-      "unit": "GeV",
-      "value": 91.18797809193725
     },
     {
       "blind_status": "conditionally_blind_on_declared_surface",

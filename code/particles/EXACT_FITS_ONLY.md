@@ -1,23 +1,9 @@
 # Exact Fits Only
 
-Generated: `2026-06-29T06:18:41Z`
+Generated: `2026-06-29T06:58:53Z`
 
 This surface lists exact target matches on declared OPH carriers. It separates theorem-grade selected-class outputs from compare-only and carrier-restricted exact surfaces.
 For quarks, the selected-class theorem and its supporting exact carriers coincide with the official PDG 2025 API running-quark target surface.
-
-## Electroweak Frozen-Target Exact Pair
-
-- Fit kind: `exact_frozen_target_compare_only_adapter`
-- Scope: `frozen_authoritative_target_surface`
-- Promotable: `false`
-- Source artifact: `code/particles/runs/calibration/d10_ew_w_anchor_neutral_shear_factorization_official_pdg_2025_update.json`
-- Max absolute residual: `0.0`
-- Note: Exact on the frozen-authoritative D10 repair surface. The public theorem surface is the target-free source-only emission, which is separate and differs only at the `1e-8 GeV` scale.
-
-| Observable | Value | Reference |
-| --- | ---: | ---: |
-| `m_W` | `80.377` | `80.377` |
-| `m_Z` | `91.18797809193725` | `91.18797809193725` |
 
 ## Higgs/Top Reference Exact Adapter
 
@@ -26,7 +12,7 @@ For quarks, the selected-class theorem and its supporting exact carriers coincid
 - Promotable: `false`
 - Source artifact: `code/particles/runs/calibration/d11_reference_exact_adapter.json`
 - Max absolute residual: `0.0`
-- Note: Exact only as a compare-only inverse slice on the D11 Jacobian. The live D11 theorem lane uses the source-only split theorem on the declared D10/D11 surface. That theorem emits `m_H = 125.1995304097179 GeV` and a companion top coordinate `m_t = 172.3523553288312 GeV`. The Higgs row lands on the PDG 2025 Higgs average at quoted precision. The exact public running-top row uses the PDG 2025 cross-section entry `Q007TP4`. The auxiliary direct-top average `Q007TP` is compare-only; [#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207) is closed as a corpus-limited no-go by `code/particles/runs/calibration/direct_top_bridge_contract.json`.
+- Note: Exact only as a compare-only inverse slice on the D11 Jacobian. The live D11 theorem lane uses a conditional split candidate on the declared D10/D11 surface. That surface emits `m_H = 125.1995304097179 GeV` and a companion top coordinate `m_t = 172.3523553288312 GeV`, but strict promotion is blocked until the D10 target-free repair closes. The exact public running-top row uses the PDG 2025 cross-section entry `Q007TP4`. The auxiliary direct-top average `Q007TP` is compare-only; [#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207) is closed as a corpus-limited no-go by `code/particles/runs/calibration/direct_top_bridge_contract.json`.
 
 | Observable | Value | Reference |
 | --- | ---: | ---: |
@@ -48,24 +34,6 @@ For quarks, the selected-class theorem and its supporting exact carriers coincid
 | `m_mu` | `0.10565837550000004` | `0.10565837550000001` |
 | `m_tau` | `1.7769324651340912` | `1.77693246513409` |
 
-## Quark Selected-Class Exact Theorem
-
-- Fit kind: `selected_class_target_anchored_exact_witness`
-- Scope: `selected_public_physical_quark_frame_class_only_but_sigma_datum_target_derived`
-- Promotable: `false`
-- Source artifact: `code/particles/runs/flavor/quark_public_exact_yukawa_end_to_end_theorem.json`
-- Max absolute residual: `5.684341886080802e-14`
-- Note: Selected-class exact witness on the public physical quark frame class chosen by `P`; strict promotion is blocked because the sigma datum is target-derived. `oph_quark_public_physical_sigma_datum_descent` makes the exact physical sigma datum target-free public on that selected class, and `oph_quark_public_exact_yukawa_end_to_end_theorem` emits the exact PDG 2025 running-quark sextet together with explicit exact forward Yukawas `Y_u` and `Y_d`. The top coordinate uses PDG summary `Q007TP4`. The auxiliary direct-top entry `Q007TP` is compare-only; [#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207) is closed as a corpus-limited no-go by `code/particles/runs/calibration/direct_top_bridge_contract.json`. This is selected-class closure only. It does not claim a global classification of all quark frame classes.
-
-| Observable | Value | Reference |
-| --- | ---: | ---: |
-| `m_u` | `0.0021600000000000005` | `0.00216` |
-| `m_c` | `1.2729999999999992` | `1.273` |
-| `m_t` | `172.35235532883115` | `172.3523553288312` |
-| `m_d` | `0.004699999999999999` | `0.0047` |
-| `m_s` | `0.09349999999999999` | `0.0935` |
-| `m_b` | `4.182999999999994` | `4.183` |
-
 ## Quark Current-Family Exact Witness
 
 - Fit kind: `exact_target_anchored_current_family_witness`
@@ -81,6 +49,24 @@ For quarks, the selected-class theorem and its supporting exact carriers coincid
 | `m_c` | `1.2729999999999995` | `1.273` |
 | `m_t` | `172.3523553288311` | `172.3523553288312` |
 | `m_d` | `0.004700000000000002` | `0.0047` |
+| `m_s` | `0.09349999999999999` | `0.0935` |
+| `m_b` | `4.182999999999994` | `4.183` |
+
+## Quark Selected-Class Exact Theorem
+
+- Fit kind: `selected_class_target_anchored_exact_witness`
+- Scope: `selected_public_physical_quark_frame_class_only_but_sigma_datum_target_derived`
+- Promotable: `false`
+- Source artifact: `code/particles/runs/flavor/quark_public_exact_yukawa_end_to_end_theorem.json`
+- Max absolute residual: `5.684341886080802e-14`
+- Note: Selected-class exact witness on the public physical quark frame class chosen by `P`; strict promotion is blocked because the sigma datum is target-derived. `oph_quark_public_physical_sigma_datum_descent` makes the exact physical sigma datum target-free public on that selected class, and `oph_quark_public_exact_yukawa_end_to_end_theorem` emits the exact PDG 2025 running-quark sextet together with explicit exact forward Yukawas `Y_u` and `Y_d`. The top coordinate uses PDG summary `Q007TP4`. The auxiliary direct-top entry `Q007TP` is compare-only; [#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207) is closed as a corpus-limited no-go by `code/particles/runs/calibration/direct_top_bridge_contract.json`. This is selected-class closure only. It does not claim a global classification of all quark frame classes.
+
+| Observable | Value | Reference |
+| --- | ---: | ---: |
+| `m_u` | `0.0021600000000000005` | `0.00216` |
+| `m_c` | `1.2729999999999992` | `1.273` |
+| `m_t` | `172.35235532883115` | `172.3523553288312` |
+| `m_d` | `0.004699999999999999` | `0.0047` |
 | `m_s` | `0.09349999999999999` | `0.0935` |
 | `m_b` | `4.182999999999994` | `4.183` |
 

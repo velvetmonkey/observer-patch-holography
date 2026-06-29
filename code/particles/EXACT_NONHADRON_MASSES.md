@@ -1,9 +1,9 @@
 # Exact Non-Hadron Masses
 
-Generated: `2026-06-29T06:18:41Z`
+Generated: `2026-06-29T06:58:53Z`
 
-This bundle gives one exact mass output for every non-hadron particle on the declared OPH surfaces.
-It records exact-output surfaces rather than one uniform theorem tier.
+This bundle gives exact mass outputs for public non-hadron particle rows on declared OPH surfaces.
+It records exact-output surfaces rather than one uniform theorem tier and excludes compare-only frozen-target adapters.
 For quarks, the exact carrier-restricted witness surface matches the official PDG 2025 API running-quark target surface on `current_family_only`.
 The same sextet is also realized on the restricted current-family common-refinement transport-frame carrier, which emits explicit exact forward Yukawas `Y_u` and `Y_d` on that declared carrier.
 For charged leptons, this bundle records the exact same-family witness surface. The theorem surface also contains the live same-label `q_e` readback, a source-side determinant character for a fixed formal source multiplicity vector, a conditional determinant-line lift, and an algebraic charged-mass readout once theorem-grade `A_ch(P)` is given. Issue #201 is closed as a corpus-limited no-go: the available corpus does not attach that source-side character to the physical charged determinant line.
@@ -14,8 +14,6 @@ The top coordinate uses the PDG 2025 cross-section mass entry `Q007TP4`. The aux
 | Photon | `0.0 GeV` | `structural_zero` | `structural` | `structural_gauge_redundancy_surface` |
 | Gluon | `0.0 GeV` | `structural_zero` | `structural` | `structural_color_gauge_surface` |
 | Graviton | `0.0 GeV` | `structural_zero` | `structural` | `structural_diffeomorphism_redundancy_surface` |
-| W Boson | `80.377 GeV` | `exact_frozen_target_compare_only_adapter` | `frozen_authoritative_target_surface` | `code/particles/runs/calibration/d10_ew_w_anchor_neutral_shear_factorization_official_pdg_2025_update.json` |
-| Z Boson | `91.18797809193725 GeV` | `exact_frozen_target_compare_only_adapter` | `frozen_authoritative_target_surface` | `code/particles/runs/calibration/d10_ew_w_anchor_neutral_shear_factorization_official_pdg_2025_update.json` |
 | Higgs Boson | `125.1995304097179 GeV` | `conditional_declared_surface_higgs_top_candidate` | `declared_d10_d11_running_matching_threshold_surface_only` | `code/particles/runs/calibration/d11_live_exact_split_pair_theorem.json` |
 | Electron | `0.0005109989499999994 GeV` | `exact_target_anchored_current_family_witness` | `current_family_only` | `code/particles/runs/leptons/lepton_current_family_exact_readout.json` |
 | Muon | `0.10565837550000004 GeV` | `exact_target_anchored_current_family_witness` | `current_family_only` | `code/particles/runs/leptons/lepton_current_family_exact_readout.json` |

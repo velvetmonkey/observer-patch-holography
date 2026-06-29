@@ -42,7 +42,7 @@
   "exact_alpha_promoted": false,
   "external_input_role": "The measured Thomson-limit inverse fine-structure constant supplies the empirical hadron-completed endpoint for numeric tables and displays. It is excluded from the source-only solver and from theorem promotion.",
   "external_input_used": true,
-  "generated_utc": "2026-06-29T06:18:41Z",
+  "generated_utc": "2026-06-29T06:58:53Z",
   "promotion_allowed": false,
   "row_class": "oph_plus_empirical_hadron_closure",
   "source_only_guard": {

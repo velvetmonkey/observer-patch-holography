@@ -40,9 +40,10 @@ def test_exact_nonhadron_mass_bundle_is_complete() -> None:
         assert payload["artifact"] == "oph_exact_nonhadron_mass_bundle"
         assert payload["status"] == "exact_output_lane_closed_nonhadron_only"
         entries = {entry["particle_id"]: entry for entry in payload["entries"]}
-        assert len(entries) == 18
+        assert len(entries) == 16
         assert entries["photon"]["mass_gev"] == pytest.approx(0.0, abs=1.0e-18)
-        assert entries["w_boson"]["mass_gev"] == pytest.approx(80.377, abs=1.0e-12)
+        assert "w_boson" not in entries
+        assert "z_boson" not in entries
         assert entries["higgs"]["mass_gev"] == pytest.approx(125.1995304097179, abs=1.0e-12)
         assert entries["electron"]["mass_gev"] == pytest.approx(0.00051099895, abs=1.0e-15)
         assert entries["top_quark"]["mass_gev"] == pytest.approx(172.3523553288312, abs=1.0e-10)

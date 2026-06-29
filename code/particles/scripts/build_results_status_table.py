@@ -114,8 +114,8 @@ D11_NOTE = (
     "Derived from `derive_d11_declared_calibration_surface.py -> derive_d10_ew_source_transport_pair.py -> "
     "derive_d10_ew_target_free_repair_value_law.py -> derive_d11_fixed_ray_no_go_theorem.py -> "
     "derive_d11_live_exact_split_pair_theorem.py`, which makes the declared D10/D11 running, matching, and "
-    "threshold surface explicit, emits the source-only D10 repair tuple `(eta_source, beta_EW, lambda_EW, "
-    "tau2_tree_exact, delta_n_tree_exact)`, and then closes the Higgs/top lane with a split forward theorem. "
+    "threshold surface explicit, emits the source-side D10 repair tuple `(eta_source, beta_EW, lambda_EW, "
+    "tau2_tree_exact, delta_n_tree_exact)`, and then emits a conditional Higgs/top split candidate. "
     "The old one-scalar fixed ray remains a lower companion branch. The live split theorem uses the shared scalar "
     "`rho_HT = log(1 + tau2_tree_exact)` together with the source-only residual selectors "
     "`R_T = -tau2_tree_exact * eta_source^2 + (1 + beta_EW/28) * eta_source^6 + eta_source^8/14 + eta_source^9/27` "
@@ -123,16 +123,16 @@ D11_NOTE = (
     "The forward split coordinates are `pi_y = (eta_source + (3/2 + beta_EW/4) * rho_HT + R_T) / sqrt(pi)` and "
     "`pi_lambda = (eta_source - (4/3 - beta_EW/54) * rho_HT + R_H) / sqrt(pi)`, and the declared D11 Jacobian reads out "
     "`m_t = 172.3523553288312 GeV` and `m_H = 125.1995304097179 GeV` on that same surface. "
-    "At the precision quoted by PDG, the Higgs row lands on the 2025 Higgs average. "
+    "Strict promotion of the Higgs mass row is blocked until the D10 target-free repair closes. "
     "The same surface emits a companion top coordinate `m_t = 172.3523553288312 GeV`. "
-    "The exact public running-top row is carried by the selected-class quark theorem and uses the PDG 2025 "
+    "The exact public running-top row is carried by the selected-class target-anchored quark witness and uses the PDG 2025 "
     "cross-section entry `Q007TP4`. The auxiliary direct-top average "
     "`Q007TP = 172.56 +- 0.31 GeV` is a compare-only extraction codomain; "
     "[#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207) is closed as a "
     "corpus-limited no-go by `code/particles/runs/calibration/direct_top_bridge_contract.json`. "
     "The old one-scalar seed `sigma_D11_HT = alpha_u * cos(2*theta_W0) / sqrt(pi)` remains on disk as the fixed-ray companion branch beneath this split theorem. "
     "The compare-only exact Higgs/top inverse slice remains a validation surface and does not define the predictive lane. "
-    "The repo-wide exact public top row is also carried by the selected-class quark theorem."
+    "The repo-wide exact public top row is also carried by the selected-class target-anchored quark witness."
 )
 _NEUTRINO_EXACT_BRIDGE_COORDINATE = (
     json.loads(NEUTRINO_EXACT_ADAPTER_BRIDGE_COORDINATE.read_text(encoding="utf-8"))
@@ -287,22 +287,6 @@ INVENTORY: List[Dict[str, Any]] = [
         "prediction_key": "m_graviton",
         "ledger_id": "structural.massless.graviton",
         "note": "Structural massless spin-2 sector from the OPH dynamical-metric and diffeomorphism branch.",
-    },
-    {
-        "particle_id": "w_boson",
-        "label": "W",
-        "group": "Bosons",
-        "prediction_key": "mW_run",
-        "ledger_id": "calibration.d10.electroweak",
-        "note": D10_MASS_PAIR_NOTE,
-    },
-    {
-        "particle_id": "z_boson",
-        "label": "Z",
-        "group": "Bosons",
-        "prediction_key": "mZ_run",
-        "ledger_id": "calibration.d10.electroweak",
-        "note": D10_MASS_PAIR_NOTE,
     },
     {
         "particle_id": "higgs",
@@ -1162,8 +1146,6 @@ def prediction_surface_for_row(row_spec: Dict[str, Any], surface_state: Dict[str
     particle_id = row_spec["particle_id"]
     if particle_id in {"photon", "gluon", "graviton"}:
         return "particles_structural_massless"
-    if particle_id in {"w_boson", "z_boson"} and active.get("d10_mass_pair"):
-        return "local_d10_public_mass_pair_candidate"
     if particle_id in {"electron", "muon", "tau"} and active.get("charged_local_candidate"):
         return "local_charged_public_candidate"
     if particle_id in {"electron_neutrino", "muon_neutrino", "tau_neutrino"} and (

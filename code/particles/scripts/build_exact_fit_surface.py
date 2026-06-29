@@ -79,32 +79,6 @@ def build_entries() -> list[dict[str, Any]]:
 
     entries: list[dict[str, Any]] = [
         {
-            "id": "electroweak_frozen_target_exact_pair",
-            "label": "Electroweak Frozen-Target Exact Pair",
-            "fit_kind": "exact_frozen_target_compare_only_adapter",
-            "scope": "frozen_authoritative_target_surface",
-            "promotable": False,
-            "matched_observables": ["m_W", "m_Z"],
-            "units": "GeV",
-            "values": {
-                "m_W": ew_exact["coherent_repaired_quintet"]["MW_pole"],
-                "m_Z": ew_exact["coherent_repaired_quintet"]["MZ_pole"],
-            },
-            "references": {
-                "m_W": references["w_boson"]["value_gev"],
-                "m_Z": references["z_boson"]["value_gev"],
-            },
-            "max_abs_residual": max(
-                abs(ew_exact["coherent_repaired_quintet"]["MW_pole"] - references["w_boson"]["value_gev"]),
-                abs(ew_exact["coherent_repaired_quintet"]["MZ_pole"] - references["z_boson"]["value_gev"]),
-            ),
-            "source_artifact": _repo_ref(EW_EXACT_JSON),
-            "note": (
-                "Exact on the frozen-authoritative D10 repair surface. The public theorem surface is the "
-                "target-free source-only emission, which is separate and differs only at the `1e-8 GeV` scale."
-            ),
-        },
-        {
             "id": "higgs_top_reference_exact_adapter",
             "label": "Higgs/Top Reference Exact Adapter",
             "fit_kind": "exact_target_anchored_compare_only_inverse_slice",
@@ -127,9 +101,9 @@ def build_entries() -> list[dict[str, Any]]:
             "source_artifact": _repo_ref(D11_EXACT_JSON),
             "note": (
                 "Exact only as a compare-only inverse slice on the D11 Jacobian. The live D11 theorem lane uses "
-                "the source-only split theorem on the declared D10/D11 surface. "
-                "That theorem emits `m_H = 125.1995304097179 GeV` and a companion top coordinate "
-                "`m_t = 172.3523553288312 GeV`. The Higgs row lands on the PDG 2025 Higgs average at quoted precision. "
+                "a conditional split candidate on the declared D10/D11 surface. "
+                "That surface emits `m_H = 125.1995304097179 GeV` and a companion top coordinate "
+                "`m_t = 172.3523553288312 GeV`, but strict promotion is blocked until the D10 target-free repair closes. "
                 "The exact public running-top row uses the PDG 2025 cross-section entry `Q007TP4`. "
                 "The auxiliary direct-top average `Q007TP` is compare-only; "
                 "[#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207) is closed as a corpus-limited no-go by "

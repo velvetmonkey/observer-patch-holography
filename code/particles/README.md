@@ -90,11 +90,12 @@ part of this canonical tree.
 - rendered public surface:
   `scripts/build_results_status_table.py`
 
-The live Higgs theorem lane is the source-only split theorem on the declared
+The live Higgs lane is a conditional split candidate on the declared
 electroweak running, matching, and threshold surface. It emits
 `m_H = 125.1995304097179 GeV` and a companion top coordinate
 `m_t = 172.3523553288312 GeV`.
-The Higgs row lands on the PDG 2025 Higgs average at quoted precision.
+The row is not promoted as a strict source-only particle prediction until the
+D10 target-free repair closes.
 The exact public running-top row uses the PDG 2025 cross-section entry
 `Q007TP4`.
 The auxiliary direct-top average `Q007TP` is compare-only; #207 is closed as a
@@ -199,7 +200,7 @@ selector `sigma_ref`, and the restricted-scope affine mean package with
 `Delta_ud^overlap = (1/6) * log(c_d / c_u)`, equivalently
 `quark_d12_t1_value_law`, on the emitted D12 ray. The exact six-mass witness
 closes on `current_family_only` and matches the official PDG 2025 API running
-quark reference sextet exactly on that declared surface; its top coordinate is
+quark reference sextet exactly on that declared target surface; its top coordinate is
 the PDG 2025 cross-section mass entry. The auxiliary direct-top entry is
 compare-only; [#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207)
 is closed as a corpus-limited codomain no-go. A separate restricted theorem chain on the explicit
@@ -208,13 +209,14 @@ sector-attached `Sigma_ud^phys` element, the exact physical sigma datum, the
 restricted absolute sector readout, the same sextet, and explicit exact
 forward Yukawas `Y_u` and `Y_d`. The declared end-to-end exact chain closes on
 that carrier. A separate direct public descent theorem closes on the selected
-public physical quark frame class chosen by `P`: the exact physical sigma
-datum becomes target-free public on that selected class, the affine mean law
-emits `(g_u, g_d)` algebraically, and the exact forward construction emits the
-same sextet together with explicit exact forward Yukawas `Y_u` and `Y_d`. This
-is selected-class closure only. It does not claim a global classification of
-all quark frame classes. The upstream generation-bundle transfer route is an
-alternative route, not a blocker on this selected-class surface.
+public physical quark frame class chosen by `P`, but the physical sigma datum
+is target-derived on the current public surface. The affine mean law emits
+`(g_u, g_d)` algebraically, and the exact forward construction emits the same
+sextet together with explicit exact forward Yukawas `Y_u` and `Y_d`. This is a
+selected-class target-anchored exact witness only. It does not claim a global
+classification of all quark frame classes. The upstream generation-bundle
+transfer route is an alternative route, not a blocker on this selected-class
+surface.
 
 ## Typical Rebuild
 

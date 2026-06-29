@@ -252,26 +252,6 @@ def build_entries() -> list[dict[str, Any]]:
             "note": "Exact structural zero from bulk diffeomorphism redundancy.",
         },
         {
-            "particle_id": "w_boson",
-            "label": "W Boson",
-            "mass_gev": ew_exact["coherent_repaired_quintet"]["MW_pole"],
-            "exact_kind": "exact_frozen_target_compare_only_adapter",
-            "scope": "frozen_authoritative_target_surface",
-            "promotable": False,
-            "source_artifact": _repo_ref(EW_EXACT_JSON),
-            "note": "Exact on the frozen D10 repair surface.",
-        },
-        {
-            "particle_id": "z_boson",
-            "label": "Z Boson",
-            "mass_gev": ew_exact["coherent_repaired_quintet"]["MZ_pole"],
-            "exact_kind": "exact_frozen_target_compare_only_adapter",
-            "scope": "frozen_authoritative_target_surface",
-            "promotable": False,
-            "source_artifact": _repo_ref(EW_EXACT_JSON),
-            "note": "Exact on the frozen D10 repair surface.",
-        },
-        {
             "particle_id": "higgs",
             "label": "Higgs Boson",
             "mass_gev": (
@@ -521,8 +501,8 @@ def build_markdown(generated_utc: str, entries: list[dict[str, Any]]) -> str:
         "",
         f"Generated: `{generated_utc}`",
         "",
-        "This bundle gives one exact mass output for every non-hadron particle on the declared OPH surfaces.",
-        "It records exact-output surfaces rather than one uniform theorem tier.",
+        "This bundle gives exact mass outputs for public non-hadron particle rows on declared OPH surfaces.",
+        "It records exact-output surfaces rather than one uniform theorem tier and excludes compare-only frozen-target adapters.",
         (
             "For quarks, the exact theorem surface matches the official PDG 2025 API running-quark target surface on the selected public physical quark frame class chosen by `P`."
             if quark_selected_class

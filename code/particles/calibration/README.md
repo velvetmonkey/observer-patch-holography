@@ -131,7 +131,9 @@ source-only pair theorem.
   `pi_lambda = (eta_source - (4/3 - beta_EW/54) * rho_HT + R_H) / sqrt(pi)`.
   On the declared D11 surface these emit
   `m_t = 172.3523553288312 GeV` and `m_H = 125.1995304097179 GeV`.
-  The Higgs row lands on the PDG 2025 Higgs average at quoted precision.
+  The Higgs row is a conditional declared-surface candidate, not a promoted
+  strict source-only particle prediction until the D10 target-free repair
+  closes.
   The exact public running-top row uses the PDG 2025 cross-section entry
   `Q007TP4`.
   The auxiliary direct-top average `Q007TP` is compare-only; #207 is closed as

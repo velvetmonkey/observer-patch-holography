@@ -1,6 +1,6 @@
 # Blind Prediction Provenance
 
-Generated: `2026-06-29T06:18:41Z`
+Generated: `2026-06-29T06:58:53Z`
 
 This ledger records target-use and convention-sensitivity status for the public quantitative particle rows.
 
@@ -17,8 +17,6 @@ This ledger records target-use and convention-sensitivity status for the public 
 | `photon` | `0.0 GeV` | `structural_blind_zero` | `blind_structural` | no_mass_target_used | `True` | none_for_mass_zero |
 | `gluon` | `0.0 GeV` | `structural_blind_zero` | `blind_structural` | no_mass_target_used | `True` | none_for_mass_zero |
 | `graviton` | `0.0 GeV` | `structural_blind_zero` | `blind_structural` | no_mass_target_used | `True` | none_for_mass_zero |
-| `w_boson` | `80.377 GeV` | `compare_only_reproduction` | `not_blind` | target_used_as_frozen_reference | `False` | inherits_declared_electroweak_surface |
-| `z_boson` | `91.18797809193725 GeV` | `compare_only_reproduction` | `not_blind` | target_used_as_frozen_reference | `False` | inherits_declared_electroweak_surface |
 | `higgs` | `125.1995304097179 GeV` | `conditional_declared_surface_candidate` | `conditionally_blind_on_declared_surface` | candidate_upstream_d10_repair_not_source_promoted | `False` | depends_on_declared_D10_D11_running_matching_threshold_surface |
 | `electron` | `0.0005109989499999994 GeV` | `target_anchored_witness` | `not_blind` | target_values_used_to_anchor_current_family_witness | `False` | not_promotable_until_source_attachment_closes |
 | `muon` | `0.10565837550000004 GeV` | `target_anchored_witness` | `not_blind` | target_values_used_to_anchor_current_family_witness | `False` | not_promotable_until_source_attachment_closes |

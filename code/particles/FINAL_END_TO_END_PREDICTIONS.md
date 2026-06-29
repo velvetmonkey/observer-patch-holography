@@ -1,6 +1,6 @@
 # Final End-to-End Particle Predictions
 
-Generated: `2026-06-29T06:18:41Z`
+Generated: `2026-06-29T06:58:53Z`
 
 Scope: `nonhadron_particle_pipeline_with_empirical_hadron_closure_policy`
 Claim label: `final_nonhadron_predictions_with_separate_empirical_hadron_closure_surface`
@@ -40,8 +40,6 @@ Claim label: `final_nonhadron_predictions_with_separate_empirical_hadron_closure
 | `photon` | `0.0 GeV` | `structural_zero` | `structural` | `True` |
 | `gluon` | `0.0 GeV` | `structural_zero` | `structural` | `True` |
 | `graviton` | `0.0 GeV` | `structural_zero` | `structural` | `True` |
-| `w_boson` | `80.377 GeV` | `exact_frozen_target_compare_only_adapter` | `frozen_authoritative_target_surface` | `False` |
-| `z_boson` | `91.18797809193725 GeV` | `exact_frozen_target_compare_only_adapter` | `frozen_authoritative_target_surface` | `False` |
 | `higgs` | `125.1995304097179 GeV` | `conditional_declared_surface_higgs_top_candidate` | `declared_d10_d11_running_matching_threshold_surface_only` | `False` |
 | `electron` | `0.0005109989499999994 GeV` | `exact_target_anchored_current_family_witness` | `current_family_only` | `False` |
 | `muon` | `0.10565837550000004 GeV` | `exact_target_anchored_current_family_witness` | `current_family_only` | `False` |
@@ -77,7 +75,7 @@ Claim label: `final_nonhadron_predictions_with_separate_empirical_hadron_closure
 - Factor origins: `ports=12`, `m_rep=24`, `exponent=-1/48`
 - Higgs naturality defect: `epsilon_H=0`
 - Boundary: The hierarchy and Higgs naturality rows are promoted as selected-branch source-side results with zero bridge residual and epsilon_H=0.
-- Not promoted by this bridge: public Thomson endpoint without the missing hadronic spectral payload, W/Z compare-only mass rows, charged-lepton absolute masses, source-only hadron masses, strong CP, SI G without the full no-G clock stack
+- Not promoted by this bridge: public Thomson endpoint without the missing hadronic spectral payload, electroweak massive-boson mass rows, charged-lepton absolute masses, source-only hadron masses, strong CP, SI G without the full no-G clock stack
 
 ## Pixel-Screen Resonance
 

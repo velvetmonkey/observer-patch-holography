@@ -27,7 +27,7 @@ def test_derivation_chain_closure_matrix_keeps_stage_gates_explicit() -> None:
     assert set(rows) == {
         "p_closure_root",
         "structural_massless_bosons",
-        "electroweak_wz",
+        "electroweak_massive_bosons",
         "hierarchy_naturality_bridge",
         "higgs_top_declared_surface",
         "charged_leptons",
@@ -42,6 +42,11 @@ def test_derivation_chain_closure_matrix_keeps_stage_gates_explicit() -> None:
         "populated source spectral measure payload + full interval certificate"
     )
     assert rows["structural_massless_bosons"]["promotable"] is True
+    assert rows["electroweak_massive_bosons"]["outputs"] == {}
+    assert rows["electroweak_massive_bosons"]["promotable"] is False
+    assert rows["electroweak_massive_bosons"]["status"] == (
+        "no_public_prediction_row_target_free_d10_repair_not_promoted"
+    )
     assert rows["hierarchy_naturality_bridge"]["status"] == (
         "closed_selected_branch_local_global_hierarchy_naturality"
     )

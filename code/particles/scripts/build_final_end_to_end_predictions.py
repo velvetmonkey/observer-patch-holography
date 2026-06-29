@@ -37,8 +37,6 @@ PARTICLE_ORDER = [
     "photon",
     "gluon",
     "graviton",
-    "w_boson",
-    "z_boson",
     "higgs",
     "electron",
     "muon",
@@ -200,7 +198,7 @@ def _hierarchy_surface() -> dict[str, Any]:
             ),
             "does_not_promote": [
                 "public Thomson endpoint without the missing hadronic spectral payload",
-                "W/Z compare-only mass rows",
+                "electroweak massive-boson mass rows",
                 "charged-lepton absolute masses",
                 "source-only hadron masses",
                 "strong CP",
