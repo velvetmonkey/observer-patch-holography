@@ -242,7 +242,7 @@ exact hypercharge, $N_c=3$, and $N_g=3$ live in the papers.
 | --- | --- | --- | --- | --- |
 | Gravitational constant | G | 6.6742999959e-11, scale/clock display | 6.67430(15)e-11 | 0.00003σ |
 | Speed of light | c | structural Lorentz speed; SI value conventional | 299792458 exact by definition | not a numeric prediction |
-| Fine-structure (inv) | \(A_{\alpha_U}^{\mathrm{fp}}\) | source-only OPH \(136.99483516462165\), not promoted without the hadronic spectral payload; OPH+empirical hadron closure \(137.035999177\) is a separate display class | 137.035999177(21) | source-only gap \(0.0411640124\) inverse-alpha units; empirical closure hits the central value |
+| Fine-structure (inv) | $A_{\alpha_U}^{\mathrm{fp}}=\alpha_{\mathrm{root}}^{-1}+\alpha_U(P_\star)$ | source-side OPH no-hadron prediction 137.03595950081728; root-only audit trunk 136.99483516462165 | 137.035999177(21) | only the small QCD/hadronic endpoint correction remains: 0.00003967618 inverse-alpha units, about 2.9e-7 relative |
 | Photon mass | m_γ | 0 GeV, structural zero | <1e-18 eV | below bound |
 | Gluon mass | m_g | 0 GeV, structural zero | no isolated free-gluon mass row | confined gauge carrier |
 | Graviton mass | m_grav | 0 GeV, structural zero | <1e-32 GeV | below bound |
@@ -251,12 +251,12 @@ exact hypercharge, $N_c=3$, and $N_g=3$ live in the papers.
 
 | Quark | Symbol | OPH | PDG | Δ |
 | --- | --- | --- | --- | --- |
-| Bottom | m_b(m_b) | 4.183 GeV | 4.183 ± 0.007 | selected-class target-anchored witness |
-| Charm | m_c(m_c) | 1.273 GeV | 1.2730 ± 0.0046 | selected-class target-anchored witness |
-| Strange | m_s(2 GeV) | 93.5 MeV | 93.5 ± 0.8 | selected-class target-anchored witness |
-| Down | m_d(2 GeV) | 4.70 MeV | 4.70 ± 0.07 | selected-class target-anchored witness |
-| Up | m_u(2 GeV) | 2.16 MeV | 2.16 ± 0.07 | selected-class target-anchored witness |
-| Top | m_t cross-section value | 172.35235532883115 GeV | 172.3523553288312 | selected-class target-anchored witness |
+| Bottom | m_b(m_b) | withheld from public prediction table | 4.183 ± 0.007 | selected-class target-anchored audit witness |
+| Charm | m_c(m_c) | withheld from public prediction table | 1.2730 ± 0.0046 | selected-class target-anchored audit witness |
+| Strange | m_s(2 GeV) | withheld from public prediction table | 93.5 ± 0.8 | selected-class target-anchored audit witness |
+| Down | m_d(2 GeV) | withheld from public prediction table | 4.70 ± 0.07 | selected-class target-anchored audit witness |
+| Up | m_u(2 GeV) | withheld from public prediction table | 2.16 ± 0.07 | selected-class target-anchored audit witness |
+| Top | m_t cross-section value | withheld from public prediction table | 172.3523553288312 | selected-class target-anchored audit witness |
 
 $\Delta$ reports the sigma distance where PDG or NIST quotes a one-standard-deviation
 uncertainty. Otherwise it records the declared support status. A numeric match
@@ -277,13 +277,11 @@ zero-momentum endpoint/root certificate stack. The Higgs value
 $m_H=125.1995304097179\,\mathrm{GeV}$ is a conditional declared D10/D11
 surface candidate, not promoted until the D10 target-free repair closes.
 Charged-lepton and quark masses are exact target-anchored witnesses on their
-declared current-family or selected-class surfaces; the selected-frame top
-coordinate is
-$m_t=172.35235532883115\,\mathrm{GeV}$ using the PDG cross-section top-mass
-convention. Under the stated neutrino assumptions, the scale-free
-weighted-cycle branch with compare-only absolute attachment gives
-$(0.017454720257976796, 0.019481987935919015,
-0.05307522145074924)\,\mathrm{eV}$. The generated status surfaces are
+declared current-family or selected-class audit surfaces, so their numeric
+values are withheld from public prediction columns. Under the stated neutrino
+assumptions, the scale-free weighted-cycle branch keeps absolute masses as
+compare-only attachments, so those absolute values are also withheld from
+public prediction columns. The generated status surfaces are
 [`code/particles/FINAL_END_TO_END_PREDICTIONS.md`](code/particles/FINAL_END_TO_END_PREDICTIONS.md)
 and [`code/particles/EXACT_NONHADRON_MASSES.md`](code/particles/EXACT_NONHADRON_MASSES.md).
 Its record-worldline result is separate: it conditionally certifies

@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 from datetime import datetime, timezone
+from decimal import Decimal, getcontext
 import json
 from pathlib import Path
 from typing import Any
@@ -31,6 +32,7 @@ HIERARCHY_NATURALITY = HIERARCHY_ROOT / "issue_332_rg_naturality_certificate.jso
 HIERARCHY_PIXEL_SCREEN = HIERARCHY_ROOT / "certificates" / "R_pixel_screen_resonance_summary.json"
 DEFAULT_JSON_OUT = PARTICLES_ROOT / "runs" / "status" / "final_end_to_end_predictions.json"
 DEFAULT_MD_OUT = PARTICLES_ROOT / "FINAL_END_TO_END_PREDICTIONS.md"
+getcontext().prec = 90
 
 
 PARTICLE_ORDER = [
@@ -101,17 +103,43 @@ def _fine_structure_surface(measured_endpoint: dict[str, Any]) -> dict[str, Any]
     calibrated = measured_endpoint["calibrated_values"]
     source_candidate = measured_endpoint["current_source_candidate"]
     endpoint_requirement = measured_endpoint["codata_mapped_endpoint_requirement"]
+    alpha_u = _load_json(HIERARCHY_NATURALITY)["source_values"]["alpha_U"]
+    root_alpha_inv = Decimal(source_candidate["alpha_inv"])
+    alpha_u_dec = Decimal(alpha_u)
+    near_endpoint_alpha_inv = root_alpha_inv + alpha_u_dec
+    measured_alpha_inv = Decimal(calibrated["alpha_inv_0"])
+    missing_hadronic_correction = measured_alpha_inv - near_endpoint_alpha_inv
+    relative_shortfall = missing_hadronic_correction / measured_alpha_inv
+    near_endpoint = {
+        "row_class": "source_side_no_hadron_near_endpoint",
+        "status": "source_side_prediction_missing_only_small_qcd_hadronic_endpoint_correction",
+        "formula": "alpha_root^-1 + alpha_U(P_star)",
+        "alpha_root_inv": source_candidate["alpha_inv"],
+        "alpha_U": alpha_u,
+        "alpha_inv": str(near_endpoint_alpha_inv),
+        "alpha": str(Decimal(1) / near_endpoint_alpha_inv),
+        "P": source_candidate["P"],
+        "missing_hadronic_correction_alpha_inv": str(missing_hadronic_correction),
+        "relative_shortfall": str(relative_shortfall),
+        "percent_shortfall": str(relative_shortfall * Decimal(100)),
+        "one_part_in": str(measured_alpha_inv / missing_hadronic_correction),
+        "minimal_missing_payload": "oph_qcd_ward_projected_hadronic_spectral_measure",
+        "promotable_as_exact_source_theorem": False,
+    }
+    root_audit = {
+        "row_class": "root_only_audit_trunk",
+        "status": "root_only_audit_before_alpha_U_addition",
+        "alpha_inv": source_candidate["alpha_inv"],
+        "alpha": source_candidate["alpha"],
+        "P": source_candidate["P"],
+        "missing_inverse_alpha_units_to_thomson_endpoint": source_candidate["missing_inverse_alpha_units"],
+        "p_gap_implemented_minus_empirical": source_candidate["p_gap_implemented_minus_calibrated"],
+        "promotable_as_exact_source_theorem": False,
+    }
     return {
-        "source_only_oph": {
-            "row_class": "source_only_oph",
-            "status": "source_audit_without_hadronic_spectral_payload",
-            "alpha_inv": source_candidate["alpha_inv"],
-            "alpha": source_candidate["alpha"],
-            "P": source_candidate["P"],
-            "missing_inverse_alpha_units": source_candidate["missing_inverse_alpha_units"],
-            "p_gap_implemented_minus_empirical": source_candidate["p_gap_implemented_minus_calibrated"],
-            "promotable_as_exact_source_theorem": False,
-        },
+        "source_side_no_hadron_near_endpoint": near_endpoint,
+        "source_only_oph": near_endpoint,
+        "root_only_audit": root_audit,
         "oph_plus_empirical_hadron_closure": {
             "row_class": "oph_plus_empirical_hadron_closure",
             "status": measured_endpoint["status"],
@@ -287,7 +315,9 @@ def build_payload() -> dict[str, Any]:
         },
         "runtime_inputs": results.get("inputs", {}),
         "output_classes": [
+            "source_side_no_hadron_near_endpoint",
             "source_only_oph",
+            "root_only_audit",
             "oph_plus_empirical_hadron_closure",
             "compare_only",
             "work_in_progress",
@@ -407,26 +437,37 @@ def render_markdown(payload: dict[str, Any]) -> str:
             "",
             "## Fine Structure",
             "",
-            "| Output class | alpha^-1(0) | P | Claim label |",
-            "| --- | ---: | ---: | --- |",
+            "| Output class | alpha^-1(0) | P | Missing hadronic correction | Claim label |",
+            "| --- | ---: | ---: | ---: | --- |",
         ]
     )
     fine = payload["fine_structure"]
-    source_only = fine["source_only_oph"]
+    source_no_hadron = fine["source_side_no_hadron_near_endpoint"]
+    root_audit = fine["root_only_audit"]
     empirical = fine["oph_plus_empirical_hadron_closure"]
     lines.append(
-        f"| `source_only_oph` | `{source_only['alpha_inv']}` | `{source_only['P']}` | "
-        f"`{source_only['status']}` |"
+        f"| `source_side_no_hadron_near_endpoint` | `{source_no_hadron['alpha_inv']}` | "
+        f"`{source_no_hadron['P']}` | "
+        f"`{source_no_hadron['missing_hadronic_correction_alpha_inv']}` | "
+        f"`{source_no_hadron['status']}` |"
     )
     lines.append(
         f"| `oph_plus_empirical_hadron_closure` | `{empirical['alpha_inv']}` | "
-        f"`{empirical['P']}` | `{empirical['status']}` |"
+        f"`{empirical['P']}` | `0` | `{empirical['status']}` |"
+    )
+    lines.append(
+        f"| `root_only_audit` | `{root_audit['alpha_inv']}` | `{root_audit['P']}` | "
+        f"`{root_audit['missing_inverse_alpha_units_to_thomson_endpoint']}` | "
+        f"`{root_audit['status']}` |"
     )
     lines.extend(
         [
             "",
-            f"- Empirical residual at the public endpoint pixel: "
-            f"`{empirical['missing_source_transport_delta_alpha_inv']}` inverse-alpha units",
+            f"- Source-side no-hadron near-endpoint formula: `{source_no_hadron['formula']}`",
+            f"- Relative shortfall before the QCD/hadronic endpoint correction: "
+            f"`{source_no_hadron['relative_shortfall']}` "
+            f"(`{source_no_hadron['percent_shortfall']}` percent)",
+            f"- Small missing payload: `{source_no_hadron['minimal_missing_payload']}`",
             f"- Empirical payload policy: `{fine['empirical_payload_policy']['dispersion_payload_status']}`",
             "",
             "## Hierarchy And Naturality",

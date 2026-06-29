@@ -274,7 +274,7 @@ papiers.
 | --- | --- | --- | --- | --- |
 | Constante gravitationnelle | G | 6.6742999959e-11, affichage échelle/horloge | 6.67430(15)e-11 | 0.00003σ |
 | Vitesse de la lumière | c | vitesse lorentzienne structurelle; valeur SI conventionnelle | 299792458 exact par définition | pas une prédiction numérique |
-| Structure fine (inv.) | \(A_{\alpha_U}^{\mathrm{fp}}\) | OPH source seule \(136.99483516462165\), non promue sans payload spectral hadronique; la fermeture OPH+hadron empirique \(137.035999177\) reste une classe d'affichage séparée | 137.035999177(21) | écart source seule \(0.0411640124\) en unités d'alpha inverse; la fermeture empirique atteint la valeur centrale |
+| Structure fine (inv.) | $A_{\alpha_U}^{\mathrm{fp}}=\alpha_{\mathrm{root}}^{-1}+\alpha_U(P_\star)$ | prédiction OPH source sans hadrons 137.03595950081728; tronc d'audit racine seul 136.99483516462165 | 137.035999177(21) | seul reste le petit correctif QCD/hadronique du point final : 0.00003967618 en unités d'alpha inverse, soit environ 2.9e-7 relatif |
 | Masse du photon | m_γ | 0 GeV, zéro structurel | <1e-18 eV | sous la borne |
 | Masse du gluon | m_g | 0 GeV, zéro structurel | pas de ligne de masse de gluon libre isolé | porteur de jauge confiné |
 | Masse du graviton | m_grav | 0 GeV, zéro structurel | <1e-32 GeV | sous la borne |
@@ -283,12 +283,12 @@ papiers.
 
 | Quark | Symbole | OPH | PDG | Δ |
 | --- | --- | --- | --- | --- |
-| Bottom | m_b(m_b) | 4.183 GeV | 4.183 ± 0.007 | témoin sélectionné ancré sur cible |
-| Charm | m_c(m_c) | 1.273 GeV | 1.2730 ± 0.0046 | témoin sélectionné ancré sur cible |
-| Strange | m_s(2 GeV) | 93.5 MeV | 93.5 ± 0.8 | témoin sélectionné ancré sur cible |
-| Down | m_d(2 GeV) | 4.70 MeV | 4.70 ± 0.07 | témoin sélectionné ancré sur cible |
-| Up | m_u(2 GeV) | 2.16 MeV | 2.16 ± 0.07 | témoin sélectionné ancré sur cible |
-| Top | m_t, ligne section efficace | 172.35235532883115 GeV | 172.3523553288312 | témoin sélectionné ancré sur cible |
+| Bottom | m_b(m_b) | retenu hors de la table publique de prédiction | 4.183 ± 0.007 | témoin d'audit sélectionné ancré sur cible |
+| Charm | m_c(m_c) | retenu hors de la table publique de prédiction | 1.2730 ± 0.0046 | témoin d'audit sélectionné ancré sur cible |
+| Strange | m_s(2 GeV) | retenu hors de la table publique de prédiction | 93.5 ± 0.8 | témoin d'audit sélectionné ancré sur cible |
+| Down | m_d(2 GeV) | retenu hors de la table publique de prédiction | 4.70 ± 0.07 | témoin d'audit sélectionné ancré sur cible |
+| Up | m_u(2 GeV) | retenu hors de la table publique de prédiction | 2.16 ± 0.07 | témoin d'audit sélectionné ancré sur cible |
+| Top | m_t, ligne section efficace | retenu hors de la table publique de prédiction | 172.3523553288312 | témoin d'audit sélectionné ancré sur cible |
 
 `Δ` donne l'écart en sigma lorsque le PDG ou le NIST publie une incertitude à un sigma. Sinon, il
 indique le statut de support déclaré. Un accord numérique sur une surface cible
@@ -310,13 +310,12 @@ final à impulsion nulle et de racine. La valeur Higgs
 $m_H=125.1995304097179\,\mathrm{GeV}$ est une candidate conditionnelle sur la
 surface D10/D11 déclarée, non promue tant que la réparation D10 sans cible
 n'est pas fermée. Les masses des leptons chargés et des quarks sont des témoins
-exacts ancrés sur cible sur leurs surfaces déclarées de famille courante ou de
-classe sélectionnée; la coordonnée top sélectionnée est
-$m_t=172.35235532883115\,\mathrm{GeV}$ selon la convention PDG de masse top par
-section efficace. Sous les hypothèses neutrino indiquées, la branche
-pondérée sans échelle avec attachement absolu en comparaison seule donne
-$(0.017454720257976796, 0.019481987935919015,
-0.05307522145074924)\,\mathrm{eV}$. Les surfaces de statut générées sont
+exacts ancrés sur cible sur leurs surfaces d'audit déclarées de famille courante
+ou de classe sélectionnée; leurs valeurs numériques sont donc retenues hors des
+colonnes publiques de prédiction. Sous les hypothèses neutrino indiquées, la
+branche pondérée sans échelle garde les masses absolues comme attachements en
+comparaison seule; ces valeurs absolues sont donc elles aussi retenues hors des
+colonnes publiques de prédiction. Les surfaces de statut générées sont
 [`code/particles/FINAL_END_TO_END_PREDICTIONS.md`](code/particles/FINAL_END_TO_END_PREDICTIONS.md)
 et [`code/particles/EXACT_NONHADRON_MASSES.md`](code/particles/EXACT_NONHADRON_MASSES.md).
 Son résultat de ligne d'enregistrement est séparé : il certifie

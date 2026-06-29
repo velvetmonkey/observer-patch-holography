@@ -21,8 +21,16 @@ def test_final_end_to_end_predictions_include_particle_five_gates_and_values() -
     assert payload["hadron_policy"]["source_only_hadron_predictions_emitted"] is False
     assert payload["hadron_policy"]["empirical_hadron_closure_allowed_for_display"] is True
     assert payload["hadron_policy"]["github_issues"] == [153, 157]
-    assert payload["fine_structure"]["source_only_oph"]["row_class"] == "source_only_oph"
-    assert payload["fine_structure"]["source_only_oph"]["alpha_inv"].startswith("136.994835")
+    fine = payload["fine_structure"]
+    assert fine["source_side_no_hadron_near_endpoint"]["row_class"] == (
+        "source_side_no_hadron_near_endpoint"
+    )
+    assert fine["source_side_no_hadron_near_endpoint"]["alpha_inv"].startswith("137.035959500817")
+    assert fine["source_side_no_hadron_near_endpoint"]["missing_hadronic_correction_alpha_inv"].startswith(
+        "0.000039676182720047"
+    )
+    assert fine["root_only_audit"]["alpha_inv"].startswith("136.994835")
+    assert payload["fine_structure"]["source_only_oph"] == fine["source_side_no_hadron_near_endpoint"]
     assert payload["fine_structure"]["oph_plus_empirical_hadron_closure"]["row_class"] == (
         "oph_plus_empirical_hadron_closure"
     )

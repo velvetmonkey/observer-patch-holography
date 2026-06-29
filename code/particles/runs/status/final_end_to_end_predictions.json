@@ -55,18 +55,50 @@
       "row_class": "oph_plus_empirical_hadron_closure",
       "status": "oph_plus_empirical_hadron_closure_endpoint"
     },
-    "source_only_oph": {
+    "root_only_audit": {
       "P": "1.63097209569432901817967892561191884270169",
       "alpha": "0.00729954516887664794921875",
       "alpha_inv": "136.994835164621649457949994585787193262029",
-      "missing_inverse_alpha_units": "0.041164012378350542050005414212806737971",
+      "missing_inverse_alpha_units_to_thomson_endpoint": "0.041164012378350542050005414212806737971",
       "p_gap_implemented_minus_empirical": "0.0000038862903696933003990778292699013657063242089711084969148420339247715484988",
       "promotable_as_exact_source_theorem": false,
-      "row_class": "source_only_oph",
-      "status": "source_audit_without_hadronic_spectral_payload"
+      "row_class": "root_only_audit_trunk",
+      "status": "root_only_audit_before_alpha_U_addition"
+    },
+    "source_only_oph": {
+      "P": "1.63097209569432901817967892561191884270169",
+      "alpha": "0.00729735467714250592971405837328959882723272750294478631093016722270090365401734773810955997",
+      "alpha_U": "0.041124336195630495",
+      "alpha_inv": "137.035959500817279952949994585787193262029",
+      "alpha_root_inv": "136.994835164621649457949994585787193262029",
+      "formula": "alpha_root^-1 + alpha_U(P_star)",
+      "minimal_missing_payload": "oph_qcd_ward_projected_hadronic_spectral_measure",
+      "missing_hadronic_correction_alpha_inv": "0.000039676182720047050005414212806737971",
+      "one_part_in": "3453860.47200957884504096803683387481007119644953257683990852614067753347339185161126082039",
+      "percent_shortfall": "0.0000289531093715017514615674912690376427684548585659122318204396420518829023665287125109688724",
+      "promotable_as_exact_source_theorem": false,
+      "relative_shortfall": "2.89531093715017514615674912690376427684548585659122318204396420518829023665287125109688724E-7",
+      "row_class": "source_side_no_hadron_near_endpoint",
+      "status": "source_side_prediction_missing_only_small_qcd_hadronic_endpoint_correction"
+    },
+    "source_side_no_hadron_near_endpoint": {
+      "P": "1.63097209569432901817967892561191884270169",
+      "alpha": "0.00729735467714250592971405837328959882723272750294478631093016722270090365401734773810955997",
+      "alpha_U": "0.041124336195630495",
+      "alpha_inv": "137.035959500817279952949994585787193262029",
+      "alpha_root_inv": "136.994835164621649457949994585787193262029",
+      "formula": "alpha_root^-1 + alpha_U(P_star)",
+      "minimal_missing_payload": "oph_qcd_ward_projected_hadronic_spectral_measure",
+      "missing_hadronic_correction_alpha_inv": "0.000039676182720047050005414212806737971",
+      "one_part_in": "3453860.47200957884504096803683387481007119644953257683990852614067753347339185161126082039",
+      "percent_shortfall": "0.0000289531093715017514615674912690376427684548585659122318204396420518829023665287125109688724",
+      "promotable_as_exact_source_theorem": false,
+      "relative_shortfall": "2.89531093715017514615674912690376427684548585659122318204396420518829023665287125109688724E-7",
+      "row_class": "source_side_no_hadron_near_endpoint",
+      "status": "source_side_prediction_missing_only_small_qcd_hadronic_endpoint_correction"
     }
   },
-  "generated_utc": "2026-06-29T07:33:23Z",
+  "generated_utc": "2026-06-29T07:54:13Z",
   "hadron_policy": {
     "empirical_hadron_closure_allowed_for_display": true,
     "empirical_payload_schema": "particles/hadron/empirical_ee_hadronic_spectral_measure.schema.json",
@@ -203,7 +235,9 @@
     }
   },
   "output_classes": [
+    "source_side_no_hadron_near_endpoint",
     "source_only_oph",
+    "root_only_audit",
     "oph_plus_empirical_hadron_closure",
     "compare_only",
     "work_in_progress"

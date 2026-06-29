@@ -1,6 +1,6 @@
 # Final End-to-End Particle Predictions
 
-Generated: `2026-06-29T07:33:23Z`
+Generated: `2026-06-29T07:54:13Z`
 
 Scope: `nonhadron_particle_pipeline_with_empirical_hadron_closure_policy`
 Claim label: `final_nonhadron_predictions_with_separate_empirical_hadron_closure_surface`
@@ -63,12 +63,15 @@ These rows are retained in audit surfaces but are not numeric predictions.
 
 ## Fine Structure
 
-| Output class | alpha^-1(0) | P | Claim label |
-| --- | ---: | ---: | --- |
-| `source_only_oph` | `136.994835164621649457949994585787193262029` | `1.63097209569432901817967892561191884270169` | `source_audit_without_hadronic_spectral_payload` |
-| `oph_plus_empirical_hadron_closure` | `137.035999177` | `1.6309682094039593248792798477826489413359828516279250606661507533907793398933432` | `oph_plus_empirical_hadron_closure_endpoint` |
+| Output class | alpha^-1(0) | P | Missing hadronic correction | Claim label |
+| --- | ---: | ---: | ---: | --- |
+| `source_side_no_hadron_near_endpoint` | `137.035959500817279952949994585787193262029` | `1.63097209569432901817967892561191884270169` | `0.000039676182720047050005414212806737971` | `source_side_prediction_missing_only_small_qcd_hadronic_endpoint_correction` |
+| `oph_plus_empirical_hadron_closure` | `137.035999177` | `1.6309682094039593248792798477826489413359828516279250606661507533907793398933432` | `0` | `oph_plus_empirical_hadron_closure_endpoint` |
+| `root_only_audit` | `136.994835164621649457949994585787193262029` | `1.63097209569432901817967892561191884270169` | `0.041164012378350542050005414212806737971` | `root_only_audit_before_alpha_U_addition` |
 
-- Empirical residual at the public endpoint pixel: `0.04146586100522338905344871535731404448730208198590711656812056464944371240646525111663476` inverse-alpha units
+- Source-side no-hadron near-endpoint formula: `alpha_root^-1 + alpha_U(P_star)`
+- Relative shortfall before the QCD/hadronic endpoint correction: `2.89531093715017514615674912690376427684548585659122318204396420518829023665287125109688724E-7` (`0.0000289531093715017514615674912690376427684548585659122318204396420518829023665287125109688724` percent)
+- Small missing payload: `oph_qcd_ward_projected_hadronic_spectral_measure`
 - Empirical payload policy: `schema_and_source_registry_present_without_integrated_dataset`
 
 ## Hierarchy And Naturality
