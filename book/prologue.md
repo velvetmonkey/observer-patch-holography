@@ -213,11 +213,11 @@ there the book asks how much gravity, compact-gauge structure, and the
 minimally admissible particle world can be reconstructed from observer
 consistency.
 
-The technical basis waits for the chapters. Under the hood the book uses the
-quantum language of observables, states, event probabilities, and entropy
-because a record-bearing patch needs an algebra of what it can read, compare,
-and repair. The prologue needs the street-level version: begin with bounded
-observers, make their overlaps agree, then see how much physics is forced.
+The machinery comes later. Under the hood the book uses the quantum language
+of observables, states, event probabilities, and entropy because a
+record-bearing patch needs an algebra of what it can read, compare, and repair.
+The prologue needs the street-level version: begin with bounded observers, make
+their overlaps agree, then see how much physics is forced.
 
 A good reverse engineer first works out the architecture, then checks how many
 knobs are really left. The book shows that most of the architecture is forced
@@ -226,8 +226,8 @@ organizing more of the particle structure than common sense would expect.
 
 Perfect symmetry would make a dead machine. Arbitrary detuning would make a
 mess. The useful departures have to reinforce one another. That is the role of
-the local pixel ratio, which the technical chapters define without asking the
-reader to take it on faith. It is selected as the small detuning for which the
+the local pixel ratio, which later chapters define without asking the reader to
+take it on faith. It is selected as the small detuning for which the
 outside screen geometry and the inside electromagnetic readout agree. The
 middle of the book tracks the same local grain through the weak interaction,
 electromagnetism, the Higgs and top sectors, quarks, neutrinos, and the

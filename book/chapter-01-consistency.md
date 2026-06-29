@@ -22,7 +22,7 @@ This picture is so natural that it's hard to imagine alternatives. It's implicit
 
 Philosophers and scientists have long assumed something like a "view from nowhere," a complete description of reality that exists independently of any observer. Aristotle's substances, Descartes' *res extensa*, Newton's absolute space and time, and Laplace's demon (who knows the state of the universe at a single instant) are all versions of this idea. In modern terms, it's scientific realism: the world is out there, fully specified, whether or not anyone looks.
 
-There is a counter-tradition. Berkeley insisted that perception is primary. Kant split reality into *noumena* (things-in-themselves) and *phenomena* (appearances). Mach pressed for strictly relational physics. We use a narrower move that rhymes with them: we take perspectives seriously as the starting point.
+There is a counter-tradition. Berkeley insisted that perception is primary. Kant split reality into *noumena* (things-in-themselves) and *phenomena* (appearances). Mach pressed for strictly relational physics. Nagel named the tension between the subjective standpoint and the hoped-for view from nowhere.
 
 > **Sidebar: Philosophers of Perspective**
 >
@@ -146,17 +146,13 @@ These questions have haunted physics for a century. Different interpretations of
 
 ### The Measurement Problem Reframed
 
-The "measurement problem" has haunted physics for a century: When does the wave function collapse? What counts as an observer? Why does measurement produce definite outcomes from indefinite superpositions?
-
-OPH reframes this problem.
-
-The puzzle assumes a God's-eye view where the wave function is "really" in superposition, followed by something magical called "collapse." There is no God's-eye view. There are only observer patches.
+OPH reframes that puzzle around observer patches and record consistency. The usual puzzle assumes a God's-eye view where the wave function is "really" in superposition, followed by something magical called "collapse." OPH starts from observer patches instead.
 
 From within a patch, measurement is registered through definite records on the operational readout surface. The "superposition" describes how different observers' potential records relate to each other before they compare notes.
 
 When Alice measures an electron's spin, her instrument writes one definite record on that readout surface. The wave function describes the consistency relations between Alice's possible records and Bob's possible records. When they meet and compare, those records must agree on the shared event surface. That agreement is the operational content behind textbook collapse language.
 
-The measurement problem asks: "When does objective reality become definite?" Our answer is that OPH reorganizes that question around observer patches and record consistency. What becomes definite in the first instance are the records carried by each patch. The wave function describes how patches must relate, not some ghostly pre-measurement stage.
+The measurement problem asks: "When does objective reality become definite?" In OPH, what becomes definite in the first instance are the records carried by each patch. The wave function describes how patches must relate, not some ghostly pre-measurement stage.
 
 Bohr was half right. He insisted that quantum mechanics describes relationships between observers and systems, not systems in isolation. OPH makes this precise: quantum mechanics is the mathematics of patch consistency.
 
@@ -170,12 +166,12 @@ This is the turnaround: **subjective perspectives are primary**. The “objectiv
 
 ![Many local descriptions for a fixed boundary problem can be repaired in different orders, yet converge to one shared normal form when the overlap rules satisfy the transactional confluence conditions.](../assets/book_diagrams/consensus-funnel.svg){width=72%}
 
-In the technical papers, a repair proposal is not automatically a physical
-step. Overlapping proposals are grouped into an atomic transaction, checked
-against the current read snapshot, required to preserve the boundary and sector
-data, and committed only when the exact repair measure descends. The normal
-form is shared because that transaction layer is confluent, not because a
-simulation chooses the most convenient branch.
+According to OPH, a proposed repair counts as a physical step only after the
+overlap checks pass. Overlapping proposals are bundled into one transaction,
+checked against the shared record state, required to preserve the boundary and
+sector data, and accepted only when the repair measure descends. The shared
+normal form comes from confluence in that transaction layer rather than from a
+simulation choosing the most convenient branch.
 
 This is the **overlap test**: If two observers share a region of experience, their accounts must agree in that overlap.
 
@@ -388,29 +384,23 @@ substrate itself is a smooth sphere.
 
 What is the output? Everything. Spacetime geometry emerges from entanglement patterns. Particles emerge as excitations. Observers emerge as self-modeling patterns that process information and maintain records. The laws of physics emerge as the rules that permit consistent information flow between patches.
 
-The closure reading developed later in the book is internal. A standard
-simulation evolves surrogate universe states step by step. OPH describes a
-constrained fixed-point computation whose settled output is read from inside as a
-world. The fixed-point equation follows only after the repair, record,
-branch-elimination, and clock-closure tests are passed. Reality is implemented
-on real hardware inside the same overall structure. From
-within subjective time, that hardware sits in the future of the observers it
-supports. From the full structural view, the loop is timeless and
-self-consistent.
+An ordinary simulation has an easy answer to the question of time: the counter
+outside the program says step one, step two, step three. Physics cannot use
+that answer. Relativity makes time depend on the observer's path and
+gravitational field. Quantum gravity makes the problem sharper, because the
+whole universe has no outside clock.
 
-The same standard applies when the computation is distributed across workers.
-There must be one finite global carrier before the split into shards, with a
-declared partition, real cut interfaces, stable observer identities, and a
-public event log proving that worker commits project to the same monolithic
-repair system. Worker queues, local seeds, restart files, and display seams are
-bookkeeping unless that projection to one repair system is present.
+OPH puts the clock inside the system. An observer's time is the order in which
+its records can change, be compared, be repaired, and be remembered. A tick
+means a record event that survives comparison with neighboring patches. Public
+time is the part of those local record orders that can be synchronized across
+overlaps.
 
-The same caution applies to time. A repair-cycle counter is not automatically
-an observer clock. Worker IDs, retry counters, queue order, timestamps, and
-packet latency belong to execution provenance unless the model declares them as
-physical inputs. The observer-facing history has to be keyed by semantic record
-events and causal parents, and the clock readout needs its own calibration
-map.
+This is how OPH can speak about a closed computation without imagining an
+external programmer watching it run. From inside, observers experience clocks,
+causes, memories, and a future that keeps arriving. From the structural view,
+the same world is a self-consistent pattern whose internal clocks agree where
+they meet. Time belongs to the ordering discipline of the observer network.
 
 You might ask: "If reality is a computation, what is it computing?" It is computing one closed
 structure whose geometry, particles, observers, records, and hardware belong to one

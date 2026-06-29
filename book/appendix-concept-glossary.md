@@ -293,10 +293,10 @@ the repair process stops; confluence is the extra condition that different
 allowed schedules from the same initial quotient state stop at the same
 observer-facing quotient result. Same-boundary uniqueness additionally needs
 that boundary or sector to have a unique consistent extension. In the current
-technical statement, overlapping repairs commit through atomic transactions:
-read snapshots, boundary data, and exact descent are checked before a step is
-accepted. A settled-form hash is evidence that two quotient outputs match; it is
-not allowed to select between two physically distinct consistent endpoints.
+OPH construction, overlapping repairs are accepted only when they preserve the
+shared boundary data and descend to the same observer-facing result. A digital
+fingerprint can help show that two computed outputs match, but it cannot select
+between two physically distinct consistent endpoints.
 
 **Observer patch.** An observer patch is the finite operational domain
 available to an observer. It has a local algebra, a state, records, and

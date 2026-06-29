@@ -1,9 +1,9 @@
 **Paper release:** `r1503`
 **Released:** June 24, 2026
 
-# Status
+# Scope
 
-This is a staged template under `reverse-engineering-reality/cosmology/`. It is not part of the release pipeline. It is the technical target for CMB/CAMB comparisons, other cosmological data products, and visualizer payload provenance emitted by <https://github.com/muellerberndt/oph-physics-sim>.
+This is a technical companion outside the release bundle. It sets the data and likelihood boundary for CMB/CAMB comparisons, other cosmological data products, and visualizer payload provenance emitted by the OPH-FPE simulator.
 
 # Shared Finite Quotient and Claim Tiers
 
@@ -391,7 +391,7 @@ A conforming simulator contract must fail closed on the following cases.
 
 The no-data-use verifier must traverse the complete parent graph, including file reads, network reads, environment variables, configuration values, caches, random seeds, dependency versions, and human-selected branch identifiers. A missing channel is a blocker.
 
-# Open Work
+# Unclosed Claim Boundaries
 
 1.  Implement the finite primordial source artifact schema and verifier in the simulator.
 

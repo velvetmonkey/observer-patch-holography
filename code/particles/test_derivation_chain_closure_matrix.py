@@ -54,16 +54,32 @@ def test_derivation_chain_closure_matrix_keeps_stage_gates_explicit() -> None:
     assert rows["charged_leptons"]["promotable"] is False
     assert rows["charged_leptons"]["open_gates"] == []
     assert rows["charged_leptons"]["closed_issue_refs"] == [201]
-    assert rows["higgs_top_declared_surface"]["status"] == "closed_on_declared_d10_d11_surface_direct_top_no_go"
-    assert rows["higgs_top_declared_surface"]["open_gates"] == []
+    assert rows["higgs_top_declared_surface"]["status"] == "conditional_declared_surface_higgs_top_candidate"
+    assert rows["higgs_top_declared_surface"]["promotable"] is False
+    assert rows["higgs_top_declared_surface"]["open_gates"] == [
+        "closed_promotable_EWTargetFreeRepairValueLaw_D10"
+    ]
     assert rows["higgs_top_declared_surface"]["closed_issue_refs"] == [207]
-    assert rows["selected_class_quarks"]["status"] == "closed_selected_public_class_global_classification_no_go"
-    assert rows["selected_class_quarks"]["open_gates"] == []
+    assert rows["selected_class_quarks"]["status"] == "selected_class_target_anchored_exact_witness_not_strict_source"
+    assert rows["selected_class_quarks"]["promotable"] is False
+    assert rows["selected_class_quarks"]["open_gates"] == [
+        "quark_public_physical_sigma_source_datum_no_target_leak"
+    ]
     assert rows["selected_class_quarks"]["closed_issue_refs"] == [199, 207, 212]
+    assert rows["neutrino_absolute_attachment"]["status"] == (
+        "scale_free_weighted_cycle_with_compare_only_absolute_attachment_candidate"
+    )
+    assert rows["neutrino_absolute_attachment"]["promotable"] is False
+    assert rows["neutrino_absolute_attachment"]["open_gates"] == [
+        "source_emitted_neutrino_C_nu_no_compare_target"
+    ]
     assert rows["hadrons"]["status"] == "source_backend_absent_empirical_closure_policy_emitted"
     assert rows["hadrons"]["open_gates"] == []
     assert rows["hadrons"]["closed_issue_refs"] == [153, 157]
     assert "p_closure_root" in payload["closure_summary"]["remaining_nonclosed_chains"]
+    assert "higgs_top_declared_surface" in payload["closure_summary"]["remaining_nonclosed_chains"]
+    assert "selected_class_quarks" in payload["closure_summary"]["remaining_nonclosed_chains"]
+    assert "neutrino_absolute_attachment" in payload["closure_summary"]["remaining_nonclosed_chains"]
     assert "charged_leptons" not in payload["closure_summary"]["remaining_nonclosed_chains"]
     assert "hadrons" not in payload["closure_summary"]["remaining_nonclosed_chains"]
     assert payload["closure_summary"]["source_backend_absent_chains"] == ["hadrons"]

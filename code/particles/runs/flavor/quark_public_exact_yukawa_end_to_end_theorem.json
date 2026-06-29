@@ -6,19 +6,30 @@
     "sigma_seed_ud": 4.4350963126021155,
     "sigma_u": 5.573928426395543
   },
-  "generated_utc": "2026-06-12T05:39:00Z",
+  "display_allowed_as_selected_class_exact_witness": true,
+  "generated_utc": "2026-06-29T06:17:26Z",
   "lemma_chain": [
     "oph_quark_public_physical_sigma_datum_descent",
     "oph_quark_absolute_readout_algebraic_collapse",
     "oph_quark_exact_pdg_end_to_end_theorem",
     "oph_quark_exact_yukawa_end_to_end_theorem"
   ],
-  "minimal_exact_blocker_set": [],
+  "minimal_exact_blocker_set": [
+    "quark_public_physical_sigma_source_datum_no_target_leak"
+  ],
+  "non_circularity_status": {
+    "missing_source_object": "quark_public_physical_sigma_source_datum_no_target_leak",
+    "promotion_allowed": false,
+    "public_sigma_promotion_allowed": false,
+    "public_sigma_proof_status": "blocked_by_target_derived_public_sigma_datum",
+    "strict_audit_label": "selected_class_target_anchored_exact_witness",
+    "target_derived_sigma_datum_used": true
+  },
   "notes": [
-    "This is the theorem wrapper that upgrades the closed declared-carrier exact Yukawa chain to the selected public class.",
+    "This artifact displays the selected-class exact witness but is not promotable under the strict non-circularity audit because the public sigma datum descends from an exact target surface.",
     "The exact matrices Y_u and Y_d are the same numerical matrices already emitted on the closed local chain."
   ],
-  "proof_status": "closed_target_free_public_exact_yukawa_end_to_end_theorem",
+  "proof_status": "blocked_by_target_derived_public_sigma_datum",
   "public_exact_outputs": {
     "exact_running_values_gev": {
       "b": 4.182999999999994,
@@ -154,7 +165,7 @@
       ]
     }
   },
-  "public_promotion_allowed": true,
+  "public_promotion_allowed": false,
   "selected_public_physical_frame_class": {
     "representative": {
       "imag": [

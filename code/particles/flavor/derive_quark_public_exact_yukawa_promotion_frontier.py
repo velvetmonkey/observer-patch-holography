@@ -41,13 +41,19 @@ def build_artifact(
     public_exact_yukawa_theorem: dict[str, Any],
 ) -> dict[str, Any]:
     local_forward = dict(exact_yukawa_theorem["forward_yukawa_artifact"])
+    promotion_allowed = (
+        public_exact_yukawa_theorem.get("public_promotion_allowed") is True
+        and public_exact_yukawa_theorem.get("proof_status")
+        == "closed_target_free_public_exact_yukawa_end_to_end_theorem"
+    )
     return {
         "artifact": "oph_quark_public_exact_yukawa_promotion_frontier",
         "generated_utc": _timestamp(),
         "proof_status": public_exact_yukawa_theorem["proof_status"],
         "target_name": public_exact_yukawa_theorem["target_name"],
         "scope": public_exact_yukawa_theorem["theorem_scope"],
-        "public_promotion_allowed": True,
+        "public_promotion_allowed": promotion_allowed,
+        "non_circularity_status": public_exact_yukawa_theorem.get("non_circularity_status"),
         "resolved_by_theorem_artifact": public_exact_yukawa_theorem["artifact"],
         "final_public_theorem_candidate": {
             "id": public_sigma_theorem["theorem_id"],
@@ -68,11 +74,19 @@ def build_artifact(
             "public_exact_outputs": public_exact_yukawa_theorem["public_exact_outputs"],
         },
         "conditional_public_closure_if_final_theorem_proved": {
-            "statement": "The final public theorem candidate is now closed, so this conditional closure is realized.",
+            "statement": (
+                "The final public theorem candidate is now closed, so this conditional closure is realized."
+                if promotion_allowed
+                else "The final public theorem candidate is not strict-source promotable until a public sigma source datum with no target leak is supplied."
+            ),
             "induced_exact_outputs": public_exact_yukawa_theorem["public_exact_outputs"]["forward_yukawa_artifact"],
         },
         "notes": [
-            "This frontier is now resolved: the direct public sigma-datum descent theorem is closed, and the public exact Yukawa theorem is emitted explicitly.",
+            (
+                "This frontier is now resolved: the direct public sigma-datum descent theorem is closed, and the public exact Yukawa theorem is emitted explicitly."
+                if promotion_allowed
+                else "This frontier is blocked under strict non-circularity by the target-derived public sigma datum."
+            ),
             "The alternate upstream route remains only as an unused alternative derivation route.",
             "The local declared-carrier exact Yukawa theorem is retained as the representative closed local endpoint beneath the public theorem.",
         ],

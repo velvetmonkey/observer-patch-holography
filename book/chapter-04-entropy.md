@@ -383,12 +383,14 @@ begin with black holes. He named entropy because heat engines forced him to
 distinguish usable energy from unavailable energy. Boltzmann did not have
 quantum information theory. He had atoms, probabilities, and the courage to
 say that thermodynamics was counting. Gibbs turned that counting into a
-general statistical language. Planck used entropy in the route to quantum
-theory. Shannon rediscovered an information-theoretic cousin while studying
-communication. Landauer then showed that information processing itself pays a
-thermodynamic price. Bekenstein and Hawking put entropy on horizons. Page,
-Hayden, Preskill, Almheiri, Engelhardt, Marolf, Maxfield, Penington, and many
-others turned black-hole entropy into a sharp quantum-information problem.
+general statistical language.
+
+Planck used entropy in the route to quantum theory. Shannon rediscovered an
+information-theoretic cousin while studying communication. Landauer then showed
+that information processing itself pays a thermodynamic price. Bekenstein and
+Hawking put entropy on horizons. Page, Hayden, Preskill, Almheiri, Engelhardt,
+Marolf, Maxfield, Penington, and many others turned black-hole entropy into a
+sharp quantum-information problem.
 
 That chain is important because entropy is easy to misread as a single
 metaphor. In this book the same accounting idea appears in different physical

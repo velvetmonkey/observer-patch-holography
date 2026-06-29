@@ -8,6 +8,7 @@
     "fixed_ray_value_formula": "pi_y = pi_lambda = sigma_D11_HT",
     "smallest_exact_object_above_fixed_ray": "Theta_D11_HT_source(mu_t) = (pi_y, pi_lambda)"
   },
+  "display_allowed_as_conditional": true,
   "exact_split_pair": {
     "Sigma_HT_exact": 0.012474840440673948,
     "delta_lambda_mt": -0.0029647908130877214,
@@ -19,13 +20,20 @@
     "pi_y": 0.012281958891788196,
     "w_HT_exact": -0.00038576309777150347
   },
-  "generated_utc": "2026-06-12T05:38:54Z",
+  "generated_utc": "2026-06-29T06:17:22Z",
+  "non_circularity_status": {
+    "missing_source_object": "closed_promotable_EWTargetFreeRepairValueLaw_D10",
+    "promotion_allowed": false,
+    "strict_audit_label": "conditional_candidate",
+    "target_derived_or_candidate_upstream_used": true
+  },
   "notes": [
     "This theorem closes the live D11 Higgs/top lane as a source-only split calibration theorem on the declared D10/D11 surface.",
     "It does not relabel the old one-scalar fixed ray as exact. The fixed ray remains a lower-rank companion branch beneath this split theorem.",
     "The older target-anchored Higgs-only and top-side exactifier artifacts remain on disk as supporting witness surfaces rather than as the defining live pair theorem.",
     "The repo-wide exact public top row remains independently carried by the selected-class quark theorem."
   ],
+  "prediction_promotion_allowed": false,
   "proof": [
     "The fixed-ray no-go theorem proves that the exact Higgs/top pair cannot lie on the old one-scalar branch because w_HT is nonzero there.",
     "The target-free D10 repair theorem already emits the source tuple (eta_source, beta_EW, lambda_EW, tau2_tree_exact, delta_n_tree_exact) with no target readback.",
@@ -33,8 +41,8 @@
     "Those source-only formulas determine the split coordinates pi_y and pi_lambda directly from live D10 objects, with no inverse adapter and no reference-mass input.",
     "The declared D11 Jacobian then reads out delta_y_t_mt, delta_lambda_mt, mt_pole_gev, and mH_gev by direct algebra from that forward-emitted split pair."
   ],
-  "proof_status": "closed_source_only_live_exact_split_pair",
-  "public_surface_candidate_allowed": true,
+  "proof_status": "conditional_on_unpromoted_d10_repair_candidate",
+  "public_surface_candidate_allowed": false,
   "readout_formulas": {
     "delta_lambda_mt": "-(16/9) * pi_lambda * lambda_core_mt",
     "delta_y_t_mt": "pi_y * y_t_core_mt",
@@ -76,12 +84,22 @@
     "top_residual_formula": "-tau2_tree_exact * eta_source^2 + (1 + beta_EW/28) * eta_source^6 + eta_source^8/14 + eta_source^9/27",
     "top_residual_value": 1.1350299093876592e-07
   },
-  "status": "closed",
+  "status": "candidate_only",
   "strictly_not_claimed": [
     "promotion_of_the_old_fixed_ray_as_exact_pair",
     "recovered_core_upgrade_of_the_d11_lane",
     "global_uniqueness_of_the_residual_selector_beyond_the_current_emitted_surface"
   ],
   "theorem_id": "D11SourceSplitForwardExactness",
-  "theorem_scope": "declared_d10_d11_running_matching_threshold_surface_only"
+  "theorem_scope": "declared_d10_d11_running_matching_threshold_surface_only",
+  "upstream_promotion_gate": {
+    "actual_artifact": "oph_d10_ew_target_free_repair_value_law",
+    "actual_promotion_allowed": false,
+    "actual_proof_status": null,
+    "actual_status": "candidate_only",
+    "passed": false,
+    "required_artifact": "oph_d10_ew_target_free_repair_value_law",
+    "required_promotion_allowed": true,
+    "required_status": "closed"
+  }
 }

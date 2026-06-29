@@ -319,8 +319,8 @@ relativity. A clock becomes a geometric device inside the math. Its flow becomes
 same kind of geometric motion that later shows up as boosts and time
 translations.
 
-On the controlled scaling construction used in the paper stack, the modular
-flow of the extracted cap pair matches a conformal motion of the sphere:
+In the controlled scaling construction, the modular flow of the extracted cap
+pair matches a conformal motion of the sphere:
 
 $$\sigma_t^{\omega_C} = \alpha_{\lambda_C(2\pi t)}$$
 

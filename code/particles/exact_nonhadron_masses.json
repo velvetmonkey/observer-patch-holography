@@ -2,6 +2,7 @@
   "artifact": "oph_exact_nonhadron_mass_bundle",
   "entries": [
     {
+      "depends_on_quantitative_particle_pipeline": false,
       "exact_kind": "structural_zero",
       "label": "Photon",
       "mass_gev": 0.0,
@@ -12,6 +13,7 @@
       "source_artifact": "structural_gauge_redundancy_surface"
     },
     {
+      "depends_on_quantitative_particle_pipeline": false,
       "exact_kind": "structural_zero",
       "label": "Gluon",
       "mass_gev": 0.0,
@@ -22,6 +24,7 @@
       "source_artifact": "structural_color_gauge_surface"
     },
     {
+      "depends_on_quantitative_particle_pipeline": false,
       "exact_kind": "structural_zero",
       "label": "Graviton",
       "mass_gev": 0.0,
@@ -52,12 +55,12 @@
       "source_artifact": "code/particles/runs/calibration/d10_ew_w_anchor_neutral_shear_factorization_official_pdg_2025_update.json"
     },
     {
-      "exact_kind": "exact_source_only_higgs_top_split_calibration_theorem",
+      "exact_kind": "conditional_declared_surface_higgs_top_candidate",
       "label": "Higgs Boson",
       "mass_gev": 125.1995304097179,
-      "note": "Exact source-only Higgs theorem on the declared D10/D11 surface. The same theorem emits the exact Higgs row together with a companion top coordinate by direct Jacobian readout from the live D10 repair tuple. At PDG quoting precision the Higgs row lands on the 2025 Higgs average. The exact public running-top row uses the PDG 2025 cross-section entry `Q007TP4`. The auxiliary direct-top average `Q007TP` is compare-only; [#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207) is closed as a corpus-limited no-go by `code/particles/runs/calibration/direct_top_bridge_contract.json`.",
+      "note": "Conditional Higgs/top split candidate on the declared D10/D11 surface. It emits the same numeric split pair, but strict promotion is blocked until the upstream D10 target-free repair law is closed and promotable.",
       "particle_id": "higgs",
-      "promotable": true,
+      "promotable": false,
       "scope": "declared_d10_d11_running_matching_threshold_surface_only",
       "source_artifact": "code/particles/runs/calibration/d11_live_exact_split_pair_theorem.json"
     },
@@ -98,13 +101,13 @@
       "supporting_theorem_artifact": "code/particles/runs/leptons/lepton_current_family_quadratic_readout_theorem.json"
     },
     {
-      "exact_kind": "selected_class_theorem_grade_exact_forward_quark_closure",
+      "exact_kind": "selected_class_target_anchored_exact_witness",
       "label": "Up Quark",
       "mass_gev": 0.0021600000000000005,
-      "note": "Theorem-grade exact quark output on the selected public physical quark frame class chosen by `P`, emitted by `oph_quark_public_exact_yukawa_end_to_end_theorem`. The exact sextet matches the official PDG 2025 API running-quark target surface, and the theorem emits explicit exact forward Yukawas `Y_u` and `Y_d`. The top coordinate uses PDG summary `Q007TP4`. The auxiliary direct-top entry `Q007TP` is compare-only; [#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207) is closed as a corpus-limited no-go by `code/particles/runs/calibration/direct_top_bridge_contract.json`. The same exact sextet is also realized on `current_family_only`. A separate restricted theorem surface emits a sector-attached `Sigma_ud^phys` element on `current_family_common_refinement_transport_frame_only`, the merged transport-frame completion closes the same running sextet on `current_family_common_refinement_transport_frame_only`, and the declared transport-frame chain emits explicit exact forward Yukawas `Y_u` and `Y_d` with certification status `forward_matrix_certified`. The full declared-carrier chain is recorded in `oph_quark_current_family_end_to_end_exact_pdg_derivation_chain`. The target-free mass bridge closes separately on the emitted D12 ray. This theorem is selected-class closure only. It does not claim a global classification of all quark frame classes.",
+      "note": "Selected-class exact quark witness on the public physical quark frame class chosen by `P`, emitted by `oph_quark_public_exact_yukawa_end_to_end_theorem`. The exact sextet matches the official PDG 2025 API running-quark target surface, and the theorem emits explicit exact forward Yukawas `Y_u` and `Y_d`. Under the strict non-circularity audit it is not promotable because the public sigma datum is target-derived. The top coordinate uses PDG summary `Q007TP4`. The auxiliary direct-top entry `Q007TP` is compare-only; [#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207) is closed as a corpus-limited no-go by `code/particles/runs/calibration/direct_top_bridge_contract.json`. The same exact sextet is also realized on `current_family_only`. A separate restricted theorem surface emits a sector-attached `Sigma_ud^phys` element on `current_family_common_refinement_transport_frame_only`, the merged transport-frame completion closes the same running sextet on `current_family_common_refinement_transport_frame_only`, and the declared transport-frame chain emits explicit exact forward Yukawas `Y_u` and `Y_d` with certification status `forward_matrix_certified`. The full declared-carrier chain is recorded in `oph_quark_current_family_end_to_end_exact_pdg_derivation_chain`. The target-free mass bridge closes separately on the emitted D12 ray. This theorem is selected-class closure only. It does not claim a global classification of all quark frame classes.",
       "particle_id": "up_quark",
-      "promotable": true,
-      "scope": "selected_public_physical_quark_frame_class_only",
+      "promotable": false,
+      "scope": "selected_public_physical_quark_frame_class_only_but_sigma_datum_target_derived",
       "source_artifact": "code/particles/runs/flavor/quark_public_exact_yukawa_end_to_end_theorem.json",
       "supporting_end_to_end_chain_artifact": "code/particles/runs/flavor/quark_current_family_end_to_end_exact_pdg_derivation_chain.json",
       "supporting_scope_closure_artifact": "code/particles/runs/flavor/quark_current_family_selected_sheet_closure.json",
@@ -114,13 +117,13 @@
       "supporting_transport_frame_forward_yukawas_artifact": "code/particles/runs/flavor/quark_current_family_transport_frame_exact_forward_yukawas.json"
     },
     {
-      "exact_kind": "selected_class_theorem_grade_exact_forward_quark_closure",
+      "exact_kind": "selected_class_target_anchored_exact_witness",
       "label": "Charm Quark",
       "mass_gev": 1.2729999999999992,
-      "note": "Theorem-grade exact quark output on the selected public physical quark frame class chosen by `P`, emitted by `oph_quark_public_exact_yukawa_end_to_end_theorem`. The exact sextet matches the official PDG 2025 API running-quark target surface, and the theorem emits explicit exact forward Yukawas `Y_u` and `Y_d`. The top coordinate uses PDG summary `Q007TP4`. The auxiliary direct-top entry `Q007TP` is compare-only; [#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207) is closed as a corpus-limited no-go by `code/particles/runs/calibration/direct_top_bridge_contract.json`. The same exact sextet is also realized on `current_family_only`. A separate restricted theorem surface emits a sector-attached `Sigma_ud^phys` element on `current_family_common_refinement_transport_frame_only`, the merged transport-frame completion closes the same running sextet on `current_family_common_refinement_transport_frame_only`, and the declared transport-frame chain emits explicit exact forward Yukawas `Y_u` and `Y_d` with certification status `forward_matrix_certified`. The full declared-carrier chain is recorded in `oph_quark_current_family_end_to_end_exact_pdg_derivation_chain`. The target-free mass bridge closes separately on the emitted D12 ray. This theorem is selected-class closure only. It does not claim a global classification of all quark frame classes.",
+      "note": "Selected-class exact quark witness on the public physical quark frame class chosen by `P`, emitted by `oph_quark_public_exact_yukawa_end_to_end_theorem`. The exact sextet matches the official PDG 2025 API running-quark target surface, and the theorem emits explicit exact forward Yukawas `Y_u` and `Y_d`. Under the strict non-circularity audit it is not promotable because the public sigma datum is target-derived. The top coordinate uses PDG summary `Q007TP4`. The auxiliary direct-top entry `Q007TP` is compare-only; [#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207) is closed as a corpus-limited no-go by `code/particles/runs/calibration/direct_top_bridge_contract.json`. The same exact sextet is also realized on `current_family_only`. A separate restricted theorem surface emits a sector-attached `Sigma_ud^phys` element on `current_family_common_refinement_transport_frame_only`, the merged transport-frame completion closes the same running sextet on `current_family_common_refinement_transport_frame_only`, and the declared transport-frame chain emits explicit exact forward Yukawas `Y_u` and `Y_d` with certification status `forward_matrix_certified`. The full declared-carrier chain is recorded in `oph_quark_current_family_end_to_end_exact_pdg_derivation_chain`. The target-free mass bridge closes separately on the emitted D12 ray. This theorem is selected-class closure only. It does not claim a global classification of all quark frame classes.",
       "particle_id": "charm_quark",
-      "promotable": true,
-      "scope": "selected_public_physical_quark_frame_class_only",
+      "promotable": false,
+      "scope": "selected_public_physical_quark_frame_class_only_but_sigma_datum_target_derived",
       "source_artifact": "code/particles/runs/flavor/quark_public_exact_yukawa_end_to_end_theorem.json",
       "supporting_end_to_end_chain_artifact": "code/particles/runs/flavor/quark_current_family_end_to_end_exact_pdg_derivation_chain.json",
       "supporting_scope_closure_artifact": "code/particles/runs/flavor/quark_current_family_selected_sheet_closure.json",
@@ -130,13 +133,13 @@
       "supporting_transport_frame_forward_yukawas_artifact": "code/particles/runs/flavor/quark_current_family_transport_frame_exact_forward_yukawas.json"
     },
     {
-      "exact_kind": "selected_class_theorem_grade_exact_forward_quark_closure",
+      "exact_kind": "selected_class_target_anchored_exact_witness",
       "label": "Top Quark",
       "mass_gev": 172.35235532883115,
-      "note": "Theorem-grade exact quark output on the selected public physical quark frame class chosen by `P`, emitted by `oph_quark_public_exact_yukawa_end_to_end_theorem`. The exact sextet matches the official PDG 2025 API running-quark target surface, and the theorem emits explicit exact forward Yukawas `Y_u` and `Y_d`. The top coordinate uses PDG summary `Q007TP4`. The auxiliary direct-top entry `Q007TP` is compare-only; [#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207) is closed as a corpus-limited no-go by `code/particles/runs/calibration/direct_top_bridge_contract.json`. The same exact sextet is also realized on `current_family_only`. A separate restricted theorem surface emits a sector-attached `Sigma_ud^phys` element on `current_family_common_refinement_transport_frame_only`, the merged transport-frame completion closes the same running sextet on `current_family_common_refinement_transport_frame_only`, and the declared transport-frame chain emits explicit exact forward Yukawas `Y_u` and `Y_d` with certification status `forward_matrix_certified`. The full declared-carrier chain is recorded in `oph_quark_current_family_end_to_end_exact_pdg_derivation_chain`. The target-free mass bridge closes separately on the emitted D12 ray. This theorem is selected-class closure only. It does not claim a global classification of all quark frame classes.",
+      "note": "Selected-class exact quark witness on the public physical quark frame class chosen by `P`, emitted by `oph_quark_public_exact_yukawa_end_to_end_theorem`. The exact sextet matches the official PDG 2025 API running-quark target surface, and the theorem emits explicit exact forward Yukawas `Y_u` and `Y_d`. Under the strict non-circularity audit it is not promotable because the public sigma datum is target-derived. The top coordinate uses PDG summary `Q007TP4`. The auxiliary direct-top entry `Q007TP` is compare-only; [#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207) is closed as a corpus-limited no-go by `code/particles/runs/calibration/direct_top_bridge_contract.json`. The same exact sextet is also realized on `current_family_only`. A separate restricted theorem surface emits a sector-attached `Sigma_ud^phys` element on `current_family_common_refinement_transport_frame_only`, the merged transport-frame completion closes the same running sextet on `current_family_common_refinement_transport_frame_only`, and the declared transport-frame chain emits explicit exact forward Yukawas `Y_u` and `Y_d` with certification status `forward_matrix_certified`. The full declared-carrier chain is recorded in `oph_quark_current_family_end_to_end_exact_pdg_derivation_chain`. The target-free mass bridge closes separately on the emitted D12 ray. This theorem is selected-class closure only. It does not claim a global classification of all quark frame classes.",
       "particle_id": "top_quark",
-      "promotable": true,
-      "scope": "selected_public_physical_quark_frame_class_only",
+      "promotable": false,
+      "scope": "selected_public_physical_quark_frame_class_only_but_sigma_datum_target_derived",
       "source_artifact": "code/particles/runs/flavor/quark_public_exact_yukawa_end_to_end_theorem.json",
       "supporting_end_to_end_chain_artifact": "code/particles/runs/flavor/quark_current_family_end_to_end_exact_pdg_derivation_chain.json",
       "supporting_scope_closure_artifact": "code/particles/runs/flavor/quark_current_family_selected_sheet_closure.json",
@@ -146,13 +149,13 @@
       "supporting_transport_frame_forward_yukawas_artifact": "code/particles/runs/flavor/quark_current_family_transport_frame_exact_forward_yukawas.json"
     },
     {
-      "exact_kind": "selected_class_theorem_grade_exact_forward_quark_closure",
+      "exact_kind": "selected_class_target_anchored_exact_witness",
       "label": "Down Quark",
       "mass_gev": 0.004699999999999999,
-      "note": "Theorem-grade exact quark output on the selected public physical quark frame class chosen by `P`, emitted by `oph_quark_public_exact_yukawa_end_to_end_theorem`. The exact sextet matches the official PDG 2025 API running-quark target surface, and the theorem emits explicit exact forward Yukawas `Y_u` and `Y_d`. The top coordinate uses PDG summary `Q007TP4`. The auxiliary direct-top entry `Q007TP` is compare-only; [#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207) is closed as a corpus-limited no-go by `code/particles/runs/calibration/direct_top_bridge_contract.json`. The same exact sextet is also realized on `current_family_only`. A separate restricted theorem surface emits a sector-attached `Sigma_ud^phys` element on `current_family_common_refinement_transport_frame_only`, the merged transport-frame completion closes the same running sextet on `current_family_common_refinement_transport_frame_only`, and the declared transport-frame chain emits explicit exact forward Yukawas `Y_u` and `Y_d` with certification status `forward_matrix_certified`. The full declared-carrier chain is recorded in `oph_quark_current_family_end_to_end_exact_pdg_derivation_chain`. The target-free mass bridge closes separately on the emitted D12 ray. This theorem is selected-class closure only. It does not claim a global classification of all quark frame classes.",
+      "note": "Selected-class exact quark witness on the public physical quark frame class chosen by `P`, emitted by `oph_quark_public_exact_yukawa_end_to_end_theorem`. The exact sextet matches the official PDG 2025 API running-quark target surface, and the theorem emits explicit exact forward Yukawas `Y_u` and `Y_d`. Under the strict non-circularity audit it is not promotable because the public sigma datum is target-derived. The top coordinate uses PDG summary `Q007TP4`. The auxiliary direct-top entry `Q007TP` is compare-only; [#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207) is closed as a corpus-limited no-go by `code/particles/runs/calibration/direct_top_bridge_contract.json`. The same exact sextet is also realized on `current_family_only`. A separate restricted theorem surface emits a sector-attached `Sigma_ud^phys` element on `current_family_common_refinement_transport_frame_only`, the merged transport-frame completion closes the same running sextet on `current_family_common_refinement_transport_frame_only`, and the declared transport-frame chain emits explicit exact forward Yukawas `Y_u` and `Y_d` with certification status `forward_matrix_certified`. The full declared-carrier chain is recorded in `oph_quark_current_family_end_to_end_exact_pdg_derivation_chain`. The target-free mass bridge closes separately on the emitted D12 ray. This theorem is selected-class closure only. It does not claim a global classification of all quark frame classes.",
       "particle_id": "down_quark",
-      "promotable": true,
-      "scope": "selected_public_physical_quark_frame_class_only",
+      "promotable": false,
+      "scope": "selected_public_physical_quark_frame_class_only_but_sigma_datum_target_derived",
       "source_artifact": "code/particles/runs/flavor/quark_public_exact_yukawa_end_to_end_theorem.json",
       "supporting_end_to_end_chain_artifact": "code/particles/runs/flavor/quark_current_family_end_to_end_exact_pdg_derivation_chain.json",
       "supporting_scope_closure_artifact": "code/particles/runs/flavor/quark_current_family_selected_sheet_closure.json",
@@ -162,13 +165,13 @@
       "supporting_transport_frame_forward_yukawas_artifact": "code/particles/runs/flavor/quark_current_family_transport_frame_exact_forward_yukawas.json"
     },
     {
-      "exact_kind": "selected_class_theorem_grade_exact_forward_quark_closure",
+      "exact_kind": "selected_class_target_anchored_exact_witness",
       "label": "Strange Quark",
       "mass_gev": 0.09349999999999999,
-      "note": "Theorem-grade exact quark output on the selected public physical quark frame class chosen by `P`, emitted by `oph_quark_public_exact_yukawa_end_to_end_theorem`. The exact sextet matches the official PDG 2025 API running-quark target surface, and the theorem emits explicit exact forward Yukawas `Y_u` and `Y_d`. The top coordinate uses PDG summary `Q007TP4`. The auxiliary direct-top entry `Q007TP` is compare-only; [#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207) is closed as a corpus-limited no-go by `code/particles/runs/calibration/direct_top_bridge_contract.json`. The same exact sextet is also realized on `current_family_only`. A separate restricted theorem surface emits a sector-attached `Sigma_ud^phys` element on `current_family_common_refinement_transport_frame_only`, the merged transport-frame completion closes the same running sextet on `current_family_common_refinement_transport_frame_only`, and the declared transport-frame chain emits explicit exact forward Yukawas `Y_u` and `Y_d` with certification status `forward_matrix_certified`. The full declared-carrier chain is recorded in `oph_quark_current_family_end_to_end_exact_pdg_derivation_chain`. The target-free mass bridge closes separately on the emitted D12 ray. This theorem is selected-class closure only. It does not claim a global classification of all quark frame classes.",
+      "note": "Selected-class exact quark witness on the public physical quark frame class chosen by `P`, emitted by `oph_quark_public_exact_yukawa_end_to_end_theorem`. The exact sextet matches the official PDG 2025 API running-quark target surface, and the theorem emits explicit exact forward Yukawas `Y_u` and `Y_d`. Under the strict non-circularity audit it is not promotable because the public sigma datum is target-derived. The top coordinate uses PDG summary `Q007TP4`. The auxiliary direct-top entry `Q007TP` is compare-only; [#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207) is closed as a corpus-limited no-go by `code/particles/runs/calibration/direct_top_bridge_contract.json`. The same exact sextet is also realized on `current_family_only`. A separate restricted theorem surface emits a sector-attached `Sigma_ud^phys` element on `current_family_common_refinement_transport_frame_only`, the merged transport-frame completion closes the same running sextet on `current_family_common_refinement_transport_frame_only`, and the declared transport-frame chain emits explicit exact forward Yukawas `Y_u` and `Y_d` with certification status `forward_matrix_certified`. The full declared-carrier chain is recorded in `oph_quark_current_family_end_to_end_exact_pdg_derivation_chain`. The target-free mass bridge closes separately on the emitted D12 ray. This theorem is selected-class closure only. It does not claim a global classification of all quark frame classes.",
       "particle_id": "strange_quark",
-      "promotable": true,
-      "scope": "selected_public_physical_quark_frame_class_only",
+      "promotable": false,
+      "scope": "selected_public_physical_quark_frame_class_only_but_sigma_datum_target_derived",
       "source_artifact": "code/particles/runs/flavor/quark_public_exact_yukawa_end_to_end_theorem.json",
       "supporting_end_to_end_chain_artifact": "code/particles/runs/flavor/quark_current_family_end_to_end_exact_pdg_derivation_chain.json",
       "supporting_scope_closure_artifact": "code/particles/runs/flavor/quark_current_family_selected_sheet_closure.json",
@@ -178,13 +181,13 @@
       "supporting_transport_frame_forward_yukawas_artifact": "code/particles/runs/flavor/quark_current_family_transport_frame_exact_forward_yukawas.json"
     },
     {
-      "exact_kind": "selected_class_theorem_grade_exact_forward_quark_closure",
+      "exact_kind": "selected_class_target_anchored_exact_witness",
       "label": "Bottom Quark",
       "mass_gev": 4.182999999999994,
-      "note": "Theorem-grade exact quark output on the selected public physical quark frame class chosen by `P`, emitted by `oph_quark_public_exact_yukawa_end_to_end_theorem`. The exact sextet matches the official PDG 2025 API running-quark target surface, and the theorem emits explicit exact forward Yukawas `Y_u` and `Y_d`. The top coordinate uses PDG summary `Q007TP4`. The auxiliary direct-top entry `Q007TP` is compare-only; [#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207) is closed as a corpus-limited no-go by `code/particles/runs/calibration/direct_top_bridge_contract.json`. The same exact sextet is also realized on `current_family_only`. A separate restricted theorem surface emits a sector-attached `Sigma_ud^phys` element on `current_family_common_refinement_transport_frame_only`, the merged transport-frame completion closes the same running sextet on `current_family_common_refinement_transport_frame_only`, and the declared transport-frame chain emits explicit exact forward Yukawas `Y_u` and `Y_d` with certification status `forward_matrix_certified`. The full declared-carrier chain is recorded in `oph_quark_current_family_end_to_end_exact_pdg_derivation_chain`. The target-free mass bridge closes separately on the emitted D12 ray. This theorem is selected-class closure only. It does not claim a global classification of all quark frame classes.",
+      "note": "Selected-class exact quark witness on the public physical quark frame class chosen by `P`, emitted by `oph_quark_public_exact_yukawa_end_to_end_theorem`. The exact sextet matches the official PDG 2025 API running-quark target surface, and the theorem emits explicit exact forward Yukawas `Y_u` and `Y_d`. Under the strict non-circularity audit it is not promotable because the public sigma datum is target-derived. The top coordinate uses PDG summary `Q007TP4`. The auxiliary direct-top entry `Q007TP` is compare-only; [#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207) is closed as a corpus-limited no-go by `code/particles/runs/calibration/direct_top_bridge_contract.json`. The same exact sextet is also realized on `current_family_only`. A separate restricted theorem surface emits a sector-attached `Sigma_ud^phys` element on `current_family_common_refinement_transport_frame_only`, the merged transport-frame completion closes the same running sextet on `current_family_common_refinement_transport_frame_only`, and the declared transport-frame chain emits explicit exact forward Yukawas `Y_u` and `Y_d` with certification status `forward_matrix_certified`. The full declared-carrier chain is recorded in `oph_quark_current_family_end_to_end_exact_pdg_derivation_chain`. The target-free mass bridge closes separately on the emitted D12 ray. This theorem is selected-class closure only. It does not claim a global classification of all quark frame classes.",
       "particle_id": "bottom_quark",
-      "promotable": true,
-      "scope": "selected_public_physical_quark_frame_class_only",
+      "promotable": false,
+      "scope": "selected_public_physical_quark_frame_class_only_but_sigma_datum_target_derived",
       "source_artifact": "code/particles/runs/flavor/quark_public_exact_yukawa_end_to_end_theorem.json",
       "supporting_end_to_end_chain_artifact": "code/particles/runs/flavor/quark_current_family_end_to_end_exact_pdg_derivation_chain.json",
       "supporting_scope_closure_artifact": "code/particles/runs/flavor/quark_current_family_selected_sheet_closure.json",
@@ -194,40 +197,40 @@
       "supporting_transport_frame_forward_yukawas_artifact": "code/particles/runs/flavor/quark_current_family_transport_frame_exact_forward_yukawas.json"
     },
     {
-      "exact_kind": "theorem_grade_weighted_cycle_absolute_attachment",
+      "exact_kind": "scale_free_weighted_cycle_theorem_with_compare_only_absolute_attachment_candidate",
       "label": "Electron Neutrino",
       "mass_eV": 0.017454720257976796,
-      "note": "Theorem-grade weighted-cycle absolute neutrino mass from the emitted bridge-rigidity and absolute-attachment pair, with `C_nu = 0.9994295999075177`, `P_nu = 6.699825740519345`, and `B_nu = 6.696004159297337`.",
+      "note": "Scale-free weighted-cycle neutrino branch with compare-only absolute attachment candidate, with `C_nu = 0.9994295999075177`, `P_nu = 6.699825740519345`, and `B_nu = 6.696004159297337`.",
       "particle_id": "electron_neutrino",
-      "promotable": true,
+      "promotable": false,
       "scope": "weighted_cycle_bridge_rigid_absolute_family",
       "source_artifact": "code/particles/runs/neutrino/neutrino_absolute_attachment_theorem.json",
       "supporting_bridge_rigidity_artifact": "code/particles/runs/neutrino/neutrino_bridge_rigidity_theorem.json"
     },
     {
-      "exact_kind": "theorem_grade_weighted_cycle_absolute_attachment",
+      "exact_kind": "scale_free_weighted_cycle_theorem_with_compare_only_absolute_attachment_candidate",
       "label": "Muon Neutrino",
       "mass_eV": 0.019481987935919015,
-      "note": "Theorem-grade weighted-cycle absolute neutrino mass from the emitted bridge-rigidity and absolute-attachment pair, with `C_nu = 0.9994295999075177`, `P_nu = 6.699825740519345`, and `B_nu = 6.696004159297337`.",
+      "note": "Scale-free weighted-cycle neutrino branch with compare-only absolute attachment candidate, with `C_nu = 0.9994295999075177`, `P_nu = 6.699825740519345`, and `B_nu = 6.696004159297337`.",
       "particle_id": "muon_neutrino",
-      "promotable": true,
+      "promotable": false,
       "scope": "weighted_cycle_bridge_rigid_absolute_family",
       "source_artifact": "code/particles/runs/neutrino/neutrino_absolute_attachment_theorem.json",
       "supporting_bridge_rigidity_artifact": "code/particles/runs/neutrino/neutrino_bridge_rigidity_theorem.json"
     },
     {
-      "exact_kind": "theorem_grade_weighted_cycle_absolute_attachment",
+      "exact_kind": "scale_free_weighted_cycle_theorem_with_compare_only_absolute_attachment_candidate",
       "label": "Tau Neutrino",
       "mass_eV": 0.05307522145074924,
-      "note": "Theorem-grade weighted-cycle absolute neutrino mass from the emitted bridge-rigidity and absolute-attachment pair, with `C_nu = 0.9994295999075177`, `P_nu = 6.699825740519345`, and `B_nu = 6.696004159297337`.",
+      "note": "Scale-free weighted-cycle neutrino branch with compare-only absolute attachment candidate, with `C_nu = 0.9994295999075177`, `P_nu = 6.699825740519345`, and `B_nu = 6.696004159297337`.",
       "particle_id": "tau_neutrino",
-      "promotable": true,
+      "promotable": false,
       "scope": "weighted_cycle_bridge_rigid_absolute_family",
       "source_artifact": "code/particles/runs/neutrino/neutrino_absolute_attachment_theorem.json",
       "supporting_bridge_rigidity_artifact": "code/particles/runs/neutrino/neutrino_bridge_rigidity_theorem.json"
     }
   ],
   "excluded_lane": "hadrons_compute_bound",
-  "generated_utc": "2026-06-17T03:22:30Z",
+  "generated_utc": "2026-06-29T06:18:41Z",
   "status": "exact_output_lane_closed_nonhadron_only"
 }

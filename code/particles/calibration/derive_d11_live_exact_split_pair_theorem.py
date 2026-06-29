@@ -88,15 +88,46 @@ def build_artifact(d10_source: dict, d10_repair: dict, d11_surface: dict, no_go:
     eta_exact = 0.5 * (pi_y - pi_lambda)
     c_t_live = (a_t * (rho_ht - tau2_tree_exact) + top_residual) / delta_n_tree_exact
     c_h_live = ((-(4.0 / 3.0) * tau2_tree_exact) + b_h * rho_ht - higgs_residual) / delta_n_tree_exact
+    d10_repair_gate_closed = (
+        d10_repair.get("status") == "closed"
+        and d10_repair.get("promotion_allowed") is True
+        and str(d10_repair.get("proof_status", "")).startswith("closed")
+    )
+    proof_status = (
+        "closed_source_only_live_exact_split_pair"
+        if d10_repair_gate_closed
+        else "conditional_on_unpromoted_d10_repair_candidate"
+    )
+    status = "closed" if d10_repair_gate_closed else "candidate_only"
 
     return {
         "artifact": "oph_d11_live_exact_split_pair_theorem",
         "generated_utc": _timestamp(),
         "theorem_id": "D11SourceSplitForwardExactness",
-        "proof_status": "closed_source_only_live_exact_split_pair",
-        "status": "closed",
+        "proof_status": proof_status,
+        "status": status,
         "theorem_scope": "declared_d10_d11_running_matching_threshold_surface_only",
-        "public_surface_candidate_allowed": True,
+        "public_surface_candidate_allowed": d10_repair_gate_closed,
+        "prediction_promotion_allowed": d10_repair_gate_closed,
+        "display_allowed_as_conditional": not d10_repair_gate_closed,
+        "upstream_promotion_gate": {
+            "required_artifact": "oph_d10_ew_target_free_repair_value_law",
+            "required_status": "closed",
+            "required_promotion_allowed": True,
+            "actual_artifact": d10_repair.get("artifact"),
+            "actual_status": d10_repair.get("status"),
+            "actual_proof_status": d10_repair.get("proof_status"),
+            "actual_promotion_allowed": d10_repair.get("promotion_allowed"),
+            "passed": d10_repair_gate_closed,
+        },
+        "non_circularity_status": {
+            "promotion_allowed": d10_repair_gate_closed,
+            "target_derived_or_candidate_upstream_used": not d10_repair_gate_closed,
+            "missing_source_object": None
+            if d10_repair_gate_closed
+            else "closed_promotable_EWTargetFreeRepairValueLaw_D10",
+            "strict_audit_label": "source_only" if d10_repair_gate_closed else "conditional_candidate",
+        },
         "source_artifacts": {
             "d10_source_pair": str(D10_SOURCE_JSON),
             "d10_target_free_repair": str(D10_REPAIR_JSON),

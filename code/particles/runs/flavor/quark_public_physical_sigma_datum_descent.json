@@ -143,10 +143,17 @@
     "sigma_id": "sigma_phys_transport_frame_current_family",
     "tau": "CR::same_label_left::transport_frame::current_family_exact"
   },
-  "generated_utc": "2026-06-12T05:39:00Z",
+  "display_allowed_as_selected_class_witness": true,
+  "generated_utc": "2026-06-29T06:17:26Z",
   "induces_global_contract": {
     "id": "strengthened_quark_physical_sigma_ud_lift",
     "role": "public_same_label_left_handed_sigma_datum_on_selected_physical_frame_class"
+  },
+  "non_circularity_status": {
+    "missing_source_object": "quark_public_physical_sigma_source_datum_no_target_leak",
+    "promotion_allowed": false,
+    "strict_audit_label": "target_derived_selected_class_sigma_witness",
+    "target_derived_sigma_datum_used": true
   },
   "notes": [
     "This theorem closes the direct public route rather than the upstream generation-bundle route.",
@@ -181,8 +188,8 @@
       "step": 5
     }
   ],
-  "proof_status": "closed_target_free_public_physical_sigma_datum_descent",
-  "public_promotion_allowed": true,
+  "proof_status": "blocked_by_target_derived_public_sigma_datum",
+  "public_promotion_allowed": false,
   "realized_transport_frame_section_uniqueness": {
     "cocycle_identity_closed": true,
     "common_refinement_invariance_closed_on_current_family": true,
@@ -298,6 +305,10 @@
   "supporting_artifacts": {
     "restricted_sector_attached_lift": "oph_quark_current_family_transport_frame_sector_attached_lift",
     "restricted_strengthened_physical_sigma_lift": "oph_quark_current_family_transport_frame_strengthened_physical_sigma_lift_theorem",
+    "restricted_strengthened_physical_sigma_lift_supports": {
+      "exact_sigma_target": "oph_quark_current_family_exact_sigma_target",
+      "restricted_physical_sigma_lift_theorem": "oph_quark_current_family_transport_frame_physical_sigma_lift_theorem"
+    },
     "same_label_line_lift": "oph_overlap_edge_line_lift"
   },
   "theorem_id": "target_free_public_physical_sigma_datum_descent",

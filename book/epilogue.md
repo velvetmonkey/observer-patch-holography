@@ -52,7 +52,7 @@ the observer-pattern connects back to its surroundings. The interior
 interface-relative state is the inside pattern, specified relative to that interface.
 
 What does the framework support? It supports a fixed-cutoff
-backup-and-restore statement on the operational surface studied in the paper.
+backup-and-restore statement on the observer-facing operational surface.
 If the accessible checkpoint is restored, the exposed interfaces are kept the
 same, and the subsequent updates follow the same path, then the future
 accessible statistics match exactly or within a controlled error.

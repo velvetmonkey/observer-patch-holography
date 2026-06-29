@@ -24,6 +24,7 @@ def test_d10_and_d11_public_candidate_policy_is_explicit() -> None:
     module = _load_module()
     d10 = {
         "public_surface_candidate_allowed": True,
+        "prediction_promotion_allowed": True,
         "mass_pair_predictive_candidate": {"MW_pole": 1.0, "MZ_pole": 2.0},
     }
     d11 = {
@@ -32,6 +33,8 @@ def test_d10_and_d11_public_candidate_policy_is_explicit() -> None:
     }
     assert module._d10_public_mass_pair_allowed(d10) is True
     assert module._d11_public_seed_allowed(d11) is True
+    d10["prediction_promotion_allowed"] = False
+    assert module._d10_public_mass_pair_allowed(d10) is False
 
 
 def test_neutrino_repaired_branch_policy_is_explicit() -> None:

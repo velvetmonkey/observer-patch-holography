@@ -150,7 +150,8 @@ $$|\psi_L\rangle = \alpha|000\rangle + \beta|111\rangle$$
 If one qubit flips, measure parity. $Z_1Z_2$ checks whether qubits 1 and 2
 match, while $Z_2Z_3$ checks qubits 2 and 3.
 
-The syndrome reveals which qubit flipped without revealing whether qubits are 0 or 1.
+The syndrome identifies the location of the error while leaving the encoded
+bit private.
 
 ### The Shor Code
 
@@ -255,13 +256,9 @@ $\alpha_{ab}$ form a small matrix of syndrome data. The condition says that
 inside the protected subspace, errors can change the syndrome, but they cannot
 learn or scramble the logical message itself.
 
-Within the code space, all errors look the same up to a scalar. Errors don't move you between different logical states. The scalar can be detected as the syndrome and removed.
-
-This is the heart of the theorem. The formula says the error channel cannot
-learn which logical state was encoded. Every correctable error acts on the
-protected subspace in the same bland way, differing only by an overall number.
-The physical carrier may be damaged, but the logical information stays hidden
-from the noise. That hiddenness is what makes recovery possible.
+That is the heart of the theorem. The physical carrier may be damaged, but the
+logical information stays hidden from the noise. That hiddenness is what makes
+recovery possible.
 
 In quantum gravity, we only have approximate codes. The Knill-Laflamme
 condition is correspondingly approximate, with corrections often organized in

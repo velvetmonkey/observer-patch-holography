@@ -25,9 +25,14 @@ def test_quark_public_physical_sigma_datum_descent_closes_selected_public_class(
     )
 
     assert payload["artifact"] == "oph_quark_public_physical_sigma_datum_descent"
-    assert payload["proof_status"] == "closed_target_free_public_physical_sigma_datum_descent"
+    assert payload["proof_status"] == "blocked_by_target_derived_public_sigma_datum"
     assert payload["theorem_id"] == "target_free_public_physical_sigma_datum_descent"
-    assert payload["public_promotion_allowed"] is True
+    assert payload["public_promotion_allowed"] is False
+    assert payload["display_allowed_as_selected_class_witness"] is True
+    assert payload["non_circularity_status"]["target_derived_sigma_datum_used"] is True
+    assert payload["non_circularity_status"]["missing_source_object"] == (
+        "quark_public_physical_sigma_source_datum_no_target_leak"
+    )
     assert payload["induces_global_contract"]["id"] == "strengthened_quark_physical_sigma_ud_lift"
     assert payload["realized_transport_frame_section_uniqueness"]["common_refinement_level"] == 1
     assert payload["realized_transport_frame_section_uniqueness"]["refinement_functoriality_closed"] is True

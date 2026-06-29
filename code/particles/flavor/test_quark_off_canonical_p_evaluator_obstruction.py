@@ -23,7 +23,7 @@ def test_quark_off_canonical_p_evaluator_obstruction_records_hard_blockers() -> 
     assert payload["artifact"] == "oph_quark_off_canonical_p_evaluator_obstruction"
     assert payload["proof_status"] == "off_canonical_p_evaluator_underdetermined_current_corpus"
     assert payload["theorem_grade_closure"] is False
-    assert payload["selected_public_exact_surface"]["closed"] is True
+    assert payload["selected_public_exact_surface"]["closed"] is False
     assert payload["selected_public_pure_B_payload"]["closed"] is True
     assert payload["lane_closure_verdict"]["closure_kind"] == "hard_no_go_current_corpus"
     assert payload["lane_closure_verdict"]["issue_212_acceptance_met"] is False

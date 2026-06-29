@@ -27,8 +27,8 @@ def test_blind_prediction_provenance_records_target_use_and_declared_sensitivity
     assert row_map["w_boson"]["row_class"] == "compare_only_reproduction"
     assert row_map["electron"]["target_use"] == "target_values_used_to_anchor_current_family_witness"
     assert row_map["higgs"]["blind_status"] == "conditionally_blind_on_declared_surface"
-    assert row_map["top_quark"]["row_class"] == "selected_class_exact_theorem"
-    assert row_map["electron_neutrino"]["target_use"] == "no_absolute_mass_target_input"
+    assert row_map["top_quark"]["row_class"] == "selected_class_target_anchored_witness"
+    assert row_map["electron_neutrino"]["target_use"] == "compare_only_C_nu_used_for_absolute_attachment_candidate"
     workflows = {workflow["id"]: workflow for workflow in payload["preregistered_blind_workflows"]}
     assert workflows["new_quantity_pre_reference_lock"]["status"] == "protocol_emitted_unexercised"
     assert workflows["convention_sensitivity_sweep"]["status"] == "declared_taxonomy_emitted_numeric_sweep_stage_gated"

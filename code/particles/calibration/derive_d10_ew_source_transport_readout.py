@@ -238,7 +238,9 @@ def build_artifact(
         "broader_supported_repair_frontier": broader_supported_repair_frontier,
         "exact_pdg_wz_frontier": exact_pdg_wz_frontier,
         "predictive_promotion_allowed": target_free_repair_closed,
-        "public_surface_candidate_allowed": True,
+        "public_surface_candidate_allowed": target_free_repair_closed,
+        "display_allowed_as_compare_only": not target_free_repair_closed,
+        "prediction_promotion_allowed": target_free_repair_closed,
         "public_surface_candidate_scope": (
             ["MW_pole", "MZ_pole", "v_report"] if target_free_repair_closed else public_surface_scope
         ),

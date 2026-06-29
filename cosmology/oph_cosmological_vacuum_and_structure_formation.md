@@ -1,6 +1,6 @@
-# Status
+# Scope
 
-This is a staged template, not a release-pipeline paper. It coordinates the vacuum/fluctuation part of `cosmology/oph_cosmology_finite_source_cmb_program.tex`, the screen-microphysics finite carrier, the compact theorem stack, and OPH-FPE simulator outputs in <https://github.com/muellerberndt/oph-physics-sim>.
+This is a technical companion outside the release bundle. It coordinates the vacuum and fluctuation boundary for finite-source cosmology, screen microphysics, the compact theorem stack, and OPH-FPE simulator outputs.
 
 # Shared Finite Quotient Theorem Surface
 
@@ -308,7 +308,7 @@ The simulator should emit the following receipt names even when they fail:
 
 False receipts are part of the scientific result. They prevent a reference baseline or rendering field from being mislabeled as an OPH vacuum.
 
-# Open Work
+# Unclosed Claim Boundaries
 
 1.  Derive the reversible source conductances $`J_r`$, potential $`V_r`$, and slab thickness $`a_{t,r}`$ from finite OPH source data.
 

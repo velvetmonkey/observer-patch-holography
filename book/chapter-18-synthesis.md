@@ -90,13 +90,11 @@ The container picture is the successful large-scale description that results.
 Calling it an illusion works only as metaphor. What persists is the compatible
 appearance, stable enough to carry clocks, rulers, fields, and observers.
 
-The fixed-cutoff microphysics paper plays a narrower role in that story. It
-treats the sphere as an observer-facing regulator chart and supplies a
-federated patch-carrier architecture for patches, overlaps, edge sectors,
-records, repair, Bell tests, and checkpoint/restoration. Its distributed form
-counts as one carrier only when the global graph, initial state, partition, cut
-interfaces, observer registry, and projected event log show a single
-monolithic repair system. It provides the concrete implementation setting on
+The fixed-cutoff microphysics layer plays a narrower role in that story. It
+treats the sphere as an observer-facing chart and gives patches a concrete
+carrier: ports, overlaps, edge sectors, records, repairs, Bell tests, and
+checkpoint restoration. A distributed implementation counts as one carrier
+only when its parts behave as a single repair system. This is the setting in
 which the broader OPH bookkeeping can be simulated and checked.
 
 ## 18.5 How the Particle World Appears
@@ -272,14 +270,12 @@ its geometry and another value for electromagnetic observation. The
 fine-structure constant is the electromagnetic width that makes both readings
 describe the same local pixel.
 
-The electroweak hierarchy uses the same local branch. Once the unified coupling
-is fixed by the source branch, the weak scale is read from the local hierarchy
-relation given in the particle paper and the Observers paper. The selected
-source-to-Higgs coarse-graining square has zero defect, so the Higgs naturality
-reading is carried by the same source-to-Higgs branch. An independent bare
-scalar input is absent from this
-proof object. The full SI gravity readout depends on the complete no-G clock
-bridge.
+The electroweak hierarchy uses the same local branch. Once the source branch
+fixes the unified coupling, the weak scale follows from the local hierarchy
+relation. The selected source-to-Higgs coarse-graining square has zero defect,
+so the Higgs naturality reading is carried by the same source-to-Higgs branch.
+There is no independent bare scalar input in this construction. The full SI
+gravity readout depends on the complete no-G clock bridge.
 
 The global screen-capacity branch also carries the global repair-register
 story. OPH treats reality as a continual repair of disagreements between local
@@ -311,10 +307,10 @@ screen exposes twelve special ports, organized like the vertices of an
 icosahedron. The weak-scale exponent reads that twelve-port geometry in the
 local/global bridge.
 
-In the technical papers this bridge value is also written as a fixed point in
-log-capacity coordinates. The book-level point is simpler: the exact bridge
-value belongs to the repair rhythm, while the rounded value is the de Sitter
-capacity-scale display.
+At the formal level, this bridge value is also a fixed point in log-capacity
+coordinates. The physical point is simpler: the exact bridge value belongs to
+the repair rhythm, while the rounded value is the de Sitter capacity-scale
+display.
 
 The readback side has a matching finite statement. At a finite cutoff, the
 closed observer record selects one public capacity atom, so the delivery
@@ -350,7 +346,8 @@ lands at $136.9948351646\ldots$. Adding the finite-screen unified gauge-width
 contribution gives $137.0359595008\ldots$, with the hadronic endpoint step
 withheld. The remaining gap to the Thomson value has a physical address:
 low-energy hadronic spectral transport in the same electromagnetic convention.
-The book leaves the exact payload to the technical paper.
+The remaining payload is the hadronic spectral-transport calculation in the
+same convention.
 
 The phrase $e^+e^-\to\mathrm{hadrons}$ names electron-positron annihilation
 into strongly interacting composite particles. Those data account for the
@@ -451,18 +448,14 @@ first place.
 
 The simulation question lands differently here. Ordinary simulation theory
 imagines an external programmer standing beyond the physics. OPH describes a
-fixed-point computation whose settled output is read internally as a world. The
-settled output has to include records, repair, branch elimination, and clock
-closure. A repair step has to preserve the boundary and sector data it claims
-to preserve. Branch elimination has to identify genuinely equivalent
-descriptions, not pick a convenient endpoint. Observer time has to survive
-changes in scheduling through stable records, lineage, and a calibrated clock.
-The neutral-bulk test is similar: a finite run has to show that its apparent
-bulk survives changes of gauge, port labels, interface presentation,
-refinement, and held-out checks before it can claim more than a diagnostic
-distance. The stronger image is stranger.
-A world of finite observers closes back on itself through the very minds it
-generates. The loop is conceptual before it is
+fixed-point computation whose settled output is read internally as a world. A
+finite run cannot earn that name merely by looking like a bulk. It has to keep
+records stable, preserve boundaries through repair, identify equivalent
+descriptions without choosing convenient endpoints, and carry observer time
+through stable records and calibrated clocks.
+
+The stronger image is stranger. A world of finite observers closes back on
+itself through the very minds it generates. The loop is conceptual before it is
 technological: observers reverse engineer the hardware and software of the
 world, then build restoration machinery that can host restored observers. A
 self-describing universe is a concrete observer-world, complete enough to

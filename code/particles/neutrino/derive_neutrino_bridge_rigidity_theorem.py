@@ -49,17 +49,27 @@ def build_payload(
     emitted_formula = "sum_gap^2 * prod_qbar * solar_response_over_mstar^-0.5"
     emitted_keys = ["sum_gap", "prod_qbar", "solar_response_over_mstar"]
     emitted_exponents = [2.0, 1.0, -0.5]
-    emitted_value = 0.9994295999075177
+    display_value = 0.9994295999075177
     optimizer_relative_error = abs(
-        emitted_value - float(correction_audit["current_compare_only_target"]["value"])
+        display_value - float(correction_audit["current_compare_only_target"]["value"])
     ) / float(correction_audit["current_compare_only_target"]["value"])
+    compare_only_audit = correction_audit.get("status") == "compare_only_reduced_bridge_correction_search"
+    promotion_allowed = not compare_only_audit
+    status = (
+        "theorem_grade_emitted"
+        if promotion_allowed
+        else "candidate_from_compare_only_reduced_bridge_search"
+    )
 
     return {
         "artifact": "oph_neutrino_bridge_rigidity_theorem",
         "generated_utc": _timestamp(),
-        "status": "theorem_grade_emitted",
+        "status": status,
         "theorem_object": "C_nu",
-        "proof_chain_role": "active_theorem_lane",
+        "proof_chain_role": "active_theorem_lane" if promotion_allowed else "candidate_display_lane",
+        "public_surface_candidate_allowed": promotion_allowed,
+        "display_allowed_as_compare_only": compare_only_audit,
+        "prediction_promotion_allowed": promotion_allowed,
         "branch": "weighted_cycle_majorana_holonomy",
         "statement": (
             "On the live weighted-cycle branch, the physical reduced bridge invariant is the distinguished "
@@ -85,14 +95,31 @@ def build_payload(
         "emitted_formula": emitted_formula,
         "emitted_keys": emitted_keys,
         "emitted_exponents": emitted_exponents,
-        "emitted_value": emitted_value,
+        "emitted_value": display_value if promotion_allowed else None,
+        "display_value": display_value,
         "optimizer_relative_error_in_emitted_class": optimizer_relative_error,
+        "non_circularity_status": {
+            "promotion_allowed": promotion_allowed,
+            "compare_only_correction_audit_used": compare_only_audit,
+            "correction_audit_status": correction_audit.get("status"),
+            "must_not_feed_back": bool(correction_audit.get("must_not_feed_back", True)),
+            "missing_source_object": None
+            if promotion_allowed
+            else "source_emitted_neutrino_C_nu_no_compare_target",
+            "strict_audit_label": "source_emitted_C_nu"
+            if promotion_allowed
+            else "compare_only_C_nu_candidate",
+        },
         "depends_on": [
             "oph_neutrino_attachment_irreducibility_theorem",
             "oph_neutrino_bridge_correction_candidate_audit",
         ],
         "notes": [
-            "This theorem promotes the exact optimizer statement from the emitted finite family-assisted audit class to the physical reduced bridge law.",
+            (
+                "This theorem promotes the exact optimizer statement from the emitted finite family-assisted audit class to the physical reduced bridge law."
+                if promotion_allowed
+                else "This artifact keeps the optimized C_nu display value but does not promote it because the correction audit is compare-only."
+            ),
             "The compare-only adapter and corridor remain on disk only as diagnostic surfaces beneath this theorem.",
         ],
     }

@@ -5,8 +5,20 @@ from __future__ import annotations
 
 import math
 
-from implied_p_consistency_audit import build_audit, estimate_implied_p_from_local_slope
-from particle_masses_paper_d10_d11 import P_DEFAULT, build_paper_d10
+import pytest
+
+from _legacy_d10 import maybe_add_legacy_d10_path
+
+LEGACY_D10_AVAILABLE = maybe_add_legacy_d10_path() is not None
+
+pytestmark = pytest.mark.skipif(
+    not LEGACY_D10_AVAILABLE,
+    reason="legacy arXiv D10 helper is opt-in; set OPH_RUN_LEGACY_D10=1 and OPH_LEGACY_PARTICLE_DIR",
+)
+
+if LEGACY_D10_AVAILABLE:
+    from implied_p_consistency_audit import build_audit, estimate_implied_p_from_local_slope
+    from particle_masses_paper_d10_d11 import P_DEFAULT, build_paper_d10
 
 
 def assert_close(label: str, left: float, right: float, tol: float = 1.0e-10) -> None:

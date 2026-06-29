@@ -50,6 +50,7 @@
     "delta_rW": 0.005123221323258043,
     "delta_rho": -0.005123221323258043
   },
+  "display_allowed_as_compare_only": true,
   "exact_closure_beyond_current_carrier_artifact": "oph_d10_ew_exact_closure_beyond_current_carrier",
   "exact_closure_beyond_current_carrier_object_id": "EWTransportExactClosureBeyondCurrentCarrier_D10",
   "exact_closure_beyond_current_carrier_status": "closed",
@@ -162,7 +163,7 @@
     "source_label": "PDG 2025 API"
   },
   "freeze_once_target_free_residual_object": "EWTargetFreeRepairValueLaw_D10",
-  "generated_utc": "2026-06-12T05:38:52Z",
+  "generated_utc": "2026-06-29T06:03:14Z",
   "mass_pair_predictive_candidate": {
     "MW_pole": 80.377,
     "MZ_pole": 91.18797809193725,
@@ -321,6 +322,7 @@
     "sigma_EW_formula": "(n_EW - 1 - beta_EW * (u_EW - 1)) / (1 - beta_EW)"
   },
   "population_selector_status": "closed",
+  "prediction_promotion_allowed": false,
   "predictive_mass_promotion_allowed": false,
   "predictive_population_closed": true,
   "predictive_population_verdict": "closed_current_carrier_nonexact_running_quintet",
@@ -355,7 +357,7 @@
     "electromagnetic_transport_surface": "WardProjectedU1QTransportLaw_D10",
     "wz_mass_lane_surface": "FreezeOnceCoherentD10ElectroweakRepairLaw_D10"
   },
-  "public_surface_candidate_allowed": true,
+  "public_surface_candidate_allowed": false,
   "public_surface_candidate_scope": [
     "MW_pole",
     "MZ_pole"

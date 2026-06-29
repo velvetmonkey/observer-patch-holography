@@ -225,14 +225,21 @@
     "statement": "Let f_P be the physical quark frame class selected by P, represented on the realized quark lane by the explicit same-label common-refinement transport-frame class [F0^dagger F1]. For any two declared current-family/common-refinement transport-frame realizations r,r' in the selected same-label bridge fiber R_decl(f_P), the emitted Sigma_ud^phys element and attached exact physical sigma datum (sigma_seed_ud, eta_ud, sigma_u, sigma_d) agree. Equivalently, the exact sigma readout is constant on R_decl(f_P) and descends uniquely to a target-free public datum on the physical quark frame class selected by P.",
     "why_sufficient": "Once this descent holds, the theorem-grade physical sigma datum is intrinsic public data on the selected physical quark frame class. The affine mean law then emits the absolute sector scales algebraically, and the already-closed exact forward construction lifts from the local transport-frame representative to the public selected class."
   },
-  "frontier_role": "resolved_direct_public_descent_theorem_plus_historical_upstream_alternative",
-  "generated_utc": "2026-06-12T05:39:00Z",
+  "frontier_role": "blocked_direct_public_descent_candidate_plus_historical_upstream_alternative",
+  "generated_utc": "2026-06-29T06:17:26Z",
+  "non_circularity_status": {
+    "missing_source_object": "quark_public_physical_sigma_source_datum_no_target_leak",
+    "promotion_allowed": false,
+    "strict_audit_label": "target_derived_selected_class_sigma_witness",
+    "target_derived_sigma_datum_used": true
+  },
   "notes": [
-    "This artifact now records the direct public theorem as closed on the selected physical quark frame class.",
+    "This artifact records the selected-class exact witness but leaves public promotion blocked by the target-derived sigma datum.",
     "The upstream generator route remains an alternative historical route, but it is no longer needed for the selected-class closure.",
     "The exact masses and Yukawas already forced after closure are preserved here for contract-level readout."
   ],
-  "proof_status": "closed_target_free_public_physical_sigma_datum_descent",
+  "proof_status": "blocked_by_target_derived_public_sigma_datum",
+  "public_promotion_allowed": false,
   "resolved_by_theorem_artifact": "oph_quark_public_physical_sigma_datum_descent",
   "supporting_local_artifacts": {
     "absolute_readout_algebraic_collapse": "oph_quark_absolute_readout_algebraic_collapse",

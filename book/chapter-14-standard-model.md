@@ -836,10 +836,11 @@ is the electromagnetic observation step available to observers in the encoded
 world. On the endpoint branch, matching those two descriptions displays
 $\alpha^{-1}(0)=137.035999177(21)$ and
 $P\simeq1.6309682094$.
-The calculation runs from golden-ratio entropy balance to the boundary
-$\sqrt{\pi}$ width, through the source map for the unification scale and
-running gauge couplings, into the electroweak anchor, and then through the
-Ward-projected electromagnetic channel to the Thomson endpoint.
+
+The route is a chain of translations. Golden-ratio entropy balance fixes the
+screen side. The boundary width sets the electromagnetic detuning. The source
+map then carries that value through unification, running gauge couplings, the
+electroweak anchor, and the electromagnetic channel used at low energy.
 The value is forced because the same local pixel has to satisfy the outside
 geometry equation and the inside electromagnetic endpoint equation at the same
 time.
@@ -1074,8 +1075,8 @@ $$
 
 Here $v$ is the weak scale, $E_\star$ is the branch energy scale used for the
 display, and $\alpha_U(P_\star)$ is the unified coupling read from the pixel
-branch. The particle paper and the Observers paper give the unique source
-value of that coupling. The selected source-to-Higgs coarse-graining square has
+branch. The source branch gives a unique value for that coupling. The selected
+source-to-Higgs coarse-graining square has
 zero defect, so the usual bare-Higgs-plus-cutoff split is a regulator
 coordinate description on that branch. The SI gravity decimal is a separate
 clock-scale readout.
@@ -1104,10 +1105,10 @@ exponent is divided by twelve: the finite spherical screen exposes twelve
 icosahedral sampling ports, the refinement-stable orbit of its unit fivefold
 curvature defects.
 
-In the technical papers this bridge value is also written as a fixed point in
-log-capacity coordinates. The book-level point is simpler: the exact bridge
-value belongs to the repair rhythm, while the rounded value is the de Sitter
-capacity-scale display.
+At the formal level, this bridge value is also a fixed point in log-capacity
+coordinates. The physical point is simpler: the exact bridge value belongs to
+the repair rhythm, while the rounded value is the de Sitter capacity-scale
+display.
 
 The readback side has a matching finite statement. At a finite cutoff, the
 closed observer record selects one public capacity atom, so the delivery

@@ -78,7 +78,7 @@
     "residual_second_order_screening_coefficient_at_codata_p": "0.65802575992715543563823017023236005042492009907058639608566007832470711257322011342309305088",
     "successor_github_issue": 235
   },
-  "generated_utc": "2026-06-17T03:22:14Z",
+  "generated_utc": "2026-06-29T06:18:24Z",
   "github_issue": 223,
   "implemented_fixed_point_gap": {
     "alpha_inv_gap_ppm": "300.38831128732685016692994468745499320452625154941114032199836893228536757692035",

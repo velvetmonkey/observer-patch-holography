@@ -43,13 +43,26 @@ def build_payload(
 ) -> dict[str, Any]:
     pmns = weighted_cycle["pmns_observables"]
     ratio = float(weighted_cycle["dimensionless_ratio_dm21_over_dm32"])
+    absolute_promotable = (
+        absolute_attachment.get("status") == "theorem_grade_emitted"
+        and absolute_attachment.get("public_surface_candidate_allowed") is True
+        and (absolute_attachment.get("non_circularity_status") or {}).get("promotion_allowed") is True
+    )
+    c_nu_value = bridge_rigidity.get("emitted_value")
+    if c_nu_value is None:
+        c_nu_value = bridge_rigidity.get("display_value")
 
     return {
         "artifact": "oph_neutrino_lane_closure_contract",
         "generated_utc": _timestamp(),
         "scope": "weighted_cycle_bridge_rigidity_plus_absolute_attachment",
-        "proof_status": "theorem_grade_emitted",
-        "public_promotion_allowed": True,
+        "proof_status": (
+            "theorem_grade_emitted"
+            if absolute_promotable
+            else "scale_free_weighted_cycle_with_compare_only_absolute_attachment_candidate"
+        ),
+        "public_promotion_allowed": absolute_promotable,
+        "non_circularity_status": absolute_attachment.get("non_circularity_status"),
         "current_branch_status": {
             "branch": "weighted_cycle_majorana_holonomy",
             "pmns_observables": pmns,
@@ -59,13 +72,17 @@ def build_payload(
         },
         "emitted_bridge_rigidity_theorem": {
             "artifact": bridge_rigidity["artifact"],
+            "status": bridge_rigidity["status"],
             "statement": bridge_rigidity["statement"],
             "emitted_formula": bridge_rigidity["emitted_formula"],
             "emitted_value": bridge_rigidity["emitted_value"],
+            "display_value": c_nu_value,
             "P_nu": bridge_rigidity["emitted_proxy"]["value"],
         },
         "emitted_absolute_attachment_theorem": {
             "artifact": absolute_attachment["artifact"],
+            "status": absolute_attachment["status"],
+            "public_surface_candidate_allowed": absolute_attachment["public_surface_candidate_allowed"],
             "B_nu": absolute_attachment["outputs"]["B_nu"],
             "lambda_nu": absolute_attachment["outputs"]["lambda_nu"],
             "masses_eV": absolute_attachment["outputs"]["masses_eV"],
@@ -79,8 +96,12 @@ def build_payload(
             "m_i = lambda_nu * mhat_i and Delta m^2_ij = lambda_nu^2 * Delta_hat_ij",
         ],
         "notes": [
-            "The compare-only continuation adapter is retired from the proof-facing neutrino lane.",
-            "The bridge corridor and residual correction audits remain diagnostic-only surfaces beneath the emitted theorem pair.",
+            (
+                "The compare-only continuation adapter is retired from the proof-facing neutrino lane."
+                if absolute_promotable
+                else "The absolute attachment is displayed as a compare-only candidate; the scale-free weighted-cycle branch remains the promoted theorem surface."
+            ),
+            "The bridge corridor and residual correction audits remain diagnostic-only surfaces beneath the emitted weighted-cycle branch.",
         ],
     }
 

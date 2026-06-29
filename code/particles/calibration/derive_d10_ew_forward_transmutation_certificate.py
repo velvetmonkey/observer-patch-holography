@@ -21,26 +21,19 @@ from __future__ import annotations
 import argparse
 import json
 import math
-import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[2]
 
-
-def _find_ancillary_particle_code_dir() -> Path:
-    for base in Path(__file__).resolve().parents:
-        candidate = base / "arXiv" / "RC1" / "ancillary" / "code" / "particles"
-        if candidate.exists():
-            return candidate
-    raise FileNotFoundError("Could not locate arXiv/RC1/ancillary/code/particles")
+try:
+    from calibration._legacy_d10 import require_legacy_d10_path
+except ModuleNotFoundError:  # direct script execution from calibration/
+    from _legacy_d10 import require_legacy_d10_path
 
 
-PARTICLE_CODE_DIR = _find_ancillary_particle_code_dir()
-for candidate in [PARTICLE_CODE_DIR / "core", PARTICLE_CODE_DIR]:
-    if candidate.exists() and str(candidate) not in sys.path:
-        sys.path.insert(0, str(candidate))
+require_legacy_d10_path()
 
 from particle_masses_paper_d10_d11 import E_PLANCK_GEV, pixel_residual, solve_mz_fixed_point_tree  # type: ignore
 

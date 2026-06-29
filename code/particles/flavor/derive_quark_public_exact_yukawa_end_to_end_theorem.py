@@ -32,13 +32,37 @@ def build_artifact(
 ) -> dict[str, Any]:
     forward = dict(exact_yukawa_theorem["forward_yukawa_artifact"])
     masses = dict(exact_pdg_theorem["supporting_theorem_artifact"] if "supporting_theorem_artifact" in exact_pdg_theorem else {})
+    sigma_non_circularity = dict(public_sigma_theorem.get("non_circularity_status") or {})
+    promotion_allowed = (
+        public_sigma_theorem.get("public_promotion_allowed") is True
+        and sigma_non_circularity.get("promotion_allowed", public_sigma_theorem.get("public_promotion_allowed")) is True
+        and public_sigma_theorem.get("proof_status") == "closed_target_free_public_physical_sigma_datum_descent"
+    )
+    proof_status = (
+        "closed_target_free_public_exact_yukawa_end_to_end_theorem"
+        if promotion_allowed
+        else "blocked_by_target_derived_public_sigma_datum"
+    )
     return {
         "artifact": "oph_quark_public_exact_yukawa_end_to_end_theorem",
         "generated_utc": _timestamp(),
-        "proof_status": "closed_target_free_public_exact_yukawa_end_to_end_theorem",
+        "proof_status": proof_status,
         "target_name": "target_free_public_exact_forward_quark_yukawas",
         "theorem_scope": public_sigma_theorem["theorem_scope"],
-        "public_promotion_allowed": True,
+        "public_promotion_allowed": promotion_allowed,
+        "display_allowed_as_selected_class_exact_witness": True,
+        "non_circularity_status": {
+            "promotion_allowed": promotion_allowed,
+            "public_sigma_promotion_allowed": public_sigma_theorem.get("public_promotion_allowed"),
+            "public_sigma_proof_status": public_sigma_theorem.get("proof_status"),
+            "target_derived_sigma_datum_used": sigma_non_circularity.get("target_derived_sigma_datum_used"),
+            "missing_source_object": None
+            if promotion_allowed
+            else "quark_public_physical_sigma_source_datum_no_target_leak",
+            "strict_audit_label": "source_only_public_yukawa_theorem"
+            if promotion_allowed
+            else "selected_class_target_anchored_exact_witness",
+        },
         "supporting_theorem_artifacts": {
             "public_sigma_datum_descent": public_sigma_theorem["artifact"],
             "local_exact_pdg_wrapper": exact_pdg_theorem["artifact"],
@@ -63,9 +87,15 @@ def build_artifact(
             exact_pdg_theorem["artifact"],
             exact_yukawa_theorem["artifact"],
         ],
-        "minimal_exact_blocker_set": [],
+        "minimal_exact_blocker_set": []
+        if promotion_allowed
+        else ["quark_public_physical_sigma_source_datum_no_target_leak"],
         "notes": [
-            "This is the theorem wrapper that upgrades the closed declared-carrier exact Yukawa chain to the selected public class.",
+            (
+                "This is the theorem wrapper that upgrades the closed declared-carrier exact Yukawa chain to the selected public class."
+                if promotion_allowed
+                else "This artifact displays the selected-class exact witness but is not promotable under the strict non-circularity audit because the public sigma datum descends from an exact target surface."
+            ),
             "The exact matrices Y_u and Y_d are the same numerical matrices already emitted on the closed local chain.",
         ],
     }

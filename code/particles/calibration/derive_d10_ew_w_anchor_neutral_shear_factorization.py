@@ -185,7 +185,9 @@ def build_factorization_report(reference: dict[str, Any], basis: D10Basis) -> di
         "generated_utc": _timestamp(),
         "status": "closed_freeze_once_coherent_repair_law",
         "forward_claim_allowed": False,
-        "public_surface_candidate_allowed": True,
+        "public_surface_candidate_allowed": False,
+        "display_allowed_as_compare_only": True,
+        "prediction_promotion_allowed": False,
         "target_free_predictive_emission_closed": False,
         "exact_missing_law": {
             "object_id": "FreezeOnceCoherentD10ElectroweakRepairLaw_D10",
@@ -287,7 +289,7 @@ def build_factorization_report(reference: dict[str, Any], basis: D10Basis) -> di
         },
         "conclusion": {
             "meaning": "On the frozen authoritative D10 target surface, the exact repair package and coherent repaired quintet are fully emitted.",
-            "still_compare_only": False,
+            "still_compare_only": True,
             "stricter_still_open_object": "EWTargetFreeRepairValueLaw_D10",
             "stricter_still_open_statement": "Emit the same nonzero repair directly from P alone with no frozen target input.",
         },

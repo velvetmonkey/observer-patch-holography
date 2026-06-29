@@ -51,6 +51,16 @@ def _classify_entry(entry: dict[str, Any]) -> dict[str, Any]:
         target_use = "target_used_as_frozen_reference"
         blind_status = "not_blind"
         convention_sensitivity = "inherits_declared_electroweak_surface"
+    elif exact_kind == "conditional_declared_surface_higgs_top_candidate":
+        row_class = "conditional_declared_surface_candidate"
+        target_use = "candidate_upstream_d10_repair_not_source_promoted"
+        blind_status = "conditionally_blind_on_declared_surface"
+        convention_sensitivity = "depends_on_declared_D10_D11_running_matching_threshold_surface"
+    elif exact_kind == "selected_class_target_anchored_exact_witness":
+        row_class = "selected_class_target_anchored_witness"
+        target_use = "target_derived_sigma_datum_used_for_selected_class_exact_witness"
+        blind_status = "selected_class_target_anchored_not_blind"
+        convention_sensitivity = "quark_scheme_and_frame_class_scope_must_remain_visible"
     elif "target_anchored" in exact_kind:
         row_class = "target_anchored_witness"
         target_use = "target_values_used_to_anchor_current_family_witness"
@@ -67,9 +77,14 @@ def _classify_entry(entry: dict[str, Any]) -> dict[str, Any]:
         blind_status = "conditionally_blind_on_declared_surface"
         convention_sensitivity = "depends_on_declared_D10_D11_running_matching_threshold_surface"
     elif "weighted_cycle" in exact_kind:
-        row_class = "theorem_branch_no_direct_mass_target"
-        target_use = "no_absolute_mass_target_input"
-        blind_status = "blind_absolute_mass_branch"
+        if "compare_only_absolute_attachment" in exact_kind:
+            row_class = "scale_free_theorem_with_compare_only_absolute_attachment_candidate"
+            target_use = "compare_only_C_nu_used_for_absolute_attachment_candidate"
+            blind_status = "scale_free_blind_absolute_scale_not_promoted"
+        else:
+            row_class = "theorem_branch_no_direct_mass_target"
+            target_use = "no_absolute_mass_target_input"
+            blind_status = "blind_absolute_mass_branch"
         convention_sensitivity = "pmns_comparison_tension_reported_separately"
     else:
         row_class = "unclassified"

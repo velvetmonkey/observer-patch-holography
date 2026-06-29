@@ -82,11 +82,18 @@ def build_artifact(
     masses = dict(exact_pdg["exact_running_values_gev"])
     exact_forward = dict(exact_yukawa["forward_yukawa_artifact"])
     upstream_obstruction = _upstream_attached_data_obstruction(line_lift, generator)
+    public_promotion_allowed = public_sigma_theorem.get("public_promotion_allowed") is True
     return {
         "artifact": "oph_quark_public_strengthened_physical_sigma_lift_frontier",
         "generated_utc": _timestamp(),
         "proof_status": public_sigma_theorem["proof_status"],
-        "frontier_role": "resolved_direct_public_descent_theorem_plus_historical_upstream_alternative",
+        "frontier_role": (
+            "resolved_direct_public_descent_theorem_plus_historical_upstream_alternative"
+            if public_promotion_allowed
+            else "blocked_direct_public_descent_candidate_plus_historical_upstream_alternative"
+        ),
+        "public_promotion_allowed": public_promotion_allowed,
+        "non_circularity_status": public_sigma_theorem.get("non_circularity_status"),
         "resolved_by_theorem_artifact": public_sigma_theorem["artifact"],
         "final_public_theorem_candidate": {
             "id": public_sigma_theorem["theorem_id"],
@@ -170,7 +177,11 @@ def build_artifact(
             "generation_bundle_branch_generator": generator["artifact"],
         },
         "notes": [
-            "This artifact now records the direct public theorem as closed on the selected physical quark frame class.",
+            (
+                "This artifact now records the direct public theorem as closed on the selected physical quark frame class."
+                if public_promotion_allowed
+                else "This artifact records the selected-class exact witness but leaves public promotion blocked by the target-derived sigma datum."
+            ),
             "The upstream generator route remains an alternative historical route, but it is no longer needed for the selected-class closure.",
             "The exact masses and Yukawas already forced after closure are preserved here for contract-level readout.",
         ],

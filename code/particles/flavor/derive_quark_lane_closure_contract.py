@@ -126,6 +126,12 @@ def build_payload(
     current_family_end_to_end_chain: dict[str, Any],
 ) -> dict[str, Any]:
     selected_sigma = selected_sheet["selected_sheet"]["sigma_id"]
+    public_yukawa_promotable = (
+        public_exact_yukawa_theorem.get("public_promotion_allowed") is True
+        and public_exact_yukawa_theorem.get("proof_status")
+        == "closed_target_free_public_exact_yukawa_end_to_end_theorem"
+        and (public_exact_yukawa_theorem.get("non_circularity_status") or {}).get("promotion_allowed") is True
+    )
     exact_masses = {
         "u": float(exact_readout["predicted_singular_values_u"][0]),
         "d": float(exact_readout["predicted_singular_values_d"][0]),
@@ -142,8 +148,13 @@ def build_payload(
         "base_theorem_emitted_package_artifact": "oph_quark_maximal_theorem_emitted_package",
         "generated_utc": _timestamp(),
         "scope": "quark_lane_theorem_boundary_plus_exact_sidecars",
-        "proof_status": "target_free_public_exact_yukawa_derivation_closed",
-        "public_promotion_allowed": True,
+        "proof_status": (
+            "target_free_public_exact_yukawa_derivation_closed"
+            if public_yukawa_promotable
+            else "selected_class_exact_witness_blocked_by_target_derived_sigma_datum"
+        ),
+        "public_promotion_allowed": public_yukawa_promotable,
+        "non_circularity_status": public_exact_yukawa_theorem.get("non_circularity_status"),
         "mass_comparison_surface": {
             "kind": "running_mass_comparison_surface",
             "note": "Quark references are running masses, not asymptotic free-particle pole masses.",
@@ -186,7 +197,7 @@ def build_payload(
         },
         "public_exact_yukawa_derivation_target": {
             "target_name": public_exact_yukawa_theorem["target_name"],
-            "status": "closed",
+            "status": "closed" if public_yukawa_promotable else "blocked_by_target_derived_public_sigma_datum",
             "artifact": public_exact_yukawa_theorem["artifact"],
             "theorem_scope": public_exact_yukawa_theorem["theorem_scope"],
             "minimal_exact_blocker_set": public_exact_yukawa_theorem["minimal_exact_blocker_set"],
@@ -196,6 +207,8 @@ def build_payload(
                 "The public sigma-datum descent theorem now identifies the selected public quark frame class with the "
                 "same exact sigma datum already realized on the closed local chain, so the algebraic absolute readout "
                 "and exact forward construction lift to the selected public class."
+                if public_yukawa_promotable
+                else "The selected-class exact witness is displayed, but strict public promotion is blocked because the sigma datum descends from an exact target surface."
             ),
         },
         "selected_local_sheet_status": {
@@ -326,6 +339,8 @@ def build_payload(
         "public_final_theorem_frontier": {
             "artifact": public_strengthened_frontier["artifact"],
             "proof_status": public_strengthened_frontier["proof_status"],
+            "public_promotion_allowed": public_strengthened_frontier.get("public_promotion_allowed"),
+            "non_circularity_status": public_strengthened_frontier.get("non_circularity_status"),
             "resolved_by_theorem_artifact": public_strengthened_frontier["resolved_by_theorem_artifact"],
             "final_public_theorem_candidate": public_strengthened_frontier["final_public_theorem_candidate"],
             "alternate_upstream_route": public_strengthened_frontier["alternate_upstream_route"],
@@ -335,20 +350,26 @@ def build_payload(
             "artifact": public_exact_yukawa_promotion_frontier["artifact"],
             "proof_status": public_exact_yukawa_promotion_frontier["proof_status"],
             "target_name": public_exact_yukawa_promotion_frontier["target_name"],
+            "public_promotion_allowed": public_exact_yukawa_promotion_frontier.get("public_promotion_allowed"),
+            "non_circularity_status": public_exact_yukawa_promotion_frontier.get("non_circularity_status"),
             "resolved_by_theorem_artifact": public_exact_yukawa_promotion_frontier["resolved_by_theorem_artifact"],
             "final_public_theorem_candidate": public_exact_yukawa_promotion_frontier["final_public_theorem_candidate"],
             "alternate_upstream_route": public_exact_yukawa_promotion_frontier["alternate_upstream_route"],
             "closed_public_endpoint": public_exact_yukawa_promotion_frontier["closed_public_endpoint"],
         },
         "candidate_one_theorem_physical_compression": {
-            "status": "closed",
+            "status": "closed" if public_yukawa_promotable else "blocked_by_target_derived_public_sigma_datum",
             "artifact": public_sigma_theorem["artifact"],
             "supporting_algebraic_collapse_artifact": absolute_collapse["artifact"],
             "conditional_statement": absolute_collapse["theorem_statement"],
             "local_strengthened_theorem_statement": current_family_strengthened_physical_sigma_theorem["theorem_statement"],
             "public_strengthened_theorem_statement": public_sigma_theorem["theorem_statement"],
-            "remaining_nonalgebraic_theorem": None,
-            "remaining_exact_gap": None,
+            "remaining_nonalgebraic_theorem": None
+            if public_yukawa_promotable
+            else "quark_public_physical_sigma_source_datum_no_target_leak",
+            "remaining_exact_gap": None
+            if public_yukawa_promotable
+            else "target_derived_sigma_datum_used_for_selected_class_exact_witness",
         },
         "continuation_only_mass_sidecar": {
             "artifact": backread["artifact"],

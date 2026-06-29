@@ -614,8 +614,10 @@ def load_ledger_entries(path: pathlib.Path) -> Dict[str, Dict[str, Any]]:
 
 def _d10_public_mass_pair_allowed(readout: Dict[str, Any]) -> bool:
     mass_pair = dict(readout.get("mass_pair_predictive_candidate", {}))
-    return bool(readout.get("public_surface_candidate_allowed", False)) and all(
-        key in mass_pair for key in ("MW_pole", "MZ_pole")
+    return (
+        bool(readout.get("public_surface_candidate_allowed", False))
+        and bool(readout.get("prediction_promotion_allowed", readout.get("predictive_mass_promotion_allowed", False)))
+        and all(key in mass_pair for key in ("MW_pole", "MZ_pole"))
     )
 
 
@@ -628,8 +630,12 @@ def _d11_public_seed_allowed(seed: Dict[str, Any]) -> bool:
 
 def _d11_exact_pair_allowed(payload: Dict[str, Any]) -> bool:
     pair = dict(payload.get("exact_split_pair", {}))
-    return bool(payload.get("public_surface_candidate_allowed", False)) and all(
-        key in pair for key in ("mH_gev", "mt_pole_gev")
+    non_circularity = dict(payload.get("non_circularity_status") or {})
+    return (
+        bool(payload.get("public_surface_candidate_allowed", False))
+        and bool(payload.get("prediction_promotion_allowed", False))
+        and non_circularity.get("promotion_allowed") is True
+        and all(key in pair for key in ("mH_gev", "mt_pole_gev"))
     )
 
 
@@ -642,9 +648,12 @@ def _quark_public_forward_allowed(forward: Dict[str, Any], mean_split: Dict[str,
 
 
 def _quark_public_exact_theorem_allowed(payload: Dict[str, Any]) -> bool:
-    return bool(payload.get("public_promotion_allowed", False)) and payload.get(
-        "proof_status"
-    ) == "closed_target_free_public_exact_yukawa_end_to_end_theorem"
+    non_circularity = dict(payload.get("non_circularity_status") or {})
+    return (
+        bool(payload.get("public_promotion_allowed", False))
+        and payload.get("proof_status") == "closed_target_free_public_exact_yukawa_end_to_end_theorem"
+        and non_circularity.get("promotion_allowed") is True
+    )
 
 
 def _charged_public_candidate_allowed(forward: Dict[str, Any]) -> bool:
@@ -653,6 +662,15 @@ def _charged_public_candidate_allowed(forward: Dict[str, Any]) -> bool:
 
 def _neutrino_public_candidate_allowed(bundle: Dict[str, Any]) -> bool:
     return bool(bundle.get("public_surface_candidate_allowed", False))
+
+
+def _neutrino_absolute_theorem_allowed(payload: Dict[str, Any]) -> bool:
+    non_circularity = dict(payload.get("non_circularity_status") or {})
+    return (
+        payload.get("status") == "theorem_grade_emitted"
+        and payload.get("public_surface_candidate_allowed") is True
+        and non_circularity.get("promotion_allowed") is True
+    )
 
 
 def _neutrino_repaired_branch_waiting_absolute_scale(blockers: Dict[str, Any]) -> bool:
@@ -780,7 +798,7 @@ def apply_local_candidate_overrides(prediction: Dict[str, Any]) -> Dict[str, Any
 
     if NEUTRINO_ABSOLUTE_ATTACHMENT_THEOREM.exists():
         theorem = json.loads(NEUTRINO_ABSOLUTE_ATTACHMENT_THEOREM.read_text(encoding="utf-8"))
-        if theorem.get("public_surface_candidate_allowed", False):
+        if _neutrino_absolute_theorem_allowed(theorem):
             masses_eV = [float(x) for x in theorem["outputs"]["masses_eV"]]
             updated.update(
                 {
@@ -946,7 +964,7 @@ def build_neutrino_oscillation_comparison_rows(surface_state: Dict[str, Any]) ->
             }
         )
 
-    if absolute_theorem and absolute_theorem.get("public_surface_candidate_allowed", False):
+    if absolute_theorem and _neutrino_absolute_theorem_allowed(absolute_theorem):
         theorem_dm2 = dict(absolute_theorem["outputs"]["delta_m_sq_eV2"])
         rows.extend(
             [

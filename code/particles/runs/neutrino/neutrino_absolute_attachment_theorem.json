@@ -4,7 +4,8 @@
     "oph_neutrino_bridge_rigidity_theorem",
     "oph_neutrino_weighted_cycle_theorem_object"
   ],
-  "generated_utc": "2026-06-12T05:39:09Z",
+  "display_allowed_as_compare_only_absolute_attachment": true,
+  "generated_utc": "2026-06-29T06:17:34Z",
   "inputs": {
     "C_nu": 0.9994295999075177,
     "P_nu": 6.699825740519345,
@@ -22,6 +23,14 @@
     "p_nu": 1.395092021318097,
     "q_mean": 0.035685809281968475,
     "q_mean_to_p_nu": 0.009563086655984892
+  },
+  "non_circularity_status": {
+    "bridge_public_surface_candidate_allowed": false,
+    "bridge_status": "candidate_from_compare_only_reduced_bridge_search",
+    "compare_only_C_nu_used": true,
+    "missing_source_object": "source_emitted_neutrino_C_nu_no_compare_target",
+    "promotion_allowed": false,
+    "strict_audit_label": "compare_only_absolute_attachment_candidate"
   },
   "notes": [
     "The exact compare-only segment adapter is retired from the theorem lane by this emitted absolute attachment theorem.",
@@ -55,8 +64,9 @@
       0.05307522145074924
     ]
   },
-  "proof_chain_role": "active_theorem_lane",
-  "public_surface_candidate_allowed": true,
-  "status": "theorem_grade_emitted",
+  "prediction_promotion_allowed": false,
+  "proof_chain_role": "candidate_display_lane",
+  "public_surface_candidate_allowed": false,
+  "status": "conditional_absolute_family_blocked_by_compare_only_C_nu",
   "theorem_object": "absolute_weighted_cycle_neutrino_family"
 }

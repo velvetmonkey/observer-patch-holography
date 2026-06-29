@@ -147,7 +147,7 @@
       "physical_admissible": false
     }
   ],
-  "generated_utc": "2026-06-12T05:39:00Z",
+  "generated_utc": "2026-06-29T06:17:26Z",
   "notes": [
     "This is not the true sigma_ud orbit. It is the smallest finite local basis orbit already extractable from the current forward Yukawa surface.",
     "Only the L/L element remains physically admissible on the current theorem surface because CKM is defined on ordered same-label left eigenframes.",

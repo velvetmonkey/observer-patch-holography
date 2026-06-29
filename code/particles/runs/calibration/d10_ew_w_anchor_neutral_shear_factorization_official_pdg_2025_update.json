@@ -42,7 +42,7 @@
   },
   "conclusion": {
     "meaning": "On the frozen authoritative D10 target surface, the exact repair package and coherent repaired quintet are fully emitted.",
-    "still_compare_only": false,
+    "still_compare_only": true,
     "stricter_still_open_object": "EWTargetFreeRepairValueLaw_D10",
     "stricter_still_open_statement": "Emit the same nonzero repair directly from P alone with no frozen target input."
   },
@@ -57,6 +57,7 @@
     "eta_source": 0.022147000871961295,
     "v_report_gev": 246.76711732749683
   },
+  "display_allowed_as_compare_only": true,
   "exact_missing_law": {
     "kind": "freeze_once_authoritative_target_repair",
     "object_id": "FreezeOnceCoherentD10ElectroweakRepairLaw_D10",
@@ -65,7 +66,7 @@
     "stricter_still_open_object": "EWTargetFreeRepairValueLaw_D10"
   },
   "forward_claim_allowed": false,
-  "generated_utc": "2026-06-12T05:38:52Z",
+  "generated_utc": "2026-06-29T06:03:13Z",
   "new_smaller_primitive": {
     "depends_on": [
       "EWSinglePostTransportTreeIdentity_D10",
@@ -75,7 +76,8 @@
     "proposed_object_id": "EWAnchoredNeutralShearPrimitive_D10",
     "strictly_smaller_than": "D10RepairBranchBeyondCurrentCarrier"
   },
-  "public_surface_candidate_allowed": true,
+  "prediction_promotion_allowed": false,
+  "public_surface_candidate_allowed": false,
   "repair_law": {
     "chart_coordinates": {
       "delta_n_dagger": 0.00023463639031113336,

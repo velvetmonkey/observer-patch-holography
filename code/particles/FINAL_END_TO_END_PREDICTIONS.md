@@ -1,6 +1,6 @@
 # Final End-to-End Particle Predictions
 
-Generated: `2026-06-29T05:24:08Z`
+Generated: `2026-06-29T06:18:41Z`
 
 Scope: `nonhadron_particle_pipeline_with_empirical_hadron_closure_policy`
 Claim label: `final_nonhadron_predictions_with_separate_empirical_hadron_closure_surface`
@@ -42,19 +42,19 @@ Claim label: `final_nonhadron_predictions_with_separate_empirical_hadron_closure
 | `graviton` | `0.0 GeV` | `structural_zero` | `structural` | `True` |
 | `w_boson` | `80.377 GeV` | `exact_frozen_target_compare_only_adapter` | `frozen_authoritative_target_surface` | `False` |
 | `z_boson` | `91.18797809193725 GeV` | `exact_frozen_target_compare_only_adapter` | `frozen_authoritative_target_surface` | `False` |
-| `higgs` | `125.1995304097179 GeV` | `exact_source_only_higgs_top_split_calibration_theorem` | `declared_d10_d11_running_matching_threshold_surface_only` | `True` |
+| `higgs` | `125.1995304097179 GeV` | `conditional_declared_surface_higgs_top_candidate` | `declared_d10_d11_running_matching_threshold_surface_only` | `False` |
 | `electron` | `0.0005109989499999994 GeV` | `exact_target_anchored_current_family_witness` | `current_family_only` | `False` |
 | `muon` | `0.10565837550000004 GeV` | `exact_target_anchored_current_family_witness` | `current_family_only` | `False` |
 | `tau` | `1.7769324651340912 GeV` | `exact_target_anchored_current_family_witness` | `current_family_only` | `False` |
-| `up_quark` | `0.0021600000000000005 GeV` | `selected_class_theorem_grade_exact_forward_quark_closure` | `selected_public_physical_quark_frame_class_only` | `True` |
-| `down_quark` | `0.004699999999999999 GeV` | `selected_class_theorem_grade_exact_forward_quark_closure` | `selected_public_physical_quark_frame_class_only` | `True` |
-| `strange_quark` | `0.09349999999999999 GeV` | `selected_class_theorem_grade_exact_forward_quark_closure` | `selected_public_physical_quark_frame_class_only` | `True` |
-| `charm_quark` | `1.2729999999999992 GeV` | `selected_class_theorem_grade_exact_forward_quark_closure` | `selected_public_physical_quark_frame_class_only` | `True` |
-| `bottom_quark` | `4.182999999999994 GeV` | `selected_class_theorem_grade_exact_forward_quark_closure` | `selected_public_physical_quark_frame_class_only` | `True` |
-| `top_quark` | `172.35235532883115 GeV` | `selected_class_theorem_grade_exact_forward_quark_closure` | `selected_public_physical_quark_frame_class_only` | `True` |
-| `electron_neutrino` | `0.017454720257976796 eV` | `theorem_grade_weighted_cycle_absolute_attachment` | `weighted_cycle_bridge_rigid_absolute_family` | `True` |
-| `muon_neutrino` | `0.019481987935919015 eV` | `theorem_grade_weighted_cycle_absolute_attachment` | `weighted_cycle_bridge_rigid_absolute_family` | `True` |
-| `tau_neutrino` | `0.05307522145074924 eV` | `theorem_grade_weighted_cycle_absolute_attachment` | `weighted_cycle_bridge_rigid_absolute_family` | `True` |
+| `up_quark` | `0.0021600000000000005 GeV` | `selected_class_target_anchored_exact_witness` | `selected_public_physical_quark_frame_class_only_but_sigma_datum_target_derived` | `False` |
+| `down_quark` | `0.004699999999999999 GeV` | `selected_class_target_anchored_exact_witness` | `selected_public_physical_quark_frame_class_only_but_sigma_datum_target_derived` | `False` |
+| `strange_quark` | `0.09349999999999999 GeV` | `selected_class_target_anchored_exact_witness` | `selected_public_physical_quark_frame_class_only_but_sigma_datum_target_derived` | `False` |
+| `charm_quark` | `1.2729999999999992 GeV` | `selected_class_target_anchored_exact_witness` | `selected_public_physical_quark_frame_class_only_but_sigma_datum_target_derived` | `False` |
+| `bottom_quark` | `4.182999999999994 GeV` | `selected_class_target_anchored_exact_witness` | `selected_public_physical_quark_frame_class_only_but_sigma_datum_target_derived` | `False` |
+| `top_quark` | `172.35235532883115 GeV` | `selected_class_target_anchored_exact_witness` | `selected_public_physical_quark_frame_class_only_but_sigma_datum_target_derived` | `False` |
+| `electron_neutrino` | `0.017454720257976796 eV` | `scale_free_weighted_cycle_theorem_with_compare_only_absolute_attachment_candidate` | `weighted_cycle_bridge_rigid_absolute_family` | `False` |
+| `muon_neutrino` | `0.019481987935919015 eV` | `scale_free_weighted_cycle_theorem_with_compare_only_absolute_attachment_candidate` | `weighted_cycle_bridge_rigid_absolute_family` | `False` |
+| `tau_neutrino` | `0.05307522145074924 eV` | `scale_free_weighted_cycle_theorem_with_compare_only_absolute_attachment_candidate` | `weighted_cycle_bridge_rigid_absolute_family` | `False` |
 
 ## Fine Structure
 

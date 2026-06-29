@@ -322,7 +322,7 @@ vanishes. This boundary is visible in summaries, tables, and public copy.
 
 This warning belongs in an equation appendix because not every important
 symbol is part of a successful derivation. Some symbols mark the edge of the
-OPH derivation. A good support-status table records those edges as clearly as
+OPH derivation. A good support-level table records those edges as clearly as
 its closed results.
 
 ## A Practical Reading Method for Equations
@@ -384,42 +384,38 @@ reader evaluating support statements can use the chapter table to check whether
 a claim is established, assumption-dependent, empirically anchored, dependent on
 external data, or open.
 
-The appendices also give the book a stable reference surface. A theorem-status
-label in a chapter should match the table. A diagram should visualize a
-concept that the glossary or chapter guide can name. A simplified public
-summary should be traceable to a more careful explanation inside the book.
+The appendices also give the book a stable reference layer. A support label in
+a chapter should match the table. A diagram should visualize a concept that the
+glossary or chapter guide can name. A short summary should be traceable to a
+slower explanation inside the book.
 
-OPH has several public surfaces: papers, book chapters, diagrams, PDF
-downloads, websites, and explanatory systems. The same idea can drift as it
-moves across those surfaces. The appendices are one defense against drift. They
-say, in slower language, what the book means by its symbols, diagrams, and
-claims.
+That matters because the same idea can drift as it moves from prose to diagram
+to equation. The appendices are one defense against drift. They say, in slower
+language, what the book means by its symbols, diagrams, and claims.
 
 The final reading discipline is simple: do not let beauty outrun auditability.
 A cover can invite the reader in. A diagram can orient them. A long narrative
 can keep them engaged. But the theory earns trust only when every equation,
 claim label, and historical inheritance remains checkable.
 
-## The Publication Contract
+## How to Use These Appendices
 
-The book belongs to the same research surface as the papers. Paper claims,
-book passages, diagrams, and PDF downloads should carry the same claim-tier
-language. The common drift points are theorem-tier language, particle-table
-rows, dark-sector claims, the strong-CP boundary, neutrino assumptions,
+The book makes claims at different levels. Some are standard physics. Some are
+structural OPH claims. Some are conditional routes that depend on extra
+assumptions or unfinished derivations. The common drift points are particle
+tables, dark-sector claims, the strong-CP boundary, neutrino assumptions,
 charged-lepton anchors, hadron payload language, and metaphysical summaries
-that may sound more settled than the technical chapter permits.
+that can sound more settled than their support allows.
 
-The PDF is the most stable downloadable form of the public book. It should
-carry the cover, diagrams, appendices, and cautious wording. If the website
-and PDF disagree, readers receive two different books. That is a publication
-failure.
+The appendices are meant to slow the reader down at exactly those points. If an
+equation feels too quick, this appendix names the pieces. If a diagram feels
+too smooth, the glossary names its edge. If a chapter compresses a support
+condition into a sentence, the chapter ledger gives the longer reading.
 
-The visual inspection step is part of the content process, not a cosmetic
-afterthought. Equations can overflow. Captions can detach from diagrams.
-Long glossary entries can create awkward page breaks. SVG conversion can
-change line weights or crop labels. A page can compile while being bad
-for a reader. The obligation is to inspect the rendered pages because the
-reader receives pages, not Markdown files.
+Rendered pages matter too. Equations can overflow. Captions can detach from
+diagrams. Long glossary entries can create awkward page breaks. A page can
+compile while being bad for a reader. A popular-science book still has to be
+readable as a physical object.
 
 The word-count floor should be understood in that spirit. The goal is not
 bulk. The goal is enough room for explanation. When the book uses a symbol,
@@ -428,20 +424,11 @@ deserves the human chain behind it. When it makes an assumption-dependent claim,
 reader deserves the condition. Length is justified only when it pays those
 debts.
 
-Finally, the normal publication cycle should keep source and artifact
-together. The chapters, graphics, cover, build rules, and generated PDF belong
-to one book package. The PDF should be rebuilt before public refresh. That
-order keeps the public book, downloadable PDF, and research record aligned.
-
-One more rule follows from the same discipline: never let a short public
-summary become the only place where a claim is explained. Summaries are useful
-for orientation, but the durable book should contain the slower version: the
+One more rule follows from the same discipline: never let a short summary
+become the only place where a claim is explained. Summaries are useful for
+orientation, but the durable book should contain the slower version: the
 symbols, the assumptions, the known lineage, the support label, and the open
-edge. If a reader arrives from the website, a social post, a bot answer, or a
-download link, the PDF should give them enough context to check the claim
-without guessing what the shorthand meant. That is why the appendices exist,
-and why the publication process should preserve them as first-class book
-material.
+edge. That is why the appendices exist.
 
 For the same reason, editorial passes should prefer clarification over
 compression when a chapter introduces unfamiliar notation. A concise paragraph
@@ -457,14 +444,12 @@ equation in this book rests on years of argument, measurement, and repair by
 many people. Explaining notation is therefore not a concession to beginners.
 It is respect for the chain of work that made the notation meaningful.
 
-A reviewer should be able to trace any public claim back through that chain:
-from the sentence in the book, to the symbol in the equation, to the paper or
-established result behind it, to the generated PDF and live book surface that
-readers actually see. When that trace is intact, publication is accountable
-communication.
+A careful reader should be able to trace any serious claim back through that
+chain: from the sentence in the book, to the symbol in the equation, to the
+standard result, OPH construction, or explicit assumption behind it. When that
+trace is intact, the book becomes accountable communication.
 
-That accountability is the final overlap condition between author, reader,
-source, website, and downloadable artifact.
+That accountability is the final overlap condition between author and reader.
 
 It is also how a research book stays accountable.
 

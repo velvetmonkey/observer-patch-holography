@@ -302,20 +302,20 @@ derivation.
 
 The cosmology branch lives in [`cosmology/`](cosmology/README.md). The
 released paper in this branch is **[Observer-Patch Holography and the Dark Matter
-Phenomenon](cosmology/oph_dark_matter_paper.pdf)**. Staged targets are:
+Phenomenon](cosmology/oph_dark_matter_paper.pdf)**. Technical companions cover:
 
 - **Finite-source CMB prediction program**: `cosmology/oph_cosmology_finite_source_cmb_program.tex`
 - **Inflation without inflaton**: `cosmology/oph_inflation_without_inflaton_observer_screen_synchronization.tex`
 - **Cosmological vacuum and structure formation**: `cosmology/oph_cosmological_vacuum_and_structure_formation.tex`
 - **Data and likelihood contracts**: `cosmology/oph_cosmology_data_likelihood_contracts.tex`
 
-Detailed evidence references for the staged cosmology work are kept inside the
-staged cosmology branch. CMB, inflation, vacuum, and growth results remain
-conditional until their geometry, clock, source, scale bridge, and observational
-readout are derived from observer-patch structure rather than imported as
-background assumptions. FLRW calculations can serve as comparison plumbing; OPH
-native promotion requires a quotient-derived geometry and source embedding, with
-flatness either proved or declared as an assumption.
+Detailed evidence references for the cosmology companions are kept inside those
+papers. CMB, inflation, vacuum, and growth results are conditional claims whose
+geometry, clock, source, scale bridge, and observational readout must come from
+observer-patch structure rather than imported background assumptions. FLRW
+calculations can serve as comparison plumbing; OPH-native promotion requires a
+quotient-derived geometry and source embedding, with flatness either proved or
+declared as an assumption.
 
 ## Proof Status
 

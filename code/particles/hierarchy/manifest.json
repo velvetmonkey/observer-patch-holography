@@ -1,6 +1,6 @@
 {
   "bundle_id": "oph-hierarchy-proof-artifacts-r1473-2026-06-13",
-  "generated_utc": "2026-06-13T00:00:00Z",
+  "generated_utc": "2026-06-29T06:19:01Z",
   "purpose": "Machine-readable artifacts for the OPH electroweak hierarchy proof obligation audit.",
   "source_release_context": "OPH hierarchy source context with issue #332, #335, #337, #338, #342, #343, and #344 hierarchy closure artifacts, plus the icosahedral screen-sieve theorem.",
   "claim_boundary": {
@@ -35,13 +35,13 @@
   "files": [
     {
       "path": "README.md",
-      "sha256": "712e2407f5860bd1db704afa53b492475c8f3cd7e0cd9bc53260f4a68b6416ba",
-      "bytes": 6561
+      "sha256": "bdfcc20ded0e12fbfdf984e8627d466bba52a55062e598794943019c4fcca040",
+      "bytes": 7206
     },
     {
       "path": "STATUS.md",
-      "sha256": "0fad055b7817600c1d4de8aa691b524f8d246782dc6a990bd16df281871b6091",
-      "bytes": 8095
+      "sha256": "75be15e96d3df1ff8b0fe111d6cba4bf8fe0d51a5e77a20bd2ec1a3b8b2ec5cf",
+      "bytes": 8111
     },
     {
       "path": "INTEGRATION.md",
@@ -150,8 +150,8 @@
     },
     {
       "path": "test_hierarchy_bundle.py",
-      "sha256": "2d1c9332d5936a8e0093794fd8a481a1e7cc57658cfdc8f0e812616d196f6409",
-      "bytes": 36079
+      "sha256": "20c5a45d2f798d83c32bc6e7ffdaeb573e92cdd33519893895e2e25323d86c33",
+      "bytes": 37710
     },
     {
       "path": "validators/validate_bundle.py",
@@ -200,8 +200,8 @@
     },
     {
       "path": "certificates/R_EW_global_capacity_certificate.json",
-      "sha256": "a065bda55c7ec375912ea11fb10896bc84f9e1be74f4714e1281b6bb2b7d7ef4",
-      "bytes": 24952
+      "sha256": "b020b3ff4ba130ea3a26631cb6d8fb45aeef5fae6e18d99a0aa2c93549489b7e",
+      "bytes": 24984
     },
     {
       "path": "certificates/R_readback_resolution_certificate.json",
@@ -225,8 +225,8 @@
     },
     {
       "path": "verify_issue_344_exact_capacity.py",
-      "sha256": "fedf709995b7e3359dfcd255bbcce6ef08a4cc1b46f34f3cae664d930b64abd3",
-      "bytes": 34955
+      "sha256": "6420c0183d0aba1729cfc939b57d1f083c0e5c0de081bef28d2d7dacaf5d9e1d",
+      "bytes": 34987
     },
     {
       "path": "validators/validate_issue_337_electroweak_projection.py",
@@ -277,6 +277,16 @@
       "path": "validators/validate_issue_343_m_rep_24.py",
       "sha256": "0851612a30f96f025dcebbcb2b4c2a0fb5db34ac37c68866b62b9d3370423b11",
       "bytes": 14699
+    },
+    {
+      "path": "certificates/R_pixel_screen_resonance_summary.json",
+      "sha256": "651a623418596aa44a2364f9607fef9274db93000e40ef05b24622b3a8fe4277",
+      "bytes": 4885
+    },
+    {
+      "path": "verify_pixel_screen_resonance_summary.py",
+      "sha256": "570a0bb2b6e7478da68219df5535f2bfff118f64b491150d56f6ea411c9e7196",
+      "bytes": 8504
     }
   ]
 }

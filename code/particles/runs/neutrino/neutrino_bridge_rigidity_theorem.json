@@ -5,6 +5,8 @@
     "oph_neutrino_attachment_irreducibility_theorem",
     "oph_neutrino_bridge_correction_candidate_audit"
   ],
+  "display_allowed_as_compare_only": true,
+  "display_value": 0.9994295999075177,
   "emitted_exponents": [
     2.0,
     1.0,
@@ -21,10 +23,18 @@
     "symbol": "P_nu",
     "value": 6.699825740519345
   },
-  "emitted_value": 0.9994295999075177,
-  "generated_utc": "2026-06-12T05:39:09Z",
+  "emitted_value": null,
+  "generated_utc": "2026-06-29T06:17:34Z",
+  "non_circularity_status": {
+    "compare_only_correction_audit_used": true,
+    "correction_audit_status": "compare_only_reduced_bridge_correction_search",
+    "missing_source_object": "source_emitted_neutrino_C_nu_no_compare_target",
+    "must_not_feed_back": true,
+    "promotion_allowed": false,
+    "strict_audit_label": "compare_only_C_nu_candidate"
+  },
   "notes": [
-    "This theorem promotes the exact optimizer statement from the emitted finite family-assisted audit class to the physical reduced bridge law.",
+    "This artifact keeps the optimized C_nu display value but does not promote it because the correction audit is compare-only.",
     "The compare-only adapter and corridor remain on disk only as diagnostic surfaces beneath this theorem."
   ],
   "optimizer_relative_error_in_emitted_class": 0.00011780942290932373,
@@ -34,9 +44,11 @@
     "genuinely_family_assisted_on_the_first_solar_mover",
     "distinguished_exact_optimizer_on_the_emitted_family_assisted_class"
   ],
-  "proof_chain_role": "active_theorem_lane",
+  "prediction_promotion_allowed": false,
+  "proof_chain_role": "candidate_display_lane",
+  "public_surface_candidate_allowed": false,
   "statement": "On the live weighted-cycle branch, the physical reduced bridge invariant is the distinguished exact optimizer on the emitted family-assisted reduced-correction class.",
-  "status": "theorem_grade_emitted",
+  "status": "candidate_from_compare_only_reduced_bridge_search",
   "theorem_inputs": {
     "bridge_reconstruction": "B_nu = (I_nu^0.5 * ratio_hat^0.5 * sum_defect^-1) * C_nu",
     "dimensionless_ratio_dm21_over_dm32": 0.030721110097966534,

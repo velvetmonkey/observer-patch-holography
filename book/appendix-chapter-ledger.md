@@ -575,7 +575,7 @@ nonzero Yang-Mills energy with the first nonzero repair eigenvalue:
 
 $$\Delta_{\mathrm{YM}}=\Delta_{\mathrm{rep}}.$$
 
-The Noether diagram in the chapter shows the pipeline: symmetry, fixed
+The Noether diagram in the chapter shows the sequence: symmetry, fixed
 action, conserved current. The human story centers on Emmy Noether, but it
 also includes Hilbert, Klein, Weyl, Wigner, Yang, Mills, Glashow, Salam,
 Weinberg, and the experimental communities that turned symmetries into
@@ -830,7 +830,7 @@ $\theta$ or $\bar\theta$, and the book is careful that the selected quark
 theorem does not derive its vanishing.
 
 The synthesis chapter is also where support language matters most. A
-reconstruction can be impressive without being uniform in theorem status.
+reconstruction can be impressive without being uniform in theorem support.
 Some parts are recovered-core structural consequences. Some are implemented
 Phase-II closures with conditional input-free theorem targets. Some are
 assumption-dependent continuations. Some are
@@ -1015,7 +1015,7 @@ overlap into a menu of observables. $\omega_i$ and $\omega_j$ are state
 assignments. The vertical bar restricts each state to the shared menu. The
 equation says both observers make the same predictions for shared questions.
 
-**Example 3: Reading support status.** Suppose a chapter says a value is a
+**Example 3: Reading support level.** Suppose a chapter says a value is a
 benchmark check, an empirically anchored witness, a first-principles prediction,
 or an assumption-dependent continuation. These are not stylistic labels. A
 benchmark check tests known physics. An empirically anchored witness uses a
@@ -1025,6 +1025,6 @@ continuation is a plausible extension whose assumptions are not all theorem
 statements. Keeping those labels visible keeps the reader oriented.
 
 The book's ambition is large, but its reading discipline is ordinary. Track
-the symbols. Track the support status of each value. Track which part of the human
+the symbols. Track the support level of each value. Track which part of the human
 chain supplied each tool. Then ask whether the architecture makes the clues
 cohere better than the naive picture it replaces.

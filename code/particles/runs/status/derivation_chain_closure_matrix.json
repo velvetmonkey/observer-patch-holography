@@ -5,10 +5,7 @@
     "closed_or_scoped_chains": [
       "structural_massless_bosons",
       "hierarchy_naturality_bridge",
-      "higgs_top_declared_surface",
-      "charged_leptons",
-      "selected_class_quarks",
-      "neutrino_absolute_attachment"
+      "charged_leptons"
     ],
     "empirical_closure_policy_chains": [
       "hadrons"
@@ -16,13 +13,16 @@
     "policy": "Do not promote candidate, compare-only, witness-only, corpus-limited no-go, or source-backend-absent chains as closed theorem predictions.",
     "remaining_nonclosed_chains": [
       "p_closure_root",
-      "electroweak_wz"
+      "electroweak_wz",
+      "higgs_top_declared_surface",
+      "selected_class_quarks",
+      "neutrino_absolute_attachment"
     ],
     "source_backend_absent_chains": [
       "hadrons"
     ]
   },
-  "generated_utc": "2026-06-17T03:22:30Z",
+  "generated_utc": "2026-06-29T06:18:41Z",
   "particle_five_gates": {
     "153": {
       "chrome_workers": "do_not_use_for_backend_execution",
@@ -230,19 +230,21 @@
     },
     {
       "chain": "higgs_top_declared_surface",
-      "claim_level": "exact_source_only_higgs_top_split_calibration_theorem",
+      "claim_level": "conditional_declared_surface_higgs_top_candidate",
       "closed_issue_refs": [
         207
       ],
       "codomain_obstruction": "hard_no_go_current_corpus_compare_only_direct_top_codomain",
       "next_artifact": "code/particles/runs/calibration/direct_top_bridge_contract.json",
-      "open_gates": [],
+      "open_gates": [
+        "closed_promotable_EWTargetFreeRepairValueLaw_D10"
+      ],
       "outputs": {
         "higgs": 125.1995304097179,
         "top_companion": 172.35235532883115
       },
-      "promotable": true,
-      "status": "closed_on_declared_d10_d11_surface_direct_top_no_go"
+      "promotable": false,
+      "status": "conditional_declared_surface_higgs_top_candidate"
     },
     {
       "chain": "charged_leptons",
@@ -263,7 +265,7 @@
     },
     {
       "chain": "selected_class_quarks",
-      "claim_level": "selected_class_theorem_grade_exact_forward_quark_closure",
+      "claim_level": "selected_class_target_anchored_exact_witness",
       "closed_issue_refs": [
         199,
         207,
@@ -271,7 +273,9 @@
       ],
       "global_classification_obstruction": "hard_no_go_current_corpus_global_classification_not_emitted",
       "next_artifact": "code/particles/runs/flavor/quark_class_uniform_public_frame_descent_obstruction.json",
-      "open_gates": [],
+      "open_gates": [
+        "quark_public_physical_sigma_source_datum_no_target_leak"
+      ],
       "outputs": {
         "bottom": 4.182999999999994,
         "charm": 1.2729999999999992,
@@ -280,21 +284,23 @@
         "top": 172.35235532883115,
         "up": 0.0021600000000000005
       },
-      "promotable": true,
-      "status": "closed_selected_public_class_global_classification_no_go"
+      "promotable": false,
+      "status": "selected_class_target_anchored_exact_witness_not_strict_source"
     },
     {
       "chain": "neutrino_absolute_attachment",
-      "claim_level": "theorem_grade_weighted_cycle_absolute_attachment",
+      "claim_level": "scale_free_weighted_cycle_theorem_with_compare_only_absolute_attachment_candidate",
       "next_artifact": null,
-      "open_gates": [],
+      "open_gates": [
+        "source_emitted_neutrino_C_nu_no_compare_target"
+      ],
       "outputs": {
         "electron_neutrino": 0.017454720257976796,
         "muon_neutrino": 0.019481987935919015,
         "tau_neutrino": 0.05307522145074924
       },
-      "promotable": true,
-      "status": "closed_weighted_cycle_absolute_attachment_with_comparison_tension_visible",
+      "promotable": false,
+      "status": "scale_free_weighted_cycle_with_compare_only_absolute_attachment_candidate",
       "unit": "eV"
     },
     {

@@ -125,14 +125,20 @@ def build_payload() -> dict[str, Any]:
         },
         {
             "chain": "higgs_top_declared_surface",
-            "status": "closed_on_declared_d10_d11_surface_direct_top_no_go",
+            "status": (
+                "closed_on_declared_d10_d11_surface_direct_top_no_go"
+                if predictions["higgs"]["promotable"]
+                else "conditional_declared_surface_higgs_top_candidate"
+            ),
             "claim_level": predictions["higgs"]["exact_kind"],
             "outputs": {
                 "higgs": predictions["higgs"]["value"],
                 "top_companion": predictions["top_quark"]["value"],
             },
-            "promotable": True,
-            "open_gates": [],
+            "promotable": predictions["higgs"]["promotable"],
+            "open_gates": []
+            if predictions["higgs"]["promotable"]
+            else ["closed_promotable_EWTargetFreeRepairValueLaw_D10"],
             "closed_issue_refs": [207],
             "next_artifact": "code/particles/runs/calibration/direct_top_bridge_contract.json",
             "codomain_obstruction": direct_top.get("status"),
@@ -154,7 +160,11 @@ def build_payload() -> dict[str, Any]:
         },
         {
             "chain": "selected_class_quarks",
-            "status": "closed_selected_public_class_global_classification_no_go",
+            "status": (
+                "closed_selected_public_class_global_classification_no_go"
+                if predictions["top_quark"]["promotable"]
+                else "selected_class_target_anchored_exact_witness_not_strict_source"
+            ),
             "claim_level": predictions["top_quark"]["exact_kind"],
             "outputs": {
                 "up": predictions["up_quark"]["value"],
@@ -164,15 +174,21 @@ def build_payload() -> dict[str, Any]:
                 "bottom": predictions["bottom_quark"]["value"],
                 "top": predictions["top_quark"]["value"],
             },
-            "promotable": True,
-            "open_gates": [],
+            "promotable": predictions["top_quark"]["promotable"],
+            "open_gates": []
+            if predictions["top_quark"]["promotable"]
+            else ["quark_public_physical_sigma_source_datum_no_target_leak"],
             "closed_issue_refs": [199, 207, 212],
             "next_artifact": "code/particles/runs/flavor/quark_class_uniform_public_frame_descent_obstruction.json",
             "global_classification_obstruction": quark_global.get("proof_status"),
         },
         {
             "chain": "neutrino_absolute_attachment",
-            "status": "closed_weighted_cycle_absolute_attachment_with_comparison_tension_visible",
+            "status": (
+                "closed_weighted_cycle_absolute_attachment_with_comparison_tension_visible"
+                if predictions["electron_neutrino"]["promotable"]
+                else "scale_free_weighted_cycle_with_compare_only_absolute_attachment_candidate"
+            ),
             "claim_level": predictions["electron_neutrino"]["exact_kind"],
             "outputs": {
                 "electron_neutrino": predictions["electron_neutrino"]["value"],
@@ -180,8 +196,10 @@ def build_payload() -> dict[str, Any]:
                 "tau_neutrino": predictions["tau_neutrino"]["value"],
             },
             "unit": "eV",
-            "promotable": True,
-            "open_gates": [],
+            "promotable": predictions["electron_neutrino"]["promotable"],
+            "open_gates": []
+            if predictions["electron_neutrino"]["promotable"]
+            else ["source_emitted_neutrino_C_nu_no_compare_target"],
             "next_artifact": None,
         },
         {

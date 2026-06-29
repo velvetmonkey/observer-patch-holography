@@ -46,11 +46,17 @@ def test_neutrino_lane_closure_contract_records_emitted_theorem_pair() -> None:
 
     payload = json.loads(OUTPUT.read_text(encoding="utf-8"))
     assert payload["artifact"] == "oph_neutrino_lane_closure_contract"
-    assert payload["proof_status"] == "theorem_grade_emitted"
+    assert payload["proof_status"] == "scale_free_weighted_cycle_with_compare_only_absolute_attachment_candidate"
     rigidity = payload["emitted_bridge_rigidity_theorem"]
     assert rigidity["emitted_formula"] == "sum_gap^2 * prod_qbar * solar_response_over_mstar^-0.5"
-    assert rigidity["emitted_value"] == 0.9994295999075177
+    assert rigidity["emitted_value"] is None
+    assert rigidity["display_value"] == 0.9994295999075177
     attachment = payload["emitted_absolute_attachment_theorem"]
+    assert attachment["status"] == "conditional_absolute_family_blocked_by_compare_only_C_nu"
+    assert attachment["public_surface_candidate_allowed"] is False
     assert attachment["B_nu"] == 6.696004159297337
     assert attachment["lambda_nu"] == 1.7237014208357415
-    assert payload["public_promotion_allowed"] is True
+    assert payload["public_promotion_allowed"] is False
+    assert payload["non_circularity_status"]["missing_source_object"] == (
+        "source_emitted_neutrino_C_nu_no_compare_target"
+    )

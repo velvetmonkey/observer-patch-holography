@@ -270,15 +270,29 @@ def build_entries() -> list[dict[str, Any]]:
         },
     ]
 
+    quark_public_promotable = (
+        bool(quark_public_exact_yukawa)
+        and quark_public_exact_yukawa.get("public_promotion_allowed") is True
+        and quark_public_exact_yukawa.get("proof_status") == "closed_target_free_public_exact_yukawa_end_to_end_theorem"
+        and (quark_public_exact_yukawa.get("non_circularity_status") or {}).get("promotion_allowed") is True
+    )
     if quark_public_sigma_descent and quark_public_exact_yukawa:
         entries.insert(
             3,
             {
                 "id": "quark_selected_class_exact_theorem",
                 "label": "Quark Selected-Class Exact Theorem",
-                "fit_kind": "selected_class_theorem_grade_exact_forward_quark_closure",
-                "scope": quark_public_exact_yukawa["theorem_scope"],
-                "promotable": True,
+                "fit_kind": (
+                    "selected_class_theorem_grade_exact_forward_quark_closure"
+                    if quark_public_promotable
+                    else "selected_class_target_anchored_exact_witness"
+                ),
+                "scope": (
+                    quark_public_exact_yukawa["theorem_scope"]
+                    if quark_public_promotable
+                    else "selected_public_physical_quark_frame_class_only_but_sigma_datum_target_derived"
+                ),
+                "promotable": quark_public_promotable,
                 "matched_observables": ["m_u", "m_c", "m_t", "m_d", "m_s", "m_b"],
                 "units": "GeV",
                 "values": {
@@ -331,7 +345,12 @@ def build_entries() -> list[dict[str, Any]]:
                 "supporting_transport_frame_forward_yukawas_artifact": _repo_ref(QUARK_TRANSPORT_FORWARD_YUKAWAS_JSON),
                 "supporting_end_to_end_chain_artifact": _repo_ref(QUARK_END_TO_END_CHAIN_JSON),
                 "note": (
-                    "Exact theorem on the selected public physical quark frame class chosen by `P`. "
+                    (
+                        "Exact theorem on the selected public physical quark frame class chosen by `P`. "
+                        if quark_public_promotable
+                        else "Selected-class exact witness on the public physical quark frame class chosen by `P`; strict promotion is blocked because the sigma datum is target-derived. "
+                    )
+                    +
                     f"`{quark_public_sigma_descent['artifact']}` makes the exact physical sigma datum target-free public "
                     "on that selected class, and "
                     f"`{quark_public_exact_yukawa['artifact']}` emits the exact PDG 2025 running-quark sextet together "

@@ -49,7 +49,7 @@
       0.0
     ]
   },
-  "generated_utc": "2026-06-12T05:39:00Z",
+  "generated_utc": "2026-06-29T06:17:25Z",
   "notes": [
     "This closes the exact affine coordinate on the target-anchored current-family quark witness.",
     "It does not promote Theta_ud^abs, which still requires a target-free physical-sheet carrier A_q^phys."

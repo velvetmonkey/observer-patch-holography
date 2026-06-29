@@ -105,28 +105,28 @@ fixes à grande échelle de ce calcul en réseau d'observateurs.
 L'OPH est formulée comme une théorie sans entrée externe. Quantitativement, les
 lignes publiques sont organisées par trois quantités internes : un point fixe
 local de pixel $P_\star$, un point fixe global de capacité d'enregistrement
-$N_{\mathrm{CRC}}$ et un rapport de mise à l'échelle $\gamma_\star$. Ce ne sont
-pas des constantes ajustées côté source. Les mesures peuvent indiquer sur
-quelle branche nous sommes, mais les valeurs source doivent venir des calculs
-de point fixe. Les lignes à fermeture empirique sont marquées ci-dessous. La
-discussion d'échelle détaillée est rassemblée une seule fois ci-dessous dans
-**Géométrie, Symétrie Et Échelle**.
+$N_{\mathrm{CRC}}$ et un rapport de mise à l'échelle $\gamma_\star$. Le calcul
+source les produit comme valeurs de point fixe. Les mesures peuvent indiquer
+sur quelle branche nous sommes, mais les valeurs source doivent venir des
+calculs de point fixe. Les lignes à fermeture empirique sont marquées
+ci-dessous. La discussion d'échelle détaillée est rassemblée une seule fois
+ci-dessous dans **Géométrie, Symétrie Et Échelle**.
 
 Dans toute l'OPH, la forme de preuve reste la même. Une affirmation doit
 s'appuyer sur des patches bornés de type observateur, avec état local,
 frontières explicites, relecture, enregistrements, mouvements de retour ou de
-réparation, et dossiers de preuve publics. Ce qui compte n'est pas une
-présentation favorite, un choix de coordonnées ou une trace d'implémentation,
-mais l'histoire invariante des patches d'observateurs, vérifiable sur les
-recouvrements.
+réparation, et dossiers de preuve publics. Le test décisif est l'histoire
+invariante des patches d'observateurs, vérifiable sur les recouvrements, plutôt
+qu'une présentation favorite, un choix de coordonnées ou une trace
+d'implémentation.
 
 ## Le piège de l'espace-temps
 
-Le premier obstacle conceptuel est que l'OPH ne traite pas l'espace-temps comme
-le contenant dans lequel la réalité se déroule. L'espace et le temps ne sont pas
-des choses en soi. Ce sont les descriptions stables, orientées observateur, qui
-apparaissent lorsque de nombreuses perspectives finies peuvent devenir
-mutuellement cohérentes.
+Le premier obstacle conceptuel est que l'OPH traite l'espace-temps comme une
+description issue des observateurs, plutôt que comme le contenant dans lequel la
+réalité se déroule. L'espace et le temps y sont les descriptions stables,
+orientées observateur, qui apparaissent lorsque de nombreuses perspectives
+finies peuvent devenir mutuellement cohérentes.
 
 C'est particulièrement important pour le temps. Dans le langage ordinaire, le
 temps ressemble à un fleuve de fond qui continuerait à couler même s'il n'y
@@ -136,10 +136,9 @@ font s'accorder les enregistrements qui se recouvrent. Le temps est l'ordre
 qu'un observateur donne aux changements de ses propres enregistrements. Le
 temps public est la partie de cet ordre qui peut être synchronisée avec
 d'autres observateurs. En ce sens précis, le temps est subjectif : il appartient
-d'abord au flux d'enregistrements d'un observateur. Mais il n'est pas
-arbitraire. Une mauvaise horloge, un faux souvenir ou une histoire incohérente
-échouent lorsqu'ils ne peuvent pas s'accorder avec le reste du réseau
-d'enregistrements.
+d'abord au flux d'enregistrements d'un observateur. Il reste pourtant contraint.
+Une mauvaise horloge, un faux souvenir ou une histoire incohérente échouent
+lorsqu'ils ne peuvent pas s'accorder avec le reste du réseau d'enregistrements.
 
 Certains appelleraient cela une illusion. Comme métaphore, c'est juste : le
 contenant que nous semblons habiter est une apparence produite par une cohérence
@@ -311,8 +310,8 @@ Son résultat de ligne d'enregistrement est séparé : il certifie
 conditionnellement la continuation trans-frontière de jetons d'enregistrement
 localisés et visibles par l'observateur à partir d'un atlas hyperboloïde déclaré,
 d'une interface réelle, du transport, d'un écart d'assignation et d'un reçu de
-raffinement. Ce n'est pas une dérivation d'espèce de particule, de masse, de
-charge ou d'amplitude de diffusion.
+raffinement. Les espèces de particules, masses, charges et amplitudes de
+diffusion restent hors de ce certificat.
 
 ## Articles
 
@@ -327,23 +326,23 @@ charge ou d'amplitude de diffusion.
 
 - **[Photonic Fixed-Point Consensus for SHA-256d Proof of Work](extra/Photonic_fixed-point_consensus_for_SHA-256d_proof_of_work.pdf)** : enrichissement photonique de candidats pour la preuve de travail SHA-256d.
 - **[The Fine-Structure Constant as an OPH Pixel Fixed Point](extra/fine_structure_constant_derivation.pdf)** : point fixe source, frontière du point final hadronique empirique et ligne de comparaison.
-- **[Observer-Patch Holography as a String-Vacuum Selector](extra/observer_patch_holography_as_string_vacuum_selector.pdf)** : émergence des cordes comme description effective des dynamiques de bord OPH et crible de vides de cordes conventionnels, témoin hétérotique Bouchard-Donagi à une paire de Higgs, couche de sûreté par symétrie R discrète et portes de verrouillage des moduli ; ce n'est pas un raccourci de promotion vers un vide natif OPH.
+- **[Observer-Patch Holography as a String-Vacuum Selector](extra/observer_patch_holography_as_string_vacuum_selector.pdf)** : émergence des cordes comme description effective des dynamiques de bord OPH et crible de vides de cordes conventionnels, témoin hétérotique Bouchard-Donagi à une paire de Higgs, couche de sûreté par symétrie R discrète et portes de verrouillage des moduli ; la promotion vers un vide natif OPH exige les étapes de sélection déclarées.
 - **[Explaining the Yang-Mills Mass Gap with Observer-Patch Repair Dynamics](extra/yang_mills_gap_clay_problem.pdf)** : mécanisme OPH fini de gap de réparation et route conditionnelle vers le problème de Yang-Mills de Clay ; l'égalité entre le gap de Yang-Mills et le gap de réparation OPH exige le certificat quadridimensionnel de limite continue et de transfert.
 - **[Observer-Patch Holography and the Dark Matter Phenomenon](cosmology/oph_dark_matter_paper.pdf)** : phénoménologie de la matière noire et limite galactique de type MOND.
 - **[Theoretical Bounds on \(\chi_\nu\) in Observer-Patch Holography](extra/chi_nu_susceptibility_bounds.pdf)** : bornes conditionnelles de susceptibilité quotient-edge, valeur exacte sur la branche uniforme et valeurs d'ingénierie mises à l'échelle par la cohérence.
 - **[Thinking as Patch-Net Fixed-Point Search](extra/thinking_as_patch_net_fixed_point_search.pdf)** : cognition et qualia comme consensus récurrent de patches.
 
-La branche cosmologie en préparation vit dans [`cosmology/`](cosmology/README.md). Seul l'article
-sur la matière noire est publié dans le pipeline de release depuis ce dossier. Le programme CMB à
-source finie, inflation sans inflaton, vide/structure cosmologique et contrats
-données/vraisemblance sont des cibles publiques de travail. Les références de
-preuve détaillées restent dans la branche cosmologie. Les résultats CMB,
-inflation, vide et croissance restent conditionnels tant que leur géométrie,
-leur horloge, leur source, leur pont d'échelle et leur lecture observationnelle
-ne sont pas dérivés de la structure des patches d'observateurs. Les calculs FLRW
-peuvent servir de comparaison, mais une promotion native OPH exige une géométrie
-dérivée du quotient et un plongement de source, avec la platitude soit prouvée,
-soit déclarée comme hypothèse.
+La branche cosmologie vit dans [`cosmology/`](cosmology/README.md). L'article
+du paquet de publication porte sur la matière noire et la limite galactique de
+type MOND. Les compagnons techniques couvrent le programme CMB à source finie,
+l'inflation sans inflaton, le vide/structure cosmologique et les contrats
+données/vraisemblance. Les références détaillées restent dans ces papiers. Les
+résultats CMB, inflation, vide et croissance sont des affirmations
+conditionnelles dont la géométrie, l'horloge, la source, le pont d'échelle et la
+lecture observationnelle doivent venir de la structure des patches
+d'observateurs. Les calculs FLRW servent de comparaison ; une promotion native
+OPH exige une géométrie dérivée du quotient et un plongement de source, avec la
+platitude prouvée ou déclarée comme hypothèse.
 
 ## Statut de preuve
 
@@ -356,12 +355,12 @@ Elle donne le chemin le plus court vers l'idée que l'OPH est probablement
 correcte, tandis que la pile complète de papiers porte les dérivations, les
 frontières de revendication et les obligations de preuve.
 
-Une sortie OPH finie garde son statut d'origine tant qu'un pont physique
-indépendant n'est pas fourni. Renommer un compte de capacité en masse, une
-archive en rayonnement, un spectre de réparation en spectre physique ou un seuil
-de reconstruction en temps de Page ne suffit pas. Une promotion physique exige
-une lecture séparée, un chemin de calibration, un registre de résidus, des
-contrôles et une cible de validation gelée.
+Une sortie OPH finie garde son statut d'origine jusqu'à la présence d'un pont
+physique indépendant. Renommer un compte de capacité en masse, une archive en
+rayonnement, un spectre de réparation en spectre physique ou un seuil de
+reconstruction en temps de Page laisse la revendication au même endroit. Une
+promotion physique exige une lecture séparée, un chemin de calibration, un
+registre de résidus, des contrôles et une cible de validation gelée.
 
 La preuve compacte traite l'évidence comme un test de compression. Une ligne
 numérique ne compte que lorsque son calcul n'utilise pas la valeur mesurée, ni

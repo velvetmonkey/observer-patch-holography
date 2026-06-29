@@ -4,17 +4,17 @@ The OPH core papers recover local observer-facing geometry, records, modular flo
 
 The program paper has four jobs.
 
-1.  It consolidates the inflation-free OPH cosmology branch into the core repository’s cosmology directory, while keeping it outside the release build until the theorem gates close.
+1.  It states the inflation-free OPH cosmology branch as a technical companion outside the release bundle.
 
 2.  It separates diagnostic simulator outputs from physical predictions. A good visual or measurement-facing CMB overlay is not a physical CMB prediction unless its inputs are source-only finite OPH artifacts fixed before likelihood comparison.
 
 3.  It names the finite objects required for physical promotion of simulation outputs in CMB, vacuum, or cosmological uses of the dark sector: source provenance, physical mode calibration, freezeout, covariant stress, anomaly kernels, transfer, likelihood, and quotient ensemble receipts. The dark-sector derivations themselves are owned by the released cosmology paper `cosmology/oph_dark_matter_paper.tex`.
 
-4.  It gives the staged cosmology branch one theorem surface for the finite-source and likelihood claim gates.
+4.  It gives the conditional cosmology branch one theorem surface for the finite-source and likelihood claim gates.
 
 # Claim Boundary
 
-This is a continuation paper, not a release checkpoint and not a published OPH paper bundle member. It is part of the public core repository as the shared cosmology contract for paper and simulator work.
+This technical companion sits outside the release bundle and sets the shared cosmology contract for paper and simulator work.
 
 The branch claim is:
 ``` math
@@ -27,13 +27,13 @@ The branch claim is:
 \end{gathered}}
 ```
 
-Here “can” means “can on the declared Phase III finite-source continuation branch if the listed source, stress, lift, transfer, and likelihood gates close.” It does not mean that inflation replacement, CMB spectra, or dark-sector cosmology are part of the recovered Phase I SM/GR core.
+Here “can” means “can on the declared finite-source branch with the listed source, stress, lift, transfer, and likelihood gates closed.” The recovered Phase I SM/GR core excludes inflation replacement, CMB spectra, and dark-sector cosmology.
 
-The branch has no physical CMB prediction, completed Planck/ACT likelihood run, OPH-native quantum vacuum, full cosmological dark-matter likelihood, or production particle-formation simulation. The 256k simulator run is measurement-facing diagnostic evidence; its promotion receipts keep the physical claim closed.
+The branch supplies claim boundaries and measurement-facing diagnostic evidence. Physical CMB prediction, completed Planck/ACT likelihood runs, OPH-native quantum vacuum, full cosmological dark-matter likelihood, and production particle-formation simulation require the gates below.
 
 <div class="remark">
 
-*Remark 1* (No simulator shortcut). The paper-side theorem gates are not bureaucratic checks. They are the distinction between a simulation that happens to resemble CMB data and a prediction whose input artifacts were fixed without using CMB data. The simulator should not resume physical CMB promotion until those gates are mathematically specified here and then implemented as deterministic receipts.
+*Remark 1* (No simulator shortcut). The paper-side theorem gates mark the difference between a simulation that resembles CMB data and a prediction whose input artifacts were fixed without using CMB data. Physical CMB promotion requires those gates as mathematical statements and deterministic checks.
 
 </div>
 
@@ -306,7 +306,7 @@ The evidence bundle must keep separate receipts for stationary-law schedule inva
 
 # Finite Screen Spectrum Theorem Package
 
-This fragment owns the screen-level spectrum theorem used by the staged cosmology branch. It does not own TT, TE, EE, lensing, likelihoods, or physical CMB promotion. Those remain downstream Boltzmann and data-contract gates.
+This fragment gives the screen-level spectrum theorem used by the conditional cosmology branch. TT, TE, EE, lensing, likelihoods, and physical CMB promotion belong to the downstream Boltzmann and data-contract gates.
 
 <div id="def:oph-screen-regulator" class="definition">
 
@@ -580,7 +580,7 @@ then
 
 # Physical Scale Bridge and Mode Calibration
 
-This fragment owns the OPH physical scale bridge used by the staged cosmology branch. It separates physical comoving wavenumber, source-screen angular sectors, observed-sky transfer multipoles, finite graph labels, cap labels, and repair-cycle labels.
+This fragment gives the OPH physical scale bridge used by the conditional cosmology branch. It separates physical comoving wavenumber, source-screen angular sectors, observed-sky transfer multipoles, finite graph labels, cap labels, and repair-cycle labels.
 
 <div id="def:cosmology-claim-tiers" class="definition">
 
@@ -1090,7 +1090,7 @@ The compatibility table fixes how the inflation-free draft is read against the c
 
 | Imported draft idea | Core-compatible reading |
 |:---|:---|
-| Inflation-free replacement | Phase III continuation only. The compact paper’s recovered core does not include an inflation replacement, physical CMB likelihood, $`H_0/S_8`$ branch, or dark-sector cosmology claim. |
+| Inflation-free replacement | Phase III conditional branch. The compact paper’s recovered core covers the SM/GR package; inflation replacement, physical CMB likelihood, the $`H_0/S_8`$ branch, and dark-sector cosmology sit outside that core. |
 | Finite normal form | Use quotient-level fixed-cutoff normal forms on the declared branch, unique only modulo boundary redundancy, implementation hiding, inert ancillary stabilization, and any required same-boundary unique-extension condition. Do not read the old draft as selecting a unique microscopic representative. |
 | Screen spectrum and $`n_s=1-P/48`$ | Screen-level theorem only after geometric $`q_r`$, normalized $`K_r`$, source release energy, refinement tilt, and angular-spectrum receipts pass. The special $`P/48`$ tilt is theorem-grade only after the edge-center reserve, half-collar projection, and reserve-to-RG receipts pass. Physical $`A_s`$, $`n_s`$, running, isocurvature, phase coherence, and TT/TE/EE spectra require the separate source-stress, single-clock, radial-prior, null-space, forward-residual, transfer, and likelihood receipts. |
 | Dark/anomaly slot | Imported from `cosmology/oph_dark_matter_paper.tex`. For a source-only primordial certification run, the dark continuation is `OFF` unless a supplied abundance is explicitly typed `CONDITIONAL_SOURCE_STATE`; transported $`Q_A`$ is not by itself an OPH derivation of the homogeneous anomaly abundance. |
@@ -1400,7 +1400,7 @@ when $`t_{\rm IR}>0`$. The old dimension count $`12+20+1=33\Rightarrow
 
 <div class="target">
 
-**Target 52** (Fluctuation covariance and tilt receipts). *Deterministic settling does not choose a fluctuation ensemble. The finite quotient ensemble must supply $`\mu_r(q)=m_r(q)e^{-S_r(q)}/Z_r`$ with projective compatibility, sampler correctness, and implementation invariance. Repair drift does not determine covariance: $`D\Sigma+\Sigma D^{\mathsf T}=\Xi`$ requires the noise covariance $`\Xi`$. A fluctuation-dissipation branch may use $`D=M_rK_r`$, $`\Xi=2A_rM_r`$, and $`\Sigma_r=A_rK_r^{-1}`$, but only with
+**Target 52** (Fluctuation covariance and tilt receipts). *Deterministic settling does not choose a fluctuation ensemble. The finite quotient ensemble must supply $`\mu_r(q)=m_r(q)e^{-S_r(q)}/Z_r`$ with projective compatibility, sampler correctness, and implementation invariance. Repair drift does not determine covariance: $`D\Sigma+\Sigma D^{\mathsf T}=\Xi`$ requires the noise covariance $`\Xi`$. A fluctuation-dissipation branch may use $`D=M_rK_r`$, $`\Xi=2A_rM_r`$, and $`\Sigma_r=A_rK_r^{-1}`$ when it also supplies
 ``` math
 \texttt{QUOTIENT\_ENSEMBLE\_RECEIPT},\quad
 \texttt{LYAPUNOV\_COVARIANCE\_RECEIPT},\quad
@@ -1420,7 +1420,7 @@ Only after the radial theorem identifies $`\Delta_\zeta^2(k)\propto k^{-\theta}`
 
 <div class="proposition">
 
-**Proposition 53** (Why the 256k CMB curve is diagnostic). *The 256k OPH-FPE run may be used as a measurement-facing diagnostic, but not as a physical CMB prediction, because its promotion report marks the finite-source input contract false and lists missing source provenance, missing pooled reducers, missing $`N_{\rm CRC}`$ invariant role, non-finite $`A_\zeta`$, missing screen-to-primordial lift, non-finite $`q_{\rm IR}`$ and $`\ell_{\rm IR}`$, non-finite $`\bar\rho_A`$ and $`B_A`$, missing finite covariant parent receipt, missing stress closure, missing full fluid/exchange variables, missing gauge/causal/refinement certificates, missing freezeout, missing official likelihood and CDM-limit reductions, and missing frozen solver and likelihood hashes.*
+**Proposition 53** (Why the 256k CMB curve is diagnostic). *The 256k OPH-FPE run has measurement-facing diagnostic status only. Its promotion report marks the finite-source input contract false and lists missing source provenance, missing pooled reducers, missing $`N_{\rm CRC}`$ invariant role, non-finite $`A_\zeta`$, missing screen-to-primordial lift, non-finite $`q_{\rm IR}`$ and $`\ell_{\rm IR}`$, non-finite $`\bar\rho_A`$ and $`B_A`$, missing finite covariant parent receipt, missing stress closure, missing full fluid/exchange variables, missing gauge/causal/refinement certificates, missing freezeout, missing official likelihood and CDM-limit reductions, and missing frozen solver and likelihood hashes.*
 
 </div>
 

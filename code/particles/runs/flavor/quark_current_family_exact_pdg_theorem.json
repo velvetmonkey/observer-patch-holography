@@ -24,7 +24,7 @@
     "t": 5.684341886080802e-14,
     "u": 8.673617379884035e-19
   },
-  "generated_utc": "2026-06-12T05:39:00Z",
+  "generated_utc": "2026-06-29T06:17:25Z",
   "next_target_free_bridge": {
     "note": "This theorem is exact only on the target-anchored current-family witness. The target-free selected-public-class closure is carried by the public physical-sigma and exact-Yukawa theorem artifacts, so this current-family witness is not the promotion surface.",
     "remaining_public_frontier": []

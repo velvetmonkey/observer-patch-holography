@@ -42,7 +42,17 @@ def build_payload(
     irreducibility: dict[str, Any],
     scaffold: dict[str, Any],
 ) -> dict[str, Any]:
-    c_nu = float(bridge_rigidity["emitted_value"])
+    bridge_non_circularity = dict(bridge_rigidity.get("non_circularity_status") or {})
+    bridge_promotion_allowed = (
+        bridge_rigidity.get("status") == "theorem_grade_emitted"
+        and bridge_rigidity.get("public_surface_candidate_allowed") is True
+        and bridge_non_circularity.get("promotion_allowed", True) is True
+    )
+    c_nu = float(
+        bridge_rigidity["emitted_value"]
+        if bridge_rigidity.get("emitted_value") is not None
+        else bridge_rigidity["display_value"]
+    )
     p_nu = float(bridge_rigidity["emitted_proxy"]["value"])
     b_nu = p_nu * c_nu
     m_star_eV = float(scaffold["current_no_go"]["direct_attachment_diagnostic"]["m_star_eV"])
@@ -60,14 +70,33 @@ def build_payload(
     dimensionless_dm2 = {key: float(value) for key, value in weighted_cycle["dimensionless_dm2"].items()}
     masses_eV = [lambda_nu * value for value in dimensionless_masses]
     delta_m_sq_eV2 = {key: (lambda_nu * lambda_nu) * value for key, value in dimensionless_dm2.items()}
+    status = (
+        "theorem_grade_emitted"
+        if bridge_promotion_allowed
+        else "conditional_absolute_family_blocked_by_compare_only_C_nu"
+    )
 
     return {
         "artifact": "oph_neutrino_absolute_attachment_theorem",
         "generated_utc": _timestamp(),
-        "status": "theorem_grade_emitted",
-        "proof_chain_role": "active_theorem_lane",
-        "public_surface_candidate_allowed": True,
+        "status": status,
+        "proof_chain_role": "active_theorem_lane" if bridge_promotion_allowed else "candidate_display_lane",
+        "public_surface_candidate_allowed": bridge_promotion_allowed,
+        "display_allowed_as_compare_only_absolute_attachment": not bridge_promotion_allowed,
+        "prediction_promotion_allowed": bridge_promotion_allowed,
         "theorem_object": "absolute_weighted_cycle_neutrino_family",
+        "non_circularity_status": {
+            "promotion_allowed": bridge_promotion_allowed,
+            "bridge_status": bridge_rigidity.get("status"),
+            "bridge_public_surface_candidate_allowed": bridge_rigidity.get("public_surface_candidate_allowed"),
+            "compare_only_C_nu_used": not bridge_promotion_allowed,
+            "missing_source_object": None
+            if bridge_promotion_allowed
+            else "source_emitted_neutrino_C_nu_no_compare_target",
+            "strict_audit_label": "source_absolute_neutrino_family"
+            if bridge_promotion_allowed
+            else "compare_only_absolute_attachment_candidate",
+        },
         "inputs": {
             "P_nu": p_nu,
             "C_nu": c_nu,

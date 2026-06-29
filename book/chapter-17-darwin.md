@@ -35,9 +35,8 @@ high-energy scale by quantum corrections.
 OPH answers the local electroweak part of this puzzle through the pixel
 transmutation branch. The weak scale is emitted as
 $v/E_\star=P_\star^{-1/2}\exp[-2\pi/(4\alpha_U(P_\star))]$, where the
-unified-coupling record has a unique source zero in the stated interval used
-by the particle paper and the Observers paper. That is the scoped hierarchy
-solution. The stronger Higgs naturality reading also needs the RG
+unified-coupling record has a unique source zero in the stated interval. That
+is the scoped hierarchy solution. The stronger Higgs naturality reading also needs the RG
 coarse-graining defect bound for the Higgs normal form, and the SI gravity
 number needs the full no-G clock bridge.
 

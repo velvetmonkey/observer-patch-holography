@@ -1,6 +1,6 @@
 # Exact Fits Only
 
-Generated: `2026-06-17T03:22:30Z`
+Generated: `2026-06-29T06:18:41Z`
 
 This surface lists exact target matches on declared OPH carriers. It separates theorem-grade selected-class outputs from compare-only and carrier-restricted exact surfaces.
 For quarks, the selected-class theorem and its supporting exact carriers coincide with the official PDG 2025 API running-quark target surface.
@@ -50,12 +50,12 @@ For quarks, the selected-class theorem and its supporting exact carriers coincid
 
 ## Quark Selected-Class Exact Theorem
 
-- Fit kind: `selected_class_theorem_grade_exact_forward_quark_closure`
-- Scope: `selected_public_physical_quark_frame_class_only`
-- Promotable: `true`
+- Fit kind: `selected_class_target_anchored_exact_witness`
+- Scope: `selected_public_physical_quark_frame_class_only_but_sigma_datum_target_derived`
+- Promotable: `false`
 - Source artifact: `code/particles/runs/flavor/quark_public_exact_yukawa_end_to_end_theorem.json`
 - Max absolute residual: `5.684341886080802e-14`
-- Note: Exact theorem on the selected public physical quark frame class chosen by `P`. `oph_quark_public_physical_sigma_datum_descent` makes the exact physical sigma datum target-free public on that selected class, and `oph_quark_public_exact_yukawa_end_to_end_theorem` emits the exact PDG 2025 running-quark sextet together with explicit exact forward Yukawas `Y_u` and `Y_d`. The top coordinate uses PDG summary `Q007TP4`. The auxiliary direct-top entry `Q007TP` is compare-only; [#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207) is closed as a corpus-limited no-go by `code/particles/runs/calibration/direct_top_bridge_contract.json`. This is selected-class closure only. It does not claim a global classification of all quark frame classes.
+- Note: Selected-class exact witness on the public physical quark frame class chosen by `P`; strict promotion is blocked because the sigma datum is target-derived. `oph_quark_public_physical_sigma_datum_descent` makes the exact physical sigma datum target-free public on that selected class, and `oph_quark_public_exact_yukawa_end_to_end_theorem` emits the exact PDG 2025 running-quark sextet together with explicit exact forward Yukawas `Y_u` and `Y_d`. The top coordinate uses PDG summary `Q007TP4`. The auxiliary direct-top entry `Q007TP` is compare-only; [#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207) is closed as a corpus-limited no-go by `code/particles/runs/calibration/direct_top_bridge_contract.json`. This is selected-class closure only. It does not claim a global classification of all quark frame classes.
 
 | Observable | Value | Reference |
 | --- | ---: | ---: |

@@ -19,8 +19,6 @@ The early hints run through Plato's holographic themes, Zeno's discrete-structur
 
 The thread running through these early hints goes deeper than the claim that "reality is strange." It is that **a single, observer-free description is not the natural starting point**. Perspectives come first. Objectivity, if it exists at all, is what survives when many partial views overlap and agree.
 
-This is the second through-line of the book. We reverse engineer the universe from its hints, but we do so by starting with observer patches and demanding consistency, not by assuming a God's-eye view and working downward.
-
 ## 2.2 Plato's Cave: The First Holographic Hint
 
 Around 380 BCE, Plato gave us the most famous analogy in philosophy: the Cave.

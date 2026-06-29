@@ -30,8 +30,15 @@ def test_d11_live_exact_split_pair_theorem_closes_exact_pair() -> None:
     payload = json.loads(OUTPUT.read_text(encoding="utf-8"))
     assert payload["artifact"] == "oph_d11_live_exact_split_pair_theorem"
     assert payload["theorem_id"] == "D11SourceSplitForwardExactness"
-    assert payload["proof_status"] == "closed_source_only_live_exact_split_pair"
-    assert payload["public_surface_candidate_allowed"] is True
+    assert payload["proof_status"] == "conditional_on_unpromoted_d10_repair_candidate"
+    assert payload["status"] == "candidate_only"
+    assert payload["public_surface_candidate_allowed"] is False
+    assert payload["prediction_promotion_allowed"] is False
+    assert payload["upstream_promotion_gate"]["passed"] is False
+    assert payload["upstream_promotion_gate"]["actual_status"] == "candidate_only"
+    assert payload["non_circularity_status"]["missing_source_object"] == (
+        "closed_promotable_EWTargetFreeRepairValueLaw_D10"
+    )
     assert payload["closure_logic"]["fixed_ray_blocked"] is True
     assert payload["exact_split_pair"]["mH_gev"] == 125.1995304097179
     assert payload["exact_split_pair"]["mt_pole_gev"] == 172.3523553288312

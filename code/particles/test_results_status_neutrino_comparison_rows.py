@@ -35,14 +35,14 @@ def test_neutrino_oscillation_comparison_rows_are_emitted_on_repaired_branch() -
     } <= observable_ids
 
 
-def test_neutrino_oscillation_comparison_rows_use_theorem_grade_absolute_splittings() -> None:
+def test_neutrino_oscillation_comparison_rows_use_compare_only_absolute_splittings_when_C_nu_is_blocked() -> None:
     module = _load_module()
     rows = module.build_neutrino_oscillation_comparison_rows(module.build_surface_state(with_hadrons=False))
     by_id = {row["observable_id"]: row for row in rows}
     assert by_id["theta12_deg"]["status"] == "weighted_cycle_dimensionless"
-    assert by_id["delta_m21_sq_eV2"]["status"] == "theorem_grade"
-    assert by_id["delta_m32_sq_eV2"]["status"] == "theorem_grade"
-    assert "absolute attachment theorems" in by_id["delta_m32_sq_eV2"]["note"]
+    assert by_id["delta_m21_sq_eV2"]["status"] == "compare_only"
+    assert by_id["delta_m32_sq_eV2"]["status"] == "compare_only"
+    assert "two-parameter positive-segment neutrino adapter" in by_id["delta_m32_sq_eV2"]["note"]
 
 
 def test_render_markdown_includes_neutrino_oscillation_section() -> None:

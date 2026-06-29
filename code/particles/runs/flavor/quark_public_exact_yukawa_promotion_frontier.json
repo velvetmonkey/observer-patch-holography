@@ -147,7 +147,7 @@
   },
   "closed_public_endpoint": {
     "artifact": "oph_quark_public_exact_yukawa_end_to_end_theorem",
-    "proof_status": "closed_target_free_public_exact_yukawa_end_to_end_theorem",
+    "proof_status": "blocked_by_target_derived_public_sigma_datum",
     "public_exact_outputs": {
       "exact_running_values_gev": {
         "b": 4.182999999999994,
@@ -410,7 +410,7 @@
         172.35235532883115
       ]
     },
-    "statement": "The final public theorem candidate is now closed, so this conditional closure is realized."
+    "statement": "The final public theorem candidate is not strict-source promotable until a public sigma source datum with no target leak is supplied."
   },
   "final_public_theorem_candidate": {
     "id": "target_free_public_physical_sigma_datum_descent",
@@ -479,14 +479,22 @@
     },
     "statement": "Let f_P be the physical quark frame class selected by P, represented on the realized quark lane by the explicit same-label common-refinement transport-frame class [F0^dagger F1]. For any two declared current-family/common-refinement transport-frame realizations r,r' in the selected same-label bridge fiber R_decl(f_P), the emitted Sigma_ud^phys element and attached exact physical sigma datum (sigma_seed_ud, eta_ud, sigma_u, sigma_d) agree. Equivalently, the exact sigma readout is constant on R_decl(f_P) and descends uniquely to a target-free public datum on the physical quark frame class selected by P."
   },
-  "generated_utc": "2026-06-12T05:39:00Z",
+  "generated_utc": "2026-06-29T06:17:26Z",
+  "non_circularity_status": {
+    "missing_source_object": "quark_public_physical_sigma_source_datum_no_target_leak",
+    "promotion_allowed": false,
+    "public_sigma_promotion_allowed": false,
+    "public_sigma_proof_status": "blocked_by_target_derived_public_sigma_datum",
+    "strict_audit_label": "selected_class_target_anchored_exact_witness",
+    "target_derived_sigma_datum_used": true
+  },
   "notes": [
-    "This frontier is now resolved: the direct public sigma-datum descent theorem is closed, and the public exact Yukawa theorem is emitted explicitly.",
+    "This frontier is blocked under strict non-circularity by the target-derived public sigma datum.",
     "The alternate upstream route remains only as an unused alternative derivation route.",
     "The local declared-carrier exact Yukawa theorem is retained as the representative closed local endpoint beneath the public theorem."
   ],
-  "proof_status": "closed_target_free_public_exact_yukawa_end_to_end_theorem",
-  "public_promotion_allowed": true,
+  "proof_status": "blocked_by_target_derived_public_sigma_datum",
+  "public_promotion_allowed": false,
   "resolved_by_theorem_artifact": "oph_quark_public_exact_yukawa_end_to_end_theorem",
   "scope": "selected_public_physical_quark_frame_class_only",
   "target_name": "target_free_public_exact_forward_quark_yukawas"

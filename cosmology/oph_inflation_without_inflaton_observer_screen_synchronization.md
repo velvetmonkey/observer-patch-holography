@@ -1,6 +1,6 @@
-# Status
+# Scope
 
-This is a public staged template under `reverse-engineering-reality/cosmology/`. It is not part of the release pipeline. It refines the older draft at `cosmology/inflation_without_inflaton_observer_screen_synchronization.tex` against the current compact, screen-microphysics, dark-sector, and finite-source CMB papers.
+This is a technical companion outside the release bundle. It states the inflation-free branch against the compact, screen-microphysics, dark-sector, and finite-source CMB papers.
 
 # Finite Quotient and Claim-Tier Firewall
 
@@ -271,7 +271,7 @@ The simulator must keep separate receipts for stationary-law schedule invariance
 
 # Finite Screen Spectrum Theorem Package
 
-This fragment owns the screen-level spectrum theorem used by the staged cosmology branch. It does not own TT, TE, EE, lensing, likelihoods, or physical CMB promotion. Those remain downstream Boltzmann and data-contract gates.
+This fragment gives the screen-level spectrum theorem used by the conditional cosmology branch. TT, TE, EE, lensing, likelihoods, and physical CMB promotion belong to the downstream Boltzmann and data-contract gates.
 
 <div id="def:oph-screen-regulator" class="definition">
 
@@ -572,7 +572,7 @@ This claim is not part of the recovered SM/GR core. It becomes predictive only w
 
 The simulator reference is <https://github.com/muellerberndt/oph-physics-sim>. For this paper the simulator may emit diagnostic screen spectra, observer-screen synchronization receipts, and release-amplitude candidates. It must not label them inflation replacement, OPH primordial field, or physical CMB prediction unless the E4 and E5 receipts in the shared theorem fragment pass in the concrete run bundle.
 
-# Flatness Status
+# Flatness Boundary
 
 The flatness branch is split into identification and selection. On a clocked FLRW continuation with $`u_a=-N\nabla_a\chi`$, $`h_{ab}=g_{ab}+u_au_b`$, and $`K(\tau)=\kappa/a(\tau)^2`$, the area-normalized small-loop holonomy of the spatial Levi–Civita connection identifies $`K=0`$ and hence $`\kappa=0`$. It does not select that sector from the raw FLRW fiber. The simulator must therefore report one of $`\textsc{DirectTheorem}`$, $`\textsc{ConditionalCMH}`$, $`\textsc{ExplicitAssumption}`$, or $`\textsc{OpenTheorem}`$. S3 screen/collar defect decay is a repair diagnostic, not a spatial curvature holonomy. Curvature damping can certify only an $`\textsc{ApproximateBound}`$ on $`|K|`$ or $`|\Omega_K|`$.
 
@@ -592,7 +592,7 @@ The primordial power law
 ```
 enters this paper only after the thin-shell or finite-window lift fixes $`R_\star`$, $`Z_\star`$, the radial window, the null-space report, the forward-projection residual, and the amplitude conversion from $`A_q`$ to $`A_\zeta`$. A screen theorem by itself does not prove TT, TE, EE, lensing, acoustic peaks, or an official likelihood result.
 
-# Open Work
+# Unclosed Claim Boundaries
 
 1.  Prove the same-boundary or low-$`k`$ coherence branch in quotient language.
 

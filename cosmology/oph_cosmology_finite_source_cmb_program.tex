@@ -82,8 +82,8 @@ Einstein-Boltzmann cosmology?
 
 The program paper has four jobs.
 \begin{enumerate}[leftmargin=2em]
-\item It consolidates the inflation-free OPH cosmology branch into the core repository's cosmology
-directory, while keeping it outside the release build until the theorem gates close.
+\item It states the inflation-free OPH cosmology branch as a technical companion outside the
+release bundle.
 \item It separates diagnostic simulator outputs from physical predictions. A good visual or
 measurement-facing CMB overlay is not a physical CMB prediction unless its inputs are source-only
 finite OPH artifacts fixed before likelihood comparison.
@@ -92,7 +92,7 @@ vacuum, or cosmological uses of the dark sector: source provenance, physical mod
 freezeout, covariant stress, anomaly kernels, transfer, likelihood, and quotient ensemble receipts.
 The dark-sector derivations themselves are owned by the released cosmology paper
 \pathref{cosmology/oph_dark_matter_paper.tex}.
-\item It gives the staged cosmology branch one theorem surface for the finite-source and likelihood
+\item It gives the conditional cosmology branch one theorem surface for the finite-source and likelihood
 claim gates.
 \end{enumerate}
 
@@ -101,9 +101,8 @@ claim gates.
 
 \section{Claim Boundary}
 
-This is a continuation paper, not a release checkpoint and not a published OPH paper bundle member.
-It is part of the public core repository as the shared cosmology contract for paper and simulator
-work.
+This technical companion sits outside the release bundle and sets the shared
+cosmology contract for paper and simulator work.
 
 The branch claim is:
 \[
@@ -116,20 +115,21 @@ The branch claim is:
 \end{gathered}}
 \]
 
-Here ``can'' means ``can on the declared Phase III finite-source continuation branch if the listed
-source, stress, lift, transfer, and likelihood gates close.'' It does not mean that inflation
-replacement, CMB spectra, or dark-sector cosmology are part of the recovered Phase I SM/GR core.
+Here ``can'' means ``can on the declared finite-source branch with the listed
+source, stress, lift, transfer, and likelihood gates closed.'' The recovered
+Phase I SM/GR core excludes inflation replacement, CMB spectra, and dark-sector
+cosmology.
 
-The branch has no physical CMB prediction, completed Planck/ACT likelihood run, OPH-native quantum
-vacuum, full cosmological dark-matter likelihood, or production particle-formation simulation. The
-256k simulator run is measurement-facing diagnostic evidence; its promotion receipts keep the
-physical claim closed.
+The branch supplies claim boundaries and measurement-facing diagnostic evidence.
+Physical CMB prediction, completed Planck/ACT likelihood runs, OPH-native
+quantum vacuum, full cosmological dark-matter likelihood, and production
+particle-formation simulation require the gates below.
 
 \begin{remark}[No simulator shortcut]
-The paper-side theorem gates are not bureaucratic checks. They are the distinction between a
-simulation that happens to resemble CMB data and a prediction whose input artifacts were fixed
-without using CMB data. The simulator should not resume physical CMB promotion until those gates are
-mathematically specified here and then implemented as deterministic receipts.
+The paper-side theorem gates mark the difference between a simulation that
+resembles CMB data and a prediction whose input artifacts were fixed without
+using CMB data. Physical CMB promotion requires those gates as mathematical
+statements and deterministic checks.
 \end{remark}
 
 \section{Finite Quotient Ensembles and Claim Tiers}
@@ -152,8 +152,9 @@ Imported draft idea & Core-compatible reading\\
 \bottomrule
 \endfoot
 Inflation-free replacement &
-Phase III continuation only. The compact paper's recovered core does not include an inflation
-replacement, physical CMB likelihood, \(H_0/S_8\) branch, or dark-sector cosmology claim.\\
+Phase III conditional branch. The compact paper's recovered core covers the
+SM/GR package; inflation replacement, physical CMB likelihood, the \(H_0/S_8\)
+branch, and dark-sector cosmology sit outside that core.\\
 Finite normal form &
 Use quotient-level fixed-cutoff normal forms on the declared branch, unique only modulo boundary
 redundancy, implementation hiding, inert ancillary stabilization, and any required same-boundary
@@ -619,7 +620,7 @@ quotient ensemble must supply \(\mu_r(q)=m_r(q)e^{-S_r(q)}/Z_r\) with
 projective compatibility, sampler correctness, and implementation invariance.
 Repair drift does not determine covariance: \(D\Sigma+\Sigma D^{\mathsf T}=\Xi\)
 requires the noise covariance \(\Xi\).  A fluctuation-dissipation branch may
-use \(D=M_rK_r\), \(\Xi=2A_rM_r\), and \(\Sigma_r=A_rK_r^{-1}\), but only with
+use \(D=M_rK_r\), \(\Xi=2A_rM_r\), and \(\Sigma_r=A_rK_r^{-1}\) when it also supplies
 \[
 \texttt{QUOTIENT\_ENSEMBLE\_RECEIPT},\quad
 \texttt{LYAPUNOV\_COVARIANCE\_RECEIPT},\quad
@@ -640,9 +641,9 @@ Only after the radial theorem identifies
 \end{target}
 
 \begin{proposition}[Why the 256k CMB curve is diagnostic]
-The 256k OPH-FPE run may be used as a measurement-facing diagnostic, but not as a physical CMB
-prediction, because its promotion report marks the finite-source input contract false and lists
-missing source provenance, missing pooled reducers, missing \(\NCRC\) invariant role, non-finite
+The 256k OPH-FPE run has measurement-facing diagnostic status only. Its
+promotion report marks the finite-source input contract false and lists missing
+source provenance, missing pooled reducers, missing \(\NCRC\) invariant role, non-finite
 \(\Azeta\), missing screen-to-primordial lift, non-finite \(q_{\rm IR}\) and \(\ell_{\rm IR}\),
 non-finite \(\rhoA\) and \(\Bkernel\), missing finite covariant parent receipt, missing stress
 closure, missing full fluid/exchange variables, missing gauge/causal/refinement certificates,

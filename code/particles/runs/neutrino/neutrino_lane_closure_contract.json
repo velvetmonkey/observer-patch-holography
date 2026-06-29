@@ -37,21 +37,33 @@
       0.017454720257976796,
       0.019481987935919015,
       0.05307522145074924
-    ]
+    ],
+    "public_surface_candidate_allowed": false,
+    "status": "conditional_absolute_family_blocked_by_compare_only_C_nu"
   },
   "emitted_bridge_rigidity_theorem": {
     "P_nu": 6.699825740519345,
     "artifact": "oph_neutrino_bridge_rigidity_theorem",
+    "display_value": 0.9994295999075177,
     "emitted_formula": "sum_gap^2 * prod_qbar * solar_response_over_mstar^-0.5",
-    "emitted_value": 0.9994295999075177,
-    "statement": "On the live weighted-cycle branch, the physical reduced bridge invariant is the distinguished exact optimizer on the emitted family-assisted reduced-correction class."
+    "emitted_value": null,
+    "statement": "On the live weighted-cycle branch, the physical reduced bridge invariant is the distinguished exact optimizer on the emitted family-assisted reduced-correction class.",
+    "status": "candidate_from_compare_only_reduced_bridge_search"
   },
-  "generated_utc": "2026-06-12T05:39:09Z",
+  "generated_utc": "2026-06-29T06:17:34Z",
+  "non_circularity_status": {
+    "bridge_public_surface_candidate_allowed": false,
+    "bridge_status": "candidate_from_compare_only_reduced_bridge_search",
+    "compare_only_C_nu_used": true,
+    "missing_source_object": "source_emitted_neutrino_C_nu_no_compare_target",
+    "promotion_allowed": false,
+    "strict_audit_label": "compare_only_absolute_attachment_candidate"
+  },
   "notes": [
-    "The compare-only continuation adapter is retired from the proof-facing neutrino lane.",
-    "The bridge corridor and residual correction audits remain diagnostic-only surfaces beneath the emitted theorem pair."
+    "The absolute attachment is displayed as a compare-only candidate; the scale-free weighted-cycle branch remains the promoted theorem surface.",
+    "The bridge corridor and residual correction audits remain diagnostic-only surfaces beneath the emitted weighted-cycle branch."
   ],
-  "proof_status": "theorem_grade_emitted",
-  "public_promotion_allowed": true,
+  "proof_status": "scale_free_weighted_cycle_with_compare_only_absolute_attachment_candidate",
+  "public_promotion_allowed": false,
   "scope": "weighted_cycle_bridge_rigidity_plus_absolute_attachment"
 }

@@ -103,7 +103,7 @@
       }
     ]
   },
-  "generated_utc": "2026-06-17T03:22:30Z",
+  "generated_utc": "2026-06-29T06:18:41Z",
   "input_artifacts": {
     "edge_statistics_candidate": "oph_quark_edge_statistics_spread_candidate",
     "odd_response": "oph_quark_odd_response_law",
@@ -284,9 +284,11 @@
   ],
   "scope": "arbitrary_P_off_canonical_quark_evaluator",
   "selected_public_exact_surface": {
-    "closed": true,
-    "minimal_exact_blocker_set": [],
-    "proof_status": "closed_target_free_public_exact_yukawa_end_to_end_theorem",
+    "closed": false,
+    "minimal_exact_blocker_set": [
+      "quark_public_physical_sigma_source_datum_no_target_leak"
+    ],
+    "proof_status": "blocked_by_target_derived_public_sigma_datum",
     "selected_by": "P",
     "theorem_scope": "selected_public_physical_quark_frame_class_only"
   },

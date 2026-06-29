@@ -31,9 +31,12 @@ def test_quark_public_exact_yukawa_end_to_end_theorem_closes_public_target() -> 
     )
 
     assert payload["artifact"] == "oph_quark_public_exact_yukawa_end_to_end_theorem"
-    assert payload["proof_status"] == "closed_target_free_public_exact_yukawa_end_to_end_theorem"
+    assert payload["proof_status"] == "blocked_by_target_derived_public_sigma_datum"
     assert payload["target_name"] == "target_free_public_exact_forward_quark_yukawas"
-    assert payload["minimal_exact_blocker_set"] == []
+    assert payload["public_promotion_allowed"] is False
+    assert payload["display_allowed_as_selected_class_exact_witness"] is True
+    assert payload["minimal_exact_blocker_set"] == ["quark_public_physical_sigma_source_datum_no_target_leak"]
+    assert payload["non_circularity_status"]["target_derived_sigma_datum_used"] is True
     outputs = payload["public_exact_outputs"]["forward_yukawa_artifact"]
     assert outputs["artifact"] == "oph_quark_current_family_transport_frame_exact_forward_yukawas"
     assert outputs["forward_certified"] is True

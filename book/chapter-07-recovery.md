@@ -344,11 +344,11 @@ quantity $\varepsilon(B)$ is the allowed leakage past that separator. Exact
 Markov screening would set it to zero. Realistic geometry permits a small
 nonzero remainder.
 
-That remainder has to be carried. In the technical papers, OPH separates the
-Fawzi-Renner recovered comparison state from the exact-Markov replacement used
-in ideal splice and modular-additivity calculations. The latter is justified
-only on a fixed collar, or after pullback to one, with a collar-local modulus
-that tends to zero.
+That remainder has to be carried. OPH separates the Fawzi-Renner recovered
+comparison state from the exact-Markov replacement used in ideal splice and
+modular-additivity calculations. The latter is justified only on a fixed
+collar, or after pullback to one, with a collar-local modulus that tends to
+zero.
 
 ### Screening Through the Separator
 
@@ -398,13 +398,13 @@ facts become the records that survive because they are redundantly encoded.
 
 The recovery perspective sharpens one of physics' most famous puzzles.
 
-### Hawking's Calculation
+### Hawking's Puzzle, Revisited
 
-In 1974, Stephen Hawking made a disturbing discovery. Black holes aren't quite black-they emit faint radiation due to quantum effects near the event horizon.
-
-The information problem returns. Hawking's calculation showed the radiation is thermal-random, uncorrelated noise carrying no information about what fell in. If you throw a book into a black hole and wait for evaporation, all you get out is random static.
-
-If this is true, information is destroyed. A pure quantum state (the book) becomes a mixed thermal state (the radiation). This violates unitarity-the foundational principle that quantum evolution preserves information.
+The black-hole puzzle is an extreme version of the recovery question. A book
+falls past the horizon. Long afterward the black hole has almost evaporated.
+If the outgoing radiation is only heat, the book's information seems gone. If
+quantum evolution preserves information, the radiation must carry correlations
+that a coarse thermal description misses.
 
 ### The Page Curve
 

@@ -39,7 +39,7 @@ def test_public_quark_candidate_policy_uses_explicit_surface_gate() -> None:
     )
     forward = json.loads((ROOT / "particles" / "runs" / "flavor" / "forward_yukawas.json").read_text(encoding="utf-8"))
     theorem_allowed = module._quark_public_exact_theorem_allowed(theorem)
-    if theorem_allowed or forward.get("public_surface_candidate_allowed", False):
+    if theorem_allowed:
         assert updated["m_u"] != 1.0
         assert updated["m_d"] != 2.0
         assert updated["m_s"] != 3.0
@@ -47,6 +47,7 @@ def test_public_quark_candidate_policy_uses_explicit_surface_gate() -> None:
         assert updated["m_b"] != 5.0
         assert updated["m_t"] != 6.0
     else:
+        assert forward.get("public_surface_candidate_allowed", False) is True
         assert updated["m_u"] == 1.0
         assert updated["m_d"] == 2.0
         assert updated["m_s"] == 3.0

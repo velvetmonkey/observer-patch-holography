@@ -28,6 +28,7 @@
     "obstruction_only_worker_result_allowed": true,
     "p_trunk_candidate_only": true,
     "paper_material_sync_complete_without_live_publish": true,
+    "pixel_screen_resonance_summary_closed": true,
     "source_only_hadrons_suppressed_by_default": true,
     "source_spectral_stage_gate": "populated source spectral measure payload plus interval certificate"
   },
@@ -67,7 +68,7 @@
       "status": "source_audit_without_hadronic_spectral_payload"
     }
   },
-  "generated_utc": "2026-06-29T05:24:08Z",
+  "generated_utc": "2026-06-29T06:18:41Z",
   "hadron_policy": {
     "empirical_hadron_closure_allowed_for_display": true,
     "empirical_payload_schema": "particles/hadron/empirical_ee_hadronic_spectral_measure.schema.json",
@@ -382,10 +383,10 @@
       "value": 91.18797809193725
     },
     {
-      "exact_kind": "exact_source_only_higgs_top_split_calibration_theorem",
+      "exact_kind": "conditional_declared_surface_higgs_top_candidate",
       "label": "Higgs Boson",
       "particle_id": "higgs",
-      "promotable": true,
+      "promotable": false,
       "scope": "declared_d10_d11_running_matching_threshold_surface_only",
       "source_artifact": "code/particles/runs/calibration/d11_live_exact_split_pair_theorem.json",
       "supporting_scope_closure_artifact": null,
@@ -426,76 +427,76 @@
       "value": 1.7769324651340912
     },
     {
-      "exact_kind": "selected_class_theorem_grade_exact_forward_quark_closure",
+      "exact_kind": "selected_class_target_anchored_exact_witness",
       "label": "Up Quark",
       "particle_id": "up_quark",
-      "promotable": true,
-      "scope": "selected_public_physical_quark_frame_class_only",
+      "promotable": false,
+      "scope": "selected_public_physical_quark_frame_class_only_but_sigma_datum_target_derived",
       "source_artifact": "code/particles/runs/flavor/quark_public_exact_yukawa_end_to_end_theorem.json",
       "supporting_scope_closure_artifact": "code/particles/runs/flavor/quark_current_family_selected_sheet_closure.json",
       "unit": "GeV",
       "value": 0.0021600000000000005
     },
     {
-      "exact_kind": "selected_class_theorem_grade_exact_forward_quark_closure",
+      "exact_kind": "selected_class_target_anchored_exact_witness",
       "label": "Down Quark",
       "particle_id": "down_quark",
-      "promotable": true,
-      "scope": "selected_public_physical_quark_frame_class_only",
+      "promotable": false,
+      "scope": "selected_public_physical_quark_frame_class_only_but_sigma_datum_target_derived",
       "source_artifact": "code/particles/runs/flavor/quark_public_exact_yukawa_end_to_end_theorem.json",
       "supporting_scope_closure_artifact": "code/particles/runs/flavor/quark_current_family_selected_sheet_closure.json",
       "unit": "GeV",
       "value": 0.004699999999999999
     },
     {
-      "exact_kind": "selected_class_theorem_grade_exact_forward_quark_closure",
+      "exact_kind": "selected_class_target_anchored_exact_witness",
       "label": "Strange Quark",
       "particle_id": "strange_quark",
-      "promotable": true,
-      "scope": "selected_public_physical_quark_frame_class_only",
+      "promotable": false,
+      "scope": "selected_public_physical_quark_frame_class_only_but_sigma_datum_target_derived",
       "source_artifact": "code/particles/runs/flavor/quark_public_exact_yukawa_end_to_end_theorem.json",
       "supporting_scope_closure_artifact": "code/particles/runs/flavor/quark_current_family_selected_sheet_closure.json",
       "unit": "GeV",
       "value": 0.09349999999999999
     },
     {
-      "exact_kind": "selected_class_theorem_grade_exact_forward_quark_closure",
+      "exact_kind": "selected_class_target_anchored_exact_witness",
       "label": "Charm Quark",
       "particle_id": "charm_quark",
-      "promotable": true,
-      "scope": "selected_public_physical_quark_frame_class_only",
+      "promotable": false,
+      "scope": "selected_public_physical_quark_frame_class_only_but_sigma_datum_target_derived",
       "source_artifact": "code/particles/runs/flavor/quark_public_exact_yukawa_end_to_end_theorem.json",
       "supporting_scope_closure_artifact": "code/particles/runs/flavor/quark_current_family_selected_sheet_closure.json",
       "unit": "GeV",
       "value": 1.2729999999999992
     },
     {
-      "exact_kind": "selected_class_theorem_grade_exact_forward_quark_closure",
+      "exact_kind": "selected_class_target_anchored_exact_witness",
       "label": "Bottom Quark",
       "particle_id": "bottom_quark",
-      "promotable": true,
-      "scope": "selected_public_physical_quark_frame_class_only",
+      "promotable": false,
+      "scope": "selected_public_physical_quark_frame_class_only_but_sigma_datum_target_derived",
       "source_artifact": "code/particles/runs/flavor/quark_public_exact_yukawa_end_to_end_theorem.json",
       "supporting_scope_closure_artifact": "code/particles/runs/flavor/quark_current_family_selected_sheet_closure.json",
       "unit": "GeV",
       "value": 4.182999999999994
     },
     {
-      "exact_kind": "selected_class_theorem_grade_exact_forward_quark_closure",
+      "exact_kind": "selected_class_target_anchored_exact_witness",
       "label": "Top Quark",
       "particle_id": "top_quark",
-      "promotable": true,
-      "scope": "selected_public_physical_quark_frame_class_only",
+      "promotable": false,
+      "scope": "selected_public_physical_quark_frame_class_only_but_sigma_datum_target_derived",
       "source_artifact": "code/particles/runs/flavor/quark_public_exact_yukawa_end_to_end_theorem.json",
       "supporting_scope_closure_artifact": "code/particles/runs/flavor/quark_current_family_selected_sheet_closure.json",
       "unit": "GeV",
       "value": 172.35235532883115
     },
     {
-      "exact_kind": "theorem_grade_weighted_cycle_absolute_attachment",
+      "exact_kind": "scale_free_weighted_cycle_theorem_with_compare_only_absolute_attachment_candidate",
       "label": "Electron Neutrino",
       "particle_id": "electron_neutrino",
-      "promotable": true,
+      "promotable": false,
       "scope": "weighted_cycle_bridge_rigid_absolute_family",
       "source_artifact": "code/particles/runs/neutrino/neutrino_absolute_attachment_theorem.json",
       "supporting_scope_closure_artifact": null,
@@ -503,10 +504,10 @@
       "value": 0.017454720257976796
     },
     {
-      "exact_kind": "theorem_grade_weighted_cycle_absolute_attachment",
+      "exact_kind": "scale_free_weighted_cycle_theorem_with_compare_only_absolute_attachment_candidate",
       "label": "Muon Neutrino",
       "particle_id": "muon_neutrino",
-      "promotable": true,
+      "promotable": false,
       "scope": "weighted_cycle_bridge_rigid_absolute_family",
       "source_artifact": "code/particles/runs/neutrino/neutrino_absolute_attachment_theorem.json",
       "supporting_scope_closure_artifact": null,
@@ -514,10 +515,10 @@
       "value": 0.019481987935919015
     },
     {
-      "exact_kind": "theorem_grade_weighted_cycle_absolute_attachment",
+      "exact_kind": "scale_free_weighted_cycle_theorem_with_compare_only_absolute_attachment_candidate",
       "label": "Tau Neutrino",
       "particle_id": "tau_neutrino",
-      "promotable": true,
+      "promotable": false,
       "scope": "weighted_cycle_bridge_rigid_absolute_family",
       "source_artifact": "code/particles/runs/neutrino/neutrino_absolute_attachment_theorem.json",
       "supporting_scope_closure_artifact": null,

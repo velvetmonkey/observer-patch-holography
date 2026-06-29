@@ -26,13 +26,21 @@ def test_neutrino_bridge_rigidity_and_absolute_attachment_are_emitted() -> None:
     absolute = json.loads(ABSOLUTE_OUT.read_text(encoding="utf-8"))
 
     assert rigidity["artifact"] == "oph_neutrino_bridge_rigidity_theorem"
-    assert rigidity["status"] == "theorem_grade_emitted"
+    assert rigidity["status"] == "candidate_from_compare_only_reduced_bridge_search"
+    assert rigidity["public_surface_candidate_allowed"] is False
+    assert rigidity["prediction_promotion_allowed"] is False
     assert rigidity["emitted_formula"] == "sum_gap^2 * prod_qbar * solar_response_over_mstar^-0.5"
-    assert rigidity["emitted_value"] == pytest.approx(0.9994295999075177, abs=1.0e-15)
+    assert rigidity["emitted_value"] is None
+    assert rigidity["display_value"] == pytest.approx(0.9994295999075177, abs=1.0e-15)
+    assert rigidity["non_circularity_status"]["missing_source_object"] == (
+        "source_emitted_neutrino_C_nu_no_compare_target"
+    )
 
     assert absolute["artifact"] == "oph_neutrino_absolute_attachment_theorem"
-    assert absolute["status"] == "theorem_grade_emitted"
-    assert absolute["public_surface_candidate_allowed"] is True
+    assert absolute["status"] == "conditional_absolute_family_blocked_by_compare_only_C_nu"
+    assert absolute["public_surface_candidate_allowed"] is False
+    assert absolute["prediction_promotion_allowed"] is False
+    assert absolute["non_circularity_status"]["compare_only_C_nu_used"] is True
     assert absolute["outputs"]["B_nu"] == pytest.approx(6.696004159297337, abs=1.0e-15)
     assert absolute["outputs"]["lambda_nu"] == pytest.approx(1.7237014208357415, abs=1.0e-15)
     assert absolute["outputs"]["masses_eV"][2] == pytest.approx(0.05307522145074924, abs=1.0e-15)

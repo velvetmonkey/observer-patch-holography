@@ -403,7 +403,7 @@ continuation depends on assumptions outside the recovered-core derivation.
 The reader should treat these labels as part of the theory, not as legal
 small print. They tell you how much weight each line can carry. They also
 make the project stronger. A theory with visible support labels can improve
-without pretending that every claim has the same support status. It can revise
+without pretending that every claim has the same support level. It can revise
 entries as proofs and evidence change.
 
 The human chain behind constants is enormous. Metrology institutes, collider
@@ -491,7 +491,7 @@ measured. If $c$ appears, relativity is converting space and time. If
 $\hbar$ appears, quantum action is involved. If $k_B$ appears, entropy and
 temperature units are being related. If $G$ appears, gravity is present.
 
-Fifth ask for support status. Is the equation an established result from prior
+Fifth ask for support level. Is the equation an established result from prior
 physics? A definition? A derived OPH relation? A conjectural continuation? A
 numerical consistency check? The book should make that visible. If the label is
 missing, the reader should demand it.
@@ -625,8 +625,8 @@ record conditions make the observer identifiable.
 
 This prose contract is part of the physics. OPH is a theory about compatible
 descriptions. The book should therefore be a compatible description of
-itself: chapter text, equations, diagrams, appendices, PDF, website, and
-paper abstracts all carrying the same claims in the same plain language.
+itself: chapter text, equations, diagrams, and appendices all carrying the
+same claims in the same plain language.
 
 ## Interlude 14: Instruments as Observer Extensions
 
@@ -691,8 +691,8 @@ state spaces carry the real theorem content.
 The Tannaka-Krein and generation-count diagrams are closer to the technical
 program. They remind the reader that gauge structure can be reconstructed
 from representation data, and that generation claims have specific windows
-and conditions. Their edge is support status: not every entry in the particle
-program has the same theorem status.
+and conditions. Their edge is support level: not every entry in the particle
+program has the same theorem support.
 
 The modular-flow, null-blowup, and Newton-limit diagrams form a sequence.
 They show how cap flow can become a local geometric clock, how a curved
@@ -721,8 +721,8 @@ quark-sector scheme dependence, and uncertainty analysis.
 The conceptual handles are observer-first language, operational structure,
 strange-loop closure, and restoration through interfaces.
 
-The editorial handles are the alignment among PDF, book source, diagrams,
-website text, public refresh surfaces, and claim-status tables.
+The reader-facing handles are the alignment among chapter prose, equations,
+diagrams, glossary entries, and support labels.
 
 Those handles make OPH easy to inspect. A theory about consistency should
 welcome hard consistency checks.
@@ -961,7 +961,7 @@ claim, the reader should be able to see the relay behind it.
 This relay also explains the book's precision around open particle derivations.
 The fine-structure branch, electroweak relations, Higgs/top relation, neutrino
 branch, quark sector, strong-CP boundary, and hadron calculations do not all
-have the same support status. Some entries are structural. Some are benchmark
+have the same support level. Some entries are structural. Some are benchmark
 checks. Some depend on external data. Some remain in derivation lanes. A
 public fact built from a long chain has to show which links are welded and
 which links are scaffolds.
@@ -1006,9 +1006,8 @@ neutrino assumptions, and electroweak scheme choices must stay explicit. The
 selected quark theorem does not emit the physical strong-CP invariant or
 prove its vanishing. The book should not imply otherwise.
 
-The observer and restoration discussions use the fixed-cutoff
-checkpoint/restoration theorem as their theorem surface. Stronger continuation
-interfaces are separate questions. What
+The observer and restoration discussions rest on the fixed-cutoff
+checkpoint/restoration result. Stronger continuation interfaces are separate questions. What
 exactly counts as a recoverable observer pattern? Which records are public,
 which are private, and which are needed for continuation? What kinds of
 hardware could instantiate the relevant patch federation? Which error bounds
@@ -1016,5 +1015,5 @@ matter? These questions are continuation boundaries.
 
 Continuation boundaries are the work surface. A theory that reverse engineers
 reality should produce better questions as well as answers. The reader should
-leave with a map, a toolkit, and a clear sense of theorem surfaces and
-engineering surfaces.
+leave with a map, a toolkit, and a clear sense of which questions are physical,
+which are mathematical, and which require engineering.

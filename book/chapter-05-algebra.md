@@ -387,13 +387,12 @@ The implication is strong: once you specify an algebra-state pair, modular theor
 
 This connects to the **thermal time principle** of Connes and Rovelli: modular flow provides an important candidate for organizing experienced time. Given the quantum state of our patch, the algebra provides a natural clock.
 
-For the technical papers, this last sentence has a boundary. Modular flow gives
-a canonical parameter for the declared algebra-state pair; it is not
-automatically the same as a repair-cycle counter, a worker timestamp, or a
-laboratory clock readout. Turning the modular parameter into an operational
-observer clock requires a clock instrument, a calibration map, and a residual
-bound showing that corresponding observers read the same clock up to the
-declared affine reparameterization.
+OPH keeps this last sentence bounded. Modular flow gives a canonical parameter
+for the declared algebra-state pair; a repair-cycle counter, a worker
+timestamp, or a laboratory clock readout requires extra structure. Turning the
+modular parameter into an operational observer clock requires a clock
+instrument, a calibration map, and a residual bound showing that corresponding
+observers read the same clock up to the declared affine reparameterization.
 
 The same caution applies to finite regulators. A finite matrix calculation can
 approximate a modular branch only after a declared multiresolution tower
