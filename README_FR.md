@@ -112,37 +112,13 @@ de point fixe. Les lignes à fermeture empirique sont marquées ci-dessous. La
 discussion d'échelle détaillée est rassemblée une seule fois ci-dessous dans
 **Géométrie, Symétrie Et Échelle**.
 
-Les simulations OPH distribuées héritent de la même frontière. Une exécution
-par travailleurs ne compte comme preuve d'un seul univers que si elle part d'un
-porteur fini global unique, émet le graphe porteur, l'état initial, la carte de
-partition, les interfaces de coupure, le registre des observateurs, les hachages
-d'exécution/configuration/code, et prouve que les événements validés par les
-travailleurs se projettent sur des réparations transactionnelles monolithiques,
-des stutters physiques ou des rollbacks certifiés. Les reçus de descente de
-couture, commit atomique, diamant local, complétude de réparation, élimination
-de branche et hachage de forme normale sont des contrats de preuve, pas des
-sélecteurs de branche. Les graines locales de shard, les manifestes périmés et
-les animations synthétiques de couture sont des diagnostics, pas des reçus
-physiques.
-
-La géométrie de bulk neutre a une porte propre. Des lignes d'observateurs
-locales aux shards ne deviennent pas un bulk global par concaténation. Elles
-doivent d'abord descendre par les quotients de jauge/ports, les formes normales
-terminales, le transport commun d'interface et les canaux de traits visibles au
-quotient. La distance produit obtenue est un pseudomètre jusqu'à ce que les
-collisions de traits soient quotientées ou que la séparation conjointe soit
-démontrée. Les valeurs manquantes, changements de présentation, repartitions de
-shards, raffinements, plongements euclidiens et statistiques sur lots tenus à
-l'écart demandent tous des reçus explicites avant qu'une exécution finie puisse
-revendiquer plus qu'une géométrie neutre diagnostique.
-
-Les affirmations sur l'horloge de l'observateur ont une porte supplémentaire.
-Les identifiants de worker, itérations de réparation, positions de file,
-horodatages et latences de paquets sont de la provenance d'exécution, pas le
-temps de l'observateur. Une histoire d'observateur indépendante du planificateur
-demande des clés d'événements sémantiques, un registre global d'observateurs à
-espaces de noms séparés, des flèches de lignée et un instrument d'horloge avec
-certificat de résidu affine.
+Dans toute l'OPH, la forme de preuve reste la même. Une affirmation doit
+s'appuyer sur des patches bornés de type observateur, avec état local,
+frontières explicites, relecture, enregistrements, mouvements de retour ou de
+réparation, et dossiers de preuve publics. Ce qui compte n'est pas une
+présentation favorite, un choix de coordonnées ou une trace d'implémentation,
+mais l'histoire invariante des patches d'observateurs, vérifiable sur les
+recouvrements.
 
 ## Le piège de l'espace-temps
 
@@ -360,15 +336,14 @@ charge ou d'amplitude de diffusion.
 La branche cosmologie en préparation vit dans [`cosmology/`](cosmology/README.md). Seul l'article
 sur la matière noire est publié dans le pipeline de release depuis ce dossier. Le programme CMB à
 source finie, inflation sans inflaton, vide/structure cosmologique et contrats
-données/vraisemblance sont des cibles publiques de travail pour les théorèmes et reçus de calcul fini.
-La promotion CMB physique exige des artefacts source avec preuve, ascendance transitive,
-réducteurs globaux groupés, pont d'échelle physique structuré, choix de modèle gelés et hachages
-source/solveur/vraisemblance gelés. Une géométrie FLRW importée ne certifie que des tests physiques
-conditionnels ; la cosmologie native OPH exige encore une géométrie et un plongement de source
-dérivés du quotient.
-La branche FLRW plate est elle aussi sous statut : l'holonomie de Levi--Civita spatiale sur une
-tranche d'horloge identifie \(\kappa=0\), mais la sélection exacte exige un théorème direct, un
-sélecteur CMH conditionnel, ou une hypothèse explicite de branche plate.
+données/vraisemblance sont des cibles publiques de travail. Les références de
+preuve détaillées restent dans la branche cosmologie. Les résultats CMB,
+inflation, vide et croissance restent conditionnels tant que leur géométrie,
+leur horloge, leur source, leur pont d'échelle et leur lecture observationnelle
+ne sont pas dérivés de la structure des patches d'observateurs. Les calculs FLRW
+peuvent servir de comparaison, mais une promotion native OPH exige une géométrie
+dérivée du quotient et un plongement de source, avec la platitude soit prouvée,
+soit déclarée comme hypothèse.
 
 ## Statut de preuve
 
@@ -401,26 +376,14 @@ l'exclusion de la désintégration du proton par bosons de jauge, l'inventaire
 des particules et la sélection du vide de corde comme une seule grammaire de
 fermeture.
 
-Les continuations spectre d'écran et CMB sont sur une porte séparée. La branche
-écran exige d'abord un scalaire géométrique de volume de collier, une précision
-scalaire normalisée, une énergie de libération source, un tilt de raffinement et
-un reçu de covariance angulaire d'écran. Un spectre primordial de premier principe exige
-ensuite les reçus de stress source, horloge unique, freeze-out, mode adiabatique,
-isocourbure, cohérence de phase, provenance source, réducteur groupé, lift
-écran-vers-radial, espace nul radial et résidu de projection avant que `A_s`,
-`n_s`, le running ou les spectres TT/TE/EE comptent comme prédictions OPH.
-Toute revendication CMB ou croissance du secteur sombre/anomalie exige en plus
-un parent fini covariant de paquets de collier, un stress récepteur explicite
-et une clôture du courant d'échange pour tout échange de réparation non nul, la
-convergence du régulateur, des reçus d'horloge physique et de réponse active
-pour tout `Gamma_rec` promu, un dossier de provenance source, des contrôles de
-groupement global, la récupération de la limite CDM et des hachages
-source/solveur/vraisemblance gelés avant la lecture des données de
+Les continuations de spectre d'écran et de CMB restent provisoires tant que la
+branche écran ne fournit pas son échelle géométrique, sa dynamique source, son
+horloge, son comportement de raffinement et sa lecture observationnelle depuis
+des enregistrements natifs OPH. Les vues du secteur sombre, des anomalies, du
+vide et de l'écume quantique restent diagnostiques tant qu'elles ne sont pas
+reliées à un ensemble dérivé du quotient, à une reconstruction stable sous
+régulateur et à une cible de validation gelée avant la lecture des données de
 vraisemblance.
-Les vues diagnostiques de vide ou d'écume quantique sont aussi sur une porte séparée : bruit de seed,
-jitter de réparation et baselines champ libre/réseau sont des sorties E0/E1 tant qu'un ensemble
-quotient, une dalle euclidienne source, une reconstruction transfert/réflexion-positive et les
-reçus de raffinement ne promeuvent pas le run.
 
 ## Applications et matériel OMEGA
 

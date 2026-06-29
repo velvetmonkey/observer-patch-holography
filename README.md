@@ -98,30 +98,12 @@ from the fixed-point calculations. Empirical closure rows are marked below. The
 detailed scale discussion is collected once below in **Geometry, Symmetry, And
 Scale**.
 
-Distributed OPH simulations inherit the same boundary. A worker run counts as
-one-universe evidence only when it begins from one global finite carrier, emits
-the carrier graph, initial state, partition map, cut interfaces, observer
-registry, run/config/code hashes, and proves that committed worker events
-project to monolithic transactional repairs, stutters, or certified rollbacks.
-Seam descent, atomic commit, local-diamond, repair-completeness, branch
-elimination, and settled-form evidence records are evidence contracts, not branch
-selectors. Shard-local seeds, stale manifests, or synthetic seam animations are
-diagnostics, not physics evidence.
-
-Neutral-bulk geometry has its own gate. Shard-local observer rows are not a
-global bulk by concatenation. They must first descend through gauge/port
-quotients, terminal normal forms, common interface transport, and
-quotient-visible feature channels. The resulting product distance is a
-pseudometric until feature collisions are quotiented or joint separation is
-proved. Missingness, presentation changes, shard repartitioning, refinement,
-Euclidean embedding, and held-out statistics all require explicit evidence records
-before a finite run can claim more than a diagnostic neutral geometry.
-
-Observer-clock claims have an additional gate. Worker IDs, repair iterations,
-queue positions, timestamps, and packet latencies are execution provenance, not
-observer time. A scheduler-independent observer history needs semantic event
-keys, a namespace-safe global observer registry, lineage arrows, and a declared
-clock instrument with an affine residual certificate.
+OPH evidence has the same general shape throughout the project. A claim should
+be grounded in bounded observer-like patches with local state, explicit
+boundaries, readback, records, feedback or repair moves, and public evidence
+bundles. What matters is not a preferred presentation, coordinate choice, or
+implementation trace, but the invariant observer-patch history that can be
+checked across overlaps.
 
 ## The Spacetime Trap
 
@@ -327,14 +309,13 @@ Phenomenon](cosmology/oph_dark_matter_paper.pdf)**. Staged targets are:
 - **Cosmological vacuum and structure formation**: `cosmology/oph_cosmological_vacuum_and_structure_formation.tex`
 - **Data and likelihood contracts**: `cosmology/oph_cosmology_data_likelihood_contracts.tex`
 
-Detailed evidence references for the staged cosmology work are kept inside the staged cosmology branch.
-Physical CMB status requires proof-carrying source artifacts with transitive ancestry,
-global pooled reducers, a structured physical scale bridge, frozen model choices, and frozen
-source/calculation/statistical hashes. Imported FLRW geometry supports conditional physical plumbing
-tests only; OPH-native cosmology requires a quotient-derived geometry and source embedding.
-Flat FLRW is likewise claim-gated: clock-slice spatial Levi--Civita holonomy identifies
-\(\kappa=0\), but exact selection requires a direct theorem, conditional CMH selector, or explicit
-flat-branch assumption.
+Detailed evidence references for the staged cosmology work are kept inside the
+staged cosmology branch. CMB, inflation, vacuum, and growth results remain
+conditional until their geometry, clock, source, scale bridge, and observational
+readout are derived from observer-patch structure rather than imported as
+background assumptions. FLRW calculations can serve as comparison plumbing; OPH
+native promotion requires a quotient-derived geometry and source embedding, with
+flatness either proved or declared as an assumption.
 
 ## Proof Status
 
@@ -362,23 +343,12 @@ points also organize the observer problem, gravity/gauge reconstruction,
 electroweak hierarchy, dark energy, the dark-sector budget, gauge-proton-decay
 exclusion, particle inventory, and the string-vacuum sieve.
 
-Screen-spectrum and CMB continuations are gated separately. The screen branch
-first needs a geometric collar-volume scalar, normalized scalar precision,
-source release energy, refinement tilt, and angular screen-covariance evidence.
-A first-principles primordial spectrum then additionally requires source-stress,
-single-clock, freeze-out, adiabatic-mode, isocurvature, phase-coherence,
-source-provenance, pooled-reducer, screen-to-radial lift, radial null-space,
-and forward-residual evidence before `A_s`, `n_s`, running, or TT/TE/EE spectra
-count as OPH predictions. Any
-dark/anomaly CMB or growth claim additionally needs a finite covariant
-collar-packet parent, explicit recipient stress and exchange-current closure
-for nonzero repair exchange, regulator convergence, physical-clock and
-active-response evidence for any stated `Gamma_rec`, a source-provenance
-record, global-pooling checks, CDM-limit recovery, and frozen
-source/calculation/statistical hashes before likelihood data are read.
-Vacuum or quantum-foam diagnostic views are gated separately: seed noise, repair jitter, and
-free-field/lattice baselines are E0/E1 outputs unless a quotient ensemble, source Euclidean slab,
-transfer/reflection-positive reconstruction, and refinement evidence support the run.
+Screen-spectrum and CMB continuations remain provisional until the screen branch
+supplies its geometric scale, source dynamics, clock, refinement behavior, and
+observational readout from OPH-native records. Dark-sector, anomaly, vacuum, and
+quantum-foam views are diagnostic unless they connect to a quotient-derived
+ensemble, regulator-stable reconstruction, and frozen validation target before
+likelihood data are read.
 
 ## Applications And OMEGA Hardware
 
