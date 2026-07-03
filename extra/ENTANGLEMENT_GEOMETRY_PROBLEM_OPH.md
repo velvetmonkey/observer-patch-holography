@@ -89,7 +89,7 @@ This is the OPH derivation of the area term and of Newton's constant from edge e
 
 This answers the main issue. A map from entropy to geometry has to run through generalized entropy and the center/edge structure of the patch algebra.
 
-Relevant OPH sources: *Observers Are All You Need*, Part I Section 5.4 and Part V Section 2.6; *Reality as Consensus Protocol*, "Connection to Observer-Patch Holography" and Appendix A.
+Relevant OPH sources: *Observers Are All You Need*, Part I Section 5.4 and Part V Section 2.6; *Reality as a Consensus Protocol*, "Connection to Observer-Patch Holography" and Appendix A.
 
 ---
 
@@ -134,7 +134,7 @@ used only at exact Markovity or in a controlled collar limit.
 
 This means that many local changes in an entangled environment have no interior geometric meaning. If the boundary-sector compatibility is preserved, large classes of exterior manipulations are invisible to interior observables.
 
-Relevant OPH sources: *Observers Are All You Need*, Part VII "Markov Collar Factorization" and "Checkpoint and Restoration Map"; *Reality as Consensus Protocol*, Appendix A, Theorem A.1.
+Relevant OPH sources: *Observers Are All You Need*, Part VII "Markov Collar Factorization" and "Checkpoint and Restoration Map"; *Reality as a Consensus Protocol*, Appendix A, Theorem A.1.
 
 ---
 
@@ -297,7 +297,7 @@ overlap consistency
 
 Those are the OPH mechanisms that separate physical geometry from arbitrary Hilbert-space manipulations.
 
-Relevant OPH sources: *Reality as Consensus Protocol*, Theorem 4.1 and Corollary 4.3; "Connection to Observer-Patch Holography"; Appendix A. *Observers Are All You Need*, Part V Section 3.2-3.3.
+Relevant OPH sources: *Reality as a Consensus Protocol*, Theorem 4.1 and Corollary 4.3; "Connection to Observer-Patch Holography"; Appendix A. *Observers Are All You Need*, Part V Section 3.2-3.3.
 
 ---
 
@@ -376,5 +376,5 @@ Under that formulation, the issue becomes much clearer.
 
 - [Observers Are All You Need PDF](../paper/observers_are_all_you_need.pdf)
   Sections used above: Part I Section 4.2-4.3, Section 5.2, Section 5.4, Section 5.6-5.8; Part V Section 2.1-2.6 and Section 3.2-3.3; Part VII "Markov Collar Factorization" and "Checkpoint and Restoration Map".
-- [Reality as Consensus Protocol PDF](../paper/reality_as_consensus_protocol.pdf)
+- [Reality as a Consensus Protocol PDF](../paper/reality_as_consensus_protocol.pdf)
   Sections used above: Theorem 4.1, Corollary 4.3, "Connection to Observer-Patch Holography", and Appendix A "Quantum/Algebraic Lift: Markov-Collar Splice Theorem".

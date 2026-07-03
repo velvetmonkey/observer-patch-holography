@@ -6,16 +6,23 @@ with **Proposition 4.2** as the primary target.
 
 ## Scope and current state
 
-This project is **early-stage scaffolding**. What is currently present:
+This project is an active Lean 4 / Mathlib formalisation and proof-audit
+surface for the OPH consensus layer. What is currently present:
 
 - Lake project with pinned `leanprover/lean4:v4.29.1` and Mathlib `v4.29.1`.
 - An abstract-rewriting skeleton (Newman's lemma, normal-form uniqueness,
   descent termination, fixed-point zero-potential corollary) in
   `ObserverPatchHolography/AbstractRewriting.lean`.
-- Sorry-bearing primitive signatures in
-  `ObserverPatchHolography/Primitives.lean` (Records, Patch, Obs, Repair,
-  local accepted repair steps, Φ, gauge equivalence, OPH-Confluence, and
-  repair-completeness).
+- A concrete OPH carrier layer in `ObserverPatchHolography/Primitives.lean`
+  for records, patch/interface data, observable overlap maps, the mismatch
+  potential `Φ`, gauge equivalence, edge-consistency, and non-vacuity witnesses.
+- Machine-checked proof-audit material for the consensus/reconstruction layer,
+  including boundary-fiber observer uniqueness, commutation-based confluence,
+  concrete countermodels separating confluence from observer-facing uniqueness,
+  and axiom audits for the discharged reconstruction statements.
+- Honest `sorry`-bearing signatures for the still paper-incomplete
+  asynchronous/transactional repair machinery: `localRepair`, `Repair`, and
+  `repair_respects_gauge`.
 
 What is **not** yet present and is the target:
 
@@ -50,11 +57,12 @@ A theorem-grade Lean statement matching Prop 4.2 requires:
 - Schedule independence on the physical quotient, transferring the
   abstract-rewriting confluence result to the structured OPH setting.
 
-None of this is currently formalised. The abstract-rewriting module is the
-preliminary skeleton, not a statement about `World`. The sorry-bearing
-`Primitives` module declares the obligations explicitly so they cannot be
-silently elided. See `PROOF_INDEX.md` for the proof-to-paper map and
-completion tracker.
+The full quotient-normal-form theorem is not yet fully formalised as a single
+`World` statement. The abstract-rewriting module is the generic skeleton, while
+`Primitives` discharges concrete carrier and reconstruction subclaims and keeps
+the remaining asynchronous repair obligations explicit so they cannot be
+silently elided. See `PROOF_INDEX.md` for the proof-to-paper map and completion
+tracker.
 
 ## Building
 
@@ -76,9 +84,13 @@ proof debt appears elsewhere or the count changes.
   structure.
 - This scaffold ports those proofs into a properly-built Lake project,
   applies accurate labels, and lays out the gap to be closed.
+- Jonathan Hill contributed the substantive Lean formalisation and proof-audit
+  work that closed concrete carrier/reconstruction subclaims, added non-vacuity
+  witnesses, separated confluence from observer-facing uniqueness, and exposed
+  the remaining asynchronous repair obligations honestly.
 - Coordination: "OPH LEAN Proofs" working group (Bernhard Mueller, Ben
-  Cassie, Dula). Cross-audit between auditors is required before PRs are
-  merged.
+  Cassie, Dula, Jonathan Hill). Cross-audit between auditors is required before
+  PRs are merged.
 
 ## License And Patent Policy
 

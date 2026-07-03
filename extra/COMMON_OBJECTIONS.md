@@ -356,9 +356,9 @@ That second statement confuses the UV regulator with the emergent observable geo
 - [Observers Are All You Need PDF](../paper/observers_are_all_you_need.pdf)
   Key sections used above: Abstract; Part I §2.3, §4.2-4.3, §5.1-5.7, §6.17; Part III §1A.6 and "Calibration vs. Prediction: Epistemic Classification of Outputs"; Part V §2.1-2.5.
 - [Observers Are All You Need TeX](../paper/observers_are_all_you_need.tex)
-- [Reality as Consensus Protocol PDF](../paper/reality_as_consensus_protocol.pdf)
+- [Reality as a Consensus Protocol PDF](../paper/reality_as_consensus_protocol.pdf)
   Key section used above: "Connection to Observer-Patch Holography".
-- [Reality as Consensus Protocol TeX](../paper/reality_as_consensus_protocol.tex)
+- [Reality as a Consensus Protocol TeX](../paper/reality_as_consensus_protocol.tex)
 
 ---
 

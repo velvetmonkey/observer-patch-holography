@@ -24,7 +24,12 @@
         "paper/reality_as_consensus_protocol.tex",
         "paper/CONSENSUS_PROTOCOL_FORMAL_ANALYSIS.md",
         "paper/appendix_B_bft_qecc_extensions.tex",
-        "paper/tex_fragments/CONSENSUS_TECHNICAL_SUPPLEMENT_PORT.tex"
+        "paper/tex_fragments/CONSENSUS_TECHNICAL_SUPPLEMENT_PORT.tex",
+        "LEAN/ObserverPatchHolography.lean",
+        "LEAN/ObserverPatchHolography/AbstractRewriting.lean",
+        "LEAN/ObserverPatchHolography/Primitives.lean",
+        "LEAN/Main.lean",
+        "LEAN/README.md"
       ]
     },
     {
@@ -103,6 +108,24 @@
         }
       ],
       "notes": "Direct Git author identity."
+    },
+    {
+      "display_name": "Jonathan Hill",
+      "aliases": [
+        {
+          "name": "Jonathan Hill",
+          "email": "jonathan.f.hill@gmail.com"
+        },
+        {
+          "name": "qizwiz",
+          "email": "jonathan.f.hill@gmail.com"
+        },
+        {
+          "name": "Your Name",
+          "email": "jonathan.f.hill@gmail.com"
+        }
+      ],
+      "notes": "Git identities mapped to Jonathan Hill's Lean formalisation and proof-audit contributions."
     }
   ]
 }
