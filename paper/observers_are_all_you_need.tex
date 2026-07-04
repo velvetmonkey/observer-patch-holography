@@ -140,19 +140,33 @@
 \newtheorem{remark}[theorem]{Remark}
 
 \title{Observers Are All You Need}
-\author{B. M\"uller \and Alexander Osika \and Mario Poneder \and Kai Xue \and Ben Cassie \and Peter Nguyen \and Maarten Antonie Visser \and Kale Arnav Anirudha \and Jonathan Hill}
+\author{Bernhard Mueller\textsuperscript{1}\thanks{Corresponding authors: Bernhard Mueller,
+\href{mailto:bernhard@floatingpragma.ai}{\texttt{bernhard@floatingpragma.ai}};
+Alexander Osika, \href{mailto:alex@snrgystudios.com}{\texttt{alex@snrgystudios.com}}.}
+\and Alexander Osika\textsuperscript{2} \and Mario Poneder \and Kai Xue \and Ben Cassie \and Peter Nguyen
+\and Maarten Antonie Visser \and Kale Arnav Anirudha}
 \date{\OPHPaperReleaseDate}
 
 \begin{document}
 \maketitle
 \OPHPaperReleaseBanner
 
+\begin{center}
+\small\textbf{Author af\kern0pt f\kern0pt iliations:} \textsuperscript{1}Pragma Inc., Washington, USA; \textsuperscript{2}SNRGY Inc., Gothenburg, Sweden.
+\end{center}
+
 \begin{abstract}
 Observer-Patch Holography (OPH) is an observer-consistency framework in which
 public physics is the stable result of finite observers comparing and repairing
 the records visible on overlapping screen patches. Time, geometry, matter, and
-history are treated as readouts of that settled observer-facing structure, not
-as data supplied by an outside clock.
+history are treated as readouts of the settled observer-facing structure
+produced by finite record overlap and repair.
+
+Each observer has access only to local patch data, and overlapping patches must
+agree on the records both sides can check. Public structure is therefore the
+quotient normal form of bounded systems with
+local state, ports or boundaries, readback, records, feedback or repair moves,
+and public evidence bundles.
 
 The paper gives the program in one pass. Overlap repair produces public records
 and normal forms. Modular screen geometry yields the three-dimensional spatial
@@ -160,7 +174,9 @@ chart, Lorentz kinematics, and the Einstein branch with its Newton limit.
 Compact sector reconstruction yields the Standard Model charge structure, three
 colors, and three generations. The same stack carries the record interface,
 Maxwell and Yang--Mills branches, protected massless force carriers, cosmic
-capacity closure, and the hierarchy/naturality result.
+capacity closure, and the hierarchy/naturality result. The review surface
+separates theorem claims, branch assumptions, quantitative fixed-point
+continuations, implementation evidence, and named falsifiers.
 \end{abstract}
 
 \begin{center}
@@ -172,6 +188,9 @@ finite observer records, overlap comparison, and repair; spacetime and matter
 are then recovered as observer-facing readouts of that settled structure.
 \end{minipage}
 \end{center}
+
+\noindent\textbf{Keywords:} observer patch holography; quantum foundations; emergent spacetime;
+fixed-point consensus; Standard Model structure; quantum gravity
 
 \section*{What This Paper Contributes}
 
@@ -385,7 +404,9 @@ equilibrium is insufficient as a simulation.
 The local readout of the selected normal form supplies history for observers who subjectively
 experience time. Time is therefore internal record order instead of an external update
 parameter. In OPH, ``simulation'' means this certified observer-facing self-consistency
-structure, not a bare fixed point and not a frame renderer.
+structure, not a bare fixed point and not a frame renderer. The executable OPH-FPE simulator
+and its finite-run receipt bundles are a separate public evidence surface for finite OPH
+experiments~\cite{ophfpe}; they do not replace the theorem-level definition above.
 
 That certified consistency demand is strong enough to organize the familiar world. The effective bulk is reconstructed
 from compatible screen data. Locality comes from the way collars control recovery across patch
@@ -793,4 +814,68 @@ papers and with the late dependency checklist in this paper.
 \appendix
 \input{tex_fragments/OBSERVERS_APPENDICES.tex}
 \input{tex_fragments/OBSERVERS_REFERENCES.tex}
+
+\section*{Statements and Declarations}
+
+\noindent\textbf{Funding declaration:} The authors declare that no external grants or dedicated
+third-party research funding were received for the preparation of this manuscript.
+
+\noindent\textbf{Author af\kern0pt f\kern0pt iliations declaration:} Bernhard Mueller is af\kern0pt f\kern0pt iliated with
+Pragma Inc., Washington, USA. Alexander Osika is af\kern0pt f\kern0pt iliated with SNRGY Inc.,
+Gothenburg, Sweden. No institutional af\kern0pt f\kern0pt iliations were declared for Mario Poneder, Kai
+Xue, Ben Cassie, Peter Nguyen, Maarten Antonie Visser, or Kale Arnav Anirudha in this submission.
+Correspondence email addresses are provided in the correspondence declaration.
+
+\noindent\textbf{Consent to Participate declaration:} not applicable.
+
+\noindent\textbf{Consent to Publish declaration:} not applicable.
+
+\noindent\textbf{Author Contribution declaration:} Bernhard Mueller developed the OPH concept,
+mathematical formulation, paper-stack synthesis, main manuscript text, release integration, and
+submission package. Alexander Osika contributed to the OPH/Karma and OMEGA hardware path,
+experimental prototype framing, hardware evidence boundary, and submission review. Mario Poneder
+contributed proof and validation work on the hierarchy certificates, the edge-entropy area-law
+route to the Einstein/Newton coupling, coupling normalization, particle and neutrino certificate
+surfaces, and manuscript/book consistency surfaces. Kai Xue contributed broad paper-stack work,
+including audit passes, consistency checks, implementation-surface review, simulator and OPH
+Universe evidence-surface feedback, receipt and visualization data-surface review, and prototype
+engineering boundary review. Ben Cassie contributed audit work across the hardware evidence
+surface, implementation claims, receipt boundary, experimental-prototype framing, and submission
+package. Peter Nguyen contributed proof-surface hardening, branch-boundary audits, claim-tier
+alignment across the paper and book stack, Yang-Mills and compact-gauge status surfaces, finite
+packet-quotient closure, fine-structure certification surfaces, and manuscript consistency passes.
+Maarten Antonie Visser contributed to the P/N=24 repair-resonance material, consensus-protocol
+consistency review, and physics feedback on the foundations and emergent-spacetime framing. Kale
+Arnav Anirudha contributed consensus-paper material, formal review of the consensus-protocol
+surface, QBFT assumptions, FLP citation handling, repair-map definitions, QECC notation,
+asynchronous bound wording, and the BFT/QECC appendix material. All authors reviewed and approved
+the manuscript.
+
+\noindent\textbf{Correspondence declaration:} Correspondence should be addressed to Bernhard
+Mueller, \href{mailto:bernhard@floatingpragma.ai}{\texttt{bernhard@floatingpragma.ai}}, and
+Alexander Osika, \href{mailto:alex@snrgystudios.com}{\texttt{alex@snrgystudios.com}}.
+
+\noindent\textbf{Data Availability declaration:} The paper stack, source manuscripts, public
+release PDFs, simulation code, and implementation notes are available through the OPH project
+repository and linked public release surfaces. Some hardware and prototype evidence requires a
+sanitized ancillary audit bundle before external release because raw logs may include device
+configuration, operational metadata, or private infrastructure details. The intended audit bundle
+contains source hashes, simulator configs, finite-receipt JSON, verifier code, hardware acceptance
+records, calibration logs, and selected run traces sufficient to replay the stated implementation
+claims.
+
+\noindent\textbf{Code Availability declaration:} The OPH simulator, finite-consensus harnesses,
+visualization payload schemas, and public paper build sources are maintained in the OPH project
+repositories. Submission artifacts include a standalone source file and a source bundle so that the
+manuscript can be rebuilt without relying on private local paths.
+
+\noindent\textbf{Ethics declaration:} not applicable.
+
+\noindent\textbf{Competing Interests declaration:} The authors participate in OPH-related research
+and implementation programs, including prototype hardware and simulator development. The authors
+declare no external competing financial interests for this manuscript.
+
+\noindent\textbf{Use of AI-assisted tools declaration:} AI-assisted tools were used for language
+editing, drafting assistance, formatting support, and submission-package preparation. The authors
+reviewed and remain responsible for all scientific content, claims, references, and declarations.
 \end{document}
