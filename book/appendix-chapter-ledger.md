@@ -119,10 +119,10 @@ chapter asks readers to see those pieces as symptoms of one architecture.
 
 ## Chapter 2: The Original Hackers
 
-Chapter 2 is the philosophical prehistory of the same architecture. It is not
-claiming that ancient philosophers had modern physics in disguise. It is
-claiming that careful thinkers found structural weaknesses in the naive
-picture long before the laboratory made those weaknesses unavoidable.
+Chapter 2 is the philosophical prehistory of the same architecture. Careful
+thinkers found structural weaknesses in the naive picture long before the
+laboratory made those weaknesses unavoidable; the chapter does not turn ancient
+philosophers into disguised modern physicists.
 
 Plato's cave supplies the projection motif. A lower-dimensional record can
 carry information about a source the prisoners never see directly. The
@@ -712,8 +712,8 @@ $$S_{gen}=\frac{A}{4G\hbar}+S_{out}$$
 combines an area term with outside quantum entropy. In Jacobson-style and
 entanglement-equilibrium reasoning, variations of this quantity help connect
 thermodynamics to gravitational dynamics. The modular Hamiltonian $K$ is
-defined by $\rho\propto e^{-K}$ for a reduced state $\rho$. It is not always
-a simple energy, but in special wedge or cap limits it behaves like a boost
+defined by $\rho\propto e^{-K}$ for a reduced state $\rho$. It can differ from
+ordinary energy; in special wedge or cap limits it behaves like a boost
 generator.
 
 The modular-flow, null-blowup, and Newton-limit diagrams in the chapter are
@@ -748,8 +748,8 @@ uses
 $$S=\int L\,dt,$$
 
 with $L$ the Lagrangian and $t$ time. Stationary action means small changes to
-the path do not change $S$ to first order. It is not always literally a
-minimum.
+the path do not change $S$ to first order. The stationary path can be a saddle
+or maximum rather than a literal minimum.
 
 The chapter lists particle masses and couplings, and the notes distinguish
 their support level. A benchmark check tests the framework against known

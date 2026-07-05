@@ -142,7 +142,7 @@ $m_H$ is the Higgs-boson mass and $m_t$ is the top-quark mass on this
 calculation surface. They are paired because the Higgs and top sectors are
 strongly linked in the electroweak bookkeeping.
 
-The selected quark sector currently gives a conditional running-mass support
+The selected quark sector gives a conditional running-mass support
 surface. Given a source-only physical sigma datum, the downstream algebra emits
 
 $$
@@ -382,8 +382,8 @@ lighter charged particle is available for them to decay into while preserving
 charge and energy. Protons are stable for all practical purposes, at least on
 observed timescales, because baryon-number-violating routes are either absent
 or fantastically suppressed. Neutrons are unstable when free but stable inside
-many nuclei. The word "particle" is an achievement of symmetry,
-kinematics, and allowed decay channels.
+many nuclei. The word "particle" comes from symmetry, kinematics, and allowed
+decay channels.
 
 Atoms add another layer. The electron's small mass, the electromagnetic
 coupling, quantum exclusion, and nuclear structure together make chemistry

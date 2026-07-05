@@ -165,7 +165,7 @@ The public data bundle includes the main Stage 1, `Z_3`, `Z_5`, and `S_3` hardwa
 
 ## Results
 
-In the tables below, `Prepared t` is the operating point used to prepare the state. It is not the main tested observable in every experiment.
+In the tables below, `Prepared t` is the operating point used to prepare the state. The main tested observable depends on the experiment.
 
 - In `Z_3`, the tested observable is the extracted heat-kernel time, so the comparison is prepared `t` versus measured `t`.
 - In `Z_5`, the tested observable is the ratio `Δ₂/Δ₁`, so the comparison is expected `φ²` versus measured `Δ₂/Δ₁`.

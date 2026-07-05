@@ -103,7 +103,7 @@ The geometric area scales as `A(C) ≈ N_Sigma a_cell`.
 
 Matching the two gives `G = a_cell / (4 lbar(t))`.
 
-So `a_cell` is the geometric area per UV cut element in the emergent metric. It is not a pre-existing coordinate spacing in a preferred inertial frame (*Observers Are All You Need*, Part I §5.4).
+So `a_cell` is the geometric area per UV cut element in the emergent metric. No pre-existing coordinate spacing in a preferred inertial frame is introduced (*Observers Are All You Need*, Part I §5.4).
 
 ### 3.2 What transforms under a boost
 
@@ -184,7 +184,7 @@ Then:
 
 so the induced kinematic symmetry is the connected Lorentz group.
 
-This is not a vague analogy. It is the explicit theorem-level route the paper uses.
+The paper uses this explicit theorem-level route.
 
 ### 4.2 The local boost algebra appears in the blow-up limit
 

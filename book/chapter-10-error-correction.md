@@ -60,7 +60,7 @@ showed how stabilizer codes could be handled with a practical symbolic
 calculus. Knill and Laflamme then gave the clean condition for when a code can
 correct a set of errors. The modern surface-code program adds engineers,
 experimentalists, and many thousands of calibration decisions. The phrase
-"quantum error correction" names a community achievement, not a lone trick.
+"quantum error correction" names a field built by a community across decades.
 
 ## 10.3 The First-Principles Reframing: Reality Is Error-Corrected
 

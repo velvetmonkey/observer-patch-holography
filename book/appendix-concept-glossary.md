@@ -102,7 +102,7 @@ position-momentum commutator is the standard quantum example.
 $I(A:C|B)$ measures how much correlation remains between $A$ and $C$ once
 $B$ is known. In quantum information, small CMI
 signals approximate recoverability: there is a recovered comparison state with
-controlled error. It is not by itself an exact Markov normal form. OPH uses it
+controlled error. By itself it gives no exact Markov normal form. OPH uses it
 to express when local damage can be repaired from surrounding data, while exact
 splice or modular-additivity identities require exact Markovity or a
 controlled collar replacement modulus tending to zero.
@@ -301,9 +301,9 @@ between two physically distinct consistent endpoints.
 **Observer patch.** An observer patch is the finite operational domain
 available to an observer. It has a local algebra, a state, records, and
 interfaces to neighboring patches. The patch is the basic unit of OPH's
-observer-first construction. It is not a separate private sphere owned by that
-observer. It is the bounded part of the shared screen net that the observer can
-use.
+observer-first construction. The private-sphere reading is outside the
+construction. A patch is the bounded part of the shared screen net that the
+observer can use.
 
 **Obstruction class.** An obstruction class is a formal mismatch detector. If
 it is nonzero, local data fail to close consistently around a loop or across a

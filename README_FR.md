@@ -275,7 +275,7 @@ papiers.
 | Constante gravitationnelle | G | 6.6742999959e-11, affichage échelle/horloge | 6.67430(15)e-11 | 0.00003σ |
 | Vitesse de la lumière | c | vitesse lorentzienne structurelle; valeur SI conventionnelle | 299792458 exact par définition | pas une prédiction numérique |
 | Structure fine (inv.) | $A_{\alpha_U}^{\mathrm{fp}}=\alpha_{\mathrm{root}}^{-1}+\alpha_U(P_\star)$ | prédiction OPH source sans hadrons 137.03595950081728; tronc d'audit racine seul 136.99483516462165 | 137.035999177(21) | seul reste le petit correctif QCD/hadronique du point final : 0.00003967618 en unités d'alpha inverse, soit environ 2.9e-7 relatif |
-| Boson de Higgs | $m_H$ | 125.1995304097179 GeV, candidat conditionnel sur la surface D10/D11 déclarée | 125.20 ± 0.11 GeV | pas encore promu; attend la porte de réparation D10 sans cible |
+| Boson de Higgs | $m_H$ | 125.1995304097179 GeV, candidat conditionnel sur la surface de réparation déclarée | 125.20 ± 0.11 GeV | ligne conditionnelle à porte de réparation sans cible |
 | Masse du photon | m_γ | 0 GeV, zéro structurel | <1e-18 eV | sous la borne |
 | Masse du gluon | m_g | 0 GeV, zéro structurel | pas de ligne de masse de gluon libre isolé | porteur de jauge confiné |
 | Masse du graviton | m_grav | 0 GeV, zéro structurel | <1e-32 GeV | sous la borne |
@@ -292,34 +292,73 @@ et [`code/particles/EXACT_NONHADRON_MASSES.md`](code/particles/EXACT_NONHADRON_M
 
 ## Articles
 
-- **Papier 1. [Observers Are All You Need](paper/observers_are_all_you_need.pdf)** : synthèse du programme OPH, des observateurs finis jusqu'à l'univers effectif reconstruit.
-- **Papier 2. [Recovering Relativity and the Standard Model from Observer Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)** : noyau technique pour la relativité, la gravité, la reconstruction de jauge, la structure du Modèle Standard sélectionnée par réalisation admissible minimale, les équations de Maxwell sur la branche ordinaire du photon et la route conditionnelle vers le gap de Yang-Mills sous ses hypothèses de limite continue et de transfert.
-- **Papier 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)** : dérivations particules, lignes de masses, structure des couplages, surfaces quantitatives et certificat conditionnel de couture de lignes d'enregistrement.
-- **Papier 4. [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf)** : comment des observateurs locaux comparent leurs enregistrements, réparent les désaccords et convergent vers la réalité partagée sur laquelle ils peuvent s'accorder.
-- **Papier 5. [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf)** : architecture fédérée de patches, théorème du tamis d'écran à douze ports, cadrage de symétrie $A_5$-icosaédrique et de type $E_8$, règles de preuve matérielle publique, enregistrements, mouvements de récupération et synchronisation observateur.
-- **Papier 6. [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf)** : manifeste final de la couche de sens OPH : pourquoi il existe quelque chose, pourquoi ce monde est compatible avec les observateurs, boucle étrange, candidats créateurs, paradis sur Terre ou dans des environnements de continuation, enfer comme isolement ou privation imposés, résurrection comme continuation d'observateur, justice selon les enregistrements de tort et de réparation, évolution mémétique, sentience animale et responsabilité symbolique humaine.
+Ordre recommandé pour un lecteur technique. Les résumés les plus longs
+correspondent aux textes qui portent la surface théorématique centrale.
 
-## Articles supplémentaires
+- **Papier 2. [Recovering Relativity and the Standard Model from Observer Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)** : noyau technique compact de la branche OPH reconstruite. Il donne la route par cohérence de recouvrement vers la structure de Lorentz, une gravité de type Einstein, la reconstruction de jauge compacte, le quotient du Modèle Standard et le paquet matière sélectionnés, Maxwell sur la branche ordinaire du photon et la route conditionnelle vers le gap de Yang-Mills sous ses hypothèses de continuum, positivité par réflexion, transfert/intertwiner et non-trivialité.
+- **Papier 1. [Observers Are All You Need](paper/observers_are_all_you_need.pdf)** : synthèse large et meilleure porte d'entrée. Il explique les patches d'observateurs finis, la cohérence de recouvrement, les enregistrements, les mouvements de réparation, l'univers effectif reconstruit, l'histoire d'échelle et les frontières publiques des affirmations sans remplacer le registre théorématique du papier compact.
+- **Papier 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)** : dérivation et audit du secteur particules. Il porte la reconstruction pilotée par \(P_\star\), les porteurs structurels, les branches électrofaible/Higgs/top, quarks, leptons chargés, neutrinos et hadrons, les vérifications quantitatives et la couture conditionnelle de lignes d'enregistrement.
+- **Papier 4. [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf)** : mécanique du consensus fini entre patches. Il montre comment les observateurs comparent les enregistrements de recouvrement, appliquent des réparations, traitent les défauts et convergent vers des formes normales quotient quand les hypothèses de cutoff fixe sont satisfaites.
+- **Papier 5. [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf)** : surface de porteurs finis et d'enregistrements observateurs. Il donne l'architecture de porteurs échosaédriques multiports, le théorème du tamis d'écran à douze ports, le cadrage \(A_5\)-icosaédrique et de type \(E_8\), les règles de preuve matérielle publique, les enregistrements, les mouvements de récupération, la restauration de checkpoint et la synchronisation des observateurs.
+- **Papier 6. [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf)** : synthèse de la couche de sens. Il lit la même mécanique OPH comme théorie de la continuation d'observateur, du paradis et de l'enfer comme environnements de continuation, de la résurrection comme continuation préservant les enregistrements, de la justice comme comptabilité tort-réparation et de la boucle où des observateurs reconstruisent puis construisent la machinerie de continuation.
 
-- **[Photonic Fixed-Point Consensus for SHA-256d Proof of Work](extra/Photonic_fixed-point_consensus_for_SHA-256d_proof_of_work.pdf)** : enrichissement photonique de candidats pour la preuve de travail SHA-256d.
-- **[The Fine-Structure Constant as an OPH Pixel Fixed Point](extra/fine_structure_constant_derivation.pdf)** : point fixe source, frontière du point final hadronique empirique et ligne de comparaison.
-- **[Observer-Patch Holography as a String-Vacuum Selector](extra/observer_patch_holography_as_string_vacuum_selector.pdf)** : émergence des cordes comme description effective des dynamiques de bord OPH et crible de vides de cordes conventionnels, témoin hétérotique Bouchard-Donagi à une paire de Higgs, couche de sûreté par symétrie R discrète et portes de verrouillage des moduli ; la promotion vers un vide natif OPH exige les étapes de sélection déclarées.
-- **[Explaining the Yang-Mills Mass Gap with Observer-Patch Repair Dynamics](extra/yang_mills_gap_clay_problem.pdf)** : mécanisme OPH fini de gap de réparation et route conditionnelle vers le problème de Yang-Mills de Clay ; l'égalité entre le gap de Yang-Mills et le gap de réparation OPH exige le certificat quadridimensionnel de limite continue et de transfert.
-- **[Observer-Patch Holography and the Dark Matter Phenomenon](cosmology/oph_dark_matter_paper.pdf)** : phénoménologie de la matière noire et limite galactique de type MOND.
-- **[Theoretical Bounds on \(\chi_\nu\) in Observer-Patch Holography](extra/chi_nu_susceptibility_bounds.pdf)** : bornes conditionnelles de susceptibilité quotient-edge, valeur exacte sur la branche uniforme et valeurs d'ingénierie mises à l'échelle par la cohérence.
-- **[Thinking as Patch-Net Fixed-Point Search](extra/thinking_as_patch_net_fixed_point_search.pdf)** : cognition et qualia comme consensus récurrent de patches.
+## Articles et notes supplémentaires
 
-La branche cosmologie vit dans [`cosmology/`](cosmology/README.md). L'article
-du paquet de publication porte sur la matière noire et la limite galactique de
-type MOND. Les compagnons techniques couvrent le programme CMB à source finie,
-l'inflation sans inflaton, le vide/structure cosmologique et les contrats
-données/vraisemblance. Les références détaillées restent dans ces papiers. Les
-résultats CMB, inflation, vide et croissance sont des affirmations
-conditionnelles dont la géométrie, l'horloge, la source, le pont d'échelle et la
-lecture observationnelle doivent venir de la structure des patches
-d'observateurs. Les calculs FLRW servent de comparaison ; une promotion native
-OPH exige une géométrie dérivée du quotient et un plongement de source, avec la
-platitude prouvée ou déclarée comme hypothèse.
+Ces textes soutiennent ou testent la pile centrale. Les éléments les plus
+importants reçoivent plus de contexte ; les notes plus locales sont résumées
+plus brièvement.
+
+- **[Compact Proof That We Most Likely Inhabit an OPH Simulation](extra/compact_proof_of_oph.pdf)** : argument de compression le plus court en faveur de l'OPH. Il rassemble la route en cinq axiomes, les sorties de branche fixe, les points d'échec et la raison pour laquelle l'accord numérique ne compte que si la fuite de cible est exclue.
+- **[Carte de falsifiabilité OPH](extra/OPH_falsifiability.md)** : liste publique de résultats qui tueraient l'OPH. Elle nomme 40 modes d'échec durs, dont graviton massif, désintégration du proton médiée par jauge, générations légères supplémentaires, outliers du réseau de charges et exclusions neutrino de la branche OPH.
+- **[The Fine-Structure Constant as an OPH Pixel Fixed Point](extra/fine_structure_constant_derivation.pdf)** : calcul de point fixe source pour la ligne de structure fine. Il sépare la valeur source OPH, la frontière empirique du point final à basse énergie et la correction QCD/hadronique restante.
+- **[Explaining the Yang-Mills Mass Gap with Observer-Patch Repair Dynamics](extra/yang_mills_gap_clay_problem.pdf)** : mécanisme OPH fini de gap de réparation et route conditionnelle vers le problème de Clay. L'identification au Yang-Mills quadridimensionnel exige le certificat de continuum et de transfert déclaré.
+- **[Observer-Patch Holography as a String-Vacuum Selector](extra/observer_patch_holography_as_string_vacuum_selector.pdf)** : théorie des cordes comme langage effectif de bord OPH et crible de vides. Le témoin Bouchard-Donagi est un candidat de cordes conventionnel, pas un raccourci autour des portes de sélection OPH natives.
+- **[Photonic Fixed-Point Consensus for SHA-256d Proof of Work](extra/Photonic_fixed-point_consensus_for_SHA-256d_proof_of_work.pdf)** : test matériel d'enrichissement photonique de candidats SHA-256d de style OPH, jugé par le vérificateur numérique exact.
+- **[Thinking as Patch-Net Fixed-Point Search](extra/thinking_as_patch_net_fixed_point_search.pdf)** : cognition et qualia comme consensus récurrent de patches sur substrats neuronaux ou artificiels auto-relecteurs.
+- **[Theoretical Bounds on \(\chi_\nu\) in Observer-Patch Holography](extra/chi_nu_susceptibility_bounds.pdf)** : bornes conditionnelles de susceptibilité du secteur sombre, valeur de branche uniforme et valeurs d'ingénierie mises à l'échelle par la cohérence.
+- **[Entanglement Geometry Problem in OPH](extra/ENTANGLEMENT_GEOMETRY_PROBLEM_OPH.md)** : note sur la géométrie de l'intrication comme problème de recouvrement d'observateurs et de surfaces d'enregistrement.
+- **[Tests IBM Quantum Cloud](extra/IBM_QUANTUM_CLOUD.md)** : notes de tests matériels en secteur réduit pour des expériences IBM Quantum orientées OPH.
+- **[Common Objections](extra/COMMON_OBJECTIONS.md)** : réponses brèves aux objections conceptuelles et techniques fréquentes.
+- **[Résumé OMEGA](extra/omega_summary.md)** : résumé compact des implications OMEGA/OPH côté applications.
+- **[Hacking the Simulation: Anti-Gravity Exploit](extra/hacking-the-simulation-anti-gravity-exploit.pdf)** : note spéculative d'ingénierie adjacente à l'OPH ; ce n'est pas un papier central à statut théorématique.
+
+## Articles de cosmologie
+
+La branche cosmologie vit dans [`cosmology/`](cosmology/README.md). Ses
+affirmations sont conditionnelles aux frontières OPH natives de source,
+transfert et vraisemblance ; la machinerie FLRW peut servir de comparaison,
+mais elle ne promeut pas à elle seule un résultat cosmologique natif OPH.
+
+- **[Observer-Patch Holography and the Dark Matter Phenomenon](cosmology/oph_dark_matter_paper.pdf)** : papier de cosmologie du paquet de publication. Il traite le stress sombre/anomal comme comptabilité de réparation imparfaite des patches d'observateurs, donne le comportement galactique de type MOND et énonce les contrats amas/cosmologie nécessaires avant toute promotion à plus grande échelle.
+- **[OPH Cosmology as a Finite-Source Prediction Program](cosmology/oph_cosmology_finite_source_cmb_program.pdf)** : programme orienté CMB pour entrées source seules, calibration d'échelle, transfert de Boltzmann, contrôles de simulateur, frontières physiques CMB et étiquettes d'affirmation.
+- **[Inflation Without an Inflaton](cosmology/oph_inflation_without_inflaton_observer_screen_synchronization.pdf)** : branche sans inflaton fondée sur la synchronisation écran-observateur, la cohérence d'horizon, les conditions de platitude, le spectre géométrique d'écran, l'amplitude de libération d'écran, la levée radiale et les données de source chaude.
+- **[OPH Cosmological Vacuum and Structure Formation](cosmology/oph_cosmological_vacuum_and_structure_formation.pdf)** : frontière de vide native OPH, ensembles de fluctuations, formation de proto-objets et de lignes de monde, et contrôles de graines de structure.
+- **[OPH Cosmology Data and Likelihood Contracts](cosmology/oph_cosmology_data_likelihood_contracts.pdf)** : artefacts source gelés, reçus de non-utilisation des données, réducteurs agrégés, comparaisons de transfert de Boltzmann et protocoles de vraisemblance officiels.
+
+## Articles sur des problèmes de physique
+
+Des textes Markdown autonomes pour des problèmes de physique résolus
+vivent dans [`physics-problems/`](physics-problems/README.md). Ils agissent
+comme articles supplémentaires pour la lecture publique et l'ingestion par OPH
+Sage. Ils n'entrent pas dans le pipeline de rendu TeX/PDF ou de publication.
+
+- **[Fusion plasma et confinement](physics-problems/plasma_fusion.md)** :
+  fusion comme paquet théorématique de registre de réparation OPH. Le texte
+  définit le registre de réparation de fusion, H-mode comme branche de
+  contraction de collier de bord, les ELM comme cycles obstruction/reset,
+  Lawson comme projection scalaire d'énergie, Hydrosahedron comme spécialisation
+  acoustique porteur/contrôle, et les promotions DD/chaleur/charge/puissance
+  nette comme niveaux de reçus séparés.
+- **[Supraconductivité à haute température](physics-problems/high_temperature_superconductivity.md)** :
+  haut-\(T_c\) comme réparation de charge \(2e\) plus confluence de phase
+  \(U(1)_Q\). Il énonce les prédicats cuprates, pnictides/chalcogénures,
+  trempe sous pression, hétérostructures et conception inverse sans les
+  transformer en recettes expérimentales.
+- **[États de Hall quantique fractionnaire](physics-problems/fractional_quantum_hall.md)** :
+  phases de Hall fractionnaires comme formes normales de bord/holonomie,
+  récupération de la forme \(K\)-matrice abélienne, raffinement hiérarchique,
+  conditions de secteurs de réparation non abéliens et théorème de
+  non-sélection à \(5/2\).
 
 ## Statut de preuve
 
@@ -332,12 +371,12 @@ Elle donne le chemin le plus court vers l'idée que l'OPH est probablement
 correcte, tandis que la pile complète de papiers porte les dérivations, les
 frontières de revendication et les obligations de preuve.
 
-Une sortie OPH finie garde son statut d'origine jusqu'à la présence d'un pont
-physique indépendant. Renommer un compte de capacité en masse, une archive en
-rayonnement, un spectre de réparation en spectre physique ou un seuil de
-reconstruction en temps de Page laisse la revendication au même endroit. Une
-promotion physique exige une lecture séparée, un chemin de calibration, un
-registre de résidus, des contrôles et une cible de validation gelée.
+Une sortie OPH finie garde son statut d'origine. Renommer un compte de capacité
+en masse, une archive en rayonnement, un spectre de réparation en spectre
+physique ou un seuil de reconstruction en temps de Page laisse la revendication
+au même niveau. Une promotion physique exige une lecture séparée, un chemin de
+calibration, un registre de résidus, des contrôles et une cible de validation
+gelée.
 
 La preuve compacte traite l'évidence comme un test de compression. Une ligne
 numérique ne compte que lorsque son calcul n'utilise pas la valeur mesurée, ni
@@ -352,14 +391,14 @@ l'exclusion de la désintégration du proton par bosons de jauge, l'inventaire
 des particules et la sélection du vide de corde comme une seule grammaire de
 fermeture.
 
-Les continuations de spectre d'écran et de CMB restent provisoires tant que la
-branche écran ne fournit pas son échelle géométrique, sa dynamique source, son
-horloge, son comportement de raffinement et sa lecture observationnelle depuis
-des enregistrements natifs OPH. Les vues du secteur sombre, des anomalies, du
-vide et de l'écume quantique restent diagnostiques tant qu'elles ne sont pas
-reliées à un ensemble dérivé du quotient, à une reconstruction stable sous
-régulateur et à une cible de validation gelée avant la lecture des données de
-vraisemblance.
+Les continuations de spectre d'écran et de CMB sont provisoires sans l'échelle
+géométrique de la branche écran, sa dynamique source, son horloge, son
+comportement de raffinement et sa lecture observationnelle depuis des
+enregistrements natifs OPH. Les vues du secteur sombre, des anomalies, du vide
+et de l'écume quantique sont diagnostiques ; les revendications de
+vraisemblance physique exigent un ensemble dérivé du quotient, une
+reconstruction stable sous régulateur et une cible de validation gelée avant la
+lecture des données de vraisemblance.
 
 ## Applications et matériel OMEGA
 
@@ -414,7 +453,7 @@ frontières des revendications vivent dans les papiers.
   </a>
 </p>
 
-<p align="center"><sub>La ligne principale OPH, des axiomes jusqu'à la relativité, la structure de jauge, les particules et les observateurs. Cliquez pour ouvrir le SVG complet.</sub></p>
+<p align="center"><sub>La ligne principale OPH : axiomes, relativité, structure de jauge, particules et observateurs. Cliquez pour ouvrir le SVG complet.</sub></p>
 
 **Pile de dérivation des particules**
 
@@ -453,6 +492,9 @@ frontières des revendications vivent dans les papiers.
   hadronique de structure fine.
 - **[`assets/`](assets)** : schémas et figures publics.
 - **[`extra/`](extra)** : notes publiques maintenues, objections, comptes rendus expérimentaux et quelques essais de support.
+- **[`physics-problems/`](physics-problems)** : textes Markdown autonomes de
+  problèmes de physique résolus, pour lecture publique et ingestion par OPH
+  Sage.
 
 ## OPH et les sciences
 

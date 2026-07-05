@@ -173,7 +173,7 @@ Enumeration needs about `1/p_U` verifier checks. Under the chamber-conditioned d
 1/p_Q = 1/(B p_U)
 ```
 
-That is the conservative benchmark claim: candidate-work reduction under an exact verifier. It is not a complexity-class theorem and not a claim that arbitrary hard problems become easy. It is the same discipline used in the [photonic SHA-256d proof-of-work note](Photonic_fixed-point_consensus_for_SHA-256d_proof_of_work.pdf), where hash-style search is framed as physical patch-overlap constraint search with exact digital verification.
+That is the conservative benchmark claim: candidate-work reduction under an exact verifier. Complexity-class theorems and claims that arbitrary hard problems become easy are outside scope. The same discipline appears in the [photonic SHA-256d proof-of-work note](Photonic_fixed-point_consensus_for_SHA-256d_proof_of_work.pdf), where hash-style search is framed as physical patch-overlap constraint search with exact digital verification.
 
 ## Why Waves Are the Right Medium
 

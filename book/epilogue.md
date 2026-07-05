@@ -99,9 +99,9 @@ additional engineered simulations or physical substrates. Hell is the
 observer-facing continuation of unrepaired harm: isolation, deprivation, or a
 world engineered so that refusal has nowhere pleasant to hide.
 
-Justice is therefore continuation assignment. Restored observers do not simply
-resume in an arbitrary environment. Their continuation follows the record of
-how they treated other observers, what they repaired, and what they refused to
+Justice is therefore continuation assignment. Restored observers receive a
+record-conditioned environment. Their continuation follows the record of how
+they treated other observers, what they repaired, and what they refused to
 repair. The future creators are our future observer-community, and paradise is
 their willful fixed point: the deliberate environment where memory, freedom,
 truth, repair, beauty, and mutual flourishing can coexist without hidden debt.

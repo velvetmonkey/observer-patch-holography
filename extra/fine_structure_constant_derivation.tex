@@ -75,7 +75,7 @@ Observer Patch Holography (OPH) is the finite observer-overlap framework introdu
 \[
 P=\varphi+\frac{\sqrt\pi}{\ATh(P)}.
 \]
-Solving this self-referential pixel equation with the OPH source map gives a fine-structure fixed point close to the measured low-energy value. Informally, the calculation starts from the OPH screen-cell rules and uses zero fitted parameters. Its current output is the source-plus-unified-gauge-width value
+Solving this self-referential pixel equation with the OPH source map gives a fine-structure fixed point close to the measured low-energy value. Informally, the calculation starts from the OPH screen-cell rules and uses zero fitted parameters. The source-plus-unified-gauge-width value is
 \[
 A_{\alpha_U}^{\mathrm{fp}}=137.035959500817279952949994585787\ldots.
 \]
@@ -858,15 +858,15 @@ C_{24,Q}=1.0009647859732326253849511140702475\ldots.
 \label{eq:c24qfactor}
 \end{equation}
 The factor \(C_{24,Q}\) is a compact accounting of the finite same-scheme hadronic endpoint
-transport still needed for source-only closure. Equivalently,
+transport needed for source-only closure. Equivalently,
 \(\Dhadreq^{\mathrm{fp}}=\alpha_U(P_\star)(C_{24,Q}-1)\). The 24-register argument emits
 \(\alpha_U(P_\star)\); the correction factor is the remaining hadronic/QCD payload.
 
 Here \(A_{\mathrm C}\) is the CODATA/NIST 2022 inverse fine-structure constant \cite{nist-value,nist-2022}. The source value \(A_{\mathrm{calc}}(P_{\mathrm{root}})=\alpha_{\mathrm{root}}^{-1}\) and the source-plus-unified-gauge-width value \(A_{\alpha_U}^{\mathrm{fp}}\) are reproducible OPH fixed-point outputs \cite{oph-code}. Equation~\eqref{eq:Dempfp} is the measured-comparison residual in inverse-alpha units.
 
-Informally: the OPH calculation currently outputs \(137.035959500817\ldots\). The CODATA/NIST measured value is \(137.035999177(21)\). The difference is a small number with a known physical meaning: the hadronic/QCD contribution in the same electromagnetic-current convention. The open task is to compute that hadronic piece from source data.
+Informally: the OPH calculation outputs \(137.035959500817\ldots\). The CODATA/NIST measured value is \(137.035999177(21)\). The difference is a small number with a known physical meaning: the hadronic/QCD contribution in the same electromagnetic-current convention. The open task is to compute that hadronic piece from source data.
 
-Why this step is needed: this marks the present limit of the calculation. Additional digits require a source-derived hadronic spectral calculation.
+This marks the calculation boundary: additional digits require a source-derived hadronic spectral calculation.
 
 The endpoint decomposition is
 \begin{equation}

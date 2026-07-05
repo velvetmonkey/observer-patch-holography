@@ -455,7 +455,7 @@ interfaces, given-data independence, and recoverability.
 
 The metaphysical discipline is essential. Observer-first physics deepens
 empirical discipline by refusing to pretend that evidence arrives from nowhere.
-Every fact is a stabilized achievement inside the same world it describes.
+Every fact is stabilized inside the same world it describes.
 
 ## Interlude 10: How to Read the Book's Equations
 

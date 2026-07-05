@@ -11,7 +11,7 @@ lists 40 hard OPH-killing outcomes and concrete IBM Quantum Cloud tests for
 the reduced-sector hardware signature. Falsifiability is how a physics theory
 pays rent. OPH is highly falsifiable: a massive graviton, a gauge-mediated
 proton decay event, a fourth light matter generation, a charge-lattice outlier,
-or neutrino data excluding the OPH branch would destroy OPH as stated.
+or neutrino data excluding the OPH branch destroys OPH as stated.
 
 If you want the existential answer first, jump straight to **Paper 6.
 [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf)**.
@@ -98,12 +98,11 @@ from the fixed-point calculations. Empirical closure rows are marked below. The
 detailed scale discussion is collected once below in **Geometry, Symmetry, And
 Scale**.
 
-OPH evidence has the same general shape throughout the project. A claim should
-be grounded in bounded observer-like patches with local state, explicit
+OPH evidence has the same general shape throughout the project. A claim is
+grounded in bounded observer-like patches with local state, explicit
 boundaries, readback, records, feedback or repair moves, and public evidence
-bundles. What matters is not a preferred presentation, coordinate choice, or
-implementation trace, but the invariant observer-patch history that can be
-checked across overlaps.
+bundles. The invariant observer-patch history carries the claim across
+presentations, coordinate choices, and implementation traces.
 
 ## The Spacetime Trap
 
@@ -112,19 +111,19 @@ container in which reality happens. Space and time are not things in themselves.
 They are stable observer-facing descriptions that appear when many finite
 perspectives can be made mutually consistent.
 
-This is especially important for time. In ordinary language, time sounds like a
-background river that would keep flowing even if no one were there. OPH rejects
-that picture. What exists at the base are observers, records, changes in those
-records, and rules for making overlapping records agree. Time is the order an
+This is especially important for time. Ordinary language treats time as a
+background river flowing without observers. OPH rejects that picture. What
+exists at the base are observers, records, changes in those records, and rules
+for making overlapping records agree. Time is the order an
 observer gives to its own record changes. Public time is the part of that order
 that can be synchronized with other observers. In that precise sense, time is
 subjective: it belongs first to an observer's own stream of records. But it is
 not arbitrary. A bad clock, a false memory, or an inconsistent history fails
 when it cannot be made to agree with the rest of the record network.
 
-Some would call this an illusion. As a metaphor, that is fair: the container we
-seem to inhabit is an appearance produced by deeper consistency. As physics,
-the sharper phrase is emergent public description.
+The illusion label works only as a metaphor: the container we seem to inhabit is
+an appearance produced by deeper consistency. As physics, the sharper phrase is
+emergent public description.
 
 From inside one perspective, the world feels obvious. There is a roughly
 spherical field of experience stretching outward, three directions to move in,
@@ -149,9 +148,9 @@ observer-accessible cut can be represented by the two-sphere $S^2$. Those
 charts describe angular support geometry. Finite regulator models implement the
 patch-and-overlap algebraic constraints exposed by that geometry.
 
-OPH therefore uses one shared screen net idealization and many finite observer
-patches. An observer screen is a local access cut on that net, not a separate
-private sphere. The $S^2$ chart is not a literal ball with data painted on it.
+OPH uses one shared screen net idealization and many finite observer patches.
+An observer screen is a local access cut on that net, not a separate private
+sphere. The $S^2$ chart is not a literal ball with data painted on it.
 
 That spherical chart carries several concrete jobs. Caps and collars give the
 local cut data used by modular flow and entropy variation. The conformal group
@@ -243,7 +242,7 @@ exact hypercharge, $N_c=3$, and $N_g=3$ live in the papers.
 | Gravitational constant | G | 6.6742999959e-11, scale/clock display | 6.67430(15)e-11 | 0.00003σ |
 | Speed of light | c | structural Lorentz speed; SI value conventional | 299792458 exact by definition | not a numeric prediction |
 | Fine-structure (inv) | $A_{\alpha_U}^{\mathrm{fp}}=\alpha_{\mathrm{root}}^{-1}+\alpha_U(P_\star)$ | source-side OPH no-hadron prediction 137.03595950081728; root-only audit trunk 136.99483516462165 | 137.035999177(21) | only the small QCD/hadronic endpoint correction remains: 0.00003967618 inverse-alpha units, about 2.9e-7 relative |
-| Higgs boson | $m_H$ | 125.1995304097179 GeV, conditional declared D10/D11 surface candidate | 125.20 ± 0.11 GeV | not yet promoted; waits on the D10 target-free repair gate |
+| Higgs boson | $m_H$ | 125.1995304097179 GeV, conditional repair-gate surface candidate | 125.20 ± 0.11 GeV | conditional target-free repair-gate row |
 | Photon mass | m_γ | 0 GeV, structural zero | <1e-18 eV | below bound |
 | Gluon mass | m_g | 0 GeV, structural zero | no isolated free-gluon mass row | confined gauge carrier |
 | Graviton mass | m_grav | 0 GeV, structural zero | <1e-32 GeV | below bound |
@@ -259,40 +258,69 @@ and [`code/particles/EXACT_NONHADRON_MASSES.md`](code/particles/EXACT_NONHADRON_
 
 ## Papers
 
-- **Paper 1. [Observers Are All You Need](paper/observers_are_all_you_need.pdf)**: broad synthesis of the OPH reconstruction program, from finite observers to the recovered effective universe.
-- **Paper 2. [Recovering Relativity and the Standard Model from Observer Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)**: compact technical core for relativity, gravity, gauge reconstruction, the Standard Model structure selected by Minimal Admissible Realization, Maxwell equations on the ordinary photon branch, and the conditional Yang-Mills mass-gap route under its stated continuum/transfer assumptions.
-- **Paper 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)**: particle derivations, mass values, coupling structure, quantitative benchmark checks, and a conditional record-worldline stitch certificate.
-- **Paper 4. [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf)**: how local observers compare records, repair mismatches, and settle into the shared reality they can all agree on.
-- **Paper 5. [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf)**: federated patch-carrier architecture, the twelve-port screen-sieve theorem, $A_5$-icosahedral and $E_8$-type symmetry framing, public hardware-evidence rules, records, recovery moves, and observer synchronization.
-- **Paper 6. [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf)**: final manifest paper for OPH's meaning layer: why anything exists, why this world is observer-compatible, the strange loop in which observers reverse engineer and build the continuation machinery, paradise on Earth or in engineered continuation environments, hell as enforced isolation or deprivation, resurrection as observer continuation, justice as continuation according to harm and repair records, and memetic evolution.
+Ordered by importance for a new technical reader. Longer summaries mark the
+papers that carry the core theorem surface.
 
-## Supplemental Papers
+- **Paper 2. [Recovering Relativity and the Standard Model from Observer Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)**: compact technical core for the recovered OPH branch. It states the observer-overlap route to Lorentz structure, Einstein-like gravity, compact-gauge reconstruction, the selected Standard Model quotient and matter package, Maxwell on the ordinary photon branch, and the conditional Yang-Mills mass-gap route under its continuum, reflection-positivity, transfer/intertwiner, and nontriviality assumptions.
+- **Paper 1. [Observers Are All You Need](paper/observers_are_all_you_need.pdf)**: broad synthesis and best first read for the full program. It explains finite observer patches, overlap consistency, records, repair moves, the recovered effective universe, the scale story, and the public claim boundaries without replacing the compact paper's theorem ledger.
+- **Paper 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)**: particle-sector derivation and audit surface. It carries the \(P_\star\)-driven particle reconstruction, structural carriers, electroweak/Higgs/top, quark, charged-lepton, neutrino, and hadron lanes, quantitative benchmark checks, and conditional record-worldline stitching.
+- **Paper 4. [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf)**: finite patch-net consensus mechanics. It proves how local observers compare overlap records, apply repair moves, handle defects, and converge to quotient normal forms when the fixed-cutoff assumptions hold.
+- **Paper 5. [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf)**: finite carrier and observer-record surface. It gives the echosahedral multi-port patch-carrier architecture, twelve-port screen-sieve theorem, $A_5$-icosahedral and $E_8$-type symmetry framing, public hardware-evidence rules, records, recovery moves, checkpoint restoration, and observer synchronization.
+- **Paper 6. [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf)**: meaning-layer synthesis. It reads the same OPH machinery as a theory of observer continuation, paradise and hell as continuation environments, resurrection as record-preserving continuation, justice as harm-and-repair bookkeeping, and the strange loop in which observers reverse engineer and build continuation machinery.
 
-- **[Photonic Fixed-Point Consensus for SHA-256d Proof of Work](extra/Photonic_fixed-point_consensus_for_SHA-256d_proof_of_work.pdf)**: photonic candidate enrichment for SHA-256d proof of work.
-- **[The Fine-Structure Constant as an OPH Pixel Fixed Point](extra/fine_structure_constant_derivation.pdf)**: source fixed point, empirical hadron endpoint boundary, and comparison check.
-- **[Observer-Patch Holography as a String-Vacuum Selector](extra/observer_patch_holography_as_string_vacuum_selector.pdf)**: OPH edge-string emergence and conventional string-vacuum sieve, the Bouchard-Donagi one-Higgs heterotic witness, a discrete R-symmetry safety layer, and moduli-locking gates; not an OPH-native vacuum-promotion shortcut.
-- **[Explaining the Yang-Mills Mass Gap with Observer-Patch Repair Dynamics](extra/yang_mills_gap_clay_problem.pdf)**: OPH finite repair-gap mechanism and conditional Clay-facing route; the equality between the Yang-Mills gap and the OPH repair gap requires the stated four-dimensional continuum and transfer certificate.
-- **[Theoretical Bounds on \(\chi_\nu\) in Observer-Patch Holography](extra/chi_nu_susceptibility_bounds.pdf)**: conditional quotient-edge susceptibility bounds, an exact uniform-branch value, and coherence-scaled engineering chart values.
-- **[Thinking as Patch-Net Fixed-Point Search](extra/thinking_as_patch_net_fixed_point_search.pdf)**: cognition and qualia as recurrent patch consensus.
+## Supplemental Papers And Notes
 
-## Cosmology And Simulation Program
+These support or test the core stack. The most important items get more detail;
+lower-level notes are linked with shorter summaries.
 
-The cosmology branch lives in [`cosmology/`](cosmology/README.md). The
-released paper in this branch is **[Observer-Patch Holography and the Dark Matter
-Phenomenon](cosmology/oph_dark_matter_paper.pdf)**. Technical companions cover:
+- **[Compact Proof That We Most Likely Inhabit an OPH Simulation](extra/compact_proof_of_oph.pdf)**: shortest compression-style argument for OPH. It collects the five-axiom route, the fixed-branch outputs, the failure points, and the reason numerical agreement only matters when target leakage is excluded.
+- **[OPH Falsifiability Map](extra/OPH_falsifiability.md)**: public kill-list for OPH. It names 40 hard failure modes, including massive gravitons, gauge-mediated proton decay, extra light matter generations, charge-lattice outliers, and neutrino exclusions of the OPH branch.
+- **[The Fine-Structure Constant as an OPH Pixel Fixed Point](extra/fine_structure_constant_derivation.pdf)**: source fixed-point calculation for the fine-structure row. It separates the OPH source value, the low-energy empirical endpoint boundary, and the remaining QCD/hadronic correction.
+- **[Explaining the Yang-Mills Mass Gap with Observer-Patch Repair Dynamics](extra/yang_mills_gap_clay_problem.pdf)**: finite OPH repair-gap mechanism and conditional Clay-facing route. The four-dimensional Yang-Mills identification requires the stated continuum and transfer certificate.
+- **[Observer-Patch Holography as a String-Vacuum Selector](extra/observer_patch_holography_as_string_vacuum_selector.pdf)**: string theory as an effective OPH edge language and vacuum-selection sieve. The Bouchard-Donagi witness is a conventional-string candidate, not a shortcut around OPH-native selection gates.
+- **[Photonic Fixed-Point Consensus for SHA-256d Proof of Work](extra/Photonic_fixed-point_consensus_for_SHA-256d_proof_of_work.pdf)**: hardware-facing test of OPH-style photonic candidate enrichment for SHA-256d, judged by the exact digital verifier.
+- **[Thinking as Patch-Net Fixed-Point Search](extra/thinking_as_patch_net_fixed_point_search.pdf)**: cognition and qualia as recurrent patch consensus across neural or artificial self-reading substrates.
+- **[Theoretical Bounds on \(\chi_\nu\) in Observer-Patch Holography](extra/chi_nu_susceptibility_bounds.pdf)**: conditional dark-sector susceptibility bounds, uniform-branch value, and coherence-scaled engineering chart values.
+- **[Entanglement Geometry Problem in OPH](extra/ENTANGLEMENT_GEOMETRY_PROBLEM_OPH.md)**: note on entanglement geometry as an observer-overlap and record-surface problem.
+- **[IBM Quantum Cloud Tests](extra/IBM_QUANTUM_CLOUD.md)**: reduced-sector hardware-test notes for OPH-facing IBM Quantum experiments.
+- **[Common Objections](extra/COMMON_OBJECTIONS.md)**: short responses to frequent conceptual and technical objections.
+- **[OMEGA Summary](extra/omega_summary.md)**: compact application-facing summary of OMEGA/OPH implications.
+- **[Hacking the Simulation: Anti-Gravity Exploit](extra/hacking-the-simulation-anti-gravity-exploit.pdf)**: speculative OPH-adjacent engineering note; not a theorem-status core paper.
 
-- **Finite-source CMB prediction program**: `cosmology/oph_cosmology_finite_source_cmb_program.tex`
-- **Inflation without inflaton**: `cosmology/oph_inflation_without_inflaton_observer_screen_synchronization.tex`
-- **Cosmological vacuum and structure formation**: `cosmology/oph_cosmological_vacuum_and_structure_formation.tex`
-- **Data and likelihood contracts**: `cosmology/oph_cosmology_data_likelihood_contracts.tex`
+## Cosmology Papers
 
-Detailed evidence references for the cosmology companions are kept inside those
-papers. CMB, inflation, vacuum, and growth results are conditional claims whose
-geometry, clock, source, scale bridge, and observational readout must come from
-observer-patch structure rather than imported background assumptions. FLRW
-calculations can serve as comparison plumbing; OPH-native promotion requires a
-quotient-derived geometry and source embedding, with flatness either proved or
-declared as an assumption.
+The cosmology branch lives in [`cosmology/`](cosmology/README.md). Its claims
+are conditional on OPH-native source, transfer, and likelihood boundaries; FLRW
+machinery can serve as comparison plumbing but does not by itself promote an
+OPH-native cosmology result.
+
+- **[Observer-Patch Holography and the Dark Matter Phenomenon](cosmology/oph_dark_matter_paper.pdf)**: release-bundle cosmology paper. It treats dark/anomaly stress as imperfect observer-patch repair bookkeeping, gives the galaxy-limit/MOND-like behavior, and states the cluster and cosmology contracts needed before larger-scale promotion.
+- **[OPH Cosmology as a Finite-Source Prediction Program](cosmology/oph_cosmology_finite_source_cmb_program.pdf)**: CMB-facing program for source-only inputs, scale calibration, Boltzmann transfer, simulator checks, physical CMB boundaries, and claim labels.
+- **[Inflation Without an Inflaton](cosmology/oph_inflation_without_inflaton_observer_screen_synchronization.pdf)**: inflation-free branch using observer-screen synchronization, horizon coherence, flatness conditions, geometric screen spectrum, screen release amplitude, radial lift, and hot source data.
+- **[OPH Cosmological Vacuum and Structure Formation](cosmology/oph_cosmological_vacuum_and_structure_formation.pdf)**: OPH-native vacuum boundary, fluctuation ensembles, proto-object/worldline formation, and structure-seed checks.
+- **[OPH Cosmology Data and Likelihood Contracts](cosmology/oph_cosmology_data_likelihood_contracts.pdf)**: frozen source artifacts, no-data-use receipts, pooled reducers, Boltzmann-transfer comparisons, and official likelihood protocols.
+
+## Physics Problems Articles
+
+Standalone markdown writeups for solved physics problems live in
+[`physics-problems/`](physics-problems/README.md). They act as supplemental
+articles for public reading and OPH Sage ingestion. They do not enter the
+TeX/PDF rendering or publication pipeline.
+
+- **[Plasma Fusion and Confinement](physics-problems/plasma_fusion.md)**:
+  fusion as an OPH repair-ledger theorem package. It defines the fusion repair
+  ledger, H-mode as an edge-collar contraction branch, ELMs as
+  obstruction/reset cycles, Lawson as a scalar energy projection, Hydrosahedron
+  as an acoustic carrier/control specialization, and DD/heat/load/net-power
+  promotion as separate receipt tiers.
+- **[High-Temperature Superconductivity](physics-problems/high_temperature_superconductivity.md)**:
+  high-\(T_c\) as charge-\(2e\) repair plus \(U(1)_Q\) phase confluence. It
+  states cuprate, pnictide/chalcogenide, pressure-quench, heterostructure, and
+  inverse-design predicates without turning them into recipe claims.
+- **[Fractional Quantum Hall States](physics-problems/fractional_quantum_hall.md)**:
+  fractional Hall phases as edge/holonomy normal forms, Abelian \(K\)-matrix
+  recovery, hierarchy refinement, non-Abelian repair-sector conditions, and the
+  \(5/2\) selector no-go theorem.
 
 ## Proof Status
 
@@ -304,11 +332,11 @@ It gives the shortest route through the case that OPH is likely correct, while
 the full paper stack carries the derivations, claim boundaries, and proof
 obligations.
 
-A finite OPH output keeps its original status until an independent physical
-bridge is supplied. Renaming a capacity count as mass, an archive as radiation,
-a repair spectrum as a physical spectrum, or a reconstruction threshold as a
-Page time does not make it so. Physical promotion requires a separate readout,
-calibration path, residual ledger, controls, and frozen validation target.
+A finite OPH output has its original status. Renaming a capacity count as mass,
+an archive as radiation, a repair spectrum as a physical spectrum, or a
+reconstruction threshold as a Page time leaves the claim at the same tier.
+Physical promotion requires a separate readout, calibration path, residual
+ledger, controls, and frozen validation target.
 
 The compact proof treats the evidence as a compression test. A numeric row
 counts only when its calculation does not use the measured target, or a close
@@ -320,12 +348,12 @@ points also organize the observer problem, gravity/gauge reconstruction,
 electroweak hierarchy, dark energy, the dark-sector budget, gauge-proton-decay
 exclusion, particle inventory, and the string-vacuum sieve.
 
-Screen-spectrum and CMB continuations remain provisional until the screen branch
-supplies its geometric scale, source dynamics, clock, refinement behavior, and
-observational readout from OPH-native records. Dark-sector, anomaly, vacuum, and
-quantum-foam views are diagnostic unless they connect to a quotient-derived
-ensemble, regulator-stable reconstruction, and frozen validation target before
-likelihood data are read.
+Screen-spectrum and CMB continuations are provisional without the screen
+branch's geometric scale, source dynamics, clock, refinement behavior, and
+observational readout from OPH-native records. Dark-sector, anomaly, vacuum,
+and quantum-foam views are diagnostic; physical likelihood claims require a
+quotient-derived ensemble, regulator-stable reconstruction, and frozen
+validation target before likelihood data are read.
 
 ## Applications And OMEGA Hardware
 
@@ -415,6 +443,8 @@ formulas and claim boundaries live in the papers.
   $e^+e^-\to\mathrm{hadrons}$ input, and fine-structure hadron closure.
 - **[`assets/`](assets):** public diagrams and figures.
 - **[`extra/`](extra):** maintained public notes such as objections, experimental write-ups, and selected supporting essays.
+- **[`physics-problems/`](physics-problems):** standalone markdown solved
+  physics problem writeups for public reading and OPH Sage ingestion.
 
 ## OPH and the Sciences
 

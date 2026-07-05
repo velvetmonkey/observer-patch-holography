@@ -414,7 +414,7 @@ condition into a sentence, the chapter ledger gives the longer reading.
 
 Rendered pages matter too. Equations can overflow. Captions can detach from
 diagrams. Long glossary entries can create awkward page breaks. A page can
-compile while being bad for a reader. A popular-science book still has to be
+compile while being bad for a reader. A popular-science book has to be
 readable as a physical object.
 
 The word-count floor should be understood in that spirit. The goal is not
