@@ -18,6 +18,11 @@ SOURCE_ID_ALIASES = {
     "s1": "src1",
     "src1": "src1",
 }
+PRODUCTION_EXECUTION_CLASSES = {
+    "production",
+    "external_production",
+    "rhmc_hmc_production",
+}
 
 
 def timestamp() -> str:
@@ -38,6 +43,21 @@ def normalize_source_id(src_id: str) -> str:
     if src_id not in SOURCE_ID_ALIASES:
         raise ValueError(f"unknown source id {src_id!r}")
     return SOURCE_ID_ALIASES[src_id]
+
+
+def backend_execution_class(backend_input: dict[str, Any]) -> str:
+    raw_export_provenance = backend_input.get("raw_export_provenance") or {}
+    backend_meta = raw_export_provenance.get("backend") or {}
+    return str(
+        backend_input.get("execution_class")
+        or raw_export_provenance.get("execution_class")
+        or backend_meta.get("execution_class")
+        or "production"
+    )
+
+
+def backend_is_production_execution(backend_input: dict[str, Any]) -> bool:
+    return backend_execution_class(backend_input) in PRODUCTION_EXECUTION_CLASSES
 
 
 def _finite_float(value: Any, *, field_name: str) -> float:
@@ -251,20 +271,36 @@ def build_backend_manifest(
         "receipt_artifact": receipt.get("artifact"),
         "backend_input_artifact": backend_input.get("artifact"),
         "backend_input_path": backend_input_path,
+        "execution_class": backend_execution_class(backend_input),
+        "public_promotion_allowed": bool(backend_input.get("public_promotion_allowed", True)),
+        "claim_tier": backend_input.get("claim_tier"),
         "schedule_scalars": copy.deepcopy(receipt.get("required_schedule_scalars")),
         "execution_input_provenance": copy.deepcopy(receipt.get("execution_input_provenance")),
         "ensemble_tasks": manifest_ensembles,
     }
     if raw_export_provenance:
         out["raw_export_provenance"] = raw_export_provenance
+        profile_id = backend_input.get("profile_id") or raw_export_provenance.get("profile_id")
+        if profile_id is not None:
+            out["profile_id"] = profile_id
+            out["backend_profile_id"] = profile_id
+        for key in ("backend", "physics", "solvers", "integrator", "boundary_conditions", "sources", "contractions"):
+            value = raw_export_provenance.get(key)
+            if value is not None:
+                out[key] = value
+        if raw_export_provenance.get("public_promotion_allowed") is not None:
+            out["public_promotion_allowed"] = bool(raw_export_provenance.get("public_promotion_allowed"))
+        if raw_export_provenance.get("claim_tier") is not None:
+            out["claim_tier"] = raw_export_provenance.get("claim_tier")
         backend_meta = raw_export_provenance.get("backend") or {}
         if backend_meta:
             out["backend_name"] = backend_meta.get("name")
             out["backend_version"] = backend_meta.get("version")
             out["backend_run_id"] = backend_meta.get("run_id")
-        profile_id = backend_input.get("profile_id") or raw_export_provenance.get("profile_id")
-        if profile_id is not None:
-            out["backend_profile_id"] = profile_id
+    else:
+        if backend_input.get("profile_id") is not None:
+            out["profile_id"] = backend_input.get("profile_id")
+            out["backend_profile_id"] = backend_input.get("profile_id")
     return out
 
 
@@ -274,6 +310,8 @@ def build_production_dump(
     backend_input: dict[str, Any],
 ) -> dict[str, Any]:
     """Normalize backend-produced correlator arrays into the frozen dump schema."""
+    execution_class = backend_execution_class(backend_input)
+    production_execution = backend_is_production_execution(backend_input)
     schedule_map = _receipt_schedule_map(receipt)
     payload_map = {
         str(entry["ensemble_id"]): entry
@@ -283,10 +321,14 @@ def build_production_dump(
     dump: dict[str, Any] = {
         "artifact": "backend_correlator_dump.production",
         "generated_utc": timestamp(),
-        "production_execution": True,
+        "production_execution": production_execution,
         "dry_run": False,
-        "surrogate_execution": False,
+        "surrogate_execution": not production_execution,
+        "diagnostic_execution": not production_execution,
         "tiny_geometry_pilot": False,
+        "execution_class": execution_class,
+        "public_promotion_allowed": production_execution and bool(backend_input.get("public_promotion_allowed", True)),
+        "claim_tier": backend_input.get("claim_tier"),
         "receipt_artifact": receipt.get("artifact"),
         "manifest_artifact": "oph_hadron_production_backend_manifest",
         "ensembles": {},
@@ -295,6 +337,10 @@ def build_production_dump(
             "All pi_iso and N_iso direct/exchange arrays are validated against the frozen cfg/source/t-extent contract.",
         ],
     }
+    if not production_execution:
+        dump["notes"].append(
+            "This backend input is diagnostic/surrogate execution; normalized arrays are not promotable as production hadron values."
+        )
     for ensemble_id, sched in schedule_map.items():
         payload_entry = payload_map.get(ensemble_id)
         backend_entry = backend_tree.get(ensemble_id)

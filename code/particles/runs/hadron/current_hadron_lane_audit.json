@@ -4,7 +4,7 @@
     "stable_channel_sequence_evaluation",
     "stable_channel_cfg_source_measure_payload"
   ],
-  "generated_utc": "2026-04-01T03:09:07Z",
+  "generated_utc": "2026-07-06T04:31:16Z",
   "latest_external_hints": [
     {
       "source": "e131_hadron_binding_emitter_push.response.md",
@@ -110,6 +110,7 @@
   "production_backend_readiness": {
     "artifact": "oph_hadron_production_readiness_report",
     "backend_manifest_publication_status": {
+      "execution_class": null,
       "manifest_present": false,
       "missing_or_placeholder_paths": [
         "profile_id",
@@ -127,6 +128,8 @@
         "contractions"
       ],
       "populated_paths": [],
+      "production_execution_class": false,
+      "public_promotion_allowed": false,
       "publication_complete": false,
       "required_paths": [
         "profile_id",
@@ -167,8 +170,10 @@
     "production_dump_status": {
       "all_required_arrays_finite": false,
       "dump_present": false,
+      "execution_class": null,
       "missing_or_nonfinite_arrays": [],
       "production_execution": false,
+      "public_promotion_allowed": false,
       "required_channels": [
         "pi_iso",
         "N_iso_direct",

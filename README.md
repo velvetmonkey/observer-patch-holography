@@ -286,7 +286,7 @@ lower-level notes are linked with shorter summaries.
 - **[Entanglement Geometry Problem in OPH](extra/ENTANGLEMENT_GEOMETRY_PROBLEM_OPH.md)**: note on entanglement geometry as an observer-overlap and record-surface problem.
 - **[IBM Quantum Cloud Tests](extra/IBM_QUANTUM_CLOUD.md)**: reduced-sector hardware-test notes for OPH-facing IBM Quantum experiments.
 - **[Common Objections](extra/COMMON_OBJECTIONS.md)**: short responses to frequent conceptual and technical objections.
-- **[Hacking the Simulation: Anti-Gravity Exploit](extra/hacking-the-simulation-anti-gravity-exploit.pdf)**: speculative OPH-adjacent engineering note; not a theorem-status core paper.
+- **[Hacking the Simulation: Anti-Gravity Exploit](extra/hacking-the-simulation-anti-gravity-exploit.pdf)**: pop-science OPH-adjacent engineering book about the local chi-nu lift test. The [Markdown source chapters](extra/hacking-the-simulation-anti-gravity-exploit/) are included with the repo so OPH Sage can ingest the same text during re-ingestion.
 
 ## Cosmology Papers
 
@@ -318,6 +318,13 @@ TeX/PDF rendering or publication pipeline.
   high $T_c$ as charge $2e$ repair plus $U(1)_Q$ phase confluence. It
   states cuprate, pnictide/chalcogenide, pressure-quench, heterostructure, and
   inverse-design predicates without turning them into recipe claims.
+- **[Universality of Low-Temperature Amorphous Solids](physics-problems/low_temperature_amorphous_universality.md)**:
+  low-temperature glass attenuation as a source-only saturated rigid-record
+  branch. It treats each material as a bounded self-reading patch with
+  strain-visible ports, two-basin records, repair or tunneling moves, and
+  public acoustic or thermal receipts, deriving
+  $\lambda/\ell=3.2441\times10^{-3}$ without using the measurements as source
+  inputs.
 - **[Fractional Quantum Hall States](physics-problems/fractional_quantum_hall.md)**:
   fractional Hall phases as edge/holonomy normal forms, Abelian $K$ matrix
   recovery, hierarchy refinement, non-Abelian repair-sector conditions, and the

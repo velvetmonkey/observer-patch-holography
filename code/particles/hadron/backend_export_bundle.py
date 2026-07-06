@@ -108,6 +108,9 @@ def _normalize_manifest(manifest: dict[str, Any]) -> dict[str, Any]:
     normalized = {
         "artifact": "oph_hadron_backend_raw_export",
         "format_version": int(manifest.get("format_version") or 1),
+        "execution_class": str(manifest.get("execution_class") or "production"),
+        "claim_tier": manifest.get("claim_tier"),
+        "public_promotion_allowed": manifest.get("public_promotion_allowed", True),
         "profile_id": manifest.get("profile_id"),
         "backend": dict(manifest.get("backend") or {}),
         "physics": dict(manifest.get("physics") or {}),
@@ -179,11 +182,18 @@ def backend_input_from_raw_manifest(
     out: dict[str, Any] = {
         "artifact": "oph_hadron_backend_raw_export_inlined",
         "format_version": normalized_manifest["format_version"],
+        "execution_class": normalized_manifest.get("execution_class") or "production",
+        "claim_tier": normalized_manifest.get("claim_tier"),
+        "public_promotion_allowed": normalized_manifest.get("public_promotion_allowed", True),
         "profile_id": normalized_manifest.get("profile_id"),
         "raw_export_provenance": {
             "manifest_artifact": normalized_manifest.get("artifact"),
             "manifest_path": str(Path(manifest_path).resolve()) if manifest_path is not None else None,
             "correlators_hdf5": str(correlator_path),
+            "execution_class": normalized_manifest.get("execution_class") or "production",
+            "claim_tier": normalized_manifest.get("claim_tier"),
+            "public_promotion_allowed": normalized_manifest.get("public_promotion_allowed", True),
+            "profile_id": normalized_manifest.get("profile_id"),
             "backend": normalized_manifest.get("backend"),
             "physics": normalized_manifest.get("physics"),
             "solvers": normalized_manifest.get("solvers"),
@@ -253,6 +263,9 @@ def build_backend_export_skeleton(
     manifest: dict[str, Any] = {
         "artifact": "oph_hadron_backend_raw_export",
         "format_version": 1,
+        "execution_class": "production",
+        "claim_tier": "production_backend_export_bundle",
+        "public_promotion_allowed": True,
         "profile_id": profile_id,
         "backend": {
             "family": "rhmc_hmc",

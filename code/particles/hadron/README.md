@@ -38,6 +38,8 @@ available substitute for a production OPH hadronic spectral payload.
   [validate_production_hadron_closure.py](validate_production_hadron_closure.py)
 - one-shot production writeback:
   [run_production_backend_writeback.py](run_production_backend_writeback.py)
+- local diagnostic backend:
+  [run_local_diagnostic_backend.py](run_local_diagnostic_backend.py)
 - empirical `e+e- -> hadrons` source registry:
   [empirical_ee_hadrons_sources.yaml](empirical_ee_hadrons_sources.yaml)
 
@@ -68,6 +70,37 @@ python3 hadron/run_production_backend_writeback.py \
   --schedule-provenance "external_runtime_commit"
 ```
 
+Local diagnostic backend path for exercising the full writeback/evaluation
+stack without claiming production QCD:
+
+```bash
+python3 hadron/run_local_diagnostic_backend.py \
+  --receipt runs/hadron/runtime_schedule_receipt_N_therm_and_N_sep.json \
+  --payload runs/hadron/stable_channel_cfg_source_measure_payload.json \
+  --output /tmp/oph-local-diagnostic-backend.json
+
+python3 hadron/run_production_backend_writeback.py \
+  --sequence-population runs/hadron/stable_channel_sequence_population.json \
+  --receipt runs/hadron/runtime_schedule_receipt_N_therm_and_N_sep.json \
+  --payload runs/hadron/stable_channel_cfg_source_measure_payload.json \
+  --backend-bundle /tmp/oph-local-diagnostic-backend.json \
+  --dump-output /tmp/backend_correlator_dump.production.json \
+  --manifest-output /tmp/oph_hadron_production_backend_manifest.json \
+  --evaluation-output /tmp/stable_channel_sequence_evaluation.json \
+  --closure-output /tmp/hadron_production_closure_validation_report.json \
+  --readiness-output /tmp/hadron_production_readiness_report.json \
+  --n-therm 2048 \
+  --n-sep 512 \
+  --schedule-provenance "local_diagnostic_backend"
+```
+
+The local diagnostic backend is target-anchored and carries
+`execution_class=diagnostic_surrogate`, so the readiness gate keeps
+`publication_bundle_ready=false` even when the numeric pipeline is populated.
+Replace that backend bundle with real RHMC/HMC or OPH-hardware correlators,
+with `execution_class=production`, before any source-only hadron row can be
+promoted.
+
 Backend-side readiness report from the current local state:
 
 ```bash
@@ -91,6 +124,22 @@ python3 hadron/generate_backend_export_bundle_skeleton.py \
   --receipt runs/hadron/runtime_schedule_receipt_N_therm_and_N_sep.json \
   --payload runs/hadron/stable_channel_cfg_source_measure_payload.json \
   --out-dir /path/to/backend_bundle
+
+# If h5py is unavailable on the handoff machine, emit only the production
+# manifest and dataset index. The backend owner must create correlators.h5 and
+# fill every listed dataset path with real production arrays before ingestion,
+# or fill the listed array_file text files and assemble an inline backend export.
+python3 hadron/generate_backend_export_bundle_skeleton.py \
+  --receipt runs/hadron/runtime_schedule_receipt_N_therm_and_N_sep.json \
+  --payload runs/hadron/stable_channel_cfg_source_measure_payload.json \
+  --out-dir runs/hadron/production_backend_bundle_request \
+  --manifest-only
+
+python3 hadron/assemble_backend_export_from_array_files.py \
+  --manifest runs/hadron/production_backend_bundle_request/backend_run_manifest.json \
+  --dataset-index runs/hadron/production_backend_bundle_request/dataset_index.json \
+  --array-dir runs/hadron/production_backend_bundle_request \
+  --output runs/hadron/production_backend_bundle_request/backend_export_inlined.json
 
 python3 hadron/normalize_backend_export_bundle.py \
   --receipt runs/hadron/runtime_schedule_receipt_N_therm_and_N_sep.json \

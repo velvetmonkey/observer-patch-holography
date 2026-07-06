@@ -321,7 +321,7 @@ plus brièvement.
 - **[Entanglement Geometry Problem in OPH](extra/ENTANGLEMENT_GEOMETRY_PROBLEM_OPH.md)** : note sur la géométrie de l'intrication comme problème de recouvrement d'observateurs et de surfaces d'enregistrement.
 - **[Tests IBM Quantum Cloud](extra/IBM_QUANTUM_CLOUD.md)** : notes de tests matériels en secteur réduit pour des expériences IBM Quantum orientées OPH.
 - **[Common Objections](extra/COMMON_OBJECTIONS.md)** : réponses brèves aux objections conceptuelles et techniques fréquentes.
-- **[Hacking the Simulation: Anti-Gravity Exploit](extra/hacking-the-simulation-anti-gravity-exploit.pdf)** : note spéculative d'ingénierie adjacente à l'OPH ; ce n'est pas un papier central à statut théorématique.
+- **[Hacking the Simulation: Anti-Gravity Exploit](extra/hacking-the-simulation-anti-gravity-exploit.pdf)** : livre de vulgarisation et d'ingénierie adjacent à l'OPH sur le test local de levée \(\chi_\nu\). Les [chapitres sources Markdown](extra/hacking-the-simulation-anti-gravity-exploit/) sont inclus dans le dépôt afin qu'OPH Sage ingère le même texte lors de la ré-ingestion.
 
 ## Articles de cosmologie
 
@@ -355,6 +355,14 @@ Sage. Ils n'entrent pas dans le pipeline de rendu TeX/PDF ou de publication.
   $U(1)_Q$. Il énonce les prédicats cuprates, pnictides/chalcogénures,
   trempe sous pression, hétérostructures et conception inverse sans les
   transformer en recettes expérimentales.
+- **[Universalité des solides amorphes à basse température](physics-problems/low_temperature_amorphous_universality.md)** :
+  l'atténuation des verres à basse température comme branche source seule
+  saturée de registres rigides. Le texte traite chaque matériau comme un patch
+  borné auto-relecteur, avec ports visibles à la déformation, enregistrements
+  à deux bassins, mouvements de réparation ou de tunneling, et reçus
+  acoustiques ou thermiques publics, puis dérive
+  $\lambda/\ell=3.2441\times10^{-3}$ sans utiliser les mesures comme entrées
+  source.
 - **[États de Hall quantique fractionnaire](physics-problems/fractional_quantum_hall.md)** :
   phases de Hall fractionnaires comme formes normales de bord/holonomie,
   récupération de la forme matricielle abélienne $K$, raffinement hiérarchique,
