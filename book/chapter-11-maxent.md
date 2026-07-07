@@ -264,9 +264,10 @@ screen-capacity branch closes it later.
 
 OPH uses Jacobson's route only after the consensus layer has done its smaller
 job. Finite repair gives quotient normal forms. The gravity claim then needs
-the geometric readout of caps and diamonds, the BW modular branch, the
-null-stress bridge, fixed-cap stationarity, the small-ball area identity, and
-the tensor upgrade across local observer directions.
+the recovered-core bridge from the compact paper: geometric readout of caps and diamonds, the
+BW modular branch, the null-stress bridge, the bounded-interval kernel,
+fixed-cap stationarity, small-ball area identity, remainder control, and the
+tensor upgrade across local observer directions.
 
 Jacobson inverted the logic of physics. Usually we think of gravity as fundamental, implying thermodynamic properties for horizons. Jacobson showed the reverse: **if you assume thermodynamics is fundamental, gravity is derived.**
 

@@ -1664,7 +1664,7 @@ In the generic continuum/non-type-I case, Section 4.2 does not supply an inner o
 
 \subsubsection{Null-surface modular bridge}\label{52-null-surface-modular-bridge}
 
-This subsection extends the fixed-cutoff weak-tail-generator boundary to the derived positive null-translation stage and the exact half-line generator/charge identification. At fixed cutoff one first transfers cut-center data to regulated null strips, then imposes the extra inherited split condition needed for the spatial-collar-type tensor decomposition, obtains exact or controlled strip additivity on one inherited strip model, and derives a weak tail generator for the renormalized half-line family. On the scaling-limit geometric-cap branch of Theorem 4.2, the null half-line blow-up net then inherits geometric dilation and therefore half-sided modular inclusion, so Borchers--Wiesbrock supplies an explicit positive null-translation generator on its Stone domain. The downstream boundary is narrower: bounded-interval formulas require the separate interval-preserving projective branch, and the tensor upgrade carries the null-invisible metric ambiguity. Accordingly the null modular bridge consists of:
+This subsection extends the fixed-cutoff weak-tail-generator boundary to the derived positive null-translation stage and the exact half-line generator/charge identification. At fixed cutoff one first transfers cut-center data to regulated null strips, then imposes the extra inherited split condition needed for the spatial-collar-type tensor decomposition, obtains exact or controlled strip additivity on one inherited strip model, and derives a weak tail generator for the renormalized half-line family. On the scaling-limit geometric-cap branch of Theorem 4.2, the null half-line blow-up net then inherits geometric dilation and therefore half-sided modular inclusion, so Borchers--Wiesbrock supplies an explicit positive null-translation generator on its Stone domain. Bounded-interval formulas are discharged by the E0.5 affine/projective kernel below, and the tensor upgrade carries the null-invisible metric ambiguity. Accordingly the null modular bridge consists of:
 \begin{itemize}
 \tightlist
 \item
@@ -2018,7 +2018,7 @@ so
 \[
 P_\Omega = Q_{kk}(\Omega)
 \]
-as a quadratic-form identity on the common domain. The only continuum input used here is the standard local modular-Hamiltonian form on the effective description of that same half-line family; it is used only to name, in continuum language, the operator fixed by the OPH half-line derivative. Bounded-interval transport through the affine-covariant kernel \(g_I(v)\) is a separate projective-branch step, and reconstruction of a full tensor from the directional charges is subject to the null-invisible metric ambiguity.
+as a quadratic-form identity on the common domain. The only continuum input used here is the standard local modular-Hamiltonian form on the effective description of that same half-line family; it is used only to name, in continuum language, the operator fixed by the OPH half-line derivative. Bounded-interval transport through the affine-covariant kernel \(g_I(v)\) is discharged by E0.5 below, and reconstruction of a full tensor from the directional charges is subject to the null-invisible metric ambiguity.
 
 \textbf{Boundary of the null bridge.} The null bridge is an explicit theorem branch rather than an automatic fixed-cutoff identity. Its required data are:
 \begin{itemize}
@@ -2067,7 +2067,7 @@ H_{\zeta}=\int_{\Sigma}T_{ab}\zeta^b\,d\Sigma^a,
 \]
 so the present identification is the null-half-line version of that same modular-energy locality rather than an additional EFT postulate.
 
-The downstream boundary is narrower. The separate interval-preserving projective branch is needed to transport this half-line statement to bounded null intervals with affine-covariant kernel \(g_I(v)\), and the null-to-tensor upgrade determines \(T_{ab}\) only up to the familiar ambiguity
+The downstream boundary is narrower. The E0.5 bounded-interval kernel transports this half-line statement to bounded null intervals with affine-covariant kernel \(g_I(v)\), and the null-to-tensor upgrade determines \(T_{ab}\) only up to the familiar ambiguity
 \[
 T_{ab}\mapsto T_{ab}+\phi g_{ab}.
 \]
@@ -2181,15 +2181,53 @@ Using the split above and the first law for the bulk term,
 \delta S_{\mathrm{gen}}(C) = \delta \langle L_C \rangle + \delta \langle K_{\mathrm{bulk}} \rangle.
 \]
 
+\subsubsection{No-smuggling dependency discharge for the Einstein bridge}\label{56a-no-smuggling-dependency-discharge-for-the-einstein-bridge}
+
+\textbf{Theorem E0 (Einstein bridge dependency discharge).} Write OPH5 for the five-axiom basis: the \(S^2\) screen net, overlap consistency, local MaxEnt/refinement, recoverable generalized entropy, and MAR. On a recovered-core, support-visible scaling branch of a cofinal OPH regulator family satisfying quotient confluence and the regularity hypotheses of Sections 2--5, OPH5 supplies the inputs used by the Einstein bridge:
+
+\begin{itemize}
+\tightlist
+\item
+  geometry readout through quotient normal forms via the screen fold \(\chi_{S,r}\circ n_r\circ\pi_r\);
+\item
+  Lorentz/H3 readout from round cap pairs, since \(\mathrm{Conf}^+(S^2)\cong \mathrm{PSL}(2,\mathbb C)\cong \mathrm{SO}^+(3,1)\) and \(H^3\simeq\mathrm{SO}^+(3,1)/\mathrm{SO}(3)\);
+\item
+  \(2\pi\)-normalized support-visible BW flow on the extracted prime geometric subnet;
+\item
+  the null generator/local null-stress charge identity on the same branch;
+\item
+  the bounded-interval kernel of Lemma E0.5;
+\item
+  fixed-cap generalized-entropy stationarity from the MaxEnt/refinement theorem;
+\item
+  the standard fixed-volume small-ball area identity after geometry readout;
+\item
+  \(o(\ell^4)\) remainder control by Lemma E0.6; and
+\item
+  all local timelike directions by the cap-pair coverage of Lemma E0.7.
+\end{itemize}
+
+Thus the finite consensus reduct supplies quotient normal forms, while OPH5 on the declared recovered-core, support-visible scaling branch supplies the geometric, modular, stress, entropy, and coverage inputs needed by the Einstein bridge. Bare finite consensus without these OPH5 branch closures does not imply the Einstein equation.
+
+\textbf{Lemma E0.5 (Bounded-interval kernel from null projective covariance).} On the null blow-up of the support-visible geometric branch, the half-line generator/charge identity, endpoint-Lipschitz renormalized interval control, and affine/projective covariance give
+\[
+K_{(a,b)}^{\mathrm{null}}
+=2\pi\int_a^b \frac{(v-a)(b-v)}{b-a}\,T_{kk}(v)\,dv
++R_{(a,b)} .
+\]
+The remainder \(R_{(a,b)}\) is the carried endpoint/collar term of the same refinement family. In the small-ball limit this is the ball modular kernel used below.
+
+\textbf{Lemma E0.6 (Diagonal remainder control).} If \(\eta_\delta\to0\) is the carried collar/Markov/recovery error at collar scale \(\delta\), then for the small-ball radius \(\ell\) one can choose a diagonal refinement \(\delta=\delta(\ell)\) with \(\eta_{\delta(\ell)}\le \ell^5\). Hence endpoint, collar, and long-wavelength derivative remainders are \(o(\ell^4)\) and do not alter the Einstein coefficient.
+
+\textbf{Lemma E0.7 (Cap-pair timelike coverage).} Round cuts on \(S^2\) encode null directions; ordered cap pairs encode the local causal diamond; and the \(\mathrm{Conf}^+(S^2)\cong\mathrm{SO}^+(3,1)\) action moves the observer rest frame through \(H^3\). Positive combinations of future null directions fill the future timelike cone, so overlapping cap-pair observers supply the all-directions hypothesis needed for the scalar-to-tensor upgrade.
+
+\textbf{Proposition E2 (Recovered-core stress closure).} If the recovered stress tensor is reconstructed from the full compatible family of null and timelike modular charges on the recovered core, then \(\nabla^a\langle T_{ab}\rangle=0\). The overlap-compatible local charge family cancels on opposite faces of infinitesimal recovered-core diamonds; after the cap-pair tensor upgrade this cancellation is the covariant divergence-free condition.
+
 \subsubsection{Einstein equation from fixed-cap generalized-entropy stationarity}\label{56-einstein-equation-from-cap-equilibrium}
 
-This subsection is a branch theorem. The finite consensus reduct supplies quotient normal forms; the Einstein branch
-requires the geometry readout, support-visible BW modular covariance, the
-null-stress bridge, bounded-interval transport, fixed-cap MaxEnt stationarity,
-the fixed-volume small-ball area variation, carried-remainder control, and the
-timelike scalar-to-tensor upgrade.
+This subsection is a branch theorem. The finite consensus reduct supplies quotient normal forms; Theorem E0 discharges the OPH5 recovered-core inputs needed by the Einstein bridge: geometry readout, support-visible BW modular covariance, the null-stress bridge, bounded-interval transport, fixed-cap MaxEnt stationarity, the fixed-volume small-ball area variation, carried-remainder control, and the timelike scalar-to-tensor upgrade.
 
-In the d=4 scaling regime, the small-ball bridge is internal to the derived gravity chain once the separate bounded-interval projective branch is included. The only extra standard geometric input is the fixed-volume area-variation identity for a small geodesic ball. The modular kernel itself is not imported from a separate EFT law: on the extracted prime geometric subnet, a sufficiently small cap is the tangent causal diamond \(D_\ell\), whose preserving conformal Killing field is
+In the d=4 scaling regime, the small-ball bridge is internal to the derived gravity chain once the E0.5 bounded-interval kernel is included. The only extra standard geometric input is the fixed-volume area-variation identity for a small geodesic ball. The modular kernel itself is not imported from a separate EFT law: on the extracted prime geometric subnet, a sufficiently small cap is the tangent causal diamond \(D_\ell\), whose preserving conformal Killing field is
 \[
 \xi_{D_\ell}
 =
@@ -2200,7 +2238,7 @@ On the t=0 slice its lapse is
 \[
 \xi_{D_\ell}\!\cdot n=\frac{\ell^2-r^2}{2\ell}.
 \]
-The bounded-interval kernel comes from combining the D3 geometric cap generator with the separate interval-preserving projective branch used downstream of the D4 half-line stress bridge, so the D3 cap-modular theorem and the D4 stress bridge together yield
+The bounded-interval kernel comes from combining the D3 geometric cap generator with the E0.5 affine/projective transport of the D4 half-line stress bridge, so the D3 cap-modular theorem and the D4 stress bridge together yield
 \[
 \delta S_{\mathrm{bulk}}(C)
 =
@@ -2518,7 +2556,7 @@ This is the concrete bridge from ``axioms about screens'' to ``precision GR pred
 
 \subsubsection{Focusing/QNEC internalization via relative entropy}\label{510-focusingqnec-internalization-via-relative-entropy}
 
-Once the fixed-cutoff null modular structure of Section 5.2 is combined with the exact half-line generator/charge identification and the bounded-interval projective branch, focusing constraints follow from information-theoretic principles in the same scaling-limit branch rather than from a separate fixed-cutoff postulate.
+Once the fixed-cutoff null modular structure of Section 5.2 is combined with the exact half-line generator/charge identification and the E0.5 bounded-interval kernel, focusing constraints follow from information-theoretic principles in the same scaling-limit branch rather than from a separate fixed-cutoff postulate.
 
 \textbf{Derivation chain.} QNEC and focusing are supported within the same branch:
 
@@ -2547,7 +2585,7 @@ For null deformations parameterized by \(\lambda\), consider nested null regions
 \]
 
 \begin{quote}
-\textbf{Proposition 5.10a (Internal QNEC).} Under the fixed-cutoff null bridge of \S{}5.2 together with the downstream density-upgrade and bounded-interval projective conditions, the second null variation of von Neumann entropy satisfies
+\textbf{Proposition 5.10a (Internal QNEC).} Under the fixed-cutoff null bridge of \S{}5.2 together with the downstream density-upgrade and E0.5 bounded-interval conditions, the second null variation of von Neumann entropy satisfies
 
 \[
 \frac{d^2 S_{\mathrm{bulk}}}{d\lambda^2} \le 2\pi \langle T_{kk}(\lambda) \rangle,
@@ -2580,7 +2618,7 @@ Given the Einstein branch (Theorem 5.1) and the classical Raychaudhuri identity 
 
 \textbf{Significance.} This section shows how the Recoverable Generalized Entropy focusing package is internally supported inside the same null-modular branch once the stress-tensor identification and Einstein relation are in place. That package is part of the stated axiom set.
 
-\textbf{Theorem 5.1 (OPH Einstein-branch closure in the scaling regime).} Under the five OPH axioms, the collar and null-strip hypotheses of Sections 2 and 5, the geometry readout through quotient normal forms, the hypotheses of Theorem 4.2, the derived fixed-cap generalized-entropy stationarity theorem for admissible cap-label-preserving MaxEnt variations, the half-line generator/charge identification of Section 5.2 together with the bounded-interval projective branch used there, the fixed-volume small-ball area-variation identity, carried-remainder control at \(o(\ell^4)\), and admissible fixed-cap MaxEnt variations about a maximally symmetric reference state, the fixed-cap generalized-entropy stationarity condition implies the rest-frame first-variation relation
+\textbf{Theorem 5.1 (OPH Einstein-branch closure in the scaling regime).} Under OPH5 on a recovered-core, support-visible scaling branch satisfying the E0 dependency discharge above, the fixed-cap generalized-entropy stationarity condition implies the rest-frame first-variation relation
 
 \[
 \delta\!\left(G_{00}+\Lambda g_{00}\right)=8\pi G\,\delta\langle T_{00}\rangle.
@@ -2588,7 +2626,7 @@ Given the Einstein branch (Theorem 5.1) and the classical Raychaudhuri identity 
 
 If this relation holds for all local directions and reference states in the locally Lorentzian scaling regime, the timelike scalar-to-tensor upgrade promotes it to the semiclassical Einstein equation modulo the expected \(\Lambda g_{ab}\) ambiguity. The D6 capacity branch closes that metric term globally.
 
-\textbf{Proof sketch.} The geometry readout turns the quotient normal form into the cap/diamond data used below. The cap first law identifies \(\delta S_C\) with \(\delta\langle K_C\rangle\), while the null bridge together with the bounded-interval projective branch relates the bulk modular variation to the required null stress-tensor charge on the diamond. Since the reference state is maximally symmetric, the fixed-volume small-ball area identity enters at first order in the perturbation, and the derived fixed-cap generalized-entropy stationarity theorem for admissible fixed-cap MaxEnt variations on the realized cap-label-preserving MaxEnt family yields the displayed rest-frame relation. Overlap consistency supplies all local timelike directions, the scalar-to-tensor theorem upgrades the relation to the tensor equation modulo \(\Lambda g_{ab}\), and D6 supplies the global capacity closure for that remaining metric term. QED.
+\textbf{Proof sketch.} The E0 discharge turns the OPH5 recovered-core branch into the exact hypothesis package required by the Jacobson-type bridge: quotient-safe geometry readout, \(2\pi\)-normalized BW cap flow, local null stress charge, bounded-interval ball kernel with \(o(\ell^4)\) remainder, fixed-cap generalized-entropy stationarity, the fixed-volume small-ball area identity, and all timelike directions. The cap first law identifies \(\delta S_C\) with \(\delta\langle K_C\rangle\), while the null bridge together with the E0.5 bounded-interval kernel relates the bulk modular variation to the required null stress-tensor charge on the diamond. Since the reference state is maximally symmetric, the fixed-volume small-ball area identity enters at first order in the perturbation, and the derived fixed-cap generalized-entropy stationarity theorem for admissible fixed-cap MaxEnt variations on the realized cap-label-preserving MaxEnt family yields the displayed rest-frame relation. Lemma E0.7 supplies all local timelike directions, the scalar-to-tensor theorem upgrades the relation to the tensor equation modulo \(\Lambda g_{ab}\), and D6 supplies the global capacity closure for that remaining metric term. QED.
 
 \subsubsection{Black-hole structural statements and continuation-level spectroscopy}\label{511-discrete-horizon-area-spectrum-and-hawking-emission-established}
 
@@ -4183,7 +4221,7 @@ The photon is not postulated. It is forced by the axioms through the chain above
 \item
   Theorem 4.3 identifies the induced kinematic group as Conf\textsuperscript{+}(S\textsuperscript{2}) \ensuremath{\cong} PSL(2,\ensuremath{\mathbb{C}}) \ensuremath{\cong} SO\textsuperscript{+}(3,1), the Lorentz group.
 \item
-  Theorem 5.1 shows that, under the stated scaling-limit null-stress and reference-state conditions, the condition \ensuremath{\delta}S\_gen = 0 implies the rest-frame first-variation Einstein relation, with overlap consistency upgrading it to the semiclassical Einstein equations in the EFT regime.
+  Theorem 5.1 shows that, under OPH5 on the recovered-core E0 branch, the condition \ensuremath{\delta}S\_gen = 0 implies the rest-frame first-variation Einstein relation, with cap-pair timelike coverage upgrading it to the semiclassical Einstein equations in the EFT regime.
 \item
   The metric tensor emerges as the compression of modular flow data, and its dynamics are fixed by the derived fixed-cap generalized-entropy stationarity theorem.
 \item
@@ -4819,7 +4857,7 @@ Discrete microscopic models generally break Lorentz symmetry, and many unified p
 
 Many approaches produce emergent geometry/kinematics but stall at dynamics: why Einstein\textquotesingle s equations (with the right coefficient) rather than some other geometric PDE?
 
-\emph{Resolution:} The framework combines the MaxEnt-selected fixed-cap generalized-entropy stationarity theorem, the derived K\_C = 2\ensuremath{\pi}B\_C structure on the extracted geometric cap branch, the internal null modular bridge identifying the half-line generator with the local null-stress charge, and the internal small-ball bridge from the geometric cap generator. The explicit scaling-limit regularity, bounded-interval transport through the separate projective branch, and tensor-upgrade conditions are stated in the Einstein branch. It does not rely only on "assume a UV CFT."
+\emph{Resolution:} The framework combines the MaxEnt-selected fixed-cap generalized-entropy stationarity theorem, the derived K\_C = 2\ensuremath{\pi}B\_C structure on the extracted geometric cap branch, the internal null modular bridge identifying the half-line generator with the local null-stress charge, and the internal small-ball bridge from the geometric cap generator. The E0 dependency discharge states the scaling-limit regularity, bounded-interval kernel, remainder-control, and tensor-upgrade conditions needed by the Einstein branch. It does not rely only on "assume a UV CFT."
 
 \textbf{5. Gauge symmetry origin and compactness.}
 

@@ -462,13 +462,17 @@ Patch consistency does two jobs here. First, it forbids any preferred
 observer or preferred frame. Second, once each observer gets the same local
 rest-frame relation, patch consistency forces those local relations to fit
 together into a tensor law. MaxEnt supplies the equilibrium state, modular
-flow supplies the local clock, and the null-modular and bounded-interval
-bridges let generalized-entropy stationarity feed the Einstein branch.
+flow supplies the local clock, and the null-modular bridge plus the
+bounded-interval kernel let generalized-entropy stationarity feed the Einstein
+branch.
 
 The finite consensus theorem has a narrower job. It supplies quotient normal
 forms for visible records. The Einstein branch starts after those normal forms
-are read as cap, diamond, stress, tetrad, and scale data on the geometric
-branch.
+are read as cap, diamond, stress, tetrad, and scale data on the five-axiom
+recovered-core geometric branch. The compact paper states the bridge
+explicitly: bare consensus alone does not supply geometry, modular flow, stress
+readout, bounded-interval control, small-ball area response, or timelike
+coverage. The recovered-core support-visible branch supplies those inputs.
 
 ### Jacobson's Insight (1995, 2016)
 
@@ -536,7 +540,7 @@ lightlike boundary, the kind followed by a light ray. On the OPH null bridge,
 the renormalized half-line modular family fixes a positive null-translation
 generator, and the same half-line derivative identifies that generator with
 the local null-stress charge on that family. The same lightlike bridge then
-feeds the bounded-interval transport and tensor reconstruction used by the
+feeds the bounded-interval kernel and tensor reconstruction used by the
 framework.
 
 ![Near a cap boundary point, the curved screen geometry straightens into a null light ray.](../assets/book_diagrams/null-blowup.svg){width=82%}
@@ -583,13 +587,14 @@ $$G_{ab} + \Lambda g_{ab} = 8\pi G \langle T_{ab} \rangle$$
 
 On the stated scaling branch, this is the semiclassical Einstein equation,
 obtained by combining the thermodynamic argument, geometry readout, the
-null-stress bridge, bounded-interval transport, and the timelike
+null-stress bridge, bounded-interval kernel, and the timelike
 scalar-to-tensor upgrade. The local argument leaves the metric term open; the
 capacity branch fixes it.
 
 The word "branch" is important. Bare finite consensus by itself does not
 contain a metric, a stress tensor, an area law, or an Einstein equation. Those
-objects enter through the geometric-modular scaling branch. The algebraic
+objects enter through the five-axiom recovered-core geometric-modular scaling
+branch listed in the compact paper. The algebraic
 upgrade after those inputs is tight: all timelike rest-frame relations give the
 full tensor equation, and the local metric-term residue becomes one constant
 Lambda only after the contracted Bianchi identity, local stress conservation,
@@ -783,8 +788,9 @@ and distance into one four-dimensional structure. Free fall reveals gravity as
 geometry. OPH pushes the logic one step deeper. On the controlled scaling
 branch, Lorentz symmetry becomes the geometry of how modular times mesh across
 patches, the rest-space quotient gives three spatial directions, and gravity
-becomes the fixed-cap equilibrium condition after the geometry readout, null
-bridge, small-ball area identity, and tensor upgrade have all been supplied.
+becomes the fixed-cap equilibrium condition after the geometry readout,
+null bridge, bounded-interval kernel, small-ball area identity, and tensor
+upgrade have all been supplied.
 
 On this reading, the speed of light is the conversion factor between
 information flow on the screen and emergent geometry in the bulk. On the

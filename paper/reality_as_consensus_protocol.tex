@@ -273,19 +273,22 @@ the Einstein equation is not entailed by the bare reduct.
 
 \[
 \boxed{
-\mathsf{Cons}_r\Rightarrow\text{quotient normal forms, not geometry.}
+\mathsf{Cons}_r\Rightarrow\text{quotient normal forms only.}
 }
 \]
-The gravity theorem used elsewhere in OPH has the separate dependency spine
+The gravity theorem used elsewhere in OPH has a separate five-axiom
+recovered-core dependency spine:
 \[
 \boxed{
 \begin{gathered}
-\mathsf{Cons}_r+\mathsf{GeomRead}
+\mathsf{RecoveredCore}_{5\mathrm{ax}}+\mathsf{GeomRead}
 +\mathrm{BW}^{\mathrm{sv}}_{S^2}
 +\mathsf{NullStress}\\
 +\mathsf{BoundedInterval}
 +\mathsf{FixedCapStat}
 +\mathsf{SmallBallArea}\\
++\mathsf{RemainderControl}
++\mathsf{TimelikeCoverage}
 +\mathsf{TensorUpgrade}
 \Rightarrow
 \mathsf{Einstein}.
@@ -506,7 +509,7 @@ For every OPH-admissible finite quotient repair presentation,
 \[
 \operatorname{locRep}_\lambda:Q\to Q
 \]
-is a total map.  Moreover, for every \(x\in Q\),
+is a total map.  For every \(x\in Q\),
 \[
 B(\operatorname{locRep}_\lambda(x))=B(x),
 \]
@@ -1304,7 +1307,7 @@ If \(b\) is admissible, then
 \[
 a^{(D)}=E(b)\in C_Q.
 \]
-Moreover, the consistent boundary fiber is a singleton:
+The consistent boundary fiber is a singleton:
 \[
 C_Q\cap B^{-1}(b)=\{E(b)\}.
 \]
@@ -1812,7 +1815,7 @@ stage \(r\), all refinements \(s\succeq r\) restrict to the fixed values
 \qquad
 \chi_{sr}(h_s(x_s))=h_r(x_r).
 \]
-Furthermore, \(h_\infty(x)=0\) if and only if every finite projection has zero finite-stage
+The relation \(h_\infty(x)=0\) holds if and only if every finite projection has zero finite-stage
 obstruction. If \(h_\infty(x)\ne0\), visible separation gives a finite stage that witnesses the
 nonzero obstruction. If two refinement-limit candidates have the same normal-form and holonomy
 projections on a cofinal tail, then they determine the same refinement-limit consensus class.
@@ -2047,7 +2050,7 @@ then the next read of \(E\) has probability \(1\).
 \[
 \|[P_a(t),P_b(t)]\|\le 4\,\delta_{\mathrm{rec}}(t)
 \]
-for all declared record projectors \(P_a(t),P_b(t)\). Moreover, for every declared elementary
+for all declared record projectors \(P_a(t),P_b(t)\). For every declared elementary
 record event \(a\) and every restored accessible state \(\widetilde\rho_t\) satisfying
 \[
 \|\widetilde\rho_t-\rho_t\|_1\le \varepsilon,
@@ -3274,7 +3277,7 @@ expectation identity. For a faithful finite state \(\rho_{ABD}\), with
   I_\rho(A:D\mid B).
 \]
 This does not identify raw CMI with a state-independent local stress source.
-Moreover, near a full-rank exact Markov state \(\sigma\), a perturbation
+Near a full-rank exact Markov state \(\sigma\), a perturbation
 \(\rho(t)=\sigma+tX+O(t^2)\) has
 \[
   \left.\frac{\mathrm d}{\mathrm d t}I_{\rho(t)}(A:D\mid B)\right|_{t=0}=0,

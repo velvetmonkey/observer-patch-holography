@@ -61,11 +61,11 @@ Once cap modular flow becomes geometric on the controlled scaling branch,
 time stops looking imported from outside. It becomes the internal flow attached
 to a restricted state. When those local flows fit together across the smooth
 screen, Lorentz kinematics appears, and the rest-space quotient
-$H^3=SO^+(3,1)/SO(3)$ gives three spatial directions. When generalized entropy sits at
-equilibrium under the allowed MaxEnt variations of a fixed cap, and the null
-bridge, small-ball area variation, geometry readout, and tensor upgrade are in
-place, the Einstein relation appears as the public large-scale grammar of that
-equilibrium.
+$H^3=SO^+(3,1)/SO(3)$ gives three spatial directions. When the recovered-core
+branch supplies geometry readout, the null bridge, the bounded-interval kernel,
+small-ball area variation, remainder control, and tensor upgrade, the Einstein
+relation appears as the public large-scale grammar of the fixed-cap
+generalized-entropy equilibrium.
 
 Read that sentence as a compressed recap. Modular flow is the clock a restricted
 state carries. Lorentz kinematics is the rulebook for relating moving
