@@ -1,0 +1,5 @@
+{
+  "artifact": "frozen_code_hashes",
+  "builder": "particles/qcd/build_hadron_source_backend_receipts.py",
+  "builder_sha256": "sha256:1510c5950208f14983a0f31eed1e60d9cda2ca5be7d21e08e3c6c6ae080cbef4"
+}

@@ -1,5 +1,16 @@
 # Fractional Quantum Hall States
 
+## Motivating Result
+
+This note entered the queue after the zero-field fractional quantum anomalous
+Hall signal in twisted MoTe2, where a moire Chern band showed fractional Hall
+structure without an external magnetic field
+([Cai et al., Nature 622, 63-68, 2023](https://pubmed.ncbi.nlm.nih.gov/37315640/)).
+The result was surprising because fractional Hall phenomenology had left the
+Landau-level setting and entered a material-engineered Chern band. The OPH
+question is which boundary-visible records identify the fractional sector, and
+which material details merely choose a representative.
+
 **Status:** solved as a conditional OPH theorem package. Standalone markdown
 supplemental writeup for public reading and OPH Sage ingestion.
 
@@ -756,6 +767,99 @@ because a thermal Hall measurement prefers $c_-=5/2$, then the action is
 posterior fitting. Such a selector violates the finite-ensemble firewall.
 $\square$
 
+## Fractional Exciton Extension
+
+The fractional-exciton sandbox uses the same quotient logic with one extra
+public readout layer. A fractional Chern or fractional Hall material is
+presented as
+
+```math
+\mathcal F_{x,r}
+=
+\left(
+\Sigma^{\mathrm{mat}}_{x,r},
+\Gamma_{x,r},
+Q_{x,r},
+\mathcal R_{x,r},
+\mathcal U_{x,r},
+\mathrm{Chk}_{x,r}
+\right),
+\qquad
+Q_{x,r}=\Sigma^{\mathrm{mat}}_{x,r}/\Gamma_{x,r}.
+```
+
+The source law or Hamiltonian is mandatory. A normal form classifies the
+surviving sector, but it does not select which material phase a sample realizes.
+The required source-side tags are
+
+```math
+\mathrm{SOURCE\_LAW\_REQUIRED},
+\qquad
+\mathrm{NORMAL\_FORM\_IS\_NOT\_SELECTOR}.
+```
+
+For a fractional Chern sandbox, a projected interacting Chern-band Hamiltonian
+and its optical extension are only candidate source objects until they emit a
+material promotion certificate:
+
+```math
+\mathrm{PhaseCert}_{x,r}
+=
+\left(
+C,\nu,\Delta,G,\sigma_{xy},\mathrm{Pump},
+\mathrm{Edge},\mathrm{Ent},\mathrm{Anyon},\mathrm{Modular},
+\mathrm{Refine}
+\right).
+```
+
+The certificate must freeze the source Hamiltonian before comparison and carry
+public receipts for the active band projector, Chern number, band geometry,
+many-body gap, ground-sector degeneracy, flux pump, Hall conductance, edge
+spectrum, topological-sector ledger, refinement stability, and no-target-leak
+audit. If the certificate map is not injective on candidate sectors, the
+correct result is `SECTOR_AMBIGUOUS`.
+
+Optical fractional excitons add a module category
+
+```math
+\mathcal M_{\mathrm{opt}}
+```
+
+over the topological sector category. Each optically active object has a
+topological shadow $\tau$, total electromagnetic charge $Q_{\mathrm{tot}}$,
+polarization, oscillator data, and binding-energy data. The public optical line
+fan is
+
+```math
+\mathcal L_{\mathrm{opt}}
+=
+\{(E,I,\partial_g E,\mathrm{pol},\tau,Q_{\mathrm{tot}},\eta)\}.
+```
+
+The important correction is the slope boundary. A gate or field slope identifies
+charge only when the binding-energy derivative is independently bounded. A
+neutral fractional exciton can have
+
+```math
+Q_{\mathrm{tot}}=0,
+\qquad
+\tau\ne 1,
+```
+
+so its leading charge slope may vanish while its quotient-sector shadow remains
+nontrivial. If the optical identifier is not injective after stated
+uncertainties, the correct result is `OPTICAL_SECTOR_AMBIGUOUS`.
+
+The companion problem note
+[Fractional Excitons as OPH Quotient-Sector Readouts](fractional_excitons_as_oph_quotient_sector_readouts.md)
+records the material presentation, source-law boundary, Hamiltonian promotion
+certificate, optical module, line-fan theorem, identifiability theorem, and
+simulator quotient-correctness certificate. The matching implementation
+surfaces are `oph-physics-sim/oph_fractional/` and
+`reverse-engineering-reality/code/particles/fractional/`; their generated
+bundles intentionally remain diagnostic until a material-specific Hamiltonian
+proof is supplied.
+
 ## Summary
 
 Let $Q_r^{\mathrm{Hall}}$ be the finite OPH quotient of a gapped charged Hall
@@ -780,3 +884,9 @@ $\sigma\times\sigma=1+\psi$ is impossible as Abelian holonomy and requires a
 noncentral repair sector. The normal-form projector remains an idempotent
 canonicalizer. Unique material selection requires a quotient-intrinsic ensemble
 and refinement-stable sector gap.
+
+For fractional-exciton and fractional-Chern optical branches, the same selector
+rule applies. The optical line fan is evidence only when it descends from a
+frozen source, a certified topological ledger, a quotient-descended optical
+module, and a simulator certificate with representative invariance, quotient
+lumpability, no orbit-size bias, refinement compatibility, and no target leak.

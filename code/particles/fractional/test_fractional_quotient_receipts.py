@@ -1,0 +1,68 @@
+#!/usr/bin/env python3
+"""Smoke-test the fractional quotient-sector receipt scaffold."""
+
+from __future__ import annotations
+
+import json
+import pathlib
+import subprocess
+import sys
+
+
+ROOT = pathlib.Path(__file__).resolve().parents[2]
+SCRIPT = ROOT / "particles" / "fractional" / "build_fractional_quotient_receipts.py"
+
+
+def test_build_fractional_quotient_receipts(tmp_path: pathlib.Path) -> None:
+    out_dir = tmp_path / "fractional"
+    subprocess.run(
+        [sys.executable, str(SCRIPT), "--output", str(out_dir)],
+        check=True,
+        cwd=ROOT,
+    )
+
+    manifest = json.loads((out_dir / "manifest.json").read_text(encoding="utf-8"))
+    assert manifest["milestone"] == "FRACTIONAL_QUOTIENT_SECTOR_SANDBOX"
+    assert manifest["strongest_allowed_claim"] == "FRACTIONAL_QUOTIENT_SANDBOX_DIAGNOSTIC"
+    assert manifest["first_blocked_gate"] == "MATERIAL_SPECIFIC_HAMILTONIAN_PROOF_RECEIPT"
+    assert manifest["promotion_allowed"] is False
+    assert manifest["material_claim"] is False
+    assert manifest["missing_files"] == []
+
+    for rel_path in manifest["required_files"]:
+        assert (out_dir / rel_path).is_file(), rel_path
+
+    receipts = json.loads((out_dir / "receipts.json").read_text(encoding="utf-8"))
+    gates = receipts["readiness_gates"]
+    assert gates["SIMULATOR_QUOTIENT_CORRECTNESS_RECEIPT"] is True
+    assert gates["OPTICAL_MODULE_CERTIFICATE"] is True
+    assert gates["MATERIAL_SPECIFIC_HAMILTONIAN_PROOF_RECEIPT"] is False
+
+    dag = json.loads((out_dir / "no_target_leak_dag.json").read_text(encoding="utf-8"))
+    assert dag["status"] == "PASS_EMPTY_COMPARISON_DAG"
+
+
+def test_rejects_optical_target_as_source_input(tmp_path: pathlib.Path) -> None:
+    config = tmp_path / "source_config.json"
+    config.write_text(json.dumps({"source_inputs": ["optical_peak_measurement"]}), encoding="utf-8")
+    out_dir = tmp_path / "leaky"
+
+    subprocess.run(
+        [
+            sys.executable,
+            str(SCRIPT),
+            "--output",
+            str(out_dir),
+            "--config",
+            str(config),
+        ],
+        check=True,
+        cwd=ROOT,
+    )
+
+    dag = json.loads((out_dir / "no_target_leak_dag.json").read_text(encoding="utf-8"))
+    receipts = json.loads((out_dir / "receipts.json").read_text(encoding="utf-8"))
+    assert dag["status"] == "FAIL_FORBIDDEN_SOURCE_INPUT"
+    assert "optical_peak_measurement" in dag["target_leak_hits"]
+    assert receipts["readiness_gates"]["NO_TARGET_LEAK_DAG"] is False
+    assert receipts["readiness_gates"]["SIMULATOR_QUOTIENT_CORRECTNESS_RECEIPT"] is False

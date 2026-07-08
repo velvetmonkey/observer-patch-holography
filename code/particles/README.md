@@ -28,6 +28,8 @@ part of this canonical tree.
 - [neutrino](neutrino)
 - [hadron](hadron)
 - [qcd](qcd)
+- [jwst](jwst)
+- [fractional](fractional)
 - [hierarchy](hierarchy)
 - [runs](runs)
 - [scripts](scripts)
@@ -87,6 +89,14 @@ part of this canonical tree.
   hadron/derive_stable_channel_cfg_source_measure_payload.py ->
   hadron/derive_stable_channel_sequence_evaluation.py ->
   hadron/derive_stable_channel_groundstate_readout.py`
+- JWST compact-object source-release bridge:
+  `jwst/build_compact_object_source_release_receipts.py`
+  mirrors the Q3 simulator claim ladder in this paper-stack code tree. It is
+  diagnostic only, not a particle prediction and not an OPH confirmation claim.
+- Fractional quotient-sector sandbox:
+  `fractional/build_fractional_quotient_receipts.py`
+  mirrors the Q5 fractional exciton/FQAH simulator claim ladder. It is
+  diagnostic only and remains blocked at the material-specific Hamiltonian proof.
 - rendered public surface:
   `scripts/build_results_status_table.py`
 
@@ -244,6 +254,8 @@ python3 neutrino/derive_neutrino_two_parameter_exact_adapter.py
 python3 hadron/derive_runtime_schedule_receipt_n_therm_and_n_sep.py
 python3 hadron/derive_stable_channel_sequence_evaluation.py
 python3 hadron/derive_current_hadron_lane_audit.py
+python3 jwst/build_compact_object_source_release_receipts.py
+python3 fractional/build_fractional_quotient_receipts.py
 python3 scripts/build_results_status_table.py
 python3 scripts/build_derivation_gap_ledger.py
 python3 scripts/build_exact_fit_surface.py
@@ -284,6 +296,8 @@ python3 -m pytest \
   hadron/test_runtime_schedule_receipt_n_therm_and_n_sep.py \
   hadron/test_stable_channel_sequence_evaluation.py \
   hadron/test_current_hadron_lane_audit.py \
+  jwst/test_compact_object_source_release_receipts.py \
+  fractional/test_fractional_quotient_receipts.py \
   hierarchy/test_hierarchy_bundle.py \
   test_results_status_candidate_policy.py \
   test_results_status_quark_promotion_policy.py \

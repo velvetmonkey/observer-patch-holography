@@ -187,7 +187,8 @@ correspondence. This is why $A_5$-icosahedral and $E_8$-type language can
 belong to one symmetry story. These names mark symmetry constraints and
 regulator structure.
 
-A finite sidecar records the exact $E_8/\mathrm{Spin}(8)$ triality certificate:
+A finite sidecar records the exact
+[$E_8/\mathrm{Spin}(8)$ triality certificate](physics-problems/e8_spin8_triality_alt9_certificate.md):
 an $A_8$ root subsystem inside $E_8$, an $\mathrm{Alt}(9)$ subgroup, a
 nonsplit $2.\mathrm{Alt}(9)$ spin lift, an $E_8$-preserving half-spin image,
 and distinct mod-2 orbit fingerprints fused by triality. Its claim level is
@@ -313,8 +314,9 @@ OPH-native cosmology result.
 
 Standalone markdown writeups for solved physics problems live in
 [`physics-problems/`](physics-problems/README.md). They act as supplemental
-articles for public reading and OPH Sage ingestion. They do not enter the
-TeX/PDF rendering or publication pipeline.
+articles for public reading and OPH Sage ingestion. Problem-specific notes are
+Markdown-only and do not enter the release-paper rendering, website paper-index,
+or GitHub release-asset pipeline.
 
 - **[Plasma Fusion and Confinement](physics-problems/plasma_fusion.md)**:
   fusion as an OPH repair-ledger theorem package. It defines the fusion repair
@@ -336,7 +338,33 @@ TeX/PDF rendering or publication pipeline.
 - **[Fractional Quantum Hall States](physics-problems/fractional_quantum_hall.md)**:
   fractional Hall phases as edge/holonomy normal forms, Abelian $K$ matrix
   recovery, hierarchy refinement, non-Abelian repair-sector conditions, and the
-  $5/2$ selector no-go theorem.
+  $5/2$ selector no-go theorem. The fractional-exciton extension adds optical
+  module and line-fan receipts for material fractionalization sandboxes; the
+  compact companion note is
+  [Fractional Excitons as OPH Quotient-Sector Readouts](physics-problems/fractional_excitons_as_oph_quotient_sector_readouts.md).
+  Its simulator receipts are mirrored in `oph-physics-sim/oph_fractional/` and
+  `code/particles/fractional/`, with material promotion still blocked at the
+  Hamiltonian/source-law proof.
+- **[Hadronic Precision Endpoint](physics-problems/hadronic_precision_endpoint.md)**:
+  shared source-open hadronic backend for the fine-structure endpoint, HVP
+  \(g-2\), HLbL \(g-2\), and rare-decay long-distance amplitudes. It requires
+  an OPH-QCD quotient ensemble, QCD source-parameter map, finite Euclidean
+  vacuum transfer, Ward-normalized current ledger, positive Stieltjes/Jacobi
+  spectral export, same-scheme endpoint remainder, and no-target-leak DAG before
+  any source-only precision claim.
+- **[JWST Compact Objects as Source-Release Record Surfaces](physics-problems/jwst_compact_object_source_release.md)**:
+  audit lane for high-redshift compact objects, early massive-galaxy
+  candidates, little red dots, and apparently mature black-hole candidates. It
+  treats compactness, redness, luminosity, AGN contribution, source release,
+  selection, and mass/age interpretation as separate receipt tiers; JWST object
+  catalogs are not, by themselves, OPH confirmations.
+- **[Gamma-Ray Morphology Claims in OPH](physics-problems/gamma_ray_morphology_claims_in_oph.md)**:
+  morphology-first audit lane for gamma-ray dipoles, Galactic Center or halo
+  residuals, and large-scale gamma templates. It treats OPH gamma signatures as
+  frozen source-derived morphology claims, not extra-photon claims, and requires
+  count-space instrument response, foreground alternatives, identifiability,
+  held-out validation, cross-tracer tests, and null tests before any candidate
+  promotion.
 
 ## Proof Status
 

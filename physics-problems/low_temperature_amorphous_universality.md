@@ -1,5 +1,18 @@
 # Universality of Low-Temperature Amorphous Solids
 
+## Motivating Result
+
+This note entered the queue because the low-temperature glass tables already
+contained a sharp anomaly: many chemically different amorphous solids showed
+nearly the same acoustic and thermal attenuation band, while some amorphous
+silicon and germanium films landed more than two orders of magnitude lower
+([Pohl, Liu, and Thompson, Rev. Mod. Phys. 74, 991, 2002](https://link.aps.org/doi/10.1103/RevModPhys.74.991)).
+Later elastic measurements in dense amorphous silicon even reported the
+suppression of tunneling states
+([Phys. Rev. Lett. 113, 025503, 2014](https://link.aps.org/doi/10.1103/PhysRevLett.113.025503)).
+The OPH question is why a broad ordinary branch has a nearly universal
+readout, while special films can escape it.
+
 **Status:** solved as a source-only OPH theorem package for the saturated
 ordinary-rigid-record branch of low-temperature amorphous solids (LTAS).
 Standalone markdown supplemental writeup for public reading and OPH Sage

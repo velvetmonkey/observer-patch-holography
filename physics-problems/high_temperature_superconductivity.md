@@ -1,5 +1,15 @@
 # High-Temperature Superconductivity
 
+## Motivating Result
+
+This note entered the queue after the nickelate surprise: high-pressure
+measurements of La3Ni2O7 reported superconductivity signatures near 80 K
+([Nature 621, 493-498, 2023](https://pubmed.ncbi.nlm.nih.gov/37437603/)).
+Nickelates had long been plausible cousins of the cuprates, but this result
+made the material-search problem concrete again. The OPH question is why a
+strong local pairing clue promotes only when phase stiffness, defect clearance,
+retention, and bulk evidence close on the same material record.
+
 **Status:** solved as an OPH theorem package and inverse-design protocol.
 Standalone markdown supplemental writeup for public reading and OPH Sage
 ingestion.

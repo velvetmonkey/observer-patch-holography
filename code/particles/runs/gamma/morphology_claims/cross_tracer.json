@@ -1,0 +1,6 @@
+{
+  "artifact": "cross_tracer",
+  "claim": "DIAGNOSTIC_GAMMA_MAP",
+  "route": "TRANSPORTED_STRESS",
+  "status": "ROUTE_SPECIFIC_VALIDATION_REQUIRED"
+}

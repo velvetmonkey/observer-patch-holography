@@ -1,5 +1,15 @@
 # Plasma Fusion and Confinement
 
+## Motivating Result
+
+This note entered the queue after the National Ignition Facility's December 5,
+2022 ignition shot: 2.05 MJ of laser energy delivered to the target and 3.15 MJ
+of fusion energy out
+([NIF, "Achieving Fusion Ignition"](https://lasers.llnl.gov/science/achieving-fusion-ignition)).
+That laboratory result made the old phrase "fusion solved" too blunt. The OPH
+question is which receipt actually closed: fusion products at the target, heat
+capture, delivered electrical load, or net plant output.
+
 **Status:** solved as an OPH repair-ledger theorem package. Standalone markdown
 supplemental writeup for public reading and OPH Sage ingestion.
 

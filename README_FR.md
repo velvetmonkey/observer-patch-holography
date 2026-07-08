@@ -215,7 +215,8 @@ de McKay. C'est pourquoi le langage $A_5$-icosaédrique et le langage de type
 $E_8$ appartiennent à une même histoire de symétrie. Ces noms désignent des
 contraintes de symétrie et une structure de régulateur.
 
-Un certificat fini séparé précise ce rôle : un sous-système de racines $A_8$
+Un [certificat fini séparé](physics-problems/e8_spin8_triality_alt9_certificate.md)
+précise ce rôle : un sous-système de racines $A_8$
 dans $E_8$, un sous-groupe $\mathrm{Alt}(9)$, un relèvement spinoriel
 nonscindé $2.\mathrm{Alt}(9)$, une image demi-spinorielle préservant $E_8$ et
 des empreintes d'orbites modulo 2 distinctes, fusionnées par la trialité. Son
@@ -350,7 +351,8 @@ mais elle ne promeut pas à elle seule un résultat cosmologique natif OPH.
 Des textes Markdown autonomes pour des problèmes de physique résolus
 vivent dans [`physics-problems/`](physics-problems/README.md). Ils agissent
 comme articles supplémentaires pour la lecture publique et l'ingestion par OPH
-Sage. Ils n'entrent pas dans le pipeline de rendu TeX/PDF ou de publication.
+Sage. Les notes spécifiques à un problème sont en Markdown seulement et
+n'entrent pas dans le pipeline de publication des papiers de release.
 
 - **[Fusion plasma et confinement](physics-problems/plasma_fusion.md)** :
   fusion comme paquet théorématique de registre de réparation OPH. Le texte
@@ -376,7 +378,35 @@ Sage. Ils n'entrent pas dans le pipeline de rendu TeX/PDF ou de publication.
   phases de Hall fractionnaires comme formes normales de bord/holonomie,
   récupération de la forme matricielle abélienne $K$, raffinement hiérarchique,
   conditions de secteurs de réparation non abéliens et théorème de
-  non-sélection à $5/2$.
+  non-sélection à $5/2$. L'extension aux excitons fractionnaires ajoute modules
+  optiques et reçus de faisceau de raies pour les bancs d'essai matériels de
+  fractionalisation ; la note compacte associée est
+  [Fractional Excitons as OPH Quotient-Sector Readouts](physics-problems/fractional_excitons_as_oph_quotient_sector_readouts.md).
+  Ses reçus de simulation sont miroités dans `oph-physics-sim/oph_fractional/`
+  et `code/particles/fractional/`, avec la promotion matérielle toujours
+  bloquée au niveau de la preuve hamiltonienne/de loi source.
+- **[Point final hadronique de précision](physics-problems/hadronic_precision_endpoint.md)** :
+  backend hadronique source-ouvert partagé pour le point final de structure
+  fine, HVP \(g-2\), HLbL \(g-2\) et les amplitudes de longue distance des
+  désintégrations rares. Il exige un ensemble quotient OPH-QCD, une carte de
+  paramètres QCD source, un transfert de vide euclidien fini, un registre de
+  courant normalisé par Ward, une exportation spectrale positive
+  Stieltjes/Jacobi, un reste de point final dans le même schéma et un DAG sans
+  fuite de cible avant toute revendication de précision source-seule.
+- **[Objets compacts JWST comme surfaces d'enregistrement de libération de source](physics-problems/jwst_compact_object_source_release.md)** :
+  voie d'audit pour objets compacts à haut redshift, candidats de galaxies
+  massives précoces, petits points rouges et candidats de trous noirs
+  apparemment mûrs. Elle garde compacité, couleur rouge, luminosité,
+  contribution AGN, libération de source, sélection et interprétation
+  masse/âge dans des niveaux de reçus séparés ; les catalogues JWST ne
+  confirment pas OPH par eux-mêmes.
+- **[Gamma-Ray Morphology Claims in OPH](physics-problems/gamma_ray_morphology_claims_in_oph.md)** :
+  voie d'audit morphologique pour dipôles gamma, résidus du centre galactique
+  ou du halo, et grands gabarits gamma. Elle traite les signatures gamma OPH
+  comme des morphologies source gelées, non comme un simple excès de photons,
+  et exige réponse instrumentale en espace de comptage, alternatives
+  d'avant-plan, identifiabilité, validation tenue à part, tests de traceurs
+  croisés et tests nuls avant toute promotion candidate.
 
 ## Statut de preuve
 

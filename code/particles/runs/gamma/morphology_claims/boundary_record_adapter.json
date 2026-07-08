@@ -1,0 +1,6 @@
+{
+  "artifact": "boundary_record_adapter",
+  "claim": "DIAGNOSTIC_GAMMA_MAP",
+  "route": "TRANSPORTED_STRESS",
+  "status": "BOUNDARY_RECORD_SOURCE_REQUIRED"
+}
