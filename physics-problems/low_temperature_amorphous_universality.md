@@ -2,8 +2,8 @@
 
 ## Motivating Result
 
-This note entered the queue because the low-temperature glass tables already
-contained a sharp anomaly: many chemically different amorphous solids showed
+This note entered the queue because the low-temperature glass tables contained
+a sharp anomaly: many chemically different amorphous solids showed
 nearly the same acoustic and thermal attenuation band, while some amorphous
 silicon and germanium films landed more than two orders of magnitude lower
 ([Pohl, Liu, and Thompson, Rev. Mod. Phys. 74, 991, 2002](https://link.aps.org/doi/10.1103/RevModPhys.74.991)).
@@ -17,6 +17,8 @@ readout, while special films can escape it.
 ordinary-rigid-record branch of low-temperature amorphous solids (LTAS).
 Standalone markdown supplemental writeup for public reading and OPH Sage
 ingestion.
+
+Date: 2026-07-08
 
 ## Introduction
 

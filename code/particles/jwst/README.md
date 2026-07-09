@@ -1,6 +1,6 @@
 # JWST Compact-Object Source-Release Bridge
 
-This directory mirrors the Question 3 JWST compact-object simulator contract
+This directory mirrors the JWST compact-object simulator contract
 inside the paper-stack code tree. It is a receipt scaffold, not a particle
 prediction and not evidence that JWST has confirmed OPH.
 

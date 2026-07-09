@@ -2,7 +2,7 @@
 """Build the hadronic precision backend receipt scaffold.
 
 This is a simulator support surface, not a lattice-QCD solver. It emits the
-minimum receipt tree required by the Question 4 hadronic precision audit so
+minimum receipt tree required by the hadronic precision endpoint audit so
 future numerical backends have a frozen schema, claim tier, and no-target-leak
 contract before any comparison with alpha(0), g-2, e+e- data, rare decays, or
 hadron masses.

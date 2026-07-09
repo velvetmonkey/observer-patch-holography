@@ -307,9 +307,9 @@ et [`code/particles/EXACT_NONHADRON_MASSES.md`](code/particles/EXACT_NONHADRON_M
 Ordre recommandé pour un lecteur technique. Les résumés les plus longs
 correspondent aux textes qui portent la surface théorématique centrale.
 
-- **Papier 2. [Recovering Relativity and the Standard Model from Observer Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)** : noyau technique compact de la branche OPH reconstruite. Il donne la route par cohérence de recouvrement vers la structure de Lorentz, la branche de gravité de type Einstein sur le coeur récupéré à cinq axiomes, le noyau algébrique formel qui promeut les données de repère au tenseur complet et fixe le résidu métrique en un seul \(\Lambda\) sur les branches connexes conservées, la reconstruction de jauge compacte, le quotient du Modèle Standard et le paquet matière sélectionnés avec noyau algébrique formel hypercharge/\(Z_6\), Maxwell sur la branche ordinaire du photon et la route conditionnelle vers le gap de Yang-Mills sous ses hypothèses de continuum, positivité par réflexion, transfert/intertwiner et non-trivialité.
+- **Papier 2. [Recovering Relativity and the Standard Model from Observer Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)** : noyau technique compact de la branche OPH reconstruite. Il donne la route par cohérence de recouvrement vers la structure de Lorentz, la branche de gravité de type Einstein sur le coeur récupéré à cinq axiomes, le noyau algébrique formel qui promeut les données de repère au tenseur complet et fixe le résidu métrique en un seul \(\Lambda\) sur les branches connexes conservées, la reconstruction de jauge compacte, le quotient du Modèle Standard et le paquet matière sélectionnés avec noyau algébrique formel hypercharge/\(Z_6\), le porteur local de Borel-Weil pour le créneau à un Higgs, Maxwell sur la branche ordinaire du photon et la route conditionnelle vers le gap de Yang-Mills sous ses hypothèses de continuum, positivité par réflexion, transfert/intertwiner et non-trivialité.
 - **Papier 1. [Observers Are All You Need](paper/observers_are_all_you_need.pdf)** : synthèse large et meilleure porte d'entrée. Il explique les patches d'observateurs finis, la cohérence de recouvrement, les enregistrements, les mouvements de réparation, l'univers effectif reconstruit, l'histoire d'échelle et les frontières publiques des affirmations sans remplacer le registre théorématique du papier compact.
-- **Papier 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)** : dérivation et audit du secteur particules. Il porte la reconstruction pilotée par \(P_\star\), les porteurs structurels, les branches électrofaible/Higgs/top, quarks, leptons chargés, neutrinos et hadrons, les vérifications quantitatives et la couture conditionnelle de lignes d'enregistrement.
+- **Papier 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)** : dérivation et audit du secteur particules. Il porte la reconstruction pilotée par \(P_\star\), les porteurs structurels, le pont de porteur à un Higgs de Borel-Weil, les branches électrofaible/Higgs/top, quarks, leptons chargés, neutrinos et hadrons, les vérifications quantitatives et la couture conditionnelle de lignes d'enregistrement.
 - **Papier 4. [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf)** : mécanique du consensus fini entre patches. Il montre comment les observateurs comparent les enregistrements de recouvrement, appliquent des réparations, traitent les défauts et convergent vers des formes normales quotient quand les hypothèses de cutoff fixe sont satisfaites. Le résultat de consensus s'arrête aux formes normales quotient ; la géométrie lorentzienne et einsteinienne entre par la branche géométrique séparée du papier compact. L'opérateur de réparation est formulé sur le quotient physique, les lectures réparées sont invariantes sous les choix d'implémentation cachés, un porteur fini en couches témoigne de la reconstruction depuis la frontière, et le dispositif Rule-90 donne des tests finis positifs/négatifs nets pour réparation et reconstruction de frontière.
 - **Papier 5. [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf)** : surface de porteurs finis et d'enregistrements observateurs. Il donne l'architecture de porteurs échosaédriques multiports, le théorème du tamis d'écran à douze ports, la complétude des emplacements scalaires au centre des arêtes, le pont fini du canal scalaire, la réserve \(Z_6\) quotient-edge et les portes du coefficient scalaire à épaisseur finie, le cadrage \(A_5\)-icosaédrique et de type \(E_8\), les règles de preuve matérielle publique, les enregistrements, les mouvements de récupération, la restauration de checkpoint et la synchronisation des observateurs.
 - **Papier 6. [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf)** : synthèse de la couche de sens. Il lit la même mécanique OPH comme théorie de la continuation d'observateur, du paradis et de l'enfer comme environnements de continuation, de la résurrection comme continuation préservant les enregistrements, de la justice comme comptabilité tort-réparation et de la boucle où des observateurs reconstruisent puis construisent la machinerie de continuation.
@@ -348,8 +348,8 @@ mais elle ne promeut pas à elle seule un résultat cosmologique natif OPH.
 
 ## Articles sur des problèmes de physique
 
-Des textes Markdown autonomes pour des problèmes de physique résolus
-vivent dans [`physics-problems/`](physics-problems/README.md). Ils agissent
+Des notes Markdown autonomes pour des problèmes de physique appliqués
+vivent dans [`physics-problems/`](physics-problems/README.md). Elles agissent
 comme articles supplémentaires pour la lecture publique et l'ingestion par OPH
 Sage. Les notes spécifiques à un problème sont en Markdown seulement et
 n'entrent pas dans le pipeline de publication des papiers de release.
@@ -400,6 +400,13 @@ n'entrent pas dans le pipeline de publication des papiers de release.
   contribution AGN, libération de source, sélection et interprétation
   masse/âge dans des niveaux de reçus séparés ; les catalogues JWST ne
   confirment pas OPH par eux-mêmes.
+- **[Compact Record Transients](physics-problems/compact_record_transients.md)** :
+  voie conditionnelle pour FRB, recyclage de trous noirs et surfaces
+  d'enregistrements compacts. Elle définit histoires, amincissement détecteur,
+  censure, vraisemblances de processus ponctuels, contrôles, raffinement et
+  reçus de promotion, tout en bloquant toute affirmation selon laquelle OPH
+  expliquerait les transitoires compacts sans preuves de taux, hôte, minutage,
+  forme d'onde, exposition et vraisemblance gelée.
 - **[Gamma-Ray Morphology Claims in OPH](physics-problems/gamma_ray_morphology_claims_in_oph.md)** :
   voie d'audit morphologique pour dipôles gamma, résidus du centre galactique
   ou du halo, et grands gabarits gamma. Elle traite les signatures gamma OPH
@@ -407,6 +414,18 @@ n'entrent pas dans le pipeline de publication des papiers de release.
   et exige réponse instrumentale en espace de comptage, alternatives
   d'avant-plan, identifiabilité, validation tenue à part, tests de traceurs
   croisés et tests nuls avant toute promotion candidate.
+- **[High-Energy Messenger Coefficient Emission](physics-problems/high_energy_messenger_coefficients.md)** :
+  théorème de coefficients source seuls pour registres de sources neutrino à
+  haute énergie, rayons cosmiques et gamma. Il émet des coefficients MaxEnt
+  finis depuis les moments de charge de source des moteurs compacts, bloque la
+  fuite de données d'événements UHE, et exige un coefficient source partagé
+  avant les noyaux de propagation et de détecteur propres à chaque messager.
+- **[CMB Simulation Promotion to a Physical Prediction](physics-problems/cmb_simulation_promotion_to_physical_prediction.md)** :
+  registre de promotion pour le champ de bordure de type CMB du simulateur
+  public de mini-univers. Il garde séparés les diagnostics visuels/de spectre,
+  les artefacts finis source seule, le routage physique conditionnel avec
+  géométrie FLRW importée, le `CosmoGeomRead_r` natif OPH et les prédictions
+  CMB physiques évaluées par vraisemblance gelée.
 
 ## Statut de preuve
 
@@ -542,8 +561,8 @@ frontières des revendications vivent dans les papiers.
   hadronique de structure fine.
 - **[`assets/`](assets)** : schémas et figures publics.
 - **[`extra/`](extra)** : notes publiques maintenues, objections, comptes rendus expérimentaux et quelques essais de support.
-- **[`physics-problems/`](physics-problems)** : textes Markdown autonomes de
-  problèmes de physique résolus, pour lecture publique et ingestion par OPH
+- **[`physics-problems/`](physics-problems)** : notes Markdown autonomes sur
+  des problèmes de physique, pour lecture publique et ingestion par OPH
   Sage.
 
 ## OPH et les sciences

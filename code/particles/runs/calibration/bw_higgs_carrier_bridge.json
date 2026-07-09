@@ -1,0 +1,45 @@
+{
+  "artifact": "oph_bw_higgs_carrier_bridge",
+  "theorem_id": "BorelWeilHiggsCarrierBridge",
+  "proof_status": "closed_carrier_representation_bridge",
+  "BOREL_WEIL_HIGGS_CARRIER_RECEIPT": true,
+  "claim_tier": "carrier_representation_bridge",
+  "carrier": {
+    "screen_chart": "C_EW ~= CP1",
+    "line_bundle": "O(1)",
+    "section_space": "H^0(C_EW,O(1))",
+    "identification": "H_OPH ~= C^2",
+    "section_degree_n": 1,
+    "complex_dimension": 2,
+    "real_degrees_of_freedom": 4
+  },
+  "representation": {
+    "su2_L_representation": "fundamental_doublet",
+    "su2_L_dimension": 2,
+    "lorentz_role": "internal_scalar_0_form",
+    "hypercharge_normalization": "OPH_Z6_plus_neutral_vev",
+    "T3_lower_component": -0.5,
+    "Y_H": 0.5,
+    "Q_phi0": 0.0
+  },
+  "symmetry_breaking_geometry": {
+    "projective_vacuum_space": "P(H_OPH) ~= CP1",
+    "stabilizer": "U(1)_Q",
+    "goldstone_count": 3,
+    "radial_higgs_modes": 1,
+    "dof_split": "4 = 3 + 1"
+  },
+  "minimality": {
+    "n_0": "H^0(CP1,O(0)) is a singlet and fails weak-doublet breaking",
+    "n_1": "H^0(CP1,O(1)) is the first nontrivial section space and gives C^2",
+    "n_ge_2": "higher O(n) produce larger SU(2) multiplets and fail one-Higgs minimality"
+  },
+  "explicit_nonclaims": [
+    "Higgs mass m_H",
+    "Higgs quartic lambda",
+    "weak scale v",
+    "Coleman-Weinberg breaking",
+    "replacement of the epsilon_H=0 hierarchy/naturality lane"
+  ],
+  "claim_boundary": "This artifact identifies the OPH one-Higgs carrier as the minimal Borel-Weil section object H^0(CP1,O(1)). It supplies representation, hypercharge-convention, and stabilizer geometry only."
+}

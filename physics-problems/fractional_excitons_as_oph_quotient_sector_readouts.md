@@ -3,9 +3,9 @@
 ## Motivating Result
 
 This note entered the queue after the 2026 anyon-trion photoluminescence report
-in twisted MoTe2. The surprising claim was not just another optical line, but a
-trion apparently binding to a fractional charge inside a fractional
-Chern-insulator state, visible in photoluminescence
+in twisted MoTe2. The surprising claim gave photoluminescence access to a trion
+apparently binding to a fractional charge inside a fractional Chern-insulator
+state
 ([Nature, 2026](https://www.osti.gov/pages/biblio/3021156)). A second optical
 report identified signatures of a fragile `nu=-1/3` fractional quantum
 anomalous Hall state in the same material family
@@ -13,6 +13,12 @@ anomalous Hall state in the same material family
 The OPH question is how a photon-visible bound state can be attached to a
 fractional topological sector without turning every optical line into a phase
 identification.
+
+**Status:** solved as a conditional fractional-material sandbox theorem package
+and simulator receipt contract. Material-specific promotion remains blocked at
+the frozen Hamiltonian/source-law and phase-certificate receipts.
+
+Date: 2026-07-08
 
 ## What This Note Contributes
 
@@ -72,7 +78,7 @@ or a quantum Gibbs or ground-projector source built from a frozen Hamiltonian. T
 
 **Theorem 3** (Normal-form non-selection). *Let $n_{x,r}:Q_{x,r}\to N_{x,r}$ be a material normal-form map, and let $\mathcal X$ be a finite set of candidate topological sectors inside $N_{x,r}$. The map $n_{x,r}$ does not select a unique material sector unless the branch supplies a quotient-intrinsic source law, Hamiltonian, transfer operator, or vacuum certificate.*
 
-*Proof.* The pushforward $n_{\#}\mu$ is idempotent on laws supported on normal forms. Every law concentrated on a candidate sector is already fixed by the canonicalizer. Therefore the canonicalizer can classify candidate sectors, but it cannot choose their material weights. Selection requires the source object. $\square$
+*Proof.* The pushforward $n_{\#}\mu$ is idempotent on laws supported on normal forms. Every law concentrated on a candidate sector is fixed by the canonicalizer. Therefore the canonicalizer can classify candidate sectors, but it cannot choose their material weights. Selection requires the source object. $\square$
 
 ## Minimal Hamiltonian And Promotion Certificate
 
@@ -217,7 +223,7 @@ If any required receipt fails, the material conclusion is not promoted.*
 
 *Proof.* Idempotence makes the canonicalizer a normal-form map. Representative invariance makes observables functions on $Q_{x,r}$. Lumpability makes the stochastic or deterministic transition law descend to the quotient. Source freezing and the no-target-leak audit prevent posterior fitting. Refinement compatibility prevents a finite-regulator artifact from being reported as a stable material sector. Orbit-size control prevents the simulator from selecting a sector because it has more hidden representatives. $\square$
 
-Implementation receipts now exist on both simulator surfaces. The active simulator helpers live in `oph-physics-sim/oph_fractional/`, with the generated sandbox bundle at `oph-physics-sim/runs/fractional/quotient_sector_sandbox/`. The paper-stack mirror lives in `reverse-engineering-reality/code/particles/fractional/`, with the generated bundle at `reverse-engineering-reality/code/particles/runs/fractional/quotient_sector_sandbox/`. Both bundles stop at `FRACTIONAL_QUOTIENT_SANDBOX_DIAGNOSTIC` and block promotion at `MATERIAL_SPECIFIC_HAMILTONIAN_PROOF_RECEIPT`.
+Implementation receipts exist on both simulator surfaces. The active simulator helpers live in `oph-physics-sim/oph_fractional/`, with the generated sandbox bundle at `oph-physics-sim/runs/fractional/quotient_sector_sandbox/`. The paper-stack mirror lives in `reverse-engineering-reality/code/particles/fractional/`, with the generated bundle at `reverse-engineering-reality/code/particles/runs/fractional/quotient_sector_sandbox/`. Both bundles stop at `FRACTIONAL_QUOTIENT_SANDBOX_DIAGNOSTIC` and block promotion at `MATERIAL_SPECIFIC_HAMILTONIAN_PROOF_RECEIPT`.
 
 ## Failure States
 

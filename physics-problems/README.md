@@ -1,4 +1,4 @@
-# Solved Physics Problems
+# Physics Problem Notes
 
 This folder holds standalone Markdown writeups for OPH applications to named
 physics problems and narrow certificate questions. They act as supplemental
@@ -36,12 +36,28 @@ branch-specific source law, action, repair ledger, or receipt bundle.
   candidates, little red dots, and apparently mature black-hole candidates. It
   keeps luminosity, color, compactness, AGN contribution, selection, source
   release, and physical mass/age claims in separate receipt tiers.
+- [Compact Record Transients](compact_record_transients.md): conditional
+  theorem package for FRBs, black-hole recycling, compact record surfaces,
+  detector thinning, censoring, controls, refinement, and promotion. It blocks
+  claims that OPH explains compact transients without rate, host, timing,
+  waveform, exposure, and frozen-likelihood receipts.
 - [Gamma-Ray Morphology Claims in OPH](gamma_ray_morphology_claims_in_oph.md):
   morphology-first audit lane for gamma-ray dipoles, Galactic Center or halo
   residuals, and large-scale gamma templates. It defines the frozen OPH gamma
   source artifact, transported-stress and boundary-record routes, count-space
   instrument operator, identifiability test, cross-tracer validation, and
   fail-closed receipt ladder.
+- [High-Energy Messenger Coefficient Emission](high_energy_messenger_coefficients.md):
+  source-only coefficient theorem for high-energy neutrino, cosmic-ray, and
+  gamma source ledgers. It turns compact-engine source-load moments into unique
+  finite MaxEnt coefficients, blocks event-data leakage, and requires a shared
+  source coefficient before messenger-specific propagation and detector
+  kernels.
+- [CMB Simulation Promotion to a Physical Prediction](cmb_simulation_promotion_to_physical_prediction.md):
+  promotion ledger for the public mini-universe simulator's CMB-like boundary
+  record. It separates visual and spectrum diagnostics, source-only finite
+  artifacts, conditional imported-FLRW physical routing, OPH-native
+  `CosmoGeomRead_r`, and frozen likelihood-evaluated CMB prediction claims.
 - [High-Temperature Superconductivity](high_temperature_superconductivity.md):
   high $T_c$ as charge $2e$ repair plus $U(1)_Q$ phase confluence, with an
   inverse-design protocol and no recipe claim.
@@ -53,7 +69,7 @@ branch-specific source law, action, repair ledger, or receipt bundle.
   net-power claims kept in separate receipt tiers.
 - [Finite E8/Spin8 Triality Certificate for an Alt(9) Double Cover](e8_spin8_triality_alt9_certificate.md):
   narrow algebraic certificate for the exceptional-symmetry sidecar. The main
-  paper stack already summarizes its role, so this lives here as a local
+  paper stack summarizes its role, so this lives here as a local
   receipt note rather than as a standalone release paper.
 
 ## Scope Rule

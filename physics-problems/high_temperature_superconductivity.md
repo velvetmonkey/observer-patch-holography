@@ -14,6 +14,14 @@ retention, and bulk evidence close on the same material record.
 Standalone markdown supplemental writeup for public reading and OPH Sage
 ingestion.
 
+Date: 2026-07-08
+
+The completed theorem package is the repair-locked material branch:
+superconductivity is pair amplitude plus phase stiffness plus fluxoid-corrected
+holonomy/defect clearance plus repair-stable transport and bulk shielding
+readout. The simulator may estimate these objects and emit receipts, but it
+does not define the material phase.
+
 ## Introduction
 
 High-temperature superconductivity is hard in legacy language because strong
@@ -114,15 +122,81 @@ The physical quotient is
 Q_{\mathbf x,r}=\Sigma_{\mathbf x,r}/\Gamma_{\mathbf x,r}.
 ```
 
-Normal-form projection by itself leaves the material law unselected. The action
-or base measure is load-bearing:
+A material patch is an observer-like OPH object:
+
+```math
+\mathsf O_i^{\rm mat}
+=
+\left(
+\mathcal A_i,\rho_i,\mathcal R_i,
+\{(\mathcal I_e,\pi_{i,e})\}_{e\ni i},
+\mathcal U_i,\mathrm{Chk}_i
+\right).
+```
+
+Here $\mathcal A_i$ is the local accessible material algebra, $\rho_i$ is
+the local state, $\mathcal R_i$ is the material record algebra, $\mathcal I_e$
+is the port or overlap algebra, $\pi_{i,e}$ is the readback map, $\mathcal U_i$
+is the update/repair/control family, and $\mathrm{Chk}_i$ is checkpoint data.
+The material record algebra contains density, current, energy, pair-amplitude,
+phase, fluxoid/holonomy, defect, quasiparticle, aggregate-transport, and
+process-history records:
+
+```math
+\mathcal R_i^{\rm mat}
+=
+\mathcal R_i^n\vee\mathcal R_i^J\vee\mathcal R_i^E
+\vee\mathcal R_i^\Delta\vee\mathcal R_i^\theta
+\vee\mathcal R_i^{\rm hol}\vee\mathcal R_i^{\rm def}
+\vee\mathcal R_i^{\rm qp}\vee\mathcal R_i^{\rm agg}
+\vee\mathcal R_i^{\rm proc}.
+```
+
+Normal-form projection by itself leaves the material law unselected. A
+simulator or material proof must declare a source law, either as a finite
+quotient law
 
 ```math
 \mu_{\mathbf x,r,T}(q)
 =
 Z_{\mathbf x,r,T}^{-1}
-m_{\mathbf x,r}(q)e^{-S_{\mathbf x,r,T}(q)}.
+m_{\mathbf x,r,T}(q)e^{-S_{\mathbf x,r,T}(q)}
 ```
+
+or as a quantum density operator on the declared quotient physical algebra:
+
+```math
+\rho_{\mathbf x,r,T}
+=
+Z^{-1}e^{-\beta(H_{\mathbf x,r}-\mu N)}.
+```
+
+The source type must be explicit:
+`EXTERNAL_FIXED_REFERENCE`, `OPH_NATIVE_QUOTIENT_ENSEMBLE`,
+`OPH_VACUUM_BRANCH`, `EXPERIMENTALLY_FITTED_MODEL`, or
+`DIAGNOSTIC_BASELINE`.
+
+## Theorem 0: Normal-Form Repair Does Not Select the Material Ensemble
+
+**Statement.** Let $n:Q\to Q_{\rm nf}$ be a normal-form map and let
+$\mathcal C_Q(\mu)=n_\#\mu$ be the induced map on probability laws. Then
+$\mathcal C_Q$ is idempotent and has many fixed laws. Therefore canonical
+repair does not select the material source law.
+
+**Proof.** Since $n$ is a normal-form map, $n\circ n=n$. Hence
+
+```math
+\mathcal C_Q^2(\mu)=(n\circ n)_\#\mu=n_\#\mu=\mathcal C_Q(\mu).
+```
+
+Every law supported on $Q_{\rm nf}$ is fixed by $n_\#$, so repair leaves many
+possible material ensembles. A physical branch therefore requires a declared
+base measure/action, density operator, MaxEnt ledger, or other source law.
+$\square$
+
+The simulator consequence is strict: quotient normal forms classify material
+records, but they do not authorize uniform representative sampling unless
+representative counting is the declared physical base measure.
 
 ## Pair-Repair Kernel
 
@@ -333,9 +407,12 @@ Define a phase edge variable
 ```math
 a_{ij}
 =
+\operatorname{wrap}_{2\pi}
+\left(
 \theta_i-\theta_j
 -
-\frac{2e}{\hbar}\int_i^j A\cdot dl.
+\frac{2e}{\hbar}\int_i^j A\cdot dl
+\right).
 ```
 
 The loop holonomy is
@@ -347,24 +424,81 @@ The loop holonomy is
 \quad (\mathrm{mod}\ 2\pi).
 ```
 
-## Theorem 5: Phase Confluence Is Holonomy Closure
-
-**Statement.** A local pair-amplitude branch has a global superconducting phase
-normal form exactly when every allowed phase loop has trivial holonomy:
+The superconducting gate is not "no vortices ever." Applied field, fluxoid
+sectors, rings, and resolved vortices are allowed public records. For each
+loop, record the resolved fluxoid ledger
 
 ```math
-\Omega_\gamma=0
-\quad
-\text{for every loop } \gamma.
+\mathsf F_\gamma=(n_\gamma,\Phi_\gamma,\mathsf{resolved}_\gamma),
+\qquad n_\gamma\in\mathbb Z,
+\qquad
+\Phi_\gamma=\int_{\Sigma_\gamma}B\cdot dS.
 ```
 
-**Proof.** Choose a root and propagate phases along a spanning tree. A phase
-assignment is path-independent exactly when the accumulated edge value around
-each closed cycle is zero. That condition is the OPH holonomy criterion: local
-agreement is insufficient, and cycle obstruction is the global failure mode.
-The remaining freedom is one global $U(1)$ phase. $\square$
+The obstruction is the unresolved residual
 
-## Theorem 6: Critical Temperature Predicate
+```math
+R_\gamma
+=
+\operatorname{dist}_{2\pi}
+\left(\Omega_\gamma-2\pi n_\gamma\right).
+```
+
+Equivalently, with explicit flux convention,
+
+```math
+R_\gamma
+=
+\operatorname{dist}_{2\pi}
+\left(
+\sum_{(i,j)\in\gamma}(\theta_i-\theta_j)
+-
+\frac{2e}{\hbar}\Phi_\gamma
+-
+2\pi n_\gamma
+\right).
+```
+
+The holonomy gate is
+
+```math
+D_{\rm hol}(T)=\sum_\gamma w_\gamma R_\gamma(T)^2<D_c
+```
+
+for unresolved loops and unresolved defect records. Resolved fluxoids remain
+part of the quotient-visible state.
+
+## Theorem 5: Phase Confluence Is Fluxoid-Corrected Holonomy Closure
+
+**Statement.** A local pair-amplitude branch has a global superconducting phase
+normal form, modulo global $U(1)$ and resolved fluxoid sectors, exactly when
+all unresolved loop residuals vanish, or remain below the declared public
+tolerance:
+
+```math
+R_\gamma=0
+\quad \text{for all unresolved loops } \gamma,
+\qquad
+\text{or}\qquad
+D_{\rm hol}<D_c.
+```
+
+**Proof.** Choose a root and propagate phases along a spanning tree using the
+gauge-invariant edge records $a_e$. Every non-tree edge closes a fundamental
+cycle. The phase assigned to a vertex is path-independent exactly when the
+cycle sum agrees with the declared integer fluxoid/winding record:
+
+```math
+\Omega_\gamma=2\pi n_\gamma
+\quad(\mathrm{mod}\ 2\pi).
+```
+
+If a loop violates this relation without a resolved fluxoid or vortex record,
+two paths assign incompatible phases. That is the OPH holonomy obstruction.
+Resolved vortices and applied flux remain allowed records rather than failures.
+$\square$
+
+## Static and Public Superconducting Predicates
 
 Let the three OPH gates be
 
@@ -377,23 +511,85 @@ Let the three OPH gates be
 ```
 
 ```math
-\mathcal H(T):\Omega_\gamma(T)=0
-\quad
-\text{for all unresolved loops } \gamma.
+\mathcal H(T):D_{\rm hol}(T)<D_c.
+```
+
+The static quotient predicate is
+
+```math
+\mathsf{SC}_{\rm static}(T)
+=
+\mathcal A(T)\wedge\Theta(T)\wedge\mathcal H(T).
+```
+
+Static superconductivity is not yet a public material claim. The public
+finite-window predicate also needs defect survival and bulk shielding:
+
+```math
+\mathsf{SC}_{\rm pub}(T,L,\tau_{\rm obs})
+=
+\mathcal A(T)\wedge\Theta(T)\wedge\mathcal H(T)
+\wedge\mathcal R_{\rm pub}(T,L,\tau_{\rm obs})
+\wedge\mathsf{Meissner}(T).
+```
+
+Here
+
+```math
+\mathcal R_{\rm pub}:
+\lambda_{\rm esc}^{\rm def}\tau_{\rm obs}\ll1
+\quad\text{and}\quad
+\Delta_{\rm clear}^{\rm def}\tau_{\rm relax}\gg1.
+```
+
+The bulk gauge-field readout is
+
+```math
+\mathsf{Meissner}(q)
+=
+\left(
+\lambda_L(q),\chi_{\rm dia}(q),B_{\rm in}(q)/B_{\rm ext},
+M(q),\text{shielding fraction}
+\right).
 ```
 
 Define
 
 ```math
-T_c^{\rm OPH}(\mathbf x)
+T_c^{\rm gate}(\mathbf x)
 =
 \sup\{T:\mathcal A(T)\wedge\Theta(T)\wedge\mathcal H(T)\}.
 ```
 
+```math
+T_c^{\rm pub}(L,\tau_{\rm obs})
+=
+\sup\{T:\mathsf{SC}_{\rm pub}(T,L,\tau_{\rm obs})\}.
+```
+
+## Theorem 6: Static OPH Superconducting Normal Form
+
+**Statement.** If $\mathcal A(T)$, $\Theta(T)$, and $\mathcal H(T)$ hold, then
+the material quotient admits a static superconducting phase normal form, modulo
+global $U(1)$, resolved fluxoid sectors, and declared quotient redundancies. If
+any gate fails, the static superconducting normal form is absent.
+
+**Proof.** The amplitude gate gives a nonzero charge-$2e$ branch. The
+stiffness gate makes phase twist costly and gives a stable phase sector. The
+fluxoid-corrected holonomy gate removes unresolved global gluing obstruction,
+while resolved vortex and fluxoid records remain in the quotient. The finite
+OPH consensus theorem surface then supplies a schedule-independent normal form
+once finite descent, local diamond, and repair completeness are supplied. If
+the amplitude gate fails, no charge-$2e$ branch exists. If stiffness fails,
+phase records are not robust. If holonomy fails, local phase agreement cannot
+be glued globally. $\square$
+
+## Theorem 7: Critical Temperature Gate
+
 If the three gates are monotone in the relevant interval, then
 
 ```math
-T_c^{\rm OPH}(\mathbf x)
+T_c^{\rm gate}(\mathbf x)
 =
 \min(T_{\rm amp},T_{\rm phase},T_{\rm hol}).
 ```
@@ -404,6 +600,132 @@ fails, the superconducting normal form is absent. If all hold, accepted OPH
 repair gives a schedule-independent phase normal form on the material quotient.
 Under monotonicity, the conjunction becomes true below the smallest threshold.
 $\square$
+
+The public transition $T_c^{\rm pub}$ can be lower than $T_c^{\rm gate}$ when
+defect escape, observation-window survival, or Meissner/London receipts fail.
+
+## Defect Repair, Escape, and Transport Records
+
+The defect sector is the quotient-visible sector of vortex records,
+phase-slip records, branch cuts, grain-boundary obstructions, and unresolved
+loop residuals:
+
+```math
+D_{\mathbf x,r}
+=
+\{
+v_\gamma,n_\gamma,\text{vortex records},\text{phase-slip records},
+\text{branch cuts},\text{grain-boundary obstructions},
+\text{unresolved loop residuals}
+\}/\Gamma_{\mathbf x,r}.
+```
+
+The repair gap lives here, not in the smooth phase Laplacian. A lowest smooth
+phase eigenvalue can vanish with system size because of harmless Goldstone or
+twist modes. That is not a superconducting failure.
+
+Let $\mu_D$ be the induced defect-sector law and let $E_C$ be conditional
+repair projections on $L^2(D_{\mathbf x,r},\mu_D)$. Define
+
+```math
+L_{\rm clear}^{\rm def}
+=
+\sum_C c_C(I-E_C),
+```
+
+and
+
+```math
+\Delta_{\rm clear}^{\rm def}
+=
+\inf_{f\perp\ker L_{\rm clear}^{\rm def}}
+\frac{
+\langle f,L_{\rm clear}^{\rm def}f\rangle_{\mu_D}
+}{
+\langle f,f\rangle_{\mu_D}
+}.
+```
+
+Let $S_{\rm SC}=\{q:D_{\rm hol}(q)<D_c\}$. For a continuous-time defect
+generator $K_D$, the defect escape or nucleation rate is
+
+```math
+\lambda_{\rm esc}^{\rm def}
+=
+\sup_{q\in S_{\rm SC}}
+\sum_{q'\notin S_{\rm SC}}K_D(q,q').
+```
+
+For a discrete simulator kernel $P_D$, use
+
+```math
+p_{\rm esc}^{\rm step}
+=
+\sup_{q\in S_{\rm SC}}P_D(q,S_{\rm SC}^c).
+```
+
+## Theorem 7a: Defect Clearance Gap Controls Defect-Record Decay
+
+**Statement.** If $D_{\mathbf x,r}$ is finite and
+$L_{\rm clear}^{\rm def}$ is self-adjoint and nonnegative, then for
+$f\perp\ker L_{\rm clear}^{\rm def}$,
+
+```math
+\langle f,e^{-tL_{\rm clear}^{\rm def}}f\rangle_{\mu_D}
+\le
+e^{-t\Delta_{\rm clear}^{\rm def}}\langle f,f\rangle_{\mu_D}.
+```
+
+**Proof.** Diagonalize the finite self-adjoint generator. All components
+orthogonal to the kernel have eigenvalue at least
+$\Delta_{\rm clear}^{\rm def}$. Expanding $f$ in that eigenbasis gives the
+bound term by term. $\square$
+
+## Theorem 7b: Public Finite-Window Superconductivity Needs Low Escape
+
+**Statement.** A large clearance gap alone is insufficient. Public
+finite-window superconductivity requires both
+
+```math
+\lambda_{\rm esc}^{\rm def}\tau_{\rm obs}\ll1
+```
+
+and
+
+```math
+\Delta_{\rm clear}^{\rm def}\tau_{\rm relax}\gg1.
+```
+
+**Proof.** In a finite jump process, the probability of at least one escape
+from $S_{\rm SC}$ during $\tau_{\rm obs}$ is bounded by
+$1-e^{-\lambda_{\rm esc}^{\rm def}\tau_{\rm obs}}$. Once an unresolved defect
+is present, the clearance theorem controls its decay. If escape is large,
+defects are repeatedly created regardless of how quickly individual defects
+clear. $\square$
+
+Define a transport mismatch functional
+
+```math
+\Phi_{\rm tr}(q)
+=
+\Phi_J(q)+\Phi_V(q)+\Phi_{\rm slip}(q)+\Phi_{\rm heat}(q),
+```
+
+where $\Phi_V$ includes voltage-lead mismatch and $\Phi_{\rm slip}$ counts
+unresolved phase-slip events in the observation window.
+
+## Theorem 7c: Zero Resistance Alone Is Not an OPH Superconducting Claim
+
+**Statement.** A branch with apparent zero resistance but no
+Meissner/London/bulk-shielding receipt is classified as
+`TRANSPORT_ARTIFACT`, `FILAMENTARY_PAIR_PATH`, or `INCOMPLETE_SC_CLAIM`, not
+as public OPH superconductivity.
+
+**Proof.** Transport records and magnetic/bulk gauge-field repair records are
+distinct public readouts. A perfect conductor can preserve magnetic flux, and
+a filament can short voltage contacts without producing a bulk phase normal
+form. The public OPH superconductivity predicate therefore requires the bulk
+Meissner/London readout. $\square$
 
 ## Inverse-Design Functional
 
@@ -427,7 +749,7 @@ T_c^{\rm pred}(\mathbf x)
 The penalties record instability, disorder, toxicity or unusability, and
 synthesis failure.
 
-## Theorem 7: OPH High $T_c$ Inverse-Design Theorem
+## Theorem 8: OPH High $T_c$ Inverse-Design Theorem
 
 **Statement.** If $\mathfrak X$ is finite or compact after regulator,
 stability, and synthesis filters, and if $J_{\rm OPH}$ is bounded above and
@@ -449,7 +771,7 @@ disordered, unsafe for the intended use, or synthetically unreachable.
 Experimental receipts decide whether the predicted quotient-visible normal form
 is physically realized. $\square$
 
-## Theorem 8: Metastable Processing and Pressure Quench
+## Theorem 9: Metastable Processing and Pressure Quench
 
 **Statement.** Let $K^P_T$, $\rho_s^P(T)$, and $D_{\rm hol}^P(T)$ be the
 pair kernel, stiffness, and holonomy-defect density of a high-pressure or
@@ -479,7 +801,7 @@ retain finite margin below $T_c^P-\delta T$, the OPH $T_c$ predicate remains
 true there. The barrier condition makes the retained state long-lived on the
 use timescale. $\square$
 
-## Theorem 9: Heterostructure Decoupling of Amplitude and Stiffness
+## Theorem 10: Heterostructure Decoupling of Amplitude and Stiffness
 
 **Statement.** Suppose layer $A$ has high $T_{\rm amp}$ and low stiffness,
 while layer $B$ has high stiffness and compatible pair symmetry. If the

@@ -14,6 +14,10 @@ question is how to audit compactness, color, luminosity, AGN contribution,
 source release, and mass-age interpretation without treating a catalog row as a
 physical closure.
 
+**Status:** solved as a source-release audit theorem package and simulator
+receipt contract. The JWST lane remains source-open and simulation-buildable,
+not a physical mass-age or OPH-confirmation claim.
+
 Date: 2026-07-08
 
 ## Origin
@@ -207,7 +211,7 @@ density, halo-mass density, black-hole mass density, or galaxy number density.
 
 1. **Normal forms do not select compact-object probability laws.**  
    The pushforward of a law by a normal-form map is idempotent, so every law
-   already supported on the normal-form image is fixed. A source law must be
+   supported on the normal-form image is fixed. A source law must be
    supplied separately.
 
 2. **Record density is quotient-invariant.**  

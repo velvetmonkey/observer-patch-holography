@@ -10,6 +10,12 @@ triality and gluing data
 The OPH question is whether the same kind of finite, public, representation
 certificate can be kept separate from physical `E8` speculation.
 
+**Status:** solved as a finite certificate statement and OPH claim-boundary
+note. Public verifier promotion remains gated on the raw Sage scripts, exact
+matrix data, check outputs, and stable hashes under `code/e8_triality/`.
+
+Date: 2026-07-08
+
 ## Role In The OPH Stack
 
 OPH uses finite observer-visible data, records, repair maps, quotient invariants, and public receipts as primitive evidence carriers. The present certificate belongs to that finite exact discipline on the exceptional-symmetry side:
@@ -18,7 +24,7 @@ OPH uses finite observer-visible data, records, repair maps, quotient invariants
 \quad\Rightarrow\quad
 \text{finite exceptional representation certificate}.
 ```
-It supports the $E_8$-type representation-closure lane used by compact-gauge and heterotic-local bookkeeping. It does not replace the recovered-core theorem stack, the MAR selection of the Standard Model quotient, the critical-edge CFT gate, or any physical carrier evidence rule.
+It supports the $E_8$-type representation-closure lane used by compact-gauge and heterotic-local bookkeeping. It does not replace the recovered-core theorem stack, the Minimal Admissible Realization (MAR) selection of the Standard Model quotient, the critical-edge CFT gate, or any physical carrier evidence rule.
 
 ## Certificate Statement
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Smoke-test the Question 8 gamma morphology receipt scaffold."""
+"""Smoke-test the gamma morphology receipt scaffold."""
 
 from __future__ import annotations
 
@@ -22,7 +22,7 @@ def test_build_gamma_morphology_receipts(tmp_path: pathlib.Path) -> None:
     )
 
     manifest = json.loads((out_dir / "manifest.json").read_text(encoding="utf-8"))
-    assert manifest["milestone"] == "Q8_GAMMA_MORPHOLOGY_AUDIT"
+    assert manifest["milestone"] == "GAMMA_MORPHOLOGY_AUDIT"
     assert manifest["strongest_allowed_claim"] == "DIAGNOSTIC_GAMMA_MAP"
     assert manifest["first_blocked_gate"] == "GAMMA_SOURCE_ARTIFACT_RECEIPT"
     assert manifest["promotion_allowed"] is False

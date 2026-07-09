@@ -13,6 +13,11 @@ The OPH question is therefore not whether there are "extra photons." It is
 whether a source-derived, frozen OPH morphology survives ordinary source,
 foreground, instrument, held-out, cross-tracer, and null tests.
 
+**Status:** solved as a morphology-first audit theorem package and simulator
+receipt contract. The default claim is diagnostic; candidate promotion requires
+frozen source artifacts, count-space response, controls, held-out validation,
+cross-tracer tests, and null tests.
+
 Date: 2026-07-08
 
 ## Origin
@@ -454,7 +459,7 @@ The gamma branch fails closed if any of these occur:
 
 ## Simulator Contract
 
-Both simulator surfaces now need the same fail-closed behavior:
+Both simulator surfaces use the same fail-closed behavior:
 
 - `oph-physics-sim` compiles the typed gamma morphology receipt surface,
   exports it into measurement packs, checks no-data-use tokens, and refuses

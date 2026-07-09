@@ -28,7 +28,7 @@ These files are public technical companions outside the release bundle.
   - frozen source artifacts, no-data-use checks, pooled reducers, Boltzmann
     transfer, and official likelihood comparisons
 - simulator reference: https://github.com/muellerberndt/oph-physics-sim
-- visualization companion: https://oph-universe-explorer.lovable.app
+- visualization companion: https://simulation.floatingpragma.io
 
 The CMB companion distinguishes diagnostic proxies, conditional physical
 artifacts using a frozen imported FLRW packet, and OPH-native physical artifacts

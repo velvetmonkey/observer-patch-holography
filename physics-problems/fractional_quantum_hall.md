@@ -14,6 +14,8 @@ which material details merely choose a representative.
 **Status:** solved as a conditional OPH theorem package. Standalone markdown
 supplemental writeup for public reading and OPH Sage ingestion.
 
+Date: 2026-07-08
+
 ## Introduction
 
 Fractional Hall physics is hard in legacy language because the measured plateau

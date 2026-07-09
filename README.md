@@ -272,9 +272,9 @@ and [`code/particles/EXACT_NONHADRON_MASSES.md`](code/particles/EXACT_NONHADRON_
 Ordered by importance for a technical reader. Longer summaries mark the
 papers that carry the core theorem surface.
 
-- **Paper 2. [Recovering Relativity and the Standard Model from Observer Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)**: compact technical core for the recovered OPH branch. It states the observer-overlap route to Lorentz structure, the Einstein-like gravity branch on the five-axiom recovered core, the formal algebra core that upgrades rest-frame data to the tensor equation and fixes the metric residue to one \(\Lambda\) on connected conserved branches, compact-gauge reconstruction, the selected Standard Model quotient and matter package with formal hypercharge/\(Z_6\) algebra core, Maxwell on the ordinary photon branch, and the conditional Yang-Mills mass-gap route under its continuum, reflection-positivity, transfer/intertwiner, and nontriviality assumptions.
+- **Paper 2. [Recovering Relativity and the Standard Model from Observer Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)**: compact technical core for the recovered OPH branch. It states the observer-overlap route to Lorentz structure, the Einstein-like gravity branch on the five-axiom recovered core, the formal algebra core that upgrades rest-frame data to the tensor equation and fixes the metric residue to one \(\Lambda\) on connected conserved branches, compact-gauge reconstruction, the selected Standard Model quotient and matter package with formal hypercharge/\(Z_6\) algebra core, the Borel-Weil local carrier for the one-Higgs slot, Maxwell on the ordinary photon branch, and the conditional Yang-Mills mass-gap route under its continuum, reflection-positivity, transfer/intertwiner, and nontriviality assumptions.
 - **Paper 1. [Observers Are All You Need](paper/observers_are_all_you_need.pdf)**: broad synthesis and best first read for the full program. It explains finite observer patches, overlap consistency, records, repair moves, the recovered effective universe, the scale story, and the public claim boundaries without replacing the compact paper's theorem ledger.
-- **Paper 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)**: particle-sector derivation and audit surface. It carries the \(P_\star\)-driven particle reconstruction, structural carriers, electroweak/Higgs/top, quark, charged-lepton, neutrino, and hadron lanes, quantitative benchmark checks, and conditional record-worldline stitching.
+- **Paper 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)**: particle-sector derivation and audit surface. It carries the \(P_\star\)-driven particle reconstruction, structural carriers, the Borel-Weil one-Higgs carrier bridge, electroweak/Higgs/top, quark, charged-lepton, neutrino, and hadron lanes, quantitative benchmark checks, and conditional record-worldline stitching.
 - **Paper 4. [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf)**: finite patch-net consensus mechanics. It proves how local observers compare overlap records, apply repair moves, handle defects, and converge to quotient normal forms when the fixed-cutoff assumptions hold. The consensus result stops at quotient normal forms; Lorentzian and Einstein geometry enter through the separate geometric branch in the compact paper. The repair operator is stated on the physical quotient, repaired readouts are invariant under hidden implementation choices, a finite layered carrier witnesses boundary reconstruction, and the Rule-90 fixture gives sharp positive/negative repair and boundary-reconstruction tests.
 - **Paper 5. [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf)**: finite carrier and observer-record surface. It gives the echosahedral multi-port patch-carrier architecture, twelve-port screen-sieve theorem, edge-center scalar-slot completeness, the finite scalar channel bridge, the quotient-edge \(Z_6\) reserve and finite-thickness scalar coefficient gates, $A_5$-icosahedral and $E_8$-type symmetry framing, public hardware-evidence rules, records, recovery moves, checkpoint restoration, and observer synchronization.
 - **Paper 6. [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf)**: meaning-layer synthesis. It reads the same OPH machinery as a theory of observer continuation, paradise and hell as continuation environments, resurrection as record-preserving continuation, justice as harm-and-repair bookkeeping, and the strange loop in which observers reverse engineer and build continuation machinery.
@@ -312,7 +312,7 @@ OPH-native cosmology result.
 
 ## Physics Problems Articles
 
-Standalone markdown writeups for solved physics problems live in
+Standalone markdown notes for applied physics problems live in
 [`physics-problems/`](physics-problems/README.md). They act as supplemental
 articles for public reading and OPH Sage ingestion. Problem-specific notes are
 Markdown-only and do not enter the release-paper rendering, website paper-index,
@@ -358,6 +358,12 @@ or GitHub release-asset pipeline.
   treats compactness, redness, luminosity, AGN contribution, source release,
   selection, and mass/age interpretation as separate receipt tiers; JWST object
   catalogs are not, by themselves, OPH confirmations.
+- **[Compact Record Transients](physics-problems/compact_record_transients.md)**:
+  conditional lane for FRBs, black-hole recycling, and compact record surfaces.
+  It defines histories, detector thinning, censoring, point-process likelihoods,
+  controls, refinement, and promotion receipts, while blocking any claim that
+  OPH explains compact transients without rate, host, timing, waveform,
+  exposure, and frozen-likelihood evidence.
 - **[Gamma-Ray Morphology Claims in OPH](physics-problems/gamma_ray_morphology_claims_in_oph.md)**:
   morphology-first audit lane for gamma-ray dipoles, Galactic Center or halo
   residuals, and large-scale gamma templates. It treats OPH gamma signatures as
@@ -365,6 +371,17 @@ or GitHub release-asset pipeline.
   count-space instrument response, foreground alternatives, identifiability,
   held-out validation, cross-tracer tests, and null tests before any candidate
   promotion.
+- **[High-Energy Messenger Coefficient Emission](physics-problems/high_energy_messenger_coefficients.md)**:
+  source-only coefficient theorem for high-energy neutrino, cosmic-ray, and
+  gamma source ledgers. It emits finite MaxEnt coefficients from compact-engine
+  source-load moments, blocks UHE event-data leakage, and requires a shared
+  source coefficient before messenger-specific propagation and detector
+  kernels.
+- **[CMB Simulation Promotion to a Physical Prediction](physics-problems/cmb_simulation_promotion_to_physical_prediction.md)**:
+  promotion ledger for the public mini-universe simulator's CMB-like boundary
+  record. It keeps visual/spectrum diagnostics, source-only finite artifacts,
+  conditional imported-FLRW routing, OPH-native `CosmoGeomRead_r`, and frozen
+  likelihood-evaluated physical CMB predictions as separate claim tiers.
 
 ## Proof Status
 
@@ -489,8 +506,8 @@ formulas and claim boundaries live in the papers.
   $e^+e^-\to\mathrm{hadrons}$ input, and fine-structure hadron closure.
 - **[`assets/`](assets):** public diagrams and figures.
 - **[`extra/`](extra):** maintained public notes such as objections, experimental write-ups, and selected supporting essays.
-- **[`physics-problems/`](physics-problems):** standalone markdown solved
-  physics problem writeups for public reading and OPH Sage ingestion.
+- **[`physics-problems/`](physics-problems):** standalone markdown physics
+  problem notes for public reading and OPH Sage ingestion.
 
 ## OPH and the Sciences
 

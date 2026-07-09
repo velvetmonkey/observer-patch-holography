@@ -16,6 +16,9 @@ claims can move when the full dataset and calibration change
 whether these apparently separate tensions share one missing source object: a
 same-scheme hadronic precision backend.
 
+**Status:** source-open, simulation-buildable, empirical-closable, and
+comparison-ready. It is not final physical closure.
+
 Date: 2026-07-08
 
 ## Origin
@@ -42,9 +45,6 @@ d\rho_{\rm tr}^{B,\Sigma}(P),
 \mathcal E_{\rm sys}(P)
 \right).
 ```
-
-The status is source-open, simulation-buildable, empirical-closable, and
-comparison-ready. It is not final physical closure.
 
 ## Why This Is One Problem
 
@@ -111,7 +111,7 @@ a declared quotient-intrinsic law \(\mu_r^{\rm QCD}\) with refinement maps
 receipts.
 
 **Proof sketch.** The normal-form map \(n_r:Q_r\to N_r\) is idempotent, but it
-does not determine a probability law. Every law already supported on \(N_r\) is
+does not determine a probability law. Every law supported on \(N_r\) is
 fixed by the canonicalizer. Therefore settled or canonical status can classify
 candidate hadronic sectors, but cannot choose the physical QCD law. If the law
 is inferred from \(\alpha(0)\), \(g-2\), \(e^+e^-\to{\rm hadrons}\), hadron

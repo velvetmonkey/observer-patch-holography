@@ -163,7 +163,7 @@ The later quantitative rows use the structural branch as their carrier. They add
 declared uniqueness tests. Failure of one quantitative row does not erase the recovered core unless
 that row is a parent of the theorem being used.
 
-D.\ Matscheko's OPHProofChain Lean 4 audit supplies an independent
+D.\ Matscheko's OPHProofChain Lean 4 audit~\cite{matschekoProofChain} supplies an independent
 machine-checked finite-algebra companion for the parts of this paper that are
 genuinely finite: the consensus repair and Rule-90 boundary-reconstruction
 fixtures, the finite modular-flow core, the Einstein-branch tensor algebra and
@@ -5930,6 +5930,26 @@ Y_Q=\frac{1}{2N_c}.
 \]
 \end{proof}
 
+\begin{proposition}[Borel--Weil carrier for the one-Higgs branch]\label{prop:bw-higgs-carrier}
+On the realized one-Higgs electroweak branch, suppose the support-visible weak chart is locally
+\[
+C_{\rm EW}\cong\mathbb{CP}^1
+\]
+with the \(\SU(2)_L\) action and Hopf-fiber \(\U(1)\) weight normalized by the OPH hypercharge lattice. If the scalar carrier is required to be minimal, holomorphic, nontrivial, one-Higgs, and Yukawa-completable, then the canonical local carrier is
+\[
+H_{\rm OPH}=H^0(C_{\rm EW},\mathcal O(1))\cong\mathbb C^2.
+\]
+With the OPH convention fixed by \(Q(\phi^0)=T_3(\phi^0)+Y(\phi^0)=0\) on the lower component, this carrier has \(Y(H_{\rm OPH})=+1/2\). A nonzero section direction \([\phi]\in\mathbb P(H_{\rm OPH})\cong\mathbb{CP}^1\) has stabilizer \(\U(1)_Q\) inside \(\SU(2)_L\times\U(1)_Y\).
+\end{proposition}
+
+\begin{proof}
+Borel--Weil gives \(H^0(\mathbb{CP}^1,\mathcal O(n))\cong{\rm Sym}^n(\mathbb C^2)^*\) for \(n\ge0\), up to the dual convention. The \(n=0\) section space is a singlet and cannot be the weak Higgs doublet. The first nontrivial holomorphic section carrier is \(n=1\), giving the two-complex-dimensional fundamental \(\SU(2)\) representation. Sections are scalar \(0\)-form fields valued in the internal line bundle, so the Lorentz spin-zero statement follows after the OPH Lorentz branch separates this internal weak chart from the external tangent representation. The Hopf weight fixes the abelian charge up to sign and normalization; Theorem~\ref{thm:hypercharge}, the \(\mathbb Z_6\) quotient convention, and \(Q(\phi^0)=0\) select \(Y=+1/2\). A nonzero section defines a point in the projective line, and the stabilizer of that line is the electromagnetic \(\U(1)_Q\). Higher \(\mathcal O(n)\) give larger \(\SU(2)\) multiplets and fail one-Higgs minimality.
+\end{proof}
+
+\begin{remark}[Carrier only, not the Higgs mass]
+Proposition~\ref{prop:bw-higgs-carrier} identifies the representation, charge convention, and symmetry-breaking geometry of the OPH one-Higgs slot. It does not derive the weak scale, the Higgs quartic, \(m_H\), or Coleman--Weinberg dynamics; those remain D10/D11 quantitative and hierarchy/naturality branch statements.
+\end{remark}
+
 \begin{corollary}[Three Colors on the realized MAR branch]\label{cor:nc}
 Under the hypotheses of Theorem~\ref{thm:sm}, the realized color-type factor acts in the fundamental triplet on the coupled carrier. Hence the realized quark doublet carries exactly
 \[
@@ -6073,7 +6093,7 @@ while the neutral \(\SU(2)_L\) and \(\U(1)_Y\) gauge fields span the \(Z/A\) bas
 \end{corollary}
 
 \begin{proof}
-The D8 result fixes the weak-type role to the \(\SU(2)\) doublet and the connected abelian role to \(\U(1)_Y\). Theorem~\ref{thm:hypercharge} fixes \(Y_H=1/2\) and the matter hypercharge lattice. Choosing the neutral Higgs component has \(T_3=-1/2\), hence \(T_3+Y=0\) on the selected vacuum direction. Therefore precisely the \(Q=T_3+Y\) direction stabilizes that branch. The two noncommuting charged \(\SU(2)\) generators are broken directions and combine into \(W^\pm\); the orthogonal neutral broken direction is the \(Z\) carrier, while the unbroken stabilizer is the photon \(A\). The global \(\mathbb Z_6\) quotient fixes the compatible charge lattice used in Proposition~\ref{prop:z6}.
+The D8 result fixes the weak-type role to the \(\SU(2)\) doublet and the connected abelian role to \(\U(1)_Y\). Theorem~\ref{thm:hypercharge} fixes \(Y_H=1/2\) and the matter hypercharge lattice, while Proposition~\ref{prop:bw-higgs-carrier} identifies the same one-Higgs slot with the minimal nontrivial holomorphic section carrier on the local weak chart. Choosing the neutral Higgs component has \(T_3=-1/2\), hence \(T_3+Y=0\) on the selected vacuum direction. Therefore precisely the \(Q=T_3+Y\) direction stabilizes that branch. The two noncommuting charged \(\SU(2)\) generators are broken directions and combine into \(W^\pm\); the orthogonal neutral broken direction is the \(Z\) carrier, while the unbroken stabilizer is the photon \(A\). The global \(\mathbb Z_6\) quotient fixes the compatible charge lattice used in Proposition~\ref{prop:z6}.
 \end{proof}
 
 \begin{corollary}[Maxwell sector from the realized \texorpdfstring{\(\U(1)_Q\)}{U(1)Q} branch]\label{cor:maxwell-sector}
@@ -7333,6 +7353,12 @@ B.~M\"uller, A.~Osika, M.~Poneder, K.~Xue, M.~A.~Visser, and D.~Matscheko,
 \emph{Deriving the Particle Zoo from Observer Consistency},
 2026.
 Available at \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/deriving_the_particle_zoo_from_observer_consistency.pdf}.
+
+\bibitem{matschekoProofChain}
+D.~Matscheko,
+\emph{OPHProofChain Lean 4 Audit},
+GitHub repository directory, 2026.
+Available at \url{https://github.com/dmatscheko/chi_nu_test/tree/main/proof_chain/}.
 
 \bibitem{dula2025}
 DULA - GR OK 4,

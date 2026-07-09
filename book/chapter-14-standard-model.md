@@ -743,6 +743,22 @@ listed consistency tests:
 
 $$\boxed{N_g = 3}$$
 
+The one-Higgs slot also has a clean local geometric carrier. On the selected
+electroweak branch, the weak screen chart can be modeled locally as
+$\mathbb{CP}^1$ with the minimal positive Hopf line bundle $\mathcal O(1)$.
+Borel-Weil then gives
+
+$$H^0(\mathbb{CP}^1,\mathcal O(1))\cong\mathbb C^2.$$
+
+This is the first nontrivial holomorphic section space, so it supplies the
+weak doublet carrier. OPH fixes the hypercharge convention with the neutral
+component condition $Q(\phi^0)=T_3+Y=0$, giving $Y=+1/2$. A nonzero section
+direction is a point of the same projective line, and its stabilizer is the
+electromagnetic $U(1)_Q$. This explains why the scalar carrier is a doublet and
+why the vacuum leaves electromagnetism unbroken. It does not explain the Higgs
+mass, the quartic, or the weak scale; those remain in the OPH hierarchy and
+Higgs/top quantitative branch.
+
 ![The generation-count window starts at three for intrinsic CP capability and closes above five from weak-sector ultraviolet consistency.](../assets/book_diagrams/generation-count.svg){width=84%}
 
 Refinement stability explains why extra unfixed Yukawa structure is disfavored. Among the allowed options, the smallest viable one wins. With $N_c=3$ and $N_g=3$, each generation carries four left-handed weak doublets, an even number, so the Witten anomaly is automatically satisfied on the realized branch.

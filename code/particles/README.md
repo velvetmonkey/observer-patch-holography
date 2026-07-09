@@ -30,6 +30,8 @@ part of this canonical tree.
 - [qcd](qcd)
 - [jwst](jwst)
 - [fractional](fractional)
+- [uhe](uhe)
+- [compact_transients](compact_transients)
 - [hierarchy](hierarchy)
 - [runs](runs)
 - [scripts](scripts)
@@ -57,6 +59,9 @@ part of this canonical tree.
   hierarchy/certificates/R_pixel_screen_resonance_summary.json ->
   hierarchy/issue_332_rg_naturality_certificate.json`
 - Higgs/top:
+  `calibration/derive_bw_higgs_carrier_bridge.py` records the Borel-Weil
+  one-Higgs carrier bridge `H_OPH = H^0(CP1,O(1)) ~= C^2` as representation
+  and symmetry-breaking geometry only, before the quantitative D11 lane
   `calibration/derive_d11_declared_calibration_surface.py ->
   calibration/derive_d11_forward_seed.py ->
   calibration/derive_d11_forward_seed_promotion_certificate.py ->
@@ -91,12 +96,26 @@ part of this canonical tree.
   hadron/derive_stable_channel_groundstate_readout.py`
 - JWST compact-object source-release bridge:
   `jwst/build_compact_object_source_release_receipts.py`
-  mirrors the Q3 simulator claim ladder in this paper-stack code tree. It is
-  diagnostic only, not a particle prediction and not an OPH confirmation claim.
+  mirrors the JWST compact-object simulator claim ladder in this paper-stack
+  code tree. It is diagnostic only, not a particle prediction and not an OPH
+  confirmation claim.
 - Fractional quotient-sector sandbox:
   `fractional/build_fractional_quotient_receipts.py`
-  mirrors the Q5 fractional exciton/FQAH simulator claim ladder. It is
+  mirrors the fractional exciton/FQAH simulator claim ladder. It is
   diagnostic only and remains blocked at the material-specific Hamiltonian proof.
+- High-energy messenger coefficient emission:
+  `uhe/build_uhe_coefficient_emission_receipts.py`
+  mirrors the source-only UHE coefficient-emitter receipt ladder. It freezes the
+  quotient, source law, compact-engine source loads, baseline, feature map,
+  moment targets, solver, no-UHE-data-use DAG, and common-source lock without
+  analyzing neutrino, cosmic-ray, or gamma event data.
+- Compact-transient receipt scaffold:
+  `compact_transients/build_compact_transient_receipts.py`
+  mirrors the compact record-surface ladder for FRBs, old-host compact
+  sources, and black-hole recycling. It is diagnostic by default at
+  `CR2_CONDITIONAL_PHENOMENOLOGY`, blocks physical-prediction promotion until
+  control, refinement, freeze, and held-out likelihood receipts exist, and fails
+  closed if a black-hole generation prior reads ringdown residuals.
 - rendered public surface:
   `scripts/build_results_status_table.py`
 

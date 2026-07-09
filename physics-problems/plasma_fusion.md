@@ -13,6 +13,8 @@ capture, delivered electrical load, or net plant output.
 **Status:** solved as an OPH repair-ledger theorem package. Standalone markdown
 supplemental writeup for public reading and OPH Sage ingestion.
 
+Date: 2026-07-08
+
 ## Introduction
 
 Fusion is hard in legacy language because reaction products, core confinement,

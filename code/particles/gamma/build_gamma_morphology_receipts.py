@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the Question 8 gamma morphology receipt scaffold.
+"""Build the gamma morphology receipt scaffold.
 
 This is a paper-stack mirror for the simulator gamma workbench. It freezes the
 objects required for OPH gamma-ray morphology claims, but it does not analyze
@@ -280,7 +280,7 @@ def build_bundle(out_dir: Path, *, route: str, config: Path | None, direct_anoma
     manifest = {
         "artifact": "gamma_morphology_manifest",
         "generated_utc": now_utc(),
-        "milestone": "Q8_GAMMA_MORPHOLOGY_AUDIT",
+        "milestone": "GAMMA_MORPHOLOGY_AUDIT",
         "route": route,
         "strongest_allowed_claim": claim,
         "first_blocked_gate": ladder["first_blocked_gate"],
