@@ -20,9 +20,17 @@ surface for the OPH consensus layer. Contents:
   including boundary-fiber observer uniqueness, commutation-based confluence,
   concrete countermodels separating confluence from observer-facing uniqueness,
   and axiom audits for the discharged reconstruction statements.
-- Declared `sorry`-bearing signatures for the paper-incomplete
-  asynchronous/transactional repair machinery: `localRepair`, `Repair`, and
-  `repair_respects_gauge`.
+- A constructed, admission-free asynchronous/transactional repair machinery
+  (formerly the file's three declared `sorry`s): `localRepair` (single-site
+  transactional recovery move, firing exactly when an incident overlap is
+  broken and the site can satisfy all its overlaps at once), `Repair` (a
+  choice-canonical asynchronous schedule composed to a normal form), and the
+  discharged congruence `repair_respects_gauge` (Prop 4.2 sentence 2), with
+  non-degeneracy receipts (`lyapunovDescent_holds`, `termination_holds`,
+  `Repair_normalForm`, `Repair_reachable`). Honest scope: `Completeness` for
+  the constructed operator is *not* claimed (it holds exactly on
+  frustration-free dynamics, per the conditional `H1`–`H3` development), and
+  `Confluence` remains false in general (`demoCarrier_not_confluent`).
 - A sorry-free **#304 boundary-fiber carrier witness** in
   `Source/ObserverPatchHolography/Rule90.lean` (PR #385): the linear Rule 90 carrier
   discharges the `Hfib` binder of `boundary_fiber_observer_unique` on a proper
@@ -86,9 +94,9 @@ The `Main` console entry point is optional and not part of the proof receipt;
 build it separately with `lake build oph:exe` if needed.
 
 Lean CI is manual. Use GitHub Actions, `Lean CI`, `Run workflow` when the
-Lean formalisation changes need a hosted check. The workflow allows exactly
-the 3 intentional `sorry` warnings in `Primitives.lean` and fails if new proof
-debt appears elsewhere or the count changes.
+Lean formalisation changes need a hosted check. The workflow requires zero
+`sorry` warnings across the build (the former `Primitives.lean` admissions
+are discharged) and fails if any proof debt appears.
 
 ## Provenance
 

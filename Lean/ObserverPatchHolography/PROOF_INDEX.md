@@ -27,6 +27,26 @@ structures are in place. The 100% skeleton number is preliminary
 infrastructure, not progress on Prop 4.2 itself. Counts revised per
 math-seat audit (2026-05-19): previous "3+2" undercounted by ≈3×.
 
+> **Addendum (2026-07-11) — the three declared `Primitives.lean` admissions
+> are discharged.** `localRepair` is now a constructed single-site
+> transactional recovery move (fires iff an incident overlap is broken and
+> the site can satisfy all its overlaps at once, repaired state chosen from
+> declared overlap data), `Repair` is a choice-canonical asynchronous
+> schedule composed to a normal form (well-founded by broken-edge count),
+> and `repair_respects_gauge` (Prop 4.2 sentence 2 congruence) is a proven
+> theorem, all pinned at `[propext, Classical.choice, Quot.sound]`. The
+> file's own `LyapunovDescent` and `Termination` obligations are also
+> discharged for the constructed operator (`lyapunovDescent_holds`,
+> `termination_holds`), with normal-form/reachability receipts
+> (`Repair_normalForm`, `Repair_reachable`). NOT discharged: OPH
+> `Confluence` (false in general — `demoCarrier_not_confluent`),
+> `Completeness` for the constructed operator (holds exactly on
+> frustration-free dynamics via the conditional `H1`–`H3` layer), and the
+> `NF`/`World` quotient construction. The tables and counts below predate
+> this discharge and need a math-seat re-audit before renumbering; rows for
+> `OPH.Repair`/`OPH.localRepair`/`OPH.repair_respects_gauge` should now read
+> as constructed/proven rather than ⬜-declared.
+
 ## Status legend
 
 - ✅  proven, sorry-free, matches paper statement
