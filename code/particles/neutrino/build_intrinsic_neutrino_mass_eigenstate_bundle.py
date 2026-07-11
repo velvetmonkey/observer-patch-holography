@@ -74,11 +74,11 @@ def main() -> int:
 
     masses = exact_map.masses
     masses_sq = exact_map.masses_squared
-    ordering = "normal_like_collective_dominance" if (masses_sq[2] - masses_sq[0]) > 0.0 else "inverted_like_collective_dominance"
+    ordering = "unresolved_without_mass_eigenstate_label_rule"
     rows = [
-        {"state": "nu1", "mass_gev": float(masses[0]), "mass_sq_gev2": float(masses_sq[0])},
-        {"state": "nu2", "mass_gev": float(masses[1]), "mass_sq_gev2": float(masses_sq[1])},
-        {"state": "nu3", "mass_gev": float(masses[2]), "mass_sq_gev2": float(masses_sq[2])},
+        {"state": "s0", "ascending_index": 0, "mass_gev": float(masses[0]), "mass_sq_gev2": float(masses_sq[0])},
+        {"state": "s1", "ascending_index": 1, "mass_gev": float(masses[1]), "mass_sq_gev2": float(masses_sq[1])},
+        {"state": "s2", "ascending_index": 2, "mass_gev": float(masses[2]), "mass_sq_gev2": float(masses_sq[2])},
     ]
 
     payload = {
@@ -109,11 +109,24 @@ def main() -> int:
             "spectral_crosscheck_max_abs_residual_gev2": float(np.max(np.abs((masses * masses) - masses_sq))),
         },
         "mass_eigenstates": rows,
+        "mass_eigenstate_label_status": "ascending_singular_states_only",
+        "physical_ordering_assignments": {
+            "normal_ordering_hypothesis": {"nu1": "s0", "nu2": "s1", "nu3": "s2"},
+            "inverted_ordering_hypothesis": {"nu3": "s0", "nu1": "s1", "nu2": "s2"},
+            "selected": None,
+            "missing_source_object": "solar_pair_and_atmospheric_sign_eigenstate_label_rule",
+        },
         "masses_gev_sorted": [float(x) for x in masses],
         "masses_sq_gev2_sorted": [float(x) for x in masses_sq],
         "delta_m21_sq_gev2": float(masses_sq[1] - masses_sq[0]),
         "delta_m31_sq_gev2": float(masses_sq[2] - masses_sq[0]),
         "delta_m32_sq_gev2": float(masses_sq[2] - masses_sq[1]),
+        "delta_mij_field_status": "ascending_gap_coordinates_under_declared_normal_ordering_hypothesis",
+        "ascending_mass_sq_gaps_gev2": {
+            "s1_minus_s0": float(masses_sq[1] - masses_sq[0]),
+            "s2_minus_s0": float(masses_sq[2] - masses_sq[0]),
+            "s2_minus_s1": float(masses_sq[2] - masses_sq[1]),
+        },
         "ordering": ordering,
         "u_nu_real": [[float(v.real) for v in row] for row in exact_map.u_left],
         "u_nu_imag": [[float(v.imag) for v in row] for row in exact_map.u_left],
@@ -123,12 +136,14 @@ def main() -> int:
             "orientation_preserved": True,
         },
         "paper_export_policy": {
-            "recommended_particle_rows": ["nu1", "nu2", "nu3"],
+            "recommended_particle_rows": [],
+            "diagnostic_singular_rows": ["s0", "s1", "s2"],
             "flavor_rows_status": "keep_gated_until_shared_charged_lepton_left_basis_closes",
             "pmns_status": "not_formed_here",
         },
         "notes": [
-            "This bundle is exact once the same-label scalar certificate is given.",
+            "This bundle emits an exact ascending singular spectrum once the same-label scalar certificate is given.",
+            "Sorting does not select normal versus inverted physical mass labels; a source-side eigenstate label rule is still required.",
             "It does not by itself close PMNS or flavor-labeled neutrino rows.",
         ],
     }

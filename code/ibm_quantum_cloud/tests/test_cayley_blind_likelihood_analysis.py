@@ -38,11 +38,12 @@ def _probability_table(valid_codes: list[int], weights: list[float]) -> dict[str
 
 
 def _candidates(valid_codes: list[int]) -> dict[str, dict[str, float]]:
-    return {
-        "record_gated_repair": _probability_table(
-            valid_codes,
-            [0.58, 0.22, 0.10, 0.05, 0.03, 0.02],
-        ),
+    repair = _probability_table(
+        valid_codes,
+        [0.58, 0.22, 0.10, 0.05, 0.03, 0.02],
+    )
+    candidates = {
+        "record_gated_repair": repair,
         "lazy_heat": _probability_table(
             valid_codes,
             [0.12, 0.16, 0.18, 0.20, 0.18, 0.16],
@@ -64,6 +65,10 @@ def _candidates(valid_codes: list[int]) -> dict[str, dict[str, float]]:
             [1.0 / 6.0] * 6,
         ),
     }
+    candidates["state_preparation_only"] = analysis.state_preparation_only_joint_null(
+        repair, valid_codes
+    )
+    return candidates
 
 
 def _row(
@@ -77,12 +82,15 @@ def _row(
     calibration_id: str,
     shots: int,
     valid_codes: list[int],
+    family: str = "cayley",
 ) -> dict:
     candidates = _candidates(valid_codes)
     return {
         "row_id": row_id,
         "opaque_id": row_id,
         "logical_qpy_sha256": analysis.sha256_json({"opaque_id": row_id}),
+        "family": family,
+        "state_preparation_stratum_id": f"stratum_{row_id}",
         "endpoint": endpoint,
         "backend_role": backend_role,
         "backend_name": backend_name,
@@ -109,11 +117,13 @@ def _build_lock(*, factorized: bool = False, shots: int = 5000) -> dict:
                 state_error=0.015,
                 decision_error=0.01,
                 receipt_sha256="1" * 64,
+                diagnostic_opaque_ids=("synthetic-calibration-a",),
             ),
             "cal_backend_b": analysis.factorized_calibration_packet(
                 state_error=0.018,
                 decision_error=0.012,
                 receipt_sha256="2" * 64,
+                diagnostic_opaque_ids=("synthetic-calibration-b",),
             ),
         }
     else:
@@ -123,12 +133,14 @@ def _build_lock(*, factorized: bool = False, shots: int = 5000) -> dict:
                 sensitivity_probabilities=[0.02, 0.05],
                 receipt_sha256="1" * 64,
                 derivation_sha256="6" * 64,
+                diagnostic_opaque_ids=("synthetic-calibration-a",),
             ),
             "cal_backend_b": analysis.contamination_calibration_packet(
                 contamination_probability=0.035,
                 sensitivity_probabilities=[0.02, 0.055],
                 receipt_sha256="2" * 64,
                 derivation_sha256="7" * 64,
+                diagnostic_opaque_ids=("synthetic-calibration-b",),
             ),
         }
     expected_rows = [
@@ -166,7 +178,6 @@ def _build_lock(*, factorized: bool = False, shots: int = 5000) -> dict:
             valid_codes=z5_codes,
         ),
     ]
-    primary_rows = [row for row in expected_rows if row["endpoint"] == "primary_s3"]
     label_components = []
     label_weights = (
         [0.10, 0.10, 0.20, 0.20, 0.20, 0.20],
@@ -175,7 +186,7 @@ def _build_lock(*, factorized: bool = False, shots: int = 5000) -> dict:
     for index, weights in enumerate(label_weights):
         row_probabilities = {
             row["row_id"]: _probability_table(row["valid_codes"], list(weights))
-            for row in primary_rows
+            for row in expected_rows
         }
         label_components.append(
             analysis.build_label_layout_component(
@@ -189,7 +200,7 @@ def _build_lock(*, factorized: bool = False, shots: int = 5000) -> dict:
             )
         )
     label_layout_model = {
-        "mapping_scope": "global_shared_across_primary_rows",
+        "mapping_scope": "global_shared_across_dynamic_rows",
         "component_set_derivation_sha256": "a" * 64,
         "components": label_components,
     }
@@ -211,25 +222,19 @@ def _build_lock(*, factorized: bool = False, shots: int = 5000) -> dict:
 
 def _reseal(lock: dict, rows: list[dict]) -> dict:
     calibration_results = {
-        calibration_id: {
-            "calibration_receipt_sha256": analysis.sha256_json(
+        calibration_id: analysis.basis_calibration_control_result(
+            diagnostic_counts_by_opaque_id={
+                opaque_id: {f"{basis_code:04b}": 512}
+                for opaque_id, basis_code in calibration["control_rule"][
+                    "expected_basis_code_by_opaque_id"
+                ].items()
+            },
+            control_rule=calibration["control_rule"],
+            provider_job_ids=[f"synthetic-calibration-job-{calibration_id}"],
+            calibration_receipt_sha256=analysis.sha256_json(
                 {"synthetic_calibration": calibration_id}
             ),
-            "diagnostic_counts_sha256": analysis.sha256_json(
-                {"synthetic_diagnostic_counts": calibration_id}
-            ),
-            "diagnostic_opaque_ids": list(
-                calibration["control_rule"]["diagnostic_opaque_ids"]
-            ),
-            "provider_job_ids": [f"synthetic-calibration-job-{calibration_id}"],
-            "all_diagnostic_jobs_complete": True,
-            "all_diagnostic_shots_included": True,
-            "postselected": False,
-            "gof_p_value": 1.0,
-            "minimum_count_per_prepared_state": calibration["control_rule"][
-                "minimum_count_per_prepared_state"
-            ],
-        }
+        )
         for calibration_id, calibration in lock["calibrations"].items()
     }
     return analysis.seal_data_packet(
@@ -555,4 +560,4 @@ def test_label_marginal_is_one_global_shared_mapping_not_rowwise_mixture() -> No
         [item["log_weighted_likelihood"] for item in label["ranked_components"]]
     )
     assert math.isclose(label["log_marginal_likelihood"], manual, abs_tol=1e-12)
-    assert label["mapping_scope"] == "global_shared_across_primary_rows"
+    assert label["mapping_scope"] == "global_shared_across_dynamic_rows"

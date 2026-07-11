@@ -2889,6 +2889,15 @@ choices. Its exponent law was promoted after candidate laws had been ranked agai
 splitting ratio. The resulting point therefore has retrospective, target-informed template status.
 The bridge and absolute attachment use compare-only information and carry no prediction status.
 
+For the isotropic matrix (M=aI+\rho C) with unit-modulus off-diagonal entries, the general
+Gershgorin estimate applied to (M^\dagger M) gives
+\[
+\max_{i,j}|\Delta m_{ij}^2|\leq 8a\rho+4\rho^2.
+\]
+The live bound is (1.52304\times10^{-6}\,\mathrm{eV}^2), still about three orders of magnitude
+below the atmospheric scale. The previously quoted (8a\rho) expression omitted the
+(4\rho^2) term and was not a valid general bound.
+
 The frozen weighted-cycle candidate gives
 \[
 \begin{aligned}
@@ -2937,6 +2946,13 @@ This cancellation is a tautology because \(U_{\nu,\mathrm{shared}}\) was defined
 \(U_{e,\mathrm{left}}U_{\mathrm{wc}}\). It does not independently identify the physical
 charged-lepton basis or validate the PMNS point. No theorem in the current stack places the
 \(f\)-labelled weighted-cycle operator in the charged-lepton mass basis.
+
+The stored charged-basis artifact also fails its own promotion gate. Its source has
+\texttt{closure\_state: open}, and its three normalized shape singular values differ only at about
+the (10^{-12}) relative level, so its left singular vectors do not define a stable physical
+family basis. The newer charged-lepton continuation remains support-extension gated and does not
+supply a replacement labelled basis. At source level, the physical PMNS matrix is therefore
+unformed.
 
 Taking the stored basis declarations literally gives a sharply different diagnostic. Reordering
 \(M_{\mathrm{wc}}\) from \([f3,f1,f2]\) to the independently declared shared basis
@@ -3086,7 +3102,7 @@ On the isotropic neutrino-only branch one has
 \]
 which emits the intrinsic masses
 \[
-(m_1,m_2,m_3)=
+(s_0,s_1,s_2)=
 (2.3986448447627196,\ 2.3986448447627196,\ 2.590074050773907)\times10^{-12}\ \mathrm{GeV},
 \]
 with
@@ -3106,7 +3122,8 @@ intrinsic neutrino mass-eigenstate bundle factors through the scalar certificate
 \]
 or equivalently through the centered eta-class \([\eta_e]\). No additional raw matrix payload is
 needed to form the intrinsic selector, the depressed-cubic spectrum, the ordered splittings, or
-the intrinsic neutrino-side basis.
+the intrinsic neutrino-side basis. Ascending singular-value sorting does not select the physical
+normal or inverted mass-eigenstate labels.
 \end{theorem}
 
 \begin{theorem}[Exact principal-branch selector from the centered eta-class]
@@ -3196,7 +3213,7 @@ x_{12}=2a\rho\cos\psi_{12}+\rho^2e^{i(\psi_{23}-\psi_{31})},
 x_{23}=2a\rho\cos\psi_{23}+\rho^2e^{i(\psi_{31}-\psi_{12})},
 \]
 \[
-x_{13}=2a\rho\cos\psi_{31}+\rho^2e^{i(\psi_{12}-\psi_{23})}.
+x_{13}=2a\rho\cos\psi_{31}+\rho^2e^{i(\psi_{23}-\psi_{12})}.
 \]
 Define
 \[
@@ -3222,15 +3239,18 @@ Equivalently,
 \]
 \end{theorem}
 
-\begin{corollary}[Intrinsic eta-chain closure]
+\begin{corollary}[Intrinsic eta-chain spectral closure]
 Once the centered eta-class is emitted at the flavor boundary, the intrinsic neutrino branch
 emits
 \[
-\nu_1,\nu_2,\nu_3,\qquad
-\Delta m_{21}^2,\Delta m_{31}^2,\Delta m_{32}^2,
+s_0\leq s_1\leq s_2,\qquad
+s_1^2-s_0^2,\ s_2^2-s_0^2,\ s_2^2-s_1^2,
 \]
-the ordering, and the intrinsic neutrino-side basis \(U_\nu\) with no PMNS import and no
-flavor-label leakage.
+and the corresponding intrinsic singular-vector basis with no PMNS import and no flavor-label
+leakage. The physical normal-ordering assignment is
+\((\nu_1,\nu_2,\nu_3)=(s_0,s_1,s_2)\), while the inverted-ordering assignment is
+\((\nu_3,\nu_1,\nu_2)=(s_0,s_1,s_2)\). The current source does not choose between them, so
+physical ordering remains open.
 \end{corollary}
 
 \subsection{Perturbative laws around the isotropic point}

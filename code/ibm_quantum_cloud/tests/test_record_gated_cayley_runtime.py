@@ -124,6 +124,7 @@ def make_bundle_files(tmp_path: Path):
         }
     )
     payload = {
+        "mode": "deterministic_test_only",
         "public_manifest_core_sha256": core_sha,
         "protocol_id": "opaque-protocol",
         "backend_slots": [
@@ -223,7 +224,13 @@ def test_operator_bundle_rejects_tampered_analysis_lock(tmp_path: Path) -> None:
 
 
 def test_submission_requires_flag_and_both_literal_hashes() -> None:
-    bundle = SimpleNamespace(manifest_sha256="aa" * 32, analysis_lock_sha256="bb" * 32)
+    bundle = SimpleNamespace(
+        manifest_sha256="aa" * 32,
+        analysis_lock_sha256="bb" * 32,
+        reveal_mode="production_random",
+        analysis_lock_document={"catalog_precommitment_sha256": "cc" * 32},
+        manifest={"catalog_precommitment_sha256": "cc" * 32},
+    )
     with pytest.raises(runtime.RuntimeSafetyError, match="confirm-submit"):
         runtime.validate_submission_confirmation(
             confirm_submit=False,
@@ -243,7 +250,23 @@ def test_submission_requires_flag_and_both_literal_hashes() -> None:
         confirmed_manifest_sha256="aa" * 32,
         confirmed_analysis_lock_sha256="bb" * 32,
         bundle=bundle,
+        analysis_validator=lambda _document, verify_code_hash: verify_code_hash,
     )
+
+
+def test_submission_refuses_deterministic_preregistration_even_with_exact_hashes() -> None:
+    bundle = SimpleNamespace(
+        manifest_sha256="aa" * 32,
+        analysis_lock_sha256="bb" * 32,
+        reveal_mode="deterministic_test_only",
+    )
+    with pytest.raises(runtime.RuntimeSafetyError, match="deterministic test"):
+        runtime.validate_submission_confirmation(
+            confirm_submit=True,
+            confirmed_manifest_sha256="aa" * 32,
+            confirmed_analysis_lock_sha256="bb" * 32,
+            bundle=bundle,
+        )
 
 
 def test_qpu_guard_preserves_preregistered_reserve() -> None:
@@ -462,6 +485,7 @@ def test_generated_prereg_bundle_passes_runtime_digest_qpy_and_ideal_gates(
         "families": {"cayley": 160, "mh": 12, "readout_calibration": 2},
         "passed": True,
     }
+    assert runtime.hardened_analysis_lock_status(bundle) is False
 
 
 def test_dynamic_backend_validation_rejects_missing_control_flow() -> None:
@@ -567,6 +591,7 @@ def test_submit_is_resumable_and_submits_only_one_completed_group_at_a_time(tmp_
             backend_role_opaque_id="public-role",
             family=f"family-{number}",
             backend_name="ibm_fez",
+            layout_opaque_id="opaque-layout",
             physical_layout=(10, 18, 94, 124),
             properties_last_update="2026-07-11T10:15:57+07:00",
             shots=256,

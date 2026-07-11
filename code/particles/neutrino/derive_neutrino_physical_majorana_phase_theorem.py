@@ -283,17 +283,23 @@ def build_payload(
     shared_basis_representation_path: Path | None = None,
 ) -> dict[str, Any]:
     basis_contract = dict(shared_charged_left.get("basis_contract", {}))
-    if shared_charged_left.get("status") != "closed":
-        raise ValueError("shared charged-lepton left basis must be closed before Majorana phases can be emitted")
+    if not isinstance(shared_charged_left.get("U_e_left"), dict):
+        raise ValueError("shared charged-lepton artifact must carry a diagnostic U_e_left matrix")
     if not basis_contract.get("orientation_preserved", False):
         raise ValueError("shared charged-lepton basis must preserve orientation")
     if weighted_cycle.get("pmns_row_order_for_pdg") != ["e", "mu", "tau"]:
         raise ValueError("weighted-cycle branch must already be in PDG row order")
 
+    charged_basis_eligible = (
+        shared_charged_left.get("status") == "closed"
+        and shared_charged_left.get("pmns_use_allowed") is True
+        and basis_contract.get("physical_identification_closed") is True
+    )
     candidate_promotion_eligible = (
         weighted_cycle.get("source_only_prediction_eligible") is True
         and weighted_cycle.get("prediction_promotion_allowed") is True
         and weighted_cycle.get("historical_target_exposure") is False
+        and charged_basis_eligible
     )
 
     matrix = _complex_matrix(weighted_cycle, "repaired_cycle_matrix_real", "repaired_cycle_matrix_imag")
@@ -447,6 +453,7 @@ def build_payload(
         "proof_chain_role": proof_chain_role,
         "public_surface_candidate_allowed": public_surface_candidate_allowed,
         "candidate_promotion_eligible": candidate_promotion_eligible,
+        "charged_basis_eligible": charged_basis_eligible,
         "theorem_object": theorem_object,
         "theorem_surface": theorem_surface,
         "statement": statement,

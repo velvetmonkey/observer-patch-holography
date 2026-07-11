@@ -71,10 +71,14 @@ class VerifiedBundle:
     manifest: dict[str, Any]
     manifest_sha256: str
     analysis_lock_sha256: str
+    analysis_lock_document: Mapping[str, Any]
     public_manifest_core_sha256: str
     reveal_mode: str
     backend_slots: tuple[dict[str, Any], ...]
     circuit_families: Mapping[str, str]
+    circuit_descriptors: Mapping[str, Mapping[str, Any]] = dataclasses.field(
+        repr=False, compare=False
+    )
     ideal_validation: Mapping[str, Any]
     circuits: tuple[tuple[dict[str, Any], Any], ...]
 
@@ -99,6 +103,7 @@ class PreparedGroup:
     backend_role_opaque_id: str
     family: str
     backend_name: str
+    layout_opaque_id: str
     physical_layout: tuple[int, ...]
     properties_last_update: str
     shots: int
@@ -733,10 +738,12 @@ def verify_operator_bundle(
         manifest=dict(manifest),
         manifest_sha256=manifest_sha,
         analysis_lock_sha256=analysis_sha,
+        analysis_lock_document=analysis_document,
         public_manifest_core_sha256=core_sha,
         reveal_mode=payload["mode"],
         backend_slots=resolved_slots,
         circuit_families={row[0]: row[1]["family"] for row in ideal_rows},
+        circuit_descriptors={row[0]: row[1] for row in ideal_rows},
         ideal_validation=validation,
         circuits=tuple(verified),
     )
@@ -1304,6 +1311,7 @@ def prepare_runtime_run(
                     backend_role_opaque_id=role,
                     family=family,
                     backend_name=slot_map[role]["backend"],
+                    layout_opaque_id=slot_map[role]["public_layout"],
                     physical_layout=tuple(slot_map[role]["layout"]),
                     properties_last_update=slot_map[role]["properties_last_update"],
                     shots=shots,
@@ -1326,6 +1334,7 @@ def prepare_runtime_run(
                 "backend_role_opaque_id": group.backend_role_opaque_id,
                 "family": group.family,
                 "backend_name": group.backend_name,
+                "layout_id": group.layout_opaque_id,
                 "physical_layout": list(group.physical_layout),
                 "properties_last_update": group.properties_last_update,
                 "shots": group.shots,
@@ -1349,6 +1358,7 @@ def prepare_runtime_run(
         "private_reveal_commitment_verified": True,
         "logical_qpy_hashes_verified": True,
         "ideal_recipe_validation": bundle.ideal_validation,
+        "hardened_analysis_lock_verified": hardened_analysis_lock_status(bundle),
         "selected_backend_role": backend_role,
         "runtime": {
             "qiskit_version": bindings.qiskit_version,
@@ -1381,9 +1391,8 @@ def validate_submission_confirmation(
     confirmed_manifest_sha256: str | None,
     confirmed_analysis_lock_sha256: str | None,
     bundle: VerifiedBundle,
+    analysis_validator: Callable[..., Any] | None = None,
 ) -> None:
-    if bundle.reveal_mode != "production_random":
-        raise RuntimeSafetyError("submission refuses deterministic test preregistrations")
     if not confirm_submit:
         raise RuntimeSafetyError("submission requires the explicit --confirm-submit flag")
     if confirmed_manifest_sha256 is None or confirmed_analysis_lock_sha256 is None:
@@ -1394,6 +1403,39 @@ def validate_submission_confirmation(
         raise RuntimeSafetyError("confirmed manifest digest does not match")
     if confirmed_analysis_lock_sha256 != bundle.analysis_lock_sha256:
         raise RuntimeSafetyError("confirmed analysis-lock digest does not match")
+    if bundle.reveal_mode != "production_random":
+        raise RuntimeSafetyError("submission refuses deterministic test preregistrations")
+    validate_hardened_analysis_lock(bundle, analysis_validator=analysis_validator)
+
+
+def validate_hardened_analysis_lock(
+    bundle: VerifiedBundle,
+    *,
+    analysis_validator: Callable[..., Any] | None = None,
+) -> None:
+    if analysis_validator is None:
+        try:
+            from cayley_blind_likelihood_analysis import validate_analysis_lock
+        except ImportError as exc:
+            raise RuntimeSafetyError("hardened blinded analysis validator is unavailable") from exc
+        analysis_validator = validate_analysis_lock
+    try:
+        analysis_validator(bundle.analysis_lock_document, verify_code_hash=True)
+    except Exception as exc:
+        raise RuntimeSafetyError("hardened blinded analysis lock does not verify") from exc
+    if (
+        bundle.analysis_lock_document.get("catalog_precommitment_sha256")
+        != bundle.manifest["catalog_precommitment_sha256"]
+    ):
+        raise RuntimeSafetyError("hardened analysis lock binds a different catalog")
+
+
+def hardened_analysis_lock_status(bundle: VerifiedBundle) -> bool:
+    try:
+        validate_hardened_analysis_lock(bundle)
+    except RuntimeSafetyError:
+        return False
+    return True
 
 
 def _new_sampler_options(bindings: RuntimeBindings, resources: Mapping[str, Any], group: PreparedGroup) -> Any:
@@ -1602,6 +1644,7 @@ def submit_prepared_run(
             "plan_sha256": prepared.plan["plan_sha256"],
             "group_id": group.group_id,
             "backend_name": group.backend_name,
+            "layout_id": group.layout_opaque_id,
             "backend_role": group.backend_role,
             "backend_role_opaque_id": group.backend_role_opaque_id,
             "family": group.family,
@@ -1662,6 +1705,7 @@ def submit_prepared_run(
             "job_id": job_id,
             "job_tag": tag,
             "backend_name": group.backend_name,
+            "layout_id": group.layout_opaque_id,
             "backend_role": group.backend_role,
             "backend_role_opaque_id": group.backend_role_opaque_id,
             "family": group.family,
@@ -1869,6 +1913,7 @@ def harvest_registered_jobs(
             "job_id": job_id,
             "group_id": registration["group_id"],
             "backend_name": registration["backend_name"],
+            "layout_id": registration["layout_id"],
             "backend_role": registration["backend_role"],
             "backend_role_opaque_id": registration["backend_role_opaque_id"],
             "family": registration["family"],

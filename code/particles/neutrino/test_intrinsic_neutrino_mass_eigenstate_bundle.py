@@ -51,6 +51,12 @@ def main() -> int:
         if len(payload.get("mass_eigenstates", [])) != 3:
             print("bundle should emit three intrinsic neutrino mass eigenstates", file=sys.stderr)
             return 1
+        if payload.get("ordering") != "unresolved_without_mass_eigenstate_label_rule":
+            print("ascending sorting must not be promoted to a physical mass ordering", file=sys.stderr)
+            return 1
+        if payload.get("physical_ordering_assignments", {}).get("selected") is not None:
+            print("bundle must leave the physical eigenstate assignment open", file=sys.stderr)
+            return 1
         if payload.get("paper_export_policy", {}).get("pmns_status") != "not_formed_here":
             print("bundle should keep PMNS out of scope", file=sys.stderr)
             return 1

@@ -9,6 +9,7 @@ commits the private reveal, and verifies the complete digest graph.
 from __future__ import annotations
 
 import argparse
+import copy
 import hashlib
 import hmac
 import io
@@ -810,6 +811,43 @@ def build_blinded_preregistration(
         "sealed_payload": sealed_payload,
     }
     return public, reveal
+
+
+def bind_analysis_document(
+    public_manifest: Mapping[str, Any],
+    reveal: Mapping[str, Any],
+    analysis_document: Mapping[str, Any],
+) -> tuple[dict[str, Any], dict[str, Any]]:
+    """Bind a hardened analysis lock without regenerating the blind catalog.
+
+    This is the second phase of sealing: candidate tables may be derived from
+    the already-generated opaque catalog, after which this function preserves
+    every circuit, mapping, backend assignment, and secret while recomputing
+    only the downstream analysis/core/commitment/final-manifest layers.
+    """
+
+    verify_bundle(public_manifest, reveal, rebuild_circuits=False)
+    updated_public = copy.deepcopy(dict(public_manifest))
+    updated_reveal = copy.deepcopy(dict(reveal))
+    catalog_sha256 = str(updated_public["catalog_precommitment_sha256"])
+    locked_analysis, analysis_sha256 = _lock_analysis_document(
+        analysis_document,
+        catalog_sha256,
+    )
+    updated_public["analysis_lock_sha256"] = analysis_sha256
+    payload = updated_reveal["sealed_payload"]
+    payload["analysis_document"] = locked_analysis
+    payload["public_manifest_core_sha256"] = manifest_core_hash(updated_public)
+    secret = bytes.fromhex(updated_reveal["secret_hex"])
+    updated_public["secret_commitment_sha256"] = secret_commitment(secret, payload)
+    updated_public["manifest_sha256"] = manifest_hash(updated_public)
+    verify_bundle(
+        updated_public,
+        updated_reveal,
+        locked_analysis,
+        rebuild_circuits=False,
+    )
+    return updated_public, updated_reveal
 
 
 def _require(condition: bool, message: str) -> None:

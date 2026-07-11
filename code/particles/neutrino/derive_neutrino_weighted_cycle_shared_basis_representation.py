@@ -188,8 +188,8 @@ def build_payload(
     shared_charged_left_path: Path,
 ) -> dict[str, Any]:
     basis_contract = dict(shared_charged_left.get("basis_contract", {}))
-    if shared_charged_left.get("status") != "closed":
-        raise ValueError("shared charged-lepton left basis must be closed")
+    if not isinstance(shared_charged_left.get("U_e_left"), dict):
+        raise ValueError("shared charged-lepton artifact must carry a diagnostic U_e_left matrix")
     if not basis_contract.get("orientation_preserved", False):
         raise ValueError("shared charged-lepton basis must preserve orientation")
     weighted_cycle_matrix = _complex_matrix(weighted_cycle, "repaired_cycle_matrix_real", "repaired_cycle_matrix_imag")
@@ -272,6 +272,8 @@ def build_payload(
         },
         "basis_contract": basis_contract,
         "basis_labels": list(shared_charged_left.get("labels") or []),
+        "charged_basis_input_status": shared_charged_left.get("status"),
+        "charged_basis_pmns_use_allowed": bool(shared_charged_left.get("pmns_use_allowed", False)),
         "source_artifacts": {
             "weighted_cycle_branch": _canonical_artifact_ref(weighted_cycle_path),
             "shared_charged_left_basis": _canonical_artifact_ref(shared_charged_left_path),

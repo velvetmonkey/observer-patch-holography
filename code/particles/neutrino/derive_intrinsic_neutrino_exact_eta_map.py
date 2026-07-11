@@ -85,10 +85,24 @@ def _normalized_mu_from_eta(eta: np.ndarray) -> np.ndarray:
     return mu / float(np.mean(mu))
 
 
+def _principal_selector_domain(mu: np.ndarray) -> float:
+    mu = np.asarray(mu, dtype=float)
+    if np.any(mu <= 0.0):
+        raise ValueError("mu must be positive")
+    mu_min = float(np.min(mu))
+    return float(np.sum(np.arcsin(np.clip(mu_min / mu, -1.0, 1.0))))
+
+
 def _solve_principal_selector(mu: np.ndarray, omega: float) -> tuple[float, np.ndarray]:
     mu = np.asarray(mu, dtype=float)
     if np.any(mu <= 0.0):
         raise ValueError("mu must be positive")
+    domain_half_width = _principal_selector_domain(mu)
+    if not abs(float(omega)) < domain_half_width:
+        raise ValueError(
+            "principal selector requires |Omega| < "
+            f"sum_e arcsin(mu_min / mu_e) = {domain_half_width:.17g}"
+        )
     bound = float(np.min(mu)) * (1.0 - 1.0e-15)
 
     def f_lam(lam_value: float) -> float:
@@ -272,6 +286,13 @@ def main() -> int:
         "eta_e": {edge: float(exact_map.eta[idx]) for idx, edge in enumerate(EDGE_ORDER)},
         "mu_e_normalized": {edge: float(exact_map.mu[idx]) for idx, edge in enumerate(EDGE_ORDER)},
         "selector_equation": "sum_e arcsin(lam / mu_e) = Omega on the principal branch",
+        "selector_domain": {
+            "condition": "|Omega| < F_max, F_max = sum_e arcsin(mu_min / mu_e)",
+            "F_max_rad": _principal_selector_domain(exact_map.mu),
+            "abs_omega_rad": abs(float(exact_map.omega)),
+            "margin_rad": _principal_selector_domain(exact_map.mu) - abs(float(exact_map.omega)),
+            "satisfied": abs(float(exact_map.omega)) < _principal_selector_domain(exact_map.mu),
+        },
         "selector_scale_free_multiplier": float(exact_map.lam),
         "selector_common_scale_invariant": True,
         "selector_point_absolute": {edge: float(actual_phase[idx]) for idx, edge in enumerate(EDGE_ORDER)},
@@ -297,7 +318,14 @@ def main() -> int:
             for value in np.sort(np.linalg.eigvalsh(exact_map.majorana.conjugate().T @ exact_map.majorana)).tolist()
         ],
         "intrinsic_mass_eigenstates": {
-            f"nu_{idx + 1}": float(value) for idx, value in enumerate(exact_map.masses.tolist())
+            f"s{idx}": float(value) for idx, value in enumerate(exact_map.masses.tolist())
+        },
+        "mass_eigenstate_label_status": "ascending_singular_states_only",
+        "physical_ordering_assignments": {
+            "normal_ordering_hypothesis": {"nu1": "s0", "nu2": "s1", "nu3": "s2"},
+            "inverted_ordering_hypothesis": {"nu3": "s0", "nu1": "s1", "nu2": "s2"},
+            "selected": None,
+            "missing_source_object": "solar_pair_and_atmospheric_sign_eigenstate_label_rule",
         },
         "mass_audit_max_abs_gev": float(
             np.max(
@@ -319,11 +347,13 @@ def main() -> int:
         "delta_m21_sq_gev2": float(exact_map.masses_squared[1] - exact_map.masses_squared[0]),
         "delta_m31_sq_gev2": float(exact_map.masses_squared[2] - exact_map.masses_squared[0]),
         "delta_m32_sq_gev2": float(exact_map.masses_squared[2] - exact_map.masses_squared[1]),
+        "delta_mij_field_status": "ascending_gap_coordinates_under_declared_normal_ordering_hypothesis",
         "splitting_ratio_r": float(
             (exact_map.masses_squared[1] - exact_map.masses_squared[0])
             / (exact_map.masses_squared[2] - exact_map.masses_squared[0])
         ),
-        "ordering_phase_certified": "normal_like_collective_dominance",
+        "ordering_phase_certified": None,
+        "ordering_status": "unresolved_without_mass_eigenstate_label_rule",
         "u_nu_left_real": np.real(exact_map.u_left).tolist(),
         "u_nu_left_imag": np.imag(exact_map.u_left).tolist(),
         "determinant_formula_complex_gev3": {"real": float(np.real(det_formula)), "imag": float(np.imag(det_formula))},

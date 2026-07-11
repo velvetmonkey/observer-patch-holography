@@ -278,7 +278,7 @@ LANES: List[Dict[str, Any]] = [
             "The lane derives the light-neutrino scale from the electroweak core, builds the family-response tensor, the "
             "Majorana holonomy lift, the pullback metric, the forward Majorana matrix, and the splitting/ordering "
             "bundle. The old selector-law branch is S3-isotropic and is ruled out for the physical "
-            "atmospheric scale by the exact cap `max |Delta m^2| <= 8 a rho`. The repaired branch uses the "
+            "atmospheric scale by the exact general cap `max |Delta m^2| <= 8 a rho + 4 rho^2`. The repaired branch uses the "
             "same-label scalar certificate together with the flavor cocycle invariants `gamma`, `eps`, and "
             "`gamma_half` to define the positive load segment between `chi = 1 + eps` and `1 + gamma_half`. On that "
             "one-dimensional affine segment, the balanced selector and the least-distortion selector coincide exactly at "

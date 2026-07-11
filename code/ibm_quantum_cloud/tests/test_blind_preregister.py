@@ -147,6 +147,27 @@ def test_catalog_covers_five_arms_mh_and_diagnostic_calibration(sealed_bundle) -
     assert len(public["nulls"]) == len(blind.DEFAULT_NULL_SPECS)
 
 
+def test_two_phase_analysis_binding_preserves_secret_catalog_and_circuits(sealed_bundle) -> None:
+    public, reveal = sealed_bundle
+    hardened = copy.deepcopy(reveal["sealed_payload"]["analysis_document"])
+    hardened.pop("analysis_lock_sha256")
+    hardened["lock_revision"] = "synthetic-hardened-test"
+    rebound_public, rebound_reveal = blind.bind_analysis_document(public, reveal, hardened)
+    assert rebound_public["catalog_precommitment_sha256"] == public[
+        "catalog_precommitment_sha256"
+    ]
+    assert rebound_public["circuits"] == public["circuits"]
+    assert rebound_reveal["secret_hex"] == reveal["secret_hex"]
+    assert rebound_reveal["sealed_payload"]["circuits"] == reveal["sealed_payload"][
+        "circuits"
+    ]
+    assert rebound_public["analysis_lock_sha256"] != public["analysis_lock_sha256"]
+    assert rebound_public["secret_commitment_sha256"] != public[
+        "secret_commitment_sha256"
+    ]
+    assert blind.verify_bundle(rebound_public, rebound_reveal, hardened)
+
+
 def test_every_test_catalog_qpy_hash_rebuilds_exactly(sealed_bundle) -> None:
     public, reveal = sealed_bundle
     assert blind.verify_bundle(public, reveal, rebuild_circuits=True)

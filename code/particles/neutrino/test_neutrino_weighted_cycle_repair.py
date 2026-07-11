@@ -55,6 +55,8 @@ def test_repaired_weighted_cycle_branch_matches_expected_live_numbers() -> None:
         assert payload["prediction_promotion_allowed"] is False
         assert payload["public_surface_candidate_allowed"] is False
         assert payload["source_closure_status"]["family_transport_kernel_status"] == "template"
+        assert payload["old_isotropic_no_go"]["bound_formula"] == "max_ij |Delta m_ij^2| <= 8 a rho + 4 rho^2"
+        assert abs(payload["old_isotropic_no_go"]["max_delta_m2_eV2_bound"] - 1.5230360002796308e-6) < 1.0e-18
         assert payload["symbolic_absolute_family"]["family_parameter"] == "lambda_nu > 0"
         assert payload["compare_only_atmospheric_anchor"]["adapter_status"] == "hard_separated_compare_only_adapter"
         assert payload["transport_load_selector_status"] == "standard_math_fixed_balanced_segment_selector_closed"

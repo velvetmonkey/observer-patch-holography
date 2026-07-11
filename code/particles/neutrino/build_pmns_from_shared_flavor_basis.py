@@ -113,6 +113,11 @@ def main() -> int:
         basis_contract = dict(charged.get("basis_contract", {}))
         charged_labels = _basis_labels(charged)
         neutrino_labels = _basis_labels(majorana)
+        charged_basis_closed = (
+            charged.get("status") == "closed"
+            and charged.get("pmns_use_allowed") is True
+            and basis_contract.get("physical_identification_closed") is True
+        )
         if neutrino_labels is None:
             neutrino_labels = charged_labels
         if charged_labels != neutrino_labels or not basis_contract.get("orientation_preserved", False):
@@ -124,10 +129,26 @@ def main() -> int:
                     "Refusing PMNS because the charged-lepton basis contract is missing or mismatched.",
                 ],
             }
+        elif not charged_basis_closed:
+            payload = {
+                "status": "blocked_upstream_charged_basis_open",
+                "majorana_artifact": str(majorana_path),
+                "charged_left_artifact": str(charged_path),
+                "basis_labels": neutrino_labels,
+                "notes": [
+                    "Refusing PMNS because the charged-lepton artifact does not close a stable physical left basis.",
+                ],
+            }
         else:
             u_e = load_complex_matrix(charged["U_e_left"]["real"], charged["U_e_left"]["imag"])
             pmns = np.conjugate(u_e).T @ u_nu
-            closed = bool(majorana.get("source_scalar_certificate") or majorana.get("completion_scope") == "intrinsic_mass_eigenstates_only")
+            closed = bool(
+                charged_basis_closed
+                and (
+                    majorana.get("source_scalar_certificate")
+                    or majorana.get("completion_scope") == "intrinsic_mass_eigenstates_only"
+                )
+            )
             payload = {
                 "status": "closed" if closed else "conditional_pmns",
                 "majorana_artifact": str(majorana_path),

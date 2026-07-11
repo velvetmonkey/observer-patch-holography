@@ -68,7 +68,9 @@ def _complex_matrix(payload: dict[str, Any], real_key: str, imag_key: str) -> np
 
 
 def _no_go_cap_eV2(a_gev: float, rho_gev: float) -> float:
-    return 8.0 * (a_gev * 1.0e9) * (rho_gev * 1.0e9)
+    a_ev = a_gev * 1.0e9
+    rho_ev = rho_gev * 1.0e9
+    return 8.0 * a_ev * rho_ev + 4.0 * rho_ev * rho_ev
 
 
 def _pmns_parameters(unitary: np.ndarray) -> dict[str, float]:
@@ -246,7 +248,8 @@ def main() -> int:
             "a_gev": a_gev,
             "rho_gev": rho_gev,
             "max_delta_m2_eV2_bound": cap_eV2,
-            "statement": "The isotropic intrinsic ansatz cannot reach atmospheric neutrino splitting because max |Delta m^2| <= 8 a rho.",
+            "bound_formula": "max_ij |Delta m_ij^2| <= 8 a rho + 4 rho^2",
+            "statement": "The isotropic intrinsic ansatz cannot reach atmospheric neutrino splitting under the general Gershgorin bound max |Delta m^2| <= 8 a rho + 4 rho^2.",
         },
         "cycle_basis_order": ["f3", "f1", "f2"],
         "pmns_row_order_for_pdg": ["e", "mu", "tau"],

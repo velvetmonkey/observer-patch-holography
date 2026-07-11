@@ -74,10 +74,19 @@ def build_exact_blockers(
     ignore_emitted_theorem_pair: bool,
 ) -> tuple[dict, dict]:
     same_label_present = bool(certificate.get("sufficient_for_intrinsic_mass_eigenstates"))
-    charged_basis_present = charged_left.get("status") == "closed"
-    pmns_present = pmns.get("status") == "closed"
+    charged_basis_present = (
+        charged_left.get("status") == "closed"
+        and charged_left.get("pmns_use_allowed") is True
+        and (charged_left.get("basis_contract") or {}).get("physical_identification_closed") is True
+    )
+    pmns_present = pmns.get("status") == "closed" and charged_basis_present
     repair_present = repair.get("artifact") == "oph_neutrino_weighted_cycle_repair"
-    repair_shape_closed = repair.get("physical_window_status") == "pmns_and_hierarchy_repaired"
+    repair_shape_closed = (
+        repair.get("physical_window_status") == "pmns_and_hierarchy_repaired"
+        and repair.get("source_only_prediction_eligible") is True
+        and repair.get("prediction_promotion_allowed") is True
+        and repair.get("historical_target_exposure") is False
+    )
     absolute_normalization_open = repair.get("absolute_normalization_status") == "open_one_positive_scale"
     repair_scale_free_mass = dict(repair.get("scale_free_mass_normal_form") or {})
     repair_scale_free_dm2 = dict((repair.get("scale_free_dm2_normal_form") or {}).get("dm2") or {})
@@ -94,6 +103,7 @@ def build_exact_blockers(
         and absolute_attachment is not None
         and bridge_rigidity.get("status") == "theorem_grade_emitted"
         and absolute_attachment.get("status") == "theorem_grade_emitted"
+        and repair_shape_closed
     )
     physical_branch_closed = bool(pmns.get("physical_branch_closed", False)) or (
         repair_present and repair_shape_closed and not absolute_normalization_open
@@ -218,23 +228,26 @@ def build_exact_blockers(
             },
         }
 
+    closed_theorem_chain = [
+        "oph_native_scale_anchor_m_star_equals_v2_over_mu_u",
+        "oph_fixed_cutoff_trace_pullback_metric",
+        "neutrino_only_isotropy_obstruction",
+        "same_label_scalar_certificate_sufficiency",
+        "exact_principal_selector_from_centered_eta_class",
+        "exact_depressed_cubic_intrinsic_spectrum",
+        "ascending_intrinsic_singular_spectrum",
+    ]
+    if charged_basis_present:
+        closed_theorem_chain.append("shape_closed_scale_invariant_left_basis")
+    if pmns_present:
+        closed_theorem_chain.append("pmns_from_shared_charged_and_intrinsic_bases")
+
     exact_payload = {
         "artifact": "oph_exact_neutrino_blocker_audit_v8",
         "generated_utc": _timestamp(),
         "fully_completed": fully_completed,
         "reason_not_fully_completed": reason_not_fully_completed,
-        "closed_theorem_chain": [
-            "oph_native_scale_anchor_m_star_equals_v2_over_mu_u",
-            "oph_fixed_cutoff_trace_pullback_metric",
-            "neutrino_only_isotropy_obstruction",
-            "same_label_scalar_certificate_sufficiency",
-            "exact_principal_selector_from_centered_eta_class",
-            "exact_depressed_cubic_intrinsic_spectrum",
-            "mass_eigenstate_row_policy_nu1_nu2_nu3",
-            "positive_load_balanced_least_distortion_midpoint_selector",
-            "shape_closed_scale_invariant_left_basis",
-            "pmns_from_shared_charged_and_intrinsic_bases",
-        ],
+        "closed_theorem_chain": closed_theorem_chain,
         "current_isotropic_builder_facing_class": {
             "artifact": "oph_neutrino_only_edge_constant_centered_eta_class",
             "status": "exact_builder_facing_class_only",
@@ -262,7 +275,7 @@ def build_exact_blockers(
             ] or []),
             "delta_m21_sq_gev2": float(intrinsic_validation.get("solar_split_actual_gev2") or 0.0),
             "delta_m31_sq_gev2": float(intrinsic_validation.get("delta_m31_actual_gev2") or 0.0),
-            "ordering": "normal_like_collective_dominance",
+            "ordering": "unresolved_without_mass_eigenstate_label_rule",
         },
         "exact_blocker_counts": {
             "same_label_proof_facing_continuous_dof_mod_common_scale": 5,
