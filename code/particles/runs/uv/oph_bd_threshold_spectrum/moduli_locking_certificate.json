@@ -1,0 +1,25 @@
+{
+  "artifact": "oph_bd_moduli_locking_certificate",
+  "bd_moduli_locking_certificate_receipt": false,
+  "compatibility_evaluated": false,
+  "full_transverse_rank_verified": false,
+  "missing_source_objects": [
+    "bulk_five_brane_sector_and_moduli_or_absence",
+    "bundle_moduli_point_and_mass_matrix",
+    "complex_structure_moduli_point_and_mass_matrix",
+    "dilaton_point_and_mass",
+    "kahler_moduli_point_metric_and_mass_matrix",
+    "physical_moduli_jacobian",
+    "string_compactification_and_matching_scales"
+  ],
+  "promotion_allowed": false,
+  "published_parameter_counts": {
+    "bundle_moduli_count": 51,
+    "complex_structure_moduli_count": 11,
+    "hidden_completion_original": "trivial hidden bundle and unbroken E8 N=1 super-Yang-Mills, plus bulk M5-branes that cancel the remaining anomaly class",
+    "kahler_moduli_count": 11,
+    "one_higgs_locus": "codimension-two locus in the invariant extension-moduli space",
+    "visible_massless_spectrum": "three chiral families, one massless Higgs-pair stratum, and no massless visible exotics"
+  },
+  "status": "OPEN_NO_STABILIZED_POINT_OR_PHYSICAL_JACOBIAN"
+}

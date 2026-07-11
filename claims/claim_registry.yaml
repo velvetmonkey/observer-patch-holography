@@ -215,16 +215,16 @@
     },
     {
       "claim_id": "OPH-STRING-SELECTOR",
-      "statement": "The string-vacuum selector paper treats string theory as an effective OPH edge language and tests a Bouchard-Donagi type witness against OPH gates.",
+      "statement": "The string-vacuum selector paper treats string theory as an effective OPH edge language and tests a Bouchard-Donagi massless-cohomology candidate against OPH gates.",
       "owner_paper": "extra/observer_patch_holography_as_string_vacuum_selector.tex",
       "tier": "conditional_selector_continuation",
-      "assumptions": ["OPH_recovered_core_target_vector", "one_Higgs_Bouchard_Donagi_witness", "operator_safety_gate", "moduli_locking_gate"],
+      "assumptions": ["OPH_recovered_core_target_vector", "heterotic_critical_edge_certificate", "one_Higgs_Bouchard_Donagi_massless_cohomology_candidate", "operator_safety_realization_gate", "threshold_spectrum_and_decoupling_gate", "moduli_locking_gate"],
       "imported_results": ["heterotic_standard_model_candidate_literature", "string_compactification_language"],
       "oph_specific_delta": "OPH supplies the target vector and gates that a known string representative must satisfy without retuning.",
       "novelty_type": "selector_continuation",
-      "evidence": ["extra/observer_patch_holography_as_string_vacuum_selector.tex"],
-      "falsifier": "The witness cannot realize the OPH target vector, safety layer, thresholds, or moduli locking on the same branch.",
-      "scope_if_false": "The named string witness falls; the OPH recovered core and other string candidates remain separate.",
+      "evidence": ["extra/observer_patch_holography_as_string_vacuum_selector.tex", "code/particles/runs/uv/oph_bd_threshold_spectrum/manifest.json", "code/particles/runs/uv/oph_bd_threshold_spectrum/threshold_spectrum_certificate.json"],
+      "falsifier": "The candidate cannot realize the critical edge, OPH target vector, safety layer, thresholds, decoupling, or moduli locking on the same branch.",
+      "scope_if_false": "Failure blocks OPH-correct promotion of the named BD candidate; the OPH recovered core and other string candidates remain separate.",
       "status": "work_in_progress"
     },
     {

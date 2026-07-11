@@ -318,6 +318,7 @@ python3 -m pytest \
   jwst/test_compact_object_source_release_receipts.py \
   fractional/test_fractional_quotient_receipts.py \
   hierarchy/test_hierarchy_bundle.py \
+  uv/test_oph_bd_threshold_spectrum_receipts.py \
   test_results_status_candidate_policy.py \
   test_results_status_quark_promotion_policy.py \
   test_results_status_structural_rows.py \
