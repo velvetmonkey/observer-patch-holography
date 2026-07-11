@@ -22,8 +22,13 @@ Primary derivation surfaces:
   cyclic cap-net repair run (`python3 code/geometry/cyclic_cap_net_run.py`):
   a genuine transactional repair tower whose repaired output passes the
   spherical-incidence/mesh/naturality receipts under explicit branch
-  selection, with the modular receipt families pending. Current verdict:
-  realized geometric branch not certified nonempty. Run with
+  selection, and the free-fermion modular-clock instrumentation
+  (`python3 code/geometry/modular_clock_instrumentation.py`, needs mpmath):
+  120-digit arc entanglement Hamiltonians on the boundary collars whose
+  resummed velocity profiles witness the 2-pi-KMS and modular cross-ratio
+  receipts. Current verdict: topology/mesh and boundary-collar modular
+  families realized; cap-interior, null-net, event, and physical families
+  pending; realized geometric branch not certified nonempty. Run with
   `python3 -m pytest code/geometry/`.
 
 Supplemental and benchmark surfaces:

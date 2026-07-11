@@ -45,9 +45,26 @@
         "E1-E4 event receipts",
         "UC/VR/scale physical-identification receipts"
       ]
+    },
+    "modular_clock_instrumentation": {
+      "source": "code/geometry/runs/modular_clock_instrumentation_report.json",
+      "scope": "boundary-collar instrumentation: declared Gaussian MaxEnt reference states (critical hopping, anti-periodic twist, half filling, v_F = 1) on the stage-r cap-boundary collar rings; modular data computed at 120-digit precision; profile extracted by odd-range chiral resummation (nearest-neighbour truncation alone is off by ~9 percent and does not converge); receipts evaluated are the boundary-circle profile-KMS and cross-ratio clauses; cap-interior modular data remain pending",
+      "receipts_witnessed": {
+        "geometric_2pi_kms_boundary_collar": true,
+        "modular_cross_ratio_boundary_collar": true
+      },
+      "receipts_pending": [
+        "cap-interior modular data (full 2D cap algebras)",
+        "Cyc/NTI/weak-additivity/MI null-net receipts",
+        "E1-E4 event receipts",
+        "UC/VR/scale physical-identification receipts"
+      ],
+      "kms_final_median_residual": 0.00011239035725785218,
+      "crossratio_final_relative_error": 0.0022954122547074185
     }
   },
   "realized_geometric_branch_certified_nonempty": false,
   "topology_mesh_families_realized_with_branch_selection": true,
-  "status": "OPEN: the cyclic cap-net repair run realizes the D1 repair clauses jointly with the spherical-incidence, mesh, and refinement-naturality receipts (overlap net chosen spherical: explicit branch selection), while the modular cross-ratio, 2pi-KMS, null-net, event, and physical-identification receipt families remain pending on that tower; #503 stays open on the full nonemptiness clause."
+  "boundary_collar_modular_families_witnessed": true,
+  "status": "OPEN: the cyclic cap-net repair run realizes the D1 repair clauses with the spherical-incidence, mesh, and naturality receipts (explicit branch selection), and the free-fermion boundary-collar instrumentation witnesses the modular cross-ratio and geometric 2pi-KMS receipts on the declared Gaussian MaxEnt states; cap-interior modular data, the null-net families, the event families, and the physical-identification receipts remain pending, so #503 stays open on the full nonemptiness clause."
 }

@@ -8186,19 +8186,40 @@ naturality. Its provenance is stated exactly: the overlap net is
 Corollary~\ref{cor:dimension-selection-status}, never a consensus output;
 what the run certifies is joint realizability of the node-D1 clauses with
 the \(\mathsf{SphInc}\)/mesh/naturality receipt families on one genuine
-repair tower. The modular cross-ratio and geometric \(2\pi\)-KMS receipts,
-the null-net families (\(\mathsf{Cyc}\), \(\mathsf{NTI}\), weak additivity,
-\(\mathsf{MI}\)), the event families \(\mathsf{E1}\)--\(\mathsf{E4}\), and
-the physical-identification receipts remain \emph{pending} on that tower:
-they require modular-clock instrumentation of the MaxEnt states, which no
-current artifact carries. Consequently, at the date of this revision, the
-realized geometric branch is \textbf{still not certified nonempty}: the
-topology/mesh receipt families are realized (with explicit branch
-selection), the modular families are the remaining machine gate, and the
-composed theorem stays conditional. Public summaries must state this as:
-\emph{derivation complete on the receipt branch; topology/mesh receipt
-families realized by a genuine repair run under explicit branch selection;
-modular receipt instrumentation open}.
+repair tower. The modular cross-ratio and geometric \(2\pi\)-KMS receipts are
+now evaluated by the free-fermion modular-clock instrumentation
+(\texttt{code/geometry/modular\_clock\_instrumentation.py}): on declared
+Gaussian MaxEnt reference states (critical hopping, anti-periodic twist,
+half filling, unit Fermi velocity) on the stage-\(r\) cap-boundary collar
+rings \(N_r=16,32,64\), the arc entanglement Hamiltonians
+\(h=\log((1-C_I)/C_I)\) are computed at \(120\)-digit precision (the arc
+spectrum reaches \(10^{-30}\) of its endpoints, far beyond double
+precision), and the modular velocity profile is extracted by the odd-range
+chiral resummation
+\(\beta(j)=-2\sum_{r\,\mathrm{odd}}r(-1)^{(r-1)/2}h_{i,i+r}\) --- the
+nearest-neighbour truncation alone is off by \(\approx9\%\) and does not
+converge, itself a useful wrong-extraction control. Verdicts: the interior
+profile matches the \(2\pi\)-normalized conformal Bisognano--Wichmann
+profile with median residual decreasing to \(1.1\times10^{-4}\) at
+\(N_r=64\) and the \(\times1.2\) wrong-normalization control separated by
+more than a factor five at every stage; and the modular transport
+cross-ratios \(\exp(2\pi\sum_j1/\beta_j)\) over fixed angular quadruples are
+Cauchy along refinement and converge to the M\"obius cross-ratios with
+relative error decreasing to \(2.3\times10^{-3}\). The boundary-collar
+cross-ratio and \(2\pi\)-KMS clauses are therefore \emph{witnessed} on the
+realized instrumented tower. Still pending: cap-interior modular data (full
+two-dimensional cap algebras), the null-net families (\(\mathsf{Cyc}\),
+\(\mathsf{NTI}\), weak additivity, \(\mathsf{MI}\)), the event families
+\(\mathsf{E1}\)--\(\mathsf{E4}\), and the physical-identification receipts.
+Consequently, at the date of this revision, the realized geometric branch is
+\textbf{still not certified nonempty}, but the gate has narrowed twice: the
+topology/mesh families are realized by a genuine repair run (explicit branch
+selection), the boundary-collar modular families are witnessed on realized
+Gaussian MaxEnt states, and the remaining machine obligations are the
+cap-interior/null-net/event/physical families. Public summaries must state
+this as: \emph{derivation complete on the receipt branch; topology, mesh,
+and boundary-collar modular receipt families realized; cap-interior and
+downstream receipt instrumentation open}.
 \end{remark}
 
 \subsection{Cosmological-constant / screen-capacity closure}

@@ -43,6 +43,7 @@ from quotient_cap_readout import (  # noqa: E402
 ROOT = HERE.parents[1]
 TREE_ARTIFACT = ROOT / "code" / "consensus" / "runs" / "verified_tree_packet_net_domain.json"
 CYCLIC_ARTIFACT = HERE / "runs" / "cyclic_cap_net_run_domain.json"
+MODULAR_ARTIFACT = HERE / "runs" / "modular_clock_instrumentation_report.json"
 REPORT_PATH = HERE / "runs" / "realized_branch_receipt_report.json"
 
 
@@ -89,6 +90,23 @@ def cyclic_run_summary() -> dict | None:
     }
 
 
+def modular_instrumentation_summary() -> dict | None:
+    """Summary of the modular-clock instrumentation artifact, if present."""
+    if not MODULAR_ARTIFACT.exists():
+        return None
+    with open(MODULAR_ARTIFACT) as f:
+        run = json.load(f)
+    return {
+        "source": "code/geometry/runs/modular_clock_instrumentation_report.json",
+        "scope": run["scope"],
+        "receipts_witnessed": run["receipts_witnessed"],
+        "receipts_pending": run["receipts_pending"],
+        "kms_final_median_residual": run["verdicts"]["kms_final_median_residual"],
+        "crossratio_final_relative_error":
+            run["verdicts"]["crossratio_final_relative_error"],
+    }
+
+
 def build_report() -> dict:
     tree_records = tree_packet_net_records()
     tree = receipt_report_for(tree_records)
@@ -97,6 +115,7 @@ def build_report() -> dict:
     designed = receipt_report_for(list(ico_tris))
 
     cyclic = cyclic_run_summary()
+    modular = modular_instrumentation_summary()
 
     evaluations = {
         "verified_tree_packet_net_domain": {
@@ -112,35 +131,51 @@ def build_report() -> dict:
     }
     if cyclic is not None:
         evaluations["cyclic_cap_net_repair_run"] = cyclic
+    if modular is not None:
+        evaluations["modular_clock_instrumentation"] = modular
 
     # full nonemptiness needs ALL finite receipt families on one realized
     # tower; the cyclic run witnesses the D1 + incidence + mesh + naturality
-    # families with explicit branch selection, and leaves the modular
-    # families pending, so the gate stays open.
-    partially = bool(
-        cyclic is not None
-        and all(cyclic["receipts_witnessed"].values())
-    )
+    # families with explicit branch selection, and the boundary-collar
+    # instrumentation witnesses the cross-ratio and 2pi-KMS families on the
+    # declared Gaussian MaxEnt states; the cap-interior, null-net, event,
+    # and physical-identification families remain pending, so the gate
+    # stays open.
+    topology = bool(cyclic is not None
+                    and all(cyclic["receipts_witnessed"].values()))
+    modular_ok = bool(modular is not None
+                      and all(modular["receipts_witnessed"].values()))
+    if topology and modular_ok:
+        status = (
+            "OPEN: the cyclic cap-net repair run realizes the D1 repair "
+            "clauses with the spherical-incidence, mesh, and naturality "
+            "receipts (explicit branch selection), and the free-fermion "
+            "boundary-collar instrumentation witnesses the modular "
+            "cross-ratio and geometric 2pi-KMS receipts on the declared "
+            "Gaussian MaxEnt states; cap-interior modular data, the "
+            "null-net families, the event families, and the physical-"
+            "identification receipts remain pending, so #503 stays open on "
+            "the full nonemptiness clause."
+        )
+    elif topology:
+        status = (
+            "OPEN: topology/mesh families realized by the cyclic run; "
+            "modular receipt families pending."
+        )
+    else:
+        status = (
+            "OPEN: no realized consensus artifact carries the spherical "
+            "incidence receipt."
+        )
     return {
         "artifact": "einstein_branch_realized_receipt_evaluation",
         "issue": 503,
         "paper_anchor": "rem:realized-branch-status",
         "evaluations": evaluations,
         "realized_geometric_branch_certified_nonempty": False,
-        "topology_mesh_families_realized_with_branch_selection": partially,
-        "status": (
-            "OPEN: the cyclic cap-net repair run realizes the D1 repair "
-            "clauses jointly with the spherical-incidence, mesh, and "
-            "refinement-naturality receipts (overlap net chosen spherical: "
-            "explicit branch selection), while the modular cross-ratio, "
-            "2pi-KMS, null-net, event, and physical-identification receipt "
-            "families remain pending on that tower; #503 stays open on the "
-            "full nonemptiness clause."
-            if partially else
-            "OPEN: no realized consensus artifact carries the spherical "
-            "incidence receipt; the composed branch-entry theorem is "
-            "conditional and #503 remains open on its nonemptiness clause."
-        ),
+        "topology_mesh_families_realized_with_branch_selection": topology,
+        "boundary_collar_modular_families_witnessed": modular_ok,
+        "status": status,
     }
 
 

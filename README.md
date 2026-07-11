@@ -397,12 +397,17 @@ runtime-verified confluence and schedule independence on a three-stage
 refinement tower) now passes the spherical-incidence, mesh, and
 refinement-naturality receipts on its own repaired output --- with the
 overlap net chosen spherical, i.e. explicit branch selection, never claimed
-derived --- while the modular cross-ratio/2-pi-KMS, null-net, event, and
-physical-identification receipt families remain pending on that tower. The
-realized geometric branch is therefore still not certified nonempty:
-derivation complete on the receipt branch, topology/mesh receipt families
-realized under explicit branch selection, modular receipt instrumentation
-open.
+derived --- and the free-fermion modular-clock instrumentation now witnesses the
+modular cross-ratio and geometric 2-pi-KMS receipts on realized Gaussian
+MaxEnt states over the cap-boundary collars (interior modular-velocity
+profile matching the 2-pi conformal prediction to 1.1e-4 with the
+wrong-normalization control separated; modular-transport cross-ratios
+Cauchy-converging to the Moebius values to 2.3e-3), while the cap-interior,
+null-net, event, and physical-identification receipt families remain
+pending. The realized geometric branch is therefore still not certified
+nonempty: derivation complete on the receipt branch; topology, mesh, and
+boundary-collar modular families realized; cap-interior and downstream
+instrumentation open.
 
 Screen-spectrum and CMB continuations are provisional without the screen
 branch's geometric scale, source dynamics, clock, refinement behavior, and

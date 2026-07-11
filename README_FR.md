@@ -446,12 +446,18 @@ l'exécution sur une tour de raffinement à trois étages) passe désormais les
 reçus d'incidence sphérique, de maille et de naturalité de raffinement sur
 sa propre sortie réparée --- le réseau de recouvrement étant choisi
 sphérique, c'est-à-dire une sélection de branche explicite, jamais présentée
-comme dérivée --- tandis que les familles de reçus modulaires (birapport,
-KMS 2-pi), de réseau nul, d'événements et d'identification physique restent
-en attente sur cette tour. La branche géométrique réalisée n'est donc
+comme dérivée --- et l'instrumentation d'horloge modulaire par fermions libres témoigne
+désormais des reçus de birapport modulaire et de KMS géométrique 2-pi sur
+des états MaxEnt gaussiens réalisés sur les colliers de bord des caps
+(profil de vitesse modulaire intérieur conforme à la prédiction conforme
+2-pi à 1,1e-4 près avec le contrôle de mauvaise normalisation séparé ;
+birapports de transport modulaire convergeant au sens de Cauchy vers les
+valeurs de Moebius à 2,3e-3 près), tandis que les familles de reçus
+d'intérieur de cap, de réseau nul, d'événements et d'identification
+physique restent en attente. La branche géométrique réalisée n'est donc
 toujours pas certifiée non vide : dérivation complète sur la branche des
-reçus, familles topologie/maille réalisées sous sélection de branche
-explicite, instrumentation des reçus modulaires ouverte.
+reçus ; familles topologie, maille et modulaires de collier de bord
+réalisées ; instrumentation d'intérieur de cap et en aval ouverte.
 
 Les continuations de spectre d'écran et de CMB sont provisoires sans l'échelle
 géométrique de la branche écran, sa dynamique source, son horloge, son
