@@ -263,9 +263,9 @@ exact hypercharge, $N_c=3$, and $N_g=3$ live in the papers.
 | Speed of light | c | structural Lorentz speed; SI value conventional | 299792458 exact by definition | not a numeric prediction |
 | Fine-structure (inv) | $\alpha^{-1}$ | mixed-provenance no-hadron comparison value 137.03595950081728; source-only OPH fixed-point value 136.99483516462165 | 137.035999177(21) | CODATA-minus-comparison gap: 0.00003967618 inverse-alpha units; source-only status requires the same-scheme OPH-QCD/hadronic endpoint calculation |
 | Higgs boson | $m_H$ | 125.1995304097179 GeV, conditional candidate from the stated repair condition | 125.20 ± 0.11 GeV | conditional calculation without fitting the Higgs target |
-| Photon mass | m_γ | 0 GeV, structural zero | <1e-18 eV | below bound |
-| Gluon mass | m_g | 0 GeV, structural zero | no isolated free-gluon mass row | confined gauge carrier |
-| Graviton mass | m_grav | 0 GeV, structural zero | <1e-32 GeV | below bound |
+| Photon mass | $m_\gamma$ | 0 GeV, structural zero | <1e-18 eV | below bound |
+| Gluon mass | $m_g$ | 0 GeV, structural zero | no isolated free-gluon mass row | confined gauge carrier |
+| Graviton mass | $m_{\mathrm{grav}}$ | 0 GeV, structural zero | <1e-32 GeV | below bound |
 
 $\Delta$ reports the sigma distance where PDG or NIST quotes a one-standard-deviation
 uncertainty. Otherwise it records the declared support status. A numerical
@@ -279,7 +279,7 @@ hadron derivations.
 Ordered by importance for a technical reader. Longer summaries mark the
 papers that carry the core theorem surface.
 
-- **Paper 2. [Recovering Relativity and the Standard Model from Observer Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)**: compact technical core for the recovered OPH branch. It states the observer-overlap route to Lorentz structure, the Einstein-like gravity branch on the five-axiom recovered core, the formal algebra core that upgrades rest-frame data to the tensor equation and fixes the metric residue to one $\Lambda$ on connected conserved branches, compact-gauge reconstruction, the selected Standard Model quotient and matter package with formal hypercharge/$Z_6$ algebra core, the Borel-Weil local carrier for the one-Higgs slot, Maxwell on the ordinary photon branch, and the conditional Yang-Mills mass-gap route under its continuum, reflection-positivity, transfer/intertwiner, and nontriviality assumptions.
+- **Paper 2. [Recovering Relativity and the Standard Model from Observer Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)**: compact technical core for the recovered OPH branch. It states the observer-overlap route to Lorentz structure, the Einstein-like gravity branch on the five-axiom recovered core, the formal algebra core that upgrades rest-frame data to the tensor equation and fixes the metric residue to one $\Lambda$ on connected conserved branches, compact-gauge reconstruction, the selected Standard Model quotient and matter package with a formal hypercharge and $Z_6$ algebra core, the Borel-Weil local carrier for the one-Higgs slot, Maxwell on the ordinary photon branch, and the conditional Yang-Mills mass-gap route under its continuum, reflection-positivity, transfer/intertwiner, and nontriviality assumptions.
 - **Paper 1. [Observers Are All You Need](paper/observers_are_all_you_need.pdf)**: broad synthesis and best first read for the full program. It explains finite observer patches, overlap consistency, records, repair moves, the recovered effective universe, the scale story, and the public claim boundaries without replacing the compact paper's theorem ledger.
 - **Paper 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)**: particle-sector derivation and audit surface. It carries the $P_\star$-driven particle reconstruction, structural carriers, the Borel-Weil one-Higgs carrier bridge, electroweak/Higgs/top, quark, charged-lepton, neutrino, and hadron lanes, quantitative benchmark checks, and conditional record-worldline stitching. The derivation of the physical neutrino mixing matrix and absolute neutrino masses is work in progress.
 - **Paper 4. [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf)**: finite patch-net consensus mechanics. It proves how local observers compare overlap records, apply repair moves, handle defects, and converge to quotient normal forms when the fixed-cutoff assumptions hold. The consensus result stops at quotient normal forms; Lorentzian and Einstein geometry enter through the separate geometric branch in the compact paper. The repair operator is stated on the physical quotient, repaired readouts are invariant under hidden implementation choices, a finite layered carrier witnesses boundary reconstruction, and a finite binary audit fixture gives sharp positive/negative repair and boundary-reconstruction tests. The neutral mathematical companion proves the generic cross-source criterion, but same-boundary physical uniqueness requires the declared boundary map to identify the consistent quotient; same-source confluence and liveness are separate obligations.
@@ -397,7 +397,7 @@ and local gravity or inertia control for hoverbikes and hoverboards. These are
 application tracks behind evidence gates; settled-output claims belong to
 verifier records and experiments. The compute claim is narrower: a
 chamber-conditioned candidate distribution may reduce verifier work by a
-measured lift `B = p_Q/p_U`. The classical complexity-class problem remains
+measured lift $B=p_Q/p_U$. The classical complexity-class problem remains
 untouched.
 
 Read the public applications page at
