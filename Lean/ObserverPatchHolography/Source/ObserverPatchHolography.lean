@@ -1,6 +1,8 @@
 import ObserverPatchHolography.AbstractRewriting
 import ObserverPatchHolography.Primitives
 import ObserverPatchHolography.Rule90
+import ObserverPatchHolography.RepairDiamond
+import ObserverPatchHolography.BftQuorum
 import ObservableNormalForms
 import ObserverPatchHolography.Bridges.ObservableNormalForms
 
