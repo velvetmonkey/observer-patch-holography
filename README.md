@@ -391,11 +391,18 @@ response, with the earlier bulk-only step valid only at fixed edge sectors),
 one uniform scaling family replaces per-radius choices, and a vacuum-reference
 receipt yields the absolute semiclassical Einstein equation with the
 structural coupling. The whole chain is composed into one branch-entry
-theorem whose single remaining gate is machine-checkable and currently
-negative: no exported realized consensus artifact yet carries the spherical
-incidence receipt (the verified tree packet-net domain fails it, as a tree
-must), so the realized geometric branch is not yet certified nonempty ---
-derivation complete on the receipt branch, realized receipt production open.
+theorem whose single remaining gate is machine-checkable. Current verdict: a
+genuine cyclic cap-net repair run (real conflicts, transactional repair,
+runtime-verified confluence and schedule independence on a three-stage
+refinement tower) now passes the spherical-incidence, mesh, and
+refinement-naturality receipts on its own repaired output --- with the
+overlap net chosen spherical, i.e. explicit branch selection, never claimed
+derived --- while the modular cross-ratio/2-pi-KMS, null-net, event, and
+physical-identification receipt families remain pending on that tower. The
+realized geometric branch is therefore still not certified nonempty:
+derivation complete on the receipt branch, topology/mesh receipt families
+realized under explicit branch selection, modular receipt instrumentation
+open.
 
 Screen-spectrum and CMB continuations are provisional without the screen
 branch's geometric scale, source dynamics, clock, refinement behavior, and

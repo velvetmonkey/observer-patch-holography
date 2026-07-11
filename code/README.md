@@ -18,8 +18,12 @@ Primary derivation surfaces:
   the MaxEnt multiplier identity, baseline countermodels, and the
   realized-branch receipt evaluation
   (`python3 code/geometry/realized_branch_receipts.py` writes
-  `code/geometry/runs/realized_branch_receipt_report.json`; current verdict:
-  realized geometric branch not certified nonempty). Run with
+  `code/geometry/runs/realized_branch_receipt_report.json`), and the realized
+  cyclic cap-net repair run (`python3 code/geometry/cyclic_cap_net_run.py`):
+  a genuine transactional repair tower whose repaired output passes the
+  spherical-incidence/mesh/naturality receipts under explicit branch
+  selection, with the modular receipt families pending. Current verdict:
+  realized geometric branch not certified nonempty. Run with
   `python3 -m pytest code/geometry/`.
 
 Supplemental and benchmark surfaces:

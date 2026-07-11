@@ -439,11 +439,19 @@ bord/aire), une seule famille d'échelle uniforme remplace les choix par
 rayon, et un reçu de référence de vide donne l'équation d'Einstein
 semi-classique absolue avec le couplage structurel. La chaîne complète est
 composée en un théorème d'entrée de branche dont la seule porte restante est
-vérifiable par machine et actuellement négative : aucun artefact de consensus
-réalisé exporté ne porte encore le reçu d'incidence sphérique, donc la
-branche géométrique réalisée n'est pas encore certifiée non vide ---
-dérivation complète sur la branche des reçus, production réalisée des reçus
-ouverte.
+vérifiable par machine. Verdict actuel : une exécution de réparation
+cyclique authentique sur un réseau de caps (conflits réels, réparation
+transactionnelle, confluence et indépendance d'ordonnancement vérifiées à
+l'exécution sur une tour de raffinement à trois étages) passe désormais les
+reçus d'incidence sphérique, de maille et de naturalité de raffinement sur
+sa propre sortie réparée --- le réseau de recouvrement étant choisi
+sphérique, c'est-à-dire une sélection de branche explicite, jamais présentée
+comme dérivée --- tandis que les familles de reçus modulaires (birapport,
+KMS 2-pi), de réseau nul, d'événements et d'identification physique restent
+en attente sur cette tour. La branche géométrique réalisée n'est donc
+toujours pas certifiée non vide : dérivation complète sur la branche des
+reçus, familles topologie/maille réalisées sous sélection de branche
+explicite, instrumentation des reçus modulaires ouverte.
 
 Les continuations de spectre d'écran et de CMB sont provisoires sans l'échelle
 géométrique de la branche écran, sa dynamique source, son horloge, son

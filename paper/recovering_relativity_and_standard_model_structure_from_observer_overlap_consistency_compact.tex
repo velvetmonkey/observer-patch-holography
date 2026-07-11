@@ -8168,21 +8168,37 @@ each countermodel satisfies every input except the named receipt.
 The nonemptiness clause is empirical and machine-checkable. The repository
 evaluation (\texttt{code/geometry/realized\_branch\_receipts.py}) runs the
 incidence readout of Definition~\ref{def:support-visible-incidence-complex}
-on the currently exported realized consensus artifacts: the verified
-rooted-tree packet-net domain (the only repair domain with a full
-correctness export to date) yields an incidence complex with
-\(\chi=1\), no \(2\)-simplices, and fails \(\mathsf{SphInc}\) --- as
-expected for a tree, and consistent with the fact that the cyclic cap-net
-obligations were exactly what the tree witness did not discharge. A
-designed cellulated-sphere mesh passes \(\mathsf{SphInc}\) but is a
-\emph{declared-geometry} input, not a consensus product, and is labeled as
-such in the receipt report. Consequently, at the date of this revision, the
-realized geometric branch is \textbf{not yet certified nonempty}: the
-composed theorem is complete as a conditional chain, and the single
-remaining Einstein branch-entry obligation is a realized repair tower that
-carries (R\(_{\mathrm{fin}}\)) on its own output. Public summaries must
-state this as: \emph{derivation complete on the receipt branch; realized
-receipt production open}.
+on the exported realized consensus artifacts. Three artifacts are on file.
+(i) The verified rooted-tree packet-net domain (the historical repair-domain
+export) yields an incidence complex with \(\chi=1\), no \(2\)-simplices, and
+fails \(\mathsf{SphInc}\) --- as a tree must. (ii) A designed
+cellulated-sphere mesh passes \(\mathsf{SphInc}\) but is a
+\emph{declared-geometry} input, not a consensus product. (iii) The
+\emph{cyclic cap-net repair run}
+(\texttt{code/geometry/cyclic\_cap\_net\_run.py}) is a genuine transactional
+repair tower --- seeded conflicts, transactional repair, and runtime-verified
+termination, conflict-free normal forms, and schedule independence across
+randomized schedules on a three-stage refinement tower (\(20/80/320\)
+records) --- whose repaired normal-form output passes \(\mathsf{SphInc}\) at
+every stage with decreasing mesh modulus and simplicial refinement
+naturality. Its provenance is stated exactly: the overlap net is
+\emph{chosen} spherical, which is explicit branch selection in the sense of
+Corollary~\ref{cor:dimension-selection-status}, never a consensus output;
+what the run certifies is joint realizability of the node-D1 clauses with
+the \(\mathsf{SphInc}\)/mesh/naturality receipt families on one genuine
+repair tower. The modular cross-ratio and geometric \(2\pi\)-KMS receipts,
+the null-net families (\(\mathsf{Cyc}\), \(\mathsf{NTI}\), weak additivity,
+\(\mathsf{MI}\)), the event families \(\mathsf{E1}\)--\(\mathsf{E4}\), and
+the physical-identification receipts remain \emph{pending} on that tower:
+they require modular-clock instrumentation of the MaxEnt states, which no
+current artifact carries. Consequently, at the date of this revision, the
+realized geometric branch is \textbf{still not certified nonempty}: the
+topology/mesh receipt families are realized (with explicit branch
+selection), the modular families are the remaining machine gate, and the
+composed theorem stays conditional. Public summaries must state this as:
+\emph{derivation complete on the receipt branch; topology/mesh receipt
+families realized by a genuine repair run under explicit branch selection;
+modular receipt instrumentation open}.
 \end{remark}
 
 \subsection{Cosmological-constant / screen-capacity closure}

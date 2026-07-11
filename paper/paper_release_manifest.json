@@ -46,7 +46,7 @@
       "size_bytes": 145359
     }
   },
-  "generated_at": "2026-07-11T23:18:56.915305Z",
+  "generated_at": "2026-07-11T23:41:38.429818Z",
   "papers": {
     "deriving_the_particle_zoo_from_observer_consistency": {
       "pdf_path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
@@ -55,8 +55,8 @@
     },
     "observers_are_all_you_need": {
       "pdf_path": "paper/observers_are_all_you_need.pdf",
-      "sha256": "31789c2b24011bd6f81d94a4c4d6b5fe2e62f2303af9226a40fc0c1dd7e4076c",
-      "size_bytes": 821363
+      "sha256": "b08aeaf752de76f8c75adba7759b8af01ff2daa1be6b0223af93f1aff2d03043",
+      "size_bytes": 822537
     },
     "paradise_as_fixed_point_consensus": {
       "pdf_path": "paper/paradise_as_fixed_point_consensus.pdf",
@@ -70,8 +70,8 @@
     },
     "recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact": {
       "pdf_path": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf",
-      "sha256": "041218857c2d287a8fb47b1258e548819440cf6d7d5f873292357b0422e3b3c7",
-      "size_bytes": 1155388
+      "sha256": "7ec5a39ef662ca4ec9f4ae03283bff30a7f6f2b4de5cd48c4c525bfaf4c8a010",
+      "size_bytes": 1157712
     },
     "screen_microphysics_and_observer_synchronization": {
       "pdf_path": "paper/screen_microphysics_and_observer_synchronization.pdf",

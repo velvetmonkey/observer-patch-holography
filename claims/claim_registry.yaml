@@ -357,7 +357,7 @@
     },
     {
       "claim_id": "OPH-GR-E2E-BRANCH-ENTRY",
-      "statement": "The full chain from repaired finite quotient normal forms to the semiclassical Einstein equation is composed into one typed theorem with partitioned inputs (foundational axioms; decidable finite receipts; scaling receipts; physical-identification receipts), composable error envelopes, and a no-hidden-geometry proposition showing the receipt list is minimal (deleting any family readmits its countermodel). Nonemptiness of the realized branch is machine-checkable; the current evaluation is negative: the verified rooted-tree packet-net domain fails spherical incidence and the only passing mesh is declared geometry, so the realized geometric branch is not yet certified nonempty and issue #503 remains open on exactly this clause.",
+      "statement": "The full chain from repaired finite quotient normal forms to the semiclassical Einstein equation is composed into one typed theorem with partitioned inputs (foundational axioms; decidable finite receipts; scaling receipts; physical-identification receipts), composable error envelopes, and a no-hidden-geometry proposition showing the receipt list is minimal (deleting any family readmits its countermodel). Nonemptiness of the realized branch is machine-checkable; the current evaluation: the rooted-tree export fails spherical incidence; a genuine cyclic cap-net repair run (runtime-verified D1 clauses on a three-stage refinement tower) passes the spherical-incidence/mesh/naturality receipts on its own repaired output under explicit branch selection; the modular cross-ratio/2pi-KMS, null-net, event, and physical-identification receipt families remain pending, so the realized geometric branch is still not certified nonempty and issue #503 remains open on exactly this clause.",
       "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
       "tier": "composed_conditional_theorem_with_open_nonemptiness",
       "assumptions": [
@@ -372,7 +372,9 @@
       "evidence": [
         "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
         "code/geometry/realized_branch_receipts.py",
-        "code/geometry/runs/realized_branch_receipt_report.json"
+        "code/geometry/runs/realized_branch_receipt_report.json",
+        "code/geometry/cyclic_cap_net_run.py",
+        "code/geometry/runs/cyclic_cap_net_run_domain.json"
       ],
       "falsifier": "An arrow of the composition fails on its stated inputs, a hidden geometric input is found in the input form, or the nonemptiness evaluation is misreported.",
       "scope_if_false": "The composed theorem reopens at the failing arrow; individual packets keep their own statuses.",

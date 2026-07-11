@@ -42,6 +42,7 @@ from quotient_cap_readout import (  # noqa: E402
 
 ROOT = HERE.parents[1]
 TREE_ARTIFACT = ROOT / "code" / "consensus" / "runs" / "verified_tree_packet_net_domain.json"
+CYCLIC_ARTIFACT = HERE / "runs" / "cyclic_cap_net_run_domain.json"
 REPORT_PATH = HERE / "runs" / "realized_branch_receipt_report.json"
 
 
@@ -74,6 +75,20 @@ def receipt_report_for(records: list[tuple[int, ...]]) -> dict:
     }
 
 
+def cyclic_run_summary() -> dict | None:
+    """Summary of the cyclic cap-net repair run artifact, if present."""
+    if not CYCLIC_ARTIFACT.exists():
+        return None
+    with open(CYCLIC_ARTIFACT) as f:
+        run = json.load(f)
+    return {
+        "source": "code/geometry/runs/cyclic_cap_net_run_domain.json",
+        "provenance": run["provenance"],
+        "receipts_witnessed": run["receipts_witnessed"],
+        "receipts_pending": run["receipts_pending"],
+    }
+
+
 def build_report() -> dict:
     tree_records = tree_packet_net_records()
     tree = receipt_report_for(tree_records)
@@ -81,30 +96,50 @@ def build_report() -> dict:
     ico_tris, _ = icosahedron()
     designed = receipt_report_for(list(ico_tris))
 
-    realized_nonempty = bool(tree["spherical_incidence_receipt"])
+    cyclic = cyclic_run_summary()
+
+    evaluations = {
+        "verified_tree_packet_net_domain": {
+            "source": str(TREE_ARTIFACT.relative_to(ROOT)),
+            "provenance": "consensus_product (issue #238 verified export)",
+            **tree,
+        },
+        "designed_cellulated_sphere_icosahedron": {
+            "source": "code/geometry/quotient_cap_readout.py:icosahedron()",
+            "provenance": "declared_geometry (NOT a consensus product)",
+            **designed,
+        },
+    }
+    if cyclic is not None:
+        evaluations["cyclic_cap_net_repair_run"] = cyclic
+
+    # full nonemptiness needs ALL finite receipt families on one realized
+    # tower; the cyclic run witnesses the D1 + incidence + mesh + naturality
+    # families with explicit branch selection, and leaves the modular
+    # families pending, so the gate stays open.
+    partially = bool(
+        cyclic is not None
+        and all(cyclic["receipts_witnessed"].values())
+    )
     return {
         "artifact": "einstein_branch_realized_receipt_evaluation",
         "issue": 503,
         "paper_anchor": "rem:realized-branch-status",
-        "evaluations": {
-            "verified_tree_packet_net_domain": {
-                "source": str(TREE_ARTIFACT.relative_to(ROOT)),
-                "provenance": "consensus_product (issue #238 verified export)",
-                **tree,
-            },
-            "designed_cellulated_sphere_icosahedron": {
-                "source": "code/geometry/quotient_cap_readout.py:icosahedron()",
-                "provenance": "declared_geometry (NOT a consensus product)",
-                **designed,
-            },
-        },
-        "realized_geometric_branch_certified_nonempty": realized_nonempty,
+        "evaluations": evaluations,
+        "realized_geometric_branch_certified_nonempty": False,
+        "topology_mesh_families_realized_with_branch_selection": partially,
         "status": (
+            "OPEN: the cyclic cap-net repair run realizes the D1 repair "
+            "clauses jointly with the spherical-incidence, mesh, and "
+            "refinement-naturality receipts (overlap net chosen spherical: "
+            "explicit branch selection), while the modular cross-ratio, "
+            "2pi-KMS, null-net, event, and physical-identification receipt "
+            "families remain pending on that tower; #503 stays open on the "
+            "full nonemptiness clause."
+            if partially else
             "OPEN: no realized consensus artifact carries the spherical "
             "incidence receipt; the composed branch-entry theorem is "
             "conditional and #503 remains open on its nonemptiness clause."
-            if not realized_nonempty else
-            "REALIZED: a consensus artifact carries the receipt."
         ),
     }
 
