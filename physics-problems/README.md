@@ -17,6 +17,12 @@ branch-specific source law, action, repair ledger, or receipt bundle.
 
 ## Writeups
 
+- [Ultraluminous X-Ray Sources as Accretion-Record Normal Forms](ultraluminous_x_ray_sources.md):
+  a factorized, set-valued classifier for accretor identity, mass, intrinsic
+  Eddington ratio, anisotropy, viewing geometry, and source mode. It proves
+  that luminosity identifies only \(M\lambda/b\), audits pulsation, dynamics,
+  spectrum, wind, nebular, environment, and contaminant receipts, and keeps
+  ambiguity and model-set failure distinct from a physical “other” branch.
 - [Homochirality as Prebiotic Record-Branch Selection](homochirality.md): a
   derivation and evidence audit separating chiral seeds from amplification,
   repair, and spatial fixation. It proves the symmetry no-go and the
