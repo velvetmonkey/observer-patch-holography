@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "release_id": "r1525",
+  "release_id": "r1527",
   "source_commit_policy": "The release commit is supplied by git and the paper release manifest at release packaging time; this working registry is validated against paper/release_info.tex.",
   "claims": [
     {
@@ -8,11 +8,21 @@
       "statement": "OPH is formulated in terms of finite or regulated observer-accessible algebras, states, record algebras, visible restrictions, repair instruments, and generalized entropy.",
       "owner_paper": "paper/observers_are_all_you_need.tex",
       "tier": "formal_basis",
-      "assumptions": ["finite_or_regulated_accessible_algebras", "declared_record_surface", "visible_overlap_maps"],
-      "imported_results": ["finite_algebra_language", "Born_trace_probability", "generalized_entropy_formalism"],
+      "assumptions": [
+        "finite_or_regulated_accessible_algebras",
+        "declared_record_surface",
+        "visible_overlap_maps"
+      ],
+      "imported_results": [
+        "finite_algebra_language",
+        "Born_trace_probability",
+        "generalized_entropy_formalism"
+      ],
       "oph_specific_delta": "The primitive package is assembled as an observer-facing patch federation with visible restrictions and repair/checkpoint structure.",
       "novelty_type": "formal_construction",
-      "evidence": ["paper/observers_are_all_you_need.tex"],
+      "evidence": [
+        "paper/observers_are_all_you_need.tex"
+      ],
       "falsifier": "A top-level OPH theorem requires hidden carrier coordinates that are not expressible through the declared observer-facing quotient.",
       "scope_if_false": "The synthesis ontology falls; branch-local theorem statements must be restated in the hidden-coordinate theory that replaces the formal basis.",
       "status": "declared_basis"
@@ -22,11 +32,20 @@
       "statement": "An observer patch is an algebraic object with an accessible algebra, state, record algebra, overlap-visible interfaces, visible restrictions, update/repair instruments, and checkpoint data.",
       "owner_paper": "paper/screen_microphysics_and_observer_synchronization.tex",
       "tier": "definition",
-      "assumptions": ["finite_cutoff_or_regulated_branch", "visible_interface_statistics", "checkpoint_continuation_contract"],
-      "imported_results": ["finite_algebra_interfaces", "quantum_channel_language"],
+      "assumptions": [
+        "finite_cutoff_or_regulated_branch",
+        "visible_interface_statistics",
+        "checkpoint_continuation_contract"
+      ],
+      "imported_results": [
+        "finite_algebra_interfaces",
+        "quantum_channel_language"
+      ],
       "oph_specific_delta": "Support patches are geometric charts and carrier patches are realizations of the abstract object within an error bound.",
       "novelty_type": "definition",
-      "evidence": ["paper/screen_microphysics_and_observer_synchronization.tex"],
+      "evidence": [
+        "paper/screen_microphysics_and_observer_synchronization.tex"
+      ],
       "falsifier": "A carrier changes an OPH observable while preserving the declared visible algebra, record statistics, repair maps, and checkpoint continuation.",
       "scope_if_false": "Carrier-independence claims fall; geometric and hardware readings need branch-specific qualification.",
       "status": "definition_with_invariance_target"
@@ -36,11 +55,22 @@
       "statement": "On the declared finite patch-net hypotheses, overlap repair has a unique schedule-independent normal form from each fixed initial physical quotient state, with same-boundary uniqueness requiring the stated unique-extension condition.",
       "owner_paper": "paper/reality_as_consensus_protocol.tex",
       "tier": "fixed_cutoff_structural_theorem",
-      "assumptions": ["finite_patch_net", "repair_completeness", "local_diamond", "preserved_boundary_sector_map_for_same_boundary_uniqueness"],
-      "imported_results": ["Lyapunov_descent", "Newmans_lemma", "inverse_limits_of_finite_quotients"],
+      "assumptions": [
+        "finite_patch_net",
+        "repair_completeness",
+        "local_diamond",
+        "preserved_boundary_sector_map_for_same_boundary_uniqueness"
+      ],
+      "imported_results": [
+        "Lyapunov_descent",
+        "Newmans_lemma",
+        "inverse_limits_of_finite_quotients"
+      ],
       "oph_specific_delta": "The repair relation is recovery-derived and acts on visible overlaps with holonomy obstruction and refinement compatibility.",
       "novelty_type": "theorem_package",
-      "evidence": ["paper/reality_as_consensus_protocol.tex"],
+      "evidence": [
+        "paper/reality_as_consensus_protocol.tex"
+      ],
       "falsifier": "A nonconfluent terminal pair exists under the declared local-diamond and repair-completeness clauses.",
       "scope_if_false": "The consensus implementation theorem falls; Lorentz, gauge, and quantitative branches that import only weaker finite-cutoff ingredients must be audited separately.",
       "status": "proved_on_branch"
@@ -50,11 +80,29 @@
       "statement": "Matscheko's OPHProofChain audit supplies a machine-checked finite-algebra companion for quotient repair, boundary reconstruction, finite modular flow, lambda constancy, hypercharge and Z6 algebra, scalar-channel bookkeeping, twelve-port surface bookkeeping, selected numerical cage checks, and the QBFT quorum-overlap caveat.",
       "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
       "tier": "finite_audit_receipt",
-      "assumptions": ["finite_or_regulated_branch", "OPHProofChain Lean audit provenance", "standard Lean and Mathlib axioms"],
-      "imported_results": ["finite quotient repair", "finite modular KMS flow", "matrix-algebra uniqueness", "lambda constancy under conservation and connectivity", "hypercharge and Z6 algebra", "scalar channel bridge", "twelve-port surface bookkeeping", "finite energy cage arithmetic", "QBFT quorum-overlap caveat"],
+      "assumptions": [
+        "finite_or_regulated_branch",
+        "OPHProofChain Lean audit provenance",
+        "standard Lean and Mathlib axioms"
+      ],
+      "imported_results": [
+        "finite quotient repair",
+        "finite modular KMS flow",
+        "matrix-algebra uniqueness",
+        "lambda constancy under conservation and connectivity",
+        "hypercharge and Z6 algebra",
+        "scalar channel bridge",
+        "twelve-port surface bookkeeping",
+        "finite energy cage arithmetic",
+        "QBFT quorum-overlap caveat"
+      ],
       "oph_specific_delta": "The audit converts several finite OPH proof obligations into checkable finite theorem packets while leaving physical branch-entry and scaling assumptions explicit.",
       "novelty_type": "independent_formal_audit",
-      "evidence": ["paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex", "paper/screen_microphysics_and_observer_synchronization.tex", "paper/appendix_B_bft_qecc_extensions.tex"],
+      "evidence": [
+        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+        "paper/screen_microphysics_and_observer_synchronization.tex",
+        "paper/appendix_B_bft_qecc_extensions.tex"
+      ],
       "falsifier": "A cited finite audit theorem fails to build, imports a nonstandard axiom not listed in the audit, or is used to discharge a physical or scaling-limit hypothesis it only assumes.",
       "scope_if_false": "The corresponding finite receipt is reopened; physical branch hypotheses and unrelated fixed-cutoff results must be assessed separately.",
       "status": "finite_audit_imported_with_physics_residues"
@@ -64,11 +112,26 @@
       "statement": "The Lorentz/null-modular branch and fixed-cap generalized-entropy stationarity produce a Jacobson-type Einstein branch in the stated scaling regime.",
       "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
       "tier": "conditional_scaling_theorem",
-      "assumptions": ["support_visible_BW_scaling", "cap_normal_H3_chart", "null_stress_bridge", "fixed_cap_MaxEnt_variation_family", "small_ball_bridge", "all_directions_tensor_upgrade"],
-      "imported_results": ["Bisognano_Wichmann_modular_theory", "Jacobson_1995", "Jacobson_2016", "small_ball_area_variation", "quadratic_polarization_tensor_upgrade"],
+      "assumptions": [
+        "support_visible_BW_scaling",
+        "cap_normal_H3_chart",
+        "null_stress_bridge",
+        "fixed_cap_MaxEnt_variation_family",
+        "small_ball_bridge",
+        "all_directions_tensor_upgrade"
+      ],
+      "imported_results": [
+        "Bisognano_Wichmann_modular_theory",
+        "Jacobson_1995",
+        "Jacobson_2016",
+        "small_ball_area_variation",
+        "quadratic_polarization_tensor_upgrade"
+      ],
       "oph_specific_delta": "OPH supplies support-visible cap modular extraction, finite collar recovery, explicit remainder bookkeeping, observer-overlap direction completion, and a separate capacity closure for the cosmological term.",
       "novelty_type": "application_and_extension",
-      "evidence": ["paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex"],
+      "evidence": [
+        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex"
+      ],
       "falsifier": "No physically realizable support-visible modular limit exists, the collar remainder fails to vanish on the branch, or the all-directions tensor upgrade fails.",
       "scope_if_false": "The OPH gravity branch falls; fixed-cutoff consensus and purely gauge-sector results do not automatically fall.",
       "status": "proved_on_branch"
@@ -78,11 +141,23 @@
       "statement": "On the support-visible oriented-round-cap BW branch, the projective future null cone realizes S2, oriented round caps are unit spacelike de Sitter normals transforming equivariantly under SO+(3,1), and the canonical observer-frame symmetric space is H3 = SO+(3,1)/SO(3), with caps dual to geodesic half-spaces rather than observer points.",
       "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
       "tier": "conditional_scaling_geometric_theorem",
-      "assumptions": ["support_visible_BW_scaling", "oriented_round_cap_rigidity", "consistent_orientation_and_time_orientation"],
-      "imported_results": ["projective_future_null_cone_geometry", "global_conformal_classification_of_S2", "SL2C_PSL2C_Lorentz_identification", "hyperboloid_model_of_H3"],
+      "assumptions": [
+        "support_visible_BW_scaling",
+        "oriented_round_cap_rigidity",
+        "consistent_orientation_and_time_orientation"
+      ],
+      "imported_results": [
+        "projective_future_null_cone_geometry",
+        "global_conformal_classification_of_S2",
+        "SL2C_PSL2C_Lorentz_identification",
+        "hyperboloid_model_of_H3"
+      ],
       "oph_specific_delta": "The standard cap-normal and hyperbolic-boundary geometry is inserted explicitly into the OPH support-visible BW dependency chain, with a proved non-populated-bulk boundary and a no-go theorem against selecting an observer point from one cap alone.",
       "novelty_type": "standard_geometry_integrated_into_OPH_branch",
-      "evidence": ["paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex", "paper/observers_are_all_you_need.tex"],
+      "evidence": [
+        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+        "paper/observers_are_all_you_need.tex"
+      ],
       "falsifier": "A declared oriented round cap fails the unit-normal or signed-incidence identities, a declared Lorentz transition fails cap-normal equivariance, or the paper identifies a cap normal with an H3 observer point without additional frame-selection data.",
       "scope_if_false": "The OPH Lorentz/H3 chart claim falls or must be weakened; finite consensus, compact-gauge reconstruction, and unrelated fixed-cutoff results do not automatically fall.",
       "status": "proved_on_branch"
@@ -92,11 +167,28 @@
       "statement": "Given the observer-facing H3 chart, calibrated record-conditioned modular cap responses stably localize a quotient-visible record token when they factor through one point-local H3 source on a compact domain with a quantitatively observable cap frame, bounded total error, and certified residual-gap controls.",
       "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
       "tier": "conditional_continuation_theorem",
-      "assumptions": ["cap_normal_H3_chart", "record_conditioned_modular_cap_response", "point_local_cap_response_factorization", "compact_H3_source_domain", "quantitative_cap_observability", "bounded_localization_error_budget", "positive_localization_gap_for_unique_finite_output"],
-      "imported_results": ["hyperbolic_halfspace_separation", "finite_frame_inverse_stability", "finite_epsilon_nets_on_compact_metric_spaces", "residual_minimizer_error_bound"],
+      "assumptions": [
+        "cap_normal_H3_chart",
+        "record_conditioned_modular_cap_response",
+        "point_local_cap_response_factorization",
+        "compact_H3_source_domain",
+        "quantitative_cap_observability",
+        "bounded_localization_error_budget",
+        "positive_localization_gap_for_unique_finite_output"
+      ],
+      "imported_results": [
+        "hyperbolic_halfspace_separation",
+        "finite_frame_inverse_stability",
+        "finite_epsilon_nets_on_compact_metric_spaces",
+        "residual_minimizer_error_bound"
+      ],
       "oph_specific_delta": "OPH attaches the standard inverse-stability geometry to quotient-visible record tokens through modular cap-response operators and simulator receipt semantics, while keeping point locality, neutral bulk, stress, and species outside the theorem.",
       "novelty_type": "conditional_record_population_theorem",
-      "evidence": ["paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex", "paper/screen_microphysics_and_observer_synchronization.tex", "paper/deriving_the_particle_zoo_from_observer_consistency.tex"],
+      "evidence": [
+        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+        "paper/screen_microphysics_and_observer_synchronization.tex",
+        "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
+      ],
       "falsifier": "A localization receipt uses a noncompact domain without truncation, lacks alpha>0, promotes qualitative separation to a noisy inverse bound, ignores calibration/model error, or reports a unique finite point when Delta_loc <= 0.",
       "scope_if_false": "Record-populated observer-facing H3 localization is weakened or reopened; the cap-normal chart theorem, gauge reconstruction, and Einstein branch do not automatically fall.",
       "status": "conditional_theorem"
@@ -106,11 +198,22 @@
       "statement": "The local Einstein branch closes globally at the cosmic record-capacity fixed point, giving the dimensionless cosmological relation on the observed de Sitter branch.",
       "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
       "tier": "global_fixed_point_closure",
-      "assumptions": ["Einstein_branch_D5", "cosmic_record_capacity_map", "unique_stable_capacity_fixed_point", "selected_scale_certificate_for_SI_display"],
-      "imported_results": ["Gibbons_Hawking_de_Sitter_entropy", "standard_static_patch_relations"],
+      "assumptions": [
+        "Einstein_branch_D5",
+        "cosmic_record_capacity_map",
+        "unique_stable_capacity_fixed_point",
+        "selected_scale_certificate_for_SI_display"
+      ],
+      "imported_results": [
+        "Gibbons_Hawking_de_Sitter_entropy",
+        "standard_static_patch_relations"
+      ],
       "oph_specific_delta": "The capacity is selected by readback closure rather than by a local vacuum-energy estimate.",
       "novelty_type": "quantitative_closure",
-      "evidence": ["paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex", "extra/compact_proof_of_oph.tex"],
+      "evidence": [
+        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+        "extra/compact_proof_of_oph.tex"
+      ],
       "falsifier": "The readback map has no unique stable fixed point, has multiple admissible fixed points, or the observed branch violates the capacity relation.",
       "scope_if_false": "The cosmological-capacity closure falls; the local Einstein branch may survive with an undetermined cosmological term.",
       "status": "proved_on_branch"
@@ -120,11 +223,23 @@
       "statement": "The zero-obstruction bosonic sector category and MAR realized branch recover the Standard Model quotient, exact hypercharge, three colors, and three generations on the declared one-Higgs matter package.",
       "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
       "tier": "realized_branch_theorem",
-      "assumptions": ["zero_obstruction_bosonic_branch", "transportable_sector_category", "MAR_admissible_class", "realized_one_generation_chiral_matter_plus_one_Higgs_package"],
-      "imported_results": ["Doplicher_Roberts_reconstruction", "Tannaka_duality", "compact_Lie_representation_theory", "anomaly_cancellation_algebra"],
+      "assumptions": [
+        "zero_obstruction_bosonic_branch",
+        "transportable_sector_category",
+        "MAR_admissible_class",
+        "realized_one_generation_chiral_matter_plus_one_Higgs_package"
+      ],
+      "imported_results": [
+        "Doplicher_Roberts_reconstruction",
+        "Tannaka_duality",
+        "compact_Lie_representation_theory",
+        "anomaly_cancellation_algebra"
+      ],
       "oph_specific_delta": "OPH supplies the visible-overlap sector category, refinement/fiber descent, and MAR selection rule over the declared admissible realization space.",
       "novelty_type": "construction_and_selection",
-      "evidence": ["paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex"],
+      "evidence": [
+        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex"
+      ],
       "falsifier": "A lower-complexity admissible competitor exists, the realized package is not admissible, or observations require a different realized gauge quotient or charge lattice.",
       "scope_if_false": "The realized Standard Model branch falls; Lorentz and consensus branches must be assessed independently.",
       "status": "proved_on_branch"
@@ -134,11 +249,22 @@
       "statement": "The quantitative surface uses two dimensionless fixed-point closure coordinates, the local pixel P_star and the global capacity N_CRC, plus a selected no-G scale certificate.",
       "owner_paper": "extra/compact_proof_of_oph.tex",
       "tier": "quantitative_closure",
-      "assumptions": ["declared_pixel_map", "declared_capacity_map", "uniqueness_certificate", "selected_no_G_scale_certificate"],
-      "imported_results": ["fixed_point_analysis", "standard_display_units"],
+      "assumptions": [
+        "declared_pixel_map",
+        "declared_capacity_map",
+        "uniqueness_certificate",
+        "selected_no_G_scale_certificate"
+      ],
+      "imported_results": [
+        "fixed_point_analysis",
+        "standard_display_units"
+      ],
       "oph_specific_delta": "Measured values may locate the basin, while the published coordinates must be closure endpoints with explicit uniqueness proof.",
       "novelty_type": "quantitative_prediction_protocol",
-      "evidence": ["extra/compact_proof_of_oph.tex", "paper/deriving_the_particle_zoo_from_observer_consistency.tex"],
+      "evidence": [
+        "extra/compact_proof_of_oph.tex",
+        "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
+      ],
       "falsifier": "The fixed-point maps are nonunique, target-leaking, branch-switching after result exposure, or incompatible with held-out measurements.",
       "scope_if_false": "The quantitative prediction lane falls; structural recovered-core claims survive only if they do not import the failed quantitative coordinate.",
       "status": "proved_on_branch"
@@ -148,11 +274,21 @@
       "statement": "On the selected exact electroweak bridge branch, the local/global capacity resonance emits the weak scale and gives Higgs naturality defect zero.",
       "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
       "tier": "quantitative_branch_theorem",
-      "assumptions": ["selected_public_endpoint_branch", "R_EW_capacity_certificate", "m_rep_24_certificate", "source_endpoint_separation"],
-      "imported_results": ["standard_electroweak_display_conventions"],
+      "assumptions": [
+        "selected_public_endpoint_branch",
+        "R_EW_capacity_certificate",
+        "m_rep_24_certificate",
+        "source_endpoint_separation"
+      ],
+      "imported_results": [
+        "standard_electroweak_display_conventions"
+      ],
       "oph_specific_delta": "The hierarchy exponent is supplied by the 24-slot oriented repair register and the exact capacity bridge rather than by a fitted weak-scale input.",
       "novelty_type": "quantitative_derivation",
-      "evidence": ["paper/deriving_the_particle_zoo_from_observer_consistency.tex", "code/particles/hierarchy/manifest.json"],
+      "evidence": [
+        "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+        "code/particles/hierarchy/manifest.json"
+      ],
       "falsifier": "The capacity bridge residual cannot be certified, the 24-slot register proof fails, or the hidden target enters upstream.",
       "scope_if_false": "The hierarchy solution falls; the recovered gauge quotient and cosmological capacity branch remain separate unless they import the failed bridge.",
       "status": "proved_on_branch"
@@ -162,11 +298,20 @@
       "statement": "The fine-structure branch is organized by a local screen-cell fixed point whose source calculation is separated from the same-scheme hadronic endpoint transport.",
       "owner_paper": "extra/fine_structure_constant_derivation.tex",
       "tier": "quantitative_closure_with_empirical_endpoint_boundary",
-      "assumptions": ["declared_pixel_map", "Maxwell_endpoint_lane", "same_scheme_hadronic_transport_boundary"],
-      "imported_results": ["Maxwell_electromagnetic_endpoint", "standard_running_alpha_spectral_logic"],
+      "assumptions": [
+        "declared_pixel_map",
+        "Maxwell_endpoint_lane",
+        "same_scheme_hadronic_transport_boundary"
+      ],
+      "imported_results": [
+        "Maxwell_electromagnetic_endpoint",
+        "standard_running_alpha_spectral_logic"
+      ],
       "oph_specific_delta": "OPH ties the outside cell-area coordinate to the inside electromagnetic observation scale and isolates the low-energy QCD endpoint gap.",
       "novelty_type": "quantitative_branch_accounting",
-      "evidence": ["extra/fine_structure_constant_derivation.tex"],
+      "evidence": [
+        "extra/fine_structure_constant_derivation.tex"
+      ],
       "falsifier": "The source map imports the Thomson target, the fixed point is nonunique, or the hadronic endpoint gap cannot be represented in the stated scheme.",
       "scope_if_false": "The fine-structure endpoint claim is downgraded; the structural OPH core and separate hierarchy branch are not automatically affected.",
       "status": "source_branch_with_endpoint_boundary"
@@ -176,11 +321,22 @@
       "statement": "The OPH dark-sector continuation models dark gravity as transported record-repair collar stress, with a MOND-like settled-galaxy limit and separate cluster/cosmology contracts.",
       "owner_paper": "cosmology/oph_dark_matter_paper.tex",
       "tier": "phenomenological_continuation",
-      "assumptions": ["dark_sector_collar_remainder", "galaxy_equilibrium_limit", "transported_stress_dynamics", "joint_likelihood_contract"],
-      "imported_results": ["MOND_RAR_phenomenology", "LCDM_observational_targets", "weak_lensing_and_CMB_benchmarks"],
+      "assumptions": [
+        "dark_sector_collar_remainder",
+        "galaxy_equilibrium_limit",
+        "transported_stress_dynamics",
+        "joint_likelihood_contract"
+      ],
+      "imported_results": [
+        "MOND_RAR_phenomenology",
+        "LCDM_observational_targets",
+        "weak_lensing_and_CMB_benchmarks"
+      ],
       "oph_specific_delta": "The missing gravitating sector is identified with electromagnetically dark observer-repair stress rather than a new luminous charge carrier.",
       "novelty_type": "phenomenological_continuation",
-      "evidence": ["cosmology/oph_dark_matter_paper.tex"],
+      "evidence": [
+        "cosmology/oph_dark_matter_paper.tex"
+      ],
       "falsifier": "A frozen joint galaxy, cluster, CMB, BAO, lensing, and growth likelihood excludes the declared transport law.",
       "scope_if_false": "The dark-sector continuation falls; the recovered relativity and Standard Model core survive unless they import this stress law.",
       "status": "work_in_progress"
@@ -190,11 +346,23 @@
       "statement": "On the support-visible compact-gauge branch, the Yang-Mills mass gap is identified with the OPH repair gap.",
       "owner_paper": "extra/yang_mills_gap_clay_problem.tex",
       "tier": "branch_theorem_conditional_on_construction",
-      "assumptions": ["support_visible_compact_gauge_extraction", "reflection_positive_vacuum", "exact_local_repair", "uniform_repair_gap"],
-      "imported_results": ["compact_Yang_Mills_target", "Osterwalder_Schrader_reconstruction", "standard_compact_gauge_language"],
+      "assumptions": [
+        "support_visible_compact_gauge_extraction",
+        "reflection_positive_vacuum",
+        "exact_local_repair",
+        "uniform_repair_gap"
+      ],
+      "imported_results": [
+        "compact_Yang_Mills_target",
+        "Osterwalder_Schrader_reconstruction",
+        "standard_compact_gauge_language"
+      ],
       "oph_specific_delta": "Exact repair collars supply a positive Euclidean relaxation generator whose gap transfers to the compact-gauge Hamiltonian.",
       "novelty_type": "problem_solution_on_declared_branch",
-      "evidence": ["extra/yang_mills_gap_clay_problem.tex", "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex"],
+      "evidence": [
+        "extra/yang_mills_gap_clay_problem.tex",
+        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex"
+      ],
       "falsifier": "The support-visible compact-gauge continuum construction fails, reflection positivity fails, or the uniform repair gap is absent.",
       "scope_if_false": "The Clay-facing Yang-Mills claim falls; compact gauge reconstruction may survive without the mass-gap theorem.",
       "status": "proved_on_branch"
@@ -204,11 +372,19 @@
       "statement": "The coherent-matter susceptibility note translates the OPH dark-sector scalar channel into a laboratory construction window.",
       "owner_paper": "extra/chi_nu_susceptibility_bounds.tex",
       "tier": "experimental_continuation_target",
-      "assumptions": ["canonical_dark_sector_scalar_channel", "coherent_matter_source_branch", "engineering_chart_capacity_factor"],
-      "imported_results": ["basic_material_response_bookkeeping"],
+      "assumptions": [
+        "canonical_dark_sector_scalar_channel",
+        "coherent_matter_source_branch",
+        "engineering_chart_capacity_factor"
+      ],
+      "imported_results": [
+        "basic_material_response_bookkeeping"
+      ],
       "oph_specific_delta": "The invariant collar susceptibility is separated from the engineering response coefficient used in platform design.",
       "novelty_type": "experimental_target",
-      "evidence": ["extra/chi_nu_susceptibility_bounds.tex"],
+      "evidence": [
+        "extra/chi_nu_susceptibility_bounds.tex"
+      ],
       "falsifier": "Controlled substrates fail to produce the required coherent contrast under the declared controls.",
       "scope_if_false": "The coherent-matter construction branch falls; the dark-sector theory is affected only if it depends on the same source branch.",
       "status": "work_in_progress"
@@ -218,11 +394,25 @@
       "statement": "The string-vacuum selector paper treats string theory as an effective OPH edge language and tests a Bouchard-Donagi massless-cohomology candidate against OPH gates.",
       "owner_paper": "extra/observer_patch_holography_as_string_vacuum_selector.tex",
       "tier": "conditional_selector_continuation",
-      "assumptions": ["OPH_recovered_core_target_vector", "heterotic_critical_edge_certificate", "one_Higgs_Bouchard_Donagi_massless_cohomology_candidate", "operator_safety_realization_gate", "threshold_spectrum_and_decoupling_gate", "moduli_locking_gate"],
-      "imported_results": ["heterotic_standard_model_candidate_literature", "string_compactification_language"],
+      "assumptions": [
+        "OPH_recovered_core_target_vector",
+        "heterotic_critical_edge_certificate",
+        "one_Higgs_Bouchard_Donagi_massless_cohomology_candidate",
+        "operator_safety_realization_gate",
+        "threshold_spectrum_and_decoupling_gate",
+        "moduli_locking_gate"
+      ],
+      "imported_results": [
+        "heterotic_standard_model_candidate_literature",
+        "string_compactification_language"
+      ],
       "oph_specific_delta": "OPH supplies the target vector and gates that a known string representative must satisfy without retuning.",
       "novelty_type": "selector_continuation",
-      "evidence": ["extra/observer_patch_holography_as_string_vacuum_selector.tex", "code/particles/runs/uv/oph_bd_threshold_spectrum/manifest.json", "code/particles/runs/uv/oph_bd_threshold_spectrum/threshold_spectrum_certificate.json"],
+      "evidence": [
+        "extra/observer_patch_holography_as_string_vacuum_selector.tex",
+        "code/particles/runs/uv/oph_bd_threshold_spectrum/manifest.json",
+        "code/particles/runs/uv/oph_bd_threshold_spectrum/threshold_spectrum_certificate.json"
+      ],
       "falsifier": "The candidate cannot realize the critical edge, OPH target vector, safety layer, thresholds, decoupling, or moduli locking on the same branch.",
       "scope_if_false": "Failure blocks OPH-correct promotion of the named BD candidate; the OPH recovered core and other string candidates remain separate.",
       "status": "work_in_progress"
@@ -232,11 +422,22 @@
       "statement": "The photonic proof-of-work paper defines an exact-verifier test contract for OPH-style candidate enrichment in SHA-256d mining.",
       "owner_paper": "extra/Photonic_fixed-point_consensus_for_SHA-256d_proof_of_work.tex",
       "tier": "hardware_evidence_protocol",
-      "assumptions": ["exact_SHA256d_verifier", "blinded_routes", "label_shuffle_controls", "public_receipts"],
-      "imported_results": ["SHA256d_specification", "ideal_hash_baseline", "proof_of_work_verification"],
+      "assumptions": [
+        "exact_SHA256d_verifier",
+        "blinded_routes",
+        "label_shuffle_controls",
+        "public_receipts"
+      ],
+      "imported_results": [
+        "SHA256d_specification",
+        "ideal_hash_baseline",
+        "proof_of_work_verification"
+      ],
       "oph_specific_delta": "A physical patch machine proposes candidates whose enrichment is judged only by the exact digital verifier and controls.",
       "novelty_type": "experimental_protocol",
-      "evidence": ["extra/Photonic_fixed-point_consensus_for_SHA-256d_proof_of_work.tex"],
+      "evidence": [
+        "extra/Photonic_fixed-point_consensus_for_SHA-256d_proof_of_work.tex"
+      ],
       "falsifier": "Blinded verifier receipts show no enrichment beyond controls, or controls reveal route leakage or operator alignment.",
       "scope_if_false": "The hardware enrichment branch falls; no cryptographic break or OPH core theorem is implied.",
       "status": "experimental_protocol"
@@ -246,26 +447,60 @@
       "statement": "The IBM issue-509 protocol defines a blinded finite self-reading repair instrument whose complete transition records can be compared with matched open-loop heat, calibrated-noise, label, and decoy kernels without preparing the target law in the initial amplitudes.",
       "owner_paper": "code/ibm_quantum_cloud/protocols/BLINDED_GENERATIVE_REPAIR_KERNEL.md",
       "tier": "hardware_experiment_protocol",
-      "assumptions": ["finite_patch_net", "self_read", "durable_records", "mismatch_repair", "blinded_routes", "label_shuffle_controls", "public_receipts"],
-      "imported_results": ["finite_Markov_chain_theory", "Born_Luders_measurement", "dynamic_quantum_circuits", "likelihood_and_Bayes_factor_model_comparison"],
+      "assumptions": [
+        "finite_patch_net",
+        "self_read",
+        "durable_records",
+        "mismatch_repair",
+        "blinded_routes",
+        "label_shuffle_controls",
+        "public_receipts"
+      ],
+      "imported_results": [
+        "finite_Markov_chain_theory",
+        "Born_Luders_measurement",
+        "dynamic_quantum_circuits",
+        "likelihood_and_Bayes_factor_model_comparison"
+      ],
       "oph_specific_delta": "A bounded group-mismatch patch reads its own disturbed state, writes a durable descent record, conditions its repair move on that record, and publishes the complete transition and reveal receipts.",
       "novelty_type": "blinded_hardware_experiment_protocol",
-      "evidence": ["code/ibm_quantum_cloud/protocols/BLINDED_GENERATIVE_REPAIR_KERNEL.md", "code/ibm_quantum_cloud/programs/generative_repair_kernel.py", "code/ibm_quantum_cloud/programs/record_gated_cayley_circuits.py"],
+      "evidence": [
+        "code/ibm_quantum_cloud/protocols/BLINDED_GENERATIVE_REPAIR_KERNEL.md",
+        "code/ibm_quantum_cloud/programs/generative_repair_kernel.py",
+        "code/ibm_quantum_cloud/programs/record_gated_cayley_circuits.py"
+      ],
       "falsifier": "A valid two-system blinded run favors the frozen open-loop or other nulls, excludes the full calibrated repair transition law, or shows that shuffled labels and decoys match the semantic controller.",
       "scope_if_false": "The reduced-sector self-reading hardware kernel falls; no OPH core theorem, Einstein, Standard Model, or cosmology branch is decided.",
       "status": "implemented_pre_hardware_preregistration_pending",
-      "github_gates": [509, 325, 507, 512]
+      "github_gates": [
+        509,
+        325,
+        507,
+        512
+      ]
     },
     {
       "claim_id": "OPH-THINKING-PATCH",
       "statement": "The thinking paper models cognition as biological fixed-point consensus in a self-reading recurrent patch federation.",
       "owner_paper": "extra/thinking_as_patch_net_fixed_point_search.tex",
       "tier": "cognitive_continuation_model",
-      "assumptions": ["bounded_interfaces", "durable_records", "self_read", "mismatch_repair", "biological_instantiation"],
-      "imported_results": ["recurrent_networks", "predictive_coding", "attractor_dynamics"],
+      "assumptions": [
+        "bounded_interfaces",
+        "durable_records",
+        "self_read",
+        "mismatch_repair",
+        "biological_instantiation"
+      ],
+      "imported_results": [
+        "recurrent_networks",
+        "predictive_coding",
+        "attractor_dynamics"
+      ],
       "oph_specific_delta": "The OPH patch-net normal-form computation is used as the shared abstract machine for brains, observer patches, and hardware comparison.",
       "novelty_type": "cross_substrate_model",
-      "evidence": ["extra/thinking_as_patch_net_fixed_point_search.tex"],
+      "evidence": [
+        "extra/thinking_as_patch_net_fixed_point_search.tex"
+      ],
       "falsifier": "Biological cognition cannot be mapped to bounded interfaces, self-read, records, and repair toward stable normal forms under the stated model.",
       "scope_if_false": "The cognitive continuation falls; physical OPH branches remain independent.",
       "status": "interpretive_model"
@@ -275,11 +510,19 @@
       "statement": "The paradise essay reads OPH record continuation and repair as a destination law for observer records.",
       "owner_paper": "paper/paradise_as_fixed_point_consensus.tex",
       "tier": "speculative_interpretation",
-      "assumptions": ["observer_record_continuation", "ethical_record_reading", "destination_environment_model"],
-      "imported_results": ["religious_and_philosophical_destination_language"],
+      "assumptions": [
+        "observer_record_continuation",
+        "ethical_record_reading",
+        "destination_environment_model"
+      ],
+      "imported_results": [
+        "religious_and_philosophical_destination_language"
+      ],
       "oph_specific_delta": "Resurrection, judgment, paradise, and hell are translated into record continuation, placement, repaired participation, and failed repair.",
       "novelty_type": "interpretation",
-      "evidence": ["paper/paradise_as_fixed_point_consensus.tex"],
+      "evidence": [
+        "paper/paradise_as_fixed_point_consensus.tex"
+      ],
       "falsifier": "The OPH record-continuation framework cannot support identity preservation or destination assignment even as an interpretation.",
       "scope_if_false": "The meaning-layer essay falls; physics theorem surfaces remain unaffected.",
       "status": "speculative_interpretation"
