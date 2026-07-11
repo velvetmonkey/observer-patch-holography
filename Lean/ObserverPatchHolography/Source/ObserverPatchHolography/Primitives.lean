@@ -80,12 +80,15 @@ no `native_decide`, no new axiom; CI checks that `lake build` emits zero
 
 `sorry`-free is **not** "repair theory fully closed". Explicitly:
 
-* `Completeness` for the constructed operator is **not** claimed. The
-  operator fires only when a site can satisfy all of its overlaps at once,
-  so on *frustrated* carriers (a broken incident edge but no single-site
-  fix) a broken record can be a normal form. `Completeness` holds exactly on
-  frustration-free dynamics; that is the content of the conditional `H1`–`H3`
-  development below, which remains the general statement.
+* `Completeness` for the constructed operator is claimed **exactly on
+  frustration-free dynamics** (`completeness_of_frustrationFree`, obtained by
+  instantiating the conditional `H1`–`H3` development with the constructed
+  move; positive instance `demoCarrier_complete`). The operator fires only
+  when a site can satisfy all of its overlaps at once, so on *frustrated*
+  carriers a broken record can be a normal form — and that conditionality is
+  provably necessary: `frustratedCarrier_not_complete` exhibits a carrier
+  where the file's `Completeness` is false. The `Consistent → NormalForm`
+  direction is unconditional (`normalForm_of_consistent`).
 * `Confluence` is **not** claimed — and is false in general:
   `demoCarrier_not_confluent` below exhibits a non-confluent instance. The
   constructed `Repair` is one canonical (choice-selected) schedule; its
@@ -860,8 +863,8 @@ variable (lr : C.Patch → Records C → Records C)
 
 /-- One accepted asynchronous repair step *for the abstract move `lr`*: some
     site's local move changes the record. Self-contained analogue of the file's
-    `acceptedStep`, but over the hypothesis-bearing `lr`, so this section never
-    touches the `sorry`-defined `localRepair`. -/
+    `acceptedStep`, but over the hypothesis-bearing `lr`, so this section is
+    independent of the constructed `localRepair`. -/
 def acceptedStepLR (x y : Records C) : Prop :=
   ∃ i : C.Patch, y = lr i x ∧ lr i x ≠ x
 
@@ -1500,5 +1503,157 @@ repair layer audited above; the file's formerly-declared `sorry`s are discharged
 #print axioms demoCarrier_dir_observer_unique_under_seed
 #print axioms termination
 #print axioms completeness
+
+/-! ## Completeness for the constructed repair (conditional, with necessity witness)
+
+The file's `Completeness` obligation (`NormalForm ↔ Consistent`) is discharged
+for the constructed `localRepair` **exactly on frustration-free dynamics**, by
+instantiating the abstract `H1`–`H3` development above with the constructed
+move (under frustration-freeness the firing characterisation strengthens to
+the full `H2` iff). The conditionality is not a proof deficiency but a
+property of the model, and it is **provably necessary**: `frustratedCarrier`
+below is a carrier on which every record is a normal form and none is
+consistent, so unconditional `Completeness` is false there. The
+`Consistent → NormalForm` direction holds unconditionally
+(`normalForm_of_consistent`), and `demoCarrier` is frustration-free, so
+`demoCarrier_complete` is a genuine, non-vacuous positive instance. -/
+
+/-- Frustration-freeness of a carrier's dynamics: whenever a site has a
+    broken incident overlap, some single replacement state satisfies *all* of
+    its incident overlaps at once. This is exactly the regime in which the
+    paper's "normal forms = consistent states" reading is available; outside
+    it a frustrated site is permanently stuck and broken normal forms exist
+    (`frustratedCarrier_not_complete`). -/
+def FrustrationFree (C : OPHCarrier) : Prop :=
+  ∀ (i : C.Patch) (x : Records C), LocalTrigger i x → LocallySolvable i x
+
+/-- Under frustration-freeness the constructed move satisfies the full `H2`
+    trigger law: it fires *iff* an edge incident to the site is broken. -/
+theorem localRepair_H2_of_frustrationFree {C : OPHCarrier} (h : FrustrationFree C) :
+    ∀ (i : C.Patch) (x : Records C),
+      localRepair C i x ≠ x ↔
+        ∃ e : C.Edge, (C.src e = i ∨ C.tgt e = i) ∧ ¬ edgeConsistentAt e x := by
+  intro i x
+  rw [localRepair_ne_iff]
+  exact ⟨fun hc => hc.1, fun ht => ⟨ht, h i x ht⟩⟩
+
+/-- **`Consistent → NormalForm`, unconditional.** A zero-mismatch record has
+    no broken edge, so no site triggers and no accepted step applies. -/
+theorem normalForm_of_consistent {C : OPHCarrier} (x : Records C)
+    (hx : Consistent C x) : NormalForm C x := by
+  intro y hstep
+  obtain ⟨i, _, hfire⟩ := hstep
+  obtain ⟨e₀, _, hbrk₀⟩ := ((localRepair_ne_iff C i x).1 hfire).1
+  exact hbrk₀ ((consistent_iff_edgeConsistent C x).1 hx e₀)
+
+/-- **The file's `Completeness` obligation, discharged for the constructed
+    operator on frustration-free dynamics.** Proved by instantiating the
+    abstract `H1`–`H3` completeness theorem with `localRepair` itself
+    (`H1` = `localRepair_apply_of_ne`, `H2` = the frustration-free firing
+    law, `H3` = `localRepair_repairs`) — the constructed move is a model of
+    the local laws, not a parallel development. -/
+theorem completeness_of_frustrationFree {C : OPHCarrier} (h : FrustrationFree C) :
+    Completeness C :=
+  fun x =>
+    completeness (localRepair C) (localRepair_apply_of_ne C)
+      (localRepair_H2_of_frustrationFree h) (localRepair_repairs C) x
+
+/-- `demoCarrier` is frustration-free: a patch can always copy its
+    neighbour's value, satisfying its single edge. -/
+theorem demoCarrier_frustrationFree : FrustrationFree demoCarrier := by
+  intro i x ht
+  obtain ⟨e, _, hbrk⟩ := ht
+  -- The trigger's broken edge means the two patches disagree, so the
+  -- neighbour-copy move `demoLR` genuinely fires ...
+  have hfire : demoLR i x ≠ x := by
+    rw [ne_eq, demoLR_eq_self_iff]
+    intro hxi
+    apply hbrk
+    show x false = x true
+    cases i
+    · exact hxi.symm
+    · exact hxi
+  -- ... and `demoLR i x` IS `Function.update x i (x (!i))` definitionally,
+  -- so `demoLR_H3` says the copied value satisfies every incident edge.
+  exact ⟨x (!i), fun e' hinc' => demoLR_H3 i x hfire e' hinc'⟩
+
+/-- **Positive instance:** the two-patch copy carrier satisfies the file's
+    `Completeness` obligation outright. -/
+theorem demoCarrier_complete : Completeness demoCarrier :=
+  completeness_of_frustrationFree demoCarrier_frustrationFree
+
+/-! ### Necessity witness: `Completeness` genuinely needs frustration-freeness -/
+
+/-- A frustrated carrier: one patch carrying one self-loop edge whose two
+    projections can never agree (`s` on one end, `!s` on the other). No
+    record is consistent, and no single-site move can help, so every record
+    is a (broken) normal form. -/
+def frustratedCarrier : OPHCarrier where
+  Patch := Unit
+  State := fun _ => Bool
+  Edge := Unit
+  src := fun _ => ()
+  tgt := fun _ => ()
+  Iface := fun _ => Bool
+  projSrc := fun _ s => s
+  projTgt := fun _ s => !s
+  weight := fun _ => 1
+  dist := fun _ a b => if a = b then 0 else 1
+  weight_pos := fun _ => one_pos
+  dist_eq_zero := by
+    intro _ a b
+    by_cases h : a = b
+    · rw [if_pos h]; exact ⟨fun _ => h, fun _ => rfl⟩
+    · rw [if_neg h]; exact ⟨fun h1 => absurd h1 one_ne_zero, fun h2 => absurd h2 h⟩
+
+/-- No `frustratedCarrier` record is consistent: the self-loop demands
+    `b = !b`. -/
+theorem frustratedCarrier_no_consistent (x : Records frustratedCarrier) :
+    ¬ Consistent frustratedCarrier x := by
+  rw [consistent_iff_edgeConsistent]
+  intro h
+  have h0 : (x () : Bool) = !(x ()) := h ()
+  cases hb : (x () : Bool) <;> rw [hb] at h0 <;> exact Bool.noConfusion h0
+
+/-- No site of `frustratedCarrier` is ever locally solvable: no single state
+    can satisfy the self-loop. -/
+theorem frustratedCarrier_not_locallySolvable
+    (i : frustratedCarrier.Patch) (x : Records frustratedCarrier) :
+    ¬ LocallySolvable i x := by
+  rintro ⟨s, hs⟩
+  have h0 : (Function.update x i s () : Bool) = !(Function.update x i s ()) :=
+    hs () (Or.inl rfl)
+  cases hb : (Function.update x i s () : Bool) <;> rw [hb] at h0 <;>
+    exact Bool.noConfusion h0
+
+/-- Every `frustratedCarrier` record is a normal form: the constructed move
+    honestly refuses to fire on an unsatisfiable neighbourhood. -/
+theorem frustratedCarrier_all_normalForm (x : Records frustratedCarrier) :
+    NormalForm frustratedCarrier x := by
+  intro y hstep
+  obtain ⟨i, _, hfire⟩ := hstep
+  exact frustratedCarrier_not_locallySolvable i x
+    ((localRepair_ne_iff frustratedCarrier i x).1 hfire).2
+
+/-- **Necessity of the frustration-freeness hypothesis.** On the frustrated
+    carrier the file's `Completeness` fails outright: the all-`true` record
+    is a normal form but not consistent. So `completeness_of_frustrationFree`
+    is sharp — the conditionality cannot be dropped. -/
+theorem frustratedCarrier_not_complete : ¬ Completeness frustratedCarrier :=
+  fun h =>
+    frustratedCarrier_no_consistent (fun _ => true)
+      ((h (fun _ => true)).1 (frustratedCarrier_all_normalForm (fun _ => true)))
+
+/-! ### Axiom audit — the conditional completeness layer is admission-free. -/
+#print axioms FrustrationFree
+#print axioms localRepair_H2_of_frustrationFree
+#print axioms normalForm_of_consistent
+#print axioms completeness_of_frustrationFree
+#print axioms demoCarrier_frustrationFree
+#print axioms demoCarrier_complete
+#print axioms frustratedCarrier_no_consistent
+#print axioms frustratedCarrier_not_locallySolvable
+#print axioms frustratedCarrier_all_normalForm
+#print axioms frustratedCarrier_not_complete
 
 end OPH
