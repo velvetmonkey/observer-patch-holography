@@ -96,6 +96,10 @@ The Lorentzian branch, Einstein recovery, and the realized Standard Model gauge 
 above are imported from \cite{ophcompact} with their stated branch conditions. That same paper also derives the hypercharge lattice and
 the realized color triplet \(N_c=3\) and generation count \(N_g=3\). This paper uses those results as input and summarizes only the
 downstream particle-spectrum continuation. If that derivation is correct, it should also constrain the particle spectrum.
+The substrate-neutral normal-form framework of Ref.~\cite{observableNormalForms} isolates the
+same-source confluence, cross-source boundary-identification, liveness, and refinement criteria
+used upstream.  It supplies no particle-sector selector or numerical particle output; every such
+claim below remains conditional on the compact-paper branch and the particle-specific receipts.
 
 The particle branch studied here is a one-fixed-point forward reconstruction problem with an
 explicit closure matrix. Instead of treating masses, mixings, and Yukawa parameters as independent
@@ -2919,7 +2923,7 @@ Both values exceed the two-parameter \(3\sigma\) contour value \(11.83\). Separa
 interval checks had hidden this correlation. The published profiles overlap and are not summed;
 their maximum is a lower bound on the unavailable full fixed-candidate \(\Delta\chi^2\).
 
-Transporting the weighted-cycle Majorana matrix through the declared shared same-label basis gives
+The historical shared-basis construction set
 \[
 M_{\mathrm{shared}}=U_{e,\mathrm{left}}^*\,M_{\mathrm{wc}}\,U_{e,\mathrm{left}}^\dagger,
 \qquad
@@ -2929,13 +2933,38 @@ the identity
 \[
 U_{e,\mathrm{left}}^\dagger U_{\nu,\mathrm{shared}}=U_{\mathrm{wc}}.
 \]
-This cancellation checks the chosen representation; it does not independently identify the
-physical charged-lepton basis or validate the PMNS point. Canonical Takagi congruence of the
-transported symmetric matrix, with
+This cancellation is a tautology because \(U_{\nu,\mathrm{shared}}\) was defined as
+\(U_{e,\mathrm{left}}U_{\mathrm{wc}}\). It does not independently identify the physical
+charged-lepton basis or validate the PMNS point. No theorem in the current stack places the
+\(f\)-labelled weighted-cycle operator in the charged-lepton mass basis.
+
+Taking the stored basis declarations literally gives a sharply different diagnostic. Reordering
+\(M_{\mathrm{wc}}\) from \([f3,f1,f2]\) to the independently declared shared basis
+\([f1,f2,f3]\), computing its Takagi matrix \(U_\nu^{(f)}\), and then forming
+\(U_{e,\mathrm{left}}^\dagger U_\nu^{(f)}\) yields
 \[
-U_{\mathrm{PMNS}}^T M_{\mathrm{shared}} U_{\mathrm{PMNS}}=\operatorname{diag}(m_i)\in\mathbb R_{>0}
+\theta_{12}=38.6812^\circ,
+\qquad
+\theta_{23}=76.2759^\circ,
+\qquad
+\theta_{13}=44.8283^\circ,
 \]
-and the electron-row gauge \(U_{e1}\in\mathbb R_{>0}\), gives the candidate Majorana pair
+with \(\delta=324.2140^\circ\) and \(J=-0.0233164\). In particular,
+\(\sin^2\theta_{13}=0.4970\) and \(\sin^2\theta_{23}=0.9437\), both outside the corresponding
+NuFIT 6.1 profile grids. This is a diagnostic conditional on the current stored matrices and label
+order. It is not a source-closed prediction because the charged basis and family kernel also
+descend from template-level inputs.
+
+The correct transported Takagi identity is
+\[
+U_{\nu,\mathrm{shared}}^T M_{\mathrm{shared}} U_{\nu,\mathrm{shared}}
+=\operatorname{diag}(m_i)\in\mathbb R_{>0}.
+\]
+Equivalently, \(U_{\mathrm{wc}}^T M_{\mathrm{wc}}U_{\mathrm{wc}}\) is diagonal in the basis where
+\(M_{\mathrm{wc}}\) was declared. The earlier expression with \(U_{\mathrm{PMNS}}^T
+M_{\mathrm{shared}}U_{\mathrm{PMNS}}\) was algebraically false. Canonical Takagi readout under the
+declared charged-basis assumption and the electron-row gauge \(U_{e1}\in\mathbb R_{>0}\) gives the
+comparison-only Majorana pair
 \[
 \alpha_{21}^{(\mathrm{Maj})}=153.6185177794357^\circ,
 \qquad
@@ -4279,6 +4308,13 @@ neutrino comparison tension, source-only hadron backend rows, and empirical hadr
 \input{tex_fragments/PARTICLE_TECHNICAL_SUPPLEMENT_PORT.tex}
 
 \begin{thebibliography}{9}
+
+\bibitem{observableNormalForms}
+B.\ M\"uller, D.\ Matscheko, and J.\ Hill,
+\emph{Observation-Determined Normal Forms: Stability, Obstructions, and Refinement in Constraint
+and Rewrite Systems},
+2026.\\
+Available at \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/observable_normal_forms.pdf}.
 
 \bibitem{ophsynthesis}
 B.\ M\"uller, A.\ Osika, M.\ Poneder, K.\ Xue, B.\ Cassie, P.\ Nguyen, M.\ A.\ Visser, K.\ A.\ Anirudha, D.\ Matscheko, and J.\ Hill,

@@ -290,7 +290,7 @@ The following are equivalent.
   \end{enumerate}
 \item $B|_C:C\to B(C)$ is a bijection.
 \end{enumerate}
-If all observation values under consideration are realizable, $N$ is a total idempotent retraction $Q\to C$ preserving $B$.
+If $B(Q)\subseteq B(C)$, then $N$ is a total idempotent retraction $Q\to C$ preserving $B$.
 \end{theorem}
 
 \begin{proof}
@@ -733,11 +733,11 @@ Apply \cref{thm:master-bound} stagewise and take suprema.  At zero residual, \cr
 \end{proof}
 
 \begin{example}[Stagewise uniqueness without uniform stability]\label{ex:nonuniform}
-Let $C_n=Q_n=\{0,1\}$ with discrete state distance, and let $B_n(0)=0$, $B_n(1)=1/n$ in $\mathbb R$.  Every $B_n$ is injective, yet for every $r>0$ one has $\sup_n\omega_{B_n}(r)=1$.  Thus exact uniqueness at every finite stage does not supply a stable refinement limit.
+For $n\ge1$, let $C_n=Q_n=\{0,1\}$ with discrete state distance, and let $B_n(0)=0$, $B_n(1)=1/n$ in $\mathbb R$.  Every $B_n$ is injective, yet for every $r>0$ one has $\sup_n\omega_{B_n}(r)=1$.  Thus exact uniqueness at every finite stage does not supply a stable refinement limit.
 \end{example}
 
 \begin{example}[Stagewise error bounds without a uniform error bound]\label{ex:nonuniform-residual}
-Let $Q_n=\{0,1\}$ with the discrete metric, let $C_n=\{0\}$, let $B_n$ be
+For $n\ge1$, let $Q_n=\{0,1\}$ with the discrete metric, let $C_n=\{0\}$, let $B_n$ be
 constant, and put
 \[
  \Phi_n(0)=0,\qquad \Phi_n(1)=1/n.
@@ -755,7 +755,7 @@ Let $I$ be nonempty and finite.  For each $i\in I$, let
 \[
  \mathfrak S_i=(Q_i,C_i,\cB_i,B_i,\Phi_i)
 \]
-be a nonempty finite metric system.  Form the parallel product
+be a finite metric system with $C_i\ne\varnothing$.  Form the parallel product
 \[
  Q=\prod_{i\in I}Q_i,
  \quad C=\prod_{i\in I}C_i,
@@ -868,7 +868,17 @@ Both sides are consistent coarse states with the same coarse observation.  Recon
 \end{proof}
 
 \begin{corollary}[Stability under perturbation of the consistency model]\label{cor:model-perturbation}
-Let $(Q,d_Q)$ carry two nonempty compact consistent sets $C$ and $\widetilde C$, two observation maps $B,\widetilde B:Q\to\cB$, and total observation-preserving normalizers $N,\widetilde N$.  Suppose
+Let $(Q,d_Q)$ carry two nonempty compact consistent sets $C$ and $\widetilde C$, two observation maps $B,\widetilde B:Q\to\cB$, and total maps $N,\widetilde N:Q\to Q$ satisfying
+\[
+ N(Q)\subseteq C,
+ \qquad
+ \widetilde N(Q)\subseteq\widetilde C,
+ \qquad
+ B\circ N=B,
+ \qquad
+ \widetilde B\circ\widetilde N=\widetilde B.
+\]
+Suppose
 \[
  d_H(C,\widetilde C)\le\alpha,
  \qquad
@@ -1877,8 +1887,8 @@ The accompanying standalone Lean artifact proves these exact width-three stateme
 \section{Formal artifact and coverage}\label{sec:lean}
 
 The accompanying \texttt{ObservableNormalForms} directory is a standalone
-Lean~4 project.  It pins Lean and Mathlib at version~4.29.1, includes an
-immutable Lake manifest, and builds both on its own and as a library of the
+Lean~4 project.  It pins Lean and Mathlib at version~4.29.1, includes a
+pinned, checksummed Lake manifest, and builds both on its own and as a library of the
 parent formalization repository.  Its theorem-bearing files contain no
 \texttt{sorry} or \texttt{admit}.  The recorded \texttt{\#print axioms}
 reports contain only standard Mathlib axioms---\texttt{propext},
@@ -1892,7 +1902,8 @@ reports contain only standard Mathlib axioms---\texttt{propext},
 \textbf{Module} & \textbf{Machine-checked coverage}\\
 \midrule
 \texttt{Exact}
-& Proof-carrying partial normalizers, the universal property, reachable
+& Proof-carrying partial normalizers, the (a)$\Leftrightarrow$(b)
+partial-normalizer equivalence, reachable
 observable fibers, the empty/singleton alternatives, audited terminals, and
 the observation-leak counterexample.\\
 \texttt{ObserverConfluence}
@@ -1911,7 +1922,7 @@ anchored and nested metric cores.\\
 & The collar-section criterion, no-repair and robust-margin certificates, and
 counterexamples showing why the nonempty-domain hypotheses are necessary.\\
 \texttt{ConditionalResampling}
-& The finite weighted fiber kernel in
+& The finite algebraic characterization of the weighted fiber kernel in
 \cref{thm:fiber-conditional-expectation}, observation-measurable fixed space,
 idempotence, weighted self-adjointness, a Pythagorean identity, and weighted
 $L^2$ contraction, together with the exact R1--R3 matrix-recognition
@@ -1958,7 +1969,7 @@ separates two burdens that are often mixed.  A rewrite algorithm, numerical solv
 
 \subsection{Why finite uniqueness is not enough}
 
-In a refinement program, proving $B_r|_{C_r}$ injective for every $r$ does not prevent the inverse condition number from diverging.  \Cref{ex:nonuniform} is deliberately minimal.  The correct limit-facing statement is uniform stable separation, not a list of stagewise singleton claims.  This is the main strengthening contributed to refinement-sensitive applications.
+In a refinement program, proving $B_r|_{C_r}$ injective for every $r$ does not prevent the inverse condition number from diverging.  \Cref{ex:nonuniform} is deliberately minimal.  The correct limit-facing statement is uniform stable separation, not a list of stagewise singleton claims.  This is the main stability requirement emphasized for refinement-sensitive applications.
 
 \subsection{Limitations}
 

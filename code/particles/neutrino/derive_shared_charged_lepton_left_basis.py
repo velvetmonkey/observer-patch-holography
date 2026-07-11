@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Derive the neutrino-facing shared charged-lepton left basis artifact.
+"""Audit and, when justified, derive the shared charged-lepton left basis.
 
 Chain role: expose the charged-lepton left singular basis that PMNS needs on
 the same ordered family labels used by the flavor and neutrino continuation
@@ -12,7 +12,9 @@ eigenspaces of `Y_e Y_e^dagger` are unchanged by the unresolved absolute scale.
 OPH-derived inputs: the blind charged-lepton forward artifact carrying
 `Y_e_shape`, `U_e_left`, and the ordered family labels.
 
-Output: a closed shared-basis artifact for the downstream PMNS builder.
+The source must close its charged shape and have a nondegenerate singular
+spectrum.  A matrix carried by an open or nearly degenerate template remains a
+diagnostic candidate and cannot define a physical PMNS basis.
 """
 
 from __future__ import annotations
@@ -37,9 +39,18 @@ def _load_json(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def _minimum_relative_gap(values: list[float]) -> float | None:
+    if len(values) != 3:
+        return None
+    ordered = sorted(abs(float(value)) for value in values)
+    scale = max(ordered[-1], 1.0e-30)
+    return min(ordered[index + 1] - ordered[index] for index in range(2)) / scale
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Build the shared charged-lepton left basis artifact.")
     parser.add_argument("--input", default=str(DEFAULT_INPUT))
+    parser.add_argument("--minimum-relative-gap", type=float, default=1.0e-8)
     parser.add_argument("--output", default=str(DEFAULT_OUT))
     args = parser.parse_args()
 
@@ -49,11 +60,31 @@ def main() -> int:
     if labels != ["f1", "f2", "f3"] or not isinstance(u_e_left, dict):
         raise ValueError("blind charged forward artifact must expose ordered labels [f1, f2, f3] and U_e_left")
 
+    singular_values_shape = [float(value) for value in (payload.get("singular_values_shape") or [])]
+    minimum_relative_gap = _minimum_relative_gap(singular_values_shape)
+    source_closure_state = str(payload.get("closure_state") or "missing")
+    source_shape_closed = source_closure_state == "closed"
+    spectrum_nondegenerate = (
+        minimum_relative_gap is not None
+        and minimum_relative_gap >= float(args.minimum_relative_gap)
+    )
+    closed = source_shape_closed and spectrum_nondegenerate
+
     result = {
         "artifact": "oph_shared_charged_lepton_left_basis",
         "generated_utc": _timestamp(),
-        "status": "closed",
-        "theorem_status": "shape_closed_scale_invariant_left_basis",
+        "status": "closed" if closed else "open_upstream_charged_basis_not_identified",
+        "theorem_status": "shape_closed_scale_invariant_left_basis" if closed else "not_established",
+        "pmns_use_allowed": closed,
+        "public_surface_candidate_allowed": closed,
+        "source_closure_state": source_closure_state,
+        "source_shape_closed": source_shape_closed,
+        "basis_spectrum": {
+            "singular_values_shape": singular_values_shape,
+            "minimum_relative_gap": minimum_relative_gap,
+            "required_minimum_relative_gap": float(args.minimum_relative_gap),
+            "nondegenerate": spectrum_nondegenerate,
+        },
         "source_artifacts": [
             payload.get("artifact"),
             payload.get("metadata", {}).get("observable_artifact"),
@@ -62,14 +93,23 @@ def main() -> int:
         "basis_contract": {
             "labels": labels,
             "orientation_preserved": True,
+            "physical_identification_closed": closed,
         },
         "U_e_left": u_e_left,
         "scale_invariance_rule": "U_e_left(g * Y_e_shape) = U_e_left(Y_e_shape) for every real g > 0",
-        "notes": [
-            "Derived from the charged shape artifact only.",
-            "Independent of the unresolved charged absolute scale.",
-            "Usable immediately by the shared-basis PMNS builder.",
-        ],
+        "notes": (
+            [
+                "Derived from a closed charged shape with a nondegenerate singular spectrum.",
+                "Independent of the unresolved charged absolute scale.",
+                "Eligible for use by a downstream PMNS builder subject to the neutrino-side basis contract.",
+            ]
+            if closed
+            else [
+                "The input charged artifact does not close a stable physical left basis.",
+                "The stored U_e_left matrix is retained as a diagnostic candidate only.",
+                "A closed source-side charged shape with a nondegenerate singular spectrum is required before PMNS can be formed.",
+            ]
+        ),
     }
 
     out_path = Path(args.output)

@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
-"""Emit the explicit theorem object behind the repaired neutrino branch.
+"""Emit the explicit law object behind the weighted-cycle candidate.
 
-Chain role: serialize the corrected dimensionless weighted-cycle law as its own
-theorem object rather than leaving it only implicit inside the repaired branch
-builder.
+Chain role: serialize the retrospective dimensionless weighted-cycle law while
+preserving its non-theorem status.
 
 Mathematics: the repaired branch fixes the positive load segment between
 `chi = 1 + eps` and `1 + gamma_half`. On that one-dimensional affine segment,
@@ -13,8 +12,10 @@ the midpoint, so
   D_nu = (chi + 1 + gamma_half) / 2
   p_nu(gamma, eps) = 1 + gamma + eps / D_nu
 
-This object is dimensionless and does not emit the final positive absolute
-normalization scalar `lambda_nu`.
+The midpoint statement is elementary mathematics conditional on a declared
+segment.  It does not derive that segment, the exponent formula, the cycle
+operator, or its physical basis placement.  Git history also records target
+ranking before this law was promoted.
 """
 
 from __future__ import annotations
@@ -60,16 +61,28 @@ def main() -> int:
     d_nu = float(selector["selected_D_nu"])
     p_nu = float(selector["derived_quantities"]["weight_exponent_value"])
 
+    source_closed = bool((repair.get("source_closure_status") or {}).get("closed", False))
+    promotion_allowed = (
+        source_closed
+        and repair.get("source_only_prediction_eligible") is True
+        and repair.get("prediction_promotion_allowed") is True
+        and repair.get("historical_target_exposure") is False
+    )
+
     payload = {
         "artifact": "oph_neutrino_weighted_cycle_theorem_object",
         "generated_utc": _timestamp(),
-        "status": "dimensionless_weighted_cycle_theorem_object_closed",
+        "status": "retrospective_weighted_cycle_candidate_law",
+        "theorem_status": "not_established",
+        "source_closure_closed": source_closed,
+        "public_surface_candidate_allowed": False,
+        "prediction_promotion_allowed": promotion_allowed,
         "source_artifacts": {
             "overlap_edge_transport_cocycle": str(Path(args.cocycle)),
             "transport_load_selector": str(Path(args.selector)),
             "weighted_cycle_repair": str(Path(args.repair)),
         },
-        "theorem_object": {
+        "candidate_law": {
             "name": "p_nu_gamma_eps_midpoint_law",
             "statement": (
                 "On the positive affine load segment between chi = 1 + eps and 1 + gamma_half, "
@@ -95,12 +108,20 @@ def main() -> int:
             "pmns_observables": dict(repair["pmns_observables"]),
         },
         "remaining_open_object": {
-            "name": "lambda_nu",
+            "name": "source_derived_weighted_cycle_operator_and_basis_map",
             "status": "open",
             "statement": (
-                "This theorem object closes the dimensionless weighted-cycle law only. "
-                "The absolute spectrum still requires one positive normalization scalar lambda_nu > 0."
+                "A source-emitted operator, exponent law, basis placement, and pre-reference lock are required "
+                "before this construction can become a neutrino prediction."
             ),
+        },
+        "audit": {
+            "midpoint_fact_valid_conditional_on_declared_segment": True,
+            "segment_endpoints_derived_for_neutrino_transport": False,
+            "exponent_formula_derived": False,
+            "cycle_operator_derived": False,
+            "physical_basis_placement_derived": False,
+            "historical_target_exposure": bool(repair.get("historical_target_exposure", True)),
         },
     }
 

@@ -9,7 +9,7 @@ The standalone project is pinned by:
 
 - `lean-toolchain`: Lean `v4.29.1`
 - `lakefile.lean`: Mathlib `v4.29.1`
-- `lake-manifest.json`: immutable dependency revisions
+- `lake-manifest.json`: pinned, checksummed dependency revisions
 - `ObservableNormalForms.lean`: library root
 
 Build this directory directly with:

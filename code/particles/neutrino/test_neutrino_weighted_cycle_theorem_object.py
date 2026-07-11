@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate the explicit neutrino weighted-cycle theorem object."""
+"""Validate the explicit neutrino weighted-cycle candidate-law object."""
 
 from __future__ import annotations
 
@@ -17,7 +17,7 @@ SELECTOR = ROOT / "particles" / "runs" / "neutrino" / "neutrino_transport_load_s
 REPAIR = ROOT / "particles" / "runs" / "neutrino" / "neutrino_weighted_cycle_repair.json"
 
 
-def test_weighted_cycle_theorem_object_matches_live_midpoint_law() -> None:
+def test_weighted_cycle_law_object_matches_live_midpoint_without_theorem_promotion() -> None:
     with tempfile.TemporaryDirectory(prefix="oph_neutrino_theorem_object_") as tmpdir:
         out = pathlib.Path(tmpdir) / "theorem_object.json"
         subprocess.run(
@@ -38,9 +38,13 @@ def test_weighted_cycle_theorem_object_matches_live_midpoint_law() -> None:
         )
         payload = json.loads(out.read_text(encoding="utf-8"))
         assert payload["artifact"] == "oph_neutrino_weighted_cycle_theorem_object"
-        assert payload["status"] == "dimensionless_weighted_cycle_theorem_object_closed"
-        assert payload["theorem_object"]["selected_tau_nu"] == 0.5
+        assert payload["status"] == "retrospective_weighted_cycle_candidate_law"
+        assert payload["theorem_status"] == "not_established"
+        assert payload["public_surface_candidate_allowed"] is False
+        assert payload["prediction_promotion_allowed"] is False
+        assert payload["candidate_law"]["selected_tau_nu"] == 0.5
         assert abs(payload["live_inputs"]["D_nu"] - 1.127883690210334) < 1.0e-15
         assert abs(payload["live_inputs"]["p_nu"] - 1.395092021318097) < 1.0e-15
         assert abs(payload["live_outputs"]["dimensionless_ratio_dm21_over_dm32"] - 0.030721110097966534) < 1.0e-15
-        assert payload["remaining_open_object"]["name"] == "lambda_nu"
+        assert payload["remaining_open_object"]["name"] == "source_derived_weighted_cycle_operator_and_basis_map"
+        assert payload["audit"]["physical_basis_placement_derived"] is False

@@ -11,6 +11,7 @@ import pytest
 
 
 PROGRAMS = Path(__file__).resolve().parents[1] / "programs"
+sys.path.insert(0, str(PROGRAMS))
 MODULE_PATH = PROGRAMS / "record_gated_cayley_runtime.py"
 SPEC = importlib.util.spec_from_file_location("record_gated_cayley_runtime", MODULE_PATH)
 assert SPEC is not None and SPEC.loader is not None
@@ -45,9 +46,12 @@ def make_bundle_files(tmp_path: Path):
         "max_execution_time_seconds": 420,
         "max_pubs_per_job": 300,
         "shots_per_circuit": 256,
+        "shots_per_balanced_variant": 256,
+        "shots_per_mh_edge": 256,
+        "shots_per_diagnostic_calibration": 512,
         "backend_slot_count": 2,
         "logical_qubits_per_circuit": 4,
-        "classical_bits_per_circuit": 7,
+        "classical_bits_per_dynamic_circuit": 7,
         "catalog_entries_per_backend_slot": 1,
         "total_circuit_instances": 2,
         "total_planned_shots": 512,
@@ -321,7 +325,143 @@ def test_recursive_duration_estimator_bounds_durationless_if_else() -> None:
         [q0],
     )
     duration = runtime.estimate_compiled_duration(circuit, FakeBackend())
-    assert duration == pytest.approx(104e-6)
+    assert duration == pytest.approx(44e-6)
+
+
+def test_fixed_layout_compile_and_padding_on_ibm_fake_target() -> None:
+    pytest.importorskip("qiskit")
+    pytest.importorskip("qiskit_ibm_runtime")
+    from qiskit import transpile
+    from qiskit_ibm_runtime.fake_provider import FakeFez
+
+    from generative_repair_kernel import builtin_cayley_models
+    from record_gated_cayley_circuits import build_circuit, build_recipe
+
+    backend = FakeFez()
+    layout = [10, 18, 94, 124]
+    recipe = build_recipe(
+        builtin_cayley_models()["s3"],
+        "record_gated",
+        0,
+        0,
+        0,
+        (5, 2, 7, 0, 6, 3),
+    )
+    logical = build_circuit(recipe)
+    compiled = transpile(
+        logical,
+        backend=backend,
+        optimization_level=1,
+        seed_transpiler=509,
+        initial_layout=layout,
+    )
+    runtime.validate_compiled_circuit(logical, compiled, layout)
+    assert runtime._used_physical_qubits(compiled) == set(layout)
+    duration = runtime.estimate_compiled_duration(compiled, backend)
+    padded, padded_duration = runtime.pad_compiled_circuit(
+        compiled, backend, layout, duration + 5e-6
+    )
+    assert padded_duration >= duration + 5e-6
+    runtime.validate_compiled_circuit(logical, padded, layout)
+
+
+def test_canonical_prereg_dispatcher_and_ideal_gate_cover_all_families() -> None:
+    pytest.importorskip("qiskit")
+    pytest.importorskip("qiskit_aer")
+    import blind_preregister as prereg
+
+    rows = []
+
+    def add(opaque_id, family, parameters):
+        descriptor = {
+            "family": family,
+            "backend_role": "development",
+            "backend_role_opaque_id": "opaque-role",
+            "shots": 256,
+            "qpy_sha256": "0" * 64,
+            "circuit_name": opaque_id,
+            "circuit_metadata": {
+                "schema_version": prereg.BLINDED_CIRCUIT_SCHEMA_VERSION,
+                "opaque_id": opaque_id,
+                "blind_nonce": "1" * 64,
+            },
+            "parameters": parameters,
+        }
+        circuit = prereg.rebuild_blinded_circuit(opaque_id, descriptor)
+        descriptor["qpy_sha256"] = prereg.qpy_sha256(circuit)
+        rows.append((opaque_id, descriptor, circuit))
+
+    for protocol in prereg.CAYLEY_PROTOCOLS:
+        add(
+            f"opaque-{protocol}",
+            "cayley",
+            {
+                "model": "s3",
+                "protocol": protocol,
+                "initial_state": 2,
+                "disturbance_slot": 0,
+                "second_slot": 1,
+                "state_encoding": [5, 2, 7, 0, 6, 3],
+            },
+        )
+    add(
+        "opaque-mh",
+        "mh",
+        {
+            "spectrum": "s3_primary",
+            "beta": 0.7,
+            "programmed_kappa": 1.0,
+            "semantic_source": 0,
+            "semantic_target": 1,
+            "label_permutation": [0, 1, 2],
+        },
+    )
+    add(
+        "opaque-calibration",
+        "readout_calibration",
+        {"basis_code": 9, "num_qubits": 4, "evidentiary_role": "diagnostic_only"},
+    )
+    receipt = runtime.validate_ideal_reveal_circuits(rows)
+    assert receipt == {
+        "circuits_checked": 7,
+        "families": {"cayley": 5, "mh": 1, "readout_calibration": 1},
+        "passed": True,
+    }
+
+
+def test_generated_prereg_bundle_passes_runtime_digest_qpy_and_ideal_gates(
+    tmp_path: Path,
+) -> None:
+    pytest.importorskip("qiskit")
+    pytest.importorskip("qiskit_aer")
+    import blind_preregister as prereg
+
+    manifest, reveal = prereg.build_blinded_preregistration(
+        test_seed="runtime-integration",
+        _test_scope={
+            "cayley_models": ["z5"],
+            "cayley_protocols": ["record_gated"],
+            "mh_spectra": ["z3_cyclic_control"],
+            "calibration_codes": [0],
+        },
+    )
+    manifest_path = tmp_path / "manifest.json"
+    reveal_path = tmp_path / "reveal.json"
+    analysis_path = tmp_path / "analysis.json"
+    manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+    reveal_path.write_text(json.dumps(reveal), encoding="utf-8")
+    analysis_path.write_text(
+        json.dumps(reveal["sealed_payload"]["analysis_document"]), encoding="utf-8"
+    )
+    bundle = runtime.verify_operator_bundle(
+        manifest_path, reveal_path, analysis_path
+    )
+    assert len(bundle.circuits) == 174
+    assert bundle.ideal_validation == {
+        "circuits_checked": 174,
+        "families": {"cayley": 160, "mh": 12, "readout_calibration": 2},
+        "passed": True,
+    }
 
 
 def test_dynamic_backend_validation_rejects_missing_control_flow() -> None:
@@ -428,6 +568,7 @@ def test_submit_is_resumable_and_submits_only_one_completed_group_at_a_time(tmp_
             family=f"family-{number}",
             backend_name="ibm_fez",
             physical_layout=(10, 18, 94, 124),
+            properties_last_update="2026-07-11T10:15:57+07:00",
             shots=256,
             estimated_qpu_seconds=3.0,
             circuits=(circuit,),
@@ -490,6 +631,10 @@ def test_sampler_joint_counts_and_each_register_are_preserved() -> None:
         join_data=lambda: Bits({"0011010": 3}),
         metadata={"shots": 3},
     )
-    result = runtime.extract_pub_result(pub, "opaque")
+    result = runtime.extract_pub_result(
+        pub, "opaque", family="cayley", expected_shots=3
+    )
     assert result["joint_counts"] == {"0011010": 3}
     assert result["register_counts"]["heated"] == {"010": 3}
+    assert result["joined_count_layout"] == "final[3]|decision[1]|heated[3]"
+    assert result["joined_count_width"] == 7

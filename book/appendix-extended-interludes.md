@@ -991,8 +991,12 @@ That is how science earns a shared world.
 ## Interlude 21: Continuation Boundaries as Part of the Architecture
 
 The book ends with continuation boundaries visible. OPH has a precise
-finite-consensus package for overlap repair, quotient normal forms, and
-declared observable-level confluence. It has a controlled
+finite-consensus package for overlap repair and schedule-independent quotient
+normal forms from a fixed source. The generic cross-source criterion says that
+same-boundary endpoints agree precisely when the boundary identifies the
+consistent quotient modulo the declared silent relation. Applying that
+criterion to the physical boundary data requires its own injectivity
+certificate. OPH also has a controlled
 modular-to-geometric theorem for the Lorentz, null-modular, and local
 Einstein branch. The Standard Model reconstruction is audited by separating
 structural theorems, quantitative theorem statements, benchmark checks,

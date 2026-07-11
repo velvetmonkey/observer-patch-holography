@@ -164,7 +164,7 @@ There is no God's-eye view. There is no absolute description of reality that exi
 
 This is the turnaround: **subjective perspectives are primary**. The “objective world” is the fixed point of consistency across many observer patches.
 
-![Many local descriptions for a fixed boundary problem can be repaired in different orders, yet converge to one shared normal form when the overlap rules satisfy the transactional confluence conditions.](../assets/book_diagrams/consensus-funnel.svg){width=72%}
+![One fixed source can be repaired under many schedules, yet converge to one normal form when the overlap rules satisfy the transactional confluence conditions.](../assets/book_diagrams/consensus-funnel.svg){width=72%}
 
 According to OPH, a proposed repair counts as a physical step only after the
 overlap checks pass. Overlapping proposals are bundled into one transaction,
@@ -172,6 +172,14 @@ checked against the shared record state, required to preserve the boundary and
 sector data, and accepted only when the repair measure descends. The shared
 normal form comes from confluence in that transaction layer rather than from a
 simulation choosing the most convenient branch.
+
+That theorem compares repair schedules beginning at one fixed quotient state.
+Two different interiors exposing the same boundary reach the same public result
+only when the boundary identifies the consistent quotient, modulo the declared
+gauge or silent relation. The standalone paper
+[*Observation-Determined Normal Forms*](../extra/observable_normal_forms.pdf)
+proves this cross-source criterion and keeps endpoint existence and schedule
+liveness as separate conditions.
 
 This is the **overlap test**: If two observers share a region of experience, their accounts must agree in that overlap.
 

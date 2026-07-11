@@ -59,10 +59,6 @@ def _candidates(valid_codes: list[int]) -> dict[str, dict[str, float]]:
             valid_codes,
             [0.02, 0.03, 0.05, 0.10, 0.30, 0.50],
         ),
-        "label_only": _probability_table(
-            valid_codes,
-            [0.10, 0.10, 0.20, 0.20, 0.20, 0.20],
-        ),
         "calibrated_noise": _probability_table(
             valid_codes,
             [1.0 / 6.0] * 6,
@@ -70,53 +66,133 @@ def _candidates(valid_codes: list[int]) -> dict[str, dict[str, float]]:
     }
 
 
-def _build_lock() -> dict:
-    s3_codes = [0, 1, 2, 3, 4, 5]
-    z5_codes = [0, 1, 2, 3, 4]
-    calibrations = {
-        "cal_backend_a": analysis.factorized_calibration_packet(
-            state_error=0.015,
-            decision_error=0.01,
-            receipt_sha256="1" * 64,
-        ),
-        "cal_backend_b": analysis.factorized_calibration_packet(
-            state_error=0.018,
-            decision_error=0.012,
-            receipt_sha256="2" * 64,
+def _row(
+    *,
+    row_id: str,
+    endpoint: str,
+    backend_role: str,
+    backend_name: str,
+    layout_id: str,
+    physical_layout: list[int],
+    calibration_id: str,
+    shots: int,
+    valid_codes: list[int],
+) -> dict:
+    candidates = _candidates(valid_codes)
+    return {
+        "row_id": row_id,
+        "opaque_id": row_id,
+        "logical_qpy_sha256": analysis.sha256_json({"opaque_id": row_id}),
+        "endpoint": endpoint,
+        "backend_role": backend_role,
+        "backend_name": backend_name,
+        "layout_id": layout_id,
+        "physical_layout": physical_layout,
+        "calibration_id": calibration_id,
+        "shots": shots,
+        "max_leakage_fraction": 0.20,
+        "valid_codes": valid_codes,
+        "candidate_probabilities": candidates,
+        "candidate_provenance": analysis.build_candidate_provenance(
+            candidates,
+            {model: analysis.sha256_json({"model": model}) for model in candidates},
         ),
     }
+
+
+def _build_lock(*, factorized: bool = False, shots: int = 5000) -> dict:
+    s3_codes = [0, 1, 2, 3, 4, 5]
+    z5_codes = [0, 1, 2, 3, 4]
+    if factorized:
+        calibrations = {
+            "cal_backend_a": analysis.factorized_calibration_packet(
+                state_error=0.015,
+                decision_error=0.01,
+                receipt_sha256="1" * 64,
+            ),
+            "cal_backend_b": analysis.factorized_calibration_packet(
+                state_error=0.018,
+                decision_error=0.012,
+                receipt_sha256="2" * 64,
+            ),
+        }
+    else:
+        calibrations = {
+            "cal_backend_a": analysis.contamination_calibration_packet(
+                contamination_probability=0.03,
+                sensitivity_probabilities=[0.02, 0.05],
+                receipt_sha256="1" * 64,
+                derivation_sha256="6" * 64,
+            ),
+            "cal_backend_b": analysis.contamination_calibration_packet(
+                contamination_probability=0.035,
+                sensitivity_probabilities=[0.02, 0.055],
+                receipt_sha256="2" * 64,
+                derivation_sha256="7" * 64,
+            ),
+        }
     expected_rows = [
-        {
-            "row_id": "opaque_primary_a",
-            "endpoint": "primary_s3",
-            "backend_id": "heldout_backend_a",
-            "layout_id": "opaque_layout_1",
-            "calibration_id": "cal_backend_a",
-            "shots": 5000,
-            "valid_codes": s3_codes,
-            "candidate_probabilities": _candidates(s3_codes),
-        },
-        {
-            "row_id": "opaque_primary_b",
-            "endpoint": "primary_s3",
-            "backend_id": "heldout_backend_b",
-            "layout_id": "opaque_layout_2",
-            "calibration_id": "cal_backend_b",
-            "shots": 5000,
-            "valid_codes": s3_codes,
-            "candidate_probabilities": _candidates(s3_codes),
-        },
-        {
-            "row_id": "opaque_secondary_z5",
-            "endpoint": "secondary_z5",
-            "backend_id": "heldout_backend_a",
-            "layout_id": "opaque_layout_1",
-            "calibration_id": "cal_backend_a",
-            "shots": 2500,
-            "valid_codes": z5_codes,
-            "candidate_probabilities": _candidates(z5_codes),
-        },
+        _row(
+            row_id="opaque_primary_a",
+            endpoint="primary_s3",
+            backend_role="backend_role_a",
+            backend_name="heldout_backend_a",
+            layout_id="opaque_layout_1",
+            physical_layout=[1, 2, 3, 4],
+            calibration_id="cal_backend_a",
+            shots=shots,
+            valid_codes=s3_codes,
+        ),
+        _row(
+            row_id="opaque_primary_b",
+            endpoint="primary_s3",
+            backend_role="backend_role_b",
+            backend_name="heldout_backend_b",
+            layout_id="opaque_layout_2",
+            physical_layout=[5, 6, 7, 8],
+            calibration_id="cal_backend_b",
+            shots=shots,
+            valid_codes=s3_codes,
+        ),
+        _row(
+            row_id="opaque_secondary_z5",
+            endpoint="secondary_z5",
+            backend_role="backend_role_a",
+            backend_name="heldout_backend_a",
+            layout_id="opaque_layout_1",
+            physical_layout=[1, 2, 3, 4],
+            calibration_id="cal_backend_a",
+            shots=shots,
+            valid_codes=z5_codes,
+        ),
     ]
+    primary_rows = [row for row in expected_rows if row["endpoint"] == "primary_s3"]
+    label_components = []
+    label_weights = (
+        [0.10, 0.10, 0.20, 0.20, 0.20, 0.20],
+        [0.20, 0.20, 0.10, 0.10, 0.20, 0.20],
+    )
+    for index, weights in enumerate(label_weights):
+        row_probabilities = {
+            row["row_id"]: _probability_table(row["valid_codes"], list(weights))
+            for row in primary_rows
+        }
+        label_components.append(
+            analysis.build_label_layout_component(
+                component_id=f"opaque_label_{index}",
+                prior_weight=0.5,
+                row_probabilities=row_probabilities,
+                component_derivation_sha256=str(8 + index) * 64,
+                row_derivation_sha256={
+                    row_id: str(8 + index) * 64 for row_id in row_probabilities
+                },
+            )
+        )
+    label_layout_model = {
+        "mapping_scope": "global_shared_across_primary_rows",
+        "component_set_derivation_sha256": "a" * 64,
+        "components": label_components,
+    }
     return analysis.build_analysis_lock(
         expected_rows=expected_rows,
         calibrations=calibrations,
@@ -127,15 +203,43 @@ def _build_lock() -> dict:
                 "model": "record_gated_repair",
             }
         ],
-        blind_manifest_commitment="a" * 64,
+        catalog_precommitment_sha256="b" * 64,
+        label_layout_model=label_layout_model,
         created_utc="2026-07-11T00:00:00+00:00",
     )
 
 
 def _reseal(lock: dict, rows: list[dict]) -> dict:
+    calibration_results = {
+        calibration_id: {
+            "calibration_receipt_sha256": analysis.sha256_json(
+                {"synthetic_calibration": calibration_id}
+            ),
+            "diagnostic_counts_sha256": analysis.sha256_json(
+                {"synthetic_diagnostic_counts": calibration_id}
+            ),
+            "diagnostic_opaque_ids": list(
+                calibration["control_rule"]["diagnostic_opaque_ids"]
+            ),
+            "provider_job_ids": [f"synthetic-calibration-job-{calibration_id}"],
+            "all_diagnostic_jobs_complete": True,
+            "all_diagnostic_shots_included": True,
+            "postselected": False,
+            "gof_p_value": 1.0,
+            "minimum_count_per_prepared_state": calibration["control_rule"][
+                "minimum_count_per_prepared_state"
+            ],
+        }
+        for calibration_id, calibration in lock["calibrations"].items()
+    }
     return analysis.seal_data_packet(
         analysis_lock_sha256=lock["analysis_lock_sha256"],
         rows=rows,
+        manifest_sha256="e" * 64,
+        submission_journal_sha256="c" * 64,
+        harvest_journal_sha256="d" * 64,
+        source_kind="synthetic_preflight",
+        calibration_results=calibration_results,
         created_utc="synthetic-resealed",
     )
 
@@ -152,6 +256,7 @@ def test_factorized_calibration_convolution_is_normalized_and_exposes_leakage() 
         receipt_sha256="3" * 64,
     )
     observed = analysis.convolve_calibration(latent, calibration)
+    assert calibration["primary_eligible"] is False
     assert observed.shape == (128,)
     assert np.all(observed > 0.0)
     assert math.isclose(float(observed.sum()), 1.0, abs_tol=1e-12)
@@ -181,18 +286,32 @@ def test_synthetic_repair_process_clears_all_frozen_primary_gates() -> None:
     primary = report["primary_endpoint"]
     assert primary["backend_count"] == 2
     assert primary["global_99_percent_simultaneous_envelope"]["pass"] is True
-    assert set(primary["pooled_bayes_factors"]) == set(analysis.REQUIRED_NULL_MODELS)
-    assert primary["pooled_bayes_factors"]["delayed_record"][
+    assert set(primary["pooled_conditional_likelihood_ratios"]) == set(
+        analysis.REQUIRED_NULL_MODELS
+    )
+    assert primary["pooled_conditional_likelihood_ratios"]["delayed_record"][
         "passes_pooled_threshold"
     ] is True
     assert all(
         item["passes_pooled_threshold"]
-        for item in primary["pooled_bayes_factors"].values()
+        for item in primary["pooled_conditional_likelihood_ratios"].values()
     )
     assert all(
         item["passes_per_backend_threshold"]
-        for backend in primary["per_backend_bayes_factors"].values()
+        for backend in primary["per_backend_conditional_likelihood_ratios"].values()
         for item in backend.values()
+    )
+    multiplicity = primary["label_layout_multiplicity"]
+    assert multiplicity["component_count"] == 2
+    assert multiplicity["repair_rank_against_label_components"] == 1
+    assert multiplicity["repair_uniquely_preferred"] is True
+    assert math.isclose(
+        sum(
+            item["posterior_within_label_model"]
+            for item in multiplicity["ranked_components"]
+        ),
+        1.0,
+        abs_tol=1e-12,
     )
     assert report["secondary_family"]["correction"] == "Holm"
     assert len(report["secondary_family"]["tests"]) == 1
@@ -222,15 +341,19 @@ def test_synthetic_lazy_heat_process_favors_null_and_rejects_repair() -> None:
     assert report["decision"]["kernel_failure"] is True
     assert report["decision"]["verdict"] == "fails_frozen_reduced_repair_kernel"
     assert (
-        report["primary_endpoint"]["pooled_bayes_factors"]["lazy_heat"][
-            "log_bayes_factor_repair_over_null"
+        report["primary_endpoint"]["pooled_conditional_likelihood_ratios"][
+            "lazy_heat"
+        ][
+            "conditional_log_likelihood_ratio_repair_over_null"
         ]
         < -math.log(100.0)
     )
     assert all(
-        backend["lazy_heat"]["log_bayes_factor_repair_over_null"]
+        backend["lazy_heat"]["sensitivity_log_likelihood_ratio_bounds"][1]
         < -math.log(100.0)
-        for backend in report["primary_endpoint"]["per_backend_bayes_factors"].values()
+        for backend in report["primary_endpoint"][
+            "per_backend_conditional_likelihood_ratios"
+        ].values()
     )
 
 
@@ -280,7 +403,7 @@ def test_dropped_leakage_or_other_shots_fails_shot_conservation() -> None:
 def test_lock_and_data_hash_mutations_fail_closed() -> None:
     lock = _build_lock()
     changed_lock = analysis._json_copy(lock)
-    changed_lock["thresholds"]["pooled_bayes_factor"] = 99.0
+    changed_lock["thresholds"]["pooled_likelihood_ratio"] = 99.0
     with pytest.raises(analysis.AnalysisValidationError, match="lock hash mismatch"):
         analysis.validate_analysis_lock(changed_lock)
 
@@ -296,47 +419,17 @@ def test_lock_and_data_hash_mutations_fail_closed() -> None:
 
 
 def test_lock_without_delayed_record_table_is_rejected() -> None:
-    valid_codes = [0, 1, 2, 3, 4, 5]
-    candidates = _candidates(valid_codes)
-    candidates.pop("delayed_record")
-    calibration = analysis.factorized_calibration_packet(
-        state_error=0.01,
-        decision_error=0.01,
-        receipt_sha256="4" * 64,
-    )
-    rows = [
-        {
-            "row_id": f"primary_{backend}",
-            "endpoint": "primary_s3",
-            "backend_id": backend,
-            "layout_id": f"layout_{backend}",
-            "calibration_id": "cal",
-            "shots": 100,
-            "valid_codes": valid_codes,
-            "candidate_probabilities": candidates,
-        }
-        for backend in ("a", "b")
-    ]
-    rows.append(
-        {
-            "row_id": "secondary",
-            "endpoint": "secondary_z5",
-            "backend_id": "a",
-            "layout_id": "layout_a",
-            "calibration_id": "cal",
-            "shots": 100,
-            "valid_codes": valid_codes,
-            "candidate_probabilities": candidates,
-        }
-    )
+    valid = _build_lock()
+    rows = analysis._json_copy(valid["expected_rows"])
+    rows[0]["candidate_probabilities"].pop("delayed_record")
+    rows[0]["candidate_provenance"].pop("delayed_record")
     with pytest.raises(analysis.AnalysisValidationError, match="candidate set"):
         analysis.build_analysis_lock(
             expected_rows=rows,
-            calibrations={"cal": calibration},
-            secondary_tests=[
-                {"test_id": "secondary", "row_ids": ["secondary"], "model": "lazy_heat"}
-            ],
-            blind_manifest_commitment="b" * 64,
+            calibrations=valid["calibrations"],
+            secondary_tests=valid["secondary_tests"],
+            catalog_precommitment_sha256="b" * 64,
+            label_layout_model=valid["label_layout_model"],
             created_utc="2026-07-11T00:00:00+00:00",
         )
 
@@ -353,3 +446,113 @@ def test_holm_adjustment_is_monotone_and_familywise() -> None:
     assert by_id["a"]["holm_reject_at_family_alpha"] is True
     assert by_id["b"]["holm_reject_at_family_alpha"] is False
     assert by_id["c"]["holm_reject_at_family_alpha"] is False
+
+
+def test_qiskit_joined_bit_converter_is_exhaustive_and_strict() -> None:
+    valid_codes = [0, 1, 2, 3, 4, 5]
+    joined_counts = {}
+    for heated in range(8):
+        for decision in range(2):
+            for final in range(8):
+                joined = f"{final:03b}{decision}{heated:03b}"
+                expected = analysis.outcome_key(heated, decision, final, valid_codes)
+                assert (
+                    analysis.qiskit_joined_key_to_outcome_key(joined, valid_codes)
+                    == expected
+                )
+                joined_counts[joined] = 1
+    converted = analysis.qiskit_joined_counts_to_analysis_counts(
+        joined_counts,
+        valid_codes,
+        expected_shots=128,
+    )
+    assert set(converted) == set(analysis.all_outcome_keys(valid_codes))
+    assert sum(converted.values()) == 128
+    with pytest.raises(analysis.AnalysisValidationError, match="exactly seven"):
+        analysis.qiskit_joined_key_to_outcome_key("011 1 100", valid_codes)
+    with pytest.raises(analysis.AnalysisValidationError, match="contain 1 of 2"):
+        analysis.qiskit_joined_counts_to_analysis_counts(
+            {"0111100": 1}, valid_codes, expected_shots=2
+        )
+
+
+def test_factorized_dynamic_calibration_can_only_produce_invalid_verdict() -> None:
+    lock = _build_lock(factorized=True)
+    data = analysis.simulate_data_packet(
+        lock,
+        generating_model="record_gated_repair",
+        seed=515,
+    )
+    report = analysis.run_blind_analysis(lock, data)
+    assert report["validity"]["calibration_gate_pass"] is False
+    assert report["decision"]["primary_pass"] is False
+    assert report["decision"]["kernel_failure"] is False
+    assert report["decision"]["verdict"] == "invalid_calibration_or_leakage_gate"
+
+
+def test_excess_leakage_is_retained_and_invalidates_without_kernel_failure() -> None:
+    lock = _build_lock()
+    data = analysis.simulate_data_packet(
+        lock,
+        generating_model="record_gated_repair",
+        seed=516,
+    )
+    rows = analysis._json_copy(data["rows"])
+    shots = rows[0]["declared_shots"]
+    rows[0]["counts"] = {"h7|d0|f7|l1": shots}
+    rows[0]["raw_joined_counts_sha256"] = analysis.sha256_json(rows[0]["counts"])
+    leaked = _reseal(lock, rows)
+    report = analysis.run_blind_analysis(lock, leaked)
+    assert report["validity"]["leakage_gate_pass"] is False
+    assert report["decision"]["kernel_failure"] is False
+    assert report["decision"]["verdict"] == "invalid_calibration_or_leakage_gate"
+    audited = {row["row_id"]: row for row in report["shot_audit"]}
+    assert audited["opaque_primary_a"]["leakage_shots"] == shots
+
+
+def test_data_identity_must_match_locked_opaque_circuit_and_qpy() -> None:
+    lock = _build_lock(shots=192)
+    assert all(row["shots"] == 192 for row in lock["expected_rows"])
+    data = analysis.simulate_data_packet(
+        lock,
+        generating_model="record_gated_repair",
+        seed=517,
+    )
+    rows = analysis._json_copy(data["rows"])
+    rows[0]["logical_qpy_sha256"] = "f" * 64
+    changed = _reseal(lock, rows)
+    with pytest.raises(analysis.AnalysisValidationError, match="locked logical_qpy_sha256"):
+        analysis.run_blind_analysis(lock, changed)
+
+
+def test_candidate_probability_table_hash_is_enforced_at_lock_build() -> None:
+    valid = _build_lock()
+    rows = analysis._json_copy(valid["expected_rows"])
+    table = rows[0]["candidate_probabilities"]["lazy_heat"]
+    first, second = list(table)[:2]
+    table[first], table[second] = table[second], table[first]
+    with pytest.raises(analysis.AnalysisValidationError, match="probability-table hash mismatch"):
+        analysis.build_analysis_lock(
+            expected_rows=rows,
+            calibrations=valid["calibrations"],
+            secondary_tests=valid["secondary_tests"],
+            catalog_precommitment_sha256="b" * 64,
+            label_layout_model=valid["label_layout_model"],
+            created_utc="2026-07-11T00:00:00+00:00",
+        )
+
+
+def test_label_marginal_is_one_global_shared_mapping_not_rowwise_mixture() -> None:
+    lock = _build_lock()
+    data = analysis.simulate_data_packet(
+        lock,
+        generating_model="record_gated_repair",
+        seed=518,
+    )
+    report = analysis.run_blind_analysis(lock, data)
+    label = report["primary_endpoint"]["label_layout_multiplicity"]
+    manual = analysis._logsumexp(
+        [item["log_weighted_likelihood"] for item in label["ranked_components"]]
+    )
+    assert math.isclose(label["log_marginal_likelihood"], manual, abs_tol=1e-12)
+    assert label["mapping_scope"] == "global_shared_across_primary_rows"

@@ -42,7 +42,7 @@ rg -n 'sorryAx' lake-build.log
 Expected result: `lake build` succeeds; the source audit finds no admissions;
 the theorem-level axiom output in `lake-build.log` contains no `sorryAx`.
 
-Before creating a public archive, regenerate immutable file hashes with:
+Before creating a public archive, regenerate the file hashes with:
 
 ```sh
 find . -type f \

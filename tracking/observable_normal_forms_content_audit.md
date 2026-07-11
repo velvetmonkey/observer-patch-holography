@@ -23,9 +23,9 @@ The physical \(\chi_\nu\) hypothesis is explicitly out of scope. This report doe
 
 | Surface | State audited |
 |---|---|
-| Repo-native manuscript | `extra/observable_normal_forms.tex`, SHA-256 `c5918b90c95436d8539d5490257b85f2ef8c02955659306f57312ccab7754aed` |
+| Repo-native manuscript | `extra/observable_normal_forms.tex`, SHA-256 `ce9d9dda9febec0ee9cfedc6797724b01767f5c198be94720ff7a9e8a3371817` |
 | Bibliography | `extra/observable_normal_forms.bib`, SHA-256 `a183a981f984a2c1674bca7fddbbda356cea05dca467ee0102ae853b3a1e2ad3` |
-| Current PDF | `extra/observable_normal_forms.pdf`, SHA-256 `074f6a76de7325076361e1c794ca01998ee78cf38e7873cdd2092940ae075054`; rebuilt from the audited TeX/BibTeX sources |
+| Current PDF | `extra/observable_normal_forms.pdf`, SHA-256 `d1754415e55fd9d38bbe4ca7cb6446e481d3c976b940f1c9616c5a8acef54fca`; rebuilt from the audited TeX/BibTeX sources with visible global release `r1525` |
 | Standalone Lean artifact | `Lean/ObserverPatchHolography/Proofs/ObservableNormalForms/`, Lean and Mathlib `v4.29.1`, pinned by `lean-toolchain`, `lakefile.lean`, and `lake-manifest.json` |
 | Independent Lean build in this audit | standalone build succeeded through target 8259; the merged parent build succeeded through target 8265; all new-paper and bridge theorem dependencies were subsets of `propext`, `Classical.choice`, and `Quot.sound` |
 | Intended `chi_nu_test` comparison repo | Clean `main...origin/main` at `0f9e43b36386ad15e94947751500bf32ee9ccc58`, proof-chain v10 |
@@ -274,6 +274,10 @@ Completed:
 - `thm:fiber-conditional-expectation` proves finite full-support
   observation-fiber averaging is idempotent, weighted self-adjoint,
   \(L^2\)-contractive, and fixes exactly observation-measurable functions;
+- Lean formalizes this finite algebraic characterization and the recognition
+  theorem, but does not wrap the operator as Mathlib's measure-theoretic
+  `condexp` onto \(\sigma(B)\); the proof index therefore marks the manuscript
+  theorem as partially formalized;
 - its R1--R3 matrix receipt must be checked against an independently extracted
   transition matrix, so it is not a projector-compared-to-itself certificate;
 - the Markov section now includes stationary and expected-occupation bounds,
@@ -397,7 +401,7 @@ same-input confluence results and unfinished global repair operator.
 The current `sec:lean` and `sec:availability` now describe the standalone
 artifact rather than the obsolete three-file snapshot. They record:
 
-- the pinned Lean and Mathlib versions and immutable Lake manifest;
+- the pinned Lean and Mathlib versions and pinned, checksummed Lake manifest;
 - the independently successful parent and standalone builds;
 - the theorem-level axiom audit and absence of `sorryAx`;
 - the exact, partial, and unformalized coverage boundary from

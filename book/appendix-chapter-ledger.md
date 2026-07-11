@@ -94,7 +94,13 @@ confluence, and OPH treats it as a separate local-diamond plus repair-completene
 condition on the observer-facing quotient.
 The theorem is relative to the fixed initial quotient state. A stronger
 "same boundary data gives the same answer" statement also needs a unique
-consistent extension in that boundary or sector fiber.
+consistent extension in that boundary or sector fiber. The generic equivalence
+between this boundary-identification property and cross-source endpoint
+agreement, together with its Lean bridge to the finite repair architecture, is
+proved in [*Observation-Determined Normal
+Forms*](../extra/observable_normal_forms.pdf). Injectivity of the declared
+physical boundary map on the full consistent quotient remains an
+application-specific premise.
 
 The five axiom groups are not meant as arbitrary declarations. They bundle
 lessons from several mature fields. Finite screen capacity comes from

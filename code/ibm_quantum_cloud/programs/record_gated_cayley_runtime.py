@@ -32,7 +32,6 @@ from collections import OrderedDict
 from dataclasses import dataclass
 from datetime import date, datetime, timezone
 from pathlib import Path
-from types import SimpleNamespace
 from typing import Any, Callable, Iterable, Mapping, Sequence
 
 
@@ -46,7 +45,11 @@ EXPECTED_QISKIT_MAJOR_MINOR = (2, 5)
 LOGICAL_QUBITS = 4
 IBM_SUBJOB_OVERHEAD_SECONDS = 2.0
 ESTIMATE_SAFETY_FACTOR = 1.25
-DYNAMIC_CONTROL_LATENCY_BOUND_SECONDS = 0.0001
+# IBM's published baseline describes complete circuits as typically 50--100 us.
+# Measurement durations are already present in Target, so reserve 40 us for
+# each duration-less classical feed-forward operation and then apply the
+# separate 1.25 workload safety factor below.
+DYNAMIC_CONTROL_LATENCY_BOUND_SECONDS = 0.00004
 UNKNOWN_INSTRUCTION_DURATION_BOUND_SECONDS = 0.0001
 FINAL_JOB_STATES = {"DONE", "ERROR", "CANCELLED"}
 REDACTED_KEYS = (
@@ -69,6 +72,7 @@ class VerifiedBundle:
     manifest_sha256: str
     analysis_lock_sha256: str
     public_manifest_core_sha256: str
+    reveal_mode: str
     backend_slots: tuple[dict[str, Any], ...]
     circuit_families: Mapping[str, str]
     ideal_validation: Mapping[str, Any]
@@ -96,6 +100,7 @@ class PreparedGroup:
     family: str
     backend_name: str
     physical_layout: tuple[int, ...]
+    properties_last_update: str
     shots: int
     estimated_qpu_seconds: float
     circuits: tuple[PreparedCircuit, ...]
@@ -270,8 +275,13 @@ def verify_manifest(manifest: Mapping[str, Any]) -> tuple[str, str]:
         raise RuntimeSafetyError("total_circuit_instances does not match circuits")
     if resources["total_planned_shots"] != sum(row["shots"] for row in circuit_rows):
         raise RuntimeSafetyError("total_planned_shots does not match circuits")
-    if any(row["shots"] != resources["shots_per_circuit"] for row in circuit_rows):
-        raise RuntimeSafetyError("public circuit shots differ from shots_per_circuit")
+    allowed_shots = {
+        resources["shots_per_balanced_variant"],
+        resources["shots_per_mh_edge"],
+        resources["shots_per_diagnostic_calibration"],
+    }
+    if any(row["shots"] not in allowed_shots for row in circuit_rows):
+        raise RuntimeSafetyError("public circuit shots differ from all frozen shot classes")
     counts_by_role = {
         role: sum(row["backend_role"] == role for row in circuit_rows) for role in roles
     }
@@ -287,13 +297,6 @@ def verify_manifest(manifest: Mapping[str, Any]) -> tuple[str, str]:
     return computed_manifest, sha256_json(_manifest_core(manifest))
 
 
-def _resource(resources: Mapping[str, Any], *names: str) -> Any:
-    found = [name for name in names if name in resources]
-    if len(found) != 1:
-        raise RuntimeSafetyError(f"resources must contain exactly one of {', '.join(names)}")
-    return resources[found[0]]
-
-
 def _validate_resources(resources: Mapping[str, Any]) -> None:
     required = {
         "account_quota_seconds",
@@ -302,9 +305,12 @@ def _validate_resources(resources: Mapping[str, Any]) -> None:
         "max_pubs_per_job",
         "max_execution_time_seconds",
         "shots_per_circuit",
+        "shots_per_balanced_variant",
+        "shots_per_mh_edge",
+        "shots_per_diagnostic_calibration",
         "backend_slot_count",
         "logical_qubits_per_circuit",
-        "classical_bits_per_circuit",
+        "classical_bits_per_dynamic_circuit",
         "catalog_entries_per_backend_slot",
         "total_circuit_instances",
         "total_planned_shots",
@@ -330,9 +336,12 @@ def _validate_resources(resources: Mapping[str, Any]) -> None:
         "max_pubs_per_job",
         "max_execution_time_seconds",
         "shots_per_circuit",
+        "shots_per_balanced_variant",
+        "shots_per_mh_edge",
+        "shots_per_diagnostic_calibration",
         "backend_slot_count",
         "logical_qubits_per_circuit",
-        "classical_bits_per_circuit",
+        "classical_bits_per_dynamic_circuit",
         "total_circuit_instances",
         "total_planned_shots",
     ):
@@ -340,8 +349,8 @@ def _validate_resources(resources: Mapping[str, Any]) -> None:
             raise RuntimeSafetyError(f"{key} must be a positive integer")
     if resources["logical_qubits_per_circuit"] != LOGICAL_QUBITS:
         raise RuntimeSafetyError("logical_qubits_per_circuit must be four")
-    if resources["classical_bits_per_circuit"] != 7:
-        raise RuntimeSafetyError("classical_bits_per_circuit must be seven")
+    if resources["classical_bits_per_dynamic_circuit"] != 7:
+        raise RuntimeSafetyError("classical_bits_per_dynamic_circuit must be seven")
     if resources["transpile_optimization_level"] not in (0, 1, 2, 3):
         raise RuntimeSafetyError("transpile_optimization_level must be 0, 1, 2, or 3")
     if type(resources["transpiler_seed"]) is not int or resources["transpiler_seed"] < 0:
@@ -366,7 +375,12 @@ def verify_analysis_lock(
         raise RuntimeSafetyError("analysis-lock document digest does not match the manifest")
     if catalog_precommitment_sha256 is not None:
         _require_hex64(catalog_precommitment_sha256, "catalog precommitment")
-        if document.get("blind_manifest_commitment") != catalog_precommitment_sha256:
+        bindings = [
+            document[key]
+            for key in ("catalog_precommitment_sha256", "blind_manifest_commitment")
+            if key in document
+        ]
+        if not bindings or any(value != catalog_precommitment_sha256 for value in bindings):
             raise RuntimeSafetyError("analysis lock is bound to a different catalog precommitment")
     return observed
 
@@ -382,6 +396,8 @@ def verify_reveal(
     if not isinstance(secret_hex, str) or re.fullmatch(r"[0-9a-f]{64}", secret_hex) is None:
         raise RuntimeSafetyError("private reveal secret is malformed")
     payload = _require_mapping(reveal.get("sealed_payload"), "sealed_payload")
+    if payload.get("mode") not in {"production_random", "deterministic_test_only"}:
+        raise RuntimeSafetyError("private reveal mode is invalid")
     if payload.get("public_manifest_core_sha256") != public_manifest_core_sha256:
         raise RuntimeSafetyError("private reveal is bound to a different manifest core")
     if payload.get("protocol_id") not in (None, manifest["protocol_id"]):
@@ -466,19 +482,6 @@ def _mh_recipe_from_descriptor(descriptor: Mapping[str, Any]) -> Any:
         )
     except (KeyError, TypeError, ValueError) as exc:
         raise RuntimeSafetyError("private reveal contains an invalid MH recipe") from exc
-
-
-def _blind_circuit(circuit: Any, opaque_id: str, descriptor: Mapping[str, Any]) -> Any:
-    nonce = descriptor.get("blind_nonce")
-    if not isinstance(nonce, str) or HEX64.fullmatch(nonce) is None:
-        raise RuntimeSafetyError("circuit blind_nonce must be a lowercase SHA-256 value")
-    circuit.name = opaque_id
-    circuit.metadata = {
-        "schema_version": "oph.blinded-cayley-logical-circuit.v1",
-        "opaque_id": opaque_id,
-        "blind_nonce": nonce,
-    }
-    return circuit
 
 
 def rebuild_reveal_circuit(opaque_id: str, descriptor: Mapping[str, Any]) -> Any:
@@ -595,7 +598,6 @@ def validate_ideal_reveal_circuits(
                 raise RuntimeSafetyError("mandatory ideal counts are unavailable") from exc
             if family == "cayley":
                 recipe_descriptor = dict(parameters)
-                recipe_descriptor["model_key"] = parameters.get("model")
                 recipe = _cayley_recipe_from_descriptor(recipe_descriptor)
                 parsed = parse_counts(raw_counts)
                 expected = {
@@ -609,7 +611,6 @@ def validate_ideal_reveal_circuits(
                     raise RuntimeSafetyError("ideal Cayley circuit disagrees with its recipe")
             elif family == "mh":
                 recipe_descriptor = dict(parameters)
-                recipe_descriptor["spectrum_key"] = parameters.get("spectrum")
                 recipe = _mh_recipe_from_descriptor(recipe_descriptor)
                 parsed = parse_grouped_counts(raw_counts)
                 accepted = 0
@@ -699,6 +700,13 @@ def verify_operator_bundle(
         family = descriptor["family"]
         if family not in {"cayley", "mh", "readout_calibration"}:
             raise RuntimeSafetyError("private circuit descriptor has an unsupported family")
+        expected_family_shots = {
+            "cayley": manifest["resources"]["shots_per_balanced_variant"],
+            "mh": manifest["resources"]["shots_per_mh_edge"],
+            "readout_calibration": manifest["resources"][
+                "shots_per_diagnostic_calibration"
+            ],
+        }[family]
         public = public_by_id[opaque_id]
         slot = resolved_by_public_role.get(public["backend_role"])
         if slot is None:
@@ -707,6 +715,7 @@ def verify_operator_bundle(
             descriptor["backend_role_opaque_id"] != public["backend_role"]
             or descriptor["backend_role"] != slot["role"]
             or descriptor["shots"] != public["shots"]
+            or descriptor["shots"] != expected_family_shots
             or descriptor["circuit_name"] != opaque_id
         ):
             raise RuntimeSafetyError("private circuit role, shots, or name does not match public row")
@@ -725,6 +734,7 @@ def verify_operator_bundle(
         manifest_sha256=manifest_sha,
         analysis_lock_sha256=analysis_sha,
         public_manifest_core_sha256=core_sha,
+        reveal_mode=payload["mode"],
         backend_slots=resolved_slots,
         circuit_families={row[0]: row[1]["family"] for row in ideal_rows},
         ideal_validation=validation,
@@ -790,7 +800,10 @@ def create_runtime_service(credentials_file: Path) -> Any:
         raise RuntimeSafetyError("Qiskit Runtime is unavailable") from exc
     logging.getLogger("qiskit_ibm_runtime").setLevel(logging.WARNING)
     token = load_api_token(credentials_file)
-    return QiskitRuntimeService(channel="ibm_quantum_platform", token=token)
+    try:
+        return QiskitRuntimeService(channel="ibm_quantum_platform", token=token)
+    except Exception as exc:
+        raise RuntimeSafetyError("could not initialize the IBM Quantum Platform service") from exc
 
 
 def _safe_json(value: Any, *, key: str | None = None) -> Any:
@@ -1292,6 +1305,7 @@ def prepare_runtime_run(
                     family=family,
                     backend_name=slot_map[role]["backend"],
                     physical_layout=tuple(slot_map[role]["layout"]),
+                    properties_last_update=slot_map[role]["properties_last_update"],
                     shots=shots,
                     estimated_qpu_seconds=guarded_estimate,
                     circuits=tuple(chunk),
@@ -1313,6 +1327,7 @@ def prepare_runtime_run(
                 "family": group.family,
                 "backend_name": group.backend_name,
                 "physical_layout": list(group.physical_layout),
+                "properties_last_update": group.properties_last_update,
                 "shots": group.shots,
                 "opaque_ids": [item.opaque_id for item in group.circuits],
                 "logical_qpy_sha256": sha256_bytes(group.logical_qpy),
@@ -1367,6 +1382,8 @@ def validate_submission_confirmation(
     confirmed_analysis_lock_sha256: str | None,
     bundle: VerifiedBundle,
 ) -> None:
+    if bundle.reveal_mode != "production_random":
+        raise RuntimeSafetyError("submission refuses deterministic test preregistrations")
     if not confirm_submit:
         raise RuntimeSafetyError("submission requires the explicit --confirm-submit flag")
     if confirmed_manifest_sha256 is None or confirmed_analysis_lock_sha256 is None:
@@ -1418,14 +1435,17 @@ def append_event(path: Path, event: Mapping[str, Any]) -> dict[str, Any]:
             handle.seek(0)
             lines = [line for line in handle.read().splitlines() if line.strip()]
             previous = None
-            if lines:
+            for line in lines:
                 try:
-                    prior = json.loads(lines[-1])
+                    prior = json.loads(line)
                 except json.JSONDecodeError as exc:
                     raise RuntimeSafetyError("operator event journal is corrupt") from exc
-                previous = _require_hex64(prior.get("event_sha256"), "prior event digest")
-                if previous != _event_hash(prior):
+                if prior.get("previous_event_sha256") != previous:
                     raise RuntimeSafetyError("operator event journal hash chain is corrupt")
+                observed = _require_hex64(prior.get("event_sha256"), "prior event digest")
+                if observed != _event_hash(prior):
+                    raise RuntimeSafetyError("operator event journal hash chain is corrupt")
+                previous = observed
             row = dict(event)
             row["previous_event_sha256"] = previous
             row["event_sha256"] = _event_hash(row)
@@ -1586,6 +1606,7 @@ def submit_prepared_run(
             "backend_role_opaque_id": group.backend_role_opaque_id,
             "family": group.family,
             "physical_layout": list(group.physical_layout),
+            "properties_last_update": group.properties_last_update,
             "shots": group.shots,
             "opaque_ids": [item.opaque_id for item in group.circuits],
             "circuit_bindings": [
@@ -1645,6 +1666,7 @@ def submit_prepared_run(
             "backend_role_opaque_id": group.backend_role_opaque_id,
             "family": group.family,
             "physical_layout": list(group.physical_layout),
+            "properties_last_update": group.properties_last_update,
             "shots": group.shots,
             "opaque_ids": [item.opaque_id for item in group.circuits],
             "circuit_bindings": [
@@ -1723,7 +1745,14 @@ def _counts(bit_array: Any) -> dict[str, int]:
     return {str(key): int(value) for key, value in counts.items()}
 
 
-def extract_pub_result(pub: Any, opaque_id: str) -> dict[str, Any]:
+def extract_pub_result(
+    pub: Any,
+    opaque_id: str,
+    circuit_binding: Mapping[str, Any] | None = None,
+    *,
+    family: str | None = None,
+    expected_shots: int | None = None,
+) -> dict[str, Any]:
     register_counts: dict[str, dict[str, int]] = {}
     data = getattr(pub, "data", None)
     if data is None:
@@ -1731,18 +1760,52 @@ def extract_pub_result(pub: Any, opaque_id: str) -> dict[str, Any]:
     keys_method = getattr(data, "keys", None)
     if not callable(keys_method):
         raise RuntimeSafetyError("Sampler PUB result has no named classical registers")
-    for key in keys_method():
+    register_order = [str(key) for key in keys_method()]
+    for key in register_order:
         register_counts[str(key)] = _counts(getattr(data, key))
     try:
         joined = pub.join_data()
     except Exception as exc:
         raise RuntimeSafetyError("Sampler PUB result cannot reconstruct joint counts") from exc
-    return {
+    joint_counts = _counts(joined)
+    layout_by_family = {
+        "cayley": ({"heated", "decision", "final"}, 7, "final[3]|decision[1]|heated[3]"),
+        "mh": ({"before", "accepted", "after"}, 7, "after[3]|accepted[1]|before[3]"),
+        "readout_calibration": ({"calibration_c"}, 4, "calibration_c[4]"),
+    }
+    joined_layout = None
+    joined_width = None
+    if family is not None:
+        if family not in layout_by_family:
+            raise RuntimeSafetyError("result references an unsupported circuit family")
+        expected_registers, joined_width, joined_layout = layout_by_family[family]
+        if set(register_order) != expected_registers:
+            raise RuntimeSafetyError("Sampler result classical registers differ from frozen layout")
+        if any(
+            len(str(key).replace(" ", "")) != joined_width for key in joint_counts
+        ):
+            raise RuntimeSafetyError("Sampler joined count width differs from frozen layout")
+    if expected_shots is not None:
+        if sum(joint_counts.values()) != expected_shots or any(
+            sum(counts.values()) != expected_shots for counts in register_counts.values()
+        ):
+            raise RuntimeSafetyError("Sampler result shot totals differ from registration")
+    result = {
         "opaque_id": opaque_id,
-        "joint_counts": _counts(joined),
+        "joint_counts": joint_counts,
+        "raw_joined_counts_sha256": sha256_json(joint_counts),
         "register_counts": register_counts,
+        "classical_register_order": register_order,
+        "joined_count_layout": joined_layout,
+        "joined_count_width": joined_width,
         "metadata": _safe_json(getattr(pub, "metadata", None)),
     }
+    if circuit_binding is not None:
+        if circuit_binding.get("opaque_id") != opaque_id:
+            raise RuntimeSafetyError("result order differs from registered circuit bindings")
+        result["logical_qpy_sha256"] = circuit_binding["logical_qpy_sha256"]
+        result["compiled_qpy_sha256"] = circuit_binding["compiled_qpy_sha256"]
+    return result
 
 
 def _job_metrics(job: Any) -> Any:
@@ -1802,6 +1865,7 @@ def harvest_registered_jobs(
             "timestamp_utc": utc_now(),
             "manifest_sha256": bundle.manifest_sha256,
             "analysis_lock_sha256": bundle.analysis_lock_sha256,
+            "submission_event_sha256": registration["event_sha256"],
             "job_id": job_id,
             "group_id": registration["group_id"],
             "backend_name": registration["backend_name"],
@@ -1809,6 +1873,7 @@ def harvest_registered_jobs(
             "backend_role_opaque_id": registration["backend_role_opaque_id"],
             "family": registration["family"],
             "physical_layout": registration["physical_layout"],
+            "properties_last_update": registration["properties_last_update"],
             "shots": registration["shots"],
             "opaque_ids": registration["opaque_ids"],
             "circuit_bindings": registration["circuit_bindings"],
@@ -1824,8 +1889,18 @@ def harvest_registered_jobs(
                 if len(result) != len(registration["opaque_ids"]):
                     raise RuntimeSafetyError("Sampler result PUB count differs from registration")
                 event_data["results"] = [
-                    extract_pub_result(pub, opaque_id)
-                    for pub, opaque_id in zip(result, registration["opaque_ids"])
+                    extract_pub_result(
+                        pub,
+                        opaque_id,
+                        binding,
+                        family=registration["family"],
+                        expected_shots=registration["shots"],
+                    )
+                    for pub, opaque_id, binding in zip(
+                        result,
+                        registration["opaque_ids"],
+                        registration["circuit_bindings"],
+                    )
                 ]
             except RuntimeSafetyError:
                 raise
@@ -1848,9 +1923,16 @@ def harvest_registered_jobs(
 
 
 def require_completed_role_journal(
-    service: Any, journal: Path, manifest_sha256: str
+    service: Any,
+    journal: Path,
+    manifest_sha256: str,
+    expected_group_ids: set[str] | None = None,
 ) -> None:
     registrations = read_registered_jobs(journal, manifest_sha256)
+    if expected_group_ids is not None and {
+        registration["group_id"] for registration in registrations
+    } != expected_group_ids:
+        raise RuntimeSafetyError("prerequisite development role has unsubmitted groups")
     for registration in registrations:
         try:
             job = service.job(registration["job_id"])
@@ -1858,6 +1940,41 @@ def require_completed_role_journal(
             raise RuntimeSafetyError("could not verify prerequisite role job") from exc
         if _job_status(job) != "DONE":
             raise RuntimeSafetyError("prerequisite development role is not fully complete")
+
+
+def expected_role_group_ids(bundle: VerifiedBundle, backend_role: str) -> set[str]:
+    slot = next(
+        (item for item in bundle.backend_slots if item["role"] == backend_role), None
+    )
+    if slot is None:
+        raise RuntimeSafetyError("requested prerequisite role has no committed backend slot")
+    rows = [
+        row
+        for row in bundle.manifest["circuits"]
+        if row["backend_role"] == slot["public_role"]
+    ]
+    grouped: OrderedDict[tuple[str, int], list[dict[str, Any]]] = OrderedDict()
+    for row in rows:
+        grouped.setdefault(
+            (bundle.circuit_families[row["opaque_id"]], row["shots"]), []
+        ).append(row)
+    result = set()
+    for (family, shots), family_rows in grouped.items():
+        for chunk in _chunks(
+            family_rows, bundle.manifest["resources"]["max_pubs_per_job"]
+        ):
+            result.add(
+                sha256_json(
+                    {
+                        "manifest_sha256": bundle.manifest_sha256,
+                        "backend_role": slot["public_role"],
+                        "family": family,
+                        "shots": shots,
+                        "opaque_ids": [row["opaque_id"] for row in chunk],
+                    }
+                )
+            )
+    return result
 
 
 def _default_credentials_path() -> Path:
@@ -1894,15 +2011,15 @@ def main(argv: Sequence[str] | None = None) -> int:
             args.analysis_lock,
             qpy_dump=bindings.qpy_dump,
         )
+        if args.action == "submit":
+            validate_submission_confirmation(
+                confirm_submit=args.confirm_submit,
+                confirmed_manifest_sha256=args.confirm_manifest_sha256,
+                confirmed_analysis_lock_sha256=args.confirm_analysis_lock_sha256,
+                bundle=bundle,
+            )
         service = create_runtime_service(args.credentials_file)
         if args.action in {"plan", "submit"}:
-            if args.action == "submit":
-                validate_submission_confirmation(
-                    confirm_submit=args.confirm_submit,
-                    confirmed_manifest_sha256=args.confirm_manifest_sha256,
-                    confirmed_analysis_lock_sha256=args.confirm_analysis_lock_sha256,
-                    bundle=bundle,
-                )
             prepared = prepare_runtime_run(bundle, service, bindings, args.backend_role)
             plan_path = persist_prepared_run(prepared, args.output_dir)
             if args.action == "plan":
@@ -1932,6 +2049,7 @@ def main(argv: Sequence[str] | None = None) -> int:
                     service,
                     args.output_dir / "runtime_development_submission_events.ndjson",
                     bundle.manifest_sha256,
+                    expected_role_group_ids(bundle, "development"),
                 )
             jobs = submit_prepared_run(
                 prepared,
@@ -1987,6 +2105,12 @@ def main(argv: Sequence[str] | None = None) -> int:
     except RuntimeSafetyError as exc:
         print(f"runtime safety refusal: {exc}", file=sys.stderr)
         return 2
+    except Exception as exc:
+        # Do not render arbitrary vendor exception text: some HTTP/client
+        # exceptions can embed request details.  The class name is sufficient
+        # for a safe local diagnostic without risking credential disclosure.
+        print(f"runtime internal refusal: {type(exc).__name__}", file=sys.stderr)
+        return 3
 
 
 if __name__ == "__main__":

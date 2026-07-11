@@ -588,8 +588,8 @@
   <text x="3820" y="501" fill="#4ee7ff" font-size="15" font-family="JetBrains Mono, monospace" font-weight="700" letter-spacing="2" opacity="1">FOUNDATION</text>
   <rect x="3808" y="636" width="160.0" height="3" rx="1.5" fill="#4ee7ff" opacity="0.82" />
   <text x="3814" y="548" fill="#f4f7fb" font-size="22" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-0.35" opacity="1">Consensus Fixed-Point Law</text>
-  <text x="3814" y="593" fill="#9ba7b8" font-size="18" font-family="JetBrains Mono, monospace" font-weight="500" opacity="1">asynchronous confluence</text>
-  <text x="3814" y="621" fill="#9ba7b8" font-size="18" font-family="JetBrains Mono, monospace" font-weight="500" opacity="1">schedule-independent normal form</text>
+  <text x="3814" y="593" fill="#9ba7b8" font-size="18" font-family="JetBrains Mono, monospace" font-weight="500" opacity="1">fixed-source asynchronous confluence</text>
+  <text x="3814" y="621" fill="#9ba7b8" font-size="18" font-family="JetBrains Mono, monospace" font-weight="500" opacity="1">schedule-independent nf(s)</text>
 </g>
 <g filter="url(#panelShadow)">
   <rect x="4355" y="470" width="500" height="175" rx="24" fill="rgb(10 14 22 / 0.93)" stroke="#4ee7ff" stroke-width="1.6" opacity="1.0" />
@@ -651,8 +651,8 @@
   <text x="210" y="1222" fill="#4ee7ff" font-size="15" font-family="JetBrains Mono, monospace" font-weight="700" letter-spacing="2" opacity="1">THEOREM</text>
   <rect x="198" y="1375" width="227.2" height="3" rx="1.5" fill="#4ee7ff" opacity="0.82" />
   <text x="204" y="1275" fill="#f4f7fb" font-size="30" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-0.35" opacity="1">D1 Normal-Form Consensus</text>
-  <text x="204" y="1328" fill="#9ba7b8" font-size="22" font-family="JetBrains Mono, monospace" font-weight="500" opacity="1">tree gluing / asynchronous repair</text>
-  <text x="204" y="1360" fill="#9ba7b8" font-size="22" font-family="JetBrains Mono, monospace" font-weight="500" opacity="1">objective law from unique normal form</text>
+  <text x="204" y="1328" fill="#9ba7b8" font-size="22" font-family="JetBrains Mono, monospace" font-weight="500" opacity="1">one source, many repair schedules</text>
+  <text x="204" y="1360" fill="#9ba7b8" font-size="22" font-family="JetBrains Mono, monospace" font-weight="500" opacity="1">same-boundary identity requires B|C injective</text>
 </g>
 <g filter="url(#panelShadow)">
   <rect x="920" y="1191" width="710" height="232" rx="28" fill="rgb(10 14 22 / 0.93)" stroke="#4ee7ff" stroke-width="1.6" opacity="1.0" />

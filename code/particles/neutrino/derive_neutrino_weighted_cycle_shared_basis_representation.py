@@ -1,28 +1,18 @@
 #!/usr/bin/env python3
-"""Transport the repaired weighted-cycle branch into the shared same-label basis.
+"""Audit the weighted-cycle placement relative to the shared flavor basis.
 
-Chain role: expose the repaired weighted-cycle Majorana branch on the explicit
-`[f1, f2, f3]` basis closed by `U_e_left`, so the physical PMNS path is written
-as `U_PMNS = U_e_left^dagger * U_nu_shared` rather than left inside row-order
-metadata.
+The historical implementation called ``M_shared = U_e^* M_wc U_e^dagger`` a
+shared-basis validation and then defined ``U_nu_shared = U_e U_wc``.  The
+reported identity ``U_e^dagger U_nu_shared = U_wc`` follows algebraically from
+that definition, so it supplies no independent basis information.
 
-Mathematics:
-1. The repaired weighted-cycle artifact already emits one canonical Takagi
-   charged-basis surface `U_wc` with positive masses `m_i`.
-2. Once the shared charged-lepton left basis closes, the same Majorana matrix is
-   transported to the shared same-label basis by the exact Majorana congruence
-   `M_shared = U_e_left^* M_wc U_e_left^dagger`.
-3. The corresponding same-label neutrino Takagi unitary is
-   `U_nu_shared = U_e_left U_wc`.
-4. Therefore `U_e_left^dagger U_nu_shared = U_wc`, so the physical PMNS surface
-   is rebuilt explicitly through the closed shared basis without introducing any
-   new external convention.
-
-OPH-derived inputs: the repaired weighted-cycle branch and the shared
-charged-lepton left basis.
-
-Output: an exact shared-basis representation of the repaired weighted-cycle
-physical PMNS/Majorana branch.
+This builder preserves that change-of-coordinates calculation as a diagnostic
+and also evaluates the literal source-basis interpretation.  For the latter it
+reorders the declared ``[f3, f1, f2]`` cycle matrix into the independently
+declared ``[f1, f2, f3]`` basis, diagonalizes it, and forms the actual mismatch
+matrix ``U_PMNS = U_e^dagger U_nu``.  Neither interpretation is promoted because
+the repository contains no source-derived map placing the weighted-cycle
+operator in the charged-lepton mass basis.
 """
 
 from __future__ import annotations
@@ -202,17 +192,16 @@ def build_payload(
         raise ValueError("shared charged-lepton left basis must be closed")
     if not basis_contract.get("orientation_preserved", False):
         raise ValueError("shared charged-lepton basis must preserve orientation")
-    if weighted_cycle.get("physical_window_status") != "pmns_and_hierarchy_repaired":
-        raise ValueError("weighted-cycle repair must close the physical PMNS window first")
-
     weighted_cycle_matrix = _complex_matrix(weighted_cycle, "repaired_cycle_matrix_real", "repaired_cycle_matrix_imag")
     takagi = _canonical_takagi_unitary(weighted_cycle_matrix)
-    pmns = takagi["unitary"]
+    declared_pmns = takagi["unitary"]
     weighted_cycle_observables = dict(weighted_cycle["pmns_observables"])
 
     u_e_left = _complex_matrix(shared_charged_left["U_e_left"], "real", "imag")
+    # Historical construction.  This is a reversible change of coordinates of
+    # an operator already assumed to be in the charged-lepton mass basis.
     shared_basis_matrix = u_e_left.conj() @ weighted_cycle_matrix @ u_e_left.conj().T
-    u_nu_shared = u_e_left @ pmns
+    u_nu_shared = u_e_left @ declared_pmns
     recovered_pmns = np.conjugate(u_e_left).T @ u_nu_shared
 
     shared_diagonalized = u_nu_shared.T @ shared_basis_matrix @ u_nu_shared
@@ -221,45 +210,65 @@ def build_payload(
     if np.any(shared_diag_real <= 0.0):
         raise ValueError("shared-basis transport must preserve a positive Takagi diagonal")
 
-    observables = _standard_pmns_parameters(recovered_pmns)
+    declared_observables = _standard_pmns_parameters(recovered_pmns)
     observable_match = {
-        "theta12_deg_abs_delta": abs(observables["theta12_deg"] - float(weighted_cycle_observables["theta12_deg"])),
-        "theta23_deg_abs_delta": abs(observables["theta23_deg"] - float(weighted_cycle_observables["theta23_deg"])),
-        "theta13_deg_abs_delta": abs(observables["theta13_deg"] - float(weighted_cycle_observables["theta13_deg"])),
-        "delta_deg_abs_delta": abs(((observables["delta_deg"] - float(weighted_cycle_observables["delta_deg"]) + 180.0) % 360.0) - 180.0),
-        "J_abs_delta": abs(observables["J"] - float(weighted_cycle_observables["J"])),
+        "theta12_deg_abs_delta": abs(declared_observables["theta12_deg"] - float(weighted_cycle_observables["theta12_deg"])),
+        "theta23_deg_abs_delta": abs(declared_observables["theta23_deg"] - float(weighted_cycle_observables["theta23_deg"])),
+        "theta13_deg_abs_delta": abs(declared_observables["theta13_deg"] - float(weighted_cycle_observables["theta13_deg"])),
+        "delta_deg_abs_delta": abs(((declared_observables["delta_deg"] - float(weighted_cycle_observables["delta_deg"]) + 180.0) % 360.0) - 180.0),
+        "J_abs_delta": abs(declared_observables["J"] - float(weighted_cycle_observables["J"])),
     }
     if max(observable_match.values()) > 1.0e-8:
         raise ValueError("shared-basis transported branch must recover the weighted-cycle PMNS observables exactly")
 
-    majorana_pair = _majorana_pair_from_pmns(recovered_pmns, observables["delta_rad"])
+    declared_majorana_pair = _majorana_pair_from_pmns(recovered_pmns, declared_observables["delta_rad"])
     transport_checks = {
         "shared_basis_symmetry_max_abs": float(np.max(np.abs(shared_basis_matrix - shared_basis_matrix.T))),
         "shared_basis_diagonalized_offdiag_max_abs": float(np.max(np.abs(shared_offdiag))),
         "shared_basis_diagonalized_imag_max_abs": float(np.max(np.abs(np.imag(np.diag(shared_diagonalized))))),
         "shared_basis_diagonalized_real_masses": [float(x) for x in shared_diag_real.tolist()],
-        "pmns_recovery_max_abs": float(np.max(np.abs(recovered_pmns - pmns))),
+        "pmns_recovery_max_abs": float(np.max(np.abs(recovered_pmns - declared_pmns))),
     }
+
+    cycle_basis_order = list(weighted_cycle.get("cycle_basis_order") or [])
+    shared_basis_order = list(basis_contract.get("labels") or shared_charged_left.get("labels") or [])
+    if sorted(cycle_basis_order) != sorted(shared_basis_order) or len(shared_basis_order) != 3:
+        raise ValueError("cycle and shared basis labels must describe the same three labels")
+    shared_from_cycle_indices = [cycle_basis_order.index(label) for label in shared_basis_order]
+    source_basis_matrix = weighted_cycle_matrix[np.ix_(shared_from_cycle_indices, shared_from_cycle_indices)]
+    source_takagi = _canonical_takagi_unitary(source_basis_matrix)
+    source_u_nu = source_takagi["unitary"]
+    source_pmns = np.conjugate(u_e_left).T @ source_u_nu
+    source_observables = _standard_pmns_parameters(source_pmns)
+
+    placement_contract = dict(weighted_cycle.get("basis_placement_contract") or {})
+    placement_is_source_derived = (
+        placement_contract.get("status") == "source_derived"
+        and placement_contract.get("operator_input_basis") == shared_basis_order
+        and placement_contract.get("physical_charged_basis_map") == "U_e_left"
+    )
 
     return {
         "artifact": "oph_neutrino_weighted_cycle_shared_basis_representation",
         "generated_utc": _timestamp(),
-        "status": "theorem_grade_emitted",
-        "proof_chain_role": "active_theorem_lane",
-        "theorem_object": "shared_basis_weighted_cycle_physical_pmns",
-        "theorem_surface": "weighted_cycle_shared_basis_transport",
-        "public_surface_candidate_allowed": True,
-        "physical_branch_closed": True,
+        "status": "basis_placement_open_tautological_transport_audit",
+        "proof_chain_role": "nonpromoting_basis_audit",
+        "theorem_object": None,
+        "theorem_surface": None,
+        "public_surface_candidate_allowed": False,
+        "physical_branch_closed": False,
+        "prediction_promotion_allowed": False,
+        "basis_placement_source_derived": placement_is_source_derived,
         "statement": (
-            "The repaired weighted-cycle Majorana matrix is transported exactly into the closed shared same-label basis, "
-            "and the physical PMNS surface is recovered there as U_e_left^dagger * U_nu_shared. This closes the "
-            "weighted-cycle theorem lane on the shared basis without identifying it with the separate intrinsic/shared-"
-            "basis PMNS diagnostic surface."
+            "The historical shared-basis recovery is an identity created by defining U_nu_shared = U_e_left U_wc. "
+            "No source theorem places the f-labelled weighted-cycle operator in the charged-lepton mass basis, so the "
+            "calculation cannot close a physical PMNS branch."
         ),
         "construction": {
-            "shared_basis_matrix": "M_shared = U_e_left^* M_wc U_e_left^dagger",
-            "shared_basis_neutrino_unitary": "U_nu_shared = U_e_left U_wc",
-            "physical_pmns_recovery": "U_PMNS = U_e_left^dagger U_nu_shared",
+            "historical_declared_charged_basis_pullback": "M_shared = U_e_left^* M_wc U_e_left^dagger",
+            "historical_defined_neutrino_unitary": "U_nu_shared = U_e_left U_wc",
+            "historical_identity": "U_e_left^dagger U_nu_shared = U_wc",
+            "literal_source_basis_test": "reorder M_wc from cycle_basis_order to [f1,f2,f3], diagonalize independently, then form U_e_left^dagger U_nu",
         },
         "basis_contract": basis_contract,
         "basis_labels": list(shared_charged_left.get("labels") or []),
@@ -280,6 +289,8 @@ def build_payload(
             "diagonalized_imag_max_abs": takagi["diagonalized_imag_max_abs"],
             "diagonalized_offdiag_max_abs": takagi["diagonalized_offdiag_max_abs"],
         },
+        "declared_charged_basis_matrix_real": np.real(weighted_cycle_matrix).tolist(),
+        "declared_charged_basis_matrix_imag": np.imag(weighted_cycle_matrix).tolist(),
         "charged_basis_matrix_real": np.real(weighted_cycle_matrix).tolist(),
         "charged_basis_matrix_imag": np.imag(weighted_cycle_matrix).tolist(),
         "shared_basis_matrix_real": np.real(shared_basis_matrix).tolist(),
@@ -288,14 +299,32 @@ def build_payload(
         "u_nu_shared_imag": np.imag(u_nu_shared).tolist(),
         "pmns_matrix_real": np.real(recovered_pmns).tolist(),
         "pmns_matrix_imag": np.imag(recovered_pmns).tolist(),
-        "pmns_observables": observables,
+        "pmns_observables": declared_observables,
         "weighted_cycle_observables_match": observable_match,
         "transport_checks": transport_checks,
-        "emitted_parameters": majorana_pair,
+        "emitted_parameters": None,
+        "candidate_parameters": declared_majorana_pair,
+        "basis_audit": {
+            "cycle_basis_order": cycle_basis_order,
+            "shared_basis_order": shared_basis_order,
+            "shared_from_cycle_indices": shared_from_cycle_indices,
+            "historical_recovery_is_tautology": True,
+            "historical_recovery_independent_empirical_content": False,
+            "missing_source_object": "weighted_cycle_operator_basis_placement_and_physical_family_map",
+            "literal_source_basis_interpretation_is_promotable": False,
+            "literal_source_basis_matrix_real": np.real(source_basis_matrix).tolist(),
+            "literal_source_basis_matrix_imag": np.imag(source_basis_matrix).tolist(),
+            "literal_source_basis_u_nu_real": np.real(source_u_nu).tolist(),
+            "literal_source_basis_u_nu_imag": np.imag(source_u_nu).tolist(),
+            "literal_source_basis_pmns_real": np.real(source_pmns).tolist(),
+            "literal_source_basis_pmns_imag": np.imag(source_pmns).tolist(),
+            "literal_source_basis_pmns_abs": np.abs(source_pmns).tolist(),
+            "literal_source_basis_pmns_observables": source_observables,
+        },
         "notes": [
-            "This artifact does not use the old intrinsic/shared-basis PMNS surface; it transports the repaired weighted-cycle theorem lane itself into the closed same-label basis.",
-            "Because the transport is a Majorana congruence by the already-closed U_e_left, the shared-basis matrix remains complex symmetric and is diagonalized by the transported U_nu_shared with the same positive masses.",
-            "The physical PMNS matrix recovered from U_e_left^dagger * U_nu_shared matches the repaired weighted-cycle PMNS surface exactly, so Majorana readout can be promoted on this anchored branch.",
+            "The exact congruence and PMNS recovery residuals verify algebra only; they do not select the input basis.",
+            "The literal f-basis calculation is a diagnostic because the current corpus does not derive the physical family map or the weighted-cycle operator itself.",
+            "A future promotion requires an independently source-emitted neutrino operator and charged-family basis map before oscillation data are consulted.",
         ],
     }
 

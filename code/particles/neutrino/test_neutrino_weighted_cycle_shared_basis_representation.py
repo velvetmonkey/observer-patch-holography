@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate the shared-basis representation of the repaired weighted-cycle branch."""
+"""Validate the weighted-cycle shared-basis audit."""
 
 from __future__ import annotations
 
@@ -16,7 +16,7 @@ WEIGHTED_CYCLE = ROOT / "particles" / "runs" / "neutrino" / "neutrino_weighted_c
 SHARED_CHARGED_LEFT = ROOT / "particles" / "runs" / "neutrino" / "shared_charged_lepton_left_basis.json"
 
 
-def test_weighted_cycle_shared_basis_representation_closes_exactly() -> None:
+def test_weighted_cycle_shared_basis_transport_is_flagged_as_tautological() -> None:
     with tempfile.TemporaryDirectory(prefix="oph_neutrino_shared_basis_repr_") as tmpdir:
         out = pathlib.Path(tmpdir) / "representation.json"
         subprocess.run(
@@ -35,8 +35,10 @@ def test_weighted_cycle_shared_basis_representation_closes_exactly() -> None:
         )
         payload = json.loads(out.read_text(encoding="utf-8"))
         assert payload["artifact"] == "oph_neutrino_weighted_cycle_shared_basis_representation"
-        assert payload["status"] == "theorem_grade_emitted"
-        assert payload["physical_branch_closed"] is True
+        assert payload["status"] == "basis_placement_open_tautological_transport_audit"
+        assert payload["physical_branch_closed"] is False
+        assert payload["public_surface_candidate_allowed"] is False
+        assert payload["basis_placement_source_derived"] is False
         assert payload["transport_checks"]["shared_basis_symmetry_max_abs"] < 1.0e-12
         assert payload["transport_checks"]["shared_basis_diagonalized_offdiag_max_abs"] < 1.0e-12
         assert payload["transport_checks"]["shared_basis_diagonalized_imag_max_abs"] < 1.0e-12
@@ -50,5 +52,9 @@ def test_weighted_cycle_shared_basis_representation_closes_exactly() -> None:
         assert payload["pmns_matrix_real"][0][0] > 0.0
         assert payload["pmns_matrix_real"][0][1] > 0.0
         assert payload["pmns_matrix_real"][0][2] > 0.0
-        assert abs(payload["emitted_parameters"]["alpha21_deg_0_to_360"] - 153.6185177794357) < 1.0e-9
-        assert abs(payload["emitted_parameters"]["alpha31_deg_0_to_360"] - 257.0032408220805) < 1.0e-9
+        assert payload["emitted_parameters"] is None
+        assert payload["basis_audit"]["historical_recovery_is_tautology"] is True
+        assert payload["basis_audit"]["historical_recovery_independent_empirical_content"] is False
+        literal = payload["basis_audit"]["literal_source_basis_pmns_observables"]
+        assert abs(literal["theta13_deg"] - 44.828312032869384) < 1.0e-9
+        assert abs(literal["theta23_deg"] - 76.27586231032956) < 1.0e-9
