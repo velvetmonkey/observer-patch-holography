@@ -2543,15 +2543,18 @@ and hence
 \bigoplus_{\alpha\in A_{\Sigma,r}}
 \mathcal H_{b_L^\alpha}\otimes \mathcal H_{b_R^\alpha}.
 \]
-The minimal central projector onto the \(\alpha\)-summand is denoted \(P_\alpha\). A
-\emph{visible seed charge} is the zero-obstruction overlap-transport orbit of such a pair
-\((P_\alpha,W_\alpha)\). Here zero obstruction means the strict path-independence criterion of
-Theorem~\ref{thm:transport-from-gluing}: trivial ordinary sector holonomy and, on the central
-branch, also \([z]_\Sigma=0\), with holonomy evaluated after an allowed strictification. A
-genuinely noncentral datum enters this definition only when \(o^{(2)}_\Sigma=0\) and at least one
-allowed strict \(G_\Sigma\)-valued \(1\)-cocycle representative has trivial represented holonomy;
-otherwise it remains outside this ordinary category. The full orbit \(q_\Sigma\) classifies the
-allowed crossed-module representatives but does not select a unique ordinary \(H^1\) class.
+The minimal central projector onto the \(\alpha\)-summand is denoted \(P_\alpha\). Before selecting
+seeds, choose one common stagewise strict edge \(1\)-cocycle
+\(U^{\mathrm{str}}_r\): on the ordinary branch this is the given strict system; on the central
+branch it is one allowed strictification after \([z]_\Sigma=0\); and a strictified genuinely
+noncentral datum may enter only after \(o^{(2)}_\Sigma=0\) and the choice of one allowed strict
+\(G_\Sigma\)-valued representative. A \emph{visible seed charge relative to
+\(U^{\mathrm{str}}_r\)} is a pair \((P_\alpha,W_\alpha)\) whose full transported charge block has
+trivial holonomy for this same representative on every closed overlap loop. The construction does
+not union seeds that require mutually incompatible strictifications. The full orbit \(q_\Sigma\)
+classifies the allowed crossed-module representatives but does not select a unique ordinary
+\(H^1\) class; choosing \(U^{\mathrm{str}}_r\) is therefore part of the fixed-stage ordinary
+sector datum.
 Let \(S_r\) be the finite set of visible seed carriers. Define
 \[
 \mathsf{Sect}^{\mathrm{bos}}_r
@@ -2611,8 +2614,13 @@ conjugates is therefore semisimple, with finite-dimensional objects and Hom spac
 reducibility does not imply that its simple skeleton is finite, and no such finiteness is used.
 
 Transport between collars is the path-composite construction of
-Theorem~\ref{thm:transport-from-gluing}. On the branch used here the obstruction vanishes, so
-transport of \(P_\alpha\), \(W_\alpha\), and their intertwiners is independent of the overlap path.
+Theorem~\ref{thm:transport-from-gluing}. For every closed loop \(\ell\), the common choice
+\(U^{\mathrm{str}}_r\) acts as the identity on each seed block. It therefore acts as the identity
+on direct sums, as \(\mathbf 1\otimes\mathbf 1\) on tensor products, as the conjugate identity on
+duals, and by restriction as the identity on every invariant subobject. Thus every object in the
+generated category has path-independent transport using the same representative, and those
+transport identifications are monoidal. In particular, transport of \(P_\alpha\), \(W_\alpha\),
+and their intertwiners is independent of the overlap path.
 Hence the Hom spaces defined after moving all localizations to a reference collar do not depend on
 the chosen path or reference collar, up to canonical transported unitary identification.
 
@@ -6901,8 +6909,9 @@ The ordinary trivial-holonomy condition, the combined central condition
 \([z]_\Sigma=0\) plus a trivial-holonomy strictification, and the combined noncentral condition
 \(o^{(2)}_\Sigma=0\) plus an allowed strict representative with trivial represented
 \(G_\Sigma\)-holonomy are transportability
-conditions. They permit an
-ordinary transportable bosonic sector category on the corresponding branch; they do not select
+conditions. After one common stagewise strict representative is chosen, they permit an
+ordinary transportable bosonic sector category generated only by sectors trivial under that
+choice; they do not select
 \[
 \frac{\SU(3)\times\SU(2)\times\U(1)}{\mathbb Z_6}.
 \]
@@ -6989,10 +6998,12 @@ identifications.
 \pi_{rr}^{\Sigma}=\mathrm{id},qquad
 \pi_{tr}^{\Sigma}=\pi_{sr}^{\Sigma}\circ\pi_{ts}^{\Sigma},
 \]
-that intertwine the overlap-transport and the full combined zero-obstruction data: the chosen
-central or crossed-module strictification where applicable, and the represented action of every
-closed overlap loop. In particular, closed fine loops with trivial coarse shadow must act
-trivially rather than create new residual holonomy. For every visible seed carrier
+together with one common stagewise strict representative \(U^{\mathrm{str}}_r\) at every
+\(r\in R_0\). The maps intertwine overlap transport and these common choices, including the
+chosen central or crossed-module strictification where applicable and the represented action of
+every closed overlap loop; the representative is not changed object by object. In particular,
+closed fine loops with trivial coarse shadow must act trivially rather than create new residual
+holonomy. For every visible seed carrier
 \(W_{\alpha,r}\), its pullback \((\pi_{sr}^{\Sigma})^*W_{\alpha,r}\) lies in
 \(\mathsf{Sect}^{\mathrm{bos}}_s\), and its chosen refined collar realization has support
 \(\jmath_{rs}^{B}(P_{\alpha,r})\). Fine central blocks under that support are realization blocks
@@ -7036,6 +7047,7 @@ are objectwise finite-dimensional and obey
 \[
 F_s\circ U_{rs}=F_r
 \]
+with identity monoidal comparisons satisfying the refinement-composition coherence equation.
 \end{theorem}
 
 \begin{proof}
@@ -7064,9 +7076,10 @@ Pullback preserves the trivial representation, tensor products, conjugates, eval
 coevaluation, and the canonical bosonic flip. With the standard underlying-Hilbert-space
 identifications these are symmetric strong monoidal identities. Exact composition of the
 \(\pi\)'s gives \(U_{st}U_{rs}=U_{rt}\) on objects and morphisms. Compatibility of the \(\pi\)'s
-with overlap transport and obstruction data, required by the receipt, carries both parts of the
-combined criterion to the fine stage: the central or crossed-module defect remains strictified and
-every represented fine-loop action remains trivial, including loops with trivial coarse shadow.
+with overlap transport and obstruction data, required by the receipt, carries the common
+\(U^{\mathrm{str}}_r\) to the common \(U^{\mathrm{str}}_s\): the central or crossed-module defect
+remains strictified and every represented fine-loop action remains trivial, including loops with
+trivial coarse shadow. No sector-specific change of strict representative is used.
 Thus zero obstruction persists. The separately supplied \(\jmath_{rs}^{B}\) records
 where a seed is realized in the refined collar algebra; its central summands are not used to alter
 the carrier or to define \(U_{rs}\).
@@ -7093,8 +7106,9 @@ the representation pullback construction.
 \end{proof}
 
 \begin{remark}[The \(\U(1)\) charge-one refinement test]\label{rem:u1-charge-refinement-test}
-Let \(\widehat K_{\Sigma,r}=\U(1)\) and suppose the fixed collar sees the charge-one seed
-\(W_1(z)=z\). The category of Definition~\ref{def:fixed-cutoff-collar-sectors} contains
+Let \(\widehat K_{\Sigma,r}=\U(1)\) and suppose the fixed collar sees the charge-one carrier
+\(W_1(z)=z\), retained as a seed by the common stagewise representative
+\(U^{\mathrm{str}}_r\). The category of Definition~\ref{def:fixed-cutoff-collar-sectors} contains
 \[
 W_n=W_1^{\otimes n}\quad(n\geq 0),
 \qquad

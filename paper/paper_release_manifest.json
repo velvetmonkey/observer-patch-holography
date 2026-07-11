@@ -2,80 +2,80 @@
   "extra_papers": {
     "Photonic_fixed-point_consensus_for_SHA-256d_proof_of_work": {
       "pdf_path": "extra/Photonic_fixed-point_consensus_for_SHA-256d_proof_of_work.pdf",
-      "sha256": "64645672f78981ec22abd5cf526b93cc7ca4602f44b5eed2fca213d0decec2eb",
-      "size_bytes": 203384
+      "sha256": "98e19007536c71258777481488491c0648e5bbfd6163a5c854f73e5ee8b4c048",
+      "size_bytes": 203390
     },
     "chi_nu_susceptibility_bounds": {
       "pdf_path": "extra/chi_nu_susceptibility_bounds.pdf",
-      "sha256": "c1d76aee47ed3b6ee3c6bc4cd521d7145549bfc1f0cc4a27608782537b0c67f4",
-      "size_bytes": 184209
+      "sha256": "63994e2b281f3c85f003843c72daa9c2b3b071e05deb07664d6e79cf0ea5a68a",
+      "size_bytes": 184208
     },
     "compact_proof_of_oph": {
       "pdf_path": "extra/compact_proof_of_oph.pdf",
-      "sha256": "1e0cef13cb65736b89e1dd5f1e2943b6324f9304b6e8da17ce307abb895cd27b",
-      "size_bytes": 326909
+      "sha256": "078a5df611604e262882149c5562ac6edf66d6151f9d57065ed9b295314c4779",
+      "size_bytes": 327197
     },
     "fine_structure_constant_derivation": {
       "pdf_path": "extra/fine_structure_constant_derivation.pdf",
-      "sha256": "b5b4305a3f00c03bad71ad0c3db4573212fcd0d8f35ef4ccfcbcedc7fe85c63b",
-      "size_bytes": 168937
+      "sha256": "14fc6ce73b135de1148a713dd1a8d8ee1c9c2b811ecd63d90d1fa8fdc932ee33",
+      "size_bytes": 168938
     },
     "observable_normal_forms": {
       "pdf_path": "extra/observable_normal_forms.pdf",
-      "sha256": "ec18d4b4e5a7bb2a8dc38832a529c3b6edf23ab7f1c8bf72c98f342da33cd35b",
+      "sha256": "07214069b944a565c4012c0c33dbfcfd2e72cbbb156e2748ca2437a606b29b68",
       "size_bytes": 227143
     },
     "observer_patch_holography_as_string_vacuum_selector": {
       "pdf_path": "extra/observer_patch_holography_as_string_vacuum_selector.pdf",
-      "sha256": "e72354c8e3b2d1910e2200b36303695061198e9b50655f21dd3ee6c5d704456e",
-      "size_bytes": 282997
+      "sha256": "7cdbeefb3ae75c98e721b33a49eeed5eb6b38347f877a8c05c74b400436ca237",
+      "size_bytes": 283163
     },
     "oph_dark_matter_paper": {
       "pdf_path": "cosmology/oph_dark_matter_paper.pdf",
-      "sha256": "b5c03f377122be76ab76d5f7a3986d3d6e148295cce7c7dc70b4712e2769b68d",
+      "sha256": "a8b0454b24d7fbe158a5808468f914830e1e38022c3a3adfa8b0d0c2bbfec6da",
       "size_bytes": 336486
     },
     "thinking_as_patch_net_fixed_point_search": {
       "pdf_path": "extra/thinking_as_patch_net_fixed_point_search.pdf",
-      "sha256": "1491acb1c27d936a4ebeb230ca1e91c3aa467dfb6ec9149d61a2381c86fbe411",
-      "size_bytes": 262205
+      "sha256": "25e199d863247bc42d9352288dfaafd2d2da50f2914cf5609e0ce59271e14d3e",
+      "size_bytes": 262208
     },
     "yang_mills_gap_clay_problem": {
       "pdf_path": "extra/yang_mills_gap_clay_problem.pdf",
-      "sha256": "717dd2a3ff8ecc9307a185fb04c7ee6b7aa0fbb5ebe66ebce4ee76dfcf3ff87d",
-      "size_bytes": 144981
+      "sha256": "cb9b1b8d362c531f23814cedcab91960934f008a083d507f8a3283b47d81c720",
+      "size_bytes": 145359
     }
   },
-  "generated_at": "2026-07-11T16:17:09.274686Z",
+  "generated_at": "2026-07-11T16:42:49.907655Z",
   "papers": {
     "deriving_the_particle_zoo_from_observer_consistency": {
       "pdf_path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
-      "sha256": "5cd089ae2f74c7dcdd8c33b43f876afcf9d3a93c335d24c78961897c56e61cde",
-      "size_bytes": 419238
+      "sha256": "a80f3e408aeed6807d67360a6d5978d425dd352538348fea470719c0c672a107",
+      "size_bytes": 419769
     },
     "observers_are_all_you_need": {
       "pdf_path": "paper/observers_are_all_you_need.pdf",
-      "sha256": "7e1b7dcd810b03cf33ec6a9827fae75f50863cb967ceeb2ea84183dafd4cd8c0",
-      "size_bytes": 778294
+      "sha256": "18ef0b3873267dc47942333738c2b8c6fff578537e3cf8fe42a147e9bc95b52c",
+      "size_bytes": 807028
     },
     "paradise_as_fixed_point_consensus": {
       "pdf_path": "paper/paradise_as_fixed_point_consensus.pdf",
-      "sha256": "23dfecdab0770977b9fe15eb71899fff81116e4f8bd63dc5a4fb3060a9ec3902",
+      "sha256": "a1dc2a697f4303882c4ae0c290994e46abe4da59507615729ed7504fd1634f5e",
       "size_bytes": 167564
     },
     "reality_as_consensus_protocol": {
       "pdf_path": "paper/reality_as_consensus_protocol.pdf",
-      "sha256": "b7d107aded28a5299991d381827e47aaae90285623048c96052a8bb092a58a49",
-      "size_bytes": 357208
+      "sha256": "9c230a52c10505658af1d1aae06f30576784ea11398caf5e59c1700f527a82b6",
+      "size_bytes": 359564
     },
     "recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact": {
       "pdf_path": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf",
-      "sha256": "de345e944d5c46ebdd3d3fc9c80f65cf6ef184d96b88a6ed9ced460f14c0f058",
-      "size_bytes": 962977
+      "sha256": "99f36fe6c7044fd5c1041744a448da6656149dc722390113f52124d67e8f350b",
+      "size_bytes": 995737
     },
     "screen_microphysics_and_observer_synchronization": {
       "pdf_path": "paper/screen_microphysics_and_observer_synchronization.pdf",
-      "sha256": "4c447de961c1f26484032a4564b78b5027d5699ec88e53277eae656402561208",
+      "sha256": "b43826c160a0a3110dd89b2040008d444c5fe4d4d08dcbe8c21924f883cee7c8",
       "size_bytes": 231166
     }
   },

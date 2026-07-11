@@ -488,6 +488,12 @@ list every charge generated when seeds are fused. A fixed collar can therefore
 have finitely many visible blocks while the tensor-generated category has
 infinitely many simple charge types.
 
+One tensor category uses one common strict transport choice at each cutoff.
+Only visible blocks with trivial closed-loop action under that same choice are
+retained as seeds. Blocks that become transportable only after incompatible
+strictifications belong to alternative fixed-stage categories; their union is
+not silently closed under tensor product.
+
 The letter $\mathcal H$ names a Hilbert space, the quantum state space for a
 piece of the system. "Collar" means the thin overlap zone near a boundary. The
 superscript $\alpha$ says that each left and right Hilbert space belongs to one
@@ -538,7 +544,8 @@ compose along a cofinal refinement chain, whose endpoint is the directed
 colimit. Without that receipt, only the fixed-stage categories exist and the
 refinement-limit gauge group remains conditional.
 
-For example, if a U(1) collar sees charge one, tensor closure contains charge
+For example, if a U(1) collar sees charge one and the common strict transport
+retains it, tensor closure contains charge
 two and, in fact, every integer charge. The charge-two projector belongs to the
 two-fold tensor-word or concatenated-collar realization; it need not appear in
 the original one-collar center. Its forgetful fiber is still one-dimensional
@@ -562,7 +569,9 @@ Equivalently, the logic factors into classification and selection. Overlap
 gluing first tests whether triangle or higher associator defects can be
 strictified. It then tests the ordinary holonomy across the allowed strict
 representatives and requires at least one to act trivially around every closed
-loop. Only sectors that pass both tests form the
+loop. To form one tensor category, one such representative is then fixed for
+the whole stage, and only sectors on which that same representative has
+trivial loop action are retained. Only those sectors form the
 transportable category from which tensor reconstruction reads a compact group.
 The selector acts on realized matter packages only after that.
 
@@ -577,7 +586,8 @@ strict transport requires that at least one allowed representative have trivial
 represented holonomy.
 "Zero obstruction" in the gauge-reconstruction branch therefore means both
 associator strictifiability and the existence of a trivial-holonomy strict
-representative.
+representative for an individual sector; tensor reconstruction additionally
+fixes one common representative for all seeds in the chosen category.
 
 Once you ask for the smallest matter sector that can carry color, weak
 interactions, chirality, and ordinary charge, the answer is forced into a
