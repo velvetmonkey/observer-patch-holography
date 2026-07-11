@@ -177,6 +177,135 @@ def test_bell_smoothing_is_excluded_from_central_interface_gibbs_class():
         assert not is_ec_aligned(blocks)
 
 
+def _pre_quotient_model(rng: np.random.Generator):
+    """Z_2 boundary-action collar model for Theorem thm:msaderivation.
+
+    H~_BL = C^2(x)C^2 with u_L = diag(1,-1)(x)I_2 (irrep label (x) multiplicity),
+    H~_BR carries the contragredient (= same, for Z_2) action. The invariant
+    subspace of H~_BL (x) H~_BR is the two-block collar model with
+    (b_L, b_R) = (2, 2) per block. A and D are qubits.
+
+    Returns (U, P_iso_plus, P_iso_minus, isometries) where U is the lifted
+    diagonal boundary action on H_A (x) H~_BL (x) H~_BR (x) H_D (dim 64) and
+    isometries[s] maps block s of the quotient model (dim 16) into the
+    invariant subspace.
+    """
+    d = 64  # 2 * 4 * 4 * 2
+    u = np.diag([1.0, 1.0, -1.0, -1.0])  # diag(1,-1) (x) I_2 on C^4
+    U = np.kron(np.kron(np.eye(2), np.kron(u, u)), np.eye(2))
+
+    # isotypic projectors of u on C^4 (flux sectors of the left action)
+    p_plus = np.diag([1.0, 1.0, 0.0, 0.0])
+    p_minus = np.diag([0.0, 0.0, 1.0, 1.0])
+
+    # block isometries: |A> (x) |s,m>_L (x) |s,m'>_R (x) |D>  ->  block s
+    isometries = {}
+    for s, offset in ((0, 0), (1, 2)):  # s=0: +, s=1: -
+        v = np.zeros((d, 16))
+        col = 0
+        for a in range(2):
+            for m in range(2):
+                for mp in range(2):
+                    for dd in range(2):
+                        row = ((a * 4 + (offset + m)) * 4 + (offset + mp)) * 2 + dd
+                        v[row, col] = 1.0
+                        col += 1
+        isometries[s] = v
+    return U, p_plus, p_minus, isometries
+
+
+def _group_average(h: np.ndarray, U: np.ndarray) -> np.ndarray:
+    return 0.5 * (h + U @ h @ U.conj().T)
+
+
+def test_descent_central_interface_pre_quotient_gibbs_is_aligned():
+    """Theorem thm:msaderivation via Lemma lem:onesideddescent, end to end.
+
+    Pre-quotient H~ = H~_AL + H~_RD + H~_Sigma with H~_AL, H~_RD one-sided
+    K-invariant and H~_Sigma a flux (isotypic-projector) function. The Gibbs
+    state of the descended Hamiltonian on the invariant subspace is EC-aligned
+    exact Markov on the preselected blocks.
+    """
+    rng = np.random.default_rng(23)
+    U, p_plus, p_minus, isometries = _pre_quotient_model(rng)
+
+    def rand_herm(n):
+        x = rng.normal(size=(n, n)) + 1j * rng.normal(size=(n, n))
+        return 0.5 * (x + x.conj().T)
+
+    # one-sided K-invariant terms, lifted to the 64-dim pre-quotient space
+    u4 = np.diag([1.0, 1.0, -1.0, -1.0])
+    h_al = _group_average(rand_herm(8), np.kron(np.eye(2), u4))     # on A(x)BL
+    h_rd = _group_average(rand_herm(8), np.kron(u4, np.eye(2)))     # on BR(x)D
+    H_AL = np.kron(h_al, np.eye(8))
+    H_RD = np.kron(np.eye(8), h_rd)
+    # central interface energy: a function of the flux through Sigma
+    H_SIG = np.kron(np.eye(2), np.kron(0.9 * p_plus - 0.4 * p_minus, np.eye(8)))
+    H_pre = H_AL + H_RD + H_SIG
+
+    # descend: restrict the Gibbs state of H_pre to the invariant subspace
+    blocks = []
+    weights = []
+    for s in (0, 1):
+        v = isometries[s]
+        h_s = v.conj().T @ H_pre @ v
+        rho_s = np.asarray(np.linalg.eigh(h_s)[1], dtype=complex)
+        evals = np.linalg.eigh(h_s)[0]
+        w = rho_s @ np.diag(np.exp(-evals)) @ rho_s.conj().T
+        weights.append(np.trace(w).real)
+        blocks.append(w)
+    z = sum(weights)
+    blocks = [(weights[s] / z, blocks[s] / weights[s], (2, 2, 2, 2))
+              for s in (0, 1)]
+
+    assert is_ec_aligned(blocks, tol=1e-8)
+    assert modular_splitting_defect(blocks) < 1e-8
+    assert collar_cmi(blocks) < 1e-8
+
+
+def test_descent_invariant_but_noncentral_interface_breaks_alignment():
+    """Sharp negative direction of the central-interface collar clause.
+
+    A K-invariant cross-cut term that couples the multiplicity factors
+    (rather than acting through the flux sectors) destroys alignment even
+    though it respects the boundary symmetry. Invariance alone is not the
+    clause; centrality is.
+    """
+    rng = np.random.default_rng(29)
+    U, p_plus, p_minus, isometries = _pre_quotient_model(rng)
+
+    def rand_herm(n):
+        x = rng.normal(size=(n, n)) + 1j * rng.normal(size=(n, n))
+        return 0.5 * (x + x.conj().T)
+
+    u4 = np.diag([1.0, 1.0, -1.0, -1.0])
+    h_al = _group_average(rand_herm(8), np.kron(np.eye(2), u4))
+    h_rd = _group_average(rand_herm(8), np.kron(u4, np.eye(2)))
+    H_AL = np.kron(h_al, np.eye(8))
+    H_RD = np.kron(np.eye(8), h_rd)
+    # K-invariant but NON-central cross-cut coupling on BL (x) BR
+    cross = _group_average(rand_herm(16), np.kron(u4, u4))
+    H_CROSS = np.kron(np.eye(2), np.kron(cross, np.eye(2)))
+    H_pre = H_AL + H_RD + 1.5 * H_CROSS
+
+    blocks = []
+    weights = []
+    for s in (0, 1):
+        v = isometries[s]
+        h_s = v.conj().T @ H_pre @ v
+        vecs = np.asarray(np.linalg.eigh(h_s)[1], dtype=complex)
+        evals = np.linalg.eigh(h_s)[0]
+        w = vecs @ np.diag(np.exp(-evals)) @ vecs.conj().T
+        weights.append(np.trace(w).real)
+        blocks.append(w)
+    z = sum(weights)
+    blocks = [(weights[s] / z, blocks[s] / weights[s], (2, 2, 2, 2))
+              for s in (0, 1)]
+
+    assert entropic_alignment_defect(blocks) > 1e-3
+    assert modular_splitting_defect(blocks) > 1e-3
+
+
 if __name__ == "__main__":
     import pytest
 
