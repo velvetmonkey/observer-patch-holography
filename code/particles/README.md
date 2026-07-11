@@ -61,7 +61,9 @@ part of this canonical tree.
 - Higgs/top:
   `calibration/derive_bw_higgs_carrier_bridge.py` records the Borel-Weil
   one-Higgs carrier bridge `H_OPH = H^0(CP1,O(1)) ~= C^2` as representation
-  and symmetry-breaking geometry only, before the quantitative D11 lane
+  and group-action geometry only. The receipt distinguishes the projective
+  ray's two-torus stabilizer from the nonzero vacuum vector's `U(1)_Q`
+  stabilizer before the quantitative D11 lane
   `calibration/derive_d11_declared_calibration_surface.py ->
   calibration/derive_d11_forward_seed.py ->
   calibration/derive_d11_forward_seed_promotion_certificate.py ->

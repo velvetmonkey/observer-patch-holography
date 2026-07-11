@@ -4192,11 +4192,15 @@ The selector is inside the stated theorem stack. QED.
 \[
 \mathfrak{su}(2)_L\oplus\mathfrak{u}(1)_Y.
 \]
-The Higgs doublet \(H=(1,2)_{1/2}\) selects a neutral direction with
+The Higgs doublet \(H=(1,2)_{1/2}\) selects a nonzero neutral vacuum vector
 \[
-Q_H=T_3+Y=0,
+\phi_0=\frac{v}{\sqrt2}\binom{0}{1},\qquad v\ne0,
 \]
-so the unbroken generator is
+with
+\[
+Q\phi_0=(T_3+Y)\phi_0=0,
+\]
+so its vector stabilizer has unbroken generator
 \[
 Q=T_3+Y,
 \]
@@ -4204,7 +4208,12 @@ and the unbroken gauge factor is \(\mathrm U(1)_Q\). The charged weak generators
 \[
 W^\pm=\frac{1}{\sqrt2}(W^1\mp iW^2),
 \]
-while the neutral \(\mathrm{SU}(2)_L\) and \(\mathrm U(1)_Y\) gauge fields span the \(Z/A\) basis on the D10 quantitative branch. Thus the recovered structural package contains the weak charged-current carriers \(W^\pm\), the neutral weak carrier \(Z\), the electromagnetic carrier \(A\), and the exact charge operator \(Q=T_3+Y\). The mixing angle, \(v\), and numerical \(W/Z\) masses belong to the D10 running/matching surface rather than to this recovered-core structural corollary. QED.
+while the neutral \(\mathrm{SU}(2)_L\) and \(\mathrm U(1)_Y\) gauge fields span the \(Z/A\) basis on the D10 quantitative branch. Explicitly,
+\[
+e^{i\alpha T_3}e^{i\beta Y}\phi_0
+=e^{i(\beta-\alpha)/2}\phi_0,
+\]
+so exact vector invariance ties the phases by \(\beta=\alpha\), locally, and leaves \(\mathrm U(1)_Q\). The projective ray \([\phi_0]\), however, is unchanged for independent \(\alpha\) and \(\beta\): its stabilizer is the two-torus \(\mathrm U(1)_{T_3}\times\mathrm U(1)_Y\), modulo the inherited finite center. Projectivization therefore classifies the carrier ray but cannot by itself select the electromagnetic diagonal. Thus the recovered structural package contains the weak charged-current carriers \(W^\pm\), the neutral weak carrier \(Z\), the electromagnetic carrier \(A\), and the exact charge operator \(Q=T_3+Y\). The mixing angle, \(v\), and numerical \(W/Z\) masses belong to the D10 running/matching surface rather than to this recovered-core structural corollary. QED.
 
 \textbf{Corollary 6.6d (Maxwell sector on the realized electromagnetic branch).} On the ordinary one-Higgs branch, let \(A_Q\) be the support-visible connection component on the unbroken electromagnetic factor \(\mathrm U(1)_Q\). The abelian restriction of the compact-gauge curvature gives
 \[
@@ -4638,7 +4647,7 @@ The model requires photons and gravitons.
 \item
   Corollary 6.1 (on the zero-obstruction sector system of TransportabilityFromOverlapGluing) yields the compact group G at the Tannakian level; the field-algebra statement with G as a local gauge symmetry holds under the DHR/DR realization hypotheses (R1)--(R6) of Definition 6.1r.
 \item
-  For the Standard Model, the realized one-Higgs branch leaves the \(Q=T_3+Y\) stabilizer \(\mathrm U(1)_Q\) after electroweak symmetry breaking.
+  For the Standard Model, a chosen nonzero neutral Higgs vacuum vector leaves the \(Q=T_3+Y\) vector stabilizer \(\mathrm U(1)_Q\) after electroweak symmetry breaking; its projective ray alone would have the larger two-torus stabilizer described above.
 \item
   A gauge boson is the quantum of the gauge field. Once \(\mathrm U(1)_Q\) emerges from overlap redundancy, its gauge field exists, and its quantum (the photon) must exist.
 \end{enumerate}

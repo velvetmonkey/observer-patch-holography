@@ -23,11 +23,32 @@
     "Q_phi0": 0.0
   },
   "symmetry_breaking_geometry": {
-    "projective_vacuum_space": "P(H_OPH) ~= CP1",
-    "stabilizer": "U(1)_Q",
+    "integer_hypercharge_normalization": "q = 6Y, q_H = 3",
+    "cover_action": "(g,z).phi = z^3 g phi",
+    "carrier_projective_space": "P(H_OPH) ~= CP1",
+    "projective_ray_stabilizer_on_cover": "{(diag(a,a^-1),z): a,z in U(1)}",
+    "projective_ray_stabilizer": "(U(1)_T3 x U(1)_Y)/finite_center",
+    "projective_stabilizer_dimension": 2,
+    "projective_orbit_dimension": 2,
+    "projectivization_forgets_scalar_hypercharge_phase": true,
+    "nonzero_vacuum_vector": "phi0 = (0,v/sqrt(2)), v != 0",
+    "vector_stabilizer_on_cover": "{(diag(z^3,z^-3),z): z in U(1)}",
+    "vector_stabilizer": "U(1)_Q",
+    "vector_stabilizer_generator": "Q = T3 + Y",
+    "vector_stabilizer_dimension": 1,
+    "broken_generator_count": 3,
     "goldstone_count": 3,
     "radial_higgs_modes": 1,
     "dof_split": "4 = 3 + 1"
+  },
+  "group_action_acceptance": {
+    "test_angle_beta_radians": 0.731,
+    "hypercharge_phase_is_nontrivial": true,
+    "pure_hypercharge_fixes_projective_ray": true,
+    "pure_hypercharge_fixes_vacuum_vector": false,
+    "pure_T3_fixes_projective_ray": true,
+    "pure_T3_fixes_vacuum_vector": false,
+    "diagonal_Q_fixes_vacuum_vector": true
   },
   "minimality": {
     "n_0": "H^0(CP1,O(0)) is a singlet and fails weak-doublet breaking",
@@ -41,5 +62,5 @@
     "Coleman-Weinberg breaking",
     "replacement of the epsilon_H=0 hierarchy/naturality lane"
   ],
-  "claim_boundary": "This artifact identifies the OPH one-Higgs carrier as the minimal Borel-Weil section object H^0(CP1,O(1)). It supplies representation, hypercharge-convention, and stabilizer geometry only."
+  "claim_boundary": "This artifact identifies the OPH one-Higgs carrier as the minimal Borel-Weil section object H^0(CP1,O(1)). It supplies representation, hypercharge-convention, projective-ray geometry, and nonzero-vector stabilizer geometry only. Projectivization forgets the scalar hypercharge phase; only the nonzero vacuum vector has stabilizer U(1)_Q."
 }
