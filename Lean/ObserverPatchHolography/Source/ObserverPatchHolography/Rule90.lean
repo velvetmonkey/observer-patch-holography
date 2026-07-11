@@ -40,8 +40,12 @@ whose outer cells are **equal** — a built-in redundancy. Hence:
 * `rule90_gauge_nontrivial` — the CA map is *non-injective* (its `𝔽₂`-kernel
   is 1-dimensional: `(a,b,c)` and `(a⊕1,b,c⊕1)` share an image), so two
   records with **different seeds** are `gaugeEquiv`. The gauge is real: it
-  contains the CA map's kernel (a kernel-pair exhibit — that inclusion
-  direction is what is machine-checked here).
+  contains the CA map's kernel (a kernel-pair exhibit). The full two-sided
+  characterisation is machine-checked below: `rule90_gaugeEquiv_iff` (gauge =
+  componentwise exposed-data equality), `rule90_gaugeEquiv_iff_of_consistent`
+  (on consistent diagrams, gauge = equal bottom rows), and
+  `rule90_gauge_seed_characterization` (on consistent diagrams the
+  unobservable seed data is *exactly* `ker(Rule90)`, via `rule90t_eq_iff`).
 * `rule90_no_frustrationFree_repair` — **no** frustration-free local repair
   (the `H1 ∧ H2 ∧ H3` binder forms of `Primitives.lean`'s
   `LocalRepairDynamics` section) exists on this carrier: a bottom row with
@@ -183,6 +187,82 @@ theorem rule90_gauge_nontrivial :
   · show obsMap rule90Carrier _ = obsMap rule90Carrier _
     funext e; cases e; rfl
 
+/-! ## The gauge, characterised exactly
+
+`rule90_gauge_nontrivial` above exhibits one kernel pair — the inclusion
+`ker(Rule90) ⊆ gauge`. The lemmas below close the characterisation in both
+directions: on this carrier `gaugeEquiv` is *exactly* componentwise equality
+of the exposed data (`rule90_gaugeEquiv_iff`); on consistent CA diagrams it
+is *exactly* agreement of the bottom rows
+(`rule90_gaugeEquiv_iff_of_consistent`); and, pushed to the seeds, it is
+*exactly* the Rule-90 kernel-pair condition — same middle cell, same outer
+XOR (`rule90_gauge_seed_characterization`, via the finite kernel-pair
+characterisation `rule90t_eq_iff` of the CA map itself). So the unobservable
+part of a consistent seed is not merely *at least* `ker(Rule90)` — it is
+`ker(Rule90)` on the nose. -/
+
+/-- The Rule-90 map's kernel-pair characterisation, both directions: two
+    seeds have the same image iff they share the middle cell and the XOR of
+    their outer cells. (Finite statement over `𝔽₂³`; `decide`, not
+    `native_decide`.) -/
+theorem rule90t_eq_iff : ∀ s s' : Bool × Bool × Bool,
+    rule90t s = rule90t s' ↔
+      (s.2.1 = s'.2.1 ∧ xor s.1 s.2.2 = xor s'.1 s'.2.2) := by
+  decide
+
+/-- **`gaugeEquiv`, characterised on the Rule-90 carrier.** Two records are
+    gauge-equivalent iff their exposed data agree componentwise: same Rule-90
+    image of the seed, same bottom row. -/
+theorem rule90_gaugeEquiv_iff (x y : Records rule90Carrier) :
+    gaugeEquiv rule90Carrier x y ↔
+      rule90t (x false) = rule90t (y false) ∧ x true = y true := by
+  constructor
+  · intro h
+    have h0 : (rule90t (x false), x true) = (rule90t (y false), y true) :=
+      congrFun h ()
+    exact ⟨congrArg Prod.fst h0, congrArg Prod.snd h0⟩
+  · rintro ⟨h1, h2⟩
+    show obsMap rule90Carrier x = obsMap rule90Carrier y
+    funext e; cases e
+    show (rule90t (x false), x true) = (rule90t (y false), y true)
+    rw [h1, h2]
+
+/-- **On consistent CA diagrams the gauge is exactly "equal bottom rows".**
+    Consistency makes the exposed seed image *be* the bottom row, so the
+    first component of `rule90_gaugeEquiv_iff` collapses into the second. -/
+theorem rule90_gaugeEquiv_iff_of_consistent {x y : Records rule90Carrier}
+    (hcx : Consistent rule90Carrier x) (hcy : Consistent rule90Carrier y) :
+    gaugeEquiv rule90Carrier x y ↔ x true = y true := by
+  rw [consistent_iff_edgeConsistent] at hcx hcy
+  have hx : rule90t (x false) = x true := hcx ()
+  have hy : rule90t (y false) = y true := hcy ()
+  rw [rule90_gaugeEquiv_iff]
+  constructor
+  · exact fun h => h.2
+  · intro h
+    exact ⟨by rw [hx, hy, h], h⟩
+
+/-- **The seed-level characterisation: the gauge on consistent diagrams is
+    exactly `ker(Rule90)`.** Two consistent records are gauge-equivalent iff
+    their seeds form a Rule-90 kernel pair — same middle cell, same outer
+    XOR. This upgrades `rule90_gauge_nontrivial` (one exhibited kernel pair,
+    the `⊇` direction) to the full two-sided characterisation of the
+    unobservable seed data. -/
+theorem rule90_gauge_seed_characterization {x y : Records rule90Carrier}
+    (hcx : Consistent rule90Carrier x) (hcy : Consistent rule90Carrier y) :
+    gaugeEquiv rule90Carrier x y ↔
+      ((x false).2.1 = (y false).2.1 ∧
+        xor (x false).1 (x false).2.2 = xor (y false).1 (y false).2.2) := by
+  rw [rule90_gaugeEquiv_iff_of_consistent hcx hcy]
+  rw [consistent_iff_edgeConsistent] at hcx hcy
+  have hx : rule90t (x false) = (x true : Bool × Bool × Bool) := hcx ()
+  have hy : rule90t (y false) = (y true : Bool × Bool × Bool) := hcy ()
+  constructor
+  · intro h
+    exact (rule90t_eq_iff (x false) (y false)).mp (hx.trans (h.trans hy.symm))
+  · intro h
+    exact hx.symm.trans (((rule90t_eq_iff (x false) (y false)).mpr h).trans hy)
+
 /-- Both outer cells of any Rule-90 image row coincide — each equals the middle
     seed cell — so a bottom row with **unequal** outer cells lies outside the
     image of `rule90t` for *every* seed. -/
@@ -246,5 +326,9 @@ theorem rule90_no_frustrationFree_repair :
 #print axioms rule90_Hfib_bad_fails
 #print axioms rule90_gauge_nontrivial
 #print axioms rule90_no_frustrationFree_repair
+#print axioms rule90t_eq_iff
+#print axioms rule90_gaugeEquiv_iff
+#print axioms rule90_gaugeEquiv_iff_of_consistent
+#print axioms rule90_gauge_seed_characterization
 
 end OPH
