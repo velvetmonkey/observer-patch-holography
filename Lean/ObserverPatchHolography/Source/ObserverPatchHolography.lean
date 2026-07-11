@@ -2,6 +2,7 @@ import ObserverPatchHolography.AbstractRewriting
 import ObserverPatchHolography.Primitives
 import ObserverPatchHolography.Rule90
 import ObserverPatchHolography.CollarClause
+import ObserverPatchHolography.CollarLayer
 import ObservableNormalForms
 import ObserverPatchHolography.Bridges.ObservableNormalForms
 
