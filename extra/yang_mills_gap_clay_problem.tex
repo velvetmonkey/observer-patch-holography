@@ -77,23 +77,22 @@ the additional four-dimensional continuum certificate required by the Clay probl
 
 \section{Claim Boundary}
 
-This paper proves the finite positive-transfer and repair-gap mechanism on the sharpened
-support-visible exact Euclidean-consensus branch of OPH. The Clay-facing Yang--Mills theorem is
-conditional on the additional continuum certificate stated in
-Assumption~\ref{ass:ym-continuum-certificate}. The branch data are compact-gauge reconstruction,
-four-dimensional Euclidean scaling, reflection positivity, the ordinary zero-obstruction vacuum
-sector, exact local repair as conditional expectation, bounded-color active collar covers,
-repair completeness, and support-visible compact-gauge continuum extraction with transfer
-convergence.
+This paper gives a proof-bearing projective weak-* / GNS extraction from the declared finite
+support-visible compact-gauge cylinder system. The finite positive-transfer and repair-gap
+mechanism is conditional on the finite ground-state-transform/cross-fiber and uniform-gap receipts.
+The Clay-facing Yang--Mills theorem additionally depends on the continuum certificate stated in
+Assumption~\ref{ass:ym-continuum-certificate}: renormalized four-dimensional identification,
+reflection positivity and OS regularity, transfer/vacuum convergence, and noncollapse.
 
 More precisely, the imported four-dimensional form theorem uses compact-gauge reconstruction, the
 four-dimensional scaling chart, the reflection-positive ordinary vacuum sector, the absence of
 additional gauge-invariant relevant dimension-four pure-gauge operators beyond the positive
-quadratic curvature invariant, and the support-visible cylinder extraction. The later mass-gap
-step adds exact local repair, bounded-color active collars, and repair completeness.
+quadratic curvature invariant, the support-visible cylinder extraction, and the renormalized
+regularity/universality receipt. The later mass-gap step adds the finite transfer receipt, exact
+local repair, bounded-color active collars, repair completeness, and the uniform-gap certificate.
 
-Acceptance as a Clay-admissible solution depends on supplying the OPH compact-gauge continuum
-certificate: support-visible extraction, renormalized Schwinger-function convergence, reflection
+Acceptance as a Clay-admissible solution still depends on supplying the unproved parts of the OPH
+compact-gauge continuum certificate: renormalized Schwinger-function convergence, reflection
 positivity, Euclidean covariance/locality, nontriviality, and transfer/intertwiner convergence at
 the strength required by the Clay/Jaffe--Witten statement. The proof below then isolates the
 finite repair mechanism and shows that, on any branch carrying that certificate, the gap is
@@ -156,15 +155,17 @@ T_r(t)=e^{-tH_r},
 \]
 be the physical Euclidean Hilbert space, vacuum, Hamiltonian, and transfer semigroup.
 
-Let \(X_r\) be the support-visible compact-gauge quotient state space, let \(\pi_r\) be the
-vacuum stationary measure, and set
+Let \(X_r:=X_r^{(0)}\) be the support-visible time-zero compact-gauge quotient configuration
+space, let \(\pi_r\) be the stationary time-zero measure, and set
 \[
 K_r:=L^2(X_r,\pi_r).
 \]
+Write \(\omega_r(a):=\int_{X_r}a\,d\pi_r\) for the associated state functional; \(K_r\) already
+implements the finite \(\pi_r\)-null support reduction.
 Let \(\mathcal C_r\) be the finite family of active repair collars. For each active collar
 \(C\in\mathcal C_r\), let
 \[
-\rho_C:X_r\to Y_C
+\rho_C:=\rho_{C,r}:X_r\to Y_{C,r}
 \]
 be the complete repaired visible datum, and let
 \[
@@ -181,7 +182,7 @@ used for the ordinary compact-simple \(G\) theorem below.
 Notation & Meaning \\
 \midrule
 \endhead
-\(X_r,\pi_r,K_r\) & support-visible quotient state space, vacuum stationary measure, and \(L^2(X_r,\pi_r)\). \\
+\(X_r,\pi_r,K_r\) & support-visible time-zero quotient configuration space, stationary measure, and \(L^2(X_r,\pi_r)\). \\
 \(\mathcal C_r\) & finite active repair-collar family at regulator \(r\). \\
 \(\rho_C\) & complete repaired visible datum on collar \(C\). \\
 \(E_C\) & \(\pi_r\)-preserving conditional expectation onto \(\rho_C\)-measurable functions. \\
@@ -204,13 +205,18 @@ The compact-gauge branch used below satisfies the following branch-local conditi
 \item the ordinary vacuum sector is reflection positive and has topological angle \(\theta=0\);
 \item the local finite-constraint MaxEnt/Gibbs family is gauge-invariant, Euclidean local, rotation-invariant, and refinement-stable;
 \item no additional gauge-invariant relevant dimension-four pure-gauge operator remains on this branch besides the positive quadratic curvature invariant;
-\item the support-visible compact-gauge cylinder family has the weak-\(*\) / GNS continuum extraction stated in Proposition~\ref{prop:extraction}.
+\item the branch is carried on a separated cofinal regulator system with the finite compact-gauge
+cylinder data defined in Section~\ref{sec:continuum-extraction}.
 \end{enumerate}
+No continuum cylinder state, GNS space, transfer generator, or vacuum projection is assumed in
+this branch declaration.
 \end{assumption}
 
-\begin{theorem}[Imported OPH branch theorem: four-dimensional Euclidean Yang--Mills form]
+\begin{theorem}[Imported conditional OPH four-dimensional Euclidean Yang--Mills form]
 \label{thm:ym-form}
-Under Assumption~\ref{ass:ym-branch}, the continuum gauge-sector Euclidean action is
+Under Assumptions~\ref{ass:ym-branch} and \ref{ass:ym-continuum-certificate}, on an extracted cylinder family from
+Proposition~\ref{prop:extraction} that lies on the declared local four-dimensional scaling branch,
+the continuum gauge-sector Euclidean action is
 \[
 S_E[A]=\frac{1}{4g^2}\int_{\R^4}
 \langle F_{\mu\nu},F_{\mu\nu}\rangle\,d^4x,
@@ -218,13 +224,13 @@ S_E[A]=\frac{1}{4g^2}\int_{\R^4}
 F=dA+A\wedge A,
 \tag{YM}
 \]
-with compact simple structure group \(G\). Equivalently, the support-visible continuum transfer
-semigroup is the Euclidean Yang--Mills semigroup associated with the gauge-quotient cylinder
-measure
+with compact simple structure group \(G\). The extracted gauge-quotient cylinder family is denoted
 \[
 d\mu_{\YM}(A)=Z^{-1}e^{-S_E[A]}\,D A/G
 \]
-in the OPH support-visible GNS representation.
+in the OPH support-visible GNS representation. This notation abbreviates the certified cylinder
+family; it is not a literal infinite-dimensional Lebesgue measure. Its support-visible continuum
+transfer semigroup is the corresponding Euclidean Yang--Mills semigroup.
 \end{theorem}
 
 \begin{proof}
@@ -237,7 +243,9 @@ transportable bosonic sector category and its faithful fiber functor
 \cite{oph2}. At fixed cutoff, the declared compact-gauge patch-carrier presentation gives
 support-visible link holonomies and plaquette holonomies. In the refinement limit, the
 zero-obstruction gluing law makes infinitesimal rectangle holonomies multiplicative and
-path-local. Therefore there is a local connection \(A\) on the four-dimensional scaling chart, and
+path-local. The Cauchy/regularity certificate in items (Y1)--(Y3) upgrades the
+generalized-holonomy cluster state to a local connection \(A\) on the four-dimensional scaling
+chart, and
 the infinitesimal plaquette defect is
 \[
 U_{\mu\nu}(\varepsilon,x)
@@ -258,14 +266,15 @@ positive quadratic invariant in the pure gauge sector:
 The possible topological density \(\langle F\wedge F\rangle\) is reflection odd and belongs to a
 separate topological-angle sector; it is absent on the ordinary reflection-positive
 zero-obstruction vacuum branch used here. Higher curvature powers and covariant-derivative terms
-are irrelevant operators under the declared continuum scaling and vanish from the strict
-Yang--Mills fixed form. Normalizing the unique positive quadratic invariant defines the coupling
-\(g\) and gives (YM).
+are irrelevant operators under the declared continuum scaling; their disappearance in the
+extracted state is part of the uniform renormalized remainder control in (Y1)--(Y3). Normalizing
+the unique positive quadratic invariant defines the coupling \(g\) and gives (YM).
 
 The finite-stage cylinder measures are the gauge-register / quantum-link Gibbs measures pushed to
-the support-visible quotient. Assumption~\ref{ass:ym-branch} supplies the compatible
-support-visible weak-\(*\) / GNS cylinder extraction.
-The resulting Euclidean transfer semigroup is therefore the transfer semigroup of (YM).
+the support-visible quotient. Proposition~\ref{prop:extraction} proves the compatible
+support-visible weak-\(*\) / GNS cylinder extraction. The generator and transfer-semigroup
+identification use the separate dynamic items (Y4)--(Y5) of
+Assumption~\ref{ass:ym-continuum-certificate}; weak-* compactness alone does not provide them.
 \end{proof}
 
 \begin{corollary}[Yang--Mills equations on the compact-gauge branch]
@@ -338,55 +347,58 @@ For each active collar \(C\), the exact-Markov repair map on the support-visible
 On the exact-Markov branch, repair preserves exactly the repaired visible datum \(\rho_C\), changes
 only complementary invisible fiber data, and acts on the quotient-first physical algebra rather
 than on microscopic representatives. Let \(\Phi_C\) be the Heisenberg repair map and let
-\(\mathcal N_C\) be the repaired local fixed algebra. The repair semantics give
+\(\mathcal N_C\) be the repaired local fixed algebra. Exact repair semantics require
+\(\mathcal N_C\) to be exactly the \(\rho_C\)-measurable subalgebra. They give
 \[
 \Phi_C(a)=a \quad (a\in\mathcal N_C),
 \]
 \[
-\Phi_C(\A^{\mathrm{sv}}_r)\subseteq\mathcal N_C,
+\Phi_C(\mathcal A_r^{G,\mathrm{sv}})\subseteq\mathcal N_C,
 \qquad
-\pi_r\circ\Phi_C=\pi_r,
+\omega_r\circ\Phi_C=\omega_r,
 \]
 and \(\Phi_C\) is \(\mathcal N_C\)-bimodular. Therefore, for \(a\in\mathcal N_C\) and
-\(x\in\A^{\mathrm{sv}}_r\),
+\(x\in\mathcal A_r^{G,\mathrm{sv}}\),
 \[
-\pi_r\!\left(a^*\Phi_C(x)\right)=\pi_r(a^*x).
+\omega_r\!\left(a^*\Phi_C(x)\right)=\omega_r(a^*x).
 \]
-Since \(\Phi_C(x)\in\mathcal N_C\) and \(\pi_r\) is faithful, this equation uniquely
-characterizes \(\Phi_C(x)\) as the orthogonal projection of \(x\) onto \(\mathcal N_C\) in the
-GNS inner product. That orthogonal projection is the \(\pi_r\)-preserving conditional expectation
-\(E_C\).
+Since \(\Phi_C(x)\in\mathcal N_C\), this equation characterizes its class in \(K_r\) as the
+orthogonal projection of \(x\) onto the \(\rho_C\)-measurable subspace, uniquely modulo
+\(\pi_r\)-null functions. That orthogonal projection is the \(\pi_r\)-preserving conditional
+expectation \(E_C\).
 \end{proof}
 
 \section{Exact Euclidean-Consensus Law}
 
 \begin{lemma}[Fiber-homogeneous orbit condition]
 \label{lem:fiber-symmetry}
-Fix an active collar \(C\) and a repaired value \(y\in Y_C\). If, on the support-visible quotient,
-the hidden fiber
+Fix an active collar \(C\) and a repaired value \(y\in Y_{C,r}\). On the support-visible quotient,
+let the complete conditional fiber be
 \[
-F_C(y)=\rho_C^{-1}(y)
+F_C(y)=\rho_{C,r}^{-1}(y)
 \]
-has no remaining observable labels, the conditioned local MaxEnt state is uniform on
-\(F_C(y)\), and the primitive collar relaxation is invariant under all measure-preserving
-permutations of \(F_C(y)\), then the fiber is homogeneous for the local repair receipt.
+with conditional law \(\nu_{C,y}\). If this is either finite uniform or standard atomless, has no
+remaining observable labels, and the primitive relaxation is invariant under every
+\(\nu_{C,y}\)-preserving automorphism, then the full fiber, including every holonomy coordinate
+actually resampled by repair, is homogeneous for the local repair receipt.
 \end{lemma}
 
 \begin{proof}
-This is the finite fiber-homogeneity receipt. Quotienting removes declared implementation labels,
-but the proof must also check that no remaining source constraint or relaxation rate distinguishes
-points in the fiber. Under that check, the conditioned MaxEnt state and primitive relaxation carry
-the stated permutation symmetry.
+This is the complete-fiber homogeneity receipt. Quotienting removes declared implementation
+labels, but the proof must also check that no remaining source constraint or relaxation rate
+distinguishes points in the fiber. Under that check, the conditioned state and primitive
+relaxation carry the stated full measure-preserving symmetry.
 \end{proof}
 
-\begin{lemma}[Scalar relaxation on a uniform hidden fiber]
+\begin{lemma}[Scalar relaxation on a homogeneous conditional fiber]
 \label{lem:scalar-relaxation}
-Let \(F\) be a finite hidden fiber with uniform measure, let \(E_F\) be expectation onto constants,
-and let \(D_F\) be a positive self-adjoint Markov relaxation generator such that
+Let \((F,\nu)\) be either a finite uniform probability space or a standard atomless probability
+space. Let \(E_F\) be expectation onto constants, and let \(D_F\) be a bounded positive
+self-adjoint Markov relaxation generator such that
 \[
 \ker D_F=\operatorname{Ran}(E_F)
 \]
-and \(D_F\) commutes with the full permutation group of \(F\). Then there is a scalar
+and \(D_F\) commutes with every measure-preserving automorphism of \((F,\nu)\). Then there is a scalar
 \(c_F>0\) such that
 \[
 D_F=c_F(I-E_F).
@@ -394,15 +406,33 @@ D_F=c_F(I-E_F).
 \end{lemma}
 
 \begin{proof}
-The permutation representation on \(L^2(F)\) splits as constants plus the zero-sum subspace.
-The zero-sum subspace is irreducible for the full symmetric group when \(|F|\ge2\). Schur's lemma
-therefore makes \(D_F\) a scalar on that subspace. Positivity and the kernel condition make the
-scalar strictly positive. The formula follows.
+For a finite uniform fiber, the symmetric-group representation on the mean-zero subspace is
+irreducible. For a standard atomless fiber, use equal-measure finite partitions. Automorphisms
+within pieces and permutations of pieces force every bounded commutant operator to be scalar on
+the mean-zero step functions; compatibility under refinements gives one scalar, and these step
+functions are dense in \(L^2_0(F,\nu)\). Positivity and the kernel condition make the scalar
+strictly positive. The formula follows.
 \end{proof}
+
+\begin{assumption}[Finite ground-state-transform and cross-fiber receipt]
+\label{ass:finite-transfer-receipt}
+For every regulator, the reflection-positive finite transfer matrix supplies a unitary
+\(U_r:\Hcal_r\to K_r\), with \(U_r\Omega_r=\mathbf 1_r\), such that
+\[
+U_rH_rU_r^{-1}=\sum_{C\in\mathcal C_r}D_C.
+\]
+Each \(D_C\) is a bounded positive self-adjoint detailed-balance Markov generator acting on the
+complete complementary conditional fiber, including every record or holonomy coordinate changed
+by repair; its fixed algebra is exactly the
+\(\rho_{C,r}\)-measurable algebra, and its fiberwise scalar \(c_C(y)\) is independent of the
+repaired value \(y\) on the support of \(\pi_r\). A Gibbs state by itself does not imply this
+finite transfer-matrix/decomposition receipt.
+\end{assumption}
 
 \begin{theorem}[Exact Euclidean repair law under homogeneous fibers]
 \label{thm:ec-law}
-Under the fiber-homogeneous orbit condition for every active collar, there are positive constants
+Under the fiber-homogeneous orbit condition for every active collar and
+Assumption~\ref{ass:finite-transfer-receipt}, there are positive constants
 \(c_C>0\) such that the ground-state transformed physical Euclidean
 generator is exactly
 \[
@@ -419,17 +449,16 @@ for a unitary \(U_r:\Hcal_r\to K_r\) with \(U_r\Omega_r=\mathbf 1_r\).
 \end{theorem}
 
 \begin{proof}
-The OPH MaxEnt axiom gives a local-Gibbs state with a quasi-local finite-range generator on the
-declared finite-constraint branch. After the support-visible quotient, each primitive local
-Euclidean piece \(D_C\) is supported on one collar \(C\), preserves exactly the repaired visible
-datum \(\rho_C\), and relaxes only complementary fiber data. Hence
+The finite receipt supplies the ground-state transform and its primitive local pieces. Each
+\(D_C\) is supported on one collar \(C\), preserves exactly the repaired visible datum
+\(\rho_{C,r}\), and relaxes the complete complementary conditional fiber. Hence
 \[
 \ker D_C=\operatorname{Ran}(E_C).
 \]
 
 Lemma~\ref{lem:fiber-symmetry} gives the full hidden-fiber permutation symmetry. Applying
-Lemma~\ref{lem:scalar-relaxation} fiberwise gives a positive scalar \(c_C\) on the orthogonal
-complement of the repaired datum:
+Lemma~\ref{lem:scalar-relaxation} fiberwise gives
+\(D_{C,y}=c_C(y)(I-E_{C,y})\). The cross-fiber receipt makes \(c_C(y)=c_C\), so
 \[
 D_C=c_C(I-E_C).
 \]
@@ -534,68 +563,295 @@ bound is a separate receipt.
 \end{remark}
 
 \section{Continuum Extraction}
+\label{sec:continuum-extraction}
 
-\begin{proposition}[Coherent refinement and support-visible extraction]
+\begin{definition}[Finite compact-gauge state spaces and local cylinders]
+\label{def:finite-cylinders}
+At regulator \(r\), make the following construction both for the finite four-dimensional
+Euclidean slab \(\Lambda_r^{(4)}=(V_r^{(4)},E_r^{(4)})\) and for its time-zero spatial slice
+\(\Lambda_r^{(0)}=(V_r^{(0)},E_r^{(0)})\). In the formulas below
+\(\Lambda_r=(V_r,E_r)\) denotes either choice until the superscript is restored. Let \(D_r\) be
+the finite repaired-record and zero-obstruction sector register. In the gauge-register
+presentation, let
+\[
+\widetilde X_r\subseteq G^{E_r}\times D_r
+\]
+be the closed set obeying the finite Gauss, overlap, and repaired-record constraints. With
+\(\mathcal G_r=G^{V_r}\) acting at edge endpoints and
+\(\sim_{\mathrm{ov}}\) the closed relation of support-visible overlap/presentation
+indistinguishability, define
+\[
+X_r:=(\widetilde X_r/\mathcal G_r)/{\sim_{\mathrm{ov}}}
+\]
+as the support-visible quotient. This is compact Hausdorff. The regulator
+has finitely many cells, but \(X_r\) need not be a finite set when \(G\) is a compact Lie group.
+
+For each active collar \(C\), let
+\[
+\rho_{C,r}:X_r\to Y_{C,r}
+\]
+be the continuous complete repaired readback. The complementary conditional fiber contains every
+record or holonomy coordinate actually resampled by repair and is either finite uniform or a
+standard atomless probability space with its conditioned MaxEnt/Haar law. The readback retains
+exactly the repaired fixed datum, not every pre-repair holonomy. A quantum-link carrier enters this
+proposition only through its commuting Euclidean cylinder/readout subalgebra; the noncommutative
+carrier algebra would require a separate GNS-representation-kernel support reduction.
+
+For a bounded cell region \(O\subset\Lambda_r\), let
+\(\mathfrak C_r^{G,\mathrm{sv}}(O)\) be generated by the gauge-invariant Peter--Weyl matrix
+coefficients contracted into spin networks, Wilson-loop characters, and retained gauge-invariant
+boundary carriers in \(O\), together with the overlap-sector projectors and continuous functions
+of the complete repaired collar readbacks in \(O\). Define
+\[
+\mathcal A_r^{G,\mathrm{sv}}(O)
+:=\overline{\mathfrak C_r^{G,\mathrm{sv}}(O)}^{\|\cdot\|_\infty}
+\subseteq C(X_r).
+\]
+Equivalently, start from the freely presented gauge-invariant readout-generator \(^*\)-algebra,
+quotient by the kernel of its evaluation homomorphism on \(X_r\), and complete. This kernel is a
+closed two-sided overlap-trivial ideal chosen before a state and is distinct from the limiting GNS
+null ideal below.
+The relation \(\sim_{\mathrm{ov}}\) identifies exactly the configurations on which all declared
+spin-network, sector, and repaired-readback generators agree. The resulting self-adjoint unital
+algebra separates points of \(X_r\), so Stone--Weierstrass gives
+\[
+\mathcal A_r^{G,\mathrm{sv}}(\Lambda_r)=C(X_r).
+\]
+For any selected stage measure \(\pi_r\), its GNS cylinder closure is therefore the full
+\(L^2(X_r,\pi_r)\), after the finite \(\pi_r\)-null support reduction.
+
+Write the two resulting systems as
+\[
+(X_r^{(4)},\mathcal A_r^{G,\mathrm{sv},(4)}(O))
+\quad\hbox{and}\quad
+(X_r^{(0)},\mathcal A_{r,0}^{G,\mathrm{sv}}(B)).
+\]
+Euclidean-history restriction gives a continuous time-zero map
+\(\tau_{0,r}:X_r^{(4)}\to X_r^{(0)}\).
+
+For \(r\preceq s\), coarse shadow multiplies the ordered fine-edge holonomies above each coarse
+edge and restricts the repaired records and sector labels. Gauge covariance and refinement
+associativity give
+\[
+p_{sr}:X_s\to X_r,
+\qquad
+p_{tr}=p_{sr}\circ p_{ts},
+\]
+with the four-dimensional/time-zero commuting square
+\[
+\tau_{0,r}\circ p_{sr}^{(4)}
+=p_{sr}^{(0)}\circ\tau_{0,s},
+\]
+and unital local \(^*\)-maps on the separated support-visible quotient,
+\[
+\iota_{rs}^{O}:\mathcal A_r^{G,\mathrm{sv}}(O)\to
+\mathcal A_s^{G,\mathrm{sv}}(O_s),
+\qquad
+\iota_{rs}^{O}(a)=a\circ p_{sr},
+\qquad
+\iota_{rt}^{O}=\iota_{st}^{O_s}\iota_{rs}^{O}.
+\]
+These maps preserve local isotony, gauge invariance, repaired readbacks, and the
+zero-obstruction sector. Their sector-projector restriction is the finite algebra injection in the
+compact paper's refinement/fiber-descent theorem~\cite{oph2}. We use a countable cofinal regulator
+sequence and countable bounded-region exhaustion. The unrestricted directed version uses a subnet
+and product compactness instead. If every declared coarse configuration has a fine extension,
+\(p_{sr}\) is surjective and the full pullback is injective. Otherwise the \(C^*\)-inductive limit
+automatically quotients the common refinement-null kernel; Proposition~\ref{prop:extraction} does
+not require prelimit injectivity. Write
+\(\mathcal A_r^{G,\mathrm{sv}}:=\mathcal A_r^{G,\mathrm{sv}}(\Lambda_r)\).
+\end{definition}
+
+\begin{proposition}[Projective weak-* extraction and support-visible GNS gluing]
 \label{prop:extraction}
-Under Assumption~\ref{ass:ym-branch}, the compact-gauge branch supplies the coherence and
-extraction data needed for the continuum intertwining theorem:
-\begin{enumerate}[(1)]
-\item finite-stage support-visible quotient state spaces \(X_r\), algebras
-\(\A^{\mathrm{sv}}_r\), stationary states \(\pi_r\), and Hilbert spaces \(K_r=L^2(X_r,\pi_r)\);
-\item refinement maps \(\jmath^{\mathrm{rep}}_{rs}:K_r\to K_s\) and
-\(\jmath^{\mathrm{phys}}_{rs}:\Hcal_r\to\Hcal_s\) compatible with all repaired local marginals;
-\item a projectively compatible family of finite-stage compact-gauge cylinder marginals;
-\item weak-\(*\) compactness and a diagonal subnet whose local marginals converge on every
-support-visible cylinder algebra;
-\item support-visible GNS gluing to continuum Hilbert spaces \(K\) and \(\Hcal\), with dense
-images of the local cylinder algebras;
-\item a faithful limiting vacuum pair on the support-visible gauge-invariant algebra after
-quotienting the maximal repair-invariant overlap-trivial kernel.
+Let \(\mu_s^{(4)}\) be the declared finite quotient-Gibbs probability measure on \(X_s^{(4)}\),
+let
+\[
+\pi_s:=(\tau_{0,s})_\#\mu_s^{(4)},
+\qquad
+\mu_s^{(0)}:=\pi_s,
+\]
+and, for \(d\in\{4,0\}\), define
+\[
+\omega_s^{(d)}(a):=\int_{X_s^{(d)}}a\,d\mu_s^{(d)},
+\qquad
+\omega_{s\downarrow r}^{(d)}
+:=\omega_s^{(d)}\circ\iota_{rs}^{(d)}.
+\]
+The following statements hold for both values of \(d\); the superscript is suppressed in the
+proof.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=2em]
+\item for \(q\preceq r\preceq s\),
+\[
+\omega_{s\downarrow r}\circ\iota_{qr}=\omega_{s\downarrow q};
+\]
+\item a cofinal subsequence, or subnet, has weak-* limits
+\(\omega_{s_\alpha\downarrow r}\to\overline\omega_r\) on every fixed local cylinder, and
+\[
+\overline\omega_r=\overline\omega_t\circ\iota_{rt}
+\qquad(r\preceq t);
+\]
+\item the local limits glue to a state \(\omega_\infty\) on
+\[
+\mathcal A_\infty^{G,\mathrm{cyl}}(O)
+:=\overline{\varinjlim_r\mathcal A_r^{G,\mathrm{sv}}(O_r)},
+\]
+and the union of these isotone local algebras is dense in the global cylinder algebra;
+\item after the separate support reduction
+\[
+\mathcal N_\omega(O):=\{a\in\mathcal A_\infty^{G,\mathrm{cyl}}(O):
+\omega_\infty(a^*a)=0\},
+\qquad
+\mathcal A_\infty^{G,\mathrm{supp}}(O)
+:=\mathcal A_\infty^{G,\mathrm{cyl}}(O)/\mathcal N_\omega(O),
+\]
+the induced state and representation are faithful. The compatible local GNS spaces have a Hilbert
+direct limit \((K^{(d)},\Pi^{(d)},\mathbf 1^{(d)})\), and the union of their cylinder images is
+dense. Write \(K^E:=K^{(4)}\) for the Euclidean-history GNS space and \(K:=K^{(0)}\) for the
+time-zero repair GNS space. The latter vector becomes the physical vacuum only through the
+transfer/OS certificate.
 \end{enumerate}
+If, in a finite quotient presentation, the four-dimensional measures have declared weights
+\[
+\mu_r^{(4)}(x)=Z_r^{-1}m_r(x)e^{-S_r(x)}
+\]
+and satisfy the fiber-sum identity
+\[
+\sum_{x':\,p_{sr}(x')=x}m_s(x')e^{-S_s(x')}
+=\alpha_{sr}m_r(x)e^{-S_r(x)}
+\tag{FS}
+\]
+with \(\alpha_{sr}\) independent of \(x\), then
+\((p_{sr}^{(4)})_\#\mu_s^{(4)}=\mu_r^{(4)}\). The time-zero square gives
+\((p_{sr}^{(0)})_\#\pi_s=\pi_r\), so both original state families are projective. Without
+(FS), compactness produces a projective cluster family; it does not prove
+\(\overline\omega_r=\omega_r\) or uniqueness of the continuum state. For continuous
+compact-holonomy stages, replace (FS) by the corresponding disintegration receipt
+\((p_{sr}^{(4)})_\#\mu_s^{(4)}=\mu_r^{(4)}\).
 \end{proposition}
 
 \begin{proof}
-The compact-gauge ladder in the OPH compact paper proves fixed-cutoff bosonic sector categories,
-faithful monoidal refinement functors, compatible finite-dimensional fibers, the directed colimit
-sector category, and compact gauge reconstruction~\cite{oph2}. The support-visible compact-gauge
-quotient algebra is generated by overlap sector projectors and compact-gauge visible bosonic
-observables, modulo the maximal repair-invariant overlap-trivial kernel.
+For \(q\preceq r\preceq s\), coarse-shadow functoriality gives
+\[
+(\omega_s\circ\iota_{rs})\circ\iota_{qr}
+=\omega_s\circ\iota_{qs},
+\]
+proving \textup{(i)}.
 
-Each regulator has finite-dimensional state space and finite local cylinder algebras, so its state
-space is weak-\(*\) compact. Refinement compatibility makes the local marginals projective: the
-restriction of a refined cylinder marginal to any coarser cylinder equals the coarser marginal.
-Choosing a countable cofinal family of support-visible cylinders and applying a diagonal subnet
-argument gives a limiting state on their algebraic union. Positivity and normalization pass to the
-limit on every cylinder, and the quotient by the repair-invariant overlap-trivial kernel makes the
-limit faithful on the support-visible gauge-invariant algebra.
+For a fixed local cylinder algebra, its state space is weak-* compact by Banach--Alaoglu. The
+chosen local algebras are separable because compact metrizable \(G\) has a countable Peter--Weyl
+test algebra and a finite regulator has only finitely many record and sector generators. Their
+state spaces are therefore weak-* metrizable. Successively extract a subsequence for the first,
+second, and later cylinders, choosing the \(k\)-th diagonal index beyond the \(k\)-th regulator
+stage. The diagonal subsequence is cofinal and converges on all cylinders. For a general
+directed regulator set, use a convergent subnet in the compact product of the local state spaces;
+unresolved early coordinates may be filled arbitrarily because each fixed coordinate is genuinely
+resolved on a cofinal tail. Weak-* continuity of precomposition and part \textup{(i)} yield
+\[
+\overline\omega_r\circ\iota_{qr}
+=\lim_\alpha\omega_{s_\alpha\downarrow r}\circ\iota_{qr}
+=\lim_\alpha\omega_{s_\alpha\downarrow q}
+=\overline\omega_q,
+\]
+which proves \textup{(ii)}.
 
-The GNS construction applied to this limiting state gives \(K\). Transporting the same coherent
-refinement data through the finite-stage intertwiners \(U_r\) gives the physical limiting Hilbert
-space \(\Hcal\) only as a candidate support-visible Hilbert object. Weak-\(*\) convergence of
-cylinder states does not by itself prove convergence of transfer generators, vacuum projections,
-or intertwiners.
+For a representative \([a]_r\) in the algebraic inductive limit, define
+\[
+\omega_\infty([a]_r):=\overline\omega_r(a).
+\]
+Compatibility makes this well defined. Positivity and normalization are checked in one finite
+algebra containing the element. For every \(t\succeq r\),
+\[
+|\overline\omega_r(a)|
+=|\overline\omega_t(\iota_{rt}(a))|
+\le\|\iota_{rt}(a)\|.
+\]
+Taking the infimum along the tail gives the inductive-limit norm bound even for noninjective
+bonding maps, so the state extends uniquely to the \(C^*\)-completion. This proves
+\textup{(iii)}.
+
+On a commutative local cylinder algebra, the Riesz representation theorem identifies the null
+ideal with the continuous functions that vanish on the measure support. The support quotient is
+therefore \(C(\operatorname{supp}\mu_O)\), where \(\mu_O\) is the representing local Radon
+measure, and its induced state is faithful. If \(O\subseteq O'\), state compatibility gives
+\[
+a\in\mathcal N_\omega(O)
+\quad\Longleftrightarrow\quad
+\iota_{OO'}(a)\in\mathcal N_\omega(O').
+\]
+Thus the inclusions descend injectively and the support quotients form an isotone faithful local
+net. For
+\(r\preceq t\), define
+\[
+V_{rt}[a]_r:=[\iota_{rt}(a)]_t.
+\]
+It is well defined and isometric because
+\[
+\|V_{rt}[a]_r\|^2
+=\overline\omega_t(\iota_{rt}(a^*a))
+=\overline\omega_r(a^*a).
+\]
+These maps compose, preserve \(\mathbf 1\), and intertwine the cylinder representations. Their
+Hilbert direct limit is the GNS completion of the cylinder union, proving \textup{(iv)}.
+
+Finally, suppressing the \(d=4\) superscript, summing (FS) over \(x\) gives
+\(Z_s=\alpha_{sr}Z_r\). Division by the partition functions then gives
+\((p_{sr}^{(4)})_\#\mu_s^{(4)}=\mu_r^{(4)}\), equivalently
+\(\omega_s^{(4)}\circ\iota_{rs}^{(4)}=\omega_r^{(4)}\). The commuting time-zero square gives the
+corresponding \(d=0\) identity.
 \end{proof}
+
+\begin{remark}[What compactness does not preserve]
+The overlap-trivial presentation quotient and the GNS support quotient are different. Even
+faithful finite states can converge to a nonfaithful state. Proposition~\ref{prop:extraction}
+constructs the cylinder algebra, its state, the repair-side GNS space \(K\), and the constant
+vacuum vector. It does not construct \(\Hcal\), a limit generator, a physical intertwiner, or
+vacuum-projection convergence. Those require the finite dynamic receipts below.
+\end{remark}
 
 \begin{assumption}[Four-dimensional Yang--Mills continuum certificate]
 \label{ass:ym-continuum-certificate}
-In addition to the finite compact-gauge repair data, one regulator family
-\(r=(a_s,a_t,L,b)\) supplies all of the following.
+In addition to the finite compact-gauge repair data, one cofinal regulator family supplies all of
+the following.
 \begin{enumerate}[label=\textup{(Y\arabic*)},leftmargin=2em]
-\item Renormalized gauge-invariant cylinder maps
-\(\mathcal R_r:\mathfrak A_0^G(K)\to\mathcal A_r^G(K_r)\) and a uniform
-finite-volume/lattice-spacing Cauchy bound on every bounded local test family.
+\item For each bounded region \(O\), renormalized gauge-invariant cylinder maps from one fixed
+countable test \(^*\)-algebra \(\mathfrak C_0^G(O)\) to
+\(\mathcal A_r^{G,\mathrm{sv}}(O_r)\), with a uniform finite-volume/lattice-spacing Cauchy bound.
+The maps commute with the coarse-shadow \(\iota_{rs}\) up to those vanishing Cauchy defects. This
+makes the extracted cluster family unique on the declared tests.
 \item Exact finite reflection positivity, or a positive self-adjoint transfer matrix, with
 reflection-compatible renormalization maps.
 \item Uniform restoration of Euclidean covariance, locality, regularity, clustering, and the
 declared vacuum-sector condition.
-\item Generalized Mosco convergence of the physical transfer forms \(q_r\) to a closed
-nonnegative continuum form \(q\), or exact coherent direct-limit semigroup identities.
+\item Generalized Mosco convergence of both the physical transfer forms
+\(q_r^{\mathrm{phys}}\) and repair forms \(q_r^{\mathrm{rep}}\) to closed nonnegative continuum
+forms, or exact coherent direct-limit semigroup identities under state-preserving repair and
+physical refinement isometries, with one refinement-independent physical Euclidean-time
+normalization. In the exact alternative the isometries send \(\mathbf 1_r\) to \(\mathbf 1_s\)
+and \(\Omega_r\) to \(\Omega_s\).
 \item Convergence of the finite intertwiners \(U_r\) and their inverses on dense form cores to a
-unitary \(U\).
-\item A nontriviality certificate: renormalized local observables \(A_r\) with
+unitary \(U\), together with
+\(U_r\Omega_r=\mathbf 1_r\) and strong convergence of
+\(P_{0,r}=|\mathbf 1_r\rangle\langle\mathbf 1_r|\) to
+\(P_0^K=|\mathbf 1\rangle\langle\mathbf 1|\) under the declared Hilbert identifications. The
+physical vacuum projection is
+\(P_0^{\Hcal}:=U^{-1}P_0^KU=|\Omega\rangle\langle\Omega|\).
+On the dense time-zero cylinder core, the finite Markov/OS identity
+\[
+\omega_r^{(4)}\!\left(
+(\iota_{0,r}f)^*\tau_t^{(r)}(\iota_{0,r}g)
+\right)
+=\langle f,e^{-tL_r^{\Rep}}g\rangle_{K_r}
+=\langle U_r^{-1}f,e^{-tH_r}U_r^{-1}g\rangle_{\Hcal_r}
+\]
+holds and passes to the limit. Thus the OS-reconstructed time-zero Hilbert space and Hamiltonian
+are the same \((\Hcal,H)\) as the transfer-form limit, not a second pair with reused notation.
+\item A nontriviality certificate: renormalized local observables \(A_r\), all images of one fixed
+bounded cylinder test under the maps in (Y1), whose centered vectors converge under the Hilbert
+identifications and satisfy
 \[
 \inf_r\operatorname{Var}_{\omega_r}(A_r)>0,\qquad
-\sup_r q_r(A_r\Omega_r)<\infty .
+\sup_r q_r^{\mathrm{phys}}(A_r\Omega_r)<\infty .
 \]
 \end{enumerate}
 The explicit multiresolution construction in the main paper supplies a model for items
@@ -606,8 +862,9 @@ of (Y3)--(Y6).
 
 \begin{theorem}[Conditional continuum transfer identification]
 \label{thm:continuum}
-Under Assumption~\ref{ass:ym-continuum-certificate}, the generalized Mosco limit produces
-nonnegative self-adjoint generators \(H\) and \(L^{\mathrm{rep}}\) and a unitary \(U\) satisfying
+Under Assumption~\ref{ass:ym-continuum-certificate}, the generalized Mosco limit, or the exact
+coherent direct limit in item (Y4), produces nonnegative self-adjoint generators \(H\) and
+\(L^{\mathrm{rep}}\) and a unitary \(U\) satisfying
 \[
 U e^{-tH}U^{-1}=e^{-tL^{\mathrm{rep}}}
 \qquad(t\ge0),
@@ -620,25 +877,35 @@ UHU^{-1}=L^{\mathrm{rep}}.
 \]
 If the finite repair generators satisfy
 \[
-L_r^{\mathrm{rep}}\ge c_*(I-P_{0,r})
+L_r^{\Rep}\ge c_*(I-P_{0,r})
 \]
 with one \(c_*>0\) and the vacuum projections converge strongly, then
 \[
-H\ge c_*(I-P_0).
+H\ge c_*(I-P_0^{\Hcal}).
 \]
 \end{theorem}
 
 \begin{proof}
 Generalized Mosco convergence is equivalent to generalized strong-resolvent and
-transfer-semigroup convergence on the declared Hilbert identifications. Convergence of \(U_r\)
+transfer-semigroup convergence on the declared Hilbert identifications. In the exact alternative,
+the coherent finite contraction semigroups define strongly continuous direct-limit semigroups on
+the dense cylinder images, and uniform contractivity extends them to the completed Hilbert
+spaces. Their bounded operators are symmetric and positive on the dense finite-stage union, hence
+self-adjoint and positive after extension. Convergence of \(U_r\)
 and \(U_r^{-1}\) on dense form cores passes the finite-stage intertwining relation to the limit,
 so uniqueness of self-adjoint semigroup generators gives \(UHU^{-1}=L^{\mathrm{rep}}\). For a
-Mosco recovery sequence \(\psi_r\to\psi\),
+repair-form Mosco recovery sequence \(\psi_r\to\psi\),
 \[
-q_r(\psi_r)\ge c_*\bigl(\|\psi_r\|^2-\|P_{0,r}\psi_r\|^2\bigr).
+q_r^{\mathrm{rep}}(\psi_r)
+\ge c_*\bigl(\|\psi_r\|^2-\|P_{0,r}\psi_r\|^2\bigr).
 \]
 Taking the limit and using strong convergence of the vacuum projections gives the continuum form
-inequality.
+inequality. In the exact direct-limit alternative, the finite bound is equivalently
+\[
+\|e^{-tL_r^{\Rep}}(I-P_{0,r})\|\le e^{-c_*t};
+\]
+coherence passes this estimate to the direct-limit semigroup, and the spectral theorem gives the
+same continuum form inequality.
 \end{proof}
 
 \section{Axiomatic Reconstruction and Nontriviality}
@@ -661,8 +928,10 @@ on the support-visible gauge-invariant local algebra, with \(H\ge0\) and
 Euclidean covariance, locality, reflection positivity, regularity, clustering, transfer
 convergence, and nontriviality are precisely the certificate items in
 Assumption~\ref{ass:ym-continuum-certificate}. Proposition~\ref{prop:extraction} supplies the
-support-visible cylinder algebra and candidate GNS objects; the certificate supplies the missing
-continuum and transfer controls. The standard Osterwalder--Schrader reconstruction theorem
+four-dimensional Euclidean cylinder state \(K^E\) and its time-zero GNS restriction \(K\); the
+certificate supplies the missing regularity and transfer controls. The finite/limiting time-zero
+identity in (Y5) identifies the OS time-zero inner product and translation semigroup with the
+transfer-form limit \((\Hcal,H)\). The standard Osterwalder--Schrader reconstruction theorem
 therefore produces the Hilbert space, vacuum, local algebra, and positive Hamiltonian, and
 identifies the physical time-translation semigroup with the certified Euclidean transfer
 semigroup~\cite{osterwalder-schrader1,osterwalder-schrader2}.
@@ -670,7 +939,8 @@ semigroup~\cite{osterwalder-schrader1,osterwalder-schrader2}.
 
 \begin{proposition}[Nontriviality of the support-visible compact-gauge theory]
 \label{prop:nontriviality}
-The support-visible compact-gauge local algebra on the zero-obstruction vacuum branch strictly
+Under Assumption~\ref{ass:ym-continuum-certificate},
+the support-visible compact-gauge local algebra on the zero-obstruction vacuum branch strictly
 contains the vacuum scalars and admits a non-vacuum finite-energy local excitation.
 \end{proposition}
 
@@ -693,13 +963,17 @@ survive in the support-visible continuum, so the continuum local algebra is stri
 \label{thm:main}
 Let \(G\) be a compact simple gauge group carried by a support-visible compact-gauge OPH vacuum
 branch satisfying the standing setup above and the continuum certificate of
-Assumption~\ref{ass:ym-continuum-certificate}. The theory reconstructed in Theorem~\ref{thm:os}
+Assumption~\ref{ass:ym-continuum-certificate}, the finite transfer receipt of
+Assumption~\ref{ass:finite-transfer-receipt}, and all hypotheses of
+Theorem~\ref{thm:ec-law}, Lemma~\ref{lem:floor}, and
+Proposition~\ref{prop:finite-gap}. The theory reconstructed in
+Theorem~\ref{thm:os}
 is nontrivial, and its continuum support-visible Hamiltonian \(H\) satisfies
 \[
-H\ge c_*(I-P_0),
+H\ge c_*(I-P_0^{\Hcal}),
 \tag{10}
 \]
-where \(P_0\) projects onto the vacuum. Therefore
+where \(P_0^{\Hcal}\) projects onto the physical vacuum. Therefore
 \[
 \operatorname{Spec}(H)\cap(0,c_*)=\varnothing,
 \qquad
@@ -718,10 +992,10 @@ At every finite stage, Proposition~\ref{prop:finite-gap} gives
 \[
 L_r^{\Rep}\ge c_*(I-P_{0,r}).
 \]
-By Proposition~\ref{prop:extraction} and Theorem~\ref{thm:continuum}, this lower bound passes to
+By Theorem~\ref{thm:continuum}, on the extracted cylinder/GNS space, this lower bound passes to
 the support-visible continuum:
 \[
-L^{\mathrm{rep}}\ge c_*(I-P_0).
+L^{\mathrm{rep}}\ge c_*(I-P_0^K).
 \]
 Using (9), \(UHU^{-1}=L^{\mathrm{rep}}\). Conjugating the lower bound by \(U^{-1}\) gives (10),
 and the spectral statement (11) follows. Since unitary equivalence preserves the nonzero spectrum
@@ -733,8 +1007,9 @@ same on both sides, giving (12).
 The proof is group-uniform. Once a compact simple \(G\) is carried by a compact-gauge
 zero-obstruction OPH branch, no step uses special properties of the realized Standard Model
 quotient. The inputs are compact-gauge support-visible quotient locality, exact local repair on
-collars, bounded-color collar covers, refinement coherence, and support-visible continuum
-extraction.
+collars, the finite ground-state-transform/cross-fiber receipt, the uniform rate and commuting-color
+receipts, refinement coherence, projective cylinder extraction, the transfer/vacuum certificate,
+and the OS regularity/noncollapse certificate.
 \end{remark}
 
 \section{Exact Gap Accounting}
@@ -791,11 +1066,11 @@ Clay/Jaffe--Witten target & OPH repair-dynamics boundary \\
 \midrule
 \endhead
 Compact simple gauge group \(G\) & \(G\) is arbitrary compact simple, provided it is carried by the OPH compact-gauge zero-obstruction branch. \\
-Four-dimensional Euclidean Yang--Mills form & Theorem~\ref{thm:ym-form}, imported from the compact paper's D7 Yang--Mills theorem surface, gives \(S_E[A]=\frac{1}{4g^2}\int_{\R^4}\langle F_{\mu\nu},F_{\mu\nu}\rangle\,d^4x\) under the branch assumptions in Assumption~\ref{ass:ym-branch}. \\
-Four-dimensional quantum Yang--Mills theory & Conditional on Assumption~\ref{ass:ym-continuum-certificate}: support-visible extraction, renormalized Schwinger-function convergence, reflection positivity, Euclidean covariance/locality, clustering, nontriviality, and transfer/intertwiner convergence. \\
+Four-dimensional Euclidean Yang--Mills form & Theorem~\ref{thm:ym-form}, imported from the compact paper's D7 Yang--Mills theorem surface, gives \(S_E[A]=\frac{1}{4g^2}\int_{\R^4}\langle F_{\mu\nu},F_{\mu\nu}\rangle\,d^4x\) under the branch and renormalized identification certificates. \\
+Four-dimensional quantum Yang--Mills theory & Proposition~\ref{prop:extraction} proves support-visible projective weak-* / GNS extraction. Renormalized Schwinger convergence, reflection positivity, Euclidean covariance/locality, clustering, nontriviality, and transfer/intertwiner convergence remain conditional on Assumption~\ref{ass:ym-continuum-certificate}. \\
 Nontriviality & Conditional on the variance-floor and finite-energy certificate in item (Y6). Finite nonconstant Wilson/plaquette cylinders are candidates; weak-\(*\) convergence alone is not enough. \\
 Axiomatic strength & Theorem~\ref{thm:os} states the conditional OS reconstruction step on the support-visible gauge-invariant local algebra. \\
-Mass gap & The finite repair generator satisfies \(L_r^{\mathrm{rep}}\ge c_*(I-P_{0,r})\). The continuum Hamiltonian bound \(H\ge c_*(I-P_0)\) follows only after Theorem~\ref{thm:continuum}. \\
+Mass gap & Under the finite ground-state-transform, cross-fiber-rate, commuting-color, and uniform-floor receipts, \(L_r^{\Rep}\ge c_*(I-P_{0,r})\). The continuum Hamiltonian bound \(H\ge c_*(I-P_0^{\Hcal})\) follows only after Theorem~\ref{thm:continuum}. \\
 Exact gap accounting & On the certified continuum branch, \(UHU^{-1}=L^{\mathrm{rep}}\) gives \(\Delta_{\YM}=\Delta_{\mathrm{rep}}\). OPH accounts exactly for the Yang--Mills gap as the first nonzero repair eigenvalue only on that branch. \\
 Uniformity in \(G\) & The proof uses compact simplicity and compact-gauge quotient locality, not Standard-Model-specific representation data. \\
 \bottomrule
