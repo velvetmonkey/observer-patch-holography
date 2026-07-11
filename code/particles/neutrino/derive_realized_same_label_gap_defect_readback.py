@@ -9,8 +9,9 @@ refinement together with the emitted family spectral gaps to form
 `same_label_overlap_sq`, `defect_e = 1 - overlap_sq`, `g_e`, and the derived
 `q_e -> eta_e -> mu_e` family on the ordered arrows `(psi12, psi23, psi31)`.
 
-OPH-derived inputs: the defect-weighted neutrino family shell, the family
-transport-kernel eigenvalue data, and the overlap-edge line-lift certificate.
+Declared inputs: the defect-weighted neutrino family shell, family-transport
+kernel eigenvalue data, and overlap-edge line-lift certificate. Their source
+closure is propagated rather than inferred from numerical completeness.
 
 Output: either a complete realized-arrow pullback payload or, if the required
 flavor-side data are still missing, the strict smallest-object shell.
@@ -51,6 +52,14 @@ def _shell(payload: dict, arrows: list[str]) -> dict:
         "generated_utc": _timestamp(),
         "proof_status": "candidate_only",
         "payload_status": "reduced_to_strict_smallest_missing_object",
+        "source_only_physical_input_eligible": False,
+        "source_closure_status": {
+            "closed": False,
+            "missing_objects": [
+                "source_emitted_family_transport_kernel",
+                "theorem_grade_overlap_edge_line_lift",
+            ],
+        },
         "upstream_exact_clause": payload.get("upstream_exact_clause"),
         "same_label_readback_origin": payload.get("same_label_readback_origin"),
         "selector_center": payload.get("selector_center"),
@@ -181,12 +190,38 @@ def _complete_from_flavor(payload: dict, family_kernel: dict, line_lift: dict) -
     exp_eta = {edge: float(math.exp(eta_e[edge])) for edge in EDGE_ORDER}
     mean_exp_eta = sum(exp_eta.values()) / len(EDGE_ORDER)
     mu_e = {edge: float(base_mu * exp_eta[edge] / mean_exp_eta) for edge in EDGE_ORDER}
+    family_kernel_closed = family_kernel.get("source_closure_closed") is True
+    line_lift_closed = line_lift.get("source_closure_closed") is True
+    source_closed = family_kernel_closed and line_lift_closed
+    missing_source_objects = []
+    if not family_kernel_closed:
+        missing_source_objects.append("source_emitted_family_transport_kernel")
+    if not line_lift_closed:
+        missing_source_objects.append("theorem_grade_overlap_edge_line_lift")
 
     return {
         "artifact": "oph_realized_same_label_gap_defect_readback",
         "generated_utc": _timestamp(),
-        "proof_status": "derived_from_live_flavor_overlap_and_gap_certificates",
-        "payload_status": "complete_from_live_flavor_artifacts",
+        "proof_status": (
+            "derived_from_source_closed_flavor_overlap_and_gap_certificates"
+            if source_closed
+            else "conditional_numeric_readback_from_template_flavor_artifacts"
+        ),
+        "payload_status": (
+            "complete_from_source_closed_flavor_artifacts"
+            if source_closed
+            else "complete_numeric_values_source_open"
+        ),
+        "source_only_physical_input_eligible": source_closed,
+        "source_closure_status": {
+            "closed": source_closed,
+            "family_transport_kernel_status": family_kernel.get("status"),
+            "family_transport_kernel_proof_status": family_kernel.get("proof_status"),
+            "family_transport_kernel_explicit_source_closure": family_kernel_closed,
+            "overlap_edge_line_lift_proof_status": line_lift.get("proof_status"),
+            "overlap_edge_line_lift_explicit_source_closure": line_lift_closed,
+            "missing_objects": missing_source_objects,
+        },
         "upstream_exact_clause": payload.get("upstream_exact_clause"),
         "same_label_readback_origin": "realized_arrow_pullback_from_flavor_gap_and_defect_certificates",
         "selector_center": payload.get("selector_center"),
@@ -216,7 +251,9 @@ def _complete_from_flavor(payload: dict, family_kernel: dict, line_lift: dict) -
         "missing_fields_by_arrow": {edge: [] for edge in EDGE_ORDER},
         "complete_by_arrow": {edge: True for edge in EDGE_ORDER},
         "metadata": {
-            "note": "The live same-label pullback has been compressed from flavor-side overlap and spectral-gap certificates on the realized ordered labels f1,f2,f3.",
+            "note": (
+                "The same-label pullback is numerically complete on ordered labels f1,f2,f3, but physical source closure follows the family-kernel and line-lift gates."
+            ),
             "source_artifacts": [
                 "oph_defect_weighted_majorana_edge_weight_family",
                 "oph_family_transport_kernel",

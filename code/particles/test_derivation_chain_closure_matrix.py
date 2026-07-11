@@ -73,11 +73,14 @@ def test_derivation_chain_closure_matrix_keeps_stage_gates_explicit() -> None:
     ]
     assert rows["selected_class_quarks"]["closed_issue_refs"] == [199, 207, 212]
     assert rows["neutrino_absolute_attachment"]["status"] == (
-        "scale_free_weighted_cycle_with_compare_only_absolute_attachment_candidate"
+        "rejected_target_informed_weighted_cycle_candidate"
     )
     assert rows["neutrino_absolute_attachment"]["promotable"] is False
     assert rows["neutrino_absolute_attachment"]["open_gates"] == [
-        "source_emitted_neutrino_C_nu_no_compare_target"
+        "source_emitted_family_transport_kernel",
+        "source_derived_weight_exponent_and_cycle_matrix_law",
+        "source_derived_basis_permutation_and_holonomy_orientation",
+        "pre_reference_hash_lock",
     ]
     assert rows["hadrons"]["status"] == "source_backend_absent_empirical_closure_policy_emitted"
     assert rows["hadrons"]["open_gates"] == []

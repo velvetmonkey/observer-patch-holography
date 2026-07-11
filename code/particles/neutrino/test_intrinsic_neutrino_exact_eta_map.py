@@ -33,7 +33,8 @@ def test_intrinsic_eta_map_is_exact_once_eta_is_given() -> None:
     payload = json.loads(OUTPUT.read_text(encoding="utf-8"))
 
     assert payload["artifact"] == "oph_intrinsic_neutrino_exact_eta_map"
-    assert payload["theorem_surface_status"] == "intrinsic_builder_complete_exact"
+    assert payload["theorem_surface_status"] == "intrinsic_builder_exact_conditional_on_source_open_inputs"
+    assert payload["source_only_physical_input_eligible"] is False
     assert payload["selector_common_scale_invariant"] is True
     assert payload["selector_domain"]["satisfied"] is True
     assert payload["selector_domain"]["margin_rad"] > 0.0
@@ -41,6 +42,7 @@ def test_intrinsic_eta_map_is_exact_once_eta_is_given() -> None:
     assert payload["ordering_phase_certified"] is None
     assert payload["ordering_status"] == "unresolved_without_mass_eigenstate_label_rule"
     assert payload["physical_ordering_assignments"]["selected"] is None
+    assert payload["takagi_congruence_max_offdiag_gev"] < 1.0e-24
     assert len(payload["masses_gev_sorted"]) == 3
     assert payload["cubic_root_audit_max_abs_gev2"] < 1.0e-30
 

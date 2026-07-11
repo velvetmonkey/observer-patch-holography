@@ -43,7 +43,7 @@ def _load_json(path: Path) -> dict[str, Any]:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Emit the explicit neutrino weighted-cycle theorem object.")
+    parser = argparse.ArgumentParser(description="Emit the historical neutrino weighted-cycle candidate law audit.")
     parser.add_argument("--cocycle", default=str(DEFAULT_COCYCLE))
     parser.add_argument("--selector", default=str(DEFAULT_SELECTOR))
     parser.add_argument("--repair", default=str(DEFAULT_REPAIR))

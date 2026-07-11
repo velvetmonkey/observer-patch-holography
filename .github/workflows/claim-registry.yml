@@ -1,6 +1,17 @@
 name: Claim Registry
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - "claims/**"
+      - "paper/**/*.tex"
+      - "extra/**/*.tex"
+      - "README.md"
+      - "README_FR.md"
+      - "tools/check_claim_registry.py"
+      - "tools/bump_paper_release.py"
+      - ".github/workflows/claim-registry.yml"
   pull_request:
     paths:
       - "claims/**"
@@ -9,6 +20,8 @@ on:
       - "README.md"
       - "README_FR.md"
       - "tools/check_claim_registry.py"
+      - "tools/bump_paper_release.py"
+      - ".github/workflows/claim-registry.yml"
   workflow_dispatch:
 
 jobs:

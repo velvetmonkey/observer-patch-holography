@@ -5,17 +5,17 @@ State checked: CLOSED on 2026-05-04
 Title: [OPH Task] particles.e.32b-close-neutrino-splittings-and-mixing: Close neutrino splittings and mixing
 Labels: surface: particles
 
-## Closed Scope
+## Historical Closed Scope, Superseded
 
-The neutrino splittings/mixing lane is closed on the weighted-cycle theorem
-surface. The current particle paper exposes theorem-grade absolute
-Delta m21^2 and Delta m32^2, the weighted-cycle PMNS/hierarchy shape, and
-theorem-grade physical Majorana phases on the shared-basis weighted-cycle
-transport branch.
+This snapshot recorded a weighted-cycle theorem claim that the July 2026 audit
+retracted. The point is target-informed and fails the NuFIT 6.1 correlated
+profile. Its shared-basis recovery was an identity by construction, its stored
+charged basis is open and nearly degenerate, and its physical mass labels are
+not source-derived. No physical PMNS, absolute splitting, or Majorana-phase
+theorem survives.
 
 ## Boundary For This Campaign
 
-Do not reopen #117 merely because comparison tension remains. Keep the current
-PMNS residuals visible. Stronger follow-on surfaces, such as flavor-labeled
-neutrinos or broader ambient classification questions, are separate work.
-
+Treat #117 as historically superseded rather than as evidence of closure. The
+active repair belongs under #508 and the dedicated basis/Takagi/ordering bug
+issue. Keep the rejected coordinates visible only as comparison records.

@@ -17,10 +17,12 @@ TARGETS = [
 ]
 FORBIDDEN = [
     "pmns_best_fit",
-    "theta12",
-    "theta13",
-    "theta23",
     "U_PMNS = [[",
+    "NuFIT",
+    "PDG_2025_NO",
+    "33.68",
+    "8.56",
+    "305.58",
 ]
 
 

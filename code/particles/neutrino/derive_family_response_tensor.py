@@ -7,8 +7,9 @@ response object to produce the family tensor behind the Majorana lane.
 Mathematics: symmetric normalization, projector overlaps, and gap/isotropy
 certificates on the neutrino response matrix.
 
-OPH-derived inputs: the local D10-based scale anchor and the shared flavor
-sector transport pushforward.
+Declared inputs: the local D10-based scale anchor and the shared flavor sector
+transport pushforward. The current pushforward is a template with candidate
+proof status, so this builder preserves that source-open provenance.
 
 Output: the family-response tensor consumed by the Majorana lift, pullback
 metric, and forward matrix builders.
@@ -81,6 +82,15 @@ def main() -> int:
 
     sector_payload = _load_json(sector_path)
     scale_anchor_payload = _load_json(scale_anchor_path)
+    upstream_source_closure = dict(sector_payload.get("source_closure_status") or {})
+    if not upstream_source_closure:
+        upstream_source_closure = {
+            "closed": False,
+            "upstream_status": sector_payload.get("status"),
+            "upstream_proof_status": sector_payload.get("proof_status"),
+            "missing_objects": ["source_emitted_family_transport_kernel"],
+        }
+    source_closed = upstream_source_closure.get("closed") is True
     nu = dict(sector_payload.get("sector_response_object", {}).get("nu", {}))
     if not nu:
         raise ValueError("sector_response_object['nu'] is required")
@@ -119,6 +129,10 @@ def main() -> int:
         "artifact": "oph_neutrino_family_response",
         "generated_utc": _timestamp(),
         "status": "real_majorana_response",
+        "proof_scope": "exact_matrix_algebra_conditional_on_declared_sector_response",
+        "source_only_physical_input_eligible": source_closed,
+        "public_surface_candidate_allowed": False,
+        "source_closure_status": upstream_source_closure,
         "labels": sector_payload.get("labels"),
         "source_artifacts": {
             "sector_response": str(sector_path),
@@ -147,7 +161,12 @@ def main() -> int:
         "projector_gap_seed": _projector_gap_seed(c_nu_hat_real),
         "phase_status": "unresolved",
         "notes": [
-            "This artifact builds the real symmetric Majorana response from the sector-response object.",
+            "This artifact builds the real symmetric Majorana response conditional on the declared sector-response object.",
+            (
+                "The upstream sector response is source-closed."
+                if source_closed
+                else "The current upstream sector response is a source-open template/candidate and cannot support physical promotion."
+            ),
             "The complex Majorana phase lift stays separate until the congruence-gauge theorem closes.",
             "Unique-edge amplitudes and the weighted edge norm are exported for the residual-envelope theorem burden.",
         ],

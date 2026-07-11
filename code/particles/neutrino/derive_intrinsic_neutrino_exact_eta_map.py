@@ -2,18 +2,19 @@
 """Build the exact intrinsic neutrino eta-chain artifact.
 
 Chain role: turn a centered same-label eta-class into the exact intrinsic
-Majorana matrix, masses, splittings, ordering, and neutrino-side basis.
+Majorana matrix, ascending singular spectrum, squared gaps, and Takagi
+subspaces. It does not select physical mass-eigenstate labels or ordering.
 
 Mathematics: principal-branch selector from the scale-free eta-class, exact
 complex symmetric Majorana matrix construction, depressed cubic for
 `H = M^dagger M`, and exact singular-spectrum extraction.
 
-OPH-derived inputs: the local isotropic neutrino forward bundle plus a payload
+Declared inputs: the local isotropic neutrino forward bundle plus a payload
 carrying the centered same-label eta-class or any scale-equivalent positive
-family.
+family. Source provenance must be checked separately before physical use.
 
-Output: the strongest current exact neutrino artifact once a centered same-label
-eta-class is supplied.
+Output: exact conditional spectral algebra once a centered same-label eta-class
+is supplied.
 """
 
 from __future__ import annotations
@@ -131,18 +132,28 @@ def _solve_principal_selector(mu: np.ndarray, omega: float) -> tuple[float, np.n
     return lam_value, psi
 
 
-def _rephase_columns(matrix: np.ndarray) -> np.ndarray:
-    payload = np.array(matrix, dtype=complex, copy=True)
-    for col_idx in range(payload.shape[1]):
-        column = payload[:, col_idx]
-        pivot = int(np.argmax(np.abs(column)))
-        if abs(column[pivot]) == 0.0:
-            continue
-        phase = np.angle(column[pivot])
-        payload[:, col_idx] *= np.exp(-1j * phase)
-        if payload[pivot, col_idx].real < 0.0:
-            payload[:, col_idx] *= -1.0
-    return payload
+def _takagi_unitary(matrix: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
+    """Return ascending singular values and U satisfying U.T @ M @ U > 0."""
+    if np.max(np.abs(matrix - matrix.T)) > 1.0e-12:
+        raise ValueError("Majorana matrix must be complex symmetric")
+    eigenvalues, unitary = np.linalg.eigh(matrix.conjugate().T @ matrix)
+    order = np.argsort(eigenvalues)
+    eigenvalues = np.maximum(np.real(eigenvalues[order]), 0.0)
+    unitary = unitary[:, order]
+    congruence = unitary.T @ matrix @ unitary
+    offdiag = congruence - np.diag(np.diag(congruence))
+    tolerance = 1.0e-10 * max(1.0e-30, float(np.max(np.sqrt(eigenvalues))))
+    if np.max(np.abs(offdiag)) > tolerance:
+        raise ValueError("Takagi eigenspaces require a degenerate-block congruence resolution")
+    unitary = unitary @ np.diag(np.exp(-0.5j * np.angle(np.diag(congruence))))
+    diagonalized = unitary.T @ matrix @ unitary
+    if np.max(np.abs(diagonalized - np.diag(np.diag(diagonalized)))) > tolerance:
+        raise ValueError("Takagi congruence is not diagonal")
+    if np.max(np.abs(np.imag(np.diag(diagonalized)))) > tolerance:
+        raise ValueError("Takagi diagonal is not real")
+    if np.any(np.real(np.diag(diagonalized)) < -tolerance):
+        raise ValueError("Takagi diagonal is not positive")
+    return np.sqrt(eigenvalues), unitary
 
 
 @dataclass
@@ -162,7 +173,7 @@ class ExactEtaMap:
     cubic_roots: np.ndarray
     masses_squared: np.ndarray
     masses: np.ndarray
-    u_left: np.ndarray
+    u_takagi: np.ndarray
 
 
 def _build_exact_eta_map(a_value: float, rho_value: float, omega: float, eta: np.ndarray) -> ExactEtaMap:
@@ -208,9 +219,7 @@ def _build_exact_eta_map(a_value: float, rho_value: float, omega: float, eta: np
 
     masses_squared = np.sort(d_value + cubic_roots)
     masses = np.sqrt(np.clip(masses_squared, 0.0, None))
-    u_mat, singular_values, _ = np.linalg.svd(matrix)
-    order = np.argsort(singular_values)
-    u_mat = _rephase_columns(u_mat[:, order])
+    singular_values, u_mat = _takagi_unitary(matrix)
 
     return ExactEtaMap(
         a=a_value,
@@ -228,7 +237,7 @@ def _build_exact_eta_map(a_value: float, rho_value: float, omega: float, eta: np
         cubic_roots=np.sort(cubic_roots),
         masses_squared=masses_squared,
         masses=masses,
-        u_left=u_mat,
+        u_takagi=u_mat,
     )
 
 
@@ -255,6 +264,11 @@ def main() -> int:
         eta=eta,
     )
     payload_is_live_certificate = bool(payload.get("sufficient_for_intrinsic_mass_eigenstates"))
+    payload_source_closure = dict(payload.get("source_closure_status") or {})
+    source_only_physical_input_eligible = (
+        payload.get("source_only_physical_input_eligible") is True
+        and payload_source_closure.get("closed") is True
+    )
 
     actual_phase = _phase_vector_from_matrix(exact_map.majorana)
     for idx, reference in enumerate(exact_map.psi):
@@ -268,7 +282,13 @@ def main() -> int:
     result = {
         "artifact": "oph_intrinsic_neutrino_exact_eta_map",
         "generated_utc": _timestamp(),
-        "theorem_surface_status": "intrinsic_builder_complete_exact",
+        "theorem_surface_status": (
+            "intrinsic_builder_complete_exact_from_source_closed_inputs"
+            if source_only_physical_input_eligible
+            else "intrinsic_builder_exact_conditional_on_source_open_inputs"
+        ),
+        "source_only_physical_input_eligible": source_only_physical_input_eligible,
+        "source_closure_status": payload_source_closure or {"closed": False},
         "builder_facing_exact_object": "centered_log_pullback_class_[log_q_e]",
         "proof_facing_residual_object": None if payload_is_live_certificate else "realized_arrow_pullback_from_flavor_gap_and_defect_certificates",
         "public_flavor_rows_gate": "pmns_and_flavor_rows_formed_downstream_from_shared_charged_basis" if payload_is_live_certificate else "blocked_pending_proof_facing_eta_emission_and_shared_charged_lepton_left_basis",
@@ -354,8 +374,21 @@ def main() -> int:
         ),
         "ordering_phase_certified": None,
         "ordering_status": "unresolved_without_mass_eigenstate_label_rule",
-        "u_nu_left_real": np.real(exact_map.u_left).tolist(),
-        "u_nu_left_imag": np.imag(exact_map.u_left).tolist(),
+        "u_nu_takagi_real": np.real(exact_map.u_takagi).tolist(),
+        "u_nu_takagi_imag": np.imag(exact_map.u_takagi).tolist(),
+        "u_nu_left_real": np.real(exact_map.u_takagi).tolist(),
+        "u_nu_left_imag": np.imag(exact_map.u_takagi).tolist(),
+        "u_nu_field_semantics": "Takagi U satisfying U^T M U = diag(m_i) > 0; legacy u_nu_left keys are aliases",
+        "takagi_congruence_max_offdiag_gev": float(
+            np.max(
+                np.abs(
+                    exact_map.u_takagi.T
+                    @ exact_map.majorana
+                    @ exact_map.u_takagi
+                    - np.diag(np.diag(exact_map.u_takagi.T @ exact_map.majorana @ exact_map.u_takagi))
+                )
+            )
+        ),
         "determinant_formula_complex_gev3": {"real": float(np.real(det_formula)), "imag": float(np.imag(det_formula))},
         "determinant_direct_complex_gev3": {
             "real": float(np.real(np.linalg.det(exact_map.majorana))),
@@ -363,11 +396,13 @@ def main() -> int:
         },
         "determinant_audit_abs_gev3": float(abs(np.linalg.det(exact_map.majorana) - det_formula)),
         "notes": [
-            "This artifact closes the intrinsic builder-facing neutrino chain exactly from the centered eta-class.",
+            "This artifact computes the intrinsic builder-facing neutrino chain exactly from the centered eta-class.",
             "Once eta_e is emitted at the flavor boundary, no further selector ambiguity remains on the principal branch.",
             (
-                "The proof-facing eta provenance is supplied directly by the live same-label scalar certificate; PMNS is formed downstream from the shared charged-lepton left basis."
-                if payload_is_live_certificate
+                "The same-label scalar certificate is numerically complete, but its upstream family kernel and overlap-line lift remain source-open."
+                if payload_is_live_certificate and not source_only_physical_input_eligible
+                else "The proof-facing eta provenance is supplied by a source-closed same-label scalar certificate; PMNS is formed downstream from the shared charged-lepton left basis."
+                if source_only_physical_input_eligible
                 else "The remaining supported blockers are proof-facing eta provenance and the shared charged-lepton left basis required for PMNS."
             ),
         ],

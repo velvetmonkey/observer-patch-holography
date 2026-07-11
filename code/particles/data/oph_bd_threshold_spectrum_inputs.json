@@ -135,7 +135,7 @@
         "json_pointer": "/entries/z_boson/value_gev",
         "path": "code/particles/data/particle_reference_values.json"
       },
-      "value": "91.18797809193725"
+      "value": "91.1879"
     }
   },
   "schema_version": 1,

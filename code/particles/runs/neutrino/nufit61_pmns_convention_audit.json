@@ -5240,12 +5240,14 @@
     "worst_declared_dataset_lower_bound": 20.119548723965472
   },
   "candidate_filename": "neutrino_weighted_cycle_repair.json",
-  "candidate_sha256": "b67e5e3467b1691e0b616ca875c970a16c2916a1f2269a8c89a506e8dfeed6a6",
+  "candidate_sha256": "8cb2b4fc58a438c945ac5d26cc07e04d63da576d64598e93ad79329fd109959f",
   "decision": {
     "any_normal_ordering_consistent_assignment_passes_both_3sigma_gates": false,
-    "convention_error_found": false,
     "declared_assignment_is_best_by_worst_dataset_score": true,
-    "post_hoc_relabeling_allowed_as_rescue": false
+    "physical_basis_contract_error_excluded": false,
+    "post_hoc_relabeling_allowed_as_rescue": false,
+    "stored_pmns_internal_convention_error_found": false,
+    "stored_pmns_relabeling_rescue_found": false
   },
   "declared_assignment": {
     "column_permutation_indices": [
@@ -5331,13 +5333,20 @@
     "total_assignments": 72,
     "two_parameter_3sigma_threshold": 11.829158081900795
   },
-  "generated_utc": "2026-07-11T04:05:00Z",
+  "generated_utc": "2026-07-11T06:25:21Z",
   "mathematical_convention_checks": {
     "delta_wrap": "delta in [0,360) is mapped to the equivalent NuFIT coordinate in [-180,180].",
     "jarlskog_sign": "J = Im(U_e1 U_mu2 U_e2^* U_mu1^*) uses the PDG sign convention.",
     "normal_ordering_column_rule": "Ascending eigenvalues are (m1,m2,m3); other column permutations change physical mass labels.",
     "takagi_relation": "For U^T M U = D, the columns of U diagonalize M^dagger M.",
     "transpose_or_dagger_allowed": false
+  },
+  "scope": {
+    "limitation": "This enumeration cannot test the missing source map from f-labelled operator data to the charged-lepton mass basis.",
+    "physical_charged_basis_product_formed": false,
+    "transformations": "complex conjugation plus row and column permutations",
+    "unitary_under_test": "stored_declared_weighted_cycle_pmns",
+    "weighted_cycle_operator_basis_placement_audited": false
   },
   "source_manifest_sha256": "8fab3d1228e7d5945cbae9a62c68028f177c9fc3a0b2fc7e3f1c287818ea9b94",
   "source_receipts": {

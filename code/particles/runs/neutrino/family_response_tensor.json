@@ -121,7 +121,7 @@
     "min_gap": 3.3306690738754696e-16,
     "stable": false
   },
-  "generated_utc": "2026-03-27T13:18:50Z",
+  "generated_utc": "2026-07-11T06:22:12Z",
   "labels": [
     "f1",
     "f2",
@@ -133,17 +133,29 @@
     1.0
   ],
   "notes": [
-    "This artifact builds the real symmetric Majorana response from the sector-response object.",
+    "This artifact builds the real symmetric Majorana response conditional on the declared sector-response object.",
+    "The current upstream sector response is a source-open template/candidate and cannot support physical promotion.",
     "The complex Majorana phase lift stays separate until the congruence-gauge theorem closes.",
     "Unique-edge amplitudes and the weighted edge norm are exported for the residual-envelope theorem burden."
   ],
   "phase_status": "unresolved",
   "projector_gap_seed": 1.1102230246251565e-16,
+  "proof_scope": "exact_matrix_algebra_conditional_on_declared_sector_response",
+  "public_surface_candidate_allowed": false,
   "rank_lower_bound": 3,
   "source_artifacts": {
-    "scale_anchor": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/neutrino_scale_anchor.json",
-    "sector_response": "/Users/muellerberndt/Projects/oph-meta/particles/runs/flavor/sector_transport_pushforward.json"
+    "scale_anchor": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/neutrino/neutrino_scale_anchor.json",
+    "sector_response": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/flavor/sector_transport_pushforward.json"
   },
+  "source_closure_status": {
+    "closed": false,
+    "missing_objects": [
+      "source_emitted_family_transport_kernel"
+    ],
+    "upstream_proof_status": "conjugacy_riesz_candidate",
+    "upstream_status": "template"
+  },
+  "source_only_physical_input_eligible": false,
   "status": "real_majorana_response",
   "u_normalization": 1.061872133120721,
   "u_projector": [

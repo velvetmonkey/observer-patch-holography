@@ -40,6 +40,7 @@ import math
 import re
 import sys
 from datetime import datetime, timezone
+from itertools import product
 from pathlib import Path
 from typing import Any, Mapping, Sequence
 
@@ -85,6 +86,7 @@ SECONDARY_FAMILY_ALPHA = 0.01
 CALIBRATION_CONTROL_MIN_P_VALUE = 0.01
 CALIBRATION_MAX_BASIS_ERROR_FRACTION = 0.15
 DEFAULT_MAX_LEAKAGE_FRACTION = 0.10
+INDIVIDUAL_CIRCUIT_CATASTROPHIC_LEAKAGE_FRACTION = 0.25
 CALIBRATION_UNCERTAINTY_MODE = "conditional_plugin_positive_dirichlet_sensitivity"
 
 _OUTCOME_RE = re.compile(r"^h([0-7])\|d([01])\|f([0-7])\|l([01])$")
@@ -938,11 +940,16 @@ def _validate_valid_codes(raw_codes: Any, row_id: str) -> tuple[int, ...]:
 def build_candidate_provenance(
     candidate_probabilities: Mapping[str, Mapping[str, Any]],
     derivation_sha256_by_model: Mapping[str, str],
+    logical_circuit_sha256: str,
 ) -> dict[str, dict[str, str]]:
     """Bind every frozen point-hypothesis table to data and derivation hashes."""
 
     if set(candidate_probabilities) != set(derivation_sha256_by_model):
         raise AnalysisValidationError("candidate provenance model set is incomplete")
+    logical_digest = _require_sha256(
+        logical_circuit_sha256,
+        "candidate logical_circuit_sha256",
+    )
     result: dict[str, dict[str, str]] = {}
     for model, probabilities in candidate_probabilities.items():
         result[model] = {
@@ -951,6 +958,7 @@ def build_candidate_provenance(
                 derivation_sha256_by_model[model],
                 f"candidate derivation for {model}",
             ),
+            "logical_circuit_sha256": logical_digest,
         }
     return result
 
@@ -960,6 +968,7 @@ def _validate_candidate_provenance(
     provenance: Any,
     *,
     field: str,
+    logical_circuit_sha256: str,
 ) -> None:
     if not isinstance(provenance, Mapping) or set(provenance) != set(candidates):
         raise AnalysisValidationError(f"{field} does not match the candidate table set")
@@ -967,7 +976,21 @@ def _validate_candidate_provenance(
         record = provenance[model]
         if not isinstance(record, Mapping):
             raise AnalysisValidationError(f"{field}.{model} must be a mapping")
+        if set(record) != {
+            "probability_table_sha256",
+            "derivation_sha256",
+            "logical_circuit_sha256",
+        }:
+            raise AnalysisValidationError(f"{field}.{model} has an unexpected schema")
         _require_sha256(record.get("derivation_sha256"), f"{field}.{model}.derivation_sha256")
+        bound_logical_digest = _require_sha256(
+            record.get("logical_circuit_sha256"),
+            f"{field}.{model}.logical_circuit_sha256",
+        )
+        if bound_logical_digest != logical_circuit_sha256:
+            raise AnalysisValidationError(
+                f"{field}.{model} binds a different logical circuit"
+            )
         claimed_table_hash = _require_sha256(
             record.get("probability_table_sha256"),
             f"{field}.{model}.probability_table_sha256",
@@ -989,6 +1012,10 @@ def _validate_expected_row(
         raise AnalysisValidationError(
             f"row {row_id!r} must use its unique opaque circuit ID as row_id"
         )
+    if "logical_qpy_sha256" in row:
+        raise AnalysisValidationError(
+            f"row {row_id!r} uses removed logical_qpy_sha256 identity"
+        )
     family = row.get("family")
     if family not in ("cayley", "mh"):
         raise AnalysisValidationError(f"row {row_id!r} has an unsupported analysis family")
@@ -1001,9 +1028,9 @@ def _validate_expected_row(
     ):
         if not isinstance(row.get(field), str) or not row[field]:
             raise AnalysisValidationError(f"row {row_id!r} needs {field}")
-    _require_sha256(
-        row.get("logical_qpy_sha256"),
-        f"expected_rows.{row_id}.logical_qpy_sha256",
+    logical_circuit_sha256 = _require_sha256(
+        row.get("logical_circuit_sha256"),
+        f"expected_rows.{row_id}.logical_circuit_sha256",
     )
     physical_layout = row.get("physical_layout")
     if (
@@ -1027,7 +1054,10 @@ def _validate_expected_row(
         leakage_limit = float(raw_leakage_limit)
     except (TypeError, ValueError) as exc:
         raise AnalysisValidationError(f"row {row_id!r} leakage limit is invalid") from exc
-    if not math.isfinite(leakage_limit) or not 0.0 <= leakage_limit < 1.0:
+    if (
+        not math.isfinite(leakage_limit)
+        or leakage_limit != INDIVIDUAL_CIRCUIT_CATASTROPHIC_LEAKAGE_FRACTION
+    ):
         raise AnalysisValidationError(f"row {row_id!r} leakage limit is invalid")
     valid_codes = _validate_valid_codes(row.get("valid_codes"), row_id)
     candidates = row.get("candidate_probabilities")
@@ -1064,6 +1094,7 @@ def _validate_expected_row(
         candidates,
         row.get("candidate_provenance"),
         field=f"expected_rows.{row_id}.candidate_provenance",
+        logical_circuit_sha256=logical_circuit_sha256,
     )
 
 
@@ -1135,17 +1166,20 @@ def _validate_label_layout_model(
 ) -> None:
     if not isinstance(label_model, Mapping):
         raise AnalysisValidationError("analysis lock lacks the global label/layout model")
-    if label_model.get("mapping_scope") != "global_shared_across_dynamic_rows":
+    if label_model.get("mapping_scope") != "global_shared_across_primary_rows":
         raise AnalysisValidationError("label/layout mapping scope is not globally shared")
     _require_sha256(
         label_model.get("component_set_derivation_sha256"),
         "label_layout_model.component_set_derivation_sha256",
     )
-    analysis_row_ids = set(rows_by_id)
+    analysis_row_ids = {
+        row_id for row_id, row in rows_by_id.items() if row["endpoint"] == PRIMARY_ENDPOINT
+    }
     components = label_model.get("components")
     if not isinstance(components, list) or len(components) < 2:
         raise AnalysisValidationError("label/layout model needs at least two frozen components")
     component_ids: set[str] = set()
+    component_table_hashes: set[str] = set()
     weight_total = 0.0
     for index, component in enumerate(components):
         if not isinstance(component, Mapping):
@@ -1177,7 +1211,7 @@ def _validate_label_layout_model(
         row_provenance = component.get("row_provenance")
         if not isinstance(row_probabilities, Mapping) or set(row_probabilities) != analysis_row_ids:
             raise AnalysisValidationError(
-                f"label/layout component {component_id!r} must cover every dynamic analysis circuit"
+                f"label/layout component {component_id!r} must cover every primary circuit"
             )
         if not isinstance(row_provenance, Mapping) or set(row_provenance) != analysis_row_ids:
             raise AnalysisValidationError(
@@ -1200,8 +1234,14 @@ def _validate_label_layout_model(
                 raise AnalysisValidationError(
                     f"label/layout component {component_id!r} row {row_id!r} hash mismatch"
                 )
+        table_set_hash = sha256_json(row_probabilities)
+        if table_set_hash in component_table_hashes:
+            raise AnalysisValidationError("label/layout components contain duplicate table sets")
+        component_table_hashes.add(table_set_hash)
     if not math.isclose(weight_total, 1.0, rel_tol=0.0, abs_tol=1e-12):
         raise AnalysisValidationError("label/layout component prior weights must sum to one")
+    if label_model.get("reference_component_id") not in component_ids:
+        raise AnalysisValidationError("label/layout reference component is absent")
 
 
 def _validate_lock_body(lock: Mapping[str, Any], *, verify_code_hash: bool) -> None:
@@ -1232,6 +1272,10 @@ def _validate_lock_body(lock: Mapping[str, Any], *, verify_code_hash: bool) -> N
         "simultaneous_prediction_level": SIMULTANEOUS_LEVEL,
         "secondary_holm_family_alpha": SECONDARY_FAMILY_ALPHA,
         "calibration_control_min_p_value": CALIBRATION_CONTROL_MIN_P_VALUE,
+        "pooled_backend_family_max_leakage_fraction": DEFAULT_MAX_LEAKAGE_FRACTION,
+        "individual_circuit_catastrophic_leakage_fraction": (
+            INDIVIDUAL_CIRCUIT_CATASTROPHIC_LEAKAGE_FRACTION
+        ),
     }
     if thresholds != expected_thresholds:
         raise AnalysisValidationError("analysis thresholds differ from the frozen protocol")
@@ -1420,6 +1464,10 @@ def build_analysis_lock(
             "simultaneous_prediction_level": SIMULTANEOUS_LEVEL,
             "secondary_holm_family_alpha": SECONDARY_FAMILY_ALPHA,
             "calibration_control_min_p_value": CALIBRATION_CONTROL_MIN_P_VALUE,
+            "pooled_backend_family_max_leakage_fraction": DEFAULT_MAX_LEAKAGE_FRACTION,
+            "individual_circuit_catastrophic_leakage_fraction": (
+                INDIVIDUAL_CIRCUIT_CATASTROPHIC_LEAKAGE_FRACTION
+            ),
         },
         "execution_contract": {
             "row_granularity": "one_locked_row_per_opaque_circuit",
@@ -1482,9 +1530,13 @@ def _validate_data_row(data_row: Mapping[str, Any], expected_row: Mapping[str, A
     row_id = expected_row["row_id"]
     if data_row.get("row_id") != row_id:
         raise AnalysisValidationError(f"data row ID does not match expected row {row_id!r}")
+    if "logical_qpy_sha256" in data_row:
+        raise AnalysisValidationError(
+            f"data row {row_id!r} uses removed logical_qpy_sha256 identity"
+        )
     for field in (
         "opaque_id",
-        "logical_qpy_sha256",
+        "logical_circuit_sha256",
         "backend_role",
         "backend_name",
         "layout_id",
@@ -1876,53 +1928,43 @@ def _label_log_likelihood_ratio_sensitivity_bounds(
     grouped: dict[str, list[Mapping[str, Any]]] = {}
     for row in rows:
         grouped.setdefault(row["calibration_id"], []).append(row)
-
-    reference_lower = 0.0
-    reference_upper = 0.0
-    component_lower = {component["component_id"]: 0.0 for component in label_model["components"]}
-    component_upper = dict(component_lower)
-    for calibration_id, selected_rows in grouped.items():
-        reference_options: list[float] = []
-        component_options: dict[str, list[float]] = {
-            component["component_id"]: [] for component in label_model["components"]
+    calibration_ids = sorted(grouped)
+    channel_families = [
+        _calibration_variants(calibrations[calibration_id])
+        for calibration_id in calibration_ids
+    ]
+    combination_count = math.prod(len(family) for family in channel_families)
+    if combination_count > 64:
+        raise AnalysisValidationError(
+            "label sensitivity grid exceeds the frozen exact Cartesian-product limit"
+        )
+    paired_log_likelihood_ratios: list[float] = []
+    for selected_channels in product(*channel_families):
+        reference_score = 0.0
+        component_scores = {
+            component["component_id"]: 0.0 for component in label_model["components"]
         }
-        for channel in _calibration_variants(calibrations[calibration_id]):
-            reference_options.append(
-                float(
-                    sum(
-                        _row_table_log_likelihood(
-                            row,
-                            counts_by_row[row["row_id"]],
-                            row["candidate_probabilities"][reference_model],
-                            channel,
-                        )
-                        for row in selected_rows
-                    )
+        for calibration_id, channel in zip(calibration_ids, selected_channels):
+            for row in grouped[calibration_id]:
+                reference_score += _row_table_log_likelihood(
+                    row,
+                    counts_by_row[row["row_id"]],
+                    row["candidate_probabilities"][reference_model],
+                    channel,
                 )
-            )
-            for component in label_model["components"]:
-                component_options[component["component_id"]].append(
-                    float(
-                        sum(
-                            _row_table_log_likelihood(
-                                row,
-                                counts_by_row[row["row_id"]],
-                                component["row_probabilities"][row["row_id"]],
-                                channel,
-                            )
-                            for row in selected_rows
-                        )
+                for component in label_model["components"]:
+                    component_scores[component["component_id"]] += _row_table_log_likelihood(
+                        row,
+                        counts_by_row[row["row_id"]],
+                        component["row_probabilities"][row["row_id"]],
+                        channel,
                     )
-                )
-        reference_lower += min(reference_options)
-        reference_upper += max(reference_options)
-        for component_id, options in component_options.items():
-            component_lower[component_id] += min(options)
-            component_upper[component_id] += max(options)
-
-    label_lower = _label_log_marginal(component_lower, label_model)
-    label_upper = _label_log_marginal(component_upper, label_model)
-    return float(reference_lower - label_upper), float(reference_upper - label_lower)
+        label_marginal = _label_log_marginal(component_scores, label_model)
+        paired_log_likelihood_ratios.append(reference_score - label_marginal)
+    return (
+        float(min(paired_log_likelihood_ratios)),
+        float(max(paired_log_likelihood_ratios)),
+    )
 
 
 def simultaneous_hoeffding_envelope(
@@ -2067,7 +2109,7 @@ def _row_shot_audit(
     return {
         "row_id": expected_row["row_id"],
         "opaque_id": expected_row["opaque_id"],
-        "logical_qpy_sha256": expected_row["logical_qpy_sha256"],
+        "logical_circuit_sha256": expected_row["logical_circuit_sha256"],
         "endpoint": expected_row["endpoint"],
         "backend_role": expected_row["backend_role"],
         "backend_name": expected_row["backend_name"],
@@ -2244,35 +2286,16 @@ def run_blind_analysis(
             )
             for model in MH_POINT_MODELS
         }
-        label_component_scores = _label_component_log_scores(
-            rows,
-            counts_by_row,
-            lock["calibrations"],
-            lock["label_layout_model"],
-        )
-        scores[LABEL_MODEL] = _label_log_marginal(
-            label_component_scores,
-            lock["label_layout_model"],
-        )
         ratios: dict[str, dict[str, Any]] = {}
-        for null in (*MH_POINT_MODELS[1:], LABEL_MODEL):
+        for null in MH_POINT_MODELS[1:]:
             log_lr = scores[MH_REFERENCE_MODEL] - scores[null]
-            if null == LABEL_MODEL:
-                bounds = _label_log_likelihood_ratio_sensitivity_bounds(
-                    rows,
-                    counts_by_row,
-                    lock["calibrations"],
-                    lock["label_layout_model"],
-                    MH_REFERENCE_MODEL,
-                )
-            else:
-                bounds = _point_log_likelihood_ratio_sensitivity_bounds(
-                    rows,
-                    counts_by_row,
-                    lock["calibrations"],
-                    MH_REFERENCE_MODEL,
-                    null,
-                )
+            bounds = _point_log_likelihood_ratio_sensitivity_bounds(
+                rows,
+                counts_by_row,
+                lock["calibrations"],
+                MH_REFERENCE_MODEL,
+                null,
+            )
             ratios[null] = {
                 "conditional_log_likelihood_ratio_kappa_1_over_null": log_lr,
                 "conditional_likelihood_ratio_kappa_1_over_null": _safe_likelihood_ratio(
@@ -2286,7 +2309,6 @@ def run_blind_analysis(
             "row_count": len(rows),
             "log_likelihoods": scores,
             "conditional_likelihood_ratios": ratios,
-            "label_component_log_likelihoods": label_component_scores,
             "negative_control_exact_zero_check": bool(
                 role != "abelian_negative_control"
                 or all(
@@ -2358,7 +2380,32 @@ def run_blind_analysis(
         _row_shot_audit(row, counts_by_row[row["row_id"]])
         for row in lock["expected_rows"]
     ]
-    leakage_gate_pass = all(row["leakage_gate_pass"] for row in shot_audit)
+    individual_catastrophic_leakage_pass = all(
+        row["leakage_gate_pass"] for row in shot_audit
+    )
+    leakage_groups: dict[tuple[str, str], dict[str, int]] = {}
+    for row in shot_audit:
+        key = (row["backend_name"], expected_rows[row["row_id"]]["family"])
+        group = leakage_groups.setdefault(key, {"shots": 0, "leakage_shots": 0})
+        group["shots"] += row["declared_submitted_retrieved_counted_shots"]
+        group["leakage_shots"] += row["leakage_shots"]
+    pooled_leakage_gates = {
+        f"{backend_name}|{family}": {
+            "backend_name": backend_name,
+            "family": family,
+            "shots": values["shots"],
+            "leakage_shots": values["leakage_shots"],
+            "leakage_fraction": values["leakage_shots"] / values["shots"],
+            "maximum_fraction": DEFAULT_MAX_LEAKAGE_FRACTION,
+            "pass": values["leakage_shots"] / values["shots"]
+            <= DEFAULT_MAX_LEAKAGE_FRACTION,
+        }
+        for (backend_name, family), values in sorted(leakage_groups.items())
+    }
+    pooled_leakage_pass = all(details["pass"] for details in pooled_leakage_gates.values())
+    leakage_gate_pass = bool(
+        individual_catastrophic_leakage_pass and pooled_leakage_pass
+    )
     data_rows_by_id = {row["row_id"]: row for row in data["rows"]}
     calibration_gate_details: dict[str, dict[str, Any]] = {}
     for calibration_id, calibration in lock["calibrations"].items():
@@ -2410,8 +2457,23 @@ def run_blind_analysis(
     every_pooled_lr_passes = all(
         result["passes_pooled_threshold"] for result in pooled_likelihood_ratios.values()
     )
-    best_label_score = max(pooled_label_component_scores.values())
-    label_unique_preference = pooled_scores[REPAIR_MODEL] > best_label_score
+    label_weighted_scores = sorted(
+        (
+            (
+                component["component_id"],
+                math.log(float(component["prior_weight"]))
+                + pooled_label_component_scores[component["component_id"]],
+            )
+            for component in lock["label_layout_model"]["components"]
+        ),
+        key=lambda item: (-item[1], item[0]),
+    )
+    label_top_gap = label_weighted_scores[0][1] - label_weighted_scores[1][1]
+    label_unique_preference = bool(
+        label_top_gap > 0.0
+        and label_weighted_scores[0][0]
+        == lock["label_layout_model"]["reference_component_id"]
+    )
     primary_pass = bool(
         validity_gate_pass
         and every_backend_lr_passes
@@ -2468,14 +2530,7 @@ def run_blind_analysis(
         item["posterior_within_label_model"] = math.exp(
             item["log_weighted_likelihood"] - pooled_scores[LABEL_MODEL]
         )
-    label_top_gap = (
-        label_ranked[0]["log_weighted_likelihood"]
-        - label_ranked[1]["log_weighted_likelihood"]
-    )
-    repair_rank = 1 + sum(
-        score >= pooled_scores[REPAIR_MODEL]
-        for score in pooled_label_component_scores.values()
-    )
+    best_label_score = max(pooled_label_component_scores.values())
 
     report_body = {
         "schema_version": REPORT_SCHEMA_VERSION,
@@ -2498,6 +2553,11 @@ def run_blind_analysis(
             "calibration_gate_pass": calibration_gate_pass,
             "calibration_gates": calibration_gate_details,
             "leakage_gate_pass": leakage_gate_pass,
+            "individual_catastrophic_leakage_pass": (
+                individual_catastrophic_leakage_pass
+            ),
+            "pooled_backend_family_leakage_pass": pooled_leakage_pass,
+            "pooled_backend_family_leakage_gates": pooled_leakage_gates,
             "overall_validity_gate_pass": validity_gate_pass,
         },
         "conditional_likelihood": {
@@ -2523,17 +2583,19 @@ def run_blind_analysis(
             "global_99_percent_simultaneous_envelope": global_envelope,
             "per_backend_99_percent_simultaneous_envelopes": backend_envelopes,
             "label_layout_multiplicity": {
-                "mapping_scope": "global_shared_across_dynamic_rows",
+                "mapping_scope": "global_shared_across_primary_rows",
                 "component_count": len(label_ranked),
                 "log_marginal_likelihood": pooled_scores[LABEL_MODEL],
                 "ranked_components": label_ranked,
+                "reference_component_id": lock["label_layout_model"][
+                    "reference_component_id"
+                ],
+                "reference_component_is_unique_top": label_unique_preference,
                 "top_to_second_log_weighted_likelihood_gap": label_top_gap,
                 "repair_log_likelihood_gap_to_best_label_component": pooled_scores[
                     REPAIR_MODEL
                 ]
                 - best_label_score,
-                "repair_rank_against_label_components": repair_rank,
-                "repair_uniquely_preferred": repair_rank == 1,
                 "per_backend_component_log_likelihoods": per_backend_label_component_scores,
             },
             "passes_gate": primary_pass,
@@ -2548,14 +2610,31 @@ def run_blind_analysis(
         "shot_audit": shot_audit,
         "candidate_probability_hashes": {
             row_id: {
-                model: sha256_json(
-                    vector_to_probability_mapping(
-                        probabilities,
-                        expected_rows[row_id]["valid_codes"],
-                        include_zeros=True,
-                    )
-                )
-                for model, probabilities in candidates.items()
+                model: {
+                    "logical_circuit_sha256": expected_rows[row_id][
+                        "logical_circuit_sha256"
+                    ],
+                    "latent_probability_table_sha256": expected_rows[row_id][
+                        "candidate_provenance"
+                    ][model]["probability_table_sha256"],
+                    "derivation_sha256": expected_rows[row_id]["candidate_provenance"][
+                        model
+                    ]["derivation_sha256"],
+                    "conditional_observed_prediction_sha256": sha256_json(
+                        {
+                            "logical_circuit_sha256": expected_rows[row_id][
+                                "logical_circuit_sha256"
+                            ],
+                            "latent_probability_table_sha256": expected_rows[row_id][
+                                "candidate_provenance"
+                            ][model]["probability_table_sha256"],
+                            "calibration_sha256": sha256_json(
+                                lock["calibrations"][expected_rows[row_id]["calibration_id"]]
+                            ),
+                        }
+                    ),
+                }
+                for model in candidates
             }
             for row_id, candidates in probabilities_by_row.items()
         },
@@ -2626,7 +2705,7 @@ def simulate_data_packet(
             {
                 "row_id": expected_row["row_id"],
                 "opaque_id": expected_row["opaque_id"],
-                "logical_qpy_sha256": expected_row["logical_qpy_sha256"],
+                "logical_circuit_sha256": expected_row["logical_circuit_sha256"],
                 "backend_role": expected_row["backend_role"],
                 "backend_name": expected_row["backend_name"],
                 "layout_id": expected_row["layout_id"],

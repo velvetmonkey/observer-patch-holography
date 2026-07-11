@@ -74,12 +74,12 @@ def test_d10_source_transport_readout_uses_predictive_seed_trial() -> None:
     assert payload["quartet_atomicity"]["all_four_readouts_share_one_population_point"] is True
     assert payload["quartet_atomicity"]["independent_post_population_readout_scalar_remaining"] is False
     assert mass_pair["status"] == "freeze_once_coherent_repair_exact"
-    assert abs(mass_pair["tau_2"] - (-2.3116268316325517e-4)) < 1.0e-15
+    assert abs(mass_pair["tau_2"] - (-5.918464744071317e-4)) < 1.0e-15
     assert abs(mass_pair["delta_n_dagger"] - 2.3463639031113336e-4) < 1.0e-15
     assert abs(mass_pair["MW_pole"] - 80.377) < 1.0e-12
-    assert abs(mass_pair["MZ_pole"] - 91.18797809193725) < 1.0e-12
+    assert abs(mass_pair["MZ_pole"] - 91.1879) < 1.0e-12
     assert abs(payload["public_emitted_quintet"]["MW_pole"] - 80.377) < 1.0e-12
-    assert abs(payload["public_emitted_quintet"]["MZ_pole"] - 91.18797809193725) < 1.0e-12
+    assert abs(payload["public_emitted_quintet"]["MZ_pole"] - 91.1879) < 1.0e-12
     assert payload["public_emitted_quintet"]["alpha_em_eff_inv"] is None
     assert payload["public_emitted_quintet"]["sin2w_eff"] is None
     assert abs(payload["public_mass_lane_quintet"]["alpha_em_eff_inv"] - 132.75240855096712) < 1.0e-12

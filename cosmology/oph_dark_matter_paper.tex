@@ -1665,13 +1665,15 @@ The transported homogeneous dust branch is
 \begin{equation}
   \rho_A(a)=\rho_{A0}a^{-3}.
 \end{equation}
-Using \(H_0=67.4\,\mathrm{km\,s^{-1}\,Mpc^{-1}}\),
-\(\Omega_b h^2=0.02237\), the OPH neutrino mass sum, and
-\(\Omega_r=9.17\times10^{-5}\), the residual is:
+The legacy plumbing run used \(H_0=67.4\,\mathrm{km\,s^{-1}\,Mpc^{-1}}\),
+\(\Omega_b h^2=0.02237\), \(\Omega_r=9.17\times10^{-5}\), and the
+target-informed weighted-cycle comparison value
+\(\sum m_\nu=0.0900119296\,\mathrm{eV}\).  That neutrino value is now rejected
+and has no OPH prediction status.  The resulting historical residual was:
 \begin{center}
 \begin{tabular}{@{}lr@{}}
 \toprule
-Quantity & Value \\
+Quantity & Legacy diagnostic value \\
 \midrule
 \(H_{\mathrm{dS}}\) & \(55.759940256\,\mathrm{km\,s^{-1}\,Mpc^{-1}}\) \\
 \(\Omega_{\Lambda,\OPH}\) & \(0.684423332\) \\
@@ -1684,8 +1686,12 @@ Quantity & Value \\
 \bottomrule
 \end{tabular}
 \end{center}
-This matches the Planck-like cold-matter budget at the compressed-parameter
-level only on the explicit flat benchmark.  The number is a closure residual,
+This legacy number matches the Planck-like cold-matter budget at the
+compressed-parameter level only on the explicit flat benchmark.  It is
+invalidated as a current quantitative OPH row because its supplied neutrino
+input came from the rejected weighted-cycle candidate.  A current run must
+declare an external neutrino scenario and recompute the residual.  Even then,
+the number is a closure residual,
 not an independent anomaly abundance and not a flatness proof.  The static galaxy RAR law
 does not determine it.  The OPH theorem that would make \(\Omega_{A0}\) standalone is a
 finite-screen additive-load selector for the conserved homogeneous anomaly charge together with an
@@ -2017,14 +2023,16 @@ those candidates are not physical \(B_A\), \(\rho_{A,\mathrm{eq}}\), or
 
 \subsection{Compressed CMB, BAO, Growth, And \(S_8\) Diagnostic}
 
-The local Boltzmann plumbing test passes the anomaly as a cold pressureless
-component with the flat-benchmark diagnostic parent-grid ratio
-\(\rho_A/\rho_b=5.363470441\).  It uses CAMB \(1.6.6\), the OPH neutrino mass
-sum, and diagonal Gaussian compressed rows:
+The checked-in legacy Boltzmann plumbing test passes the anomaly as a cold
+pressureless component with the flat-benchmark diagnostic parent-grid ratio
+\(\rho_A/\rho_b=5.363470441\).  It uses CAMB \(1.6.6\), the rejected
+weighted-cycle comparison value \(\sum m_\nu=0.0900119296\,\mathrm{eV}\), and
+diagonal Gaussian compressed rows.  The neutrino input is a compare-only
+historical coordinate, not an OPH prediction:
 \begin{center}
 \begin{tabular}{@{}lrrr@{}}
 \toprule
-Quantity & Prediction & Target & Pull \\
+Quantity & Legacy diagnostic & Target & Pull \\
 \midrule
 Planck \(\Omega_m\) & \(0.315905207\) & \(0.315\pm0.007\) & \(+0.129\) \\
 Planck \(\sigma_8\) & \(0.807787208\) & \(0.811\pm0.006\) & \(-0.535\) \\
@@ -2035,8 +2043,11 @@ Weak-lensing \(S_8\) & \(0.828924043\) & \(0.790\pm0.016\) & \(+2.433\) \\
 \bottomrule
 \end{tabular}
 \end{center}
-The diagonal compressed value is \(\chi^2=11.463\) for six rows.  This is a
-plumbing check.  It does not replace Planck, DESI, or weak-lensing likelihoods.
+The historical diagonal compressed value is \(\chi^2=11.463\) for six rows.
+Because the run inherited the rejected neutrino input, it is invalidated as a
+current OPH score and is retained only as a reproducibility record.  Even after
+regeneration with an explicitly declared external neutrino scenario, this is a
+plumbing check and does not replace Planck, DESI, or weak-lensing likelihoods.
 A publication-grade calculation needs the OPH \(B_A(k,a)\) kernel in a custom
 Boltzmann module and the full experimental covariances.
 
@@ -2083,7 +2094,10 @@ The Boltzmann module exposes
   B_A(k,a),\quad
   \Gamma_{\mathrm{rec}}(k,a),
 \]
-with the OPH neutrino mass sum in the same run.  Every entry must be derived
+with an explicitly declared external neutrino-mass scenario in the same run.
+The rejected weighted-cycle tuple may appear only as a labeled compare-only
+scenario; it may not be a default, a source input, or a promotion path.  Every
+dark-sector entry must be derived
 from a frozen finite covariant parent artifact with no CMB, BAO, lensing,
 SPARC, or cluster fit in that source step.  It must recover the \(\LCDM\)
 cold-component limit when the exchange and stress corrections are turned off,
@@ -2194,12 +2208,14 @@ fixed-M/L improvement alone is weak evidence for the \(\Zsix\) bridge theorem.
 The executable empirical pass combines four diagnostic layers: public SPARC
 tables, the flat-benchmark capacity-saturated homogeneous anomaly state, the finite
 repair matrix with a cluster timing gate, and the compressed CAMB rows.  The
-single-pass output is:
+checked-in single-pass output below predates the neutrino audit and used the
+rejected weighted-cycle mass sum.  It is an invalidated legacy diagnostic, not
+a current OPH number surface:
 \begin{center}
 \small
 \begin{tabularx}{\textwidth}{@{}p{0.39\textwidth}p{0.24\textwidth}X@{}}
 \toprule
-Quantity & OPH output & Measurement comparison \\
+Quantity & Stored legacy diagnostic & Measurement comparison \\
 \midrule
 \(\Omega_A\) & \(0.264114401\) & Planck-like matter budget under \(\Omega_K=0\) benchmark \\
 \(\Omega_{\Lambda,\OPH}\) & \(0.684423332\) & capacity de Sitter branch \\
@@ -2216,12 +2232,12 @@ CAMB \(S_8\) & \(0.828924037\) & \(+2.433\sigma\) versus weak lensing \\
 \end{tabularx}
 \end{center}
 
-The compressed CMB/BAO/growth score is
+The stored legacy CMB/BAO/growth score is
 \[
   \chi^2_{\mathrm{diag}}=11.463
   \qquad \hbox{for six compressed rows.}
 \]
-The pressure point is weak-lensing \(S_8\).  The diagnostic value is
+Within that invalidated run, the pressure point was weak-lensing \(S_8\).  The stored value is
 \(0.828924037\).  The DES/KiDS compressed row is \(0.790\pm0.016\).
 
 For the cluster timing gate, take a \(200\,\mathrm{kpc}\) initial anomaly
@@ -2263,7 +2279,9 @@ covariance, and selection cuts under one nuisance model.
 scalar-load diagnostic grid is plumbing only.
 \item A CAMB or CLASS anomaly module exposing the background density, stress
 variables, exchange current, relaxation kernel, environmental response
-kernel, and the OPH neutrino mass sum in one run.
+kernel, and an explicitly declared external neutrino-mass scenario in one run.
+The rejected weighted-cycle tuple may be retained only as a named compare-only
+scenario and must fail every promotion gate.
 \item A cluster forward model with gas hydrodynamics, galaxy and stellar
 tracers, transported anomaly stress, lensing projection, X-ray and SZ
 observables, merger-age priors, and map covariance.
@@ -3784,20 +3802,20 @@ clock, and CDM-limit recovery are compatible with the galaxy branch.
 
 The numerical tables were produced in the OPH cosmology workspace by:
 \begin{verbatim}
-python3 cosmology/scripts/dark_sector_measurement_ledger.py
-python3 cosmology/scripts/dark_empirical_scorecard.py --quiet
-python3 cosmology/scripts/sparc_systematic_likelihood.py
-python3 cosmology/scripts/dark_perturbation_parameters.py
-python3 cosmology/scripts/dark_repair_transition_matrix.py
-python3 cosmology/scripts/dark_cluster_boltzmann_prelikelihood.py
-python3 cosmology/scripts/dark_jacobi_repair_clock.py
-python3 cosmology/scripts/dark_homogeneous_state_selection.py
-python3 cosmology/scripts/dark_parent_collar_grid.py --diagnostic-scalar-load \
+python3 code/dark_matter/scripts/dark_sector_measurement_ledger.py
+python3 code/dark_matter/scripts/dark_empirical_scorecard.py --quiet
+python3 code/dark_matter/scripts/sparc_systematic_likelihood.py
+python3 code/dark_matter/scripts/dark_perturbation_parameters.py
+python3 code/dark_matter/scripts/dark_repair_transition_matrix.py
+python3 code/dark_matter/scripts/dark_cluster_boltzmann_prelikelihood.py
+python3 code/dark_matter/scripts/dark_jacobi_repair_clock.py
+python3 code/dark_matter/scripts/dark_homogeneous_state_selection.py
+python3 code/dark_matter/scripts/dark_parent_collar_grid.py --diagnostic-scalar-load \
   --mu-eq 5.363470440729118 \
-  --out cosmology/outputs/dark_parent_flat_capacity_state_selection.json
-python3 cosmology/scripts/dark_cmb_bao_growth_s8_likelihood.py \
-  --parent-grid cosmology/outputs/dark_parent_flat_capacity_state_selection.json
-python3 cosmology/scripts/camb_fixed_neutrino_compare.py
+  --out code/dark_matter/outputs/dark_parent_flat_capacity_state_selection.json
+python3 code/dark_matter/scripts/dark_cmb_bao_growth_s8_likelihood.py \
+  --parent-grid code/dark_matter/outputs/dark_parent_flat_capacity_state_selection.json
+python3 code/dark_matter/scripts/camb_fixed_neutrino_compare.py
 python3 -m oph_fpe.cli dark-sector-simulation-plan --run-dir runs/<run_id> \
   --out runs/<run_id>/dark_sector_simulation_plan
 \end{verbatim}

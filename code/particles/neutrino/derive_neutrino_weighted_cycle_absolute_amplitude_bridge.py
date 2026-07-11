@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
-"""Audit the missing absolute-amplitude bridge for the repaired neutrino lane.
+"""Audit the conditional absolute-amplitude freedom of the weighted-cycle candidate.
 
-Chain role: state the exact remaining amplitude attachment problem after the
-dimensionless weighted-cycle law is fixed.
+Chain role: preserve a downstream scale diagnostic without mistaking it for the
+first physical gap in the neutrino lane.
 
-Mathematics: the repaired weighted-cycle branch emits only a scale-free normal
+Mathematics: conditional on the rejected weighted-cycle ansatz, one obtains a scale-free normal
 form `m_i = lambda_nu * mhat_i`, `Delta m^2_ij = lambda_nu^2 * Delta_hat_ij`.
-The current D10 scale anchor `m_star` is dimensionful, but no emitted theorem
-attaches it to the repaired weighted-cycle normal form. This script records
-that missing bridge and the direct-attachment diagnostic.
+The current D10 scale anchor `m_star` is dimensionful, but no source-closed theorem
+attaches it to that candidate normal form. This script records the conditional
+scale freedom and direct-attachment diagnostic; it does not close the upstream
+operator, physical-basis, or mass-label problems.
 """
 
 from __future__ import annotations
@@ -64,8 +65,10 @@ def main() -> int:
     payload = {
         "artifact": "oph_neutrino_weighted_cycle_absolute_amplitude_bridge",
         "generated_utc": _timestamp(),
-        "status": "constructive_extension_required",
-        "theorem_status": "dimensionless_branch_closed_absolute_bridge_open",
+        "status": "conditional_scale_audit_on_rejected_source_open_candidate",
+        "theorem_status": "not_established_physical_branch_upstream_gates_open",
+        "public_promotion_allowed": False,
+        "weighted_cycle_source_closure_status": repair.get("source_closure_status"),
         "source_artifacts": {
             "neutrino_weighted_cycle_repair": str(Path(args.repair)),
             "neutrino_scale_anchor": str(Path(args.scale_anchor)),
@@ -78,8 +81,9 @@ def main() -> int:
             "m_star_formula": scale_anchor["anchors"]["m_star_formula"],
         },
         "no_go_statement": (
-            "The repaired weighted-cycle branch emits only a scale-free normal form, while the live D10 neutrino scale anchor emits only the isotropic amplitude scale m_star. "
-            "No emitted theorem presently attaches that dimensionful anchor to the repaired weighted-cycle normal form, so lambda_nu cannot be emitted from the current corpus."
+            "Conditional on the rejected weighted-cycle ansatz, the stored normal form retains one positive scale. "
+            "The live D10 scale anchor does not supply a source-closed attachment to that candidate. More importantly, "
+            "the physical lane is blocked earlier by the source-open neutrino operator, charged basis, and mass-label rule."
         ),
         "direct_scale_anchor_attachment_diagnostic": {
             "candidate_rule": "lambda_nu = m_star_eV",
@@ -91,6 +95,7 @@ def main() -> int:
         },
         "remaining_object": "neutrino_weighted_cycle_absolute_amplitude_bridge",
         "remaining_object_kind": "dimensionful_attachment_theorem",
+        "first_physical_missing_object": "source_closed_neutrino_operator_basis_and_mass_label_contract",
         "remaining_object_contract": {
             "must_emit": "A_nu > 0",
             "role": "dimensionful amplitude that upgrades the repaired weighted-cycle normal form to absolute masses and splittings",
@@ -107,8 +112,8 @@ def main() -> int:
             "relation_to_bridge": "lambda_nu = A_nu in the eV-valued normalization used by the repaired weighted-cycle artifact",
         },
         "notes": [
-            "This artifact does not reopen the dimensionless selector question; that question is already fixed by the repaired weighted-cycle branch.",
-            "The remaining gap is a dimensionful attachment theorem between the repaired weighted-cycle normal form and the live D10 amplitude sector.",
+            "The dimensionless selector, topology, exponent, basis placement, and ordering are not source-derived; this artifact must not imply otherwise.",
+            "Only after a source-closed physical branch exists would its residual absolute-scale attachment become a physical theorem target.",
         ],
     }
 

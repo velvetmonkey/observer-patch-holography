@@ -13,8 +13,8 @@
   "absolute_scale_closure_status": {
     "absolute_frontier_factorization_artifact": "oph_charged_absolute_frontier_factorization",
     "charged_absolute_equalizer_status": "NO_GO_COMMON_SHIFT",
-    "compare_only_delta_e_abs_star": 3.003986333402356,
-    "compare_only_g_e_star": 0.04577885783568762,
+    "compare_only_delta_e_abs_star": 3.0039867953851016,
+    "compare_only_g_e_star": 0.04577883668665009,
     "current_theorem_output": "E_e_log_centered mod common shift",
     "hard_reject": {
       "Delta_e_abs": 0.30236566025890826,
@@ -50,7 +50,7 @@
     "artifact": "oph_charged_absolute_scale_underdetermination_theorem",
     "centered_sum_rule": {
       "formula": "e_log_centered + mu_log_centered + tau_log_centered = 0",
-      "value": -6.661338147750939e-16
+      "value": 0.0
     },
     "compare_only_continuation_target": {
       "continuation_shape_singular_values": [
@@ -58,14 +58,14 @@
         2.3080092523535067,
         38.816207467149106
       ],
-      "delta_e_abs_star": 3.003986333402356,
+      "delta_e_abs_star": 3.0039867953851016,
       "delta_formula": "Delta_e_abs_star = log(stored_shared_absolute_scale_raw / g_e_star)",
       "forward_compare_only_masses": [
-        0.0005109922425271076,
-        0.10565802744694286,
-        1.7769616433591753
+        0.000510992006457563,
+        0.10565797863476856,
+        1.7769608224337465
       ],
-      "g_e_star": 0.04577885783568762,
+      "g_e_star": 0.04577883668665009,
       "status": "compare_only_not_theorem_grade"
     },
     "determinant_rules": {
@@ -149,23 +149,23 @@
     "current_sigma_total_log_per_side": 1.2535534645451878,
     "ratio_invariant_under_common_shift": true,
     "residual": [
-      -3.976570400540048,
-      1.052662699607032,
-      2.923907700933015
+      -3.976569937207006,
+      1.0526631615897775,
+      2.923906775617229
     ],
-    "residual_norm": 5.04682545301208,
+    "residual_norm": 5.046824648208719,
     "target_centered_log": [
-      -4.49521010880808,
-      0.8363886515979084,
-      3.6588214572101707
+      -4.495209645475038,
+      0.8363891135806538,
+      3.6588205318943845
     ],
     "target_gap_pair": {
-      "eta_e_split_log_per_side": -6.729581272340888,
-      "gamma21_log_per_side": 5.3315987604059885,
-      "gamma32_log_per_side": 2.8224328056122623,
-      "rho_gap_ratio": 1.8890082165302142
+      "eta_e_split_log_per_side": -6.729581939543463,
+      "gamma21_log_per_side": 5.331598759055692,
+      "gamma32_log_per_side": 2.8224314183137307,
+      "rho_gap_ratio": 1.889009144548522
     },
-    "target_sigma_total_log_per_side": 8.15403156601825
+    "target_sigma_total_log_per_side": 8.154030177369423
   },
   "centered_operator_mu_no_go": {
     "artifact": "oph_charged_centered_operator_mu_phys_no_go",
@@ -176,7 +176,7 @@
   },
   "charged_d12_continuation_followup": {
     "artifact": "oph_charged_d12_continuation_followup",
-    "centered_log_residual_norm": 2.1278651760358518e-05,
+    "centered_log_residual_norm": 2.235309477850571e-05,
     "d12_continuation_assumptions": {
       "A1_uniform_Z6_center_label_ensemble": "epsilon = 1/6",
       "A2_balanced_circulant_branch": "|b|/a = 1/sqrt(2)",
@@ -184,7 +184,7 @@
       "scale_free_normalization_for_ratio_invariants": "a = 1"
     },
     "eta_source_support_extension_log_per_side": -6.729586682888832,
-    "g_e_compare_only_needed_for_exact_absolute_masses": 0.04577885783568762,
+    "g_e_compare_only_needed_for_exact_absolute_masses": 0.04577883668665009,
     "sigma_source_support_extension_total_log_per_side": 8.154061112725994,
     "status": "diagnostic_only_d12_continuation",
     "theorem_tier": "D12_continuation_only"
@@ -254,17 +254,17 @@
     "uniform_quadratic_smallness_proved": false
   },
   "common_shift_audit": {
-    "best_common_scale": 0.04958899556862701,
-    "best_common_shift": -3.003986333402356,
+    "best_common_scale": 0.04958897265937198,
+    "best_common_shift": -3.0039867953851016,
     "best_common_shift_fit": [
-      0.02725351917928988,
-      0.036875534785921975,
-      0.09546275023576574
+      0.02725350658863717,
+      0.036875517750065104,
+      0.09546270613363247
     ],
     "relative_errors_after_best_shift": [
-      52.33380661406424,
-      -0.6509927905722724,
-      -0.9462766581685692
+      52.3337819027551,
+      -0.6509929518075441,
+      -0.94627660845749
     ],
     "shape_log_shift_formula": "common additive shift on E_e_log_centered"
   },
@@ -383,7 +383,7 @@
       "summary": "Retain a charged holonomy bridge only if the older delta = 2/9 D12 benchmark is kept as a theorem-grade bridge instead of a diagnostic continuation."
     }
   },
-  "generated_utc": "2026-06-29T07:35:34Z",
+  "generated_utc": "2026-07-11T06:46:59Z",
   "notes": [
     "The current charged-lepton builder now exposes the two-scalar ordered-gap family in formula form plus one common shift.",
     "A common shift rescales all three masses together and cannot fix a large hierarchy mismatch.",
@@ -406,7 +406,8 @@
     "The D12 continuation bridge remains compare-only on the absolute side: it would need g_e_star = 0.04577885783568762, equivalently Delta_e_abs_star = 3.003986333402356, but that value is not OPH-emitted."
   ],
   "ordered_gap_ratio_current": 0.31788218782492417,
-  "ordered_gap_ratio_reference": 1.8890082165302142,
+  "ordered_gap_ratio_reference": 1.889009144548522,
+  "public_promotion_allowed": false,
   "red_team_branch_verdict": {
     "blocked_candidate_object": "C_hat_e^{cand}",
     "do_not_promote": [
@@ -428,22 +429,23 @@
     ],
     "status": "current_branch_cannot_be_closed_as_stated"
   },
+  "reference_data_role": "diagnostic_compare_only",
   "reference_targets": {
     "singular_values_abs": [
-      0.0005109989499999999,
+      0.0005109989506900001,
       0.10565837550000001,
-      1.77693246513409
+      1.7769300000000001
     ]
   },
   "same_support_obstruction_audit": {
-    "best_same_sigma_two_scalar_residual_norm": 4.879374858980876,
+    "best_same_sigma_two_scalar_residual_norm": 4.879373877057873,
     "ordered_gap_ratio_current": 0.31788218782492417,
-    "ordered_gap_ratio_reference": 1.8890082165302142,
+    "ordered_gap_ratio_reference": 1.889009144548522,
     "same_support_exhausted": true,
-    "sigma_support_gap": 6.9004781014730625
+    "sigma_support_gap": 6.900476712824235
   },
   "scope": "current_family_only",
-  "sigma_support_gap": 6.9004781014730625,
+  "sigma_support_gap": 6.900476712824235,
   "smallest_constructive_missing_object": "eta_source_support_extension_log_per_side",
   "smallest_exact_obstruction": "the current ordered package is explicitly read back and its midpoint defect closes to zero on the present support, so the same-support family is exhausted and still fails to reproduce the charged hierarchy",
   "support_extension_candidate_audit": {
@@ -452,9 +454,9 @@
     "eta_source_support_extension_log_per_side_candidate": -0.809613811928119,
     "kappa_ext_candidate": -0.5529360485635166,
     "relative_errors_against_reference": [
-      938.7567814265815,
+      938.7567801576312,
       8.218339322113092,
-      -0.053379497692333175
+      -0.05337818444618926
     ],
     "shape_singular_values_ext_candidate": [
       0.5201826164436002,
@@ -540,22 +542,22 @@
   },
   "two_scalar_on_current_sigma_audit": {
     "best_centered_log_on_current_sigma": [
-      -1.044971058071548,
-      0.8363886515979088,
-      0.20858240647363954
+      -1.0449712890629208,
+      0.8363891135806537,
+      0.20858217548226707
     ],
     "best_gap_pair_on_current_sigma": {
-      "gamma21_log_per_side": 1.881359709669457,
-      "gamma32_log_per_side": -0.6278062451242692
+      "gamma21_log_per_side": 1.8813604026435744,
+      "gamma32_log_per_side": -0.6278069380983866
     },
-    "eta_e_best_fit_on_current_sigma": -3.157988098821097,
+    "eta_e_best_fit_on_current_sigma": -3.157989484769332,
     "eta_e_rigid_fallback": -0.809613811928119,
     "residual_after_best_eta_on_current_sigma": [
-      -3.450239050736532,
-      -3.3306690738754696e-16,
-      3.4502390507365313
+      -3.4502383564121173,
+      1.1102230246251565e-16,
+      3.4502383564121173
     ],
-    "residual_norm_after_best_eta_on_current_sigma": 4.879374858980876,
+    "residual_norm_after_best_eta_on_current_sigma": 4.879373877057873,
     "sigma_e_total_log_per_side_current": 1.2535534645451878
   }
 }

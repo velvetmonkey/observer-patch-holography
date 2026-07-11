@@ -2,7 +2,7 @@
   "artifact": "oph_charged_absolute_scale_underdetermination_theorem",
   "centered_sum_rule": {
     "formula": "e_log_centered + mu_log_centered + tau_log_centered = 0",
-    "value": -6.661338147750939e-16
+    "value": 0.0
   },
   "charged_absolute_equalizer": "NO_GO_COMMON_SHIFT",
   "compare_only_continuation_target": {
@@ -11,14 +11,14 @@
       2.3080092523535067,
       38.816207467149106
     ],
-    "delta_e_abs_star": 3.003986333402356,
+    "delta_e_abs_star": 3.0039867953851016,
     "delta_formula": "Delta_e_abs_star = log(stored_shared_absolute_scale_raw / g_e_star)",
     "forward_compare_only_masses": [
-      0.0005109922425271076,
-      0.10565802744694286,
-      1.7769616433591753
+      0.000510992006457563,
+      0.10565797863476856,
+      1.7769608224337465
     ],
-    "g_e_star": 0.04577885783568762,
+    "g_e_star": 0.04577883668665009,
     "status": "compare_only_not_theorem_grade"
   },
   "determinant_rules": {
@@ -35,9 +35,9 @@
     "shape_operator": "det(Y_e_shape) = 1"
   },
   "emitted_centered_log_shape": [
-    -4.495210108808081,
-    0.8363886515979087,
-    3.6588214572101716
+    -4.495209645475038,
+    0.8363891135806538,
+    3.658820531894384
   ],
   "future_single_slot_only": {
     "A_ch": null,
@@ -47,7 +47,7 @@
     },
     "required_contract": "A_ch(logm + c*(1,1,1)) = A_ch(logm) + c"
   },
-  "generated_utc": "2026-06-29T07:35:34Z",
+  "generated_utc": "2026-07-11T06:46:59Z",
   "hard_reject": {
     "Delta_e_abs": 0.30236566025890826,
     "g_e": 0.6822819838027987,
@@ -103,9 +103,9 @@
   "theorem_emit": {
     "meaning": "[(log m_e, log m_mu, log m_tau)] mod R*(1,1,1)",
     "quotient_class": [
-      -4.495210108808081,
-      0.8363886515979087,
-      3.6588214572101716
+      -4.495209645475038,
+      0.8363891135806538,
+      3.658820531894384
     ]
   },
   "theorem_forbid_emit": [

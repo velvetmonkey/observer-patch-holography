@@ -28,7 +28,7 @@
     "psi23": 0.000957040214227042,
     "psi31": 0.000957040214227042
   },
-  "generated_utc": "2026-03-31T02:21:11Z",
+  "generated_utc": "2026-07-11T06:22:12Z",
   "isotropic_branch_status": "local_quadratic_germ_closed",
   "longitudinal_null_certificate": {
     "drops_on_residual_plane": true,
@@ -41,13 +41,15 @@
   },
   "nonisotropic_formula_status": "open",
   "notes": [
-    "This artifact now records the local quadratic action-germ/Hessian class on the affine Majorana lift.",
-    "On the current isotropic branch the centered edge-norm theorem closes the finite-angle scalar side; the remaining OPH-only burden is the positive attachment bridge invariant above the closed normalizer, together with any future nonisotropic continuation."
+    "This artifact records the local quadratic action-germ/Hessian class conditional on the declared family-response and Majorana-lift inputs.",
+    "It does not establish a source-derived physical neutrino operator or overlap-defect action. A positive attachment bridge becomes meaningful only after those source, basis, and mass-label gates close."
   ],
-  "oph_origin_status": "closed_on_current_isotropic_branch",
+  "oph_origin_status": "not_established_from_source",
   "oph_scalar_action_kind": "local_quadratic_action_germ",
   "primitive_metric_source": "oph_overlap_defect_candidate",
+  "proof_scope": "conditional_algebra_on_declared_family_response_and_majorana_lift",
   "proof_status": "local_quadratic_germ_closed",
+  "public_surface_candidate_allowed": false,
   "residual_basis_order": [
     "b1=(1,-1,0)",
     "b2=(1,0,-1)"
@@ -74,5 +76,18 @@
     "family": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/neutrino/family_response_tensor.json",
     "lift": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/neutrino/majorana_holonomy_lift.json"
   },
-  "upstream_missing_object": "oph_neutrino_attachment_bridge_invariant"
+  "source_closure_status": {
+    "closed": false,
+    "missing_objects": [
+      "source_derived_neutrino_operator_and_family_response",
+      "source_derived_overlap_defect_action"
+    ]
+  },
+  "source_only_physical_input_eligible": false,
+  "upstream_missing_object": "source_closed_neutrino_operator_basis_and_mass_label_contract",
+  "upstream_missing_objects": [
+    "source_derived_neutrino_operator_and_family_response",
+    "source_derived_overlap_defect_action",
+    "oph_neutrino_attachment_bridge_invariant"
+  ]
 }

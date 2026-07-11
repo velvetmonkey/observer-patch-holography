@@ -91,6 +91,10 @@ def main() -> int:
     out_path.parent.mkdir(parents=True, exist_ok=True)
 
     majorana = load_json(majorana_path)
+    neutrino_source_closed = (
+        majorana.get("source_only_physical_input_eligible") is True
+        and (majorana.get("source_closure_status") or {}).get("closed") is True
+    )
     if "U_nu_real" in majorana:
         u_nu = load_complex_matrix(majorana["U_nu_real"], majorana["U_nu_imag"])
     else:
@@ -130,13 +134,37 @@ def main() -> int:
                 ],
             }
         elif not charged_basis_closed:
+            u_e = load_complex_matrix(charged["U_e_left"]["real"], charged["U_e_left"]["imag"])
+            diagnostic_pmns = np.conjugate(u_e).T @ u_nu
             payload = {
                 "status": "blocked_upstream_charged_basis_open",
                 "majorana_artifact": str(majorana_path),
                 "charged_left_artifact": str(charged_path),
                 "basis_labels": neutrino_labels,
+                "diagnostic_only": {
+                    "status": "conditional_on_open_charged_basis",
+                    "pmns_abs": np.abs(diagnostic_pmns).tolist(),
+                    "pmns_real": np.real(diagnostic_pmns).tolist(),
+                    "pmns_imag": np.imag(diagnostic_pmns).tolist(),
+                    "standard_pmns_parameters": _standard_pmns_parameters(diagnostic_pmns),
+                },
                 "notes": [
                     "Refusing PMNS because the charged-lepton artifact does not close a stable physical left basis.",
+                    (
+                        "The neutrino scalar input is also not source-closed."
+                        if not neutrino_source_closed
+                        else "The neutrino scalar input passes its source-closure gate."
+                    ),
+                ],
+            }
+        elif not neutrino_source_closed:
+            payload = {
+                "status": "blocked_upstream_neutrino_source_open",
+                "majorana_artifact": str(majorana_path),
+                "charged_left_artifact": str(charged_path),
+                "basis_labels": neutrino_labels,
+                "notes": [
+                    "Refusing PMNS because the intrinsic neutrino scalar input inherits template/candidate source artifacts.",
                 ],
             }
         else:
@@ -144,6 +172,7 @@ def main() -> int:
             pmns = np.conjugate(u_e).T @ u_nu
             closed = bool(
                 charged_basis_closed
+                and neutrino_source_closed
                 and (
                     majorana.get("source_scalar_certificate")
                     or majorana.get("completion_scope") == "intrinsic_mass_eigenstates_only"

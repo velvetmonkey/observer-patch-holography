@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """Emit the repaired neutrino weighted-cycle branch from live OPH artifacts.
 
-Chain role: replace the phenomenologically impossible isotropic intrinsic
-ansatz by the smallest repaired branch consistent with the live same-label
-certificate, the flavor cocycle exponents, and the shared charged basis.
+Chain role: retain a target-informed attempted replacement for the
+phenomenologically impossible isotropic intrinsic ansatz as a reproducible
+comparison candidate. It does not close a shared physical charged basis.
 
-Mathematics: prove the old isotropic-edge spectral cap numerically on the live
-branch, then emit the repaired shared-basis weighted cycle lift with
+Mathematics: evaluate the old isotropic-edge spectral cap on the live branch,
+then build the declared f-basis weighted-cycle comparison matrix with
   chi = 1 + eps
   D_nu = (chi + 1 + gamma_half) / 2
   p = 1 + gamma + eps / D_nu
@@ -14,9 +14,10 @@ where `D_nu` is the balanced/least-distortion midpoint on the positive affine
 load segment. This computes the resulting dimensionless masses, splitting
 hierarchy, and PMNS observables.
 
-OPH-derived inputs: same-label scalar certificate, overlap-edge transport
-cocycle, and the principal selector phases already emitted on the exact
-intrinsic eta branch.
+Declared inputs: a numerically complete but source-open same-label scalar
+certificate, overlap-edge transport cocycle, principal selector phases, and a
+hand-written family-transport template. The weight law was selected after
+target-ranked development.
 
 Output: a target-informed weighted-cycle comparison candidate and its exact
 linear-algebra readout. The overall positive mass normalization remains open;
@@ -123,7 +124,9 @@ def _within_interval(value: float, interval: tuple[float, float]) -> bool:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Emit the repaired neutrino weighted-cycle branch from live OPH artifacts.")
+    parser = argparse.ArgumentParser(
+        description="Build the rejected target-informed neutrino weighted-cycle comparison candidate."
+    )
     parser.add_argument("--certificate", default=str(DEFAULT_CERTIFICATE))
     parser.add_argument("--cocycle", default=str(DEFAULT_COCYCLE))
     parser.add_argument("--phase-source", default=str(DEFAULT_PHASE_SOURCE))
@@ -231,6 +234,8 @@ def main() -> int:
                 "source_emitted_family_transport_kernel",
                 "source_derived_weight_exponent_and_cycle_matrix_law",
                 "source_derived_basis_permutation_and_holonomy_orientation",
+                "closed_nondegenerate_charged_lepton_left_basis",
+                "source_derived_mass_eigenstate_label_and_ordering_rule",
                 "pre_reference_hash_lock",
             ],
         },
@@ -253,6 +258,9 @@ def main() -> int:
         },
         "cycle_basis_order": ["f3", "f1", "f2"],
         "pmns_row_order_for_pdg": ["e", "mu", "tau"],
+        "mass_ordering_hypothesis": "normal",
+        "mass_ordering_status": "declared_hypothesis_not_source_derived",
+        "missing_mass_label_object": "solar_pair_and_atmospheric_sign_eigenstate_label_rule",
         "holonomy_orientation": "021",
         "selector_phases_absolute": psi,
         "weight_exponent": p,

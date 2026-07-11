@@ -274,16 +274,22 @@ def build_gap_rows() -> list[dict[str, Any]]:
         {
             "id": "neutrino.pmns-status-and-absolute-rows",
             "lane": "Neutrinos",
-            "status": "theorem_rows_with_visible_comparison_tension",
-            "github_issue": 117,
-            "title": "Keep neutrino theorem rows and comparison tension separated",
+            "status": "rejected_candidate_source_basis_and_kernel_open",
+            "github_issue": 513,
+            "related_github_issues": [117, 508, 513],
+            "title": "Rebuild the neutrino lane from source-closed operator and basis data",
             "current_boundary": (
-                "The weighted-cycle absolute splitting lane is emitted, while PMNS angle/phase "
-                "comparisons still show visible displacement from current central values."
+                "The weighted-cycle point is a target-informed candidate, not a physical PMNS derivation. "
+                "Its shared-basis construction cancels the inserted charged basis algebraically; the stored "
+                "charged artifact is open and nearly degenerate; the same-label scalar inputs inherit an "
+                "underived family kernel and candidate line lift; and the point fails the official NuFIT 6.1 "
+                "correlated theta23/delta_CP profile. Absolute-splitting rows are fitted diagnostics."
             ),
             "next_action": (
-                "Do not hide PMNS residuals behind the exact absolute-splitting rows; either prove a "
-                "better branch or leave the comparison tension explicit."
+                "Derive a source-closed neutrino operator, stable physical charged-lepton left basis, and "
+                "mass-eigenstate label/order rule without oscillation-target feedback; freeze that construction "
+                "before evaluating a later likelihood. Keep all present weighted-cycle, bridge, and exact-adapter "
+                "numbers rejected or compare-only."
             ),
             "target_surfaces": ["code/particles/neutrino", "RESULTS_STATUS.md"],
         },
@@ -407,15 +413,16 @@ def build_bundles() -> list[dict[str, Any]]:
             ],
             "promotion_question": (
                 "Is there one OPH excitation dictionary and sector-isolated trace-lift theorem that "
-                "explains the charged affine anchor, quark selected-class boundary, and neutrino PMNS "
-                "comparison surface without hidden target fitting?"
+                "explains the charged affine anchor and quark selected-class boundary while also deriving "
+                "a source-closed neutrino operator, charged basis, and mass-label rule without target fitting?"
             ),
             "result": (
                 "No promotion. Charged leptons are closed as a corpus-limited no-go by the end-to-end "
                 "impossibility theorem: the same-family witness and conditional algebraic readout remain, "
                 "but no theorem-grade A_ch(P) is emitted. Quarks remain selected-class on f_P with global "
-                "classification closed as a corpus-limited no-go, and neutrino PMNS rows remain visible "
-                "comparison-tension rows."
+                "classification closed as a corpus-limited no-go. The weighted-cycle neutrino point is a "
+                "rejected target-informed candidate; no physical PMNS, ordering, Majorana, or absolute-mass "
+                "row is emitted."
             ),
         },
         {

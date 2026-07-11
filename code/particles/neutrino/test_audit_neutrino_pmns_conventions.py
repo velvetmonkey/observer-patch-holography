@@ -40,6 +40,9 @@ def test_convention_audit_finds_no_normal_ordering_rescue() -> None:
         assert payload["enumeration"]["total_assignments"] == 72
         assert payload["decision"]["any_normal_ordering_consistent_assignment_passes_both_3sigma_gates"] is False
         assert payload["decision"]["declared_assignment_is_best_by_worst_dataset_score"] is True
-        assert payload["decision"]["convention_error_found"] is False
+        assert payload["decision"]["stored_pmns_internal_convention_error_found"] is False
+        assert payload["decision"]["stored_pmns_relabeling_rescue_found"] is False
+        assert payload["decision"]["physical_basis_contract_error_excluded"] is False
+        assert payload["scope"]["weighted_cycle_operator_basis_placement_audited"] is False
         declared = payload["declared_assignment"]
         assert declared["scores"]["TByes-NO"]["T23/DCP_delta_chi2"] > 20.11

@@ -258,6 +258,8 @@ def main() -> int:
 
     artifact = {
         "artifact": "oph_lepton_current_family_exactness_audit",
+        "reference_data_role": "diagnostic_compare_only",
+        "public_promotion_allowed": False,
         "generated_utc": _timestamp(),
         "scope": "current_family_only",
         "current_candidate": {

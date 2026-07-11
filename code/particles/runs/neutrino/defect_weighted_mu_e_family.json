@@ -20,7 +20,7 @@
   },
   "first_order_solar_response_coefficient_gev": 7.387341638779164e-11,
   "first_order_solar_response_formula": "delta_m21_sq ~= 4 * m0 * sigma_q",
-  "generated_utc": "2026-06-29T07:35:35Z",
+  "generated_utc": "2026-07-11T06:47:00Z",
   "isotropic_limit_recovered": true,
   "kernel_choice": "1-cos",
   "majorana_matrix_imag": null,
@@ -33,13 +33,13 @@
     "The current forward neutrino bundle is S_3-isotropic, so any same-label scalar readback built only from the neutrino payload is forced to stay edge-constant.",
     "The best reduced family is a realized-arrow readback of same-label gap and defect witnesses, followed by the canonical raw score q_e = sqrt(gap_e * defect_e), centered-log lift, and mean-preserving mu_e family.",
     "The current canonical no-new-parameter point is q_e = sqrt(gap_e * defect_e), but the actual next mover is the realized flavor-side same-label gap/defect readback that feeds that rule.",
-    "The same-label overlap-nonvanishing subclause is discharged by the live flavor-side gap/defect readback, so this family is closed as a constructive sub-bridge object beneath the remaining attachment scalar.",
-    "On the live corpus the realized same-label gap/defect readback is already complete from flavor-side certificates, so this family no longer treats that readback as the next missing constructive object."
+    "The numeric readback is complete, but its family-kernel and line-lift inputs remain source-open.",
+    "The realized same-label gap/defect values are numerically complete, so the remaining issue is provenance rather than missing scalar fields."
   ],
   "ordering_expected_status": "normal_like_stable_for_small_defect_anisotropy",
   "parent_theorem_id": "oph_majorana_scalar_from_centered_edge_norm",
   "positive_weights": true,
-  "proof_status": "closed_constructive_subbridge_object",
+  "proof_status": "conditional_constructive_subbridge_from_source_open_inputs",
   "raw_defect_source": "gap_and_defect_fields_from_flavor_artifacts",
   "raw_edge_score": {
     "psi12": 0.05173372822682583,
@@ -55,7 +55,7 @@
     "psi23",
     "psi31"
   ],
-  "realized_same_label_gap_defect_readback_status": "complete_from_live_flavor_artifacts",
+  "realized_same_label_gap_defect_readback_status": "complete_numeric_values_source_open",
   "residual_hessian_formula_2x2": [
     [
       "mu12 + mu31",
@@ -177,7 +177,20 @@
     "psi31": 0.5853814255968638
   },
   "smallest_constructive_missing_object": null,
-  "strict_repo_missing_object": null,
+  "source_closure_status": {
+    "closed": false,
+    "family_transport_kernel_explicit_source_closure": false,
+    "family_transport_kernel_proof_status": "conjugacy_riesz_candidate",
+    "family_transport_kernel_status": "template",
+    "missing_objects": [
+      "source_emitted_family_transport_kernel",
+      "theorem_grade_overlap_edge_line_lift"
+    ],
+    "overlap_edge_line_lift_explicit_source_closure": false,
+    "overlap_edge_line_lift_proof_status": "candidate_only"
+  },
+  "source_only_physical_input_eligible": false,
+  "strict_repo_missing_object": "source_closed_family_transport_kernel_and_overlap_edge_line_lift",
   "upstream_exact_clause": "same_label_overlap_nonzero_on_realized_refinement_arrows",
   "weight_rule": "mu_e = base_mu_nu * exp(delta_e) / mean_f(exp(delta_f))"
 }

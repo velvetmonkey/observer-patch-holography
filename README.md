@@ -14,7 +14,13 @@ proton decay event, a fourth light matter generation, a charge-lattice outlier,
 or a prospective exclusion of a source-closed neutrino branch would destroy the
 corresponding OPH claim. The former weighted-cycle neutrino point never reached
 that status: it descends from a hand-written flavor template, used target-ranked
-selector development, and is rejected by the NuFIT 6.1 correlated profile.
+selector development, and is rejected by the NuFIT 6.1 correlated profile. The
+shared-basis transport cancels the charged-lepton matrix by construction; it
+does not derive the physical charged-lepton basis. No physical PMNS matrix or
+absolute neutrino masses follow from this candidate. The audit also corrected
+an intrinsic-pipeline error that had exported left singular vectors instead of
+the Majorana Takagi matrix; the corrected conditional point is also far from
+the oscillation data.
 
 If you want the existential answer first, jump straight to **Paper 6.
 [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf)**.

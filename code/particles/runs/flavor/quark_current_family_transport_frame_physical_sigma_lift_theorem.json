@@ -1,10 +1,10 @@
 {
   "artifact": "oph_quark_current_family_transport_frame_physical_sigma_lift_theorem",
   "attached_exact_sigma_target": {
-    "eta_ud_target": 1.1388321137934274,
-    "sigma_d_target": 3.296264198808688,
-    "sigma_seed_ud_target": 4.4350963126021155,
-    "sigma_u_target": 5.573928426395543,
+    "eta_ud_target": 1.139688878603012,
+    "sigma_d_target": 3.300314452061615,
+    "sigma_seed_ud_target": 4.440003330664627,
+    "sigma_u_target": 5.579692209267639,
     "status": "attached_exact_current_family_sigma_target"
   },
   "common_refinement_frame_class": {
@@ -189,7 +189,7 @@
     "sigma_id": "sigma_phys_transport_frame_current_family",
     "tau": "CR::same_label_left::transport_frame::current_family_exact"
   },
-  "generated_utc": "2026-06-29T07:35:28Z",
+  "generated_utc": "2026-07-11T06:46:51Z",
   "notes": [
     "This theorem is the restricted-carrier analogue of the public contract object quark_physical_sigma_ud_lift.",
     "It does not claim target-free public promotion beyond the declared current-family/common-refinement transport-frame surface."

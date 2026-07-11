@@ -33,126 +33,37 @@ def _require(condition: bool, message: str) -> None:
 
 def build_audit(repair: dict[str, Any], blockers: dict[str, Any], certificate: dict[str, Any] | None = None) -> dict[str, Any]:
     _require(repair.get("artifact") == "oph_neutrino_weighted_cycle_repair", "repair artifact mismatch")
-    _require(repair.get("physical_window_status") == "pmns_and_hierarchy_repaired", "repair lane is not dimensionlessly physical")
-    _require(repair.get("absolute_normalization_status") == "open_one_positive_scale", "absolute normalization is not the expected open state")
-    _require(repair.get("cycle_basis_order") == ["f3", "f1", "f2"], "cycle basis order is not fixed to the live branch")
-    _require(repair.get("holonomy_orientation") == "021", "holonomy orientation is not fixed to the live branch")
-
-    closed_chain = list(blockers.get("closed_theorem_chain") or [])
-    _require("shape_closed_scale_invariant_left_basis" in closed_chain, "missing shape_closed_scale_invariant_left_basis")
-    _require("pmns_from_shared_charged_and_intrinsic_bases" in closed_chain, "missing pmns_from_shared_charged_and_intrinsic_bases")
-
+    _require(blockers.get("artifact") == "oph_exact_neutrino_blocker_audit_v8", "blocker artifact mismatch")
     live = dict(blockers.get("live_continuation_branch_status") or {})
-    theorem_pair = dict(live.get("emitted_theorem_pair") or {})
-    theorem_lane_emitted = live.get("status") == "weighted_cycle_bridge_rigid_absolute_family_emitted"
-
     compare_only = dict(live.get("compare_only_atmospheric_anchor") or {})
     _require(compare_only.get("status") == "compare_only", "compare-only anchor status mismatch")
-
+    exact_blockers = list(blockers.get("exact_blockers") or [])
+    source_missing = list((repair.get("source_closure_status") or {}).get("missing_objects") or [])
+    blocker_names = [str(item.get("name")) for item in exact_blockers]
     certificate_summary: dict[str, Any] = {}
     if certificate is not None:
         _require(certificate.get("artifact") == "oph_neutrino_same_label_scalar_certificate", "certificate artifact mismatch")
         certificate_summary = {
             "artifact": certificate.get("artifact"),
             "proof_status": certificate.get("proof_status"),
+            "source_only_physical_input_eligible": certificate.get("source_only_physical_input_eligible"),
+            "source_closure_status": certificate.get("source_closure_status"),
             "exact_downstream_factorization_object": certificate.get("exact_downstream_factorization_object"),
             "builder_facing_exact_object": certificate.get("builder_facing_exact_object"),
             "smallest_constructive_missing_object": certificate.get("smallest_constructive_missing_object"),
         }
-
-    if theorem_lane_emitted:
-        return {
-            "artifact": "oph_neutrino_absolute_scale_orbit_audit",
-            "generated_utc": _timestamp(),
-            "status": "diagnostic_only_retired_from_theorem_lane",
-            "proof_chain_role": "diagnostic_only_retired_from_theorem_lane",
-            "must_not_feed_back": True,
-            "theorem": THEOREM_NAME,
-            "theorem_statement": (
-                "This artifact records the historical no-hidden-discrete-branch / positive-scale-orbit reduction beneath the "
-                "emitted weighted-cycle bridge-rigidity and absolute-attachment theorems."
-            ),
-            "proof_primitives": {
-                "repair_artifact": {
-                    "artifact": repair.get("artifact"),
-                    "cycle_basis_order": repair.get("cycle_basis_order"),
-                    "holonomy_orientation": repair.get("holonomy_orientation"),
-                    "physical_window_status": repair.get("physical_window_status"),
-                    "absolute_normalization_status": repair.get("absolute_normalization_status"),
-                    "symbolic_absolute_family": repair.get("symbolic_absolute_family"),
-                },
-                "blocker_audit": {
-                    "artifact": blockers.get("artifact"),
-                    "closed_theorem_chain": closed_chain,
-                    "exact_blockers": [],
-                    "compare_only_atmospheric_anchor": compare_only,
-                    "emitted_theorem_pair": theorem_pair,
-                },
-                "same_label_scalar_certificate": certificate_summary,
-            },
-            "no_hidden_discrete_branch": {
-                "status": "closed",
-                "open_discrete_blockers": [],
-                "closed_discrete_witnesses": [
-                    "shape_closed_scale_invariant_left_basis",
-                    "pmns_from_shared_charged_and_intrinsic_bases",
-                    "cycle_basis_order_fixed_(f3,f1,f2)",
-                    "holonomy_orientation_fixed_021",
-                ],
-                "statement": "The live branch fixes the shared-basis discrete data and the emitted theorem pair removes the remaining positive-scale orbit from the proof-facing lane.",
-            },
-            "remaining_positive_scale_orbit": {
-                "status": "closed_by_emitted_absolute_attachment_theorem",
-                "group": None,
-                "family_parameter": None,
-                "action_on_lambda_nu": None,
-                "action_on_masses": None,
-                "action_on_splittings": None,
-                "scale_free_mass_normal_form": repair.get("scale_free_mass_normal_form"),
-                "scale_free_dm2_normal_form_eV2": (repair.get("scale_free_dm2_normal_form") or {}).get("dm2"),
-                "proof_obstruction": "retired_by_emitted_theorem_pair",
-            },
-            "remaining_object": None,
-            "remaining_object_kind": None,
-            "remaining_object_contract": None,
-            "next_breaking_contract": None,
-            "compare_only_anchor_separation": {
-                "current_compare_only_anchor": compare_only,
-                "status": "diagnostic_only_beneath_emitted_theorem_pair",
-            },
-            "solver_output_contract": {
-                "emit_now": [
-                    "scale_free_mass_normal_form_mhat",
-                    "scale_free_dm2_normal_form_Delta_hat",
-                    "dimensionless_ratio_Delta21_over_Delta32",
-                    "pmns_observables",
-                    "emitted_theorem_pair",
-                    "absolute_neutrino_masses",
-                    "absolute_delta_m2_values",
-                ],
-                "must_not_emit_without_new_theorem": [],
-            },
-        }
-
-    exact_blockers = list(blockers.get("exact_blockers") or [])
-    _require(len(exact_blockers) == 1, f"expected exactly one open exact blocker, got {len(exact_blockers)}")
-    only = exact_blockers[0]
-    _require(only.get("name") == "one_positive_neutrino_bridge_correction_invariant", "wrong remaining blocker name")
-    _require(only.get("kind") == "reduced_bridge_correction_invariant", "wrong remaining blocker kind")
-
-    no_go = dict(live.get("absolute_scale_no_go") or {})
-    _require(no_go.get("theorem") == "neutrino_weighted_cycle_absolute_scale_no_go", "wrong no-go theorem name")
-    _require(no_go.get("proof_obstruction") == "positive_rescaling_nonidentifiability", "wrong obstruction")
-
     return {
         "artifact": "oph_neutrino_absolute_scale_orbit_audit",
         "generated_utc": _timestamp(),
-        "status": "closed",
-        "theorem": THEOREM_NAME,
+        "status": "rejected_candidate_scale_audit",
+        "proof_chain_role": "nonpromoting_diagnostic",
+        "must_not_feed_back": True,
+        "theorem": None,
+        "historical_theorem_name": THEOREM_NAME,
+        "theorem_status": "not_established",
         "theorem_statement": (
-            "On the current repaired weighted-cycle neutrino lane, no unresolved discrete branch remains, and the exact remaining "
-            "theorem object is the reduced bridge-correction invariant C_nu above the emitted proxy P_nu. Equivalently, the branch "
-            "still carries one positive absolute-rescaling orbit lambda_nu -> s * lambda_nu with s > 0."
+            "The declared weighted-cycle matrix has a conditional positive-rescaling family, but it is not a physical residual "
+            "orbit of OPH because the operator, basis placement, charged basis, and mass labels are not source-closed."
         ),
         "proof_primitives": {
             "repair_artifact": {
@@ -161,58 +72,52 @@ def build_audit(repair: dict[str, Any], blockers: dict[str, Any], certificate: d
                 "holonomy_orientation": repair.get("holonomy_orientation"),
                 "physical_window_status": repair.get("physical_window_status"),
                 "absolute_normalization_status": repair.get("absolute_normalization_status"),
+                "source_closure_status": repair.get("source_closure_status"),
+                "historical_target_exposure": repair.get("historical_target_exposure"),
+                "prediction_promotion_allowed": repair.get("prediction_promotion_allowed"),
                 "symbolic_absolute_family": repair.get("symbolic_absolute_family"),
             },
             "blocker_audit": {
                 "artifact": blockers.get("artifact"),
-                "closed_theorem_chain": closed_chain,
+                "closed_theorem_chain": list(blockers.get("closed_theorem_chain") or []),
                 "exact_blockers": exact_blockers,
-                "absolute_scale_no_go": no_go,
                 "compare_only_atmospheric_anchor": compare_only,
             },
             "same_label_scalar_certificate": certificate_summary,
         },
         "no_hidden_discrete_branch": {
-            "status": "closed",
-            "open_discrete_blockers": [],
-            "closed_discrete_witnesses": [
-                "shape_closed_scale_invariant_left_basis",
-                "pmns_from_shared_charged_and_intrinsic_bases",
-                "cycle_basis_order_fixed_(f3,f1,f2)",
-                "holonomy_orientation_fixed_021",
-            ],
-            "statement": "The live branch already fixes the shared-basis discrete data and the blocker surface carries no unresolved discrete theorem object.",
+            "status": "not_established",
+            "open_discrete_blockers": sorted(set(source_missing + blocker_names)),
+            "closed_discrete_witnesses": [],
+            "statement": "Declared cycle labels and orientation are candidate inputs, not source-derived physical branch selectors.",
         },
         "remaining_positive_scale_orbit": {
-            "status": "open",
+            "status": "conditional_candidate_family_only",
             "group": "R_{>0}",
             "family_parameter": "lambda_nu > 0",
             "action_on_lambda_nu": "lambda_nu -> s * lambda_nu, s > 0",
             "action_on_masses": "m_i -> s * m_i",
             "action_on_splittings": "Delta m^2_ij -> s^2 * Delta m^2_ij",
-            "scale_free_mass_normal_form": no_go.get("scale_free_mass_normal_form") or repair.get("scale_free_mass_normal_form"),
-            "scale_free_dm2_normal_form_eV2": no_go.get("scale_free_dm2_normal_form_eV2"),
-            "proof_obstruction": no_go.get("proof_obstruction"),
+            "scale_free_mass_normal_form": repair.get("scale_free_mass_normal_form"),
+            "scale_free_dm2_normal_form_eV2": (repair.get("scale_free_dm2_normal_form") or {}).get("dm2"),
+            "proof_obstruction": "base_operator_and_physical_basis_not_source_closed",
         },
-        "remaining_object": only.get("name"),
-        "remaining_object_kind": only.get("kind"),
-        "remaining_object_contract": only.get("required_contract"),
-        "next_breaking_contract": no_go.get("minimal_missing_object"),
+        "remaining_object": "source_closed_neutrino_operator_basis_and_mass_label_contract",
+        "remaining_object_kind": "physical_neutrino_branch_definition",
+        "remaining_object_contract": "derive_operator_basis_charged_basis_and_mass_labels_before_absolute_scale",
+        "next_breaking_contract": "source_closed_neutrino_operator_basis_and_mass_label_contract",
         "compare_only_anchor_separation": {
-            "external_anchor_disallowed": no_go.get("external_anchor_disallowed"),
-            "hard_separated_compare_only_adapter": no_go.get("hard_separated_compare_only_adapter"),
             "current_compare_only_anchor": compare_only,
+            "status": "hard_separated_compare_only",
         },
         "solver_output_contract": {
             "emit_now": [
-                "scale_free_mass_normal_form_mhat",
-                "scale_free_dm2_normal_form_Delta_hat",
-                "dimensionless_ratio_Delta21_over_Delta32",
-                "pmns_observables",
-                "no_hidden_discrete_branch_closed",
-                "remaining_positive_scale_orbit_open",
+                "rejected_candidate_comparison_coordinates",
+                "conditional_scale_family_for_debugging",
             ],
             "must_not_emit_without_new_theorem": [
+                "physical_pmns",
+                "physical_mass_ordering",
                 "lambda_nu",
                 "absolute_neutrino_masses",
                 "absolute_delta_m2_values",

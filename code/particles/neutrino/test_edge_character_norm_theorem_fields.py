@@ -31,8 +31,14 @@ def main() -> int:
     if payload.get("remaining_theorem_object") is not None:
         print("Majorana scalar evaluator still reports a remaining theorem object after isotropic-branch closure", file=sys.stderr)
         return 1
-    if payload.get("exact_remaining_ingredient") != "one positive residual bridge invariant above the closed normalizer":
-        print("Majorana scalar evaluator does not expose the bridge-invariant frontier after scalar-side closure", file=sys.stderr)
+    source_closed = bool((payload.get("source_closure_status") or {}).get("closed", False))
+    expected_remaining = (
+        "one positive residual bridge invariant above the closed normalizer"
+        if source_closed
+        else "source_closed_neutrino_operator_basis_and_mass_label_contract"
+    )
+    if payload.get("exact_remaining_ingredient") != expected_remaining:
+        print("Majorana scalar evaluator does not expose the correct source-closure frontier", file=sys.stderr)
         return 1
     if payload.get("phase_cocycle_triviality_status") != "closed_from_normalized_lift_coboundary":
         print("Majorana scalar evaluator does not expose the closed phase-cocycle theorem status", file=sys.stderr)

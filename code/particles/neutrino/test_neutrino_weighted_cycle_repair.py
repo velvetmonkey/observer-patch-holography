@@ -52,6 +52,7 @@ def test_repaired_weighted_cycle_branch_matches_expected_live_numbers() -> None:
         assert payload["physical_window_status"] == "separate_marginal_box_comparison_only"
         assert payload["historical_target_exposure"] is True
         assert payload["source_only_prediction_eligible"] is False
+        assert payload["mass_ordering_status"] == "declared_hypothesis_not_source_derived"
         assert payload["prediction_promotion_allowed"] is False
         assert payload["public_surface_candidate_allowed"] is False
         assert payload["source_closure_status"]["family_transport_kernel_status"] == "template"

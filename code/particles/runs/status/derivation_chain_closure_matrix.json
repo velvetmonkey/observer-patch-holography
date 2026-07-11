@@ -22,7 +22,7 @@
       "hadrons"
     ]
   },
-  "generated_utc": "2026-07-11T04:19:04Z",
+  "generated_utc": "2026-07-11T06:25:23Z",
   "particle_five_gates": {
     "153": {
       "chrome_workers": "do_not_use_for_backend_execution",
@@ -603,41 +603,50 @@
     },
     {
       "chain": "neutrino_absolute_attachment",
-      "claim_level": "scale_free_weighted_cycle_with_compare_only_absolute_attachment_withheld",
+      "claim_level": "rejected_target_informed_weighted_cycle_candidate",
       "next_artifact": null,
       "open_gates": [
-        "source_emitted_neutrino_C_nu_no_compare_target"
+        "source_emitted_family_transport_kernel",
+        "source_derived_weight_exponent_and_cycle_matrix_law",
+        "source_derived_basis_permutation_and_holonomy_orientation",
+        "pre_reference_hash_lock"
       ],
       "outputs": {},
       "promotable": false,
-      "status": "scale_free_weighted_cycle_with_compare_only_absolute_attachment_candidate",
+      "status": "rejected_target_informed_weighted_cycle_candidate",
       "unit": "eV",
       "withheld_non_prediction_rows": [
         {
           "exact_kind": "rejected_target_informed_weighted_cycle_candidate",
-          "label": "Electron Neutrino",
+          "label": "Neutrino Mass Eigenstate s0 (Legacy nu_e Slot)",
+          "legacy_particle_id_slot": true,
+          "mass_basis_semantics": "ascending_candidate_mass_eigenstate_s0_not_electron_flavor_mass",
           "particle_id": "electron_neutrino",
           "promotable": false,
           "reason": "target_informed_candidate_rejected_by_correlated_profile",
-          "scope": "weighted_cycle_bridge_rigid_absolute_family",
+          "scope": "rejected_weighted_cycle_mass_eigenstate_candidate",
           "source_artifact": "code/particles/runs/neutrino/neutrino_absolute_attachment_theorem.json"
         },
         {
           "exact_kind": "rejected_target_informed_weighted_cycle_candidate",
-          "label": "Muon Neutrino",
+          "label": "Neutrino Mass Eigenstate s1 (Legacy nu_mu Slot)",
+          "legacy_particle_id_slot": true,
+          "mass_basis_semantics": "ascending_candidate_mass_eigenstate_s1_not_muon_flavor_mass",
           "particle_id": "muon_neutrino",
           "promotable": false,
           "reason": "target_informed_candidate_rejected_by_correlated_profile",
-          "scope": "weighted_cycle_bridge_rigid_absolute_family",
+          "scope": "rejected_weighted_cycle_mass_eigenstate_candidate",
           "source_artifact": "code/particles/runs/neutrino/neutrino_absolute_attachment_theorem.json"
         },
         {
           "exact_kind": "rejected_target_informed_weighted_cycle_candidate",
-          "label": "Tau Neutrino",
+          "label": "Neutrino Mass Eigenstate s2 (Legacy nu_tau Slot)",
+          "legacy_particle_id_slot": true,
+          "mass_basis_semantics": "ascending_candidate_mass_eigenstate_s2_not_tau_flavor_mass",
           "particle_id": "tau_neutrino",
           "promotable": false,
           "reason": "target_informed_candidate_rejected_by_correlated_profile",
-          "scope": "weighted_cycle_bridge_rigid_absolute_family",
+          "scope": "rejected_weighted_cycle_mass_eigenstate_candidate",
           "source_artifact": "code/particles/runs/neutrino/neutrino_absolute_attachment_theorem.json"
         }
       ]

@@ -37,26 +37,26 @@
       5.352369367758016
     ],
     "residual_d": [
-      -0.09430060416582853,
-      0.0119808612489809,
-      0.08231974291684763
+      -0.09239365119546106,
+      0.0074500237445001005,
+      0.08494362745096184
     ],
-    "residual_norm_d": 0.12574849922048173,
-    "residual_norm_u": 0.07521596575869428,
+    "residual_norm_d": 0.12572791845707912,
+    "residual_norm_u": 0.07430917826605768,
     "residual_u": [
-      -0.058198845524938925,
-      0.012117328157275509,
-      0.046081517367663416
+      -0.05768424109272274,
+      0.012553374908473636,
+      0.045130866184249996
     ],
     "target_centered_log_d": [
-      -3.260540130101605,
-      -0.27014120252297635,
-      3.5306813326245807
+      -3.2586331771312373,
+      -0.27467204002745715,
+      3.533305217158695
     ],
     "target_centered_log_u": [
-      -5.888737130993507,
-      0.4902862458678263,
-      5.39845088512568
+      -5.88822252656129,
+      0.49072229261902445,
+      5.397500233942266
     ]
   },
   "current_candidate": {
@@ -82,11 +82,11 @@
     "u": 0.002287663517422587
   },
   "current_family_reference_values_gev": {
-    "b": 4.183,
-    "c": 1.273,
+    "b": 4.186,
+    "c": 1.2729,
     "d": 0.0047,
-    "s": 0.0935,
-    "t": 172.3523553288312,
+    "s": 0.09290000000000001,
+    "t": 172.1,
     "u": 0.00216
   },
   "d12_isospin_selector_law": {
@@ -133,7 +133,7 @@
         1.2566921764926138,
         173.2690628822735
       ],
-      "rms_log_error_vs_reference_targets": 0.01042141570737968,
+      "rms_log_error_vs_reference_targets": 0.008657179320594023,
       "status": "comparison_only_not_promotable",
       "tau_d_log_per_side": 0.04411865683386919,
       "tau_u_log_per_side": 0.026081343166130807
@@ -170,7 +170,7 @@
         1.2566921714397312,
         172.85192993931355
       ],
-      "rms_log_error_vs_reference_targets": 0.01078398352557181,
+      "rms_log_error_vs_reference_targets": 0.00907939029103761,
       "tau_d_log_per_side": 0.04208000856170554,
       "tau_u_log_per_side": 0.024876168553006103
     },
@@ -288,7 +288,7 @@
         1.2566921714397312,
         172.85192993931355
       ],
-      "rms_log_error_vs_reference_targets": 0.01078398352557181
+      "rms_log_error_vs_reference_targets": 0.00907939029103761
     },
     "sample_same_family_point": {
       "Delta_ud_overlap": 0.13391235422942327,
@@ -604,8 +604,8 @@
   "diagnostic_fit_promotion_allowed": false,
   "diagnostic_fit_source": "particle_reference_values.json",
   "diagnostic_only_tau_best_fit": {
-    "tau_d_best_fit": 0.08831017354133808,
-    "tau_u_best_fit": 0.05214018144630117
+    "tau_d_best_fit": 0.08866863932321174,
+    "tau_u_best_fit": 0.05140755363848667
   },
   "diagonal_gap_shift_audit": {
     "B_ord": [
@@ -614,44 +614,44 @@
       1.0
     ],
     "residual_d_after_best_diagonal_shift": [
-      0.0,
-      1.734723475976807e-18,
+      5.828670879282072e-16,
+      2.975050761300224e-16,
       0.0
     ],
     "residual_u_after_best_diagonal_shift": [
-      0.0,
-      1.734723475976807e-18,
+      5.967448757360216e-16,
+      2.949029909160572e-16,
       0.0
     ],
-    "tau_d_best_fit": 0.08831017354133808,
-    "tau_u_best_fit": 0.05214018144630117
+    "tau_d_best_fit": 0.08866863932321174,
+    "tau_u_best_fit": 0.05140755363848667
   },
-  "generated_utc": "2026-06-29T07:35:26Z",
+  "generated_utc": "2026-07-11T06:46:48Z",
   "mean_split_audit": {
     "current_log_shift_d": -2.0281337286007872,
     "current_log_shift_u": -0.16973941452778685,
     "eta_ud": 1.1427999999999998,
     "exact_two_scalar_mean_fit": {
-      "A_exact": 0.24604508012720572,
-      "B_exact": 0.8097404243402008,
+      "A_exact": 0.24631730592959614,
+      "B_exact": 0.8103496072847893,
       "exact_fit_singular_values_d": [
-        0.005164783127805616,
-        0.09238647329738038,
-        3.8524486131207025
+        0.005154943514100823,
+        0.09221046451128045,
+        3.8451091750005233
       ],
       "exact_fit_singular_values_u": [
-        0.0022894395902926714,
-        1.2576677219801524,
-        164.59031410541652
+        0.0022882617376223115,
+        1.2570206870939555,
+        164.50563698975625
       ],
       "formula": "log(g_u/g_ch) = -(A_exact * sigma_seed_ud - B_exact * eta_ud), log(g_d/g_ch) = -(A_exact * sigma_seed_ud + B_exact * eta_ud)",
-      "g_d_exact_fit": 0.1224989720863351,
-      "g_u_exact_fit": 0.7796501962057191
+      "g_d_exact_fit": 0.12226559489803177,
+      "g_u_exact_fit": 0.7792490879740622
     },
     "shared_norm_value": 0.9231656602589082,
     "sigma_seed_ud": 4.447699999999999,
-    "target_log_shift_d": -2.019706059817754,
-    "target_log_shift_u": -0.16896334594579154
+    "target_log_shift_d": -2.0216130127881216,
+    "target_log_shift_u": -0.16947795037800728
   },
   "notes": [
     "The current local quark rays are already close to the measured centered log profiles.",
@@ -679,37 +679,37 @@
       -0.4880695902244214,
       0.2440347951122107
     ],
-    "kappa_d_best_fit": -0.024547444645080074,
-    "kappa_u_best_fit": -0.024827050076411818,
+    "kappa_d_best_fit": -0.015264265370588188,
+    "kappa_u_best_fit": -0.025720461097978094,
     "mean_surface_preserved": true,
     "residual_d_after_best_quadratic_fit": [
-      -0.08831017354133808,
-      1.734723475976807e-18,
-      0.08831017354133808
+      -0.08866863932321116,
+      2.975050761300224e-16,
+      0.08866863932321174
     ],
-    "residual_norm_d_after_best_quadratic_fit": 0.12488944511768196,
-    "residual_norm_u_after_best_quadratic_fit": 0.07373735174595314,
+    "residual_norm_d_after_best_quadratic_fit": 0.12539639228805396,
+    "residual_norm_u_after_best_quadratic_fit": 0.07270125956396978,
     "residual_u_after_best_quadratic_fit": [
-      -0.05214018144630117,
-      1.734723475976807e-18,
-      0.05214018144630117
+      -0.05140755363848607,
+      2.949029909160572e-16,
+      0.05140755363848667
     ],
     "spread_preserved": true
   },
   "recovered_core_no_go_basis": "March 28, 2026 final-wave consolidation against the OPH tier ledger in the uploaded corpus",
   "recovered_core_no_go_for_nonzero_light_quark_pure_b_selector": true,
   "reference_targets": {
-    "geom_mean_d": 0.12249897208633512,
-    "geom_mean_u": 0.7796501962057191,
+    "geom_mean_d": 0.12226559489803179,
+    "geom_mean_u": 0.7792490879740623,
     "singular_values_d": [
       0.0047,
-      0.0935,
-      4.183
+      0.09290000000000001,
+      4.186
     ],
     "singular_values_u": [
       0.00216,
-      1.273,
-      172.3523553288312
+      1.2729,
+      172.1
     ]
   },
   "scope": "current_family_only",

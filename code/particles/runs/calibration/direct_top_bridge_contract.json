@@ -4,8 +4,8 @@
     "codomain": "PDG direct top mass entry",
     "pdg_description": "t-Quark Mass (Direct Measurements)",
     "pdg_summary_id": "Q007TP",
-    "pdg_symmetric_error_gev": 0.30514128709302957,
-    "value_gev": 172.5590883453979
+    "pdg_symmetric_error_gev": 0.27,
+    "value_gev": 172.6
   },
   "closure_gate": {
     "closable_now": true,
@@ -25,9 +25,9 @@
     "why_no_forward_bridge": "The current OPH/D10/D11/quark corpus emits a top coordinate in the PDG cross-section codomain Q007TP4. It does not emit an extraction-response kernel, mass-scheme conversion, or uncertainty-propagation certificate from Q007TP4 into the auxiliary direct-measurement codomain Q007TP. Any such conversion would choose external experimental/MC response data."
   },
   "comparison_only_readout": {
-    "combined_reference_sigma_gev": 0.7264278922454234,
-    "direct_minus_current_coordinate_gev": 0.20673301656674425,
-    "pull_in_combined_sigma": 0.28458848947515303,
+    "combined_reference_sigma_gev": 0.6579513659838393,
+    "direct_minus_current_coordinate_gev": 0.24764467116884248,
+    "pull_in_combined_sigma": 0.3763875021348085,
     "within_combined_one_sigma": true
   },
   "constructive_objects": [
@@ -73,8 +73,8 @@
     "codomain": "PDG cross-section top mass entry",
     "pdg_description": "t-Quark Pole Mass from Cross-Section Measurements",
     "pdg_summary_id": "Q007TP4",
-    "pdg_symmetric_error_gev": 0.6592315811179996,
-    "pdg_value_gev": 172.3523553288312,
+    "pdg_symmetric_error_gev": 0.6,
+    "pdg_value_gev": 172.1,
     "source_artifact": "code/particles/runs/flavor/quark_public_exact_yukawa_end_to_end_theorem.json",
     "value_gev": 172.35235532883115
   },
@@ -85,11 +85,11 @@
   ],
   "formal_nonidentifiability_witness": {
     "free_response_family": "m_direct(lambda) = m_Q007TP4 + lambda",
-    "lambda_matching_auxiliary_central_value_gev": 0.20673301656674425,
+    "lambda_matching_auxiliary_central_value_gev": 0.24764467116884248,
     "source_constraints_on_lambda": "none emitted by the current corpus",
     "why_not_a_theorem": "Choosing lambda from the auxiliary Q007TP central value would use the direct-top row as an input. Choosing lambda=0 would relabel Q007TP4 as Q007TP. Both choices satisfy the current OPH top theorem data equally well because the extraction-response codomain is absent."
   },
-  "generated_utc": "2026-06-29T07:35:22Z",
+  "generated_utc": "2026-07-11T06:46:44Z",
   "github_issue": 207,
   "local_next_steps": [
     "Keep Q007TP as compare-only and keep Q007TP4 as the theorem row source.",

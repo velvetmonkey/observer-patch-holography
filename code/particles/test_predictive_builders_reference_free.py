@@ -1,47 +1,80 @@
 #!/usr/bin/env python3
-"""Guard the live non-hadron predictive builders against reference injection."""
+"""Directory-wide guard against reference injection into particle builders."""
 
 from __future__ import annotations
 
 import pathlib
-import sys
 
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-
-PREDICTIVE_BUILDERS = [
-    ROOT / "particles" / "flavor" / "derive_charged_shared_absolute_scale_writeback.py",
-    ROOT / "particles" / "flavor" / "derive_quark_sector_mean_split.py",
-    ROOT / "particles" / "flavor" / "derive_quark_sector_descent.py",
-    ROOT / "particles" / "flavor" / "build_forward_yukawas.py",
-    ROOT / "particles" / "leptons" / "derive_lepton_ordered_shape_readout.py",
-    ROOT / "particles" / "leptons" / "derive_lepton_log_spectrum_readout.py",
-    ROOT / "particles" / "leptons" / "build_forward_charged_leptons.py",
-    ROOT / "particles" / "calibration" / "derive_d10_ew_source_transport_pair.py",
-    ROOT / "particles" / "calibration" / "derive_d10_ew_source_transport_readout.py",
-    ROOT / "particles" / "calibration" / "derive_d11_forward_seed.py",
-    ROOT / "particles" / "calibration" / "derive_d11_live_exact_split_pair_theorem.py",
-    ROOT / "particles" / "calibration" / "derive_d11_critical_surface_readout.py",
+SCAN_DIRS = [
+    ROOT / "particles" / "calibration",
+    ROOT / "particles" / "flavor",
+    ROOT / "particles" / "leptons",
 ]
 
-FORBIDDEN_SNIPPETS = [
-    "particle_reference_values.json",
-    "REFERENCE_JSON",
-    "current_reference_exact_witness",
-    "exact_wz_candidate",
-    "--exact-readout",
-]
+# These modules are explicitly target-fed audits, inverse adapters, or
+# compare-only diagnostics. New reference consumers are rejected by default.
+REFERENCE_CONSUMER_ALLOWLIST = {
+    "calibration/derive_d10_ew_common_transport_gap_report.py",
+    "calibration/derive_d10_ew_exactness_audit.py",
+    "calibration/derive_d10_ew_target_emitter_candidate.py",
+    "calibration/derive_d10_ew_target_free_repair_value_law.py",
+    "calibration/derive_d10_ew_tau2_current_carrier_obstruction.py",
+    "calibration/derive_d10_ew_w_anchor_neutral_shear_factorization.py",
+    "calibration/derive_d11_live_exact_higgs_promotion.py",
+    "calibration/derive_d11_live_exact_top_promotion.py",
+    "calibration/derive_d11_reference_exact_adapter.py",
+    "calibration/derive_direct_top_bridge_contract.py",
+    "flavor/derive_quark_current_family_exact_readout.py",
+    "flavor/derive_quark_current_family_exactness_audit.py",
+    "flavor/derive_quark_current_family_quadratic_readout_theorem.py",
+    "leptons/derive_charged_d12_continuation_followup.py",
+    "leptons/derive_lepton_current_family_exact_readout.py",
+    "leptons/derive_lepton_current_family_exactness_audit.py",
+    "leptons/derive_lepton_current_family_quadratic_readout_theorem.py",
+}
+FORBIDDEN_SNIPPETS = ("particle_reference_values.json", "REFERENCE_JSON")
+
+
+def _production_files() -> list[pathlib.Path]:
+    return sorted(
+        path
+        for directory in SCAN_DIRS
+        for path in directory.rglob("*.py")
+        if not path.name.startswith("test_") and "__pycache__" not in path.parts
+    )
+
+
+def _relative(path: pathlib.Path) -> str:
+    return str(path.relative_to(ROOT / "particles"))
+
+
+def _failures() -> list[str]:
+    failures: list[str] = []
+    seen_consumers: set[str] = set()
+    for path in _production_files():
+        text = path.read_text(encoding="utf-8")
+        hits = [snippet for snippet in FORBIDDEN_SNIPPETS if snippet in text]
+        if not hits:
+            continue
+        relative = _relative(path)
+        seen_consumers.add(relative)
+        if relative not in REFERENCE_CONSUMER_ALLOWLIST:
+            failures.append(f"{relative}: undeclared reference consumer ({', '.join(hits)})")
+    stale = REFERENCE_CONSUMER_ALLOWLIST - seen_consumers
+    failures.extend(f"{path}: stale reference-consumer exception" for path in sorted(stale))
+    return failures
+
+
+def test_particle_builder_directories_have_no_undeclared_reference_consumers() -> None:
+    assert _failures() == []
 
 
 def main() -> int:
-    failures: list[str] = []
-    for path in PREDICTIVE_BUILDERS:
-        text = path.read_text(encoding="utf-8")
-        for snippet in FORBIDDEN_SNIPPETS:
-            if snippet in text:
-                failures.append(f"{path}: contains forbidden snippet `{snippet}`")
+    failures = _failures()
     if failures:
-        print("\n".join(failures), file=sys.stderr)
+        print("\n".join(failures))
         return 1
     return 0
 

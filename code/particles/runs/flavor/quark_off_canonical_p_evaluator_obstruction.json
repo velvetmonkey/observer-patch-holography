@@ -51,8 +51,8 @@
     },
     "canonical_point": {
       "name": "P_star",
-      "sigma_d_star": 3.296264198808688,
-      "sigma_u_star": 5.573928426395543
+      "sigma_d_star": 3.300314452061615,
+      "sigma_u_star": 5.579692209267639
     },
     "even_sigma_countermodels": [
       {
@@ -65,8 +65,8 @@
       {
         "canonical_preservation_condition": "requires an extra normalization/correction because the emitted candidate does not equal the active selected-class sigma pair at the current canonical point",
         "canonical_residuals": {
-          "sigma_d_candidate_minus_selected": 0.1247947151634663,
-          "sigma_u_candidate_minus_selected": 0.004490377677282886
+          "sigma_d_candidate_minus_selected": 0.12074446191053934,
+          "sigma_u_candidate_minus_selected": -0.0012734051948131153
         },
         "interpretation": "Uses the live edge-shaped candidate coefficients. It is source-shaped but not theorem-selected, and it fails selected-class exactness without an additional correction law.",
         "name": "edge_candidate_response_extension",
@@ -103,7 +103,7 @@
       }
     ]
   },
-  "generated_utc": "2026-06-29T10:25:42Z",
+  "generated_utc": "2026-07-11T06:46:52Z",
   "input_artifacts": {
     "edge_statistics_candidate": "oph_quark_edge_statistics_spread_candidate",
     "odd_response": "oph_quark_odd_response_law",

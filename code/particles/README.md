@@ -92,7 +92,11 @@ part of this canonical tree.
   declared 3σ gate. `neutrino/score_neutrino_nufit61.py` records the official
   profile result, and `neutrino/audit_neutrino_pmns_conventions.py` finds no
   admissible convention rescue. The bridge and absolute attachment remain
-  compare-only.
+  compare-only. The shared-basis identity cancels the charged-lepton matrix by
+  construction and does not supply the missing physical charged-lepton basis.
+  Earlier intrinsic builders also exported left SVD vectors instead of the
+  Majorana Takagi matrix; that implementation error is corrected. This lane
+  emits neither a physical PMNS matrix nor absolute neutrino masses.
 - hadrons:
   `qcd/derive_lambda_msbar_descendant.py ->
   hadron/derive_full_unquenched_correlator.py ->

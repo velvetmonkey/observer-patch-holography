@@ -144,26 +144,26 @@ entries:
     blocked_by: ["#155"]
   - id: continuation.neutrinos.d6_estimate
     output_keys: ["m_nu_e", "m_nu_mu", "m_nu_tau", "rho_Lambda_1_4"]
-    label: "Weighted-cycle bridge-rigid neutrino theorem branch"
+    label: "Rejected target-informed weighted-cycle neutrino candidate"
     tier: continuation
     branch: repair
-    oph_derived_piece: "same-label scalar certificate plus shared-basis weighted-cycle repair, bridge rigidity, and absolute attachment"
+    oph_derived_piece: "conditional weighted-cycle linear algebra plus compare-only bridge and absolute attachment"
     borrowed_qft_piece: null
-    extra_ansatz: "no additional absolute-scale adapter on the proof-facing lane"
+    extra_ansatz: "hand-written family kernel, target-ranked exponent law, declared basis/orientation, open charged basis, and unresolved physical mass labels"
     numeric_outputs:
       nu_1_eV: 0.017454720257976796
       nu_2_eV: 0.019481987935919015
       nu_3_eV: 0.05307522145074924
-    blocked_by: []
+    blocked_by: ["#508"]
   - id: open.neutrinos.full_sector
     output_keys: ["neutrino_splittings", "pmns_structure"]
-    label: "Weighted-cycle neutrino masses, splittings, and mixing"
+    label: "Open source-derived neutrino masses, splittings, and mixing"
     tier: continuation
     branch: repair
-    oph_derived_piece: "closed on the weighted-cycle bridge-rigid branch"
+    oph_derived_piece: "intrinsic Takagi algebra conditional on a numerically complete but source-open scalar certificate"
     borrowed_qft_piece: null
-    extra_ansatz: "no additional proof-facing adapter"
-    blocked_by: []
+    extra_ansatz: "physical PMNS and ordering are unformed; the historical weighted-cycle point is rejected"
+    blocked_by: ["#508"]
   - id: secondary.qcd.lambda_msbar
     output_keys: ["Lambda_MSbar_3", "Lambda_MSbar"]
     label: "Lambda_MSbar descendant from D10 alpha_s"

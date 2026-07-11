@@ -8,6 +8,16 @@ The package is a pre-likelihood empirical surface. It reproduces the scorecard
 rows in the supplement from public SPARC tables, the OPH screen-capacity
 calculator, the repair-matrix diagnostic, and a compressed CAMB comparison.
 
+Neutrino masses are external cosmology inputs on this surface. The default is
+the conventional minimal-normal reference sum, not an OPH prediction. The old
+`0.0900119296` electron-volt weighted-cycle sum remains available only as the
+explicit `rejected_weighted_cycle_compare_only` CAMB scenario; it is
+target-informed, rejected by the NuFIT 6.1 correlated profile, and blocked from
+all promotion paths. Unless `--mu-eq` is supplied explicitly, the main
+scorecard derives its diagnostic `rho_A/rho_b` ratio from the homogeneous run
+using the declared external neutrino input; it no longer reuses the old ratio
+indirectly.
+
 ## Layout
 
 - `scripts/`: Python calculators and diagnostic likelihood scaffolds.
@@ -33,7 +43,9 @@ code/dark_matter/dark_empirical_implementation_status.md
 ```
 
 The generated Markdown claim-boundary file gives the compact empirical table used in
-the supplement.
+the supplement. A checked-in scorecard generated with the rejected weighted-cycle
+input is invalidated until it is rerun with an explicitly declared external
+neutrino scenario.
 
 ## Optional CAMB Dependency
 

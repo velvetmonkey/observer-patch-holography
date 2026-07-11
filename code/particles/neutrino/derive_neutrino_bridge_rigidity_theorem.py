@@ -1,16 +1,15 @@
 #!/usr/bin/env python3
-"""Emit the weighted-cycle bridge rigidity theorem artifact.
+"""Audit the historical weighted-cycle bridge-rigidity candidate artifact.
 
-Chain role: promote the exact optimizer in the emitted family-assisted audit
-class to the physical reduced bridge invariant on the live weighted-cycle
-branch.
+Chain role: retain a historical optimizer and permit promotion only if a future
+source-closed base and independent bridge audit pass every gate.
 
 Mathematics:
-1. The weighted-cycle branch fixes the full scale-free PMNS/hierarchy shape.
-2. The emitted proxy P_nu is internal and strictly positive on that branch.
-3. The bridge rigidity theorem identifies the physical reduced correction
-   invariant C_nu with the distinguished optimizer in the emitted
-   family-assisted reduced-correction class.
+1. The declared weighted-cycle matrix fixes a conditional scale-free PMNS/hierarchy shape.
+2. The candidate proxy P_nu is internal and strictly positive on that branch.
+3. The optimizer is retained as a diagnostic coordinate. It cannot be a
+   physical reduced correction invariant unless both the weighted-cycle base
+   and the bridge audit independently pass their source-only gates.
 """
 
 from __future__ import annotations
@@ -54,7 +53,17 @@ def build_payload(
         display_value - float(correction_audit["current_compare_only_target"]["value"])
     ) / float(correction_audit["current_compare_only_target"]["value"])
     compare_only_audit = correction_audit.get("status") == "compare_only_reduced_bridge_correction_search"
-    promotion_allowed = not compare_only_audit
+    weighted_cycle_eligible = (
+        weighted_cycle.get("source_only_prediction_eligible") is True
+        and weighted_cycle.get("prediction_promotion_allowed") is True
+        and weighted_cycle.get("historical_target_exposure") is False
+        and (weighted_cycle.get("source_closure_status") or {}).get("closed") is True
+    )
+    correction_audit_eligible = (
+        not compare_only_audit
+        and correction_audit.get("must_not_feed_back") is False
+    )
+    promotion_allowed = weighted_cycle_eligible and correction_audit_eligible
     status = (
         "theorem_grade_emitted"
         if promotion_allowed
@@ -70,16 +79,18 @@ def build_payload(
         "public_surface_candidate_allowed": promotion_allowed,
         "display_allowed_as_compare_only": compare_only_audit,
         "prediction_promotion_allowed": promotion_allowed,
+        "weighted_cycle_base_eligible": weighted_cycle_eligible,
+        "correction_audit_eligible": correction_audit_eligible,
         "branch": "weighted_cycle_majorana_holonomy",
         "statement": (
-            "On the live weighted-cycle branch, the physical reduced bridge invariant is the distinguished "
-            "exact optimizer on the emitted family-assisted reduced-correction class."
+            "The stored value is the distinguished optimizer on a declared family-assisted correction class. "
+            "It is comparison-only because the weighted-cycle base is target-informed and source-open and the correction audit forbids feedback."
         ),
         "physical_selection_rules": [
             "bridge_external_above_P_nu",
             "neutral_under_exact_q_mean_factorization",
             "genuinely_family_assisted_on_the_first_solar_mover",
-            "distinguished_exact_optimizer_on_the_emitted_family_assisted_class",
+            "distinguished_exact_optimizer_on_the_declared_family_assisted_class",
         ],
         "emitted_proxy": {
             "symbol": "P_nu",
@@ -100,12 +111,18 @@ def build_payload(
         "optimizer_relative_error_in_emitted_class": optimizer_relative_error,
         "non_circularity_status": {
             "promotion_allowed": promotion_allowed,
+            "weighted_cycle_base_eligible": weighted_cycle_eligible,
+            "correction_audit_eligible": correction_audit_eligible,
             "compare_only_correction_audit_used": compare_only_audit,
             "correction_audit_status": correction_audit.get("status"),
             "must_not_feed_back": bool(correction_audit.get("must_not_feed_back", True)),
-            "missing_source_object": None
+            "missing_source_object": None if promotion_allowed else "source_emitted_neutrino_operator_and_C_nu_no_compare_target",
+            "missing_source_objects": []
             if promotion_allowed
-            else "source_emitted_neutrino_C_nu_no_compare_target",
+            else [
+                "source_closed_weighted_cycle_operator_basis_and_label_law",
+                "source_emitted_neutrino_C_nu_no_compare_target",
+            ],
             "strict_audit_label": "source_emitted_C_nu"
             if promotion_allowed
             else "compare_only_C_nu_candidate",
@@ -116,7 +133,7 @@ def build_payload(
         ],
         "notes": [
             (
-                "This theorem promotes the exact optimizer statement from the emitted finite family-assisted audit class to the physical reduced bridge law."
+                "This theorem promotes the exact optimizer statement from an independently source-closed finite family-assisted class to the physical reduced bridge law."
                 if promotion_allowed
                 else "This artifact keeps the optimized C_nu display value but does not promote it because the correction audit is compare-only."
             ),
@@ -126,7 +143,7 @@ def build_payload(
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Build the weighted-cycle bridge rigidity theorem artifact.")
+    parser = argparse.ArgumentParser(description="Build the weighted-cycle bridge-rigidity candidate audit artifact.")
     parser.add_argument("--output", default=str(DEFAULT_OUT))
     args = parser.parse_args()
 

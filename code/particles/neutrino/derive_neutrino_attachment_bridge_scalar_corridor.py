@@ -6,8 +6,8 @@ compare-only routes for
 
     B_nu = lambda_nu * q_mean^p_nu / m_star_eV,
 
-so the diagnostic bridge scalar is numerically narrowed on the current branch
-without feeding back into the emitted theorem pair.
+so the diagnostic bridge scalar is numerically narrowed on the rejected
+candidate branch without feeding back into any future theorem state.
 """
 
 from __future__ import annotations
@@ -248,9 +248,10 @@ def build_payload(
         "generated_utc": _timestamp(),
         "status": "compare_only_cross_route_corridor",
         "public_promotion_allowed": False,
-        "proof_chain_role": "diagnostic_only_retired_from_theorem_lane",
+        "proof_chain_role": "diagnostic_target_search_only",
         "must_not_feed_back": True,
-        "exact_missing_object": "oph_neutrino_attachment_bridge_invariant",
+        "exact_missing_object": "source_closed_neutrino_operator_basis_and_mass_label_contract",
+        "conditional_absolute_attachment_missing_object": "oph_neutrino_attachment_bridge_invariant",
         "exact_target_scalar": {
             "symbol": "B_nu",
             "definition": "B_nu = lambda_nu * q_mean^p_nu / m_star_eV",
@@ -269,8 +270,8 @@ def build_payload(
             },
             "compare_only_target": target / core_proxy_value,
             "interpretation": (
-                "After factoring out the strongest current emitted residual-amplitude proxy, the remaining exact attachment gap is a "
-                "positive correction scalar near 1 on the live compare-only branch."
+                "After factoring out the internal candidate residual-amplitude proxy, the conditional absolute-scale "
+                "subproblem has a positive correction coordinate near 1."
             ),
         },
         "best_constructive_subbridge_object": bridge_candidate["best_constructive_subbridge_object"],
@@ -353,10 +354,10 @@ def build_payload(
             ),
         },
         "notes": [
-            "The corridor sits strictly above the defect-weighted mu_e family and strictly below any theorem-grade emission of B_nu.",
+            "The corridor is a target-informed diagnostic on the rejected source-open candidate.",
             "The family-assisted route is included so the current defect-weighted mu_e family contributes explicitly to the sharpened compare-only bridge picture.",
             "The representative corridor and the wider envelope both contain the live compare-only target B_nu_star.",
-            "The reduced correction scalar C_nu isolates the diagnostic bridge geometry above the best emitted residual-amplitude proxy and makes the retired bridge sidecar a near-unity positive factor on the weighted-cycle branch.",
+            "The reduced correction scalar C_nu isolates conditional bridge geometry above an internal candidate proxy; it is not the first physical missing object.",
             "A direct C_nu audit yields a narrower target-containing induced B_nu window than the old three-route bridge corridor.",
             "The shortlist consensus window is narrower than the primary three-point corridor, but it is a route-agreement diagnostic only and need not contain the live compare-only target.",
         ],

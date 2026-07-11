@@ -6,7 +6,7 @@ proof-facing scalar-certificate sufficiency theorem, and the remaining PMNS
 blockers into one machine-readable audit.
 
 Mathematics: no new neutrino formulas are introduced here. This is a claim-label
-consolidation layer over the already-emitted isotropic forward bundle, the
+consolidation layer over the conditional isotropic forward bundle, the
 same-label scalar certificate shell, and the intrinsic eta-chain validation.
 
 OPH-derived inputs: the live forward neutrino closure bundle, the same-label
@@ -25,7 +25,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[2]
-FORWARD_JSON = ROOT / "particles" / "runs" / "neutrino" / "forward_neutrino_closure_bundle.json"
+FORWARD_JSON = ROOT / "particles" / "runs" / "neutrino" / "intrinsic_neutrino_mass_eigenstate_bundle_from_scalar_certificate.json"
 CERTIFICATE_JSON = ROOT / "particles" / "runs" / "neutrino" / "same_label_scalar_certificate.json"
 PMNS_JSON = ROOT / "particles" / "runs" / "neutrino" / "pmns_from_shared_basis.json"
 CHARGED_LEFT_JSON = ROOT / "particles" / "runs" / "neutrino" / "shared_charged_lepton_left_basis.json"
@@ -74,6 +74,12 @@ def build_exact_blockers(
     ignore_emitted_theorem_pair: bool,
 ) -> tuple[dict, dict]:
     same_label_present = bool(certificate.get("sufficient_for_intrinsic_mass_eigenstates"))
+    same_label_source_closed = (
+        same_label_present
+        and certificate.get("source_only_physical_input_eligible") is True
+        and (certificate.get("source_closure_status") or {}).get("closed") is True
+    )
+    physical_ordering_selected = (forward.get("physical_ordering_assignments") or {}).get("selected") is not None
     charged_basis_present = (
         charged_left.get("status") == "closed"
         and charged_left.get("pmns_use_allowed") is True
@@ -121,6 +127,16 @@ def build_exact_blockers(
                 "required_contract": "oph_same_label_scalar_certificate_required_contract",
             }
         )
+    elif not same_label_source_closed:
+        exact_blockers.append(
+            {
+                "name": "source_closed_same_label_neutrino_input",
+                "kind": "physical_neutrino_operator_input",
+                "current_snapshot_status": "numeric_certificate_present_source_open",
+                "required_contract": "source_emitted_family_transport_kernel_and_theorem_grade_overlap_line_lift",
+                "upstream_source_closure_status": dict(certificate.get("source_closure_status") or {}),
+            }
+        )
     if not charged_basis_present:
         exact_blockers.append(
             {
@@ -130,9 +146,18 @@ def build_exact_blockers(
                 "required_contract": "oph_shared_charged_left_basis_required_contract",
             }
         )
+    if not physical_ordering_selected:
+        exact_blockers.append(
+            {
+                "name": "neutrino_mass_eigenstate_label_and_ordering_rule",
+                "kind": "physical_mass_label_object",
+                "current_snapshot_status": "absent",
+                "required_contract": "select_the_solar_pair_and_atmospheric_sign_from_source_data",
+            }
+        )
 
     branch_repair_required = (
-        same_label_present
+        same_label_source_closed
         and charged_basis_present
         and not repair_shape_closed
         and pmns_present
@@ -147,7 +172,7 @@ def build_exact_blockers(
                 "required_contract": "emit_a_physically_correct_flavor_branch_or_prove_a_no_go_for_the_current_continuation_branch",
             }
         )
-    if same_label_present and charged_basis_present and repair_shape_closed and absolute_normalization_open and not theorem_pair_emitted:
+    if same_label_source_closed and charged_basis_present and repair_shape_closed and absolute_normalization_open and not theorem_pair_emitted:
         exact_blockers.append(
             {
                 "name": reduced_bridge_object.get("name", "one_positive_neutrino_bridge_correction_invariant"),
@@ -168,10 +193,16 @@ def build_exact_blockers(
             }
         )
 
-    fully_completed = same_label_present and charged_basis_present and pmns_present and physical_branch_closed
+    fully_completed = (
+        same_label_source_closed
+        and charged_basis_present
+        and physical_ordering_selected
+        and pmns_present
+        and physical_branch_closed
+    )
     reason_not_fully_completed = ""
     if not fully_completed:
-        if same_label_present and charged_basis_present and repair_shape_closed and absolute_normalization_open:
+        if same_label_source_closed and charged_basis_present and repair_shape_closed and absolute_normalization_open:
             reason_not_fully_completed = (
                 "The old isotropic branch has been repaired at the physical-pattern level: the weighted-cycle branch lands in the observed PMNS window and gives the right splitting hierarchy. "
                 "The remaining exact attachment object is the reduced bridge-correction invariant C_nu above the already-emitted positive proxy P_nu. "
@@ -185,16 +216,23 @@ def build_exact_blockers(
             )
         else:
             reason_not_fully_completed = (
-                "The intrinsic chain is exact once the same-label scalar certificate exists, but the current snapshot still "
+                "The intrinsic algebra is exact conditional on the same-label scalar certificate, but the current snapshot still "
                 + (
                     "lacks a live physical certificate"
                     if not same_label_present
+                    else "has only a numerically complete certificate whose upstream source artifacts remain open"
+                    if not same_label_source_closed
                     else "waits on PMNS writeback from the closed intrinsic bundle"
                 )
                 + (
                     " and still lacks the shared charged-lepton left basis required for PMNS/public flavor rows."
                     if not charged_basis_present
                     else "."
+                )
+                + (
+                    " A source-side solar-pair and atmospheric-sign label rule is also missing."
+                    if not physical_ordering_selected
+                    else ""
                 )
             )
 
@@ -321,7 +359,9 @@ def build_exact_blockers(
         },
         "live_continuation_branch_status": {
             "same_label_scalar_certificate_present": same_label_present,
+            "same_label_scalar_certificate_source_closed": same_label_source_closed,
             "shared_charged_left_basis_present": charged_basis_present,
+            "physical_mass_ordering_selected": physical_ordering_selected,
             "pmns_present": pmns_present,
             "repair_artifact_present": repair_present,
             "status": (
@@ -476,6 +516,7 @@ def build_exact_blockers(
         },
         "current_snapshot_scan": {
             "live_same_label_artifact_found": same_label_present,
+            "live_same_label_source_closure_passed": same_label_source_closed,
             "live_charged_left_artifact_found": charged_basis_present,
             "live_pmns_artifact_found": pmns_present,
             "live_repair_artifact_found": repair_present,
@@ -487,7 +528,9 @@ def build_exact_blockers(
         "generated_utc": _timestamp(),
         "exact_remaining_blockers": [item["name"] for item in exact_blockers],
         "live_same_label_scalar_certificate_present": same_label_present,
+        "live_same_label_scalar_certificate_source_closed": same_label_source_closed,
         "shared_charged_left_basis_present": charged_basis_present,
+        "physical_mass_ordering_selected": physical_ordering_selected,
         "pmns_present": pmns_present,
         "repair_artifact_present": repair_present,
         "physical_branch_closed": physical_branch_closed,

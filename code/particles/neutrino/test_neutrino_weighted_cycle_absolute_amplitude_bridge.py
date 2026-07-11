@@ -35,7 +35,9 @@ def test_absolute_amplitude_bridge_remains_open_but_direct_anchor_is_diagnostic(
         )
         payload = json.loads(out.read_text(encoding="utf-8"))
         assert payload["artifact"] == "oph_neutrino_weighted_cycle_absolute_amplitude_bridge"
-        assert payload["status"] == "constructive_extension_required"
+        assert payload["status"] == "conditional_scale_audit_on_rejected_source_open_candidate"
+        assert payload["public_promotion_allowed"] is False
+        assert payload["first_physical_missing_object"] == "source_closed_neutrino_operator_basis_and_mass_label_contract"
         assert payload["remaining_object"] == "neutrino_weighted_cycle_absolute_amplitude_bridge"
         assert payload["direct_scale_anchor_attachment_diagnostic"]["candidate_rule"] == "lambda_nu = m_star_eV"
         assert payload["direct_scale_anchor_attachment_diagnostic"]["status"] == "diagnostic_only_nonpromotable"

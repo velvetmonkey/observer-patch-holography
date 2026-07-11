@@ -6,7 +6,7 @@
   "artifact": "oph_majorana_overlap_defect_scalar_evaluator",
   "attachment_normalizer_artifact": "oph_same_label_overlap_defect_weight_normalizer",
   "attachment_normalizer_candidate_id": "oph_same_label_overlap_defect_weight_normalizer",
-  "attachment_normalizer_status": "closed_from_live_same_label_scalar_certificate",
+  "attachment_normalizer_status": "conditional_normalizer_from_source_open_scalar_certificate",
   "bounded_scalar_range_if_closed": {
     "lower": 0.0,
     "upper": 0.0057422412853622515
@@ -54,7 +54,7 @@
     "psi23": 0.000957040214227042,
     "psi31": 0.000957040214227042
   },
-  "exact_remaining_ingredient": "one positive residual bridge invariant above the closed normalizer",
+  "exact_remaining_ingredient": "source_closed_neutrino_operator_basis_and_mass_label_contract",
   "fallback_family_if_not_closed": "sum_e mu_e*Phi(z_e), Phi(z)=Phi(conj(z)), Phi(1)=0, second jet fixed",
   "family_conditions": [
     "G(0)=0",
@@ -70,7 +70,7 @@
   "formula_affine_candidate": "sum_e mu_e*(1-cos(psi_e-psi_e_star))",
   "formula_family": "S_G(psi)=sum_e mu_e*G(psi_e-psi_e_star)",
   "formula_residual_candidate": "0.000957040214227041961*(3-cos(u+v)-cos(u)-cos(v))",
-  "generated_utc": "2026-06-29T07:35:38Z",
+  "generated_utc": "2026-07-11T06:47:03Z",
   "hessian_anchor_matrix_3x3": [
     [
       0.000957040214227042,
@@ -131,7 +131,7 @@
   "mu_nu": 0.000957040214227042,
   "naive_uncentered_cubic_coeff": 0.0016047225727754176,
   "naive_uncentered_formula_ruled_out": true,
-  "next_exact_object_after_scalar_closure": "oph_neutrino_attachment_bridge_invariant",
+  "next_exact_object_after_scalar_closure": "source_closed_neutrino_operator_basis_and_mass_label_contract",
   "next_forward_object": "defect_weighted_mu_e_family",
   "nonisotropic_formula_status": "open_centered_family_only",
   "norm_identification_formula": "S_nu(psi)=0.5*||s(psi)-s_star||^2_{diag(mu_e)}",
@@ -145,11 +145,11 @@
     "This boundary now carries the strongest centered constructive candidate compatible with the closed local quadratic action germ: a chordal/cosine evaluator centered at the actual equal-split selector point.",
     "The current sharp origin candidate is the Hermitian displacement norm of a centered OPH Majorana edge-character functor.",
     "The selector-centered unitary common-refinement descent theorem on the direct-sum edge bundle is closed on the current isotropic branch from the normalized same-label line-transport cocycle, so the descended direct-sum bundle and its Hermitian norm are presentation-independent on that branch.",
-    "The overlap-nonvanishing subclause is already discharged by the live same-label gap/defect readback exported from flavor-side certificates.",
-    "The normalized overlap-defect weight normalizer is already carried by the live same-label scalar certificate; with the same-label phase-cocycle theorem and the selector-centered bundle descent both closed on the current isotropic branch, the remaining exact attachment content is one positive bridge invariant above qbar_e.",
+    "The numeric overlap/gap readback is complete, but its physical source closure is not established.",
+    "The normalization algebra is exact on the supplied certificate, but physical promotion remains blocked by source provenance, basis, and mass-label gates.",
     "Numerically, the current remaining defect is the exact 1-2 near-degeneracy induced by isotropic mu_nu, so the next forward object is a defect-weighted mu_e family rather than another isotropic re-evaluation."
   ],
-  "oph_origin_status": "closed_on_current_isotropic_branch",
+  "oph_origin_status": "not_established_from_source",
   "origin_object_candidate": "oph_affine_majorana_edge_character_functor",
   "origin_object_role": "realizes centered Majorana overlap phases as unitary edge characters on transported Hermitian lines",
   "overlap_nonvanishing_status": "closed_from_live_flavor_readback",
@@ -163,7 +163,8 @@
   "presentation_independence_status": "closed_from_common_refinement_transport_equivalence",
   "presentation_independence_status_if_closed": "closed",
   "promotion_gate": "close_only_if_bundle_descent_is_defined_for_xi\u00b1eta_and_xi\u00b1i_eta",
-  "proof_status": "closed_on_current_isotropic_branch",
+  "proof_status": "exact_scalar_evaluator_conditional_on_source_open_inputs",
+  "public_surface_candidate_allowed": false,
   "quadraticity_clause_status": "closed_from_descended_hermitian_direct_sum_norm",
   "quadraticity_clause_status_if_closed": "closed",
   "quadraticity_domain": "selector_centered_common_refinement_edge_bundle",
@@ -192,6 +193,19 @@
     "action_germ": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/neutrino/majorana_overlap_defect_action_germ.json",
     "hessian": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/neutrino/majorana_overlap_defect_hessian.json"
   },
+  "source_closure_status": {
+    "closed": false,
+    "family_transport_kernel_explicit_source_closure": false,
+    "family_transport_kernel_proof_status": "conjugacy_riesz_candidate",
+    "family_transport_kernel_status": "template",
+    "missing_objects": [
+      "source_emitted_family_transport_kernel",
+      "theorem_grade_overlap_edge_line_lift"
+    ],
+    "overlap_edge_line_lift_explicit_source_closure": false,
+    "overlap_edge_line_lift_proof_status": "candidate_only"
+  },
+  "source_only_physical_input_eligible": false,
   "strictly_smaller_missing_clause_if_not_closed": null,
   "sublemma_candidate_id": "selector_centered_quadraticity_polarization_law_on_edge_bundle",
   "theorem_candidate_id": "oph_majorana_scalar_from_centered_edge_norm",

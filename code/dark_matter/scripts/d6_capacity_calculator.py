@@ -22,11 +22,20 @@ L_P = math.sqrt(HBAR * G / C**3)
 
 DEFAULT_N_SCR = 3.31e122
 
-OPH_NEUTRINO_MASSES_EV = (
+MINIMAL_NORMAL_REFERENCE_SUM_MNU_EV = 0.0589
+
+REJECTED_WEIGHTED_CYCLE_MASSES_EV = (
     0.017454720257976796,
     0.019481987935919015,
     0.05307522145074924,
 )
+REJECTED_WEIGHTED_CYCLE_SUM_MNU_EV = sum(REJECTED_WEIGHTED_CYCLE_MASSES_EV)
+
+# Cosmology needs a supplied neutrino background even though OPH currently emits
+# no physical neutrino masses.  Use a conventional external reference by default;
+# the historical weighted-cycle tuple is retained only as an anti-promotion
+# comparison record.
+DEFAULT_COSMOLOGY_SUM_MNU_EV = MINIMAL_NORMAL_REFERENCE_SUM_MNU_EV
 
 NEUTRINO_BOUNDS_95_EV = {
     "Planck2018_BAO_LambdaCDM": 0.12,
@@ -36,6 +45,49 @@ NEUTRINO_BOUNDS_95_EV = {
     "DESI_DR2_CMB_w0wa": 0.16,
     "ACT_DR6_extended": 0.082,
 }
+
+
+def neutrino_mass_input_provenance(sum_mnu_eV: float) -> dict[str, Any]:
+    """Classify a supplied cosmological neutrino mass without promoting it."""
+
+    if math.isclose(
+        sum_mnu_eV,
+        REJECTED_WEIGHTED_CYCLE_SUM_MNU_EV,
+        rel_tol=0.0,
+        abs_tol=1.0e-12,
+    ):
+        return {
+            "status": "rejected_target_informed_weighted_cycle_compare_only",
+            "role": "legacy_comparison_diagnostic",
+            "sum_mnu_eV": sum_mnu_eV,
+            "oph_prediction": False,
+            "source_closed_oph_input": False,
+            "rejected_candidate": True,
+            "public_promotion_allowed": False,
+            "promotion_blocker": (
+                "The weighted-cycle point is target-informed, source-open, basis-open, "
+                "and rejected by the NuFIT 6.1 correlated profile."
+            ),
+        }
+    if math.isclose(
+        sum_mnu_eV,
+        MINIMAL_NORMAL_REFERENCE_SUM_MNU_EV,
+        rel_tol=0.0,
+        abs_tol=1.0e-12,
+    ):
+        status = "external_minimal_normal_reference"
+    else:
+        status = "external_user_supplied_neutrino_mass_input"
+    return {
+        "status": status,
+        "role": "external_cosmology_background_input",
+        "sum_mnu_eV": sum_mnu_eV,
+        "oph_prediction": False,
+        "source_closed_oph_input": False,
+        "rejected_candidate": False,
+        "public_promotion_allowed": False,
+        "promotion_blocker": "OPH currently emits no source-closed physical neutrino mass sum.",
+    }
 
 
 def compute(n_scr: float) -> dict[str, Any]:
@@ -51,11 +103,11 @@ def compute(n_scr: float) -> dict[str, Any]:
     scrambling_time_s = t_lambda_s * math.log(n_scr)
     d12_a0_benchmark = (15.0 / (8.0 * math.pi**2)) * (C**2 / r_ds_m)
 
-    sum_mnu = sum(OPH_NEUTRINO_MASSES_EV)
+    sum_mnu = REJECTED_WEIGHTED_CYCLE_SUM_MNU_EV
     neutrino_comparison = {
         name: {
             "upper_95_eV": bound,
-            "oph_sum_eV": sum_mnu,
+            "candidate_sum_eV": sum_mnu,
             "within_bound": sum_mnu < bound,
             "margin_eV": bound - sum_mnu,
         }
@@ -94,9 +146,17 @@ def compute(n_scr: float) -> dict[str, Any]:
             "a0_modular_anomaly_benchmark_m_s2": d12_a0_benchmark,
             "formula": "(15 / (8 pi^2)) * c^2 / r_dS",
         },
-        "neutrino_cosmology_target": {
-            "oph_mass_eigenvalues_eV": list(OPH_NEUTRINO_MASSES_EV),
-            "oph_sum_mnu_eV": sum_mnu,
+        "neutrino_mass_input_policy": {
+            "default_sum_mnu_eV": DEFAULT_COSMOLOGY_SUM_MNU_EV,
+            "default_provenance": neutrino_mass_input_provenance(
+                DEFAULT_COSMOLOGY_SUM_MNU_EV
+            ),
+            "oph_neutrino_prediction_available": False,
+        },
+        "rejected_weighted_cycle_neutrino_comparison": {
+            "provenance": neutrino_mass_input_provenance(sum_mnu),
+            "mass_eigenvalues_eV": list(REJECTED_WEIGHTED_CYCLE_MASSES_EV),
+            "sum_mnu_eV": sum_mnu,
             "bounds_95_comparison": neutrino_comparison,
         },
     }
@@ -105,7 +165,7 @@ def compute(n_scr: float) -> dict[str, Any]:
 def print_human(payload: dict[str, Any]) -> None:
     d6 = payload["d6_capacity_outputs"]
     bench = payload["d12_benchmarks_not_theorem_outputs"]
-    nu = payload["neutrino_cosmology_target"]
+    nu = payload["rejected_weighted_cycle_neutrino_comparison"]
 
     print("OPH D6 capacity calculator")
     print(f"N_scr: {payload['inputs']['N_scr']:.6e}")
@@ -126,8 +186,9 @@ def print_human(payload: dict[str, Any]) -> None:
     print("D12 benchmark, not a theorem output")
     print(f"a0 benchmark: {bench['a0_modular_anomaly_benchmark_m_s2']:.6e} m/s^2")
     print()
-    print("Neutrino cosmology target")
-    print(f"sum m_nu: {nu['oph_sum_mnu_eV']:.15f} eV")
+    print("Rejected weighted-cycle neutrino comparison (not an OPH prediction)")
+    print(f"status: {nu['provenance']['status']}")
+    print(f"sum m_nu: {nu['sum_mnu_eV']:.15f} eV")
     for name, row in nu["bounds_95_comparison"].items():
         status = "within" if row["within_bound"] else "above"
         print(
@@ -170,4 +231,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

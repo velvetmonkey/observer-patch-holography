@@ -192,7 +192,7 @@ def test_gauge_proxy_uses_current_sourced_reference_and_exposes_scale_sensitivit
     one_tev = next(row for row in gauge["rows"] if row["M_SUSY_GeV"] == "1000")
     assert Decimal(one_tev["alpha3_pred_mZ"]).quantize(
         Decimal("1e-12")
-    ) == Decimal("0.111511310319")
+    ) == Decimal("0.111511308019")
     interval = one_tev["required_combined_inverse_coupling_correction"][
         "interval_from_alpha3_reference_only"
     ]

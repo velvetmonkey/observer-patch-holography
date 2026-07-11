@@ -1,17 +1,17 @@
 {
   "artifact": "oph_lepton_current_family_quadratic_readout_theorem",
   "exact_centered_log_shape": [
-    -4.49521010880808,
-    0.8363886515979084,
-    3.6588214572101716
+    -4.495209645475038,
+    0.8363891135806538,
+    3.658820531894383
   ],
   "exact_fit_residuals_abs": [
-    -1.0842021724855044e-19,
     0.0,
-    1.1102230246251565e-15
+    0.0,
+    -2.4424906541753444e-15
   ],
-  "g_e_exact_fit": 0.04577885783568762,
-  "generated_utc": "2026-06-29T07:35:35Z",
+  "g_e_exact_fit": 0.04577883668665009,
+  "generated_utc": "2026-07-11T06:46:59Z",
   "input_kind": "ordered_three_point_charged_carrier_plus_target_family",
   "notes": [
     "This closes the target-anchored same-family charged readout chain on the fixed ordered three-point carrier.",
@@ -24,9 +24,9 @@
     0.102160291731968
   ],
   "predicted_singular_values_abs": [
-    0.0005109989499999998,
+    0.0005109989506900001,
     0.10565837550000001,
-    1.7769324651340912
+    1.7769299999999977
   ],
   "proof_status": "closed_current_family_exact_readout",
   "quadratic_basis": {
@@ -54,19 +54,19 @@
     ]
   },
   "quadratic_coefficients": {
-    "linear": -10.841885041734454,
-    "quadratic": 2.974983516260214
+    "linear": -10.841878599630453,
+    "quadratic": 2.974979857278781
   },
   "reference_targets": [
-    0.0005109989499999999,
+    0.0005109989506900001,
     0.10565837550000001,
-    1.77693246513409
+    1.7769300000000001
   ],
   "smallest_constructive_missing_object": null,
   "target_centered_logs": [
-    -4.49521010880808,
-    0.8363886515979084,
-    3.6588214572101707
+    -4.495209645475038,
+    0.8363891135806538,
+    3.6588205318943845
   ],
   "target_source_artifact": "particle_reference_values.json",
   "theorem_scope": "current_family_only",

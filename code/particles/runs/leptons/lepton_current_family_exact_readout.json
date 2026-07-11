@@ -19,19 +19,19 @@
     ],
     "real": [
       [
-        0.011162335063799739,
+        0.01116234023567961,
         0.0,
         0.0
       ],
       [
         0.0,
-        2.3080168552748908,
+        2.3080179215390997,
         0.0
       ],
       [
         0.0,
         0.0,
-        38.815570093774944
+        38.81553417713175
       ]
     ]
   },
@@ -42,9 +42,9 @@
     -0.5186397082680319
   ],
   "centered_log_shape_exact": [
-    -4.495210108808081,
-    0.8363886515979087,
-    3.6588214572101716
+    -4.495209645475038,
+    0.8363891135806538,
+    3.658820531894384
   ],
   "current_family_eigenvalues": [
     1.3557137562771555,
@@ -52,20 +52,20 @@
     0.102160291731968
   ],
   "exact_fit_residuals_abs": [
-    -5.421010862427522e-19,
-    2.7755575615628914e-17,
-    1.1102230246251565e-15
+    0.0,
+    0.0,
+    -6.661338147750939e-16
   ],
-  "g_e_exact_fit": 0.04577885783568762,
-  "generated_utc": "2026-06-29T07:35:34Z",
+  "g_e_exact_fit": 0.04577883668665009,
+  "generated_utc": "2026-07-11T06:46:59Z",
   "notes": [
     "Current-family exact witness on the same ordered charged eigenvalue triple with a closed quadratic readout theorem.",
     "This promotes the smallest quadratic readout on the current family instead of relying on the old softmax consumer."
   ],
   "predicted_singular_values_abs": [
-    0.0005109989499999994,
-    0.10565837550000004,
-    1.7769324651340912
+    0.0005109989506900001,
+    0.10565837550000001,
+    1.7769299999999995
   ],
   "proof_status": "current_family_exact_witness",
   "quadratic_basis_centered": [
@@ -74,14 +74,14 @@
     -0.016299466340984226
   ],
   "quadratic_coefficients": {
-    "linear": -7.148145507945773,
-    "quadratic": 2.9749835162602136
+    "linear": -7.148143608833119,
+    "quadratic": 2.9749798572787807
   },
   "readout_chain_status": "closed_within_current_family_scope",
   "reference_targets": [
-    0.0005109989499999999,
+    0.0005109989506900001,
     0.10565837550000001,
-    1.77693246513409
+    1.7769300000000001
   ],
   "smallest_constructive_missing_object": null,
   "source_artifact": "oph_lepton_ordered_shape_readout",

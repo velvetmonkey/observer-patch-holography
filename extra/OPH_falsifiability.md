@@ -125,14 +125,14 @@ of silently moving the goalposts.
 | Higgs | `125.1995304097179 GeV` | closed on the declared Higgs/top surface |
 | Top coordinate | `172.35235532883115 GeV` | selected public quark-frame and cross-section codomain |
 | Quarks | exact running sextet on the selected public frame | selected-frame theorem |
-| Neutrino masses | `0.017454720257976796`, `0.019481987935919015`, and `0.05307522145074924` electron-volts | weighted-cycle branch |
-| Neutrino sum | `0.09001192964464505` electron-volts | derived from that branch |
-| Neutrino mixing | solar angle `34.2259` degrees, atmospheric angle `49.7228`, reactor angle `8.68636`, CP phase `305.581` | weighted-cycle branch with visible tension |
-| Majorana phases | `153.618518` degrees and `257.003241` degrees | weighted-cycle branch |
+| Neutrino weighted-cycle point | atmospheric angle `49.7228` degrees and CP phase `305.581` degrees | rejected target-informed template comparison; NuFIT 6.1 gives Δχ² values `20.12` and `18.44`, above the two-parameter 3σ value `11.83` |
+| Physical PMNS matrix | no emitted value | the shared-basis identity cancels the charged-lepton matrix by construction; the physical charged-lepton basis remains open |
+| Absolute neutrino masses and sum | no emitted prediction | the displayed `0.01745`, `0.01948`, and `0.05308` electron-volt values are compare-only coordinates on the rejected candidate |
+| Majorana phases | no emitted prediction | the displayed phase pair is a compare-only readout of the same rejected candidate |
 | IBM five-state cyclic test | ratio near the golden-ratio square, about `2.618033988749895` | reduced-sector hardware signature |
 | IBM six-state nonabelian test | ratio near `2` after clean layout accounting | reduced-sector hardware signature |
 | Bench `P` body | icosahedral coupling plateaus with golden-ratio ratios | engineering evidence claim |
-| Dark-sector cosmology | `Omega_A = 0.264114401`, CAMB `Omega_m = 0.315905206`, `sigma8 = 0.807787204`, `S8 = 0.828924037`, and `rho_A/rho_b = 5.363470441` | branch before full statistical closure, with public scorecard |
+| Dark-sector cosmology | the checked-in `Omega_A = 0.264114401`, CAMB `Omega_m = 0.315905206`, `sigma8 = 0.807787204`, and `S8 = 0.828924037` rows are legacy pre-likelihood diagnostics; `rho_A/rho_b = 5.363470441` is the parent-grid input | the checked-in run used the rejected weighted-cycle neutrino mass sum and is invalidated as a current OPH number row; regenerate with an explicitly declared external neutrino scenario before scientific use |
 | \(\chi_\nu\) lift response | \(\chi_\nu^{\mathrm{can}}=\exp(-P_\star/24)=0.9343006394893864\ldots\); for \(N_{\mathrm{coh}}=10^{22}\), \(9.34\times10^{-23}\le\chi_\nu^{\mathrm{eng}}\le10^{-22}\) | scoped continuation branch |
 | Hadrons | no first-principles masses from the stated theorem | gated on a strong-binding construction |
 | Hardware proof-of-work | candidate enrichment or verified shares | engineering evidence claim |
@@ -340,29 +340,32 @@ Falsification:
 
 The fixed branch fails the joint likelihood under the declared kernel.
 
-### 3. Neutrino Branch
+### 3. Rejected Neutrino Comparison
 
-OPH predicts:
+The weighted-cycle template produced the frozen comparison point:
 
 ```text
-m1 = 0.017454720257976796 eV
-m2 = 0.019481987935919015 eV
-m3 = 0.05307522145074924 eV
-sum m_nu = 0.09001192964464505 eV
-delta = 305.581 degrees
-alpha21 = 153.618518 degrees
-alpha31 = 257.003241 degrees
+sin^2(theta23) = 0.5820560367
+delta_CP = -54.419 degrees
+Delta m21^2 / Delta m32^2 = 0.0307211101
 ```
 
-Test:
+NuFIT 6.1 gives correlated profile values `20.12` with the tabulated
+atmospheric likelihood and `18.44` without it. Both exceed the two-parameter
+3σ value `11.83`, so this candidate is rejected.
 
-Combine cosmological mass-sum constraints, beta endpoint data, oscillation
-fits, and neutrinoless-double-beta limits in the stated mass ordering.
+The shared-basis calculation defines the neutrino matrix using the supplied
+charged-lepton matrix and then cancels that matrix when it reconstructs the
+weighted-cycle unitary. It checks an algebraic representation identity and
+does not derive the physical charged-lepton basis. The lane therefore emits no
+physical PMNS matrix, absolute masses, mass sum, or Majorana prediction.
 
-Falsification:
+This rejection does not falsify the finite OPH core. A neutrino falsification
+test requires a source-derived family kernel, cycle law, orientation, and
+physical charged-lepton basis, frozen before the comparison data are opened.
 
-The absolute mass scale, mixing data, CP phase, or Majorana-sensitive region
-exclude the branch.
+Falsification applies if such a source-closed branch is later excluded under
+its preregistered likelihood test.
 
 ### 4. Electroweak, Higgs, And Top Coordinates
 
@@ -725,15 +728,12 @@ Difficulty:
 
 ### Neutrinos
 
-| Test | Outcome that kills OPH | Why it kills OPH |
+| Test or gate | Current result | OPH implication |
 | --- | --- | --- |
-| Mass ordering | Neutrino data establish an ordering incompatible with the OPH triple. | OPH gives a concrete three-mass pattern. The wrong ordering breaks the neutrino branch. |
-| Mass sum | Lab plus cosmology exclude `0.0900119296` electron-volts. | OPH predicts a specific sum for the three neutrino masses. Excluding the sum removes that branch. |
-| Beta endpoint | Direct beta decay excludes an effective mass around `0.0196` electron-volts. | OPH's neutrino masses imply that endpoint range. A direct miss breaks the mass assignment. |
-| Splittings | Oscillation data exclude the listed mass splittings. | Splittings are what neutrino oscillation experiments measure best. If they miss, the OPH triple is wrong. |
-| Mixing angles | Precision data exclude the listed mixing angles. | OPH predicts how neutrino flavor states rotate into mass states. Wrong angles mean the rotation is wrong. |
-| CP phase | Long-baseline data exclude `305.581` degrees. | OPH gives a concrete CP phase. If experiments settle elsewhere, the branch fails. |
-| Majorana region | Neutrinoless double-beta decay excludes the implied effective-mass region. | OPH's Majorana-phase row implies a target range. Excluding that range breaks the Majorana branch. |
+| Weighted-cycle comparison point | The official NuFIT 6.1 correlated profile already rejects the target-informed point at the declared gate. | This retracts that candidate. It does not falsify the finite OPH core because the family kernel, basis placement, and mass labels were not source-derived or frozen before comparison. |
+| Legacy mass tuple, sum, beta endpoint, splittings, and Majorana region | The displayed `0.01745`, `0.01948`, and `0.05308` electron-volt tuple, `0.0900119296` electron-volt sum, and its descendants are coordinates on the rejected candidate. | Agreement or disagreement with those coordinates is diagnostic only. They are neither OPH predictions nor OPH kill tests. |
+| Physical neutrino construction | No source-closed neutrino operator, stable charged-lepton basis, physical mass-label rule, or pre-reference hash is emitted. | Physical PMNS, ordering, absolute masses, and Majorana phases remain unformed. No present neutrino number can be promoted. |
+| Prospective neutrino falsification | First derive and hash-lock the missing source objects without oscillation-target feedback, then evaluate a likelihood whose data were not used in construction. | Exclusion of that preregistered source-closed branch would falsify the corresponding OPH neutrino claim. |
 
 ### Cosmology And Gravity
 
@@ -743,7 +743,7 @@ Difficulty:
 | Galaxy rotation law | Full galaxy-rotation data reject the OPH dark response law. | OPH's dark branch treats galaxy discrepancies as a repair/modular response. If the galaxy law is wrong, that branch fails. |
 | Cluster lensing | Merger lensing, gas maps, and age covariance reject the OPH offset branch. | Galaxy clusters test whether the dark response tracks the right material. The wrong offset pattern breaks the branch. |
 | Microwave background and growth | A full cosmology implementation fails microwave-background, acoustic-scale, growth, and clustering tests. | OPH has to fit the early universe and structure growth, beyond galaxy curves. A full cosmology miss destroys the dark-sector branch. |
-| Dark-sector fixed decimals | A joint CMB, BAO, SPARC, cluster, and weak-lensing likelihood rejects the fixed `Omega_A`, `Omega_m^CAMB`, `sigma8`, `S8`, and `rho_A/rho_b` branch values. | These values are the dark-sector branch's numerical target. A rejected joint likelihood kills that branch. |
+| Dark-sector quantitative branch | After replacing the rejected weighted-cycle neutrino default with a declared external neutrino scenario and closing the parent receipts, a frozen joint CMB, BAO, SPARC, cluster, and weak-lensing run rejects the branch. | The checked-in fixed decimals are legacy pre-likelihood diagnostics and are not current kill values. A later source-eligible, preregistered joint branch would be falsifiable. |
 | \(\chi_\nu\) lift response | A substrate reaches the declared vertical coherence contrast, control channels stay null, and the predicted force fraction is absent. | This is the scoped "hoverboard doesn't work" falsifier for the \(\chi_\nu\) continuation. It kills the lift-response continuation, not the recovered SM/GR core by itself. |
 | Dark particle abundance | A stable particle is found that explains the dark abundance in conflict with the OPH dark branch. | OPH's dark branch is not the usual cold-particle story. A confirmed incompatible particle explanation removes that branch. |
 | Black-hole entropy | Black-hole entropy data contradict the OPH screen-counting rule. | OPH treats screens and records as physical bookkeeping. Wrong black-hole entropy breaks that bookkeeping. |
@@ -761,7 +761,9 @@ If someone wants the fastest attack plan:
 4. Look for gauge-mediated proton decay.
 5. Establish a nonzero photon, gluon, or graviton mass.
 6. Discover a fourth light matter generation or a charge-lattice outlier.
-7. Exclude the OPH neutrino mass and mixing branch.
+7. Demand a source-closed, preregistered neutrino operator, basis, and mass-label
+   law, then try to exclude it. The existing weighted-cycle tuple is already a
+   rejected comparison and is not an OPH kill test.
 8. Exclude the Higgs, top, quark, or fine-structure number rows.
 9. Build a repair-order counterexample.
 10. Build a valid OPH countermodel with no relativistic light cone.

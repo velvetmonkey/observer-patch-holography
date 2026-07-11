@@ -31,7 +31,7 @@ def test_direct_top_bridge_contract_closes_auxiliary_row_as_current_corpus_no_go
     assert payload["current_theorem_coordinate"]["pdg_summary_id"] == "Q007TP4"
     assert payload["auxiliary_direct_top_coordinate"]["pdg_summary_id"] == "Q007TP"
     assert payload["current_theorem_coordinate"]["value_gev"] == pytest.approx(172.35235532883115)
-    assert payload["auxiliary_direct_top_coordinate"]["value_gev"] == pytest.approx(172.5590883453979)
+    assert payload["auxiliary_direct_top_coordinate"]["value_gev"] == pytest.approx(172.6)
     assert payload["comparison_only_readout"]["direct_minus_current_coordinate_gev"] == pytest.approx(
         0.20673301656675,
         abs=1.0e-12,

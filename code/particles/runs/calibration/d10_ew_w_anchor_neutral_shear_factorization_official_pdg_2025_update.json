@@ -1,43 +1,43 @@
 {
   "artifact": "oph_d10_ew_w_anchor_neutral_shear_factorization",
   "central_target_point": {
-    "MW_target_gev": 80.377,
-    "MZ_fiber_after_exact_W_anchor_gev": 91.17717018044121,
-    "MZ_target_gev": 91.18797809193725,
-    "alpha2_dagger": 0.033770627988221474,
+    "MW_target_gev": 80.3625,
+    "MZ_fiber_after_exact_W_anchor_gev": 91.16822266259587,
+    "MZ_target_gev": 91.1879,
+    "alpha2_dagger": 0.03375844465375371,
     "alpha2_star": 0.03377843630219015,
-    "alphaY_dagger": 0.009695476948076156,
+    "alphaY_dagger": 0.00970758583521092,
     "alphaY_star": 0.009682831911900495,
-    "alpha_em_eff_inv_dagger": 132.75240855096712,
-    "coeff_delta_alphaY_perp_per_gev_delta_MZ": 0.0009532732267988105,
-    "coeff_delta_n_per_gev_delta_MZ": 0.02170968835163044,
-    "delta_MZ_after_exact_W_anchor_gev": 0.010807911496044653,
-    "delta_MZ_after_exact_W_anchor_mev": 10.807911496044653,
-    "delta_alpha2_dagger": -7.808313968675484e-06,
-    "delta_alpha2_tree": -7.808313968675484e-06,
-    "delta_alphaY_parallel": 2.3421435088707883e-06,
-    "delta_alphaY_perp": 1.0302892666790446e-05,
-    "delta_alphaY_total": 1.2645036175661233e-05,
-    "delta_n_dagger": 0.00023463639031113336,
-    "delta_n_tree_exact": 0.00023463639031113336,
-    "fiber_parallel_share_of_total": 0.18522236522967583,
-    "n_fiber_dagger": 0.9896553190793422,
-    "neutral_shear_share_of_total": 0.8147776347703242,
-    "sin2w_eff_dagger": 0.22305833389684906,
-    "tau2_w_anchor": -0.00023116268316325517,
-    "tauY_fiber_dagger": -0.04406282964256108
+    "alpha_em_eff_inv_dagger": 132.6344411210187,
+    "coeff_delta_alphaY_perp_per_gev_delta_MZ": 0.0009532260474323427,
+    "coeff_delta_n_per_gev_delta_MZ": 0.021708613896464966,
+    "delta_MZ_after_exact_W_anchor_gev": 0.0196773374041328,
+    "delta_MZ_after_exact_W_anchor_mev": 19.6773374041328,
+    "delta_alpha2_dagger": -1.9991648436440412e-05,
+    "delta_alpha2_tree": -1.9991648436440412e-05,
+    "delta_alphaY_parallel": 5.9969727526906094e-06,
+    "delta_alphaY_perp": 1.8756950557734103e-05,
+    "delta_alphaY_total": 2.475392331042471e-05,
+    "delta_n_dagger": 0.00042716772021678714,
+    "delta_n_tree_exact": 0.00042716772021678714,
+    "fiber_parallel_share_of_total": 0.2422635263705888,
+    "n_fiber_dagger": 0.9894610922980669,
+    "neutral_shear_share_of_total": 0.7577364736294113,
+    "sin2w_eff_dagger": 0.22333729871365943,
+    "tau2_w_anchor": -0.0005918464744071317,
+    "tauY_fiber_dagger": -0.043702094037244274
   },
   "coherent_repaired_couplings": {
-    "alpha2_dagger": 0.033770627988221474,
+    "alpha2_dagger": 0.03375844465375371,
     "alpha2_star": 0.03377843630219015,
-    "alphaY_dagger": 0.009695476948076156,
+    "alphaY_dagger": 0.00970758583521092,
     "alphaY_star": 0.009682831911900495
   },
   "coherent_repaired_quintet": {
-    "MW_pole": 80.377,
-    "MZ_pole": 91.18797809193725,
-    "alpha_em_eff_inv": 132.75240855096712,
-    "sin2w_eff": 0.22305833389684906,
+    "MW_pole": 80.3625,
+    "MZ_pole": 91.1879,
+    "alpha_em_eff_inv": 132.6344411210187,
+    "sin2w_eff": 0.22333729871365943,
     "v_report": 246.76711732749683
   },
   "conclusion": {
@@ -66,7 +66,7 @@
     "stricter_still_open_object": "EWTargetFreeRepairValueLaw_D10"
   },
   "forward_claim_allowed": false,
-  "generated_utc": "2026-06-29T07:35:20Z",
+  "generated_utc": "2026-07-11T06:46:42Z",
   "new_smaller_primitive": {
     "depends_on": [
       "EWSinglePostTransportTreeIdentity_D10",
@@ -80,27 +80,27 @@
   "public_surface_candidate_allowed": false,
   "repair_law": {
     "chart_coordinates": {
-      "delta_n_dagger": 0.00023463639031113336,
-      "tau2_w_anchor": -0.00023116268316325517
+      "delta_n_dagger": 0.00042716772021678714,
+      "tau2_w_anchor": -0.0005918464744071317
     },
     "coherent_repair_package": {
-      "delta_alpha2_dagger": -7.808313968675484e-06,
-      "delta_alphaY_parallel": 2.3421435088707883e-06,
-      "delta_alphaY_perp": 1.0302892666790446e-05
+      "delta_alpha2_dagger": -1.9991648436440412e-05,
+      "delta_alphaY_parallel": 5.9969727526906094e-06,
+      "delta_alphaY_perp": 1.8756950557734103e-05
     },
     "equivalent_two_coordinate_chart": "(tau2_w_anchor, delta_n_dagger)"
   },
   "status": "closed_freeze_once_coherent_repair_law",
   "target_free_predictive_emission_closed": false,
   "target_spec": {
-    "MW_pole_central_gev": 80.377,
-    "MW_pole_err_gev": 0.012,
-    "MZ_pole_central_gev": 91.18797809193725,
-    "MZ_pole_err_gev": 0.002013761937203607,
+    "MW_pole_central_gev": 80.3625,
+    "MW_pole_err_gev": 0.0077,
+    "MZ_pole_central_gev": 91.1879,
+    "MZ_pole_err_gev": 0.002,
     "epoch": "2025",
     "kind": "local_machine_readable_reference_surface",
     "note": "This law is exact on the frozen authoritative D10 target surface. The stronger target-free emission from P alone remains open.",
-    "source_label": "PDG 2025 API"
+    "source_label": "PDG 2026 API"
   },
   "theorem": {
     "equivalent_single_remaining_scalars": [

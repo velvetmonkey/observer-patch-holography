@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check that the residual phase envelope gates ordering promotion."""
+"""Check that phase stability never substitutes for a physical mass-label rule."""
 
 from __future__ import annotations
 
@@ -20,24 +20,25 @@ def main() -> int:
     if not certificate:
         print("missing gap_vs_radius_certificate", file=sys.stderr)
         return 1
-    if str(splittings.get("ordering_theorem_status", "")).startswith("selector_"):
-        if not splittings.get("ordering_phase_certified"):
-            print("selector-certified ordering is missing the certified label", file=sys.stderr)
-            return 1
-        print("phase envelope gate bypassed legitimately by selector certification")
-        return 0
-    if envelope.get("ordering_phase_stable"):
-        if not splittings.get("ordering_phase_certified"):
-            print("ordering should be certified when the envelope says it is phase-stable", file=sys.stderr)
-            return 1
-    else:
-        if splittings.get("ordering_phase_certified") is not None:
-            print("ordering was promoted without a phase-stability certificate", file=sys.stderr)
-            return 1
-    if splittings.get("phase_certificate_source") != str(ENVELOPE):
-        print("splittings are not pointing at the envelope artifact as the phase certificate source", file=sys.stderr)
+    if splittings.get("ordering_phase_certified") is not None:
+        print("phase stability was incorrectly promoted to a physical ordering", file=sys.stderr)
         return 1
-    print("phase envelope correctly gates ordering promotion")
+    if splittings.get("physical_mass_label_assignment") is not None:
+        print("physical mass labels were assigned without a source label rule", file=sys.stderr)
+        return 1
+    if any(splittings.get(key) is not None for key in ("delta_m21_sq_gev2", "delta_m31_sq_gev2", "delta_m32_sq_gev2")):
+        print("physical delta-m labels were emitted without a source label rule", file=sys.stderr)
+        return 1
+    if splittings.get("ordering_theorem_status") != "not_established_mass_label_rule_absent":
+        print("ordering theorem status is not fail-closed", file=sys.stderr)
+        return 1
+    if bool((splittings.get("source_closure_status") or {}).get("closed", False)):
+        print("source-open declared matrix family was incorrectly promoted", file=sys.stderr)
+        return 1
+    if splittings.get("public_surface_candidate_allowed") is not False:
+        print("conditional ascending spectrum is incorrectly public-promotable", file=sys.stderr)
+        return 1
+    print("phase stability remains separate from physical mass labeling")
     return 0
 
 

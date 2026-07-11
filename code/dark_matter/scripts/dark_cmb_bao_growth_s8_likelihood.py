@@ -9,7 +9,11 @@ import math
 from pathlib import Path
 from typing import Any
 
-from camb_fixed_neutrino_compare import OMEGA_NU_H2_DENOMINATOR_EV, OPH_SUM_MNU_EV
+from camb_fixed_neutrino_compare import OMEGA_NU_H2_DENOMINATOR_EV
+from d6_capacity_calculator import (
+    DEFAULT_COSMOLOGY_SUM_MNU_EV,
+    neutrino_mass_input_provenance,
+)
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -63,6 +67,7 @@ def run_camb(
     ombh2: float,
     omAh2: float,
     sum_mnu_eV: float,
+    neutrino_hierarchy: str,
     tau: float,
     As: float,
     ns: float,
@@ -79,7 +84,7 @@ def run_camb(
         tau=tau,
         mnu=sum_mnu_eV,
         nnu=3.044,
-        neutrino_hierarchy="degenerate",
+        neutrino_hierarchy=neutrino_hierarchy,
         num_massive_neutrinos=3 if sum_mnu_eV > 0.0 else 0,
     )
     pars.InitPower.set_params(As=As, ns=ns)
@@ -106,14 +111,20 @@ def run_camb(
     }
 
 
-def blocked_payload(parent: dict[str, Any] | None) -> dict[str, Any]:
+def blocked_payload(
+    parent: dict[str, Any] | None,
+    neutrino_provenance: dict[str, Any],
+) -> dict[str, Any]:
     return {
         "status": {
             "category": "compressed dark-sector likelihood gate",
             "ready": False,
+            "public_promotion_allowed": False,
             "reason": "finite-collar parent grid absent or incomplete",
             "required_fields": ["rho_A_over_rho_b", "B_A_grid"],
+            "neutrino_input_status": neutrino_provenance["status"],
         },
+        "neutrino_mass_input_provenance": neutrino_provenance,
         "parent_status": None if parent is None else parent.get("status", {}),
         "rows": [],
         "total_chi2": None,
@@ -122,12 +133,13 @@ def blocked_payload(parent: dict[str, Any] | None) -> dict[str, Any]:
 
 def compute(args: argparse.Namespace) -> dict[str, Any]:
     parent = load_parent(args.parent_grid)
+    neutrino_provenance = neutrino_mass_input_provenance(args.sum_mnu_eV)
     if (
         parent is None
         or parent.get("rho_A_over_rho_b") is None
         or not parent.get("B_A_grid")
     ):
-        return blocked_payload(parent)
+        return blocked_payload(parent, neutrino_provenance)
 
     targets = load_targets()
     planck = targets["planck_2018_vi"]
@@ -135,11 +147,13 @@ def compute(args: argparse.Namespace) -> dict[str, Any]:
     h = args.H0 / 100.0
     rho_ratio = float(parent["rho_A_over_rho_b"])
     omAh2 = args.ombh2 * rho_ratio
+    neutrino_hierarchy = getattr(args, "neutrino_hierarchy", "normal")
     camb_payload = run_camb(
         H0=args.H0,
         ombh2=args.ombh2,
         omAh2=omAh2,
         sum_mnu_eV=args.sum_mnu_eV,
+        neutrino_hierarchy=neutrino_hierarchy,
         tau=args.tau,
         As=args.As,
         ns=args.ns,
@@ -211,12 +225,22 @@ def compute(args: argparse.Namespace) -> dict[str, Any]:
             "category": "compressed dark-sector CMB BAO growth S8 likelihood",
             "ready": True,
             "full_likelihood": False,
+            "public_promotion_allowed": False,
             "covariances_ignored": True,
             "parent_paper_grade": bool(parent.get("status", {}).get("paper_grade", False)),
+            "neutrino_input_status": neutrino_provenance["status"],
             "notes": [
                 "The anomaly is passed to CAMB as a cold pressureless component.",
                 "A scale-dependent B_A(k,a) requires a custom Boltzmann module.",
                 "The diagonal Gaussian rows are compressed checks. Full Planck and DESI likelihood replacements require experimental covariances.",
+                "The supplied neutrino mass is an external background input, not an OPH neutrino prediction.",
+                *(
+                    [
+                        "This run uses the rejected weighted-cycle mass sum and is compare-only; every promotion gate is closed."
+                    ]
+                    if neutrino_provenance["rejected_candidate"]
+                    else []
+                ),
             ],
         },
         "inputs": {
@@ -226,6 +250,8 @@ def compute(args: argparse.Namespace) -> dict[str, Any]:
             "omAh2": omAh2,
             "rho_A_over_rho_b": rho_ratio,
             "sum_mnu_eV": args.sum_mnu_eV,
+            "neutrino_hierarchy": neutrino_hierarchy,
+            "neutrino_mass_input_provenance": neutrino_provenance,
             "tau": args.tau,
             "As": args.As,
             "ns": args.ns,
@@ -248,6 +274,7 @@ def print_markdown(payload: dict[str, Any]) -> None:
         return
     print(f"Full likelihood: `{status['full_likelihood']}`")
     print(f"Parent paper grade: `{status['parent_paper_grade']}`")
+    print(f"Neutrino input status: `{status['neutrino_input_status']}`")
     print(f"CAMB version: `{payload['boltzmann']['camb_version']}`")
     print()
     print("| Quantity | Prediction | Target | z | chi2 | Source |")
@@ -287,7 +314,21 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--parent-grid", default=None)
     parser.add_argument("--H0", type=float, default=67.4)
     parser.add_argument("--ombh2", type=float, default=0.0224)
-    parser.add_argument("--sum-mnu-eV", type=float, default=OPH_SUM_MNU_EV)
+    parser.add_argument(
+        "--sum-mnu-eV",
+        type=float,
+        default=DEFAULT_COSMOLOGY_SUM_MNU_EV,
+        help=(
+            "Externally supplied neutrino mass sum. The default is the minimal-normal "
+            "reference, not an OPH prediction."
+        ),
+    )
+    parser.add_argument(
+        "--neutrino-hierarchy",
+        choices=("normal", "inverted", "degenerate"),
+        default="normal",
+        help="CAMB hierarchy for the explicitly supplied neutrino mass input.",
+    )
     parser.add_argument("--tau", type=float, default=0.0544)
     parser.add_argument("--As", type=float, default=2.1e-9)
     parser.add_argument("--ns", type=float, default=0.965)

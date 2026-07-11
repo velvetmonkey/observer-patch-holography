@@ -8,7 +8,13 @@ import json
 import math
 from typing import Any
 
-from d6_capacity_calculator import C, DEFAULT_N_SCR, G, OPH_NEUTRINO_MASSES_EV, compute as compute_d6
+from d6_capacity_calculator import (
+    DEFAULT_COSMOLOGY_SUM_MNU_EV,
+    DEFAULT_N_SCR,
+    G,
+    compute as compute_d6,
+    neutrino_mass_input_provenance,
+)
 
 
 MPC_M = 3.085_677_581_491_3673e22
@@ -22,6 +28,7 @@ def compute(args: argparse.Namespace) -> dict[str, Any]:
     omega_lambda = (d6["H_dS_km_s_Mpc"] / args.H0_km_s_Mpc) ** 2
     omega_b = args.ombh2 / (h * h)
     sum_mnu = args.sum_mnu_eV
+    neutrino_provenance = neutrino_mass_input_provenance(sum_mnu)
     omega_nu_h2 = sum_mnu / OMEGA_NU_H2_DENOMINATOR_EV
     omega_nu = omega_nu_h2 / (h * h)
     omega_anomaly = 1.0 - omega_lambda - omega_b - omega_nu - args.omega_r
@@ -35,10 +42,13 @@ def compute(args: argparse.Namespace) -> dict[str, Any]:
         "status": {
             "category": "flat capacity-saturated homogeneous anomaly diagnostic",
             "paper_grade": False,
+            "public_promotion_allowed": False,
             "named_premise": "flat capacity-saturated FLRW state selection",
+            "neutrino_input_status": neutrino_provenance["status"],
             "notes": [
                 "The formula is a Hamiltonian-constraint residual after H0, baryon density, neutrino mass, radiation, flatness, and the capacity Lambda are supplied.",
                 "It is not selected by the static galaxy RAR law.",
+                "The supplied neutrino mass is not an OPH neutrino prediction.",
             ],
         },
         "inputs": {
@@ -47,6 +57,7 @@ def compute(args: argparse.Namespace) -> dict[str, Any]:
             "h": h,
             "ombh2": args.ombh2,
             "sum_mnu_eV": sum_mnu,
+            "neutrino_mass_input_provenance": neutrino_provenance,
             "omega_nu_h2": omega_nu_h2,
             "Omega_r": args.omega_r,
         },
@@ -80,6 +91,11 @@ def print_markdown(payload: dict[str, Any]) -> None:
     capacity = payload["capacity"]
     print("# Homogeneous OPH Anomaly State Selection")
     print()
+    print(
+        "Neutrino input status: "
+        f"`{payload['inputs']['neutrino_mass_input_provenance']['status']}`."
+    )
+    print()
     print("| Quantity | Value |")
     print("| --- | ---: |")
     print(f"| H_dS | `{capacity['H_dS_km_s_Mpc']:.9f} km/s/Mpc` |")
@@ -100,7 +116,15 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--n-scr", type=float, default=DEFAULT_N_SCR)
     parser.add_argument("--H0-km-s-Mpc", type=float, default=67.4)
     parser.add_argument("--ombh2", type=float, default=0.02237)
-    parser.add_argument("--sum-mnu-eV", type=float, default=sum(OPH_NEUTRINO_MASSES_EV))
+    parser.add_argument(
+        "--sum-mnu-eV",
+        type=float,
+        default=DEFAULT_COSMOLOGY_SUM_MNU_EV,
+        help=(
+            "Externally supplied neutrino mass sum. The default is the minimal-normal "
+            "reference, not an OPH prediction."
+        ),
+    )
     parser.add_argument("--omega-r", type=float, default=9.17e-5)
     parser.add_argument("--json", action="store_true")
     return parser.parse_args()

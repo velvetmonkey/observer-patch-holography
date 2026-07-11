@@ -1,11 +1,13 @@
 {
   "artifact": "oph_intrinsic_neutrino_exact_mixing_law_validation",
+  "ascending_gap_shift_is_linear_under_declared_normal_ordering_hypothesis": true,
   "base_parameters": {
     "a_diag_gev": 2.4617526608923523e-12,
     "atm_centroid_gap_isotropic_gev2": 9.549864971855835e-25,
     "mc2_isotropic_gev2": 6.708483588492355e-24,
     "md2_isotropic_gev2": 5.7534970913067715e-24,
     "omega_cycle_rad": 1.7561442767905913,
+    "perturbative_denominator_gev": 4.179905533947366e-12,
     "phi_equal_split_rad": 0.5853814255968638,
     "rho_offdiag_gev": 7.615694417250985e-14
   },
@@ -18,18 +20,18 @@
   "centroid_gap_shift_rel_error_quadratic": 0.07391198545031145,
   "collective_vector_actual_aligned": {
     "imag": [
-      0.0011861169078688511,
-      -0.0031991632094548984,
-      0.0030160251179385056
+      -0.0008393393651630371,
+      0.0035867578840082554,
+      -0.0026798269037758716
     ],
     "real": [
-      0.559958535580081,
-      0.6258693413140681,
-      0.5428750022869293
+      0.5599591627536225,
+      0.6258672400837327,
+      0.5428767659822172
     ]
   },
-  "collective_vector_overlap_from_delta": 0.9999492473718995,
-  "collective_vector_overlap_from_eta": 0.9998736044872493,
+  "collective_vector_overlap_from_delta": 0.9999945218895852,
+  "collective_vector_overlap_from_eta": 0.9999167250944141,
   "collective_vector_prediction_from_delta": {
     "imag": [
       -0.0011749273932872718,
@@ -81,7 +83,7 @@
     "psi23": 0.07130912844682058,
     "psi31": -0.5171274991668646
   },
-  "generated_utc": "2026-06-29T07:35:36Z",
+  "generated_utc": "2026-07-11T06:47:01Z",
   "mc_scaling_check": [
     {
       "eta_norm_scale": 0.001,
@@ -129,7 +131,6 @@
     "The first-order invariant atmospheric object is the collective-to-doublet-centroid gap, not the ordered Delta m31^2 row.",
     "The collective singular-vector deformation law is already highly accurate on the weighted demo and becomes asymptotically exact near the isotropic point."
   ],
-  "ordered_atmospheric_shift_is_linear": true,
   "selector_actual_from_matrix": {
     "psi12": 0.31893255645006824,
     "psi23": 0.4734879499188133,

@@ -91,6 +91,7 @@ RUNTIME_SURFACED_ARTIFACTS = (
     Path("runs/neutrino/neutrino_weighted_cycle_repair.json"),
     Path("runs/neutrino/neutrino_weighted_cycle_absolute_amplitude_bridge.json"),
     Path("runs/neutrino/neutrino_lambda_nu_bridge_candidate.json"),
+    Path("runs/neutrino/neutrino_bridge_correction_invariant_scaffold.json"),
     Path("runs/neutrino/neutrino_exact_adapter_bridge_coordinate.json"),
     Path("runs/uv/bw_fixed_local_collar_modular_transport_common_floor_scaffold.json"),
     Path("runs/flavor/overlap_edge_transport_cocycle.json"),
@@ -574,6 +575,7 @@ def build_runtime(runtime_root: Path, *, with_hadrons: bool, verbose: bool) -> P
     _run(["python3", "particles/uv/derive_bw_internalization_scaffold.py"], cwd=work_code, verbose=verbose)
     _run(["python3", "particles/neutrino/derive_neutrino_compare_only_scale_fit.py"], cwd=work_code, verbose=verbose)
     _run(["python3", "particles/neutrino/derive_neutrino_two_parameter_exact_adapter.py"], cwd=work_code, verbose=verbose)
+    _run(["python3", "particles/neutrino/derive_neutrino_exact_adapter_bridge_coordinate.py"], cwd=work_code, verbose=verbose)
     _run(["python3", "particles/neutrino/derive_neutrino_bridge_correction_candidate_audit.py"], cwd=work_code, verbose=verbose)
     _run(["python3", "particles/neutrino/derive_neutrino_attachment_irreducibility.py"], cwd=work_code, verbose=verbose)
     _run(["python3", "particles/neutrino/derive_neutrino_bridge_rigidity_theorem.py"], cwd=work_code, verbose=verbose)
@@ -596,12 +598,14 @@ def build_runtime(runtime_root: Path, *, with_hadrons: bool, verbose: bool) -> P
     status_cmd = ["python3", "particles/scripts/build_results_status_table.py"]
     exact_nonhadron_cmd = ["python3", "particles/scripts/build_exact_nonhadron_mass_bundle.py"]
     exact_fit_cmd = ["python3", "particles/scripts/build_exact_fit_surface.py"]
+    gap_ledger_cmd = ["python3", "particles/scripts/build_derivation_gap_ledger.py"]
     svg_cmd = ["python3", "particles/scripts/generate_mass_derivation_svg.py"]
     if with_hadrons:
         status_cmd.append("--with-hadrons")
     _run(status_cmd, cwd=work_code, verbose=verbose)
     _run(exact_nonhadron_cmd, cwd=work_code, verbose=verbose)
     _run(exact_fit_cmd, cwd=work_code, verbose=verbose)
+    _run(gap_ledger_cmd, cwd=work_code, verbose=verbose)
     _run(["python3", "particles/scripts/build_particle_pipeline_closure_status.py"], cwd=work_code, verbose=verbose)
     _run(["python3", "particles/scripts/build_blind_prediction_provenance.py"], cwd=work_code, verbose=verbose)
     _run(["python3", "particles/scripts/build_particle_pipeline_closure_status.py"], cwd=work_code, verbose=verbose)

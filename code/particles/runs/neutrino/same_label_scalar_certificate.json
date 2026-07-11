@@ -22,7 +22,7 @@
     "psi23": 0.3124848080685916,
     "psi31": 0.3124848080685916
   },
-  "generated_utc": "2026-03-30T00:40:08Z",
+  "generated_utc": "2026-07-11T05:24:08Z",
   "insufficient_for_pmns_or_public_flavor_rows": true,
   "mu_e": {
     "psi12": 0.0013874214804477558,
@@ -31,10 +31,11 @@
   },
   "notes": [
     "This is the smallest proof-facing scalar artifact the downstream intrinsic neutrino lane needs.",
-    "The intrinsic neutrino mass-eigenstate branch factors through this scalar certificate once the same-label scalars are populated.",
+    "The intrinsic neutrino mass-eigenstate algebra factors through this scalar certificate once the same-label scalars are populated.",
+    "Its numeric fields are conditional because the upstream family kernel and overlap-line lift are not source-closed.",
     "PMNS and flavor-labeled rows still require the shared charged-lepton left basis."
   ],
-  "proof_status": "fixed_cutoff_scalar_sufficient_downstream_certificate",
+  "proof_status": "fixed_cutoff_scalar_sufficient_conditional_on_source_inputs",
   "q_e": {
     "psi12": 0.05173372822682583,
     "psi23": 0.03557349044437228,
@@ -168,7 +169,20 @@
   "source_artifacts": [
     "oph_realized_same_label_gap_defect_readback"
   ],
+  "source_closure_status": {
+    "closed": false,
+    "family_transport_kernel_explicit_source_closure": false,
+    "family_transport_kernel_proof_status": "conjugacy_riesz_candidate",
+    "family_transport_kernel_status": "template",
+    "missing_objects": [
+      "source_emitted_family_transport_kernel",
+      "theorem_grade_overlap_edge_line_lift"
+    ],
+    "overlap_edge_line_lift_explicit_source_closure": false,
+    "overlap_edge_line_lift_proof_status": "candidate_only"
+  },
   "source_kind": "existing_same_label_pullback_payload",
+  "source_only_physical_input_eligible": false,
   "source_path": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/neutrino/realized_same_label_gap_defect_readback.json",
   "sufficient_for_intrinsic_mass_eigenstates": true
 }

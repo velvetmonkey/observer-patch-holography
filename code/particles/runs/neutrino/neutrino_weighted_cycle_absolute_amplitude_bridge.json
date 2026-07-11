@@ -20,6 +20,7 @@
     "name": "lambda_nu",
     "relation_to_bridge": "lambda_nu = A_nu in the eV-valued normalization used by the repaired weighted-cycle artifact"
   },
+  "first_physical_missing_object": "source_closed_neutrino_operator_basis_and_mass_label_contract",
   "fixed_live_objects": {
     "m_star_formula": "v^2 / mu_u",
     "m_star_gev": 2.4617526608923523e-12,
@@ -53,12 +54,13 @@
       "notation": "m_hat"
     }
   },
-  "generated_utc": "2026-03-30T11:18:10Z",
-  "no_go_statement": "The repaired weighted-cycle branch emits only a scale-free normal form, while the live D10 neutrino scale anchor emits only the isotropic amplitude scale m_star. No emitted theorem presently attaches that dimensionful anchor to the repaired weighted-cycle normal form, so lambda_nu cannot be emitted from the current corpus.",
+  "generated_utc": "2026-07-11T05:53:06Z",
+  "no_go_statement": "Conditional on the rejected weighted-cycle ansatz, the stored normal form retains one positive scale. The live D10 scale anchor does not supply a source-closed attachment to that candidate. More importantly, the physical lane is blocked earlier by the source-open neutrino operator, charged basis, and mass-label rule.",
   "notes": [
-    "This artifact does not reopen the dimensionless selector question; that question is already fixed by the repaired weighted-cycle branch.",
-    "The remaining gap is a dimensionful attachment theorem between the repaired weighted-cycle normal form and the live D10 amplitude sector."
+    "The dimensionless selector, topology, exponent, basis placement, and ordering are not source-derived; this artifact must not imply otherwise.",
+    "Only after a source-closed physical branch exists would its residual absolute-scale attachment become a physical theorem target."
   ],
+  "public_promotion_allowed": false,
   "remaining_object": "neutrino_weighted_cycle_absolute_amplitude_bridge",
   "remaining_object_contract": {
     "absolute_mass_rule": "m_i = A_nu * mhat_i",
@@ -76,6 +78,19 @@
     "neutrino_scale_anchor": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/neutrino/neutrino_scale_anchor.json",
     "neutrino_weighted_cycle_repair": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/neutrino/neutrino_weighted_cycle_repair.json"
   },
-  "status": "constructive_extension_required",
-  "theorem_status": "dimensionless_branch_closed_absolute_bridge_open"
+  "status": "conditional_scale_audit_on_rejected_source_open_candidate",
+  "theorem_status": "not_established_physical_branch_upstream_gates_open",
+  "weighted_cycle_source_closure_status": {
+    "closed": false,
+    "family_transport_kernel_proof_status": "conjugacy_riesz_candidate",
+    "family_transport_kernel_status": "template",
+    "missing_objects": [
+      "source_emitted_family_transport_kernel",
+      "source_derived_weight_exponent_and_cycle_matrix_law",
+      "source_derived_basis_permutation_and_holonomy_orientation",
+      "closed_nondegenerate_charged_lepton_left_basis",
+      "source_derived_mass_eigenstate_label_and_ordering_rule",
+      "pre_reference_hash_lock"
+    ]
+  }
 }

@@ -22,8 +22,8 @@
     },
     "observable_normal_forms": {
       "pdf_path": "extra/observable_normal_forms.pdf",
-      "sha256": "d1754415e55fd9d38bbe4ca7cb6446e481d3c976b940f1c9616c5a8acef54fca",
-      "size_bytes": 226400
+      "sha256": "b377a0512b217b8554db6d2ff1c8502a169f02eba1583d79e34ef79b02400256",
+      "size_bytes": 227003
     },
     "observer_patch_holography_as_string_vacuum_selector": {
       "pdf_path": "extra/observer_patch_holography_as_string_vacuum_selector.pdf",
@@ -46,7 +46,7 @@
       "size_bytes": 144984
     }
   },
-  "generated_at": "2026-07-11T04:41:45.650735Z",
+  "generated_at": "2026-07-11T06:40:14.375190Z",
   "papers": {
     "deriving_the_particle_zoo_from_observer_consistency": {
       "pdf_path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",

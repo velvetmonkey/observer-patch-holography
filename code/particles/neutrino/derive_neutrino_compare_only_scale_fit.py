@@ -11,7 +11,8 @@ scale `lambda_nu` can rescale all absolute masses and splittings, but it
 cannot change that ratio. This script records the resulting compare-only fit
 surface and the central-value mismatch that remains after the repaired branch.
 
-OPH-derived inputs: only the live repaired branch artifact.
+Declared input: the rejected target-informed weighted-cycle candidate. The
+oscillation central values below are explicit comparison targets.
 
 Output: a compare-only fit artifact for diagnostics and CLI/status reporting.
 It must not feed back into theorem state or public promoted neutrino masses.

@@ -50,7 +50,7 @@
   },
   "current_compare_only_target": {
     "name": "C_nu_star",
-    "source": "compare_only_B_nu_star divided by the best emitted residual-amplitude proxy",
+    "source": "compare_only_B_nu_star divided by the internal candidate residual-amplitude proxy",
     "value": 0.9995473560046991
   },
   "emitted_proxy_route": {
@@ -65,9 +65,9 @@
     "exact_residual_moduli_space": "R_{>0}",
     "symbol": "C_nu"
   },
-  "generated_utc": "2026-06-29T07:35:37Z",
+  "generated_utc": "2026-07-11T06:47:03Z",
   "hard_guard": {
-    "reason": "C_nu is a smaller exact bridge object, but every formula emitted here is still selected by compare-only search. This audit remains diagnostic-only beneath the emitted theorem pair and does not emit an independent bridge theorem.",
+    "reason": "C_nu is a smaller exact bridge object, but every formula emitted here is still selected by compare-only search. This audit is diagnostic-only on a rejected source-open candidate and does not emit an independent bridge theorem.",
     "status": "do_not_promote"
   },
   "induced_target_containing_bridge_scalar_window": {
@@ -134,12 +134,12 @@
     ],
     "selection_rule": "Choose one candidate per route family that still contains the live compare-only target while minimizing relative half-width; total algebraic complexity and route-local compare-only error break ties."
   },
-  "proof_chain_role": "diagnostic_only_retired_from_theorem_lane",
+  "proof_chain_role": "diagnostic_target_search_only",
   "public_promotion_allowed": false,
   "route_selection_rule": {
     "core_correction_route": "Search directly on the core residual scalar pool for C_nu.",
     "family_assisted_correction_route": "Search directly on the family-assisted residual scalar pool for C_nu.",
-    "normalizer_quotient_route": "Take a converted symmetric-normalizer B_nu candidate and divide by the emitted residual-amplitude proxy."
+    "normalizer_quotient_route": "Take a converted symmetric-normalizer B_nu candidate and divide by the internal candidate residual-amplitude proxy."
   },
   "status": "compare_only_reduced_bridge_correction_search",
   "supporting_three_route_target_containing_correction_window": {
@@ -445,5 +445,5 @@
       "value": 1.0116020355909907
     }
   ],
-  "working_observation": "Once the bridge is reduced to C_nu above the emitted proxy sqrt(I_nu * ratio_hat) / sum_defect, the compare-only search surface becomes materially tighter. The best direct core correction clue is `I_nu^-1 * ratio_hat^0.5 * gamma^0.5`, while the strongest family-assisted clue is `sum_gap^2 * prod_qbar * solar_response_over_mstar^-0.5`. Their target-containing correction window induces a narrower target-containing B_nu window than the old direct bridge corridor."
+  "working_observation": "Once the candidate bridge is reduced to C_nu above the internal proxy sqrt(I_nu * ratio_hat) / sum_defect, the compare-only search surface becomes materially tighter. The best direct core correction clue is `I_nu^-1 * ratio_hat^0.5 * gamma^0.5`, while the strongest family-assisted clue is `sum_gap^2 * prod_qbar * solar_response_over_mstar^-0.5`. Their target-containing correction window induces a narrower target-containing B_nu window than the old direct bridge corridor."
 }

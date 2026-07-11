@@ -32,7 +32,7 @@
         1.2566921764926138,
         173.2690628822735
       ],
-      "rms_log_error_vs_reference_targets": 0.01042141570737968,
+      "rms_log_error_vs_reference_targets": 0.008657179320594023,
       "status": "comparison_only_not_promotable",
       "tau_d_log_per_side": 0.04411865683386919,
       "tau_u_log_per_side": 0.026081343166130807
@@ -68,7 +68,7 @@
         1.2566921714397312,
         172.85192993931355
       ],
-      "rms_log_error_vs_reference_targets": 0.01078398352557181,
+      "rms_log_error_vs_reference_targets": 0.00907939029103761,
       "tau_d_log_per_side": 0.04208000856170554,
       "tau_u_log_per_side": 0.024876168553006103
     }
@@ -87,7 +87,7 @@
     },
     "proof_status": "same_family_mass_ray_emitted_modulus_open"
   },
-  "generated_utc": "2026-06-29T07:35:27Z",
+  "generated_utc": "2026-07-11T06:46:50Z",
   "minimal_new_theorem": {
     "derived_wrapper": {
       "derived_from": "quark_d12_t1_value_law",

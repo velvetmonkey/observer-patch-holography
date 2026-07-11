@@ -119,7 +119,7 @@ Use the following evidence vocabulary consistently:
   record. It keeps visual/spectrum diagnostics, source-only finite artifacts,
   conditional imported-FLRW routing, OPH-native geometry readout, and frozen
   likelihood-evaluated physical CMB predictions as separate claim tiers.
-- [Finite E8/Spin8 Triality Certificate for an Alt(9) Double Cover](e8_spin8_triality_alt9_certificate.md):
+- [Finite E8/Spin8 Triality claim statement for an Alt(9) double cover](e8_spin8_triality_alt9_certificate.md):
   pending algebraic-certificate specification for the exceptional-symmetry
   sidecar. The exact matrices, lattice bases, orbit enumeration, triality
   intertwiner, and reproducible hash bundle are still required.

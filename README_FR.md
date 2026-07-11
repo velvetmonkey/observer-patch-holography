@@ -16,7 +16,13 @@ une exclusion prospective d'une branche neutrino fermée côté source
 réfuteraient l'affirmation OPH correspondante. L'ancien point neutrino à cycle
 pondéré n'a jamais atteint ce statut : il descend d'un gabarit de saveur écrit à
 la main, son sélecteur a été choisi après comparaison aux cibles, et le profil
-corrélé NuFIT 6.1 l'exclut.
+corrélé NuFIT 6.1 l'exclut. Le transport vers la base partagée annule la
+matrice des leptons chargés par construction ; il ne dérive pas leur base
+physique. Ce candidat ne fournit donc ni matrice PMNS physique ni masses
+absolues des neutrinos. L'audit a également corrigé une erreur du pipeline
+intrinsèque, qui exportait les vecteurs singuliers gauches à la place de la
+matrice de Takagi de Majorana ; le point conditionnel corrigé est lui aussi
+très éloigné des données d'oscillation.
 
 Pour la réponse existentielle immédiate, allez directement au **Paper 6.
 [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf)**.

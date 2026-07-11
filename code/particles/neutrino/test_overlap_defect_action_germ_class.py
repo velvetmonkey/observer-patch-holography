@@ -24,6 +24,12 @@ def main() -> int:
     if str(payload.get("proof_status", "")) != "local_quadratic_germ_closed":
         print("action germ is not marked as locally closed", file=sys.stderr)
         return 1
+    if payload.get("public_surface_candidate_allowed") is not False:
+        print("conditional action germ is incorrectly public-promotable", file=sys.stderr)
+        return 1
+    if bool((payload.get("source_closure_status") or {}).get("closed", False)):
+        print("conditional action germ incorrectly claims source closure", file=sys.stderr)
+        return 1
     template = np.asarray(payload.get("hessian_class_residual_2x2"), dtype=float)
     target = np.asarray([[2.0, 1.0], [1.0, 2.0]], dtype=float)
     if template.shape != (2, 2) or not np.allclose(template, target, atol=1.0e-12, rtol=1.0e-12):

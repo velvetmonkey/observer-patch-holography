@@ -2,9 +2,9 @@
 """Offline production orchestration for the blinded IBM preregistration.
 
 The command builds one production-random catalog, derives and binds the
-hardened analysis lock, verifies all logical QPY digests, and writes the three
-artifacts as a commit-last transaction.  It does not import credentials,
-connect to IBM, or submit jobs.
+hardened analysis lock, verifies all canonical logical OpenQASM 3 digests, and
+writes the three artifacts as a commit-last transaction.  It does not import
+credentials, connect to IBM, or submit jobs.
 """
 
 from __future__ import annotations
@@ -109,7 +109,6 @@ def build_and_bind_production_bundle(
 
 def _resolved_new_target(path: Path) -> Path:
     parent = path.parent.resolve()
-    parent.mkdir(parents=True, exist_ok=True)
     return parent / path.name
 
 
@@ -184,6 +183,8 @@ def write_sealed_bundle_atomically(
     existing = [str(path) for path in targets if path.exists() or path.is_symlink()]
     if existing:
         raise FileExistsError("refusing to overwrite sealed artifact: " + ", ".join(existing))
+    for target in targets:
+        target.parent.mkdir(parents=True, exist_ok=True)
 
     staged: dict[Path, Path] = {}
     committed: list[Path] = []

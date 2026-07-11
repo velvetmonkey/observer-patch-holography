@@ -99,6 +99,8 @@ def main() -> int:
         "delta_m31_sq_gev2": float(absolute_dm2.get("31", 0.0)) * 1.0e-18,
         "delta_m32_sq_gev2": float(absolute_dm2.get("32", 0.0)) * 1.0e-18,
         "legacy_absolute_fields_are_compare_only": True,
+        "legacy_absolute_mass_basis_semantics": "ascending_candidate_mass_eigenstates_not_flavor_neutrino_masses",
+        "physical_mass_ordering_status": weighted_cycle.get("mass_ordering_status", "unresolved"),
         "splitting_ratio_r": weighted_cycle["dimensionless_ratio_dm21_over_dm32"],
         "ordering_phase_certified": False,
         "pmns_status": "target_informed_template_candidate_rejected_by_nufit61_profile" if profile_rejected else "target_informed_template_candidate",

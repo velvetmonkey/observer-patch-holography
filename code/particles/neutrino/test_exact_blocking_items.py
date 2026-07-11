@@ -107,10 +107,12 @@ def test_exact_blocking_items_reports_isotropy_and_live_missing_objects() -> Non
         assert [item["name"] for item in exact_payload["exact_blockers"]] == [
             "live_same_label_scalar_certificate",
             "shared_charged_lepton_left_basis",
+            "neutrino_mass_eigenstate_label_and_ordering_rule",
         ]
         assert summary_payload["exact_remaining_blockers"] == [
             "live_same_label_scalar_certificate",
             "shared_charged_lepton_left_basis",
+            "neutrino_mass_eigenstate_label_and_ordering_rule",
         ]
 
 
@@ -129,11 +131,12 @@ def test_exact_blocking_items_close_when_certificate_basis_and_pmns_are_live() -
 
         forward.write_text(
             json.dumps(
-                {
-                    "masses_gev_sorted": [2.38e-12, 2.42e-12, 2.58e-12],
+                    {
+                        "masses_gev_sorted": [2.38e-12, 2.42e-12, 2.58e-12],
                     "delta_m21_sq_gev2": 1.7e-25,
                     "delta_m31_sq_gev2": 1.0e-24,
-                    "ordering_phase_certified": "normal_like_collective_dominance",
+                        "ordering_phase_certified": "normal_like_collective_dominance",
+                        "physical_ordering_assignments": {"selected": "normal"},
                 },
                 indent=2,
             )
@@ -141,12 +144,31 @@ def test_exact_blocking_items_close_when_certificate_basis_and_pmns_are_live() -
             encoding="utf-8",
         )
         certificate.write_text(
-            json.dumps({"artifact": "oph_neutrino_same_label_scalar_certificate", "sufficient_for_intrinsic_mass_eigenstates": True}, indent=2)
+            json.dumps(
+                {
+                    "artifact": "oph_neutrino_same_label_scalar_certificate",
+                    "sufficient_for_intrinsic_mass_eigenstates": True,
+                    "source_only_physical_input_eligible": True,
+                    "source_closure_status": {"closed": True},
+                },
+                indent=2,
+            )
             + "\n",
             encoding="utf-8",
         )
         pmns.write_text(json.dumps({"status": "closed"}, indent=2) + "\n", encoding="utf-8")
-        charged_left.write_text(json.dumps({"status": "closed"}, indent=2) + "\n", encoding="utf-8")
+        charged_left.write_text(
+            json.dumps(
+                {
+                    "status": "closed",
+                    "pmns_use_allowed": True,
+                    "basis_contract": {"physical_identification_closed": True},
+                },
+                indent=2,
+            )
+            + "\n",
+            encoding="utf-8",
+        )
         eta_demo.write_text(
             json.dumps({"eta_e": {"psi12": 0.1, "psi23": -0.2, "psi31": 0.1}}, indent=2) + "\n",
             encoding="utf-8",
@@ -221,11 +243,12 @@ def test_exact_blocking_items_reduce_to_one_absolute_normalization_after_repair(
 
         forward.write_text(
             json.dumps(
-                {
-                    "masses_gev_sorted": [2.38e-12, 2.42e-12, 2.58e-12],
+                    {
+                        "masses_gev_sorted": [2.38e-12, 2.42e-12, 2.58e-12],
                     "delta_m21_sq_gev2": 1.7e-25,
                     "delta_m31_sq_gev2": 1.0e-24,
-                    "ordering_phase_certified": "normal_like_collective_dominance",
+                        "ordering_phase_certified": "normal_like_collective_dominance",
+                        "physical_ordering_assignments": {"selected": "normal"},
                 },
                 indent=2,
             )
@@ -233,12 +256,31 @@ def test_exact_blocking_items_reduce_to_one_absolute_normalization_after_repair(
             encoding="utf-8",
         )
         certificate.write_text(
-            json.dumps({"artifact": "oph_neutrino_same_label_scalar_certificate", "sufficient_for_intrinsic_mass_eigenstates": True}, indent=2)
+            json.dumps(
+                {
+                    "artifact": "oph_neutrino_same_label_scalar_certificate",
+                    "sufficient_for_intrinsic_mass_eigenstates": True,
+                    "source_only_physical_input_eligible": True,
+                    "source_closure_status": {"closed": True},
+                },
+                indent=2,
+            )
             + "\n",
             encoding="utf-8",
         )
         pmns.write_text(json.dumps({"status": "closed"}, indent=2) + "\n", encoding="utf-8")
-        charged_left.write_text(json.dumps({"status": "closed"}, indent=2) + "\n", encoding="utf-8")
+        charged_left.write_text(
+            json.dumps(
+                {
+                    "status": "closed",
+                    "pmns_use_allowed": True,
+                    "basis_contract": {"physical_identification_closed": True},
+                },
+                indent=2,
+            )
+            + "\n",
+            encoding="utf-8",
+        )
         eta_demo.write_text(
             json.dumps({"eta_e": {"psi12": 0.1, "psi23": -0.2, "psi31": 0.1}}, indent=2) + "\n",
             encoding="utf-8",
@@ -259,7 +301,10 @@ def test_exact_blocking_items_reduce_to_one_absolute_normalization_after_repair(
             json.dumps(
                 {
                     "artifact": "oph_neutrino_weighted_cycle_repair",
-                    "physical_window_status": "pmns_and_hierarchy_repaired",
+                        "physical_window_status": "pmns_and_hierarchy_repaired",
+                        "source_only_prediction_eligible": True,
+                        "prediction_promotion_allowed": True,
+                        "historical_target_exposure": False,
                     "absolute_normalization_status": "open_one_positive_scale",
                     "pmns_observables": {"theta12_deg": 33.97},
                     "dimensionless_dm2": {"21": 1.0, "32": 2.0},
@@ -329,4 +374,4 @@ def test_exact_blocking_items_reduce_to_one_absolute_normalization_after_repair(
         assert corridor["strongest_target_containing_bridge_scalar_corridor"]["relative_half_width"] < corridor["primary_cross_route_corridor"]["relative_half_width"]
         reduced = exact_payload["live_continuation_branch_status"]["absolute_scale_no_go"]["smallest_exact_missing_object"]
         assert reduced["symbol"] == "C_nu"
-        assert reduced["status"] == "irreducible_on_current_corpus"
+        assert reduced["status"] == "conditionally_irreducible_on_declared_candidate_stack"

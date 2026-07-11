@@ -162,6 +162,13 @@ def main() -> int:
             "total_assignments": len(rows),
             "two_parameter_3sigma_threshold": THREE_SIGMA_TWO_DOF_DELTA_CHI2,
         },
+        "scope": {
+            "unitary_under_test": "stored_declared_weighted_cycle_pmns",
+            "transformations": "complex conjugation plus row and column permutations",
+            "physical_charged_basis_product_formed": False,
+            "weighted_cycle_operator_basis_placement_audited": False,
+            "limitation": "This enumeration cannot test the missing source map from f-labelled operator data to the charged-lepton mass basis.",
+        },
         "mathematical_convention_checks": {
             "takagi_relation": "For U^T M U = D, the columns of U diagonalize M^dagger M.",
             "jarlskog_sign": "J = Im(U_e1 U_mu2 U_e2^* U_mu1^*) uses the PDG sign convention.",
@@ -176,7 +183,9 @@ def main() -> int:
                 row["passes_both_declared_3sigma_gates"] for row in no_consistent_rows
             ),
             "declared_assignment_is_best_by_worst_dataset_score": best is declared,
-            "convention_error_found": False,
+            "stored_pmns_internal_convention_error_found": False,
+            "stored_pmns_relabeling_rescue_found": False,
+            "physical_basis_contract_error_excluded": False,
             "post_hoc_relabeling_allowed_as_rescue": False,
         },
         "assignments": rows,

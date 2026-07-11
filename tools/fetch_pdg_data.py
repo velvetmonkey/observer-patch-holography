@@ -8,12 +8,14 @@ Install: pip install pdg pandas
 """
 
 import json
+import logging
 import pdg
 import pandas as pd
 from pathlib import Path
 
 OUTPUT_DIR = Path(__file__).parent.parent / "pdg_data"
 OUTPUT_DIR.mkdir(exist_ok=True)
+LOGGER = logging.getLogger(__name__)
 
 # (PDG name or mcid, label, fallback PDG property ID, unit of fallback)
 # Some particles (light quarks, pi0) need direct property lookup because
@@ -55,21 +57,19 @@ def fetch_mass(api, pdg_id, fallback_prop, unit):
         else:
             p = api.get_particle_by_name(pdg_id)
 
-        mass = p.mass
-        if mass is not None:
-            err_plus, err_minus = None, None
-            try:
-                for m in p.masses():
-                    s = m.best_summary()
-                    if s is not None:
-                        err_plus = s.error_positive
-                        err_minus = s.error_negative
-                        break
-            except Exception:
-                pass
-            return mass, err_plus, err_minus
+        mass_property = p.best(p.masses(), f"{label_for(pdg_id)} mass")
+        summary = mass_property.best_summary()
+        if summary is not None and not summary.is_limit:
+            # Summary values and errors are expressed in summary.units (often
+            # MeV or atomic mass units). Convert all three through the PDG
+            # package instead of pairing p.mass (GeV) with raw summary errors.
+            return (
+                summary.get_value("GeV"),
+                summary.get_error_positive("GeV"),
+                summary.get_error_negative("GeV"),
+            )
     except Exception:
-        pass
+        LOGGER.exception("Standard PDG mass lookup failed for %r", pdg_id)
 
     # Fallback: direct property ID lookup (light quarks, pi0)
     if fallback_prop is not None:
@@ -77,23 +77,24 @@ def fetch_mass(api, pdg_id, fallback_prop, unit):
             item = api.get(fallback_prop)
             s = item.best_summary()
             if s is not None and s.value is not None:
-                val = s.value
-                ep = s.error_positive
-                em = s.error_negative
-                if unit == "MeV":
-                    val /= 1000.0
-                    if ep is not None:
-                        ep /= 1000.0
-                    if em is not None:
-                        em /= 1000.0
-                return val, ep, em
-        except Exception as e:
-            print(f"  Fallback failed for {fallback_prop}: {e}")
+                return (
+                    s.get_value("GeV"),
+                    s.get_error_positive("GeV"),
+                    s.get_error_negative("GeV"),
+                )
+        except Exception:
+            LOGGER.exception("Fallback PDG lookup failed for %s", fallback_prop)
 
     return None, None, None
 
 
+def label_for(pdg_id):
+    """Stable diagnostic label that does not trigger another API lookup."""
+    return str(pdg_id)
+
+
 def main():
+    logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
     print("Connecting to PDG database...")
     api = pdg.connect()
     print(f"PDG edition: {api.edition}\n")

@@ -4,14 +4,14 @@
   "conditional_readout_if_closed": {
     "centered_log_source_boundary": "The displayed centered logs are the exact same-family witness checksum, not a source-only charged-mass prediction.",
     "centered_logs": {
-      "ell_e": -4.495210108808081,
-      "ell_mu": 0.8363886515979087,
-      "ell_tau": 3.6588214572101716
+      "ell_e": -4.495209645475038,
+      "ell_mu": 0.8363891135806538,
+      "ell_tau": 3.658820531894384
     },
     "formulas": {
-      "electron": "m_e(P)=exp(A_ch(P)-4.495210108808081)",
-      "muon": "m_mu(P)=exp(A_ch(P)+0.836388651597909)",
-      "tau": "m_tau(P)=exp(A_ch(P)+3.658821457210172)"
+      "electron": "m_e(P)=exp(A_ch(P)-4.495209645475038)",
+      "muon": "m_mu(P)=exp(A_ch(P)+0.836389113580654)",
+      "tau": "m_tau(P)=exp(A_ch(P)+3.658820531894384)"
     }
   },
   "current_closed_chain": {
@@ -39,7 +39,7 @@
     "CODATA",
     "compare_only"
   ],
-  "generated_utc": "2026-06-29T09:20:24Z",
+  "generated_utc": "2026-07-11T06:46:55Z",
   "missing_for_promotion": [
     "charged_branch_generator_splitting_promotion",
     "sector_isolated_charged_determinant_exponent_vector_M_ch",
@@ -92,9 +92,9 @@
     }
   },
   "target_anchored_checksum_only": {
-    "A_ch_current_family": -3.083932913749122,
+    "A_ch_current_family": -3.083933375731867,
     "artifact_ref": "code/particles/runs/leptons/lepton_current_family_affine_anchor_theorem.json",
-    "g_e_current_family": 0.0457788578356876,
+    "g_e_current_family": 0.04577883668665009,
     "status": "checksum_not_promotion",
     "why": "A_ch_current_family is computed from the same-family charged determinant. It is useful as an audit checksum but is a forbidden ancestor for a source-only A_ch(P) theorem."
   },

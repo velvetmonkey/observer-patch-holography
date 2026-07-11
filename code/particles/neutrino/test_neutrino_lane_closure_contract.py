@@ -22,7 +22,7 @@ ISOTROPIC = ROOT / "particles" / "runs" / "neutrino" / "forward_majorana_matrix.
 SELECTOR = ROOT / "particles" / "runs" / "neutrino" / "neutrino_transport_load_segment_selector.json"
 
 
-def test_neutrino_lane_closure_contract_records_emitted_theorem_pair() -> None:
+def test_neutrino_lane_closure_contract_records_rejected_candidate_pair() -> None:
     subprocess.run(
         [
             sys.executable,
@@ -48,6 +48,7 @@ def test_neutrino_lane_closure_contract_records_emitted_theorem_pair() -> None:
     assert payload["artifact"] == "oph_neutrino_lane_closure_contract"
     assert payload["proof_status"] == "target_informed_weighted_cycle_candidate_with_compare_only_absolute_attachment"
     assert payload["scale_free_prediction_promotion_allowed"] is False
+    assert payload["bridge_prediction_promotion_allowed"] is False
     assert payload["historical_target_exposure"] is True
     assert payload["current_branch_status"]["no_hidden_discrete_branch"] is False
     rigidity = payload["emitted_bridge_rigidity_theorem"]
@@ -61,5 +62,5 @@ def test_neutrino_lane_closure_contract_records_emitted_theorem_pair() -> None:
     assert attachment["lambda_nu"] == 1.7237014208357415
     assert payload["public_promotion_allowed"] is False
     assert payload["non_circularity_status"]["missing_source_object"] == (
-        "source_emitted_neutrino_C_nu_no_compare_target"
+        "source_closed_neutrino_operator_basis_ordering_and_absolute_scale"
     )

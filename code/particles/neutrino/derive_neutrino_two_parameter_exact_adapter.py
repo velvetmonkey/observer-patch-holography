@@ -2,14 +2,12 @@
 """Emit a full exact neutrino compare-only continuation adapter.
 
 Chain role: expose the strongest exact compare-only neutrino fit currently
-available on disk by moving along the already-emitted positive selector segment
+available on disk by moving along the declared positive selector segment
 and then rescaling the resulting dimensionless branch by one positive
 normalization.
 
-Mathematics: the live midpoint selector fixes one theorem-grade weighted-cycle
-branch and the emitted bridge-rigidity / absolute-attachment pair supplies the
-proof-facing absolute family. This adapter does not change that theorem
-status. It uses the broader already-explicit
+Mathematics: the live midpoint is part of a rejected, target-informed
+weighted-cycle candidate. This adapter uses the broader already-explicit
 segment family
 
     D_tau = (1 - tau_nu) * chi + tau_nu * (1 + gamma_half)
@@ -247,13 +245,12 @@ def main() -> int:
             "status": "non_promotable_compare_only_segment_and_scale_inverse_adapter",
             "statement": (
                 "This adapter solves exact representative PDG central splittings only by moving along the already-explicit "
-                "positive selector segment and then rescaling the resulting scale-free branch. The proof-facing theorem lane "
-                "runs through the emitted bridge-rigidity and absolute-attachment pair, so this segment adapter remains "
-                "diagnostic-only and does not emit an independent neutrino theorem."
+                "positive selector segment and then rescaling the resulting scale-free branch. It is fitted directly to those "
+                "reference values and sits on a rejected source-open base, so it has no theorem or prediction status."
             ),
             "forbidden_feedback": "compare_only_segment_adapter_must_not_feed_back_into_theorem_state_or_C_nu_emission",
         },
-        "proof_chain_role": "diagnostic_only_retired_from_theorem_lane",
+        "proof_chain_role": "diagnostic_target_fit_only",
         "must_not_feed_back": True,
         "reference_central_values": {
             **PDG_2025_NO_CENTRAL,
@@ -292,9 +289,9 @@ def main() -> int:
             "32": exact_dm2["32"] - target_32,
         },
         "notes": [
-            "The exact fit is achieved on the existing positive selector segment; no new theorem object is claimed.",
+            "The exact fit is achieved on the rejected candidate's positive selector segment; no theorem object is claimed.",
             "The exact match uses two compare-only degrees of freedom: tau_nu fixes the dimensionless ratio and lambda_nu fixes the overall positive scale.",
-            "This exact adapter is stronger than the older one-observable atmospheric-only and solar-only slices, but it remains diagnostic-only beneath the emitted theorem pair.",
+            "This exact adapter is stronger than the older one-observable atmospheric-only and solar-only slices, but it remains a target-fit diagnostic on a source-open, rejected candidate.",
         ],
     }
 

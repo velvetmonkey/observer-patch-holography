@@ -5,9 +5,11 @@ import argparse
 import re
 from datetime import datetime
 from pathlib import Path
+import json
 
 
 RELEASE_INFO_RELATIVE = Path("paper/release_info.tex")
+CLAIM_REGISTRY_RELATIVE = Path("claims/claim_registry.yaml")
 RELEASE_ID_MACRO = "OPHPaperReleaseID"
 RELEASE_DATE_MACRO = "OPHPaperReleaseDate"
 RELEASE_NUMBER_PATTERN = re.compile(r"^(?P<prefix>.*?)(?P<number>\d+)$")
@@ -17,7 +19,9 @@ def main() -> int:
     args = parse_args()
     repo_root = Path(__file__).resolve().parent.parent
     release_info_path = repo_root / RELEASE_INFO_RELATIVE
+    claim_registry_path = repo_root / CLAIM_REGISTRY_RELATIVE
     text = release_info_path.read_text(encoding="utf-8")
+    registry = json.loads(claim_registry_path.read_text(encoding="utf-8"))
 
     current_release_id = extract_macro(text, RELEASE_ID_MACRO)
     current_release_date = extract_macro(text, RELEASE_DATE_MACRO)
@@ -31,10 +35,17 @@ def main() -> int:
         print(f"{release_info_path}")
         print(f"release_id: {current_release_id} -> {next_release_id}")
         print(f"released_at: {current_release_date} -> {next_release_date}")
+        print(f"claim_registry.release_id: {registry.get('release_id')} -> {next_release_id}")
         return 0
 
+    registry["release_id"] = next_release_id
     release_info_path.write_text(updated_text, encoding="utf-8")
+    claim_registry_path.write_text(
+        json.dumps(registry, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
     print(f"Updated {release_info_path}")
+    print(f"Updated {claim_registry_path}")
     print(f"release_id: {current_release_id} -> {next_release_id}")
     print(f"released_at: {current_release_date} -> {next_release_date}")
     print("Next: rebuild all current paper PDFs, then run python3 tools/generate_paper_release_manifest.py")

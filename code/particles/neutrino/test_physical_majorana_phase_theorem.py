@@ -93,6 +93,9 @@ def test_weighted_cycle_majorana_pair_stays_unpromoted_with_basis_audit() -> Non
     assert payload["shared_basis_representation"] is not None
     assert payload["shared_basis_representation"]["source_path"] == "code/particles/runs/neutrino/neutrino_weighted_cycle_shared_basis_representation.json"
     assert payload["shared_basis_representation"]["promotion_use"] == "blocked"
+    assert payload["shared_basis_representation"]["blocker"] == (
+        "tautological_common_transport_does_not_derive_physical_basis_placement"
+    )
     assert payload["shared_basis_representation"]["basis_placement_source_derived"] is False
     assert payload["source_artifacts"]["weighted_cycle_branch"] == "code/particles/runs/neutrino/neutrino_weighted_cycle_repair.json"
     assert payload["source_artifacts"]["shared_charged_left_basis"] == "code/particles/runs/neutrino/shared_charged_lepton_left_basis.json"

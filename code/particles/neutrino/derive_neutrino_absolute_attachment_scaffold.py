@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
-"""Emit the neutrino absolute-attachment scaffold.
+"""Emit the legacy conditional neutrino absolute-attachment scaffold.
 
-This does not emit ``lambda_nu``. It sharpens the live neutrino frontier:
-the remaining theorem object is an internal attachment from the D10 amplitude
-sector to the weighted-cycle scale-free normal form, after the live same-label
-overlap-defect weight normalizer.
+This does not emit ``lambda_nu``. The one-scalar quotient is meaningful only
+inside the rejected weighted-cycle candidate. The physical lane is blocked
+earlier by the source-open neutrino operator, charged basis, and mass-label rule.
 """
 
 from __future__ import annotations
@@ -39,12 +38,14 @@ def build_artifact(
     bridge_scalar_corridor: dict[str, Any] | None,
 ) -> dict[str, Any]:
     diagnostic = dict(bridge["direct_scale_anchor_attachment_diagnostic"])
+    candidate_law = dict(theorem_object.get("candidate_law") or theorem_object.get("theorem_object") or {})
     return {
         "artifact": "oph_neutrino_absolute_attachment_scaffold",
         "generated_utc": _timestamp(),
-        "status": "minimal_constructive_extension",
+        "status": "superseded_conditional_absolute_scale_scaffold",
         "public_promotion_allowed": False,
-        "exact_missing_object": "neutrino_weighted_cycle_absolute_attachment",
+        "exact_missing_object": "source_closed_neutrino_operator_basis_and_mass_label_contract",
+        "conditional_candidate_missing_object": "neutrino_weighted_cycle_absolute_attachment",
         "equivalent_scalar": {
             "name": "lambda_nu",
             "meaning": "positive absolute normalization scalar for the weighted-cycle scale-free normal form",
@@ -54,10 +55,13 @@ def build_artifact(
             "direct_attachment_diagnostic": diagnostic,
             "current_candidate_interface_artifact": bridge_candidate.get("current_candidate_interface_artifact"),
             "closed_normalizer_artifact": bridge_candidate.get("closed_normalizer_artifact"),
+            "normalizer_status": bridge_candidate.get("normalizer_status"),
             "exact_next_theorem_object": bridge_candidate.get("exact_next_theorem_object"),
+            "conditional_absolute_scale_next_object": bridge_candidate.get("conditional_absolute_scale_next_object"),
             "strictly_smaller_missing_clause": bridge_candidate.get("strictly_smaller_missing_clause"),
             "exact_residual_moduli_space": "R_{>0}",
-            "one_additional_positive_bridge_invariant_is_necessary_and_sufficient": True,
+            "one_additional_positive_bridge_invariant_is_necessary_and_sufficient": False,
+            "conditional_candidate_absolute_scale_is_one_dimensional": True,
             "corrected_bridge_parameterization": bridge_candidate.get("bridge_ansatz"),
             "residual_amplitude_parameterization": bridge_candidate.get("residual_amplitude_parameterization"),
             "smaller_exact_object_above_emitted_proxy": (
@@ -79,6 +83,7 @@ def build_artifact(
             ),
         },
         "extension_contract": {
+            "scope": "conditional_only_after_source_closed_physical_operator_basis_and_label_contract",
             "input_objects": [
                 "oph_neutrino_weighted_cycle_theorem_object",
                 "oph_neutrino_scale_anchor",
@@ -102,15 +107,17 @@ def build_artifact(
             "current_theorem_stack": bridge_candidate.get("bridge_interface_theorem_stack", []),
         },
         "theorem_object_context": {
-            "name": theorem_object["theorem_object"]["name"],
-            "D_nu_formula": theorem_object["theorem_object"]["D_nu_formula"],
-            "p_nu_formula": theorem_object["theorem_object"]["p_nu_formula"],
+            "status": theorem_object.get("status"),
+            "theorem_status": theorem_object.get("theorem_status"),
+            "name": candidate_law.get("name"),
+            "D_nu_formula": candidate_law.get("D_nu_formula"),
+            "p_nu_formula": candidate_law.get("p_nu_formula"),
         },
         "notes": [
-            "The residual absolute ambiguity above the closed normalizer is exactly the positive rescaling orbit.",
-            "Relative to the best emitted residual-amplitude proxy, the remaining bridge can also be tracked as a near-unity correction scalar C_nu on the live branch.",
+            "Within the rejected candidate algebra, the residual absolute ambiguity is a positive rescaling orbit; this is not a statement that the physical neutrino lane is otherwise closed.",
+            "Relative to the candidate residual-amplitude proxy, a near-unity correction scalar C_nu can be tracked for debugging only.",
             "Direct C_nu auditing yields a narrower target-containing induced B_nu window than the old direct bridge corridor, but it remains compare-only and cannot be promoted.",
-            "The current corpus therefore needs one and only one positive non-homogeneous attachment scalar above the present emitted stack before lambda_nu can be emitted theorem-grade.",
+            "The first physical missing object is the source-closed operator, basis, charged-basis, and mass-label contract; an absolute-scale theorem is downstream of that gate.",
         ],
     }
 

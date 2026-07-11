@@ -79,7 +79,8 @@ def test_particle_pipeline_closure_status_scope_locks_hadrons_and_workers() -> N
     assert gates[234]["state"] == "closed_provenance_ledger_and_declared_sensitivity_taxonomy"
     assert gates[155]["state"] == "open_theta_qcd_bar_theta_vanishing_gap"
     assert gates[155]["closable_now"] is False
-    assert gates[117]["closable_now"] is True
+    assert gates[117]["state"] == "rejected_candidate_source_basis_and_kernel_open"
+    assert gates[117]["closable_now"] is False
     assert gates[198]["closable_now"] is True
     assert status["latest_nonhadron_predictions"]["higgs"]["value"] == 125.1995304097179
     assert status["latest_nonhadron_predictions"]["higgs"]["unit"] == "GeV"

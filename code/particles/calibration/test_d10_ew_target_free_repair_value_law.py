@@ -32,5 +32,5 @@ def test_d10_target_free_repair_value_law_records_candidate_only_source_only_qui
     assert abs(quintet["MW_pole"] - 80.37700001539531) < 1.0e-12
     assert abs(quintet["MZ_pole"] - 91.18797807794321) < 1.0e-12
     comparison = payload["compare_only_validation_against_frozen_surface"]
-    assert abs(comparison["delta_MW_gev"]) < 2.0e-8
-    assert abs(comparison["delta_MZ_gev"]) < 2.0e-8
+    assert abs(comparison["delta_MW_gev"]) > 1.0e-3
+    assert abs(comparison["delta_MZ_gev"]) > 1.0e-5

@@ -9,23 +9,23 @@
     "w_HT": 0.0
   },
   "exact_compare_witness": {
-    "Sigma_HT_exact": 0.01247484044067395,
-    "delta_lambda_exact": -0.002964790813087722,
-    "delta_y_t_exact": 0.011305105308056543,
-    "eta_HT_exact": -0.0001928815488857526,
-    "mH_exact_gev": 125.1995304097179,
-    "mt_pole_exact_gev": 172.3523553288312,
-    "pi_lambda_exact": 0.012667721989559701,
-    "pi_y_exact": 0.012281958891788196,
-    "w_HT_exact": -0.0003857630977715052
+    "Sigma_HT_exact": 0.01204320736974392,
+    "delta_lambda_exact": -0.003109645833333345,
+    "delta_y_t_exact": 0.009940801211007214,
+    "eta_HT_exact": -0.00124343961012649,
+    "mH_exact_gev": 125.13,
+    "mt_pole_exact_gev": 172.1,
+    "pi_lambda_exact": 0.01328664697987041,
+    "pi_y_exact": 0.01079976775961743,
+    "w_HT_exact": -0.00248687922025298
   },
   "fixed_ray_obstruction": {
     "compatibility_functional_formula": "((mt_target - mt_pole_core_gev) / (d_mt_pole_d_y_t * y_t_core_mt)) + (9/16) * ((mH_target - mH_core_gev) / (d_mH_d_lambda * lambda_core_mt))",
-    "compatibility_functional_value": -0.0003857630977715052,
+    "compatibility_functional_value": -0.002486879220252978,
     "current_exact_pair_reachable": false,
     "fixed_ray_condition": "reachable_on_current_one_scalar_ray iff compatibility_functional = 0"
   },
-  "generated_utc": "2026-06-29T07:35:22Z",
+  "generated_utc": "2026-07-11T06:46:44Z",
   "notes": [
     "This is a no-go theorem about the current one-scalar fixed ray, not a demotion of the exact Higgs theorem on the declared D10/D11 surface.",
     "The compare-only exact inverse slice remains compare-only and is used here only as a witness that the exact pair is off the fixed ray.",
@@ -42,9 +42,9 @@
   "smallest_supported_extension": {
     "equivalent_coordinates": "(Sigma_HT, eta_HT)",
     "exact_extension_values": {
-      "Sigma_HT_exact": 0.01247484044067395,
-      "eta_HT_exact": -0.0001928815488857526,
-      "w_HT_exact": -0.0003857630977715052
+      "Sigma_HT_exact": 0.01204320736974392,
+      "eta_HT_exact": -0.00124343961012649,
+      "w_HT_exact": -0.00248687922025298
     },
     "notes": [
       "The current fixed ray freezes eta_HT = 0, so one extra scalar is necessary.",

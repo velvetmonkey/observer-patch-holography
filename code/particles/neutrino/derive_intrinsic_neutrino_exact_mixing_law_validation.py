@@ -4,16 +4,16 @@
 Chain role: audit the first-order and quadratic intrinsic mixing laws that sit
 on top of the exact eta-chain artifact.
 
-Mathematics: corrected linear/quadratic perturbation laws for the solar split,
-ordered atmospheric gaps, centroid gap, and the collective-mode singular
-vector.
+Mathematics: corrected linear/quadratic perturbation laws for the ascending
+doublet split, collective-to-doublet gaps, centroid gap, and projective
+collective-mode right-singular direction.
 
-OPH-derived inputs: the local isotropic forward neutrino bundle plus the exact
-eta-map artifact.
+Declared inputs: the local isotropic forward neutrino bundle plus the exact
+conditional eta-map artifact.
 
-Output: a diagnostic validation artifact showing which intrinsic mixing objects
-are already exact, which are asymptotic, and which remain blocked only by the
-proof-facing eta payload and shared charged basis.
+Output: a diagnostic validation artifact showing which intrinsic spectral
+objects are exact or asymptotic and which physical claims remain blocked by
+source provenance, charged-basis placement, and mass-eigenstate labels.
 """
 
 from __future__ import annotations
@@ -58,6 +58,10 @@ def _centered_eta(payload: dict[str, Any]) -> np.ndarray:
 
 
 def _solve_selector(mu: np.ndarray, omega: float) -> np.ndarray:
+    mu_min = float(np.min(mu))
+    f_max = float(np.sum(np.arcsin(np.clip(mu_min / mu, -1.0, 1.0))))
+    if not abs(float(omega)) < f_max:
+        raise ValueError("principal selector cycle sum lies outside the unequal-weight domain")
     bound = float(np.min(mu)) * (1.0 - 1.0e-15)
 
     def f_lam(lam_value: float) -> float:
@@ -131,15 +135,18 @@ def main() -> int:
     mc2 = a_value * a_value + 4.0 * rho_value * rho_value + 4.0 * a_value * rho_value * math.cos(phi)
     atm_iso = mc2 - md2
     gamma = 2.0 * a_value * rho_value * math.sin(phi)
+    perturbative_denominator = 2.0 * a_value * math.cos(phi) + rho_value
+    if abs(perturbative_denominator) <= 1.0e-15 * max(abs(a_value), abs(rho_value), 1.0e-30):
+        raise ValueError("collective-mode perturbation law is singular at 2 a cos(phi) + rho = 0")
 
-    solar_pred_delta = 2.0 * gamma * sigma_actual
-    solar_pred_eta = 2.0 * gamma * math.tan(phi) * sigma_eta
+    solar_pred_delta = 2.0 * abs(gamma) * sigma_actual
+    solar_pred_eta = 2.0 * abs(gamma * math.tan(phi)) * sigma_eta
     centroid_shift_pred = (
         -a_value
         * rho_value
         * (sigma_actual**2)
         * (a_value * (4.0 * math.cos(phi) ** 2 - 1.0) + 6.0 * rho_value * math.cos(phi))
-        / (2.0 * a_value * math.cos(phi) + rho_value)
+        / perturbative_denominator
     )
 
     m2_iso = _sorted_masses_gev(isotropic) ** 2
@@ -170,7 +177,7 @@ def main() -> int:
     v_collective_actual = u_ani[:, 2]
     u_dem = np.ones(3, dtype=complex) / math.sqrt(3.0)
     kappa = math.sqrt(3.0) * (2.0 * a_value * math.sin(phi) + 3.0j * rho_value) / (
-        9.0 * (2.0 * a_value * math.cos(phi) + rho_value)
+        9.0 * perturbative_denominator
     )
     v_collective_pred_delta = _normalize(
         u_dem + kappa * np.array([delta_actual[1], delta_actual[2], delta_actual[0]], dtype=complex)
@@ -216,11 +223,11 @@ def main() -> int:
             dm31_true = float(eig_vals[2] - eig_vals[0])
             centroid_true = float(eig_vals[2] - 0.5 * (eig_vals[0] + eig_vals[1]))
 
-            solar_eta_pred = 2.0 * gamma * math.tan(phi) * sigma_eta_trial
+            solar_eta_pred = 2.0 * abs(gamma * math.tan(phi)) * sigma_eta_trial
             centroid_pred = atm_iso - a_value * rho_value * (sigma_trial**2) * (
                 a_value * (4.0 * math.cos(phi) ** 2 - 1.0) + 6.0 * rho_value * math.cos(phi)
-            ) / (2.0 * a_value * math.cos(phi) + rho_value)
-            dm31_pred_trial = atm_iso + 0.5 * (2.0 * gamma * sigma_trial) + (centroid_pred - atm_iso)
+            ) / perturbative_denominator
+            dm31_pred_trial = atm_iso + 0.5 * (2.0 * abs(gamma) * sigma_trial) + (centroid_pred - atm_iso)
 
             rel_solar_eta.append(abs(solar_eta_pred - solar_true) / solar_true)
             rel_dm31.append(abs(dm31_pred_trial - dm31_true) / dm31_true)
@@ -253,6 +260,7 @@ def main() -> int:
             "md2_isotropic_gev2": md2,
             "mc2_isotropic_gev2": mc2,
             "atm_centroid_gap_isotropic_gev2": atm_iso,
+            "perturbative_denominator_gev": perturbative_denominator,
         },
         "eta_payload": {edge: float(eta[idx]) for idx, edge in enumerate(EDGE_ORDER)},
         "selector_payload_solution": {edge: float(psi_payload[idx]) for idx, edge in enumerate(EDGE_ORDER)},
@@ -266,7 +274,7 @@ def main() -> int:
         "solar_split_pred_linear_from_eta_gev2": solar_pred_eta,
         "solar_split_rel_error_from_delta_linear": abs(solar_pred_delta - solar_actual) / solar_actual,
         "solar_split_rel_error_from_eta_linear": abs(solar_pred_eta - solar_actual) / solar_actual,
-        "ordered_atmospheric_shift_is_linear": True,
+        "ascending_gap_shift_is_linear_under_declared_normal_ordering_hypothesis": True,
         "delta_m31_actual_gev2": dm31_actual,
         "delta_m31_pred_corrected_gev2": dm31_pred,
         "delta_m31_pred_corrected_from_eta_gev2": dm31_pred_eta,

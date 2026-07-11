@@ -37,11 +37,14 @@ def main() -> int:
         )
         subprocess.run([sys.executable, str(SCRIPT), "--input", str(source), "--output", str(out)], check=True, cwd=ROOT)
         payload = json.loads(out.read_text(encoding="utf-8"))
-        if payload.get("proof_status") != "fixed_cutoff_scalar_sufficient_downstream_certificate":
-            print("certificate should close on complete same-label scalars", file=sys.stderr)
+        if payload.get("proof_status") != "fixed_cutoff_scalar_sufficient_conditional_on_source_inputs":
+            print("certificate should be numerically complete but source-conditional", file=sys.stderr)
             return 1
         if payload.get("sufficient_for_intrinsic_mass_eigenstates") is not True:
             print("certificate should be sufficient for intrinsic mass eigenstates", file=sys.stderr)
+            return 1
+        if payload.get("source_only_physical_input_eligible") is not False:
+            print("certificate without source-closure metadata must fail closed", file=sys.stderr)
             return 1
         if any(payload["q_e"][edge] is None for edge in ("psi12", "psi23", "psi31")):
             print("certificate should emit q_e on every edge", file=sys.stderr)

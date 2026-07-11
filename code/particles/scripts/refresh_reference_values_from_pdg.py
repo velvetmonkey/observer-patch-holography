@@ -11,6 +11,7 @@ from __future__ import annotations
 import argparse
 import json
 import pathlib
+import re
 import urllib.request
 from datetime import datetime, timezone
 from typing import Any, Dict, Optional
@@ -45,19 +46,23 @@ def _fetch_summary(summary_id: str) -> Dict[str, Any]:
     if not values:
         raise RuntimeError(f"PDG summary {summary_id} returned no pdg_values")
     value = values[0]
+    edition = str(payload.get("edition") or "current")
     unit = value.get("unit")
     scale = _unit_scale_to_gev(unit) if unit else None
-    value_gev = float(value["value"]) * scale if scale is not None and value.get("value") is not None else None
-    err_plus = value.get("error_positive")
-    err_minus = value.get("error_negative")
+    published_value, published_plus, published_minus = _parse_published_value_text(value.get("value_text"))
+    value_gev = published_value * scale if scale is not None and published_value is not None else None
+    err_plus = published_plus
+    err_minus = published_minus
     err_plus_gev = float(err_plus) * scale if scale is not None and err_plus is not None else None
     err_minus_gev = float(err_minus) * scale if scale is not None and err_minus is not None else None
     return {
         "source": {
-            "label": "PDG 2025 API",
+            "label": f"PDG {edition} API",
+            "edition": edition,
             "summary_id": summary_id,
             "url": url,
             "info_url": PDG_INFO_URL,
+            "request_timestamp": payload.get("request_timestamp"),
         },
         "description": payload.get("description"),
         "reference_kind": "upper_limit" if value.get("is_upper_limit") else "value",
@@ -69,8 +74,14 @@ def _fetch_summary(summary_id: str) -> Dict[str, Any]:
         "value_gev": value_gev,
         "error_plus_gev": err_plus_gev,
         "error_minus_gev": err_minus_gev,
-        "raw_value": value.get("value"),
+        # The API also exposes hidden guard digits used by its averaging
+        # machinery. Those are retained as provenance only; reference-facing
+        # fields use the actually published value_text precision.
+        "raw_value": published_value,
         "raw_unit": unit,
+        "api_value": value.get("value"),
+        "api_error_positive": value.get("error_positive"),
+        "api_error_negative": value.get("error_negative"),
         "value_text": value.get("value_text"),
         "comment": value.get("comment"),
         "type": value.get("type"),
@@ -78,6 +89,31 @@ def _fetch_summary(summary_id: str) -> Dict[str, Any]:
         "is_upper_limit": bool(value.get("is_upper_limit", False)),
         "confidence_level": value.get("confidence_level"),
     }
+
+
+def _parse_published_value_text(value_text: Any) -> tuple[Optional[float], Optional[float], Optional[float]]:
+    """Parse the central value and displayed errors, excluding API guard digits."""
+    if not value_text:
+        return None, None, None
+    text = str(value_text).strip().replace(" ", "")
+    limit = re.fullmatch(r"[<>]([0-9.]+(?:[Ee][+-]?\d+)?)", text)
+    if limit:
+        return float(limit.group(1)), None, None
+    symmetric = re.fullmatch(
+        r"([+-]?[0-9.]+(?:[Ee][+-]?\d+)?)\+-(?:\+)?([0-9.]+(?:[Ee][+-]?\d+)?)",
+        text,
+    )
+    if symmetric:
+        central = float(symmetric.group(1))
+        error = float(symmetric.group(2))
+        return central, error, error
+    asymmetric = re.fullmatch(
+        r"([+-]?[0-9.]+(?:[Ee][+-]?\d+)?)\+([0-9.]+(?:[Ee][+-]?\d+)?)-([0-9.]+(?:[Ee][+-]?\d+)?)",
+        text,
+    )
+    if asymmetric:
+        return float(asymmetric.group(1)), float(asymmetric.group(2)), float(asymmetric.group(3))
+    raise RuntimeError(f"unsupported PDG value_text format: {value_text!r}")
 
 
 def _manual_reference(
@@ -136,11 +172,11 @@ def build_reference_payload() -> Dict[str, Any]:
 
     manual: Dict[str, Dict[str, Any]] = {
         "gluon": _manual_reference(
-            label="PDG 2025 particle listings context",
+            label="PDG particle listings context",
             reference_kind="no_direct_free_particle_mass_measurement",
             display="no direct free-particle mass measurement",
             notes="Free gluons are confined; there is no direct measured gluon rest mass entry comparable to other particle masses.",
-            url="https://pdg.lbl.gov/2025/listings/particle_properties.html",
+            url="https://pdg.lbl.gov/listings/particle_properties.html",
         ),
         "graviton": _manual_reference(
             label="GW dispersion observational context",
@@ -151,33 +187,43 @@ def build_reference_payload() -> Dict[str, Any]:
             value_gev=1.0e-32,
         ),
         "electron_neutrino": _manual_reference(
-            label="PDG 2025 neutrino properties",
+            label="PDG neutrino properties",
             reference_kind="not_directly_measured",
             display="not directly measured",
             notes="Individual flavor neutrino masses are not directly measured as standalone masses; PDG quotes oscillation data, effective masses, and cosmological bounds instead.",
-            url="https://pdg.lbl.gov/2025/reviews/contents_sports.html",
+            url="https://pdg.lbl.gov/reviews/contents_sports.html",
         ),
         "muon_neutrino": _manual_reference(
-            label="PDG 2025 neutrino properties",
+            label="PDG neutrino properties",
             reference_kind="not_directly_measured",
             display="not directly measured",
             notes="Individual flavor neutrino masses are not directly measured as standalone masses; PDG quotes oscillation data, effective masses, and cosmological bounds instead.",
-            url="https://pdg.lbl.gov/2025/reviews/contents_sports.html",
+            url="https://pdg.lbl.gov/reviews/contents_sports.html",
         ),
         "tau_neutrino": _manual_reference(
-            label="PDG 2025 neutrino properties",
+            label="PDG neutrino properties",
             reference_kind="not_directly_measured",
             display="not directly measured",
             notes="Individual flavor neutrino masses are not directly measured as standalone masses; PDG quotes oscillation data, effective masses, and cosmological bounds instead.",
-            url="https://pdg.lbl.gov/2025/reviews/contents_sports.html",
+            url="https://pdg.lbl.gov/reviews/contents_sports.html",
         ),
     }
+
+    editions = sorted(
+        {
+            str(entry["source"]["edition"])
+            for entry in fetched.values()
+            if entry.get("source", {}).get("edition")
+        }
+    )
+    if len(editions) != 1:
+        raise RuntimeError(f"PDG summaries returned inconsistent editions: {editions}")
 
     return {
         "generated_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "source": {
             "label": "Particle Data Group",
-            "edition": "2025",
+            "edition": editions[0],
             "api_info_url": PDG_INFO_URL,
         },
         "entries": {

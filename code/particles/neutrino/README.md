@@ -14,14 +14,22 @@ the measured splitting ratio.
 NuFIT 6.1 rejects the frozen point on the official correlated
 `T23/DCP` profile. The profile value is `20.11955` with the tabulated
 atmospheric likelihood and `18.43528` without it; the two-parameter 3σ contour
-value is `11.82916`. Exhaustive enumeration of both cycle orientations, all six
-flavor-row assignments, and all six mass-column assignments finds no
-normal-ordering-consistent convention that passes both gates. The PMNS/Takagi
-linear algebra is correct. The failure belongs to the weighted-cycle
-continuation candidate, while finite OPH is unaffected because the source
-kernel and selector law were never derived.
+value is `11.82916`. Exhaustive enumeration of both stored cycle orientations,
+all six flavor-row relabelings, and all six mass-column relabelings finds no
+normal-ordering-consistent relabeling of the stored candidate that passes both
+gates. This does not derive or exhaust source-side physical charged-basis
+placements. The stored
+weighted-cycle eigensystem is reproducible, but earlier intrinsic and forward
+builders exported left SVD vectors instead of the Majorana Takagi matrix. That
+implementation error is now corrected. Separately, the shared-basis construction defines
+`U_nu_shared = U_e_left U_wc` and then recovers `U_wc` by cancellation. That
+identity does not derive the physical charged-lepton basis. The failure belongs
+to the weighted-cycle continuation candidate, while finite OPH is unaffected
+because the source kernel, selector law, and physical charged basis were never
+derived.
 
-No neutrino value in this directory has source-only prediction status.
+No neutrino value in this directory has source-only prediction status. The
+lane emits no physical PMNS matrix and no absolute neutrino masses.
 
 The purpose is controlled scope. The active forward objects are:
 
@@ -31,8 +39,8 @@ The purpose is controlled scope. The active forward objects are:
 - a residual-phase envelope support-check surface
 - a selector-point versus selector-law split
 - a blind real-first Majorana matrix artifact
-- derived splittings and blind ordering
-- conditional PMNS only after a shared charged-lepton basis exists
+- derived ascending singular-value gaps, with physical ordering explicitly unresolved
+- a shared-basis PMNS diagnostic whose physical charged-lepton basis remains open
 
 ## Header Convention
 
@@ -79,7 +87,8 @@ promotion questions.
   `canonical_selector`, or `residual_envelope` mode.
 - [`build_majorana_phase_envelope.py`](build_majorana_phase_envelope.py)
   Sweeps the residual Majorana phase plane and exports gap-vs-radius stability
-  certificates for splittings and ordering.
+  certificates for the ascending spectrum and collective-mode location; it
+  does not select physical normal or inverted ordering.
 - [`build_forward_splittings.py`](build_forward_splittings.py)
   Turns the blind matrix artifact into masses, splittings, and explicit
   real-seed versus phase-certified outputs.
@@ -89,22 +98,23 @@ promotion questions.
   Fuses the strongest current compare-only routes for the diagnostic bridge
   scalar sidecar `B_nu`, including the best defect-weighted `mu_e`-assisted
   route, exposes the smaller exact correction scalar `C_nu` above the best
-  emitted proxy, and records a narrower shortlist-consensus window beneath the
-  emitted theorem pair.
+  internal candidate proxy, and records a narrower shortlist-consensus window on the
+  rejected candidate surface.
 - [`derive_neutrino_bridge_correction_candidate_audit.py`](derive_neutrino_bridge_correction_candidate_audit.py)
   Audits the reduced correction scalar `C_nu` directly and induces a narrower
   target-containing compare-only `B_nu` window than the older direct bridge
-  corridor, as a diagnostic surface beneath the theorem lane.
+  corridor. This is a diagnostic surface with no prediction status.
 - [`derive_neutrino_bridge_correction_invariant_scaffold.py`](derive_neutrino_bridge_correction_invariant_scaffold.py)
   Records the reduced correction geometry `C_nu` below the raw bridge scalar
   `B_nu` and above the internal positive proxy `P_nu` on the scaffold beneath
-  the emitted theorem pair.
+  the rejected weighted-cycle candidate.
 - [`derive_neutrino_bridge_rigidity_theorem.py`](derive_neutrino_bridge_rigidity_theorem.py)
-  Emits the weighted-cycle bridge-rigidity theorem
-  `C_nu = sum_gap^2 * prod_qbar * solar_response_over_mstar^-0.5`.
+  Retains the compare-only bridge coordinate
+  `C_nu = sum_gap^2 * prod_qbar * solar_response_over_mstar^-0.5`. Its source
+  audit blocks theorem and prediction promotion.
 - [`derive_neutrino_absolute_attachment_theorem.py`](derive_neutrino_absolute_attachment_theorem.py)
-  Emits `B_nu`, `lambda_nu`, and the absolute weighted-cycle neutrino family
-  from the bridge-rigidity theorem and the internal proxy `P_nu`.
+  Displays compare-only values for `B_nu`, `lambda_nu`, and an absolute
+  weighted-cycle family. These values are not physical mass predictions.
 - [`score_neutrino_nufit61.py`](score_neutrino_nufit61.py)
   Scores the frozen scale-free point against hash-pinned official NuFIT 6.1
   profile tables. Overlapping profile projections are reported separately and
@@ -183,6 +193,11 @@ because NuFIT publishes no explicit redistribution license.
 
 Current closure split:
 
+- the same-label scalar values are numerically complete, but the family kernel
+  is a template and the overlap-line lift is candidate-only; their physical
+  source-closure gate therefore remains open
+- the normalizer and centered scalar evaluator are exact only conditional on
+  those source-open inputs
 - the real symmetric branch can carry scale, family shape, and real-seed
   splittings
 - the phase envelope is the compulsory support check for sharp splittings or
@@ -196,16 +211,17 @@ Current closure split:
   `majorana_overlap_defect_hessian.json`, and
   `majorana_deformation_bilinear_form.json` separate the local quadratic
   theorem from the exact missing scalar-evaluator object
-- the weighted-cycle bridge-rigidity theorem emits
+- the bridge artifact retains the compare-only coordinate
   `C_nu = sum_gap^2 * prod_qbar * solar_response_over_mstar^-0.5`
-- the absolute-attachment theorem emits `B_nu`, `lambda_nu`, the absolute
-  neutrino masses, and the absolute splittings on that weighted-cycle branch
+- the absolute-attachment artifact displays `B_nu`, `lambda_nu`, masses, and
+  splittings only as non-promotable comparison coordinates
 - the exact positive-segment adapter, bridge corridor, and correction audit are
-  retained only as diagnostic sidecars beneath the theorem lane
+  retained only as diagnostic sidecars on the rejected candidate surface
 - the weighted-cycle calculation emits a frozen target-informed candidate;
   the NuFIT 6.1 correlated profile rejects it
-- the separate shared-basis PMNS constructor remains a distinct diagnostic
-  surface tied to the charged-lepton left-basis artifact
+- the shared-basis constructor recovers the weighted-cycle matrix by an
+  algebraic cancellation; the physical charged-lepton basis remains open, so
+  the result is not a physical PMNS matrix
 
 The outputs stay under `particles/runs/neutrino/`. Prediction promotion
 requires a source-emitted family transport kernel, source-derived cycle and

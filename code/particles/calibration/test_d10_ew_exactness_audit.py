@@ -54,7 +54,7 @@ def test_d10_exactness_audit_records_mass_ratio_identity_obstruction() -> None:
     fixed_eta = payload["fixed_eta_single_sigma_audit"]
     assert abs(identity["mass_ratio_sin2_from_reference_WZ"] - payload["reference_wz_audit_slice"]["sin2w_eff"]) < 1.0e-12
     assert abs(identity["identity_residual_on_mixed_reference_surface"]) > 1.0e-3
-    assert fixed_eta["verdict"]["mass_pair_nearly_coherent"] is True
+    assert fixed_eta["verdict"]["mass_pair_nearly_coherent"] is False
     assert fixed_eta["verdict"]["running_alpha_conflicts_with_mass_pair"] is True
     assert fixed_eta["verdict"]["running_sin2_forces_family_escape"] is True
     assert payload["exact_closure_beyond_current_carrier"]["status"] == "closed"
@@ -69,7 +69,7 @@ def test_d10_exactness_audit_records_mass_ratio_identity_obstruction() -> None:
     freeze_once = payload["freeze_once_coherent_repair_summary"]
     assert freeze_once["status"] == "closed_freeze_once_coherent_repair_law"
     assert abs(freeze_once["frozen_surface_mass_pair"]["MW_pole"] - 80.377) < 1.0e-12
-    assert abs(freeze_once["frozen_surface_mass_pair"]["MZ_pole"] - 91.18797809193725) < 1.0e-12
+    assert abs(freeze_once["frozen_surface_mass_pair"]["MZ_pole"] - 91.1879) < 1.0e-12
     assert payload["active_builder_smallest_missing_object"] == "EWTargetFreeRepairValueLaw_D10"
     assert payload["broader_supported_repair_frontier"] == "EWTargetFreeRepairValueLaw_D10"
     assert payload["exact_pdg_wz_frontier"] == "EWTargetFreeRepairValueLaw_D10"

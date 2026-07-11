@@ -23,7 +23,7 @@ def _load_module():
     return module
 
 
-def test_runtime_surface_preserves_repaired_neutrino_rows_and_canonical_refs(tmp_path: pathlib.Path) -> None:
+def test_runtime_surface_preserves_rejected_neutrino_rows_and_canonical_refs(tmp_path: pathlib.Path) -> None:
     module = _load_module()
     current_dir = module.build_runtime(tmp_path / "runtime", with_hadrons=False, verbose=False)
 
@@ -37,7 +37,7 @@ def test_runtime_surface_preserves_repaired_neutrino_rows_and_canonical_refs(tmp
     exact_entries = {entry["particle_id"]: entry for entry in exact_nonhadron["entries"]}
     exact_fit_entries = {entry["id"]: entry for entry in exact_fit_surface["entries"]}
 
-    assert active["neutrino_repaired_branch"] is True
+    assert active["neutrino_repaired_branch"] is False
     assert companion
     companion_by_id = {row["topic_id"]: row for row in companion}
     assert companion_by_id["hierarchy_naturality"]["status"] == "selected_branch_theorem"

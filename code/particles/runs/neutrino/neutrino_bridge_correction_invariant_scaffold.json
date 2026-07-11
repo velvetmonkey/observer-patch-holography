@@ -1,7 +1,10 @@
 {
   "artifact": "oph_neutrino_bridge_correction_invariant_scaffold",
+  "conditional_absolute_scale_missing_object": "oph_neutrino_bridge_correction_invariant",
+  "conditional_parent_missing_object": "oph_neutrino_attachment_bridge_invariant",
   "contract": {
-    "must_emit": "one positive reduced bridge-correction scalar C_nu or an exactly equivalent reduced attachment invariant",
+    "conditional_absolute_scale_must_emit": "one positive reduced bridge-correction scalar C_nu or an exactly equivalent reduced attachment invariant",
+    "must_emit": "a source-closed neutrino operator, physical basis placement, charged basis, and mass-label rule",
     "must_imply": [
       "B_nu = (I_nu^0.5 * ratio_hat^0.5 * sum_defect^-1) * C_nu",
       "lambda_nu = (m_star_eV / q_mean^p_nu) * (I_nu^0.5 * ratio_hat^0.5 * sum_defect^-1) * C_nu"
@@ -14,17 +17,17 @@
   },
   "current_attached_stack_irreducibility_theorem": {
     "artifact": "oph_neutrino_attachment_irreducibility_theorem",
-    "reduced_sharpened_conclusion": "After factoring out the internal positive proxy P_nu, one positive reduced bridge correction invariant C_nu remains irreducible on the current corpus.",
-    "status": "proved_from_current_attached_stack"
+    "reduced_sharpened_conclusion": "After factoring out the internal positive proxy P_nu, one positive reduced bridge correction invariant C_nu remains conditionally irreducible on the declared candidate stack.",
+    "status": "conditional_algebraic_no_go_on_rejected_candidate_stack"
   },
-  "exact_missing_object": "oph_neutrino_bridge_correction_invariant",
+  "exact_missing_object": "source_closed_neutrino_operator_basis_and_mass_label_contract",
   "exact_reduction_theorem": {
     "bridge_reconstruction": "B_nu = (I_nu^0.5 * ratio_hat^0.5 * sum_defect^-1) * C_nu",
     "definition": "C_nu = B_nu / (I_nu^0.5 * ratio_hat^0.5 * sum_defect^-1)",
-    "equivalence_theorem": "Because the proxy P_nu is already internal to the current attached stack and strictly positive on the live branch, the current stack emits B_nu if and only if it emits C_nu := B_nu / P_nu.",
+    "equivalence_theorem": "Because the proxy P_nu is internal to the declared candidate stack and strictly positive at the stored point, that conditional stack fixes B_nu if and only if it fixes C_nu := B_nu / P_nu.",
     "exact_residual_moduli_space": "R_{>0}"
   },
-  "generated_utc": "2026-06-29T07:35:37Z",
+  "generated_utc": "2026-07-11T06:47:02Z",
   "induced_target_containing_bridge_scalar_window": {
     "contains_compare_only_target": true,
     "definition": "B_nu = (I_nu^0.5 * ratio_hat^0.5 * sum_defect^-1) * C_nu",
@@ -45,16 +48,15 @@
     "value": 6.699825740519345
   },
   "notes": [
-    "This scaffold is smaller than the raw bridge-scalar scaffold because the internal positive proxy P_nu has already been factored out exactly.",
-    "The remaining exact theorem burden is therefore the reduced correction invariant C_nu, not an arbitrary positive bridge scalar above the emitted proxy.",
+    "Inside the rejected candidate, factoring out P_nu leaves a smaller one-coordinate absolute-scale diagnostic.",
+    "The first physical theorem burden remains the source-closed operator, basis, charged-basis, and mass-label contract, not C_nu.",
     "The correction window and its induced B_nu window are compare-only diagnostics and must not be promoted."
   ],
   "parent_bridge_scalar_symbol": "B_nu",
-  "parent_missing_object": "oph_neutrino_attachment_bridge_invariant",
-  "proof_grade": "exact_proxy_relative_reduction",
+  "proof_grade": "exact_proxy_relative_reduction_conditional_on_declared_candidate",
   "public_promotion_allowed": false,
   "residual_invariant_symbol": "C_nu",
-  "status": "minimal_exact_reduction",
+  "status": "conditional_exact_reparameterization_on_rejected_candidate",
   "strongest_compare_only_correction_window": {
     "candidate_count": 2,
     "contains_compare_only_target": true,
@@ -114,17 +116,17 @@
     },
     "exact_residual_moduli_space": "R_{>0}",
     "local_justification": [
-      "The attachment irreducibility theorem leaves exactly one positive residual orbit on the current attached stack.",
-      "The chosen proxy P_nu is already internal to the emitted stack and strictly positive on the live branch.",
-      "Dividing by P_nu is therefore an exact reparameterization of the same residual orbit, not a new theorem burden."
+      "The conditional attachment algebra leaves one positive residual orbit on the declared candidate stack.",
+      "The chosen proxy P_nu is internal to that candidate stack and strictly positive at the stored point.",
+      "Dividing by P_nu is therefore an exact reparameterization of the same conditional orbit, not a physical theorem."
     ],
-    "name": "proxy_relative_single_coordinate_reduction_for_neutrino_attachment",
+    "name": "conditional_proxy_relative_single_coordinate_reduction",
     "non_claims": [
       "no_numeric_value_for_C_nu_is_emitted",
       "no_compare_only_window_or_proxy_search_is_promoted",
       "no_hidden_full_closure_of_the_absolute_scale_is_claimed"
     ],
-    "scope": "current_weighted_cycle_branch_with_fixed_internal_positive_proxy",
-    "statement": "On the current weighted-cycle attachment lane, once the internal positive proxy P_nu is fixed, the remaining exact attachment quotient is one positive coordinate C_nu. Emitting C_nu is exactly equivalent to emitting the parent bridge scalar B_nu, so any theorem-grade absolute attachment closure on this lane must factor through that one proxy-relative coordinate."
+    "scope": "rejected_weighted_cycle_candidate_with_fixed_internal_positive_proxy",
+    "statement": "Inside the rejected weighted-cycle candidate, once the internal positive proxy P_nu is fixed, the conditional absolute-scale quotient is one positive coordinate C_nu. This is an exact reparameterization of that candidate only; it does not close a physical neutrino branch."
   }
 }

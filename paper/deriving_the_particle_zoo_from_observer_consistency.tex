@@ -755,9 +755,7 @@ Quark family & bottom quark & selected-frame audit witness & withheld from publi
 Charged leptons & electron & continuation gap & \(n/a\); exact same-carrier centered readback exists once a charged source pair is emitted, but the absolute scale is blocked by the closed common-shift no-go; benchmark target \(g_e^\star=0.0457789\), equivalently \(\Delta_e^{\mathrm{abs},\star}=3.00398633\) & close branch-generator splitting, then emit the lift whose descended scalar is \(\mu_{\mathrm{phys}}(Y_e)\); within that lift the exact smaller forcing object is the physical identity-mode equalizer, after which \(\widetilde C_e(Y_e)=\widehat C_e(Y_e)+\mu_{\mathrm{phys}}(Y_e)\,\mathbf 1\), \(A_{\mathrm{ch}}(Y_e)=\mu_{\mathrm{phys}}(Y_e)\), and the readouts \(g_e\), \(\Delta_e^{\mathrm{abs}}\) follow \\
 Charged leptons & muon & continuation gap & \(n/a\); same exact centered-readback / common-shift-no-go frontier as the electron row & same \(\widehat C_e^{\mathrm{cand}} \rightarrow\) branch-generator splitting \(\rightarrow\) lift \(\rightarrow \mu_{\mathrm{phys}}(Y_e) \rightarrow A_{\mathrm{ch}} \rightarrow g_e\) closure chain, with the physical identity-mode equalizer beneath the descended scalar \\
 Charged leptons & tau lepton & continuation gap & \(n/a\); same exact centered-readback / common-shift-no-go frontier as the electron row & same \(\widehat C_e^{\mathrm{cand}} \rightarrow\) branch-generator splitting \(\rightarrow \mu_{\mathrm{phys}}(Y_e) \rightarrow A_{\mathrm{ch}} \rightarrow g_e\) closure chain, with the physical identity-mode equalizer beneath the descended scalar \\
-Neutrinos & \(\nu_e\) & rejected target-informed weighted-cycle candidate & absolute mass withheld from public prediction table; the frozen candidate gives \(\theta_{12}=34.2259^\circ\), \(\theta_{23}=49.7228^\circ\), \(\theta_{13}=8.68636^\circ\), \(\delta=305.581^\circ\), \(J=-0.02753\), and \(\Delta m_{21}^2/\Delta m_{32}^2=0.03072111\) & the upstream flavor kernel is a hand-written template; target-ranked selector development prevents historical-blindness status; the NuFIT 6.1 correlated profile rejects the point; Majorana and absolute-attachment values remain compare-only \\
-Neutrinos & \(\nu_\mu\) & rejected target-informed weighted-cycle candidate & absolute mass withheld; same frozen scale-free comparison point as the electron-neutrino row & no source-only or public prediction row \\
-Neutrinos & \(\nu_\tau\) & rejected target-informed weighted-cycle candidate & absolute mass withheld; same frozen scale-free comparison point as the electron-neutrino row & no source-only or public prediction row \\
+Neutrino comparison & declared \(f\)-basis weighted-cycle matrix & rejected target-informed candidate & no flavor-particle mass row; the frozen declared-basis coordinate gives \(\theta_{12}=34.2259^\circ\), \(\theta_{23}=49.7228^\circ\), \(\theta_{13}=8.68636^\circ\), \(\delta=305.581^\circ\), \(J=-0.02753\), and, under its declared normal-ordering labels, \(\Delta m_{21}^2/\Delta m_{32}^2=0.03072111\) & the upstream flavor kernel is a hand-written template; the physical charged basis and mass-label rule are open; target-ranked selector development prevents historical-blindness status; the NuFIT 6.1 correlated profile rejects the stored candidate; Majorana and absolute-attachment values remain compare-only \\
 Hadrons & proton & strong-binding construction absent; empirical closure policy emitted & no first-principles emitted prediction & first-principles prediction requires a working OPH-QCD hadron backend, such as GLORB/Echosahedron, plus Ward-projected two-current, higher-point, and transition spectral exports, same-scheme remainder, and production systematics; empirical closure rows use separate \(e^+e^-\to\mathrm{hadrons}\) input \\
 Hadrons & neutron & strong-binding construction absent; empirical closure policy emitted & no first-principles emitted prediction & same OPH construction gate, with isospin-resolved hadron systematics in the construction support class \\
 Hadrons & neutral pion proxy & strong-binding construction absent; empirical closure policy emitted & no first-principles emitted prediction & same OPH construction gate; local stable-channel surrogate output is not a paper prediction \\
@@ -2889,14 +2887,14 @@ choices. Its exponent law was promoted after candidate laws had been ranked agai
 splitting ratio. The resulting point therefore has retrospective, target-informed template status.
 The bridge and absolute attachment use compare-only information and carry no prediction status.
 
-For the isotropic matrix (M=aI+\rho C) with unit-modulus off-diagonal entries, the general
-Gershgorin estimate applied to (M^\dagger M) gives
+For the isotropic matrix \(M=aI+\rho C\) with unit-modulus off-diagonal entries, the general
+Gershgorin estimate applied to \(M^\dagger M\) gives
 \[
 \max_{i,j}|\Delta m_{ij}^2|\leq 8a\rho+4\rho^2.
 \]
-The live bound is (1.52304\times10^{-6}\,\mathrm{eV}^2), still about three orders of magnitude
-below the atmospheric scale. The previously quoted (8a\rho) expression omitted the
-(4\rho^2) term and was not a valid general bound.
+The live bound is \(1.52304\times10^{-6}\,\mathrm{eV}^2\), still about three orders of magnitude
+below the atmospheric scale. The previously quoted \(8a\rho\) expression omitted the
+\(4\rho^2\) term and was not a valid general bound.
 
 The frozen weighted-cycle candidate gives
 \[
@@ -2949,7 +2947,7 @@ charged-lepton basis or validate the PMNS point. No theorem in the current stack
 
 The stored charged-basis artifact also fails its own promotion gate. Its source has
 \texttt{closure\_state: open}, and its three normalized shape singular values differ only at about
-the (10^{-12}) relative level, so its left singular vectors do not define a stable physical
+the \(10^{-12}\) relative level, so its left singular vectors do not define a stable physical
 family basis. The newer charged-lepton continuation remains support-extension gated and does not
 supply a replacement labelled basis. At source level, the physical PMNS matrix is therefore
 unformed.
@@ -2976,7 +2974,9 @@ The correct transported Takagi identity is
 U_{\nu,\mathrm{shared}}^T M_{\mathrm{shared}} U_{\nu,\mathrm{shared}}
 =\operatorname{diag}(m_i)\in\mathbb R_{>0}.
 \]
-Equivalently, \(U_{\mathrm{wc}}^T M_{\mathrm{wc}}U_{\mathrm{wc}}\) is diagonal in the basis where
+Here \(U_{\mathrm{wc}}\) denotes the canonical phase-fixed Takagi unitary, not the raw
+arbitrary-phase eigensystem of \(M_{\mathrm{wc}}^\dagger M_{\mathrm{wc}}\).
+Equivalently, \(U_{\mathrm{wc}}^T M_{\mathrm{wc}}U_{\mathrm{wc}}\) is positive diagonal in the basis where
 \(M_{\mathrm{wc}}\) was declared. The earlier expression with \(U_{\mathrm{PMNS}}^T
 M_{\mathrm{shared}}U_{\mathrm{PMNS}}\) was algebraically false. Canonical Takagi readout under the
 declared charged-basis assumption and the electron-row gauge \(U_{e1}\in\mathbb R_{>0}\) gives the
@@ -2999,7 +2999,9 @@ The midpoint fact does not derive the segment endpoints, the exponent law, the c
 their application to neutrino transport. Git history records target-ranked model selection before
 this law was promoted. The formula is therefore part of the frozen candidate rather than a
 source-side consequence of OPH.
-On the emitted positive selector segment there is a stronger compare-only two-parameter adapter: solving \(\tau_\nu\) against the representative central ratio and then solving \(\lambda_\nu\) against \(\Delta m_{32}^2\) gives
+On the declared positive selector segment there is a stronger compare-only two-parameter adapter:
+under the declared normal-ordering hypothesis, solving \(\tau_\nu\) against the representative
+central ratio and then solving \(\lambda_\nu\) against \(\Delta m_{32}^2\) gives
 \[
 (m_1,m_2,m_3)=(0.01745663295,\ 0.01948419960,\ 0.05308139066)\ \mathrm{eV},
 \]
@@ -3030,13 +3032,15 @@ m_i=\lambda_\nu \widehat m_i,
 \]
 The normalized same-label overlap-defect calculation is exact after the template and declared
 selectors are supplied. The positive-segment adapter, bridge corridor, and bridge-coordinate
-sidecars remain diagnostic surfaces.
+sidecars remain diagnostic surfaces. In particular, the following quantity is only a diagnostic
+coordinate:
 \[
 C_\nu:=\frac{B_\nu}{I_\nu^{1/2}\,\widehat{\mathrm{ratio}}^{\,1/2}\,\mathrm{sum\_defect}^{-1}}
 \]
-above the emitted proxy and closed normalizer. The attached stack also factors exactly through
+It was defined above the declared proxy and normalizer. The attached stack also factors exactly through
 \(q_e = q_{\mathrm{mean}} qbar_e\), so a \(qbar_e\)-only collapse law for the bridge factor does
-not follow from the theorem surface stated here. The best closed constructive local object beneath that bridge is the
+not follow from the conditional algebraic surface stated here. The best algebraically complete
+conditional local object beneath that bridge is the
 defect-weighted same-label edge family \(q_e=\sqrt{g_e d_e}\) together with the induced
 \(\mu_e\) family, but that family sits below \(C_\nu\) and the induced paper-facing amplitude \(B_\nu\) instead of replacing them.
 No source-only PMNS, hierarchy, Majorana-phase, or absolute-mass prediction survives these gates.
@@ -3048,16 +3052,17 @@ The compare-only absolute attachment displays
 =
 0.09001192964464505~\mathrm{eV}.
 \]
-Under standard relic-neutrino inheritance, and absent an explicitly declared extra OPH relativistic
-coherence channel, the cosmological-neutrino-background branch uses
+Under the declared normal-ordering hypothesis, standard relic-neutrino inheritance, and absent an
+explicitly declared extra OPH relativistic coherence channel, the diagnostic
+cosmological-neutrino-background branch uses
 \[
 N_{\mathrm{eff}}^{\mathrm{OPH}}=3.044,
 \]
 with the usual broad, low-amplitude normal-ordering free-streaming imprint. This is a diagnostic
 cosmological pressure surface for the rejected candidate.
-The emitted mass sum sits below the Planck+BAO \(0.12~\mathrm{eV}\) bound~\cite{planck18} but is
+The displayed mass sum sits below the Planck+BAO \(0.12~\mathrm{eV}\) bound~\cite{planck18} but is
 exposed to strict DESI DR2 \(\Lambda\)CDM-style bounds near \(0.0642~\mathrm{eV}\) under their
-model assumptions~\cite{desidr2nu}. A cosmological upper bound below the emitted value would
+model assumptions~\cite{desidr2nu}. A cosmological upper bound below the displayed compare-only value would
 exclude the displayed absolute-mass continuation under a model class that also respects
 oscillation lower limits and the OPH background assumptions.
 
@@ -3096,34 +3101,45 @@ Equivalently one may work with any positive normalized family
 Common scaling cancels identically, so the intrinsic selector is determined by the centered
 eta-class alone.
 
+This factorization result is conditional on the scalar inputs; it is not a source-closure result.
+The current scalar values are numerically complete, but their gap data inherit the template
+family-transport kernel and their overlap data inherit a candidate-only line lift. The code now
+propagates those upstream statuses, so the intrinsic spectrum remains a conditional diagnostic
+until both inputs close at source level.
+
 On the isotropic neutrino-only branch one has
 \[
 (\eta_{12},\eta_{23},\eta_{31})=(0,0,0),
 \]
-which emits the intrinsic masses
+which gives the conditional intrinsic singular values
 \[
 (s_0,s_1,s_2)=
 (2.3986448447627196,\ 2.3986448447627196,\ 2.590074050773907)\times10^{-12}\ \mathrm{GeV},
 \]
-with
+with ascending squared-mass gaps
 \[
 \begin{aligned}
-\Delta m_{21}^2&=0,\\
-\Delta m_{31}^2&=9.549864971855843\times10^{-25}\ \mathrm{GeV}^2.
+s_1^2-s_0^2&=0,\\
+s_2^2-s_0^2&=9.549864971855843\times10^{-25}\ \mathrm{GeV}^2.
 \end{aligned}
 \]
 This is the exact neutrino-only isotropy obstruction behind the solar-splitting boundary.
 
-\begin{theorem}[Same-label scalar certificate suffices for intrinsic neutrino masses]
-Assume the same-label gap and overlap scalars are emitted on all realized arrows. Then the full
+\begin{theorem}[Fixed isotropic reference plus same-label scalars suffice for the intrinsic deformation]
+Fix the isotropic reference \(M_0\), equivalently its parameters
+\((a,\rho,\Omega)\). Assume the same-label gap and overlap scalars are supplied on all realized
+arrows. Then the full
 intrinsic neutrino mass-eigenstate bundle factors through the scalar certificate
 \[
 \bigl(g_e,\omega_e\bigr)_{e\in\{12,23,31\}}
 \]
 or equivalently through the centered eta-class \([\eta_e]\). No additional raw matrix payload is
-needed to form the intrinsic selector, the depressed-cubic spectrum, the ordered splittings, or
-the intrinsic neutrino-side basis. Ascending singular-value sorting does not select the physical
-normal or inverted mass-eigenstate labels.
+needed to form the intrinsic selector, the depressed-cubic spectrum, the ascending gaps, or
+the intrinsic spectral subspaces. When the singular spectrum is simple, canonical Takagi
+congruence fixes an ordered column basis up to column signs. At a degeneracy, including the
+isotropic \(s_0=s_1\) point, only the degenerate spectral subspace and its projector are fixed.
+Ascending singular-value sorting does not select the physical normal or inverted mass-eigenstate
+labels.
 \end{theorem}
 
 \begin{theorem}[Exact principal-branch selector from the centered eta-class]
@@ -3246,12 +3262,28 @@ emits
 s_0\leq s_1\leq s_2,\qquad
 s_1^2-s_0^2,\ s_2^2-s_0^2,\ s_2^2-s_1^2,
 \]
-and the corresponding intrinsic singular-vector basis with no PMNS import and no flavor-label
-leakage. The physical normal-ordering assignment is
+and the corresponding intrinsic spectral subspaces with no PMNS import and no flavor-label
+leakage. A columnwise Takagi basis is emitted only on the simple-spectrum locus. The physical normal-ordering assignment is
 \((\nu_1,\nu_2,\nu_3)=(s_0,s_1,s_2)\), while the inverted-ordering assignment is
 \((\nu_3,\nu_1,\nu_2)=(s_0,s_1,s_2)\). The current source does not choose between them, so
 physical ordering remains open.
 \end{corollary}
+
+The matrix used in this corollary is Majorana, so its physical column matrix is the Takagi matrix
+\(U_\nu\) defined by
+\[
+U_\nu^T M U_\nu=\operatorname{diag}(s_0,s_1,s_2)\in\mathbb R_{\geq0}.
+\]
+Earlier artifacts exported the left SVD matrix, which diagonalizes \(MM^\dagger\), instead of the
+Takagi matrix, whose columns diagonalize \(M^\dagger M\). The corrected congruence has maximum
+off-diagonal residual \(5.4\times10^{-28}\,\mathrm{GeV}\) on the live anisotropic matrix. Conditional
+on the stale stored charged matrix, the corrected intrinsic combination would give
+\[
+(\theta_{12},\theta_{23},\theta_{13},\delta)
+=(45.0137^\circ,\ 2.50489^\circ,\ 2.53597^\circ,\ 210.6251^\circ).
+\]
+That diagnostic is strongly incompatible with the NuFIT angle surface, but it is not an OPH
+prediction because the charged basis is open and template-derived.
 
 \subsection{Perturbative laws around the isotropic point}
 
@@ -3269,18 +3301,19 @@ Define
 \[
 \sigma^2=\frac23\sum_e \delta_e^2.
 \]
-Then
+Assume \(2a\cos\varphi+\rho\neq0\) and that the collective state is separated from the
+isotropic doublet. Then the two ascending doublet eigenvalues satisfy
 \[
-m_{1,2}^2=m_d^2\mp 2a\rho\sin\varphi\,\sigma+O(\delta^2),
+s_{0,1}^2=m_d^2\mp 2a\rho|\sin\varphi|\,\sigma+O(\delta^2),
 \]
 so
 \[
-\Delta m_{21}^2 = 4a\rho\sin\varphi\,\sigma+O(\delta^2)
-=4a\rho\frac{\sin^2\varphi}{\cos\varphi}
+s_1^2-s_0^2 = 4a\rho|\sin\varphi|\,\sigma+O(\delta^2)
+=4a\rho\frac{\sin^2\varphi}{|\cos\varphi|}
 \sqrt{\frac23\sum_e\eta_e^2}+O(\eta^2).
 \]
 
-The ordered atmospheric gaps obey the corrected first-order laws
+Under the declared normal-ordering hypothesis, the ascending atmospheric gaps obey
 \[
 \Delta m_{31}^2 = \Delta_{\mathrm{atm,iso}} + \frac12\Delta m_{21}^2 + O(\delta^2),
 \qquad
@@ -3289,7 +3322,7 @@ The ordered atmospheric gaps obey the corrected first-order laws
 so the first-order invariant atmospheric object is the collective-to-doublet centroid gap
 \[
 \Delta_{\mathrm{cent}}=
-m_3^2-\frac12(m_1^2+m_2^2)
+s_2^2-\frac12(s_0^2+s_1^2)
 =
 \Delta_{\mathrm{atm,iso}}+O(\delta^2).
 \]
@@ -3304,7 +3337,9 @@ a\rho\,\sigma^2
 +O(\delta^3).
 \]
 
-The largest-mass singular vector obeys the first-order deformation law
+The projective largest-mass right-singular direction, in the phase gauge that
+approaches the real democratic vector at the isotropic point, obeys the
+first-order deformation law
 \[
 u_3=
 u+
@@ -3322,6 +3357,16 @@ u=\frac1{\sqrt3}(1,1,1)^T,
 \frac{\sqrt3\,(2a\sin\varphi+3i\rho)}
  {9(2a\cos\varphi+\rho)}.
 \]
+This equation fixes only the complex line.  If \(v_3\) denotes its normalized
+right-hand side, the canonical Takagi representative used by the executable
+pipeline is
+\[
+u_3^{\rm Tak}=e^{-\frac{i}{2}\arg(v_3^T M_\nu v_3)}v_3,
+\qquad
+(u_3^{\rm Tak})^T M_\nu u_3^{\rm Tak}=s_3>0,
+\]
+up to the unavoidable column sign.  In particular, at the isotropic point the
+real democratic vector is generally not already in positive Takagi gauge.
 Equivalently,
 \[
 u_3=
@@ -3344,9 +3389,9 @@ One exact demonstration uses centered eta-class
 0.0473191475224675),
 \end{gathered}
 \]
-and emits intrinsic masses
+and returns the ascending intrinsic singular values
 \[
-(m_1,m_2,m_3)=
+(s_0,s_1,s_2)=
 (2.3929601069646055,\,
 2.4048200109774875,\,
 2.589606227283229)\times10^{-12}\ \mathrm{GeV},
@@ -3354,14 +3399,17 @@ and emits intrinsic masses
 with
 \[
 \begin{aligned}
-\Delta m_{21}^2
+s_1^2-s_0^2
 &=5.690121167370743\times10^{-26}\ \mathrm{GeV}^2,\\
-\Delta m_{31}^2
+s_2^2-s_0^2
 &=9.798023388600230\times10^{-25}\ \mathrm{GeV}^2.
 \end{aligned}
 \]
-These are exact outputs of the intrinsic eta-chain once the centered eta-class is supplied. They
-are not flavor-labeled OPH rows.
+These are exact outputs of the intrinsic eta-chain once the fixed isotropic reference and centered
+eta-class are supplied. They are not flavor-labeled OPH rows, and ascending sorting does not pick
+a physical ordering. Under the declared normal-ordering hypothesis
+\((\nu_1,\nu_2,\nu_3)=(s_0,s_1,s_2)\); under the inverted-ordering hypothesis
+\((\nu_3,\nu_1,\nu_2)=(s_0,s_1,s_2)\). The source-side label rule is absent.
 
 \subsection{Weighted-cycle bridge rigidity and absolute attachment}
 
@@ -3384,8 +3432,10 @@ m_i&=\lambda_\nu \hat m_i,\\
 \end{aligned}
 \]
 The basis permutation, holonomy orientation, and CP sign lack source-side selection. Exhaustive
-enumeration of both orientations and all row and mass-column permutations finds no
-normal-ordering-consistent convention that passes both NuFIT 6.1 correlated \(3\sigma\) gates.
+enumeration of both stored orientations and all row and mass-column relabelings of the stored
+candidate matrix finds no normal-ordering-consistent relabeling that passes both NuFIT 6.1
+correlated \(3\sigma\) gates. This excludes a convention-only rescue of that matrix; it neither
+derives nor exhausts possible source-side physical charged-basis placements.
 The one-parameter atmospheric-anchor slice and the two-parameter positive-segment adapter remain
 compare-only continuations.
 
@@ -4297,7 +4347,8 @@ A second distinction belongs in discussion form instead of in the results sectio
 difference between ``elementary rows exist'' and ``ordinary matter is fully derived.'' Ordinary
 visible matter is dominated by hadrons, especially protons and neutrons. The OPH
 derivation has a hadron pipeline, with source-only hadron masses gated by a production
-backend export. The paper emits the elementary and weighted-cycle rows named above, while the full
+backend export. The paper emits the eligible elementary rows and retains the weighted-cycle
+coordinates only as a rejected comparison record, while the full
 observed matter spectrum is not emitted from a source-only OPH backend.
 
 \subsection{How to read these continuation questions}
@@ -4309,10 +4360,11 @@ The reader should therefore interpret this whole discussion section with the sam
 
 The particle-spectrum derivation is nontrivial and much more concrete than a qualitative aspiration.
 The structural theorem surface fixes the realized Standard Model branch and the exact massless
-carrier sectors. The completion pipeline closes or scopes five non-hadron chains: structural
+carrier sectors. The completion pipeline closes or scopes the structural
 massless carriers, the hierarchy/naturality bridge on the selected \(P/N\) branch, the Higgs/top row
-on the declared D10/D11 surface, selected-class quarks on \(f_P\), and neutrino absolute attachment
-on the weighted-cycle branch. The ledger also marks four separate row classes: the candidate
+on the declared D10/D11 surface, and selected-class quarks on \(f_P\). The neutrino lane records an
+isotropic no-go, a rejected target-informed weighted-cycle candidate, and open source-basis,
+mass-label, and operator gates. The ledger also marks four separate row classes: the candidate
 \(P\)-closure source audit, the electroweak \(W/Z\) validation row, the charged-lepton
 absolute-mass landing, and the hadron backend plus empirical closure split.
 The \(W/Z\) row is a frozen compare-only adapter with its own public validation records. The

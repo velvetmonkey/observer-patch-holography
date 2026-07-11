@@ -2,18 +2,18 @@
   "artifact": "oph_quark_target_free_bridge_theorem",
   "bridge_closure_status": "internalized_on_code_surface",
   "computed_current_family_target_check": {
-    "Delta_ud_overlap": 0.1295757145033233,
-    "ell_ud": 0.7774542870199399,
-    "eta_Q_centered": -0.017567212744631563,
-    "kappa_Q": -0.011997751342900306,
-    "ray_modulus": 0.6478785725166165,
-    "t1": 0.6478785725166165
+    "Delta_ud_overlap": 0.12957571450332311,
+    "ell_ud": 0.7774542870199387,
+    "eta_Q_centered": -0.01756721274463154,
+    "kappa_Q": -0.011997751342900289,
+    "ray_modulus": 0.6478785725166156,
+    "t1": 0.6478785725166156
   },
   "equivalent_wrappers": {
     "light_quark_overlap_defect_value_law": "Delta_ud_overlap = (1/6) * log(c_d / c_u)",
     "quark_d12_t1_value_law": "t1 = ray_modulus = (5/6) * log(c_d / c_u)"
   },
-  "generated_utc": "2026-06-29T07:35:29Z",
+  "generated_utc": "2026-07-11T06:46:53Z",
   "induced_d12_mass_side_corollaries": {
     "Delta_ud_overlap": "(1/6) * log(c_d / c_u)",
     "eta_Q_centered": "-((1 - x2^2) / 27) * t1",

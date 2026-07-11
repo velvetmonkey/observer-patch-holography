@@ -31,7 +31,7 @@ def test_charged_determinant_trace_lift_attachment_required() -> None:
     assert "charged_determinant_trace_lift_attachment" in payload["missing_for_promotion"]
     assert "NO_TARGET_LEAK_DAG_CHARGED_A_CH" in payload["missing_for_promotion"]
     assert "lepton_current_family_exact_readout" in payload["forbidden_ancestors"]
-    assert payload["conditional_readout_if_closed"]["centered_logs"]["ell_e"] == -4.495210108808081
+    assert payload["conditional_readout_if_closed"]["centered_logs"]["ell_e"] == -4.495209645475038
     assert payload["conditional_readout_if_closed"]["formulas"]["electron"] == (
-        "m_e(P)=exp(A_ch(P)-4.495210108808081)"
+        "m_e(P)=exp(A_ch(P)-4.495209645475038)"
     )

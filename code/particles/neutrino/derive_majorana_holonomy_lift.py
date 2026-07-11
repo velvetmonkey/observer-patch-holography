@@ -7,8 +7,9 @@ selector candidates that sit between the real family tensor and the phase law.
 Mathematics: weighted cycle-constrained least-distortion selectors on the
 three-edge Majorana phase graph.
 
-OPH-derived inputs: the shared sector transport pushforward that fixes the
-cycle weights and residual basis data used in the neutrino lane.
+Declared input: the shared sector transport pushforward that supplies the cycle
+weights and residual basis data. Its current template/candidate provenance is
+preserved separately from the exact conditional selector algebra.
 
 Output: the Majorana lift artifact consumed by the pullback metric, phase
 envelope, and forward matrix builders.
@@ -100,6 +101,15 @@ def main() -> int:
     args = parser.parse_args()
 
     payload = json.loads(pathlib.Path(args.input).read_text(encoding="utf-8"))
+    upstream_source_closure = dict(payload.get("source_closure_status") or {})
+    if not upstream_source_closure:
+        upstream_source_closure = {
+            "closed": False,
+            "upstream_status": payload.get("status"),
+            "upstream_proof_status": payload.get("proof_status"),
+            "missing_objects": ["source_emitted_family_transport_kernel"],
+        }
+    source_closed = upstream_source_closure.get("closed") is True
     nu = dict(payload.get("sector_response_object", {}).get("nu", {}))
     if not nu:
         raise ValueError("sector_response_object['nu'] is required")
@@ -156,6 +166,10 @@ def main() -> int:
         "phase_space": ["psi12", "psi23", "psi31"],
         "phase_status": "residual_affine_plane",
         "canonical_lift_closed": canonical_lift_closed,
+        "canonical_lift_closure_scope": "conditional_symmetry_of_declared_sector_response",
+        "source_only_physical_input_eligible": source_closed,
+        "public_surface_candidate_allowed": False,
+        "source_closure_status": upstream_source_closure,
         "canonical_selector_status": canonical_selector_status,
         "selector_law_status": "candidate_only",
         "selector_equivalence_class": "principal_equal_split" if canonical_lift_closed else "unresolved",
@@ -198,7 +212,12 @@ def main() -> int:
         "notes": [
             "The neutrino Majorana phase lift is kept separate from the real symmetric amplitude branch.",
             "Balanced, harmonic, and least-distortion selectors are exported as selector-law candidates.",
-            "On the current isotropic branch, the selector point closes as the principal equal split by S3 symmetry and the affine cycle constraint.",
+            "Conditional on the declared isotropic template, the selector point closes as the principal equal split by S3 symmetry and the affine cycle constraint.",
+            (
+                "The upstream sector response is source-closed."
+                if source_closed
+                else "The current upstream sector response is source-open, so selector-point closure does not create a physical neutrino prediction."
+            ),
             "The least-distortion selector law is not yet promoted beyond candidate status on this branch.",
         ],
     }

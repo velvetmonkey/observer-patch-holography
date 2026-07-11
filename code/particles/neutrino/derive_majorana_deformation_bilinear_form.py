@@ -7,8 +7,9 @@ phase dynamics, distinct from the standard-math ambient metric closure.
 Mathematics: residual-basis pullback of the deformation/Hessian class on the
 three-edge Majorana phase space.
 
-OPH-derived inputs: the local scale anchor, family tensor, Majorana lift, and
-the overlap-defect Hessian when it is available.
+Declared inputs: the local scale anchor, family tensor, Majorana lift, and the
+conditional overlap-defect Hessian when available. Their physical source
+closure is not established by this algebraic builder.
 
 Output: the OPH-only bilinear-form boundary consumed by the pullback-metric
 comparison and promotion-gate logic.
@@ -94,7 +95,17 @@ def main() -> int:
         },
         "ambient_phase_basis": ["psi12", "psi23", "psi31"],
         "proof_status": "local_quadratic_germ_closed",
-        "oph_origin_status": "missing_scalar_evaluator",
+        "proof_scope": "conditional_algebra_on_declared_family_response_and_majorana_lift",
+        "public_surface_candidate_allowed": False,
+        "source_only_physical_input_eligible": False,
+        "source_closure_status": {
+            "closed": False,
+            "missing_objects": [
+                "source_derived_neutrino_operator_and_family_response",
+                "source_derived_overlap_defect_action",
+            ],
+        },
+        "oph_origin_status": "not_established_from_source",
         "law_closure_scope": "local_quadratic_germ_closed",
         "isotropic_branch_rigidity": isotropic_closed,
         "general_branch_weight_formula": "(n_i n_j E_ij)^2",
@@ -118,8 +129,8 @@ def main() -> int:
             "upstream_missing_object": hessian.get("upstream_missing_object"),
         },
         "notes": [
-            "On the current isotropic branch, any S3-equivariant positive bilinear form restricts to the unique residual class proportional to [[2,1],[1,2]].",
-            "The remaining OPH-only burden is no longer the local quadratic class itself; it is the intrinsic scalar evaluator that upgrades the action germ to an exact scaled/finite-angle OPH action.",
+            "Conditional on the declared inputs, any S3-equivariant positive bilinear form on the isotropic branch restricts to the residual class proportional to [[2,1],[1,2]].",
+            "The local representation-theory statement does not derive the physical neutrino operator, family response, or overlap-defect action from source objects.",
         ],
     }
 

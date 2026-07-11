@@ -242,7 +242,7 @@
     "raw_vs_factored_mass_max_abs_error": 3.469446951953614e-18,
     "raw_vs_factored_pmns_abs_max_abs_error": 3.552713678800501e-15
   },
-  "generated_utc": "2026-06-29T07:35:37Z",
+  "generated_utc": "2026-07-11T06:47:02Z",
   "inputs_used": {
     "absolute_scaffold_artifact": "oph_neutrino_absolute_attachment_scaffold",
     "compare_artifact": "oph_neutrino_compare_only_scale_fit",
@@ -259,12 +259,14 @@
     "value": 6.699825740519345
   },
   "notes": [
-    "This result does not promote compare-only neutrino masses.",
+    "This result is exact conditional algebra and does not promote the rejected weighted-cycle matrix or compare-only neutrino masses.",
     "It sharpens the frontier by proving that the present attached stack itself cannot collapse the remaining one-dimensional amplitude orbit.",
     "Because the residual-amplitude proxy P_nu is already internal to the current stack, the same irreducibility transfers exactly to the reduced correction invariant C_nu = B_nu / P_nu.",
     "Any supported closure must adjoin one new positive non-homogeneous bridge invariant, or a new theorem external to the current attached stack that fixes the same parameter exactly."
   ],
-  "proof_grade": "exact_factorization_plus_exact_one_orbit_underdetermination",
+  "prediction_promotion_allowed": false,
+  "proof_grade": "exact_factorization_plus_one_orbit_underdetermination_conditional_on_declared_candidate",
+  "public_surface_candidate_allowed": false,
   "qbar_only_normal_form": {
     "dm2_coefficients": {
       "21": 0.2755808422191648,
@@ -282,11 +284,11 @@
     "bridge_reconstruction": "B_nu = (I_nu^0.5 * ratio_hat^0.5 * sum_defect^-1) * C_nu",
     "compare_only_target": 0.9995473560046991,
     "definition": "C_nu = B_nu / (I_nu^0.5 * ratio_hat^0.5 * sum_defect^-1)",
-    "equivalence_theorem": "Because the proxy P_nu is already internal to the current attached stack and strictly positive on the live branch, the current stack emits B_nu if and only if it emits C_nu := B_nu / P_nu.",
+    "equivalence_theorem": "Because the proxy P_nu is internal to the declared candidate stack and strictly positive at the stored point, that conditional stack fixes B_nu if and only if it fixes C_nu := B_nu / P_nu.",
     "exact_residual_moduli_space": "R_{>0}",
     "must_break": "the remaining positive correction orbit above the internal emitted proxy P_nu",
     "name": "one_positive_neutrino_bridge_correction_invariant",
-    "status": "irreducible_on_current_corpus",
+    "status": "conditionally_irreducible_on_declared_candidate_stack",
     "symbol": "C_nu"
   },
   "remaining_object": {
@@ -296,9 +298,9 @@
     ],
     "must_break": "the current positive common-homogeneity between the D10 amplitude anchor and the weighted-cycle normal form",
     "name": "one_positive_neutrino_attachment_bridge_invariant",
-    "status": "irreducible_on_current_corpus"
+    "status": "conditionally_irreducible_on_declared_candidate_stack"
   },
-  "status": "proved_from_current_attached_stack",
+  "status": "conditional_algebraic_no_go_on_rejected_candidate_stack",
   "theorem": {
     "exact_factorization": [
       "q_e = q_mean * qbar_e",
@@ -312,11 +314,11 @@
     "name": "weighted_cycle_attachment_irreducibility_after_full_attached_stack",
     "reduced_exact_factorization": [
       "B_nu = (I_nu^0.5 * ratio_hat^0.5 * sum_defect^-1) * C_nu",
-      "P_nu is a positive scalar already internal to the current attached stack.",
-      "Therefore the current stack emits B_nu if and only if it emits C_nu."
+      "P_nu is a positive scalar internal to the declared candidate stack.",
+      "Therefore that conditional stack fixes B_nu if and only if it fixes C_nu."
     ],
-    "reduced_sharpened_conclusion": "After factoring out the internal positive proxy P_nu, one positive reduced bridge correction invariant C_nu remains irreducible on the current corpus.",
+    "reduced_sharpened_conclusion": "After factoring out the internal positive proxy P_nu, one positive reduced bridge correction invariant C_nu remains conditionally irreducible on the declared candidate stack.",
     "sharpened_conclusion": "The collapse alternative F_nu = F_nu(qbar) is not derivable from the present attached stack, because the entire current stack is constant on the exact one-parameter family A_nu in R_{>0}.",
-    "statement": "With the current emitted normalizer, weighted-cycle theorem object, and centered-edge-norm scalar stack fixed, the neutrino branch factors exactly through q_e = q_mean * qbar_e and retains one free positive amplitude orbit. Hence no theorem-grade absolute attachment law can be derived from the current attached stack alone; one positive bridge invariant remains irreducible."
+    "statement": "With the declared normalizer, weighted-cycle candidate law, and centered-edge-norm scalar stack fixed, the neutrino branch factors exactly through q_e = q_mean * qbar_e and retains one free positive amplitude orbit. Hence no theorem-grade absolute attachment law can be derived from the current attached stack alone; one positive bridge invariant remains irreducible."
   }
 }

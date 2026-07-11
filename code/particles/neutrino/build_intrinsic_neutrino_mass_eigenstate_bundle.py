@@ -7,8 +7,9 @@ the exact intrinsic neutrino mass-eigenstate bundle.
 Mathematics: reuse the exact principal-branch selector and depressed-cubic
 spectral law from the centered eta-class builder.
 
-OPH-derived inputs: the isotropic neutrino forward bundle plus a complete
-same-label scalar certificate.
+Declared inputs: the isotropic neutrino forward bundle plus a numerically
+complete same-label scalar certificate. Physical promotion additionally
+requires that certificate's upstream source graph to close.
 
 Output: the intrinsic neutrino mass-eigenstate bundle, kept separate from PMNS
 and flavor-labeled rows until the shared charged basis exists.
@@ -60,7 +61,7 @@ def main() -> int:
 
     isotropic = _load_json(Path(args.isotropic))
     certificate = _load_json(Path(args.scalar_certificate))
-    if certificate.get("proof_status") != "fixed_cutoff_scalar_sufficient_downstream_certificate":
+    if certificate.get("sufficient_for_intrinsic_mass_eigenstates") is not True:
         raise ValueError("scalar certificate is incomplete; intrinsic mass eigenstates require a complete certificate")
 
     exact = _load_exact_eta_module()
@@ -70,11 +71,18 @@ def main() -> int:
     phase = exact._phase_vector_from_matrix(matrix_iso)
     omega = float(3.0 * phase[0])
     eta = exact._centered_eta_from_payload(certificate)
+    mu_from_eta = np.exp(eta)
+    mu_normalized = mu_from_eta / float(np.mean(mu_from_eta))
     exact_map = exact._build_exact_eta_map(a_value, rho_value, omega, eta)
 
     masses = exact_map.masses
     masses_sq = exact_map.masses_squared
     ordering = "unresolved_without_mass_eigenstate_label_rule"
+    source_closure_status = dict(certificate.get("source_closure_status") or {})
+    source_only_physical_input_eligible = (
+        certificate.get("source_only_physical_input_eligible") is True
+        and source_closure_status.get("closed") is True
+    )
     rows = [
         {"state": "s0", "ascending_index": 0, "mass_gev": float(masses[0]), "mass_sq_gev2": float(masses_sq[0])},
         {"state": "s1", "ascending_index": 1, "mass_gev": float(masses[1]), "mass_sq_gev2": float(masses_sq[1])},
@@ -87,15 +95,23 @@ def main() -> int:
         "source_isotropic": str(Path(args.isotropic)),
         "source_scalar_certificate": str(Path(args.scalar_certificate)),
         "completion_scope": "intrinsic_mass_eigenstates_only",
+        "source_only_physical_input_eligible": source_only_physical_input_eligible,
+        "source_closure_status": source_closure_status or {"closed": False},
         "not_completed_items": [
-            "live_physical_scalar_certificate_if_demo_only",
+            "source_closed_same_label_scalar_certificate"
+            if not source_only_physical_input_eligible
+            else None,
             "shared_charged_lepton_left_basis_for_pmns",
+            "source_derived_mass_eigenstate_label_and_ordering_rule",
         ],
         "a_gev": float(a_value),
         "rho_gev": float(rho_value),
         "omega": omega,
         "eta_e": dict(certificate["eta_e"]),
-        "mu_e_normalized": dict(certificate["mu_e"]),
+        "mu_e_certificate": dict(certificate["mu_e"]),
+        "mu_e_normalized": {
+            edge: float(mu_normalized[idx]) for idx, edge in enumerate(exact.EDGE_ORDER)
+        },
         "selector_lambda": float(exact_map.lam),
         "selector_point_absolute": {edge: float(exact_map.psi[idx]) for idx, edge in enumerate(exact.EDGE_ORDER)},
         "majorana_matrix_real": [[float(v.real) for v in row] for row in exact_map.majorana],
@@ -128,8 +144,9 @@ def main() -> int:
             "s2_minus_s1": float(masses_sq[2] - masses_sq[1]),
         },
         "ordering": ordering,
-        "u_nu_real": [[float(v.real) for v in row] for row in exact_map.u_left],
-        "u_nu_imag": [[float(v.imag) for v in row] for row in exact_map.u_left],
+        "u_nu_real": [[float(v.real) for v in row] for row in exact_map.u_takagi],
+        "u_nu_imag": [[float(v.imag) for v in row] for row in exact_map.u_takagi],
+        "u_nu_semantics": "Takagi U satisfying U^T M U = diag(m_i) > 0",
         "row_basis_labels": ["f1", "f2", "f3"],
         "same_label_basis_contract": {
             "labels": ["f1", "f2", "f3"],
@@ -142,11 +159,17 @@ def main() -> int:
             "pmns_status": "not_formed_here",
         },
         "notes": [
-            "This bundle emits an exact ascending singular spectrum once the same-label scalar certificate is given.",
+            "This bundle computes an exact ascending singular spectrum conditional on the same-label scalar certificate.",
+            (
+                "The certificate is source-closed."
+                if source_only_physical_input_eligible
+                else "The current certificate is numerically complete but inherits template/candidate source inputs."
+            ),
             "Sorting does not select normal versus inverted physical mass labels; a source-side eigenstate label rule is still required.",
             "It does not by itself close PMNS or flavor-labeled neutrino rows.",
         ],
     }
+    payload["not_completed_items"] = [item for item in payload["not_completed_items"] if item is not None]
 
     out_path = Path(args.output)
     out_path.parent.mkdir(parents=True, exist_ok=True)

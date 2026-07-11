@@ -26,19 +26,21 @@ def test_neutrino_attachment_irreducibility_theorem() -> None:
     assert "saved:" in completed.stdout
     payload = json.loads(OUTPUT.read_text(encoding="utf-8"))
     assert payload["artifact"] == "oph_neutrino_attachment_irreducibility_theorem"
-    assert payload["status"] == "proved_from_current_attached_stack"
-    assert payload["proof_grade"] == "exact_factorization_plus_exact_one_orbit_underdetermination"
-    assert payload["remaining_object"]["status"] == "irreducible_on_current_corpus"
+    assert payload["status"] == "conditional_algebraic_no_go_on_rejected_candidate_stack"
+    assert payload["public_surface_candidate_allowed"] is False
+    assert payload["prediction_promotion_allowed"] is False
+    assert payload["proof_grade"] == "exact_factorization_plus_one_orbit_underdetermination_conditional_on_declared_candidate"
+    assert payload["remaining_object"]["status"] == "conditionally_irreducible_on_declared_candidate_stack"
     reduced = payload["reduced_remaining_object"]
     assert reduced["symbol"] == "C_nu"
-    assert reduced["status"] == "irreducible_on_current_corpus"
+    assert reduced["status"] == "conditionally_irreducible_on_declared_candidate_stack"
     assert reduced["compare_only_target"] > 0.99
     assert reduced["compare_only_target"] < 1.01
     assert payload["internal_positive_proxy_object"]["route_id"] == "core_residual_scalar_route"
     assert payload["theorem"]["name"] == "weighted_cycle_attachment_irreducibility_after_full_attached_stack"
     assert "not derivable" in payload["theorem"]["sharpened_conclusion"]
-    assert "current stack emits B_nu if and only if it emits C_nu" in " ".join(payload["theorem"]["reduced_exact_factorization"])
-    assert "C_nu remains irreducible" in payload["theorem"]["reduced_sharpened_conclusion"]
+    assert "conditional stack fixes B_nu if and only if it fixes C_nu" in " ".join(payload["theorem"]["reduced_exact_factorization"])
+    assert "conditionally irreducible" in payload["theorem"]["reduced_sharpened_conclusion"]
     checks = payload["factorization_validation"]["q_rescaling_orbit_checks"]
     assert len(checks) == 3
     assert max(item["max_relative_dm_scaling_error"] for item in checks) < 1e-12

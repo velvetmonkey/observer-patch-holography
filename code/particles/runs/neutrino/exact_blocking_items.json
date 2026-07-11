@@ -7,19 +7,16 @@
     "same_label_scalar_certificate_sufficiency",
     "exact_principal_selector_from_centered_eta_class",
     "exact_depressed_cubic_intrinsic_spectrum",
-    "mass_eigenstate_row_policy_nu1_nu2_nu3",
-    "positive_load_balanced_least_distortion_midpoint_selector",
-    "shape_closed_scale_invariant_left_basis",
-    "pmns_from_shared_charged_and_intrinsic_bases"
+    "ascending_intrinsic_singular_spectrum"
   ],
   "current_isotropic_builder_facing_class": {
     "artifact": "oph_neutrino_only_edge_constant_centered_eta_class",
-    "current_delta_m21_sq_gev2": 7.488059465106852e-23,
-    "current_delta_m31_sq_gev2": 2.5123118727618474e-21,
+    "current_delta_m21_sq_gev2": 1.788985827699037e-25,
+    "current_delta_m31_sq_gev2": 1.0143949544256282e-24,
     "current_intrinsic_masses_gev": [
-      1.7454720257976798e-11,
-      1.9481987935919017e-11,
-      5.307522145074924e-11
+      2.3820288435078732e-12,
+      2.4192891505715804e-12,
+      2.5862050123161317e-12
     ],
     "edge_order": [
       "psi12",
@@ -37,15 +34,16 @@
       "psi23": 1.0,
       "psi31": 1.0
     },
-    "ordering": "normal_hierarchy_weighted_cycle_absolute_family",
+    "ordering": null,
     "status": "exact_builder_facing_class_only",
     "why_not_proof_facing": "The isotropic neutrino-only bundle determines only the zero centered class. It does not determine the proof-facing overlap/gap certificate."
   },
   "current_snapshot_scan": {
-    "live_charged_left_artifact_found": true,
-    "live_pmns_artifact_found": true,
+    "live_charged_left_artifact_found": false,
+    "live_pmns_artifact_found": false,
     "live_repair_artifact_found": true,
-    "live_same_label_artifact_found": true
+    "live_same_label_artifact_found": true,
+    "live_same_label_source_closure_passed": false
   },
   "demo_intrinsic_result_summary": {
     "delta_m21_sq_gev2": 1.7889858276990296e-25,
@@ -55,7 +53,7 @@
       2.4048200109774875e-12,
       2.589606227283229e-12
     ],
-    "ordering": "normal_like_collective_dominance"
+    "ordering": "unresolved_without_mass_eigenstate_label_rule"
   },
   "demo_proof_facing_certificate_summary": {
     "eta_e": {
@@ -69,9 +67,40 @@
     "same_label_builder_facing_centered_eta_dof": 2,
     "same_label_proof_facing_continuous_dof_mod_common_scale": 5
   },
-  "exact_blockers": [],
-  "fully_completed": true,
-  "generated_utc": "2026-04-03T03:08:45Z",
+  "exact_blockers": [
+    {
+      "current_snapshot_status": "numeric_certificate_present_source_open",
+      "kind": "physical_neutrino_operator_input",
+      "name": "source_closed_same_label_neutrino_input",
+      "required_contract": "source_emitted_family_transport_kernel_and_theorem_grade_overlap_line_lift",
+      "upstream_source_closure_status": {
+        "closed": false,
+        "family_transport_kernel_explicit_source_closure": false,
+        "family_transport_kernel_proof_status": "conjugacy_riesz_candidate",
+        "family_transport_kernel_status": "template",
+        "missing_objects": [
+          "source_emitted_family_transport_kernel",
+          "theorem_grade_overlap_edge_line_lift"
+        ],
+        "overlap_edge_line_lift_explicit_source_closure": false,
+        "overlap_edge_line_lift_proof_status": "candidate_only"
+      }
+    },
+    {
+      "current_snapshot_status": "absent",
+      "kind": "pmns_and_public_flavor_row_object",
+      "name": "shared_charged_lepton_left_basis",
+      "required_contract": "oph_shared_charged_left_basis_required_contract"
+    },
+    {
+      "current_snapshot_status": "absent",
+      "kind": "physical_mass_label_object",
+      "name": "neutrino_mass_eigenstate_label_and_ordering_rule",
+      "required_contract": "select_the_solar_pair_and_atmospheric_sign_from_source_data"
+    }
+  ],
+  "fully_completed": false,
+  "generated_utc": "2026-07-11T06:25:22Z",
   "live_continuation_branch_status": {
     "absolute_scale_no_go": null,
     "compare_only_atmospheric_anchor": {
@@ -93,95 +122,31 @@
       "sum_masses_eV": 0.0900224302009819
     },
     "current_mass_splittings_gev2": {
-      "delta_m21_sq_gev2": 7.478632486698175e-23,
-      "delta_m31_sq_gev2": 2.5091490359960938e-21,
-      "delta_m32_sq_gev2": 2.434362711129112e-21,
-      "status": "emitted_on_weighted_cycle_theorem_branch"
+      "delta_m21_sq_gev2": 1.788985827699037e-25,
+      "delta_m31_sq_gev2": 1.0143949544256282e-24,
+      "status": "builder_intrinsic_snapshot"
     },
-    "current_pmns_parameters": {
-      "J": -0.02753115613565372,
-      "delta_deg": 305.58061231449796,
-      "delta_rad": 5.333387815148319,
-      "theta12_deg": 34.225904631810025,
-      "theta12_rad": 0.5973547252986625,
-      "theta13_deg": 8.686355527700156,
-      "theta13_rad": 0.15160550395717723,
-      "theta23_deg": 49.72282845058266,
-      "theta23_rad": 0.867827069866978
-    },
-    "emitted_absolute_family": {
-      "delta_m_sq_eV2": {
-        "21": 7.478632486698174e-05,
-        "31": 0.0025091490359960937,
-        "32": 0.0024343627111291116
-      },
-      "lambda_nu": 1.722616065305669,
-      "masses_eV": [
-        0.017443729620660573,
-        0.01946972079783613,
-        0.05304180180833608
-      ]
-    },
-    "emitted_theorem_pair": {
-      "absolute_attachment": {
-        "artifact": "oph_neutrino_absolute_attachment_theorem",
-        "outputs": {
-          "B_nu": 6.691787915662661,
-          "absolute_family": {
-            "dm2": {
-              "21": "Delta m21^2 = lambda_nu^2 * 2.520259180367675e-05",
-              "31": "Delta m31^2 = lambda_nu^2 * 0.0008455698156217034",
-              "32": "Delta m32^2 = lambda_nu^2 * 0.0008203672238180266"
-            },
-            "masses": [
-              "m1 = lambda_nu * 0.010126301485273374",
-              "m2 = lambda_nu * 0.011302414501969324",
-              "m3 = lambda_nu * 0.03079142408841061"
-            ]
-          },
-          "bridge_reconstruction": "B_nu = P_nu * C_nu",
-          "delta_m_sq_eV2": {
-            "21": 7.478632486698174e-05,
-            "31": 0.0025091490359960937,
-            "32": 0.0024343627111291116
-          },
-          "lambda_nu": 1.722616065305669,
-          "lambda_reconstruction": "lambda_nu = (m_star_eV / q_mean^p_nu) * P_nu * C_nu",
-          "masses_eV": [
-            0.017443729620660573,
-            0.01946972079783613,
-            0.05304180180833608
-          ]
-        },
-        "status": "theorem_grade_emitted"
-      },
-      "bridge_rigidity": {
-        "artifact": "oph_neutrino_bridge_rigidity_theorem",
-        "emitted_formula": "ratio_hat^0.5 * sum_gap^-2 * heavy_light_gap_over_mstar",
-        "emitted_proxy": {
-          "formula": "I_nu^0.5 * ratio_hat^0.5 * sum_defect^-1",
-          "symbol": "P_nu",
-          "value": 6.699825740519345
-        },
-        "emitted_value": 0.998800293445235,
-        "status": "theorem_grade_emitted"
-      }
-    },
+    "current_pmns_parameters": {},
+    "emitted_absolute_family": null,
+    "emitted_theorem_pair": null,
     "intrinsic_builder_mass_splittings_gev2": {
-      "delta_m21_sq_gev2": 7.488059465106852e-23,
-      "delta_m31_sq_gev2": 2.5123118727618474e-21
+      "delta_m21_sq_gev2": 1.788985827699037e-25,
+      "delta_m31_sq_gev2": 1.0143949544256282e-24
     },
     "no_hidden_discrete_branch": {
-      "open_discrete_blockers": [],
-      "statement": "The repaired weighted-cycle branch already fixes the shared-basis discrete data; no unresolved discrete neutrino branch remains.",
-      "status": "closed"
+      "open_discrete_blockers": [
+        "branch_repair_or_discrete_selector_unknown"
+      ],
+      "statement": "The current surface has not yet reduced the neutrino lane to a pure positive-scale orbit.",
+      "status": "not_yet_established"
     },
-    "physical_branch_closed": true,
-    "pmns_present": true,
+    "physical_branch_closed": false,
+    "physical_mass_ordering_selected": false,
+    "pmns_present": false,
     "remaining_positive_scale_orbit": {
       "family_parameter": null,
       "group": null,
-      "status": "closed_by_emitted_absolute_attachment_theorem"
+      "status": "not_applicable"
     },
     "repair_artifact_present": true,
     "repaired_branch_dimensionless_dm2": {
@@ -190,8 +155,9 @@
       "32": 0.0008203672238180266
     },
     "same_label_scalar_certificate_present": true,
-    "shared_charged_left_basis_present": true,
-    "status": "weighted_cycle_bridge_rigid_absolute_family_emitted"
+    "same_label_scalar_certificate_source_closed": false,
+    "shared_charged_left_basis_present": false,
+    "status": "waiting_on_missing_upstream_artifacts"
   },
   "neutrino_only_isotropy_obstruction": {
     "closed": true,
@@ -199,21 +165,18 @@
     "statement": "The current forward neutrino bundle is exactly S_3-isotropic, so neutrino-only same-label readback stays edge-constant and cannot open the solar 1-2 split."
   },
   "no_hidden_discrete_branch": {
-    "closed_discrete_witnesses": [
-      "shape_closed_scale_invariant_left_basis",
-      "pmns_from_shared_charged_and_intrinsic_bases",
-      "cycle_basis_order_fixed_(f3,f1,f2)",
-      "holonomy_orientation_fixed_021"
+    "closed_discrete_witnesses": [],
+    "open_discrete_blockers": [
+      "branch_repair_or_discrete_selector_unknown"
     ],
-    "open_discrete_blockers": [],
-    "statement": "The repaired weighted-cycle branch leaves only positive rescaling freedom; no unresolved discrete branch remains.",
-    "status": "closed"
+    "statement": "No hidden-discrete-branch theorem is not yet available before the repaired weighted-cycle branch closes.",
+    "status": "not_yet_established"
   },
-  "reason_not_fully_completed": "",
+  "reason_not_fully_completed": "The intrinsic algebra is exact conditional on the same-label scalar certificate, but the current snapshot still has only a numerically complete certificate whose upstream source artifacts remain open and still lacks the shared charged-lepton left basis required for PMNS/public flavor rows. A source-side solar-pair and atmospheric-sign label rule is also missing.",
   "remaining_positive_scale_orbit": {
     "family_parameter": null,
     "group": null,
     "proof_obstruction": null,
-    "status": "closed_by_emitted_absolute_attachment_theorem"
+    "status": "not_applicable"
   }
 }

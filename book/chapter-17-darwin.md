@@ -189,12 +189,15 @@ The "particle zoo" is a census of vibrational survivors.
 
 Within OPH, that census is uneven. Some entries are structurally cleaner:
 photon, gluons, graviton, and the weak-boson benchmark pair. The Higgs and top
-are tied together on one electroweak relation, the neutrino sector sits on one
-absolute branch, and quarks close on a selected running-mass frame. Charged
-leptons use more empirical anchoring. Composite particles like hadrons demand
-the hard strong-interaction calculation, and empirical hadron checks use the
-standard \(e^+e^-\to\mathrm{hadrons}\) data. Stitching a detector track across a
-chart boundary is another layer again: it can identify one nonbranching
+are tied together on one electroweak relation, and quarks close on a selected
+running-mass frame. The weighted-cycle neutrino entry is a target-informed
+comparison candidate rejected by the correlated NuFIT 6.1 profile. Its charged
+basis is open and has nearly degenerate singular values, leaving the physical
+PMNS matrix, mass ordering, and absolute scale unresolved. Charged leptons use
+more empirical anchoring. Composite particles like hadrons demand the hard
+strong-interaction calculation, and empirical hadron checks use the standard
+\(e^+e^-\to\mathrm{hadrons}\) data. Stitching a detector track across a chart
+boundary is another layer again: it can identify one nonbranching
 observer-visible path only when the atlas, clock, interface, transport, and
 separation checks leave no rival track.
 

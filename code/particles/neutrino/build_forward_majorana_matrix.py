@@ -5,13 +5,15 @@ Chain role: turn the scale anchor, family tensor, and phase selector data into
 an explicit complex Majorana mass matrix.
 
 Mathematics: matrix assembly across `real_seed`, `canonical_selector`, and
-`residual_envelope` modes plus SVD-based spectral extraction.
+`residual_envelope` modes plus Takagi spectral extraction.
 
-OPH-derived inputs: the local scale anchor, family-response tensor, Majorana
-lift, and the current phase-law/envelope artifacts.
+Declared pipeline inputs: the local scale anchor, family-response tensor,
+Majorana lift, and current phase-law/envelope artifacts. This matrix builder
+does not itself establish their physical source closure.
 
-Output: the forward Majorana matrix used for splittings, ordering, and the
-exported neutrino closure bundle.
+Output: the forward Majorana matrix used for ascending singular-value gaps and
+the exported neutrino closure bundle. Physical mass ordering remains a separate
+source-label problem.
 """
 
 from __future__ import annotations
@@ -44,10 +46,20 @@ def _phase_matrix_from_selector(selector: dict[str, Any] | None) -> np.ndarray:
     return phase_matrix
 
 
-def _sorted_svd(matrix: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
-    u_mat, s_vals, _ = np.linalg.svd(matrix)
-    order = np.argsort(s_vals)
-    return s_vals[order], u_mat[:, order]
+def _sorted_takagi(matrix: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
+    if np.max(np.abs(matrix - matrix.T)) > 1.0e-12:
+        raise ValueError("Majorana matrix must be complex symmetric")
+    eigenvalues, unitary = np.linalg.eigh(matrix.conjugate().T @ matrix)
+    order = np.argsort(eigenvalues)
+    eigenvalues = np.maximum(np.real(eigenvalues[order]), 0.0)
+    unitary = unitary[:, order]
+    congruence = unitary.T @ matrix @ unitary
+    offdiag = congruence - np.diag(np.diag(congruence))
+    tolerance = 1.0e-10 * max(1.0e-30, float(np.max(np.sqrt(eigenvalues))))
+    if np.max(np.abs(offdiag)) > tolerance:
+        raise ValueError("Takagi eigenspaces require a degenerate-block congruence resolution")
+    unitary = unitary @ np.diag(np.exp(-0.5j * np.angle(np.diag(congruence))))
+    return np.sqrt(eigenvalues), unitary
 
 
 def main() -> int:
@@ -91,6 +103,12 @@ def main() -> int:
     lift = load_json(lift_path) if lift_path.exists() else None
     pullback_metric = load_json(pullback_metric_path) if pullback_metric_path.exists() else None
     envelope = load_json(envelope_path) if envelope_path.exists() else None
+    family_source_closure = dict(family.get("source_closure_status") or {"closed": False})
+    lift_source_closure = dict((lift or {}).get("source_closure_status") or {"closed": False})
+    source_closed = (
+        family_source_closure.get("closed") is True
+        and lift_source_closure.get("closed") is True
+    )
     m_star = float(scale_anchor["anchors"]["m_star_gev"])
     c_nu_hat_real = np.array(family["C_nu_hat_real"], dtype=float)
     delta_nu = np.array(family["Delta_nu"], dtype=float)
@@ -138,22 +156,32 @@ def main() -> int:
         eigenvalues = eigenvalues[order]
         eigenvectors = eigenvectors[:, order]
         masses = np.abs(eigenvalues)
-        left_vectors = eigenvectors.astype(complex)
+        takagi_vectors = eigenvectors.astype(complex)
+        takagi_vectors[:, eigenvalues < 0.0] *= 1j
         raw_eigenvalues = [float(value) for value in eigenvalues.tolist()]
     else:
-        singular_values, left_vectors = _sorted_svd(majorana_matrix)
+        singular_values, takagi_vectors = _sorted_takagi(majorana_matrix)
         masses = singular_values
         raw_eigenvalues = None
 
     u_vector = np.asarray(scale_anchor["collective_mode"]["u_vector"], dtype=float)
-    collective_overlaps = [float(abs(np.vdot(u_vector, left_vectors[:, idx])) ** 2) for idx in range(3)]
+    collective_overlaps = [float(abs(np.vdot(u_vector, takagi_vectors[:, idx])) ** 2) for idx in range(3)]
     principal_minors = [
         float(np.real(majorana_matrix[0, 0])),
         float(abs(np.linalg.det(majorana_matrix[:2, :2]))),
         float(abs(np.linalg.det(majorana_matrix))),
     ]
     payload = {
+        "artifact": "oph_neutrino_forward_majorana_matrix",
         "status": "blind_forward_matrix",
+        "proof_scope": "exact_matrix_and_takagi_algebra_conditional_on_declared_inputs",
+        "source_only_physical_input_eligible": source_closed,
+        "public_surface_candidate_allowed": False,
+        "source_closure_status": {
+            "closed": source_closed,
+            "family_response": family_source_closure,
+            "majorana_lift": lift_source_closure,
+        },
         "majorana_mode": phase_mode,
         "inputs": {
             "scale_anchor_artifact": str(scale_anchor_path),
@@ -180,10 +208,19 @@ def main() -> int:
         "eigenvalues_raw_gev": raw_eigenvalues,
         "singular_values_raw_gev": [float(value) for value in masses.tolist()],
         "masses_sorted_gev": [float(value) for value in masses.tolist()],
-        "U_nu_real": np.real(left_vectors).tolist(),
-        "U_nu_imag": np.imag(left_vectors).tolist(),
-        "u_nu_left_real": np.real(left_vectors).tolist(),
-        "u_nu_left_imag": np.imag(left_vectors).tolist(),
+        "U_nu_real": np.real(takagi_vectors).tolist(),
+        "U_nu_imag": np.imag(takagi_vectors).tolist(),
+        "u_nu_left_real": np.real(takagi_vectors).tolist(),
+        "u_nu_left_imag": np.imag(takagi_vectors).tolist(),
+        "U_nu_semantics": "Takagi U satisfying U^T M U = diag(m_i) > 0; legacy left-vector keys are aliases",
+        "takagi_congruence_max_offdiag_gev": float(
+            np.max(
+                np.abs(
+                    takagi_vectors.T @ majorana_matrix @ takagi_vectors
+                    - np.diag(np.diag(takagi_vectors.T @ majorana_matrix @ takagi_vectors))
+                )
+            )
+        ),
         "rank_proxy": int(np.linalg.matrix_rank(majorana_matrix)),
         "collective_mode_overlap_by_eigenvector": collective_overlaps,
         "phase_status": None if lift is None else lift.get("phase_status"),
@@ -196,6 +233,7 @@ def main() -> int:
         "notes": [
             "The real-seed branch is a surrogate when the Majorana selector is not theorem-closed.",
             "Canonical-selector output may close as a selector point or, under the pullback-distortion route, as a selector law with explicit scope.",
+            "Selector/Takagi closure is conditional algebra and does not promote a source-open family response or Majorana lift.",
             "Residual-envelope mode carries certification metadata rather than claiming a unique complex Majorana matrix.",
         ],
     }

@@ -25,6 +25,12 @@ def main() -> int:
     if payload.get("oph_origin_status") == "closed" and payload.get("upstream_missing_object") == "oph_majorana_overlap_defect_scalar_evaluator":
         print("Hessian artifact claims OPH closure while the scalar evaluator is still missing", file=sys.stderr)
         return 1
+    if payload.get("public_surface_candidate_allowed") is not False:
+        print("conditional Hessian is incorrectly public-promotable", file=sys.stderr)
+        return 1
+    if bool((payload.get("source_closure_status") or {}).get("closed", False)):
+        print("conditional Hessian incorrectly claims source closure", file=sys.stderr)
+        return 1
     print("OPH-only Hessian provenance guard passed")
     return 0
 

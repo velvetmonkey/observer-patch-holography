@@ -899,8 +899,8 @@
   <text x="204" y="3206" fill="#f4f7fb" font-size="30" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-0.35" opacity="1">Current Particle Surface</text>
   <text x="204" y="3259" fill="#9ba7b8" font-size="22" font-family="JetBrains Mono, monospace" font-weight="500" opacity="1">structural zeros, W/Z compare pair, Higgs/top</text>
   <text x="204" y="3291" fill="#9ba7b8" font-size="22" font-family="JetBrains Mono, monospace" font-weight="500" opacity="1">split surface</text>
-  <text x="204" y="3323" fill="#9ba7b8" font-size="22" font-family="JetBrains Mono, monospace" font-weight="500" opacity="1">selected-class quarks and weighted-cycle</text>
-  <text x="204" y="3355" fill="#9ba7b8" font-size="22" font-family="JetBrains Mono, monospace" font-weight="500" opacity="1">neutrinos</text>
+  <text x="204" y="3323" fill="#9ba7b8" font-size="22" font-family="JetBrains Mono, monospace" font-weight="500" opacity="1">selected-class quarks; weighted-cycle neutrinos</text>
+  <text x="204" y="3355" fill="#9ba7b8" font-size="22" font-family="JetBrains Mono, monospace" font-weight="500" opacity="1">rejected/compare-only</text>
 </g>
 <g filter="url(#panelShadow)">
   <rect x="920" y="3122" width="710" height="225" rx="28" fill="rgb(10 14 22 / 0.93)" stroke="#ff8f97" stroke-width="1.6" opacity="1.0" />

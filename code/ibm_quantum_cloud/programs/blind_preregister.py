@@ -12,7 +12,6 @@ import argparse
 import copy
 import hashlib
 import hmac
-import io
 import json
 import os
 import secrets
@@ -29,6 +28,7 @@ COMMITMENT_DOMAIN = b"oph-509-blind-v1\0"
 OPAQUE_DOMAIN = b"oph-509-opaque-id-v1\0"
 SECRET_BYTES = 32
 SHA256_HEX_LENGTH = 64
+LOGICAL_CIRCUIT_SERIALIZATION = "normalized-openqasm3-utf8-v1"
 
 CAYLEY_PROTOCOLS = (
     "record_gated",
@@ -379,7 +379,7 @@ def rebuild_blinded_circuit(opaque_id: str, descriptor: Mapping[str, Any]) -> An
         "backend_role",
         "backend_role_opaque_id",
         "shots",
-        "qpy_sha256",
+        "logical_circuit_sha256",
         "circuit_name",
         "circuit_metadata",
         "parameters",
@@ -404,19 +404,41 @@ def rebuild_blinded_circuit(opaque_id: str, descriptor: Mapping[str, Any]) -> An
     return circuit
 
 
-def qpy_sha256(circuit: Any) -> str:
-    from qiskit import qpy
+def canonical_openqasm3_bytes(circuit: Any) -> bytes:
+    """Return the stable logical-circuit serialization used by the seal.
 
-    buffer = io.BytesIO()
-    qpy.dump(circuit, buffer)
-    return hashlib.sha256(buffer.getvalue()).hexdigest()
+    QPY is a transport format and can encode semantically irrelevant Python
+    insertion order (for example, circuit-metadata dictionary order).  It is
+    therefore unsuitable as a cross-object or cross-process commitment.  The
+    OpenQASM 3 exporter describes the executable logical circuit and omits that
+    incidental object state.  Normalization here makes the byte contract
+    explicit: LF line endings, no trailing horizontal whitespace, no terminal
+    blank lines, exactly one final LF, and UTF-8 encoding.
+    """
+
+    from qiskit import qasm3
+
+    exported = qasm3.dumps(circuit).replace("\r\n", "\n").replace("\r", "\n")
+    lines = [line.rstrip(" \t") for line in exported.split("\n")]
+    while lines and lines[-1] == "":
+        lines.pop()
+    if not lines:
+        raise VerificationError("OpenQASM 3 exporter returned an empty logical circuit")
+    return ("\n".join(lines) + "\n").encode("utf-8")
+
+
+def logical_circuit_sha256(circuit: Any) -> str:
+    """Hash the canonical normalized OpenQASM 3 logical circuit."""
+
+    return hashlib.sha256(canonical_openqasm3_bytes(circuit)).hexdigest()
 
 
 def verify_rebuilt_circuit(opaque_id: str, descriptor: Mapping[str, Any]) -> None:
-    observed = qpy_sha256(rebuild_blinded_circuit(opaque_id, descriptor))
-    if observed != descriptor["qpy_sha256"]:
+    observed = logical_circuit_sha256(rebuild_blinded_circuit(opaque_id, descriptor))
+    if observed != descriptor["logical_circuit_sha256"]:
         raise VerificationError(
-            f"logical QPY digest mismatch for {opaque_id}: {observed} != {descriptor['qpy_sha256']}"
+            "logical OpenQASM 3 digest mismatch for "
+            f"{opaque_id}: {observed} != {descriptor['logical_circuit_sha256']}"
         )
 
 
@@ -454,20 +476,20 @@ def _descriptor(
         "backend_role": role,
         "backend_role_opaque_id": role_opaque_id,
         "shots": int(shots),
-        "qpy_sha256": "0" * SHA256_HEX_LENGTH,
+        "logical_circuit_sha256": "0" * SHA256_HEX_LENGTH,
         "circuit_name": opaque_id,
         "circuit_metadata": metadata,
         "parameters": dict(parameters),
     }
-    digest = qpy_sha256(rebuild_blinded_circuit(opaque_id, descriptor))
-    descriptor["qpy_sha256"] = digest
+    digest = logical_circuit_sha256(rebuild_blinded_circuit(opaque_id, descriptor))
+    descriptor["logical_circuit_sha256"] = digest
     return opaque_id, descriptor
 
 
 def _public_circuit_entry(opaque_id: str, descriptor: Mapping[str, Any]) -> dict[str, Any]:
     return {
         "opaque_id": opaque_id,
-        "qpy_sha256": descriptor["qpy_sha256"],
+        "logical_circuit_sha256": descriptor["logical_circuit_sha256"],
         "shots": descriptor["shots"],
         "backend_role": descriptor["backend_role_opaque_id"],
     }
@@ -890,7 +912,7 @@ def verify_bundle(
     *,
     rebuild_circuits: bool = False,
 ) -> bool:
-    """Verify every commitment layer and, optionally, every logical QPY hash."""
+    """Verify commitments and, optionally, every logical OpenQASM 3 hash."""
 
     required_public = {
         "schema_version",
@@ -1017,14 +1039,19 @@ def verify_bundle(
     for opaque_id, descriptor in private_circuits.items():
         public_row = public_circuits[opaque_id]
         _require(
-            set(public_row) == {"opaque_id", "qpy_sha256", "shots", "backend_role"},
+            set(public_row)
+            == {"opaque_id", "logical_circuit_sha256", "shots", "backend_role"},
             f"public circuit row keys mismatch for {opaque_id}",
         )
-        _require(_is_sha256(public_row["qpy_sha256"]), "circuit QPY hash is malformed")
+        _require(
+            _is_sha256(public_row["logical_circuit_sha256"]),
+            "logical circuit hash is malformed",
+        )
         _require(int(public_row["shots"]) > 0, "circuit shots must be positive")
         _require(public_row["backend_role"] in role_ids, "unknown opaque backend role")
         _require(
-            public_row["qpy_sha256"] == descriptor["qpy_sha256"]
+            public_row["logical_circuit_sha256"]
+            == descriptor["logical_circuit_sha256"]
             and public_row["shots"] == descriptor["shots"]
             and public_row["backend_role"] == descriptor["backend_role_opaque_id"],
             f"public/private circuit descriptor mismatch for {opaque_id}",

@@ -65,6 +65,11 @@ def compute(args: argparse.Namespace) -> dict[str, Any]:
     )
     target_tau = [0.3, 0.5, 1.0]
     return {
+        "status": {
+            "category": "finite repair transition-matrix diagnostic",
+            "public_promotion_allowed": False,
+            "mu_eq_role": "explicit_or_caller_derived_input",
+        },
         "inputs": {
             "mu_eq": args.mu_eq,
             "n_max": args.n_max,
@@ -124,7 +129,12 @@ def print_markdown(payload: dict[str, Any]) -> None:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--mu-eq", type=float, default=5.363470440729118)
+    parser.add_argument(
+        "--mu-eq",
+        type=float,
+        required=True,
+        help="Explicit repair-distribution mean; no legacy cosmology ratio is implicit.",
+    )
     parser.add_argument("--n-max", type=int, default=40)
     parser.add_argument("--hold", type=float, default=0.25)
     parser.add_argument("--json", action="store_true")

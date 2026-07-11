@@ -28,21 +28,25 @@ def test_neutrino_attachment_bridge_invariant_scaffold() -> None:
     assert "saved:" in completed.stdout
     payload = json.loads(OUTPUT.read_text(encoding="utf-8"))
     assert payload["artifact"] == "oph_neutrino_attachment_bridge_invariant_scaffold"
+    assert payload["status"] == "diagnostic_attachment_scaffold_on_rejected_candidate"
     assert payload["bridge_factor_schema"] == "B_nu = lambda_nu * q_mean^p_nu / m_star_eV"
     assert payload["residual_invariant_symbol"] == "B_nu"
-    assert payload["contract"]["must_emit"].startswith("one positive non-homogeneous residual attachment scalar B_nu")
+    assert payload["contract"]["must_emit"].startswith("a source-closed neutrino operator")
     assert payload["contract"]["must_imply"] == "lambda_nu = (m_star_eV / q_mean^p_nu) * B_nu"
     ruled_out = payload["ruled_out_current_selected_point_scalar"]
-    assert ruled_out["status"] == "already_internal_to_current_emitted_stack_not_the_missing_bridge_scalar"
+    assert ruled_out["status"] == "already_internal_to_current_candidate_stack_not_the_missing_bridge_scalar"
     assert ruled_out["selected_point"] == "weighted_cycle_selector_psi_wc"
     assert payload["qbar_only_collapse_status"] == "refuted_on_current_attached_stack_by_attachment_irreducibility_theorem"
     constructive = payload["best_constructive_subbridge_object"]
     assert constructive["artifact"] == "oph_defect_weighted_majorana_edge_weight_family"
-    assert constructive["status"] == "closed_constructive_subbridge_object"
+    assert constructive["status"] == "conditional_constructive_subbridge_from_source_open_inputs"
     assert constructive["raw_edge_score_rule"] == "q_e = sqrt(gap_e * defect_e)"
     smallest = payload["smallest_exact_missing_object"]
-    assert smallest["symbol"] == "C_nu"
-    assert smallest["status"] == "irreducible_on_current_corpus"
+    assert smallest["name"] == "source_closed_neutrino_operator_basis_and_mass_label_contract"
+    assert smallest["status"] == "open"
+    conditional_attachment = payload["conditional_absolute_attachment_object"]
+    assert conditional_attachment["symbol"] == "C_nu"
+    assert conditional_attachment["status"] == "conditionally_irreducible_on_declared_candidate_stack"
     reduced = payload["smaller_exact_object_above_emitted_proxy"]
     assert reduced["symbol"] == "C_nu"
     assert reduced["compare_only_target"] > 0.99

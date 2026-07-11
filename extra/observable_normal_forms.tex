@@ -1,7 +1,8 @@
-\documentclass[11pt]{amsart}
+\documentclass[11pt]{article}
 
-\usepackage[margin=1.05in]{geometry}
+\usepackage[margin=1in]{geometry}
 \usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
 \usepackage{lmodern}
 \usepackage{microtype}
 \usepackage{amsmath,amssymb,amsthm,mathtools}
@@ -11,6 +12,7 @@
 \usepackage{enumitem}
 \usepackage{xcolor}
 \usepackage{hyperref}
+\usepackage{xurl}
 \usepackage[nameinlink,capitalise,noabbrev]{cleveref}
 \usepackage{tikz-cd}
 \usepackage{mathrsfs}
@@ -38,6 +40,8 @@
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
 
+\numberwithin{equation}{section}
+
 \newcommand{\NF}{\operatorname{NF}}
 \newcommand{\Fix}{\operatorname{Fix}}
 \newcommand{\diam}{\operatorname{diam}}
@@ -56,16 +60,19 @@
 \newcommand{\eps}{\varepsilon}
 \newcommand{\Rmax}{\overline{\mathbb R}_{\ge 0}}
 
-\title[Observation-Determined Normal Forms]{Observation-Determined Normal Forms: Stability, Obstructions, and Refinement in Constraint and Rewrite Systems}
-\author{Bernhard Mueller}
-\author{David Matscheko}
-\author{Jonathan Hill}
+\title{\textbf{Observation-Determined Normal Forms: Stability, Obstructions, and Refinement in Constraint and Rewrite Systems}}
+\author{Bernhard Mueller\textsuperscript{1}\thanks{Corresponding author: Bernhard Mueller,
+\href{mailto:bernhard@floatingpragma.ai}{\texttt{bernhard@floatingpragma.ai}}.}
+\and David Matscheko \and Jonathan Hill}
 \date{\PaperReleaseDate}
 
-\subjclass[2020]{Primary 68Q42; Secondary 49J53, 68Q25, 68Q85, 94B05}
-\keywords{abstract rewriting, observation-determined normal forms, observational confluence, error bounds, metric subregularity, boundary reconstruction, refinement, local repair, Lean 4}
-
 \begin{document}
+\maketitle
+\PaperReleaseBanner
+
+\begin{center}
+\small\textbf{Author af\kern0pt f\kern0pt iliations:} \textsuperscript{1}Pragma Research Inc.
+\end{center}
 
 \begin{abstract}
 Confluence compares reductions from one initial state.  Many distributed and reconstruction problems instead compare states or executions that expose the same observable boundary.  We study this distinction first for finite rewrite and constraint systems after quotienting representation changes that are declared unobservable, and then for compact metric systems and refinement towers.
@@ -75,8 +82,10 @@ The exact layer separates unrealizable, uniquely reconstructing, and ambiguous o
 For inverse systems, one-step normalization defects telescope across arbitrary refinement depth.  At one fixed level, approximate solvers admit a receipt-only comparison, with no refinement tail.  Across different levels, an anchor-optimized theorem adds the amplified normalizer defects between each solver level and a common comparison level, together with protected-observation mismatch there.  For a compatible admissible input, nonexpansive restrictions, summable pathwise defects, and vanishing receipt errors make the solver families induce the same coordinatewise projective limit, unchanged on cofinal subsequences; zero defects recover the exact inverse-limit normalizer.  Stagewise uniqueness alone is insufficient: uniform inverse conditioning is necessary for uniform zero-residual stability, while a uniform residual error bound is separately required away from the consistent set.  We also give the finite conditional-expectation projector associated with observation fibers and a directly checkable matrix receipt, isolate supporting repair obstructions, prove finite update bounds for ranked functional systems, derive singular-value certificates for linear quotient systems, and record coNP- and $\Pi_2^P$-completeness classifications for succinct boundary determination and strong local repair.  A small Rule-90 carrier is retained only as a formal regression test.
 \end{abstract}
 
-\maketitle
-\PaperReleaseBanner
+\medskip
+\noindent\textbf{Keywords:} abstract rewriting, observation-determined normal forms, observational confluence, error bounds, metric subregularity, boundary reconstruction, refinement, local repair, Lean 4.
+
+\noindent\textbf{Mathematics Subject Classification (2020):} Primary 68Q42; Secondary 49J53, 68Q25, 68Q85, 94B05.
 
 \section{Introduction}\label{sec:intro}
 
@@ -2006,6 +2015,48 @@ The resulting estimate is universal and sharp in its two unavoidable components.
 \end{array}}
 \]
 No one of these questions answers the others.  Keeping them separate is the central mathematical lesson and the reason the framework applies across rewrite, reconstruction, and distributed-inference models.
+
+\section*{Statements and Declarations}
+
+\noindent\textbf{Funding declaration:} The authors declare that no external grants or dedicated
+third-party research funding were received for the preparation of this manuscript.
+
+\noindent\textbf{Author af\kern0pt f\kern0pt iliations declaration:} Bernhard Mueller is af\kern0pt f\kern0pt iliated with
+Pragma Research Inc. No institutional af\kern0pt f\kern0pt iliations were declared for David Matscheko or
+Jonathan Hill in this submission. The corresponding-author email address is provided in the
+correspondence declaration.
+
+\noindent\textbf{Consent to Participate declaration:} not applicable.
+
+\noindent\textbf{Consent to Publish declaration:} not applicable.
+
+\noindent\textbf{Author Contribution declaration:} Bernhard Mueller developed the
+observation-determined normal-form framework, the stability, refinement, repair, and complexity
+results, the manuscript text, and the accompanying Lean artifact. David Matscheko and Jonathan Hill
+contributed proof review, checking of the exact and stability results, and consistency review of
+the formal artifact and manuscript. All authors reviewed and approved the manuscript.
+
+\noindent\textbf{Correspondence declaration:} Correspondence should be addressed to Bernhard
+Mueller, \href{mailto:bernhard@floatingpragma.ai}{\nolinkurl{bernhard@floatingpragma.ai}}.
+
+\noindent\textbf{Data Availability declaration:} No empirical dataset is used in this work. The
+LaTeX source, bibliography, and the standalone \texttt{ObservableNormalForms} Lean~4 project---with
+a pinned toolchain and dependency manifest, a theorem-to-source index, an axiom audit, a
+reproducible build receipt, and SHA-256 checksums---are available through the project repository.
+
+\noindent\textbf{Code Availability declaration:} The standalone \texttt{ObservableNormalForms}
+Lean~4 project and its build sources are maintained in the project repository, together with a
+source bundle so that the manuscript and the formal artifact can be rebuilt without relying on
+private local paths.
+
+\noindent\textbf{Ethics declaration:} not applicable.
+
+\noindent\textbf{Competing Interests declaration:} The authors declare no competing financial or
+non-financial interests for this manuscript.
+
+\noindent\textbf{Use of AI-assisted tools declaration:} AI-assisted tools were used for language
+editing, drafting assistance, formatting support, and submission-package preparation. The authors
+reviewed and remain responsible for all scientific content, claims, references, and declarations.
 
 \bibliographystyle{plainnat}
 \bibliography{observable_normal_forms}

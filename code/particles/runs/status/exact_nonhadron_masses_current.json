@@ -47,14 +47,14 @@
     }
   ],
   "excluded_lane": "hadrons_compute_bound",
-  "generated_utc": "2026-07-11T04:18:52Z",
+  "generated_utc": "2026-07-11T06:39:18Z",
   "status": "public_mass_outputs_with_target_anchored_witnesses_withheld",
   "withheld_entries": [
     {
-      "centered_log": -4.495210108808081,
+      "centered_log": -4.495210107907882,
       "conditional_anchor_symbol": "A_ch(P)",
       "exact_kind": "exact_target_anchored_current_family_witness",
-      "formula_if_anchor_exists": "m_e(P)=exp(A_ch(P)-4.495210108808081)",
+      "formula_if_anchor_exists": "m_e(P)=exp(A_ch(P)-4.495210107907882)",
       "label": "Electron",
       "missing_for_promotion": [
         "charged_branch_generator_splitting_promotion",
@@ -73,10 +73,10 @@
       "source_only": false
     },
     {
-      "centered_log": 0.8363886515979087,
+      "centered_log": 0.8363886511478099,
       "conditional_anchor_symbol": "A_ch(P)",
       "exact_kind": "exact_target_anchored_current_family_witness",
-      "formula_if_anchor_exists": "m_mu(P)=exp(A_ch(P)+0.836388651597909)",
+      "formula_if_anchor_exists": "m_mu(P)=exp(A_ch(P)+0.836388651147810)",
       "label": "Muon",
       "missing_for_promotion": [
         "charged_branch_generator_splitting_promotion",
@@ -95,10 +95,10 @@
       "source_only": false
     },
     {
-      "centered_log": 3.6588214572101716,
+      "centered_log": 3.658821456760072,
       "conditional_anchor_symbol": "A_ch(P)",
       "exact_kind": "exact_target_anchored_current_family_witness",
-      "formula_if_anchor_exists": "m_tau(P)=exp(A_ch(P)+3.658821457210172)",
+      "formula_if_anchor_exists": "m_tau(P)=exp(A_ch(P)+3.658821456760072)",
       "label": "Tau",
       "missing_for_promotion": [
         "charged_branch_generator_splitting_promotion",
@@ -121,10 +121,10 @@
       "downstream_algebra_closed": true,
       "exact_kind": "selected_class_target_anchored_exact_witness",
       "exact_sigma_target": {
-        "eta_ud": 1.1388321137934274,
-        "sigma_d": 3.296264198808688,
-        "sigma_seed_ud": 4.4350963126021155,
-        "sigma_u": 5.573928426395543
+        "eta_ud": 1.1396343082771454,
+        "sigma_d": 3.3005487297119895,
+        "sigma_seed_ud": 4.440183037989135,
+        "sigma_u": 5.57981734626628
       },
       "label": "Up Quark",
       "missing_for_promotion": [
@@ -164,10 +164,10 @@
       "downstream_algebra_closed": true,
       "exact_kind": "selected_class_target_anchored_exact_witness",
       "exact_sigma_target": {
-        "eta_ud": 1.1388321137934274,
-        "sigma_d": 3.296264198808688,
-        "sigma_seed_ud": 4.4350963126021155,
-        "sigma_u": 5.573928426395543
+        "eta_ud": 1.1396343082771454,
+        "sigma_d": 3.3005487297119895,
+        "sigma_seed_ud": 4.440183037989135,
+        "sigma_u": 5.57981734626628
       },
       "label": "Charm Quark",
       "missing_for_promotion": [
@@ -207,10 +207,10 @@
       "downstream_algebra_closed": true,
       "exact_kind": "selected_class_target_anchored_exact_witness",
       "exact_sigma_target": {
-        "eta_ud": 1.1388321137934274,
-        "sigma_d": 3.296264198808688,
-        "sigma_seed_ud": 4.4350963126021155,
-        "sigma_u": 5.573928426395543
+        "eta_ud": 1.1396343082771454,
+        "sigma_d": 3.3005487297119895,
+        "sigma_seed_ud": 4.440183037989135,
+        "sigma_u": 5.57981734626628
       },
       "label": "Top Quark",
       "missing_for_promotion": [
@@ -250,10 +250,10 @@
       "downstream_algebra_closed": true,
       "exact_kind": "selected_class_target_anchored_exact_witness",
       "exact_sigma_target": {
-        "eta_ud": 1.1388321137934274,
-        "sigma_d": 3.296264198808688,
-        "sigma_seed_ud": 4.4350963126021155,
-        "sigma_u": 5.573928426395543
+        "eta_ud": 1.1396343082771454,
+        "sigma_d": 3.3005487297119895,
+        "sigma_seed_ud": 4.440183037989135,
+        "sigma_u": 5.57981734626628
       },
       "label": "Down Quark",
       "missing_for_promotion": [
@@ -293,10 +293,10 @@
       "downstream_algebra_closed": true,
       "exact_kind": "selected_class_target_anchored_exact_witness",
       "exact_sigma_target": {
-        "eta_ud": 1.1388321137934274,
-        "sigma_d": 3.296264198808688,
-        "sigma_seed_ud": 4.4350963126021155,
-        "sigma_u": 5.573928426395543
+        "eta_ud": 1.1396343082771454,
+        "sigma_d": 3.3005487297119895,
+        "sigma_seed_ud": 4.440183037989135,
+        "sigma_u": 5.57981734626628
       },
       "label": "Strange Quark",
       "missing_for_promotion": [
@@ -336,10 +336,10 @@
       "downstream_algebra_closed": true,
       "exact_kind": "selected_class_target_anchored_exact_witness",
       "exact_sigma_target": {
-        "eta_ud": 1.1388321137934274,
-        "sigma_d": 3.296264198808688,
-        "sigma_seed_ud": 4.4350963126021155,
-        "sigma_u": 5.573928426395543
+        "eta_ud": 1.1396343082771454,
+        "sigma_d": 3.3005487297119895,
+        "sigma_seed_ud": 4.440183037989135,
+        "sigma_u": 5.57981734626628
       },
       "label": "Bottom Quark",
       "missing_for_promotion": [
@@ -376,29 +376,35 @@
     },
     {
       "exact_kind": "rejected_target_informed_weighted_cycle_candidate",
-      "label": "Electron Neutrino",
+      "label": "Neutrino Mass Eigenstate s0 (Legacy nu_e Slot)",
+      "legacy_particle_id_slot": true,
+      "mass_basis_semantics": "ascending_candidate_mass_eigenstate_s0_not_electron_flavor_mass",
       "particle_id": "electron_neutrino",
       "promotable": false,
       "reason": "target_informed_candidate_rejected_by_correlated_profile",
-      "scope": "weighted_cycle_bridge_rigid_absolute_family",
+      "scope": "rejected_weighted_cycle_mass_eigenstate_candidate",
       "source_artifact": "code/particles/runs/neutrino/neutrino_absolute_attachment_theorem.json"
     },
     {
       "exact_kind": "rejected_target_informed_weighted_cycle_candidate",
-      "label": "Muon Neutrino",
+      "label": "Neutrino Mass Eigenstate s1 (Legacy nu_mu Slot)",
+      "legacy_particle_id_slot": true,
+      "mass_basis_semantics": "ascending_candidate_mass_eigenstate_s1_not_muon_flavor_mass",
       "particle_id": "muon_neutrino",
       "promotable": false,
       "reason": "target_informed_candidate_rejected_by_correlated_profile",
-      "scope": "weighted_cycle_bridge_rigid_absolute_family",
+      "scope": "rejected_weighted_cycle_mass_eigenstate_candidate",
       "source_artifact": "code/particles/runs/neutrino/neutrino_absolute_attachment_theorem.json"
     },
     {
       "exact_kind": "rejected_target_informed_weighted_cycle_candidate",
-      "label": "Tau Neutrino",
+      "label": "Neutrino Mass Eigenstate s2 (Legacy nu_tau Slot)",
+      "legacy_particle_id_slot": true,
+      "mass_basis_semantics": "ascending_candidate_mass_eigenstate_s2_not_tau_flavor_mass",
       "particle_id": "tau_neutrino",
       "promotable": false,
       "reason": "target_informed_candidate_rejected_by_correlated_profile",
-      "scope": "weighted_cycle_bridge_rigid_absolute_family",
+      "scope": "rejected_weighted_cycle_mass_eigenstate_candidate",
       "source_artifact": "code/particles/runs/neutrino/neutrino_absolute_attachment_theorem.json"
     }
   ]

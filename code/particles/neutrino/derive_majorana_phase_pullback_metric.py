@@ -7,8 +7,9 @@ while keeping the stricter OPH-only ambient-metric question separate.
 Mathematics: pullback of the Hilbert-Schmidt/Frobenius chordal action onto the
 two-dimensional residual Majorana phase basis.
 
-OPH-derived inputs: the scale anchor, Majorana lift, family tensor, and the
-OPH deformation bilinear form when available.
+Declared inputs: the scale anchor, Majorana lift, family tensor, and conditional
+deformation bilinear form when available. Hilbert--Schmidt/Frobenius geometry
+closes only the stated standard-math selector surface.
 
 Output: the selector-law metric artifact used by the forward matrix and
 splitting surfaces.
@@ -63,6 +64,15 @@ def main() -> int:
     family = json.loads(pathlib.Path(args.family).read_text(encoding="utf-8"))
     deformation_path = pathlib.Path(args.deformation_form)
     deformation = json.loads(deformation_path.read_text(encoding="utf-8")) if deformation_path.exists() else None
+    lift_source_closure = dict(lift.get("source_closure_status") or {"closed": False})
+    family_source_closure = dict(family.get("source_closure_status") or {"closed": False})
+    upstream_inputs_closed = (
+        lift_source_closure.get("closed") is True
+        and family_source_closure.get("closed") is True
+    )
+    # The ambient Hilbert--Schmidt/Frobenius metric is fixed as a standard-math
+    # choice in this script; it is not emitted by the OPH source graph.
+    source_closed = False
     m_star = float(scale_anchor["anchors"]["m_star_gev"])
     weights = {
         key: float(value)
@@ -79,6 +89,16 @@ def main() -> int:
     payload = {
         "artifact": "oph_majorana_phase_pullback_metric",
         "generated_utc": _timestamp(),
+        "proof_scope": "standard_math_metric_choice_conditional_on_declared_neutrino_inputs",
+        "source_only_physical_input_eligible": source_closed,
+        "public_surface_candidate_allowed": False,
+        "source_closure_status": {
+            "closed": source_closed,
+            "upstream_inputs_closed": upstream_inputs_closed,
+            "ambient_metric_source_derived": False,
+            "majorana_lift": lift_source_closure,
+            "family_response": family_source_closure,
+        },
         "source_artifacts": {
             "scale_anchor": str(pathlib.Path(args.scale_anchor)),
             "lift": str(pathlib.Path(args.lift)),
@@ -101,7 +121,7 @@ def main() -> int:
         "selector_law_certified": True,
         "status": "phase_action_closed_standard_math",
         "strict_oph_only_obstruction_kind": "ambient_metric_not_oph_derived",
-        "missing_upstream_object": "oph_majorana_overlap_defect_scalar_evaluator",
+        "missing_upstream_object": "source_closed_neutrino_operator_and_overlap_defect_action",
         "deformation_form_status": None if deformation is None else deformation.get("proof_status"),
         "deformation_form_oph_origin_status": None if deformation is None else deformation.get("oph_origin_status"),
         "hs_distortion_matches_selector_energy": True,
@@ -113,7 +133,7 @@ def main() -> int:
         "notes": [
             "This artifact now exports the explicit pullback metric and finite-angle chordal distortion action induced by the current Majorana lift.",
             "Within the sandbox, the selector law is closed under a standard-math-fixed Hilbert-Schmidt/Frobenius ambient metric choice.",
-            "A stricter OPH-only route would still need the upstream OPH overlap-defect Hessian / scalar deformation action that derives the ambient metric choice itself.",
+            "This standard-math closure does not derive the physical neutrino operator or the ambient metric choice from source-closed OPH inputs.",
         ],
     }
 

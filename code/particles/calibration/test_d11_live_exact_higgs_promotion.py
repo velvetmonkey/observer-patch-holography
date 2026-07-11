@@ -25,7 +25,7 @@ def test_d11_live_exact_higgs_promotion_hits_exact_higgs_without_top_inverse_rea
     assert payload["artifact"] == "oph_d11_live_exact_higgs_promotion"
     assert payload["proof_status"] == "closed_target_anchored_live_exact_higgs_promotion"
     assert payload["theorem_id"] == "D11LiveForwardExactHiggsPromotion"
-    assert payload["mass_readout"]["mH_gev"] == pytest.approx(125.1995304097179, abs=1.0e-12)
+    assert payload["mass_readout"]["mH_gev"] == pytest.approx(125.13, abs=1.0e-12)
     assert payload["mass_readout"]["exact_residual_gev"] == pytest.approx(0.0, abs=1.0e-12)
     assert payload["exact_higgs_seed"]["value"] == pytest.approx(payload["exactifier"]["pi_H_exact"], abs=1.0e-15)
     assert "exact_d11_top_promotion_on_this_surface" in payload["strictly_not_claimed"]

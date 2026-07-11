@@ -39,17 +39,29 @@ def build_payload(certificate: dict[str, Any], readback: dict[str, Any]) -> dict
     exp_eta_bar, exp_eta_mean = _normalized(exp_eta)
     base_mu_nu = float(certificate["base_mu_nu"])
     mu_ratio = {key: float(val) / base_mu_nu for key, val in mu_e.items()}
+    source_closed = (
+        certificate.get("source_only_physical_input_eligible") is True
+        and (certificate.get("source_closure_status") or {}).get("closed") is True
+        and readback.get("source_only_physical_input_eligible") is True
+        and (readback.get("source_closure_status") or {}).get("closed") is True
+    )
 
     return {
         "artifact": "oph_same_label_overlap_defect_weight_normalizer",
         "generated_utc": _timestamp(),
-        "status": "closed_from_live_same_label_scalar_certificate",
+        "status": (
+            "closed_from_source_closed_same_label_scalar_certificate"
+            if source_closed
+            else "conditional_normalizer_from_source_open_scalar_certificate"
+        ),
         "public_promotion_allowed": False,
+        "source_only_physical_input_eligible": source_closed,
+        "source_closure_status": dict(certificate.get("source_closure_status") or {"closed": False}),
         "source_artifacts": [
             "oph_neutrino_same_label_scalar_certificate",
             "oph_realized_same_label_gap_defect_readback",
         ],
-        "proof_status": "closed",
+        "proof_status": "exact_normalization_identity_conditional_on_certificate",
         "same_label": dict(certificate.get("same_label") or {}),
         "realized_same_label_arrows": list(certificate.get("realized_same_label_arrows") or []),
         "raw_edge_score_rule": certificate["rules"]["q_rule"],
@@ -78,15 +90,23 @@ def build_payload(certificate: dict[str, Any], readback: dict[str, Any]) -> dict
             ),
         },
         "next_exact_object": {
-            "artifact": "oph_neutrino_attachment_bridge_invariant",
+            "artifact": (
+                "oph_neutrino_attachment_bridge_invariant"
+                if source_closed
+                else "source_closed_neutrino_operator_basis_and_mass_label_contract"
+            ),
             "status": "open",
             "bridge_law": "lambda_nu = m_star_eV * F_nu(qbar, I_nu)",
             "minimal_alternative": "prove_collapse_theorem_F_nu_equals_F_nu(qbar)",
         },
         "notes": [
-            "The normalized overlap-defect weight section is already carried by the live same-label scalar certificate.",
-            "This closes the weight normalizer beneath the lambda_nu search surface without promoting lambda_nu itself.",
-            "The remaining neutrino attachment gap sits above qbar_e: a positive bridge invariant must attach the D10 amplitude scale to the weighted-cycle normal form.",
+            "The normalization identities are exact once the same-label scalar certificate is supplied.",
+            (
+                "The certificate passes its physical source-closure gate."
+                if source_closed
+                else "The current certificate is numerically complete but inherits a template family kernel and candidate overlap-line lift."
+            ),
+            "A physical operator, basis, and mass-label contract must close before any absolute-scale attachment can be promoted.",
         ],
     }
 

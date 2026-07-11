@@ -31,5 +31,5 @@ def test_d10_target_emitter_candidate_records_near_exact_source_only_surface() -
     assert abs(quintet["MW_pole"] - 80.37700001539531) < 1.0e-12
     assert abs(quintet["MZ_pole"] - 91.18797807794321) < 1.0e-12
     comparison = payload["comparison_to_frozen_local_reference_surface"]
-    assert abs(comparison["MW_difference_gev"]) < 2.0e-8
-    assert abs(comparison["MZ_difference_gev"]) < 2.0e-8
+    assert abs(comparison["MW_difference_gev"]) > 1.0e-3
+    assert abs(comparison["MZ_difference_gev"]) > 1.0e-5

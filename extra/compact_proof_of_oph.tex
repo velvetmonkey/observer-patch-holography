@@ -872,24 +872,7 @@ outputs outside the charged-family and hierarchy rows, exposed to external
 measurements.
 
 \textbf{Neutrino weighted-cycle branch.}
-The weighted-cycle branch emits
-\[
-(m_1,m_2,m_3)=
-(0.017454720257976796,\,
-0.019481987935919015,\,
-0.05307522145074924)\ {\rm eV},
-\]
-with
-\[
-\sum m_\nu=0.09001192964464505\ {\rm eV},\quad
-\Delta m_{21}^2=7.488059465106851\times10^{-5}\ {\rm eV}^2,
-\]
-\[
-\Delta m_{31}^2=2.5123118727618473\times10^{-3}\ {\rm eV}^2,
-\qquad
-(\alpha_{21},\alpha_{31})=(153.618518^\circ,257.003241^\circ).
-\]
-The same branch emits the PMNS readout
+The frozen target-informed template candidate has the declared charged-basis readout
 \[
 (\theta_{12},\theta_{23},\theta_{13})
 =
@@ -904,36 +887,21 @@ J=-0.02753115613565372,
 \qquad
 \frac{\Delta m_{21}^2}{\Delta m_{32}^2}=0.030721110097966534 .
 \]
-The same output gives direct laboratory and cosmology targets. With
-\(c_{ij}=\cos\theta_{ij}\) and \(s_{ij}=\sin\theta_{ij}\),
-\[
-  m_\beta
-  =
-  \sqrt{c_{12}^2c_{13}^2m_1^2+
-        s_{12}^2c_{13}^2m_2^2+
-        s_{13}^2m_3^2}
-  =
-  0.0196244372655102\ {\rm eV}.
-\]
-For neutrinoless double beta decay, set
-\(\alpha_{31}^{0\nu}=\alpha_{31}-2\delta_{\rm PMNS}\). The branch gives
-\[
-  m_{\beta\beta}
-  =
-  \left|
-  c_{12}^2c_{13}^2m_1+
-  s_{12}^2c_{13}^2m_2e^{i\alpha_{21}}+
-  s_{13}^2m_3e^{i\alpha_{31}^{0\nu}}
-  \right|
-  =
-  0.00797676286284509\ {\rm eV}.
-\]
-This row is independent of the hierarchy and charged-family shape. Oscillation,
-absolute-mass, cosmology, beta-endpoint, or neutrinoless-double-beta data can
-reject the branch. In the particle paper and code it is theorem-level on the
-declared weighted-cycle branch; the positive-segment adapter and
-bridge-coordinate readouts stay diagnostic and feed nothing back into the
-theorem state [O5,C2,A17,S9,S10,S11].
+NuFIT 6.1 rejects this point on its correlated
+\((\sin^2\theta_{23},\delta_{\rm CP})\) surface, with
+\(\Delta\chi^2=20.12\) and \(18.44\) in the two official atmospheric treatments,
+both above the two-parameter \(3\sigma\) value \(11.83\). The underlying family
+kernel is a hand-written template and the exponent was selected after target
+ranking. The claimed shared-basis recovery also defined
+\(U_{\nu,{\rm shared}}=U_eU_{\rm wc}\), making
+\(U_e^\dagger U_{\nu,{\rm shared}}=U_{\rm wc}\) tautological. Its stored charged
+basis comes from an open, nearly degenerate source artifact. Physical PMNS,
+ordering, Majorana phases, and absolute masses are therefore unformed at source
+level. A separate implementation audit also found that the intrinsic builders had
+exported left SVD vectors instead of the Majorana Takagi matrix; the corrected
+conditional mixing point is likewise far outside the oscillation surface. The
+displayed coordinates are a rejected comparison record, not prediction
+escrow or a theorem branch [O5,C2,A17,S9,S10,S11].
 
 \textbf{Charged-family residual.}
 The known Koide relation is background. The OPH claim is the branch phase and
@@ -1352,17 +1320,18 @@ Falsification: the fixed branch fails the joint CMB, BAO, SPARC, cluster, and
 weak-lensing likelihood.
 \par\smallskip
 \textbf{Neutrino closure [O5,C2].}
-The prediction-escrow section freezes the weighted-cycle masses, splittings,
-and phases. Test: combine cosmological mass-sum constraints, beta endpoint
-data, oscillation fits, and neutrinoless-double-beta limits.
-Falsification: the absolute mass scale or phase-sensitive data exclude the
-branch. Fastest kill tests are listed in the
+The former prediction-escrow point is a rejected target-informed comparison
+candidate. The official correlated NuFIT 6.1 profile already excludes it at the
+declared \(3\sigma\) gate, and the basis audit independently blocks physical
+promotion. A future neutrino test first requires a source-emitted operator,
+closed charged basis, physical mass-label rule, and pre-reference hash. The
+historical coordinates remain listed in the
 \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/OPH_falsifiability.md}{falsifiability map}:
 \(\sum m_\nu=0.0900119296\,{\rm eV}\), beta endpoint
 \(m_\beta\simeq0.0196\,{\rm eV}\),
 \(\Delta m^2_{21}=7.4880594651\times10^{-5}{\rm eV}^2\),
 \(\Delta m^2_{32}=2.4374312781\times10^{-3}{\rm eV}^2\), the listed mixing
-angles, and \(\delta=305.581^\circ\).}
+angles, and \(\delta=305.581^\circ\); none has current prediction status.}
 
 \vspace{0.55em}
 \sect{Appendix A. Assigning a number to Newton's constant}
@@ -1456,7 +1425,7 @@ and sits outside the compact anti-circularity proof.
 \textbf{[A14]} & \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex}{Support boundary}.\\
 \textbf{[A15]} & \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/fine_structure_constant_derivation.tex}{Koide charged-family roots}.\\
 \textbf{[A16]} & \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/deriving_the_particle_zoo_from_observer_consistency.tex}{Charged-family shape boundary}.\\
-\textbf{[A17]} & \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/deriving_the_particle_zoo_from_observer_consistency.tex}{Neutrino weighted-cycle theorem branch}.\\
+\textbf{[A17]} & \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/deriving_the_particle_zoo_from_observer_consistency.tex}{Rejected neutrino weighted-cycle comparison branch}.\\
 \textbf{[A18]} & \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/screen_microphysics_and_observer_synchronization.tex}{Born-Lueders central-record theorem}.\\
 \textbf{[A19]} & \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/tex_fragments/OBSERVERS_SYNTHESIS_SECTIONS.tex}{Bell/CHSH Tsirelson event surface}.\\
 \textbf{[A20]} & \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex}{Product-group consequences and no \(X/Y\) proton-decay carrier}.\\

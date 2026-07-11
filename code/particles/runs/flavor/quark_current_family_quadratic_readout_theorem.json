@@ -1,26 +1,26 @@
 {
   "artifact": "oph_quark_current_family_quadratic_readout_theorem",
   "exact_centered_log_d": [
-    -3.260540130101604,
-    -0.2701412025229759,
-    3.53068133262458
+    -3.2586331771312373,
+    -0.2746720400274574,
+    3.533305217158695
   ],
   "exact_centered_log_u": [
-    -5.888737130993507,
-    0.4902862458678261,
-    5.39845088512568
+    -5.88822252656129,
+    0.49072229261902467,
+    5.397500233942265
   ],
   "exact_fit_residuals_d": [
-    1.734723475976807e-18,
+    -8.673617379884035e-19,
     -1.3877787807814457e-17,
-    -6.217248937900877e-15
+    0.0
   ],
   "exact_fit_residuals_u": [
-    -4.336808689942018e-19,
-    -4.440892098500626e-16,
-    -1.1368683772161603e-13
+    8.673617379884035e-19,
+    4.440892098500626e-16,
+    -2.8421709430404007e-13
   ],
-  "generated_utc": "2026-06-29T07:35:26Z",
+  "generated_utc": "2026-07-11T06:46:49Z",
   "input_kind": "ordered_three_point_quark_carrier_plus_target_family",
   "notes": [
     "This closes the target-anchored same-family quark readout chain on the fixed ordered three-point carrier.",
@@ -33,14 +33,14 @@
     1.0
   ],
   "predicted_singular_values_d": [
-    0.004700000000000002,
-    0.09349999999999999,
-    4.182999999999994
+    0.004699999999999999,
+    0.0929,
+    4.186
   ],
   "predicted_singular_values_u": [
-    0.0021599999999999996,
-    1.2729999999999995,
-    172.3523553288311
+    0.002160000000000001,
+    1.2729000000000004,
+    172.0999999999997
   ],
   "proof_status": "closed_current_family_exact_readout",
   "quadratic_basis": {
@@ -69,36 +69,36 @@
   },
   "reference_targets_d": [
     0.0047,
-    0.0935,
-    4.183
+    0.09290000000000001,
+    4.186
   ],
   "reference_targets_u": [
     0.00216,
-    1.273,
-    172.3523553288312
+    1.2729,
+    172.1
   ],
   "sector_exact_coefficients_d": {
-    "linear": 3.395610731363092,
-    "quadratic": -1.847154502040493
+    "linear": 3.395969197144966,
+    "quadratic": -1.8381247524601083
   },
   "sector_exact_coefficients_u": {
-    "linear": 5.643594008059593,
-    "quadratic": -4.994474262877307
+    "linear": 5.6428613802517775,
+    "quadratic": -4.994849717511911
   },
   "sector_exact_geometric_means": {
-    "g_d": 0.12249897208633505,
-    "g_u": 0.7796501962057188
+    "g_d": 0.12226559489803175,
+    "g_u": 0.7792490879740623
   },
   "smallest_constructive_missing_object": null,
   "target_centered_log_d": [
-    -3.2605401301016044,
-    -0.2701412025229759,
-    3.530681332624581
+    -3.2586331771312373,
+    -0.27467204002745715,
+    3.533305217158695
   ],
   "target_centered_log_u": [
-    -5.888737130993507,
-    0.49028624586782643,
-    5.39845088512568
+    -5.88822252656129,
+    0.49072229261902434,
+    5.397500233942266
   ],
   "target_source_artifact": "particle_reference_values.json",
   "theorem_scope": "current_family_only",

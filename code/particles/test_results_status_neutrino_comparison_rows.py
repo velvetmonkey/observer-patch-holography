@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import importlib.util
+import json
 import pathlib
 
 
@@ -45,7 +46,42 @@ def test_neutrino_oscillation_comparison_rows_use_compare_only_absolute_splittin
     assert by_id["nufit61_tbyes_no_t23_dcp_delta_chi2"]["status"] == "candidate_rejection"
     assert by_id["delta_m21_sq_eV2"]["status"] == "compare_only"
     assert by_id["delta_m32_sq_eV2"]["status"] == "compare_only"
-    assert "two-parameter positive-segment neutrino adapter" in by_id["delta_m32_sq_eV2"]["note"]
+    assert "same fitted compare-only adapter" in by_id["delta_m32_sq_eV2"]["note"]
+
+
+def test_neutrino_compare_only_adapter_contract_fails_closed() -> None:
+    module = _load_module()
+    payload = json.loads(module.NEUTRINO_TWO_PARAMETER_EXACT_ADAPTER.read_text(encoding="utf-8"))
+    assert module._neutrino_compare_only_adapter_allowed(payload) is True
+    for key, bad_value in (
+        ("promotable", True),
+        ("must_not_feed_back", False),
+        ("proof_chain_role", "active_theorem_lane"),
+    ):
+        malformed = dict(payload)
+        malformed[key] = bad_value
+        assert module._neutrino_compare_only_adapter_allowed(malformed) is False
+
+
+def test_neutrino_absolute_theorem_contract_fails_closed() -> None:
+    module = _load_module()
+    payload = {
+        "artifact": "oph_neutrino_absolute_attachment_theorem",
+        "status": "theorem_grade_emitted",
+        "weighted_cycle_base_eligible": True,
+        "prediction_promotion_allowed": True,
+        "public_surface_candidate_allowed": True,
+        "non_circularity_status": {"promotion_allowed": True},
+    }
+    assert module._neutrino_absolute_theorem_allowed(payload) is True
+    for key, bad_value in (
+        ("artifact", "legacy_weighted_cycle_attachment"),
+        ("prediction_promotion_allowed", False),
+        ("public_surface_candidate_allowed", False),
+    ):
+        malformed = dict(payload)
+        malformed[key] = bad_value
+        assert module._neutrino_absolute_theorem_allowed(malformed) is False
 
 
 def test_render_markdown_includes_neutrino_oscillation_section() -> None:

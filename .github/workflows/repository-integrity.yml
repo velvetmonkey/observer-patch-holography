@@ -1,0 +1,30 @@
+name: Repository Integrity
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: python -m pip install pytest pyyaml jsonschema numpy
+      - name: Claim registry and release coupling
+        run: python tools/check_claim_registry.py
+      - name: Reference-injection guards
+        run: >-
+          python -m pytest -q
+          code/particles/test_predictive_builders_reference_free.py
+          code/particles/leptons/test_no_experiment_label_matching.py
+          code/particles/leptons/test_no_koide_import.py
+          code/particles/test_pdg_reference_integrity.py
+      - name: Drift-sensitive generated artifacts
+        run: |
+          python code/particles/uv/build_oph_bd_threshold_spectrum_receipts.py --check
+          python -m pytest -q code/particles/test_derivation_chain_closure_matrix.py code/particles/uv/test_oph_bd_threshold_spectrum_receipts.py

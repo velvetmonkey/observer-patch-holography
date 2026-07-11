@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run a CAMB comparison with the OPH neutrino mass sum fixed.
+"""Run CAMB comparisons across explicitly labeled neutrino-mass scenarios.
 
 This is the first Boltzmann-code comparison surface in the OPH cosmology
 workspace. It holds a simple Planck-like flat FLRW background fixed and compares
@@ -18,12 +18,14 @@ import math
 from dataclasses import asdict, dataclass
 from typing import Any
 
-from d6_capacity_calculator import OPH_NEUTRINO_MASSES_EV
+from d6_capacity_calculator import (
+    MINIMAL_NORMAL_REFERENCE_SUM_MNU_EV,
+    REJECTED_WEIGHTED_CYCLE_MASSES_EV,
+    REJECTED_WEIGHTED_CYCLE_SUM_MNU_EV,
+)
 
 
 OMEGA_NU_H2_DENOMINATOR_EV = 93.14
-OPH_SUM_MNU_EV = sum(OPH_NEUTRINO_MASSES_EV)
-MINIMAL_NORMAL_SUM_MNU_EV = 0.0589
 
 
 @dataclass(frozen=True)
@@ -46,6 +48,10 @@ class NeutrinoScenario:
     hierarchy: str
     num_massive_neutrinos: int
     exact_masses_eV: tuple[float, ...] | None = None
+    scientific_status: str = "external_reference_comparison"
+    oph_prediction: bool = False
+    public_promotion_allowed: bool = False
+    source_artifact: str | None = None
 
 
 SCENARIOS = [
@@ -57,7 +63,7 @@ SCENARIOS = [
     ),
     NeutrinoScenario(
         name="minimal_normal_reference",
-        sum_mnu_eV=MINIMAL_NORMAL_SUM_MNU_EV,
+        sum_mnu_eV=MINIMAL_NORMAL_REFERENCE_SUM_MNU_EV,
         hierarchy="normal",
         num_massive_neutrinos=3,
     ),
@@ -68,11 +74,13 @@ SCENARIOS = [
         num_massive_neutrinos=3,
     ),
     NeutrinoScenario(
-        name="oph_fixed_mass_sum",
-        sum_mnu_eV=OPH_SUM_MNU_EV,
-        hierarchy="degenerate",
+        name="rejected_weighted_cycle_compare_only",
+        sum_mnu_eV=REJECTED_WEIGHTED_CYCLE_SUM_MNU_EV,
+        hierarchy="normal",
         num_massive_neutrinos=3,
-        exact_masses_eV=OPH_NEUTRINO_MASSES_EV,
+        exact_masses_eV=REJECTED_WEIGHTED_CYCLE_MASSES_EV,
+        scientific_status="rejected_target_informed_compare_only",
+        source_artifact="code/particles/runs/neutrino/neutrino_weighted_cycle_repair.json",
     ),
 ]
 
@@ -246,15 +254,19 @@ def compute(args: argparse.Namespace) -> dict[str, Any]:
         "status": {
             "category": "CAMB fixed-neutrino comparison, not a likelihood analysis",
             "camb_version": camb.__version__,
-            "exact_OPH_mass_splitting_used": True,
+            "public_promotion_allowed": False,
+            "rejected_weighted_cycle_comparison_included": True,
             "notes": [
                 "CAMB normal hierarchy uses its built-in approximation from the total mass.",
                 "CDM density is adjusted to keep total Omega_m fixed across mass branches.",
-                "The OPH row uses explicit mass fractions; other normal hierarchy rows use CAMB's built-in approximation.",
+                "The rejected weighted-cycle row uses explicit mass fractions only as a legacy comparison diagnostic.",
+                "No scenario in this comparison is an OPH neutrino prediction or a promotion surface.",
             ],
         },
         "background": asdict(background),
-        "oph_mass_eigenvalues_eV": list(OPH_NEUTRINO_MASSES_EV),
+        "rejected_weighted_cycle_mass_eigenvalues_eV": list(
+            REJECTED_WEIGHTED_CYCLE_MASSES_EV
+        ),
         "scenarios": rows,
     }
     add_ratios(payload, args.reference)

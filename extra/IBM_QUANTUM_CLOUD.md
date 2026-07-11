@@ -2,18 +2,28 @@
 
 ## Informal story
 
-If OPH is right, then the local quantum structure of reality has a specific form. Even in very small toy sectors, the allowed states should line up in a specific pattern. IBM quantum hardware lets us test whether that pattern actually shows up on real devices and agrees with notebook algebra and reference code.
-
-The experiments in this bundle are therefore small "fingerprint checks" of OPH structure on real quantum hardware.
+If OPH is right, then the local quantum structure of reality has a specific
+form. Small toy sectors provide controlled places to test implementations of
+that structure on IBM quantum hardware. The first campaign checked whether
+prepared OPH-motivated states survived hardware execution and readout. A later
+blinded campaign tested a stronger, generative question: whether a bounded
+patch could read a local boundary record and apply the preregistered repair
+move on two held-out backend/layout roles.
 
 - Stage 1 asks a structural question: do OPH-like local states look more Markovian and more recoverable than generic or strongly non-Markovian controls?
 - `Z_3` asks whether the simplest reduced-sector encoding is internally self-consistent.
 - `Z_5` asks for a sharp exact-ratio target: does the measured ratio land near the OPH golden-ratio value?
 - `S_3` asks the same kind of question in the first nonabelian case, where representation dimensions matter and the target ratio is `2`.
+- The blinded generative benchmark asks whether a measured record, rather than
+  an initial amplitude alone, selects the correct finite repair against frozen
+  open-loop, delayed, shuffled, inverted, state-preparation, noise, label, and
+  decoy controls.
 
-If these values had come back arbitrary, drifted toward obviously wrong alternatives, or failed under simple reruns, that would have been a bad sign for the OPH picture. The first IBM hardware campaign instead returns the structure OPH points to.
-
-The chip is being used to check whether tiny controlled sectors, where OPH predicts a specific local pattern, actually produce that pattern on real hardware.
+The first campaign is state-preparation and readout consistency evidence. The
+blinded campaign is implementation evidence for an observer-like self-reading
+patch with local state, a measured boundary, a record, conditional feedback,
+final readback, append-only receipts, and a public evidence bundle. Neither
+campaign distinguishes OPH from unrestricted quantum mechanics.
 
 ## What these tests actually are
 
@@ -27,7 +37,7 @@ These are small toy symmetry systems. They are useful because OPH makes clean st
 
 ## What the hardware is doing, informally
 
-Each experiment has the same broad shape:
+The original exact-ratio experiments have the same broad shape:
 
 1. pick a tiny reduced sector where OPH predicts a definite probability structure;
 2. encode that sector into 2 or 3 qubits;
@@ -36,7 +46,13 @@ Each experiment has the same broad shape:
 5. reconstruct the probabilities from the counts;
 6. compare the measured pattern with the OPH target.
 
-When we say "the chip supports OPH," we mean that small sectors with clear OPH predictions return measured data close to those predictions on real hardware.
+The blinded generative experiment instead prepares balanced finite inputs,
+measures a decision record, conditionally applies repair, and retains every
+seven-bit joint outcome. Standard quantum mechanics predicts both the prepared
+states and this programmed dynamic instrument. The scientific question is
+therefore whether the engineered self-reading implementation passes its frozen
+reduced-controller nulls, not whether IBM hardware violates or outperforms
+standard quantum theory.
 
 ## The basic math
 
@@ -160,8 +176,12 @@ The runnable code and representative raw outputs are stored in:
 
 - `code/ibm_quantum_cloud/programs/`
 - `code/ibm_quantum_cloud/qc_data/`
+- `code/ibm_quantum_cloud/runs/issue_509_20260711_v2/`
 
-The public data bundle includes the main Stage 1, `Z_3`, `Z_5`, and `S_3` hardware outputs, plus the `S_3` layout diagnostic and a post-cleanup IBM usage snapshot.
+The public data bundle includes the main Stage 1, `Z_3`, `Z_5`, and `S_3`
+hardware outputs, the `S_3` layout diagnostic, and the complete blinded
+generative run: manifest, lock, reveal, provider job IDs, raw joined counts,
+calibration receipts, packet, blind report, hashes, and replay commands.
 
 ## Results
 
@@ -311,23 +331,64 @@ Direct confirmation of the corrected mapping:
 
 This result matters because the initial low `S_3` values were largely a layout-dependent hardware bias. After that bias is diagnosed and the mapping is corrected, the nonabelian target ratio returns on hardware very close to `2`.
 
+### Blinded generative repair: preregistered pass on two QPUs
+
+The production-random `issue509-20260711-v2` run used `ibm_fez` for the
+development role and submitted the held-out `ibm_kingston` role only after the
+development jobs had completed. The run contained 3,104 circuits, 606,208
+shots, and 14 completed IBM Runtime jobs. No shots were dropped or
+postselected.
+
+The frozen blind report passed every calibration, leakage, completeness, and
+shot-conservation gate. Record-gated repair exceeded the preregistered
+conditional-likelihood threshold against every required null on each backend
+and pooled. The weakest comparison was the 256-component label/layout mixture,
+with likelihood ratio approximately `256`; all other primary comparisons had
+per-backend log-likelihood ratios above `77,000`. The committed reference
+label/layout was the unique top component among 256 possibilities.
+
+After the blind report was file-hashed, the reveal commitment and all 3,104
+normalized-OpenQASM logical-circuit hashes verified. The raw receipts and exact
+replay are public in
+`code/ibm_quantum_cloud/runs/issue_509_20260711_v2/`.
+
 ## Assessment of the evidence
 
-> On IBM quantum hardware, the first exact-ratio and recoverability tests return the structure OPH predicts: `Z_3` passes cleanly, `Z_5` repeatedly lands near the golden-ratio target, and no tested branch shows a clean failure. Alongside OPH's broader theoretical successes, this is substantial positive evidence for the framework.
+> On IBM quantum hardware, the exact-ratio campaign validates preparation and
+> readout of OPH-motivated reduced-sector states. The blinded generative
+> campaign adds stronger evidence that an engineered finite self-reading patch
+> can execute record-gated repair against its frozen reduced-controller nulls
+> on two QPUs.
 
 The main caveats are:
 
 - these are IBM hardware consistency benchmarks for OPH-inspired reduced-sector states;
 - `S_3` revealed a real layout-dependent hardware bias, and the corrected layout restores the target ratio;
 - `Z_5` and `S_3` show that OPH-shaped small-sector states can be prepared and read out with nontrivial fidelity on real hardware.
+- the generative pass tests an engineered observer-like implementation, not
+  OPH against unrestricted quantum mechanics;
+- the reported primary values are conditional likelihood ratios, not Bayes
+  factors, because calibration uncertainty is stress-tested by frozen
+  sensitivity bounds rather than fully marginalized.
 
-This is meaningful evidence. The results show a coherent pattern, and in the sharpest places they line up with specifically OPH-flavored targets.
+The new result is stronger than state preparation alone because the output is
+selected by a measured finite record and feedback. It is still an
+implementation-level result under standard quantum mechanics.
 
 ## Interpretation boundary
 
-These experiments cover a small reduced sector of OPH.
+These experiments cover small reduced sectors and one bounded self-reading
+implementation.
 
 - The exact-ratio experiments directly prepare OPH-motivated reduced-sector amplitudes, so the result is that the predicted structure survives real-hardware preparation and measurement in a nontrivial way.
 - Stage 1 is a real structural success, recoverability behavior by itself also appears in frameworks beyond OPH, and its random control was chosen from a fixed candidate pool.
+- The generative experiment instantiates local state, a port or boundary,
+  readback, a record, conditional feedback, and public receipts. Its pass says
+  that this finite implementation beats the listed frozen controllers, label
+  mixture, calibrated-noise model, and decoy checks.
 
-Real quantum hardware returns the local reduced-sector structure OPH predicts in these reduced-sector tests, and this constitutes substantial positive support for the framework.
+Standard quantum mechanics predicts the programmed circuits. These results do
+not establish OPH claims about relativity, the Standard Model, cosmology, or
+ontology, and they do not compare OPH with unrestricted quantum theory. They
+provide auditable hardware evidence for the narrower prepared-state and
+self-reading-implementation claims stated above.

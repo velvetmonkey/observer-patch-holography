@@ -6,7 +6,7 @@
   },
   "companion_surfaces": {
     "exact_public_top_surface": "selected_public_quark_exact_yukawa_theorem",
-    "selected_class_quark_top_alignment_residual_gev": 5.684341886080802e-14,
+    "selected_class_quark_top_alignment_residual_gev": -0.2523553288311575,
     "selected_class_quark_top_gev": 172.35235532883115
   },
   "d10_repair_inputs": {
@@ -21,28 +21,28 @@
     "y_t_core_mt": 0.92046435
   },
   "exact_local_codomain": {
-    "mt_pole_gev": 172.3523553288312,
+    "mt_pole_gev": 172.1,
     "particle": "top_quark",
     "source_summary_id": "Q007TP4"
   },
   "exact_top_seed": {
     "formula": "sigma_D11_T_exact = (eta_source + (3/2 + beta_EW/4) * tau2_tree_exact + c_T_exactifier * delta_n_tree_exact) / sqrt(pi)",
-    "value": 0.012281958891788196
+    "value": 0.01079976775961743
   },
   "exactifier": {
     "coefficient_formula": "(pi_T_exact - ((eta_source + (3/2 + beta_EW/4) * tau2_tree_exact) / sqrt(pi))) / (delta_n_tree_exact / sqrt(pi))",
     "coefficient_symbol": "c_T_exactifier",
-    "coefficient_value": 0.0002975765953243052,
-    "pi_T_exact": 0.012281958891788196,
+    "coefficient_value": -11.196265273331639,
+    "pi_T_exact": 0.01079976775961743,
     "pi_T_exact_formula": "(mt_exact_target_gev - mt_pole_core_gev) / (d_mt_pole_d_y_t * y_t_core_mt)"
   },
-  "generated_utc": "2026-06-29T07:35:22Z",
+  "generated_utc": "2026-07-11T06:46:44Z",
   "mass_readout": {
-    "delta_y_t_mt": 0.011305105308056543,
+    "delta_y_t_mt": 0.009940801211007214,
     "delta_y_t_mt_formula": "sigma_D11_T_exact * y_t_core_mt",
     "exact_residual_gev": 0.0,
     "mt_pole_formula": "mt_pole_core_gev + d_mt_pole_d_y_t * delta_y_t_mt",
-    "mt_pole_gev": 172.3523553288312
+    "mt_pole_gev": 172.1
   },
   "notes": [
     "This is a top-side calibration theorem on the declared D10/D11 running, matching, and threshold surface.",

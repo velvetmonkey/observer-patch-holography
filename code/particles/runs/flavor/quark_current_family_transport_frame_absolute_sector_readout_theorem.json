@@ -13,10 +13,10 @@
     "mathematical_name": "Theta_ud^abs"
   },
   "emitted_absolute_sector_scales": {
-    "g_d": 0.12249897208633505,
-    "g_u": 0.7796501962057188
+    "g_d": 0.12226559489803177,
+    "g_u": 0.7792490879740623
   },
-  "generated_utc": "2026-06-29T07:35:28Z",
+  "generated_utc": "2026-07-11T06:46:51Z",
   "notes": [
     "This theorem is the restricted-carrier analogue of the public contract object quark_absolute_sector_readout_theorem.",
     "It uses the attached exact sigma target on the declared current-family/common-refinement transport-frame surface and does not claim target-free public promotion."
@@ -25,11 +25,11 @@
   "public_promotion_allowed": false,
   "restricted_sigma_datum": {
     "canonical_token": "CR::same_label_left::transport_frame::current_family_exact",
-    "eta_ud_target": 1.1388321137934274,
-    "sigma_d_target": 3.296264198808688,
+    "eta_ud_target": 1.139688878603012,
+    "sigma_d_target": 3.300314452061615,
     "sigma_id": "sigma_phys_transport_frame_current_family",
-    "sigma_seed_ud_target": 4.4350963126021155,
-    "sigma_u_target": 5.573928426395543
+    "sigma_seed_ud_target": 4.440003330664627,
+    "sigma_u_target": 5.579692209267639
   },
   "supporting_artifacts": {
     "absolute_readout_algebraic_collapse": "oph_quark_absolute_readout_algebraic_collapse",

@@ -1,5 +1,6 @@
 {
   "artifact": "oph_neutrino_lane_closure_contract",
+  "bridge_prediction_promotion_allowed": false,
   "closure_chain": [
     "declared weighted-cycle candidate => (mhat_i, Delta_hat_ij, U_PMNS)",
     "compare-only bridge candidate => C_nu = sum_gap^2 * prod_qbar * solar_response_over_mstar^-0.5",
@@ -34,12 +35,14 @@
       "32": 0.0024374312781107786
     },
     "lambda_nu": 1.7237014208357415,
+    "legacy_field_name": true,
     "masses_eV": [
       0.017454720257976796,
       0.019481987935919015,
       0.05307522145074924
     ],
     "public_surface_candidate_allowed": false,
+    "semantic_role": "compare_only_absolute_attachment_candidate",
     "status": "conditional_absolute_family_blocked_by_compare_only_C_nu"
   },
   "emitted_bridge_rigidity_theorem": {
@@ -48,18 +51,27 @@
     "display_value": 0.9994295999075177,
     "emitted_formula": "sum_gap^2 * prod_qbar * solar_response_over_mstar^-0.5",
     "emitted_value": null,
-    "statement": "On the live weighted-cycle branch, the physical reduced bridge invariant is the distinguished exact optimizer on the emitted family-assisted reduced-correction class.",
+    "legacy_field_name": true,
+    "semantic_role": "compare_only_bridge_candidate_audit",
+    "statement": "The stored value is the distinguished optimizer on a declared family-assisted correction class. It is comparison-only because the weighted-cycle base is target-informed and source-open and the correction audit forbids feedback.",
     "status": "candidate_from_compare_only_reduced_bridge_search"
   },
-  "generated_utc": "2026-07-11T04:36:57Z",
+  "generated_utc": "2026-07-11T06:47:03Z",
   "historical_target_exposure": true,
+  "legacy_artifact_names_retained_for_compatibility": true,
   "non_circularity_status": {
     "bridge_public_surface_candidate_allowed": false,
     "bridge_status": "candidate_from_compare_only_reduced_bridge_search",
     "compare_only_C_nu_used": true,
-    "missing_source_object": "source_emitted_neutrino_C_nu_no_compare_target",
+    "missing_source_object": "source_closed_neutrino_operator_basis_ordering_and_absolute_scale",
+    "missing_source_objects": [
+      "source_closed_weighted_cycle_operator_basis_and_label_law",
+      "source_emitted_neutrino_C_nu_no_compare_target",
+      "source_derived_absolute_neutrino_scale"
+    ],
     "promotion_allowed": false,
-    "strict_audit_label": "compare_only_absolute_attachment_candidate"
+    "strict_audit_label": "compare_only_absolute_attachment_candidate",
+    "weighted_cycle_base_eligible": false
   },
   "notes": [
     "The absolute attachment is displayed as a compare-only candidate; the scale-free weighted-cycle point also fails source and historical-blindness gates.",
@@ -68,7 +80,7 @@
   "proof_status": "target_informed_weighted_cycle_candidate_with_compare_only_absolute_attachment",
   "public_promotion_allowed": false,
   "scale_free_prediction_promotion_allowed": false,
-  "scope": "weighted_cycle_bridge_rigidity_plus_absolute_attachment",
+  "scope": "rejected_weighted_cycle_plus_compare_only_bridge_and_absolute_attachment_audit",
   "source_closure_status": {
     "closed": false,
     "family_transport_kernel_proof_status": "conjugacy_riesz_candidate",
@@ -77,6 +89,8 @@
       "source_emitted_family_transport_kernel",
       "source_derived_weight_exponent_and_cycle_matrix_law",
       "source_derived_basis_permutation_and_holonomy_orientation",
+      "closed_nondegenerate_charged_lepton_left_basis",
+      "source_derived_mass_eigenstate_label_and_ordering_rule",
       "pre_reference_hash_lock"
     ]
   }

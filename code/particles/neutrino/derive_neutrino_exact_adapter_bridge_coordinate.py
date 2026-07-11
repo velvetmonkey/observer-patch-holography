@@ -142,16 +142,16 @@ def build_payload(
         "theorem_boundary": {
             "status": "non_promotable_compare_only_bridge_coordinate_sidecar",
             "statement": (
-                "This artifact evaluates exact compare-only bridge coordinates on the already-emitted positive selector "
+                "This artifact evaluates exact compare-only bridge coordinates on the rejected candidate's positive selector "
                 "segment after the exact two-parameter fit. It does not emit theorem-grade C_nu or B_nu and must not "
                 "feed back into the theorem lane."
             ),
             "forbidden_feedback": "exact_compare_only_bridge_coordinate_must_not_feed_back_into_theorem_state_or_C_nu_emission",
         },
         "notes": [
-            "The exact adapter moves only one selector coordinate and one positive rescaling on the already-emitted positive selector segment.",
-            "The same emitted phase and defect stack is reused here; the only exact-adapter-dependent bridge ingredient is ratio_hat, taken from the exact two-parameter fit.",
-            "This sidecar strengthens the explicit exact branch description without changing the emitted theorem pair (C_nu, B_nu).",
+            "The exact adapter moves only one selector coordinate and one positive rescaling on the rejected candidate's positive selector segment.",
+            "The same candidate phase and defect stack is reused here; the only exact-adapter-dependent bridge ingredient is ratio_hat, taken from the exact two-parameter target fit.",
+            "This sidecar is a target-fit diagnostic and emits no theorem pair.",
         ],
     }
 

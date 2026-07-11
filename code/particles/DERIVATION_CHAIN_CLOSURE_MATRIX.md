@@ -1,6 +1,6 @@
 # Particle Derivation Chain Closure Matrix
 
-Generated: `2026-07-11T04:19:04Z`
+Generated: `2026-07-11T06:25:23Z`
 
 Status: `executable_nonhadron_chain_matrix_emitted`
 All derivation chains claimed closed: `False`
@@ -17,5 +17,5 @@ Reason: Hadron issues #153/#157 have a source-backend boundary and an empirical 
 | `higgs_top_declared_surface` | `conditional_declared_surface_higgs_top_candidate` | `False` | #closed_promotable_EWTargetFreeRepairValueLaw_D10 | `higgs=125.1995304097179` | code/particles/runs/calibration/direct_top_bridge_contract.json |
 | `charged_leptons` | `closed_corpus_limited_charged_end_to_end_no_go` | `False` | none | n/a | code/particles/runs/leptons/charged_end_to_end_impossibility_theorem.json |
 | `selected_class_quarks` | `selected_class_target_anchored_exact_witness_not_strict_source` | `False` | #QUARK_SIGMA_SOURCE_SELECTOR, #NO_TARGET_LEAK_DAG_QUARK_SIGMA_SOURCE | n/a | code/particles/runs/flavor/quark_class_uniform_public_frame_descent_obstruction.json |
-| `neutrino_absolute_attachment` | `scale_free_weighted_cycle_with_compare_only_absolute_attachment_candidate` | `False` | #source_emitted_neutrino_C_nu_no_compare_target | n/a | none |
+| `neutrino_absolute_attachment` | `rejected_target_informed_weighted_cycle_candidate` | `False` | #source_emitted_family_transport_kernel, #source_derived_weight_exponent_and_cycle_matrix_law, #source_derived_basis_permutation_and_holonomy_orientation, #pre_reference_hash_lock | n/a | none |
 | `hadrons` | `source_backend_absent_empirical_closure_policy_emitted` | `False` | none | n/a | HADRON.md + code/particles/hadron/empirical_ee_hadrons_sources.yaml + code/particles/hadron/empirical_ee_hadronic_spectral_measure.schema.json |

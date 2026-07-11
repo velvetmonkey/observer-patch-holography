@@ -7,10 +7,10 @@
     "sigma_u_current": 5.5905
   },
   "delta_vs_current_theorem_grade_sigma_pair": {
-    "eta_ud": -0.003967886206572402,
-    "sigma_d": -0.00863580119131191,
-    "sigma_seed_ud": -0.012603687397883867,
-    "sigma_u": -0.01657157360445627
+    "eta_ud": -0.0031111213969878815,
+    "sigma_d": -0.0045855479383849485,
+    "sigma_seed_ud": -0.007696669335372164,
+    "sigma_u": -0.010807790732360267
   },
   "do_not_claim_now": [
     "that the theorem-grade physical sigma pair already equals this target",
@@ -24,10 +24,10 @@
       "log(g_d / g_ch) = -(A_ud * sigma_seed_ud + B_ud * eta_ud)"
     ],
     "g_ch": 0.9231656602589082,
-    "log_shift_d": -2.0197060598177545,
-    "log_shift_u": -0.16896334594579177
+    "log_shift_d": -2.0216130127881216,
+    "log_shift_u": -0.16947795037800722
   },
-  "generated_utc": "2026-06-29T07:35:28Z",
+  "generated_utc": "2026-07-11T06:46:51Z",
   "interpretation": {
     "current_family_exact_value_target": "If the fixed A_ud/B_ud affine readout law is retained, any theorem-grade lift to exact current-family quark values must emit this sigma target or an equivalent sigma datum.",
     "next_public_bridge": "quark_physical_sigma_ud_lift",
@@ -48,9 +48,9 @@
   "theorem_scope": "current_family_only",
   "theorem_statement": "Fix the current-family affine readout law log(g_u / g_ch) = -(A_ud * sigma_seed_ud - B_ud * eta_ud) and log(g_d / g_ch) = -(A_ud * sigma_seed_ud + B_ud * eta_ud), with A_ud = 1 / (2 * (1 + rho_ord - x2^2)) and B_ud = 1 / (2 * (1 - x2^2 - x2^2 / (1 + rho_ord))). On the exact current-family quark readout witness, the unique sigma target that reproduces the exact sector means is therefore obtained by solving the two affine equations for (sigma_seed_ud, eta_ud), equivalently (sigma_u, sigma_d).",
   "unique_exact_sigma_target": {
-    "eta_ud_target": 1.1388321137934274,
-    "sigma_d_target": 3.296264198808688,
-    "sigma_seed_ud_target": 4.4350963126021155,
-    "sigma_u_target": 5.573928426395543
+    "eta_ud_target": 1.139688878603012,
+    "sigma_d_target": 3.300314452061615,
+    "sigma_seed_ud_target": 4.440003330664627,
+    "sigma_u_target": 5.579692209267639
   }
 }

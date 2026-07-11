@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
-"""Emit the absolute neutrino attachment theorem artifact.
+"""Audit the historical absolute neutrino attachment candidate artifact.
 
-Chain role: convert the weighted-cycle bridge rigidity theorem into one emitted
-absolute family on the live neutrino branch.
+Chain role: preserve the historical absolute family as a compare-only
+coordinate while enforcing transitive source and non-circularity gates.
 
 Mathematics:
-1. The bridge rigidity theorem emits C_nu.
-2. The emitted proxy P_nu reconstructs B_nu = P_nu * C_nu.
-3. The emitted bridge scalar reconstructs lambda_nu and therefore the absolute
+1. The bridge artifact supplies a candidate C_nu coordinate.
+2. The internal candidate proxy P_nu reconstructs B_nu = P_nu * C_nu.
+3. Conditional bridge coordinates reconstruct lambda_nu and therefore candidate absolute
    masses and absolute splittings from the scale-free weighted-cycle family.
 """
 
@@ -43,10 +43,18 @@ def build_payload(
     scaffold: dict[str, Any],
 ) -> dict[str, Any]:
     bridge_non_circularity = dict(bridge_rigidity.get("non_circularity_status") or {})
+    weighted_cycle_eligible = (
+        weighted_cycle.get("source_only_prediction_eligible") is True
+        and weighted_cycle.get("prediction_promotion_allowed") is True
+        and weighted_cycle.get("historical_target_exposure") is False
+        and (weighted_cycle.get("source_closure_status") or {}).get("closed") is True
+    )
     bridge_promotion_allowed = (
+        weighted_cycle_eligible
+        and
         bridge_rigidity.get("status") == "theorem_grade_emitted"
         and bridge_rigidity.get("public_surface_candidate_allowed") is True
-        and bridge_non_circularity.get("promotion_allowed", True) is True
+        and bridge_non_circularity.get("promotion_allowed", False) is True
     )
     c_nu = float(
         bridge_rigidity["emitted_value"]
@@ -84,15 +92,22 @@ def build_payload(
         "public_surface_candidate_allowed": bridge_promotion_allowed,
         "display_allowed_as_compare_only_absolute_attachment": not bridge_promotion_allowed,
         "prediction_promotion_allowed": bridge_promotion_allowed,
+        "weighted_cycle_base_eligible": weighted_cycle_eligible,
         "theorem_object": "absolute_weighted_cycle_neutrino_family",
         "non_circularity_status": {
             "promotion_allowed": bridge_promotion_allowed,
+            "weighted_cycle_base_eligible": weighted_cycle_eligible,
             "bridge_status": bridge_rigidity.get("status"),
             "bridge_public_surface_candidate_allowed": bridge_rigidity.get("public_surface_candidate_allowed"),
             "compare_only_C_nu_used": not bridge_promotion_allowed,
-            "missing_source_object": None
+            "missing_source_object": None if bridge_promotion_allowed else "source_closed_neutrino_operator_basis_ordering_and_absolute_scale",
+            "missing_source_objects": []
             if bridge_promotion_allowed
-            else "source_emitted_neutrino_C_nu_no_compare_target",
+            else [
+                "source_closed_weighted_cycle_operator_basis_and_label_law",
+                "source_emitted_neutrino_C_nu_no_compare_target",
+                "source_derived_absolute_neutrino_scale",
+            ],
             "strict_audit_label": "source_absolute_neutrino_family"
             if bridge_promotion_allowed
             else "compare_only_absolute_attachment_candidate",
@@ -113,6 +128,8 @@ def build_payload(
             "lambda_reconstruction": "lambda_nu = (m_star_eV / q_mean^p_nu) * P_nu * C_nu",
             "lambda_nu": lambda_nu,
             "masses_eV": masses_eV,
+            "mass_basis_semantics": "ascending_weighted_cycle_candidate_mass_eigenstates_not_flavor_neutrino_masses",
+            "physical_mass_ordering_status": weighted_cycle.get("mass_ordering_status", "unresolved"),
             "delta_m_sq_eV2": delta_m_sq_eV2,
             "absolute_family": {
                 "masses": [
@@ -131,14 +148,14 @@ def build_payload(
             "oph_neutrino_weighted_cycle_theorem_object",
         ],
         "notes": [
-            "The exact compare-only segment adapter is retired from the theorem lane by this emitted absolute attachment theorem.",
-            "The bridge corridor remains diagnostic-only after the theorem-grade emission of C_nu and B_nu.",
+            "The exact segment adapter, bridge value, and absolute family are comparison-only coordinates.",
+            "No absolute mass, splitting, or flavor-labelled neutrino row can be promoted from the rejected source-open weighted-cycle base.",
         ],
     }
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Build the absolute neutrino attachment theorem artifact.")
+    parser = argparse.ArgumentParser(description="Build the absolute neutrino attachment candidate audit artifact.")
     parser.add_argument("--output", default=str(DEFAULT_OUT))
     args = parser.parse_args()
 

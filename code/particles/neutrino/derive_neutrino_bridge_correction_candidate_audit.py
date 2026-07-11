@@ -5,12 +5,12 @@ This artifact works one layer above the exact decomposition
 
     B_nu = P_nu * C_nu,
 
-where the live emitted proxy is
+where the internal candidate proxy is
 
     P_nu := sqrt(I_nu) * sqrt(ratio_hat) / sum_defect.
 
-The goal is not to promote a theorem. It is to preserve the diagnostic audit
-surface beneath the emitted bridge-rigidity / absolute-attachment pair by
+The goal is not to promote a theorem. It is to preserve a diagnostic audit
+surface on the rejected source-open candidate by
 searching for the smallest supported target-containing correction window for the
 reduced exact object ``C_nu`` and translating that back into a sharper
 compare-only window for ``B_nu``.
@@ -278,7 +278,7 @@ def build_payload(
         "generated_utc": _timestamp(),
         "status": "compare_only_reduced_bridge_correction_search",
         "public_promotion_allowed": False,
-        "proof_chain_role": "diagnostic_only_retired_from_theorem_lane",
+        "proof_chain_role": "diagnostic_target_search_only",
         "must_not_feed_back": True,
         "exact_target_scalar": {
             "symbol": "C_nu",
@@ -295,11 +295,11 @@ def build_payload(
         "current_compare_only_target": {
             "name": "C_nu_star",
             "value": correction_target,
-            "source": "compare_only_B_nu_star divided by the best emitted residual-amplitude proxy",
+            "source": "compare_only_B_nu_star divided by the internal candidate residual-amplitude proxy",
         },
         "route_selection_rule": {
             "normalizer_quotient_route": (
-                "Take a converted symmetric-normalizer B_nu candidate and divide by the emitted residual-amplitude proxy."
+                "Take a converted symmetric-normalizer B_nu candidate and divide by the internal candidate residual-amplitude proxy."
             ),
             "core_correction_route": "Search directly on the core residual scalar pool for C_nu.",
             "family_assisted_correction_route": "Search directly on the family-assisted residual scalar pool for C_nu.",
@@ -321,7 +321,7 @@ def build_payload(
             **induced_bridge_window,
         },
         "working_observation": (
-            "Once the bridge is reduced to C_nu above the emitted proxy sqrt(I_nu * ratio_hat) / sum_defect, the compare-only search surface becomes materially tighter. "
+            "Once the candidate bridge is reduced to C_nu above the internal proxy sqrt(I_nu * ratio_hat) / sum_defect, the compare-only search surface becomes materially tighter. "
             "The best direct core correction clue is "
             f"`{core_candidates[0]['formula']}`, while the strongest family-assisted clue is "
             f"`{family_candidates[0]['formula']}`. Their target-containing correction window induces a narrower target-containing B_nu window than the old direct bridge corridor."
@@ -330,7 +330,7 @@ def build_payload(
             "status": "do_not_promote",
             "reason": (
                 "C_nu is a smaller exact bridge object, but every formula emitted here is still selected by compare-only search. "
-                "This audit remains diagnostic-only beneath the emitted theorem pair and does not emit an independent bridge theorem."
+                "This audit is diagnostic-only on a rejected source-open candidate and does not emit an independent bridge theorem."
             ),
         },
     }

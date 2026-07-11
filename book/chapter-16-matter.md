@@ -170,18 +170,20 @@ triplet. The aligned equation layout keeps the two families readable, but the
 important physical point is that these are quark-level running masses before
 strong binding turns quarks into hadrons.
 
-On the weighted-cycle absolute branch, the neutrino sector is concrete as well:
+The weighted-cycle neutrino calculation supplies a frozen comparison point.
+The correlated NuFIT 6.1 profile rejects that point. The charged-lepton basis
+is open, and its singular values are nearly degenerate, so the source-level
+physical PMNS matrix is unformed. The neutrino singular values lack a
+source-derived assignment to the physical mass labels, and no source-derived
+normalization fixes absolute masses in electron-volts. The quoted mass and
+Majorana values belong only to diagnostic attachments of the rejected
+candidate.
 
-$$
-(m_{\nu_e},m_{\nu_\mu},m_{\nu_\tau})=
-(0.017454720257976796,\ 0.019481987935919015,\ 0.05307522145074924)\,\mathrm{eV},
-$$
-
-together with definite Majorana phases in that construction. The particle
-picture is larger than a handful of isolated numbers. At book level, the map
-contains structural massless carriers, the weak-sector comparison pair, the
-Higgs/top quantitative relation, the selected conditional quark support surface
-with Yukawas, and one weighted-cycle neutrino branch.
+The particle picture is larger than a handful of isolated numbers. At book
+level, the map contains structural massless carriers, the weak-sector
+comparison pair, the Higgs/top quantitative relation, the selected conditional
+quark support surface with Yukawas, and the rejected weighted-cycle neutrino
+comparison candidate.
 
 The selected quark branch also shows where the particle story changes gear. It
 closes the downstream algebra from a physical sigma datum to running quark
@@ -191,15 +193,16 @@ burdens. Protons, neutrons, and mesons are QCD composites, so their masses
 require the nonperturbative bound-state physics of confinement.
 
 Majorana phases are extra neutrino mixing phases that matter if neutrinos are
-their own antiparticles in the relevant sense. QCD is quantum chromodynamics,
-the strong-interaction theory that binds quarks and gluons into hadrons.
+their own antiparticles in the relevant sense. The candidate's phase values are
+diagnostic because its physical PMNS matrix is unformed. The symbols
+$m_1,m_2,m_3$ denote mass eigenstates once a physical ordering rule is supplied;
+electron, muon, and tau instead label flavor states.
 
-The neutrino labels $\nu_e$, $\nu_\mu$, and $\nu_\tau$ refer to the electron,
-muon, and tau neutrino sectors. Their masses are quoted in eV, not GeV,
-because neutrinos are extraordinarily light. The symbols
-$\theta_{\mathrm{QCD}}$ and $\bar\theta$ name strong-CP angles, parameters
-that would measure a CP-violating strong-interaction phase. The chapter says
-plainly that OPH has not derived their physical vanishing.
+QCD is quantum chromodynamics, the strong-interaction theory that binds quarks
+and gluons into hadrons. The symbols $\theta_{\mathrm{QCD}}$ and $\bar\theta$
+name strong-CP angles, parameters that would measure a CP-violating
+strong-interaction phase. The chapter says plainly that OPH has not derived
+their physical vanishing.
 
 ## 16.5 What Is a Particle?
 

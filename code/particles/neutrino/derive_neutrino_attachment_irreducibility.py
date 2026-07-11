@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Prove the exact irreducibility of the remaining neutrino attachment scalar.
+"""Prove a conditional algebraic scale no-go on the rejected candidate stack.
 
-This script sharpens the current frontier without using any external oscillation
-anchor as theorem input.
+This script sharpens the conditional algebraic frontier without promoting the
+target-informed weighted-cycle matrix to a physical OPH branch.
 
 Main theorem proved from the live artifacts:
 1. The weighted-cycle matrix factors exactly through q_e = q_mean * qbar_e.
@@ -198,15 +198,15 @@ def build_payload(
         {
             "name": "one_positive_neutrino_bridge_correction_invariant",
             "symbol": "C_nu",
-            "status": "irreducible_on_current_corpus",
+            "status": "conditionally_irreducible_on_declared_candidate_stack",
             "definition": None if correction_audit is None else (correction_audit.get("exact_target_scalar") or {}).get("definition"),
             "bridge_reconstruction": None
             if correction_audit is None
             else (correction_audit.get("exact_target_scalar") or {}).get("bridge_reconstruction"),
             "exact_residual_moduli_space": "R_{>0}",
             "equivalence_theorem": (
-                "Because the proxy P_nu is already internal to the current attached stack and strictly positive on the live branch, "
-                "the current stack emits B_nu if and only if it emits C_nu := B_nu / P_nu."
+                "Because the proxy P_nu is internal to the declared candidate stack and strictly positive at the stored point, "
+                "that conditional stack fixes B_nu if and only if it fixes C_nu := B_nu / P_nu."
             ),
             "must_break": "the remaining positive correction orbit above the internal emitted proxy P_nu",
             "compare_only_target": None
@@ -220,12 +220,14 @@ def build_payload(
     return {
         "artifact": "oph_neutrino_attachment_irreducibility_theorem",
         "generated_utc": _timestamp(),
-        "status": "proved_from_current_attached_stack",
-        "proof_grade": "exact_factorization_plus_exact_one_orbit_underdetermination",
+        "status": "conditional_algebraic_no_go_on_rejected_candidate_stack",
+        "proof_grade": "exact_factorization_plus_one_orbit_underdetermination_conditional_on_declared_candidate",
+        "public_surface_candidate_allowed": False,
+        "prediction_promotion_allowed": False,
         "theorem": {
             "name": "weighted_cycle_attachment_irreducibility_after_full_attached_stack",
             "statement": (
-                "With the current emitted normalizer, weighted-cycle theorem object, and centered-edge-norm scalar stack fixed, "
+                "With the declared normalizer, weighted-cycle candidate law, and centered-edge-norm scalar stack fixed, "
                 "the neutrino branch factors exactly through q_e = q_mean * qbar_e and retains one free positive amplitude orbit. "
                 "Hence no theorem-grade absolute attachment law can be derived from the current attached stack alone; "
                 "one positive bridge invariant remains irreducible."
@@ -248,14 +250,14 @@ def build_payload(
                 if correction_audit is None
                 else [
                     (correction_audit.get("exact_target_scalar") or {}).get("bridge_reconstruction"),
-                    "P_nu is a positive scalar already internal to the current attached stack.",
-                    "Therefore the current stack emits B_nu if and only if it emits C_nu.",
+                    "P_nu is a positive scalar internal to the declared candidate stack.",
+                    "Therefore that conditional stack fixes B_nu if and only if it fixes C_nu.",
                 ]
             ),
             "reduced_sharpened_conclusion": (
                 None
                 if correction_audit is None
-                else "After factoring out the internal positive proxy P_nu, one positive reduced bridge correction invariant C_nu remains irreducible on the current corpus."
+                else "After factoring out the internal positive proxy P_nu, one positive reduced bridge correction invariant C_nu remains conditionally irreducible on the declared candidate stack."
             ),
         },
         "inputs_used": {
@@ -318,7 +320,7 @@ def build_payload(
         },
         "remaining_object": {
             "name": "one_positive_neutrino_attachment_bridge_invariant",
-            "status": "irreducible_on_current_corpus",
+            "status": "conditionally_irreducible_on_declared_candidate_stack",
             "equivalent_parameterizations": [
                 "I_nu above the attached stack in lambda_nu = m_star * F_nu(qbar, I_nu)",
                 "A_nu = lambda_nu * q_mean^p",
@@ -327,7 +329,7 @@ def build_payload(
         },
         "reduced_remaining_object": reduced_remaining_object,
         "notes": [
-            "This result does not promote compare-only neutrino masses.",
+            "This result is exact conditional algebra and does not promote the rejected weighted-cycle matrix or compare-only neutrino masses.",
             "It sharpens the frontier by proving that the present attached stack itself cannot collapse the remaining one-dimensional amplitude orbit.",
             "Because the residual-amplitude proxy P_nu is already internal to the current stack, the same irreducibility transfers exactly to the reduced correction invariant C_nu = B_nu / P_nu.",
             "Any supported closure must adjoin one new positive non-homogeneous bridge invariant, or a new theorem external to the current attached stack that fixes the same parameter exactly.",

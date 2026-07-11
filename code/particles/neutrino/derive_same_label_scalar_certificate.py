@@ -7,8 +7,9 @@ data to the scalar family the intrinsic eta-chain actually consumes.
 Mathematics: same-label overlap/gap/defect compression followed by the exact
 `q_e -> eta_e -> mu_e` reduction.
 
-OPH-derived inputs: a full overlap edge-sector bundle or an existing same-label
-pullback payload from the live neutrino/flavor chain.
+Declared inputs: a full overlap edge-sector bundle or an existing same-label
+pullback payload from the live neutrino/flavor chain. The certificate preserves
+the upstream source-closure status.
 
 Output: either a complete scalar certificate or, if the pullback values are
 still missing, an supported shell stating the exact remaining readback object.
@@ -121,6 +122,8 @@ def _build_shell(source: dict[str, Any], source_path: Path) -> dict[str, Any]:
         "proof_status": "shell_waiting_live_same_label_scalars",
         "compression_status": "proof_facing_compression_defined_values_open",
         "sufficient_for_intrinsic_mass_eigenstates": False,
+        "source_only_physical_input_eligible": False,
+        "source_closure_status": dict(source.get("source_closure_status") or {"closed": False}),
         "insufficient_for_pmns_or_public_flavor_rows": True,
         "exact_downstream_factorization_object": "same_label_scalar_certificate_(gap_e,overlap_sq_e)_mod_common_scale",
         "builder_facing_exact_object": "centered_log_pullback_class_[log_q_e]",
@@ -185,6 +188,11 @@ def _build_complete_certificate(source: dict[str, Any], source_path: Path, *, ba
         witness = edge_info[edge].get("same_label_defect_witness")
         if isinstance(witness, dict) and witness.get("projector_identity_residual") is not None:
             max_projector_identity_residual = max(max_projector_identity_residual, float(witness["projector_identity_residual"]))
+    source_closure_status = dict(source.get("source_closure_status") or {})
+    source_closed = (
+        source.get("source_only_physical_input_eligible") is True
+        and source_closure_status.get("closed") is True
+    )
 
     return {
         "artifact": "oph_neutrino_same_label_scalar_certificate",
@@ -192,9 +200,15 @@ def _build_complete_certificate(source: dict[str, Any], source_path: Path, *, ba
         "source_path": str(source_path),
         "source_artifacts": [source.get("artifact")],
         "source_kind": source_kind,
-        "proof_status": "fixed_cutoff_scalar_sufficient_downstream_certificate",
+        "proof_status": (
+            "fixed_cutoff_scalar_sufficient_source_closed_certificate"
+            if source_closed
+            else "fixed_cutoff_scalar_sufficient_conditional_on_source_inputs"
+        ),
         "compression_status": "matrix_data_compressed_to_scalar_certificate",
         "sufficient_for_intrinsic_mass_eigenstates": True,
+        "source_only_physical_input_eligible": source_closed,
+        "source_closure_status": source_closure_status or {"closed": False},
         "insufficient_for_pmns_or_public_flavor_rows": True,
         "exact_downstream_factorization_object": "same_label_scalar_certificate_(gap_e,overlap_sq_e)_mod_common_scale",
         "builder_facing_exact_object": "centered_log_pullback_class_[log_q_e]",
@@ -223,7 +237,12 @@ def _build_complete_certificate(source: dict[str, Any], source_path: Path, *, ba
         },
         "notes": [
             "This is the smallest proof-facing scalar artifact the downstream intrinsic neutrino lane needs.",
-            "The intrinsic neutrino mass-eigenstate branch factors through this scalar certificate once the same-label scalars are populated.",
+            "The intrinsic neutrino mass-eigenstate algebra factors through this scalar certificate once the same-label scalars are populated.",
+            (
+                "Its inputs pass the explicit physical source-closure gate."
+                if source_closed
+                else "Its numeric fields are conditional because the upstream family kernel and overlap-line lift are not source-closed."
+            ),
             "PMNS and flavor-labeled rows still require the shared charged-lepton left basis.",
         ],
     }

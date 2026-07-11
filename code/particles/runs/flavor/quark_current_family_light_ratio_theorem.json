@@ -1,23 +1,23 @@
 {
   "artifact": "oph_quark_current_family_light_ratio_theorem",
   "exact_light_data": {
-    "ell_ud": 0.7774542870199399,
-    "m_d": 0.004700000000000002,
-    "m_d_over_m_u": 2.1759259259259274,
-    "m_u": 0.0021599999999999996,
-    "m_u_over_m_d": 0.4595744680851061
+    "ell_ud": 0.7774542870199387,
+    "m_d": 0.004699999999999999,
+    "m_d_over_m_u": 2.1759259259259247,
+    "m_u": 0.002160000000000001,
+    "m_u_over_m_d": 0.45957446808510666
   },
   "exact_readout_decomposition": {
-    "E_d_log_exact_0": -3.260540130101604,
-    "E_u_log_exact_0": -5.888737130993507,
-    "decomposition_residual": 0.0,
+    "E_d_log_exact_0": -3.2586331771312373,
+    "E_u_log_exact_0": -5.88822252656129,
+    "decomposition_residual": 3.3306690738754696e-16,
     "ell_ud_formula": "log(g_d / g_u) + E_d_log_exact[0] - E_u_log_exact[0]",
-    "ell_ud_from_decomposition": 0.7774542870199399,
-    "log_g_ratio": -1.8507427138719628,
+    "ell_ud_from_decomposition": 0.777454287019939,
+    "log_g_ratio": -1.8521350624101143,
     "m_d_formula": "g_d * exp(E_d_log_exact[0])",
     "m_u_formula": "g_u * exp(E_u_log_exact[0])"
   },
-  "generated_utc": "2026-06-29T07:35:26Z",
+  "generated_utc": "2026-07-11T06:46:49Z",
   "next_bridge_to_public_frontier": {
     "public_missing_formula": "Delta_ud_overlap = (1/6) * log(c_d / c_u)",
     "public_missing_object": "light_quark_overlap_defect_value_law",

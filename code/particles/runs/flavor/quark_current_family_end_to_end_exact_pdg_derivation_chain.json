@@ -6,25 +6,25 @@
     "forward_certified": true,
     "scope": "current_family_common_refinement_transport_frame_only",
     "singular_values_d": [
-      0.0046999999999367175,
-      0.09350000000000759,
-      4.182999999999995
+      0.0046999999996463915,
+      0.092899999999985,
+      4.186000000000001
     ],
     "singular_values_u": [
-      0.002160000710515581,
-      1.2730000000009922,
-      172.35235532883115
+      0.0021600002720956663,
+      1.2729000000026323,
+      172.09999999999968
     ]
   },
   "exact_running_values_gev": {
-    "b": 4.182999999999994,
-    "c": 1.2729999999999992,
+    "b": 4.186,
+    "c": 1.2729000000000006,
     "d": 0.004699999999999999,
-    "s": 0.09349999999999999,
-    "t": 172.35235532883115,
+    "s": 0.09289999999999997,
+    "t": 172.09999999999965,
     "u": 0.0021600000000000005
   },
-  "generated_utc": "2026-06-29T07:35:28Z",
+  "generated_utc": "2026-07-11T06:46:51Z",
   "lemma_chain": [
     {
       "artifact": "oph_quark_target_free_bridge_theorem",
@@ -40,9 +40,9 @@
       "lemma": "restricted_strengthened_physical_sigma_lift",
       "result": {
         "canonical_token": "CR::same_label_left::transport_frame::current_family_exact",
-        "sigma_d": 3.296264198808688,
+        "sigma_d": 3.300314452061615,
         "sigma_id": "sigma_phys_transport_frame_current_family",
-        "sigma_u": 5.573928426395543,
+        "sigma_u": 5.579692209267639,
         "theorem_scope": "current_family_common_refinement_transport_frame_only"
       },
       "step": 2
@@ -51,8 +51,8 @@
       "artifact": "oph_quark_current_family_transport_frame_absolute_sector_readout_theorem",
       "lemma": "restricted_absolute_sector_readout",
       "result": {
-        "g_d": 0.12249897208633505,
-        "g_u": 0.7796501962057188
+        "g_d": 0.12226559489803177,
+        "g_u": 0.7792490879740623
       },
       "step": 3
     },
@@ -60,11 +60,11 @@
       "artifact": "oph_quark_current_family_transport_frame_exact_pdg_completion",
       "lemma": "exact_running_value_completion",
       "result": {
-        "b": 4.182999999999994,
-        "c": 1.2729999999999992,
+        "b": 4.186,
+        "c": 1.2729000000000006,
         "d": 0.004699999999999999,
-        "s": 0.09349999999999999,
-        "t": 172.35235532883115,
+        "s": 0.09289999999999997,
+        "t": 172.09999999999965,
         "u": 0.0021600000000000005
       },
       "step": 4

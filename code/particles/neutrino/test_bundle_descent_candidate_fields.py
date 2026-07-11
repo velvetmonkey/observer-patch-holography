@@ -25,4 +25,5 @@ def test_bundle_descent_candidate_fields() -> None:
     assert payload["normalized_transport_cocycle_equation"] == "U_wv_e_norm o U_vu_e_norm = U_wu_e_norm"
     assert payload["smaller_exact_missing_clause_id"] is None
     assert payload["bundle_descent_gate_if_closed"] == "promotion_gate_for_xi±eta_and_xi±i_eta_cleared"
-    assert payload["exact_remaining_ingredient"] == "one positive residual bridge invariant above the closed normalizer"
+    assert payload["exact_remaining_ingredient"] == "source_closed_neutrino_operator_basis_and_mass_label_contract"
+    assert payload["proof_status"] == "exact_scalar_evaluator_conditional_on_source_open_inputs"

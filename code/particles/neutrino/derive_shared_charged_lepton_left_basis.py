@@ -9,8 +9,9 @@ Mathematics: the charged shape surface fixes the left singular vectors up to an
 overall positive scale. Since `Y_e = g * Y_e_shape` with `g > 0`, the left
 eigenspaces of `Y_e Y_e^dagger` are unchanged by the unresolved absolute scale.
 
-OPH-derived inputs: the blind charged-lepton forward artifact carrying
-`Y_e_shape`, `U_e_left`, and the ordered family labels.
+Declared input: the blind charged-lepton forward artifact carrying `Y_e_shape`,
+`U_e_left`, and ordered family labels. The current artifact is source-open and
+nearly degenerate, so those stored vectors are diagnostic only.
 
 The source must close its charged shape and have a nondegenerate singular
 spectrum.  A matrix carried by an open or nearly degenerate template remains a

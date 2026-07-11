@@ -17,7 +17,7 @@
   "eta_source": 0.02214700087196129,
   "fiberwise_population_tree_law_artifact": "oph_d10_ew_fiberwise_population_tree_law_beneath_single_tree_identity",
   "fiberwise_tauY_formula": "-(tau2_tree_exact + 2*eta_source) / (1 + 4*tau2_tree_exact^2)",
-  "generated_utc": "2026-06-29T07:35:20Z",
+  "generated_utc": "2026-07-11T06:46:42Z",
   "local_affine_germ": {
     "MW_relative_formula": "1 + 0.5 * tau2_tree_exact + O(tau2_tree_exact^2)",
     "MZ_relative_formula": "1 + (beta_EW / (2 * n0)) * tau2_tree_exact + O(tau2_tree_exact^2)",
@@ -36,8 +36,8 @@
   "population_evaluator_artifact": "oph_d10_ew_population_evaluator",
   "proof_status": "no_single_tau2_on_closed_current_carrier_can_hit_exact_W_and_exact_Z",
   "reference_targets": {
-    "MW_pole": 80.377,
-    "MZ_pole": 91.18797809193725
+    "MW_pole": 80.3625,
+    "MZ_pole": 91.1879
   },
   "status": "closed_smaller_primitive",
   "strictly_smaller_than": "tau2_tree_exact"

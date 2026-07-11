@@ -1,15 +1,16 @@
 {
   "artifact": "oph_neutrino_absolute_attachment_scaffold",
-  "generated_utc": "2026-04-01T00:05:52Z",
-  "status": "minimal_constructive_extension",
+  "generated_utc": "2026-07-11T05:55:53Z",
+  "status": "superseded_conditional_absolute_scale_scaffold",
   "public_promotion_allowed": false,
-  "exact_missing_object": "neutrino_weighted_cycle_absolute_attachment",
+  "exact_missing_object": "source_closed_neutrino_operator_basis_and_mass_label_contract",
+  "conditional_candidate_missing_object": "neutrino_weighted_cycle_absolute_attachment",
   "equivalent_scalar": {
     "name": "lambda_nu",
     "meaning": "positive absolute normalization scalar for the weighted-cycle scale-free normal form"
   },
   "current_no_go": {
-    "statement": "The repaired weighted-cycle branch emits only a scale-free normal form, while the live D10 neutrino scale anchor emits only the isotropic amplitude scale m_star. No emitted theorem presently attaches that dimensionful anchor to the repaired weighted-cycle normal form, so lambda_nu cannot be emitted from the current corpus.",
+    "statement": "Conditional on the rejected weighted-cycle ansatz, the stored normal form retains one positive scale. The live D10 scale anchor does not supply a source-closed attachment to that candidate. More importantly, the physical lane is blocked earlier by the source-open neutrino operator, charged basis, and mass-label rule.",
     "direct_attachment_diagnostic": {
       "absolute_dm2_eV2": {
         "21": 1.527334062343988e-10,
@@ -28,10 +29,13 @@
     },
     "current_candidate_interface_artifact": "oph_majorana_overlap_defect_scalar_evaluator",
     "closed_normalizer_artifact": "oph_same_label_overlap_defect_weight_normalizer",
-    "exact_next_theorem_object": "oph_neutrino_attachment_bridge_invariant",
+    "normalizer_status": "conditional_normalizer_from_source_open_scalar_certificate",
+    "exact_next_theorem_object": "source_closed_neutrino_operator_basis_and_mass_label_contract",
+    "conditional_absolute_scale_next_object": "one_positive_neutrino_bridge_correction_invariant",
     "strictly_smaller_missing_clause": null,
     "exact_residual_moduli_space": "R_{>0}",
-    "one_additional_positive_bridge_invariant_is_necessary_and_sufficient": true,
+    "one_additional_positive_bridge_invariant_is_necessary_and_sufficient": false,
+    "conditional_candidate_absolute_scale_is_one_dimensional": true,
     "corrected_bridge_parameterization": "lambda_nu = (m_star_eV / q_mean^p_nu) * B_nu",
     "residual_amplitude_parameterization": {
       "compare_only_B_nu_star": 6.696793104628337,
@@ -52,7 +56,7 @@
         "value": 6.699825740519345
       },
       "exact_residual_moduli_space": "R_{>0}",
-      "interpretation": "After factoring out the strongest current emitted residual-amplitude proxy, the remaining exact attachment gap is a positive correction scalar near 1 on the live compare-only branch.",
+      "interpretation": "After factoring out the internal candidate residual-amplitude proxy, the conditional absolute-scale subproblem has a positive correction coordinate near 1.",
       "symbol": "C_nu"
     },
     "strongest_compare_only_bridge_scalar_corridor": {
@@ -61,11 +65,11 @@
       "primary_cross_route_corridor": {
         "contains_compare_only_target": true,
         "interval": [
-          6.693146681168985,
+          6.696544562711253,
           6.712586060296284
         ],
-        "midpoint": 6.702866370732634,
-        "relative_half_width": 0.0014500795668685531
+        "midpoint": 6.704565311503769,
+        "relative_half_width": 0.0011963115310031501
       },
       "strongest_target_containing_bridge_scalar_corridor": {
         "construction": "induced_from_primary_target_containing_C_nu_window_above_emitted_proxy",
@@ -78,7 +82,7 @@
         "midpoint": 6.703202589634797,
         "narrowing_vs_primary_cross_route_corridor": {
           "is_narrower": true,
-          "relative_half_width_ratio": 0.7405657590000583
+          "relative_half_width_ratio": 0.8976585506519356
         },
         "proxy_formula": "I_nu^0.5 * ratio_hat^0.5 * sum_defect^-1",
         "proxy_value": 6.699825740519345,
@@ -86,18 +90,18 @@
         "source": "oph_neutrino_bridge_correction_candidate_audit"
       },
       "shortlist_route_consensus_window": {
-        "compare_only_target_offset_over_midpoint": -0.001776734590193806,
+        "compare_only_target_offset_over_midpoint": -0.0017382063382801994,
         "contains_compare_only_target": false,
         "interval": [
-          6.704839352803188,
+          6.704321502726554,
           6.712586060296284
         ],
-        "midpoint": 6.708712706549736,
+        "midpoint": 6.70845378151142,
         "narrowing_vs_primary_cross_route_corridor": {
           "is_narrower": true,
-          "relative_half_width_ratio": 0.39815863159438786
+          "relative_half_width_ratio": 0.5149000010846018
         },
-        "relative_half_width": 0.0005773616960473658,
+        "relative_half_width": 0.0006159808086110436,
         "selected_candidates": [
           {
             "complexity": 2,
@@ -138,21 +142,21 @@
           {
             "complexity": 3,
             "exponents": [
-              -2.0,
-              2.0,
-              -2.0
+              -0.5,
+              -0.5,
+              -0.5
             ],
-            "formula": "I_nu^-2 * doublet_center_over_mstar^2 * solar_response_over_mstar^-2",
+            "formula": "I_nu^-0.5 * ratio_hat^-0.5 * doublet_center_over_mstar^-0.5",
             "keys": [
               "I_nu",
-              "doublet_center_over_mstar",
-              "solar_response_over_mstar"
+              "ratio_hat",
+              "doublet_center_over_mstar"
             ],
-            "relative_error": 0.0015527520591701914,
+            "relative_error": 0.0011241795857504062,
             "route_id": "family_assisted_top_5",
             "route_kind": "direct_search_using_defect_weighted_mu_e_family_scales_in_the_residual_B_nu_pool",
             "source_artifact": "oph_neutrino_residual_amplitude_candidate_audit",
-            "value": 6.707191563911385
+            "value": 6.704321502726554
           }
         ],
         "selection_rule": "Within the already-admitted top candidates of each route family, choose one candidate per route that minimizes cross-route relative half-width; total algebraic complexity and route-local compare-only error break ties.",
@@ -200,7 +204,7 @@
         },
         "current_compare_only_target": {
           "name": "C_nu_star",
-          "source": "compare_only_B_nu_star divided by the best emitted residual-amplitude proxy",
+          "source": "compare_only_B_nu_star divided by the internal candidate residual-amplitude proxy",
           "value": 0.9995473560046991
         },
         "induced_target_containing_bridge_scalar_window": {
@@ -271,6 +275,7 @@
     }
   },
   "extension_contract": {
+    "scope": "conditional_only_after_source_closed_physical_operator_basis_and_label_contract",
     "input_objects": [
       "oph_neutrino_weighted_cycle_theorem_object",
       "oph_neutrino_scale_anchor",
@@ -291,8 +296,8 @@
     "current_theorem_stack": [
       {
         "id": "oph_same_label_overlap_defect_weight_normalizer",
-        "role": "normalized same-label overlap-defect weight section already emitted from the live scalar certificate",
-        "status": "closed_from_live_same_label_scalar_certificate"
+        "role": "normalized same-label overlap-defect weight section computed conditionally from the source-open scalar certificate",
+        "status": "conditional_normalizer_from_source_open_scalar_certificate"
       },
       {
         "id": "selector_overlap_phase_coboundary_trivializes_same_label_edge_transport",
@@ -307,11 +312,11 @@
       {
         "id": "oph_majorana_scalar_from_centered_edge_norm",
         "role": "parent finite-angle centered edge-norm theorem furnishing the scalar side of the attachment route",
-        "status": "closed_on_current_isotropic_branch"
+        "status": "exact_scalar_evaluator_conditional_on_source_open_inputs"
       },
       {
         "id": "oph_neutrino_attachment_bridge_invariant",
-        "role": "positive non-homogeneous residual attachment scalar B_nu = lambda_nu * q_mean^p_nu / m_star_eV above the emitted stack",
+        "role": "conditional positive attachment parameterization B_nu = lambda_nu * q_mean^p_nu / m_star_eV; inside the rejected candidate, the residual coordinate above the internal proxy is C_nu",
         "status": "open"
       },
       {
@@ -322,14 +327,16 @@
     ]
   },
   "theorem_object_context": {
+    "status": "retrospective_weighted_cycle_candidate_law",
+    "theorem_status": "not_established",
     "name": "p_nu_gamma_eps_midpoint_law",
     "D_nu_formula": "D_nu = (chi_nu + 1 + gamma_half) / 2 = 1 + eps/2 + gamma/4",
     "p_nu_formula": "p_nu(gamma, eps) = 1 + gamma + eps / D_nu"
   },
   "notes": [
-    "The residual absolute ambiguity above the closed normalizer is exactly the positive rescaling orbit.",
-    "Relative to the best emitted residual-amplitude proxy, the remaining bridge can also be tracked as a near-unity correction scalar C_nu on the live branch.",
+    "Within the rejected candidate algebra, the residual absolute ambiguity is a positive rescaling orbit; this is not a statement that the physical neutrino lane is otherwise closed.",
+    "Relative to the candidate residual-amplitude proxy, a near-unity correction scalar C_nu can be tracked for debugging only.",
     "Direct C_nu auditing yields a narrower target-containing induced B_nu window than the old direct bridge corridor, but it remains compare-only and cannot be promoted.",
-    "The current corpus therefore needs one and only one positive non-homogeneous attachment scalar above the present emitted stack before lambda_nu can be emitted theorem-grade."
+    "The first physical missing object is the source-closed operator, basis, charged-basis, and mass-label contract; an absolute-scale theorem is downstream of that gate."
   ]
 }

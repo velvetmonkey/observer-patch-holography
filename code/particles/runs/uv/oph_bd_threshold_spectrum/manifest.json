@@ -10,16 +10,16 @@
       "sha256": "3d81eac276c91eade4c5802adbc86e26cbb16f0d8321165ff80dfed75d3bca17"
     },
     "proxy_targets.json": {
-      "byte_count": 10506,
-      "sha256": "d1586e938747b3c20185d82102a8478488b3a10062f8280bbd118ee3806d8ad0"
+      "byte_count": 10511,
+      "sha256": "a32ce25586628e623f14ed78c9bab5b48b9519ef651adf0290fb2135177a07a0"
     },
     "scheme_lock.json": {
       "byte_count": 1218,
       "sha256": "577349aaeb53ceddeac4cca50006dc0c59008002758cc06b273302fdcf8226d0"
     },
     "source_dag.json": {
-      "byte_count": 7019,
-      "sha256": "da3a1ac255ee200fc793f2df0e25201b5a8e898f63afc139b2705b3a326f458b"
+      "byte_count": 7009,
+      "sha256": "a19624e866a7f964e9c1c6c6cc7c4f35525238642fe7c866c1835500c799ada8"
     },
     "threshold_spectrum_certificate.json": {
       "byte_count": 1927,
@@ -32,7 +32,7 @@
   },
   "input_packet": {
     "path": "code/particles/data/oph_bd_threshold_spectrum_inputs.json",
-    "sha256": "e496f7f75b464eea1a245ed5539a2c122b7f8618a3894c901d83114822661c5b"
+    "sha256": "a7a6c247b23dba12232f22e3eea2d89afb1b02043c150f8acda6b2c72d3f00a3"
   },
   "issue": 368,
   "numeric_backend": "python_decimal_base10",

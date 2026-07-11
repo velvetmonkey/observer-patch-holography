@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
 """Sweep the residual Majorana phase plane around the active selector branch.
 
-Chain role: provide the stability and ordering envelope around the current
-Majorana selector so that forward splittings can distinguish point closure from
-law closure.
+Chain role: provide the ascending-spectrum stability envelope around the
+current Majorana selector so that forward splittings can distinguish point
+closure from law closure without inferring physical mass ordering.
 
 Mathematics: residual-basis phase-plane sampling, complex Majorana assembly,
-and gap/order stability certificates.
+and ascending-gap/collective-mode-location stability certificates.
 
-OPH-derived inputs: the local scale anchor, family tensor, and Majorana lift.
+Declared pipeline inputs: the local scale anchor, family tensor, and Majorana
+lift. The envelope certifies the stated matrix family, not its physical source
+closure.
 
 Output: the phase envelope used by the forward splittings and closure-bundle
 export.
@@ -72,19 +74,23 @@ def _build_complex_majorana(m_star: float, e_nu: np.ndarray, diag_entries: np.nd
     return m_star * (n_diag @ (e_nu * _phase_matrix(psi)) @ n_diag)
 
 
-def _sorted_svd(matrix: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
-    u_mat, s_vals, _ = np.linalg.svd(matrix)
-    order = np.argsort(s_vals)
-    return s_vals[order], u_mat[:, order]
+def _sorted_takagi(matrix: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
+    eigenvalues, unitary = np.linalg.eigh(matrix.conjugate().T @ matrix)
+    order = np.argsort(eigenvalues)
+    eigenvalues = np.maximum(np.real(eigenvalues[order]), 0.0)
+    unitary = unitary[:, order]
+    congruence = unitary.T @ matrix @ unitary
+    offdiag = congruence - np.diag(np.diag(congruence))
+    tolerance = 1.0e-10 * max(1.0e-30, float(np.max(np.sqrt(eigenvalues))))
+    if np.max(np.abs(offdiag)) > tolerance:
+        raise ValueError("Takagi eigenspaces require a degenerate-block congruence resolution")
+    unitary = unitary @ np.diag(np.exp(-0.5j * np.angle(np.diag(congruence))))
+    return np.sqrt(eigenvalues), unitary
 
 
-def _ordering_label(overlaps: list[float]) -> str:
+def _collective_mode_location(overlaps: list[float]) -> str:
     dominant_index = int(max(range(3), key=lambda idx: overlaps[idx]))
-    if dominant_index == 2:
-        return "normal_like_collective_dominance"
-    if dominant_index == 0:
-        return "inverted_like_collective_dominance"
-    return "undetermined"
+    return f"s{dominant_index}"
 
 
 def main() -> int:
@@ -108,6 +114,13 @@ def main() -> int:
     family = load_json(family_path)
     lift = load_json(lift_path)
     majorana = load_json(majorana_path)
+    family_source_closure = dict(family.get("source_closure_status") or {"closed": False})
+    lift_source_closure = dict(lift.get("source_closure_status") or {"closed": False})
+    matrix_source_closure = dict(majorana.get("source_closure_status") or {"closed": False})
+    source_closed = all(
+        closure.get("closed") is True
+        for closure in (family_source_closure, lift_source_closure, matrix_source_closure)
+    )
 
     m_star = float(scale_anchor["anchors"]["m_star_gev"])
     e_nu = np.asarray(family["E_nu"], dtype=float)
@@ -118,21 +131,21 @@ def main() -> int:
     samples = np.linspace(-math.pi, math.pi, int(args.grid), dtype=float)
 
     mass_samples: list[list[float]] = []
-    dm21_samples: list[float] = []
-    dm31_samples: list[float] = []
-    ordering_samples: list[str] = []
+    gap_s10_samples: list[float] = []
+    gap_s20_samples: list[float] = []
+    collective_mode_location_samples: list[str] = []
 
     for a_value in samples:
         for b_value in samples:
             psi = base_psi + a_value * basis[0] + b_value * basis[1]
             matrix = _build_complex_majorana(m_star, e_nu, diag_entries, psi)
-            singular_values, left_vectors = _sorted_svd(matrix)
+            singular_values, left_vectors = _sorted_takagi(matrix)
             masses = [float(value) for value in singular_values.tolist()]
             overlaps = [float(abs(np.vdot(u_vector, left_vectors[:, idx])) ** 2) for idx in range(3)]
             mass_samples.append(masses)
-            dm21_samples.append((masses[1] ** 2) - (masses[0] ** 2))
-            dm31_samples.append((masses[2] ** 2) - (masses[0] ** 2))
-            ordering_samples.append(_ordering_label(overlaps))
+            gap_s10_samples.append((masses[1] ** 2) - (masses[0] ** 2))
+            gap_s20_samples.append((masses[2] ** 2) - (masses[0] ** 2))
+            collective_mode_location_samples.append(_collective_mode_location(overlaps))
 
     masses_array = np.asarray(mass_samples, dtype=float)
     real_seed_masses = np.asarray(majorana["masses_sorted_gev"], dtype=float)
@@ -143,14 +156,24 @@ def main() -> int:
     splitting_radius = float(4.0 * m_max * delta_sigma_radius + 2.0 * (delta_sigma_radius ** 2))
     projector_gap_seed = float(family["projector_gap_seed"])
     collective_projector_phase_stable = bool(projector_gap_seed > 2.0 * splitting_radius)
-    ordering_phase_stable = bool(
+    collective_mode_location_phase_stable = bool(
         all(gap > 2.0 * delta_sigma_radius for gap in real_seed_gaps)
         and collective_projector_phase_stable
-        and len(set(ordering_samples)) == 1
+        and len(set(collective_mode_location_samples)) == 1
     )
 
     payload = {
+        "artifact": "oph_neutrino_majorana_phase_envelope",
         "status": "residual_phase_envelope",
+        "proof_scope": "spectral_envelope_conditional_on_declared_matrix_family",
+        "source_only_physical_input_eligible": source_closed,
+        "public_surface_candidate_allowed": False,
+        "source_closure_status": {
+            "closed": source_closed,
+            "family_response": family_source_closure,
+            "majorana_lift": lift_source_closure,
+            "forward_matrix": matrix_source_closure,
+        },
         "phase_mode": "residual_envelope",
         "inputs": {
             "scale_anchor_artifact": str(scale_anchor_path),
@@ -162,20 +185,21 @@ def main() -> int:
         "sample_count": int(len(mass_samples)),
         "selector_reference": lift.get("selector_candidate_psi"),
         "mass_bounds_gev": [
-            {"index": 1, "min": float(np.min(masses_array[:, 0])), "max": float(np.max(masses_array[:, 0]))},
-            {"index": 2, "min": float(np.min(masses_array[:, 1])), "max": float(np.max(masses_array[:, 1]))},
-            {"index": 3, "min": float(np.min(masses_array[:, 2])), "max": float(np.max(masses_array[:, 2]))},
+            {"state": "s0", "min": float(np.min(masses_array[:, 0])), "max": float(np.max(masses_array[:, 0]))},
+            {"state": "s1", "min": float(np.min(masses_array[:, 1])), "max": float(np.max(masses_array[:, 1]))},
+            {"state": "s2", "min": float(np.min(masses_array[:, 2])), "max": float(np.max(masses_array[:, 2]))},
         ],
-        "delta_m21_sq_bounds_gev2": {
-            "min": float(min(dm21_samples)),
-            "max": float(max(dm21_samples)),
+        "ascending_gap_s10_sq_bounds_gev2": {
+            "min": float(min(gap_s10_samples)),
+            "max": float(max(gap_s10_samples)),
         },
-        "delta_m31_sq_bounds_gev2": {
-            "min": float(min(dm31_samples)),
-            "max": float(max(dm31_samples)),
+        "ascending_gap_s20_sq_bounds_gev2": {
+            "min": float(min(gap_s20_samples)),
+            "max": float(max(gap_s20_samples)),
         },
-        "ordering_samples": sorted(set(ordering_samples)),
-        "ordering_phase_stable": ordering_phase_stable,
+        "collective_mode_location_samples": sorted(set(collective_mode_location_samples)),
+        "collective_mode_location_phase_stable": collective_mode_location_phase_stable,
+        "physical_mass_ordering_status": "not_established_mass_label_rule_absent",
         "collective_projector_phase_stable": collective_projector_phase_stable,
         "delta_sigma_radius_gev": delta_sigma_radius,
         "gap_vs_radius_certificate": {
@@ -183,12 +207,13 @@ def main() -> int:
             "projector_gap_seed_gev2": projector_gap_seed,
             "delta_sigma_radius_gev": delta_sigma_radius,
             "delta_h_radius_gev2": splitting_radius,
-            "ordering_gap_test_passes": bool(all(gap > 2.0 * delta_sigma_radius for gap in real_seed_gaps)),
+            "collective_location_gap_test_passes": bool(all(gap > 2.0 * delta_sigma_radius for gap in real_seed_gaps)),
             "projector_gap_test_passes": collective_projector_phase_stable,
         },
         "notes": [
             "This is the compulsory support-check surface for phase dependence in the neutrino lane.",
-            "Ordering or splitting outputs are not phase-certified unless the gap-vs-radius certificate passes.",
+            "The envelope bounds ascending singular states and gaps, not physically labeled neutrino splittings.",
+            "Phase stability of a collective spectral mode cannot supply the missing mass-eigenstate label rule.",
         ],
     }
     out_path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")

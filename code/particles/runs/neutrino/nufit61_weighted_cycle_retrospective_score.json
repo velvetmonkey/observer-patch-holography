@@ -11,7 +11,7 @@
     },
     "filename": "neutrino_weighted_cycle_repair.json",
     "ordering": "normal",
-    "sha256": "b67e5e3467b1691e0b616ca875c970a16c2916a1f2269a8c89a506e8dfeed6a6"
+    "sha256": "8cb2b4fc58a438c945ac5d26cc07e04d63da576d64598e93ad79329fd109959f"
   },
   "decision": {
     "criterion": "The candidate fails the published 3-sigma two-parameter compatibility gate if the conservative lower bound exceeds Delta chi-square 11.829158 in both declared atmospheric treatments.",
@@ -20,7 +20,7 @@
     "reason_core_not_falsified": "The candidate is target-informed and descends from a template flavor kernel, so rejection applies to this weighted-cycle continuation branch rather than to finite OPH.",
     "threshold_delta_chi2_2d_3sigma": 11.829158081900795
   },
-  "generated_utc": "2026-07-11T03:45:00Z",
+  "generated_utc": "2026-07-11T06:25:21Z",
   "nufit_release": {
     "data_cutoff": "November 2025",
     "official_result_page": "https://www.nu-fit.org/?q=node/309",

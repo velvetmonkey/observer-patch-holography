@@ -85,10 +85,11 @@ def _row(
     family: str = "cayley",
 ) -> dict:
     candidates = _candidates(valid_codes)
+    logical_circuit_sha256 = analysis.sha256_json({"opaque_id": row_id})
     return {
         "row_id": row_id,
         "opaque_id": row_id,
-        "logical_qpy_sha256": analysis.sha256_json({"opaque_id": row_id}),
+        "logical_circuit_sha256": logical_circuit_sha256,
         "family": family,
         "state_preparation_stratum_id": f"stratum_{row_id}",
         "endpoint": endpoint,
@@ -98,12 +99,13 @@ def _row(
         "physical_layout": physical_layout,
         "calibration_id": calibration_id,
         "shots": shots,
-        "max_leakage_fraction": 0.20,
+        "max_leakage_fraction": 0.25,
         "valid_codes": valid_codes,
         "candidate_probabilities": candidates,
         "candidate_provenance": analysis.build_candidate_provenance(
             candidates,
             {model: analysis.sha256_json({"model": model}) for model in candidates},
+            logical_circuit_sha256,
         ),
     }
 
@@ -187,6 +189,7 @@ def _build_lock(*, factorized: bool = False, shots: int = 5000) -> dict:
         row_probabilities = {
             row["row_id"]: _probability_table(row["valid_codes"], list(weights))
             for row in expected_rows
+            if row["endpoint"] == "primary_s3"
         }
         label_components.append(
             analysis.build_label_layout_component(
@@ -200,9 +203,10 @@ def _build_lock(*, factorized: bool = False, shots: int = 5000) -> dict:
             )
         )
     label_layout_model = {
-        "mapping_scope": "global_shared_across_dynamic_rows",
+        "mapping_scope": "global_shared_across_primary_rows",
         "component_set_derivation_sha256": "a" * 64,
         "components": label_components,
+        "reference_component_id": label_components[1]["component_id"],
     }
     return analysis.build_analysis_lock(
         expected_rows=expected_rows,
@@ -308,8 +312,7 @@ def test_synthetic_repair_process_clears_all_frozen_primary_gates() -> None:
     )
     multiplicity = primary["label_layout_multiplicity"]
     assert multiplicity["component_count"] == 2
-    assert multiplicity["repair_rank_against_label_components"] == 1
-    assert multiplicity["repair_uniquely_preferred"] is True
+    assert multiplicity["reference_component_is_unique_top"] is True
     assert math.isclose(
         sum(
             item["posterior_within_label_model"]
@@ -324,6 +327,15 @@ def test_synthetic_repair_process_clears_all_frozen_primary_gates() -> None:
     assert all(
         row["declared_submitted_retrieved_counted_shots"] > 0
         for row in report["shot_audit"]
+    )
+    assert all(
+        "logical_circuit_sha256" in row and "logical_qpy_sha256" not in row
+        for row in report["shot_audit"]
+    )
+    assert all(
+        candidate["logical_circuit_sha256"] == lock_row["logical_circuit_sha256"]
+        for lock_row in lock["expected_rows"]
+        for candidate in report["candidate_probability_hashes"][lock_row["row_id"]].values()
     )
 
     report_body = dict(report)
@@ -481,6 +493,38 @@ def test_qiskit_joined_bit_converter_is_exhaustive_and_strict() -> None:
         )
 
 
+def test_basis_calibration_control_uses_exact_binomial_bonferroni_rule() -> None:
+    calibration = analysis.contamination_calibration_packet(
+        contamination_probability=0.08,
+        sensitivity_probabilities=[0.04, 0.15],
+        receipt_sha256="a" * 64,
+        derivation_sha256="b" * 64,
+        diagnostic_opaque_ids=("cal_0", "cal_1"),
+        diagnostic_expected_codes={"cal_0": 0, "cal_1": 15},
+    )
+    passing = analysis.basis_calibration_control_result(
+        diagnostic_counts_by_opaque_id={
+            "cal_0": {"0000": 500, "0001": 12},
+            "cal_1": {"1111": 496, "1110": 16},
+        },
+        control_rule=calibration["control_rule"],
+        provider_job_ids=["job-cal"],
+        calibration_receipt_sha256="c" * 64,
+    )
+    assert passing["gof_p_value"] >= analysis.CALIBRATION_CONTROL_MIN_P_VALUE
+    assert passing["minimum_count_per_prepared_state"] == 512
+    failing = analysis.basis_calibration_control_result(
+        diagnostic_counts_by_opaque_id={
+            "cal_0": {"0000": 300, "0001": 212},
+            "cal_1": {"1111": 496, "1110": 16},
+        },
+        control_rule=calibration["control_rule"],
+        provider_job_ids=["job-cal"],
+        calibration_receipt_sha256="d" * 64,
+    )
+    assert failing["gof_p_value"] < analysis.CALIBRATION_CONTROL_MIN_P_VALUE
+
+
 def test_factorized_dynamic_calibration_can_only_produce_invalid_verdict() -> None:
     lock = _build_lock(factorized=True)
     data = analysis.simulate_data_packet(
@@ -515,7 +559,7 @@ def test_excess_leakage_is_retained_and_invalidates_without_kernel_failure() -> 
     assert audited["opaque_primary_a"]["leakage_shots"] == shots
 
 
-def test_data_identity_must_match_locked_opaque_circuit_and_qpy() -> None:
+def test_data_identity_must_match_locked_opaque_and_logical_circuit() -> None:
     lock = _build_lock(shots=192)
     assert all(row["shots"] == 192 for row in lock["expected_rows"])
     data = analysis.simulate_data_packet(
@@ -524,10 +568,55 @@ def test_data_identity_must_match_locked_opaque_circuit_and_qpy() -> None:
         seed=517,
     )
     rows = analysis._json_copy(data["rows"])
-    rows[0]["logical_qpy_sha256"] = "f" * 64
+    rows[0]["logical_circuit_sha256"] = "f" * 64
     changed = _reseal(lock, rows)
-    with pytest.raises(analysis.AnalysisValidationError, match="locked logical_qpy_sha256"):
+    with pytest.raises(
+        analysis.AnalysisValidationError,
+        match="locked logical_circuit_sha256",
+    ):
         analysis.run_blind_analysis(lock, changed)
+
+
+def test_removed_logical_qpy_identity_is_rejected_in_lock_and_data() -> None:
+    valid = _build_lock(shots=192)
+    lock_rows = analysis._json_copy(valid["expected_rows"])
+    lock_rows[0]["logical_qpy_sha256"] = lock_rows[0]["logical_circuit_sha256"]
+    with pytest.raises(analysis.AnalysisValidationError, match="removed logical_qpy_sha256"):
+        analysis.build_analysis_lock(
+            expected_rows=lock_rows,
+            calibrations=valid["calibrations"],
+            secondary_tests=valid["secondary_tests"],
+            catalog_precommitment_sha256=valid["catalog_precommitment_sha256"],
+            label_layout_model=valid["label_layout_model"],
+            created_utc="synthetic-legacy-lock",
+        )
+
+    data = analysis.simulate_data_packet(
+        valid,
+        generating_model="record_gated_repair",
+        seed=518,
+    )
+    data_rows = analysis._json_copy(data["rows"])
+    data_rows[0]["logical_qpy_sha256"] = data_rows[0]["logical_circuit_sha256"]
+    changed = _reseal(valid, data_rows)
+    with pytest.raises(analysis.AnalysisValidationError, match="removed logical_qpy_sha256"):
+        analysis.run_blind_analysis(valid, changed)
+
+
+def test_candidate_provenance_binds_stable_logical_circuit_hash() -> None:
+    valid = _build_lock()
+    rows = analysis._json_copy(valid["expected_rows"])
+    first_model = next(iter(rows[0]["candidate_provenance"]))
+    rows[0]["candidate_provenance"][first_model]["logical_circuit_sha256"] = "f" * 64
+    with pytest.raises(analysis.AnalysisValidationError, match="different logical circuit"):
+        analysis.build_analysis_lock(
+            expected_rows=rows,
+            calibrations=valid["calibrations"],
+            secondary_tests=valid["secondary_tests"],
+            catalog_precommitment_sha256=valid["catalog_precommitment_sha256"],
+            label_layout_model=valid["label_layout_model"],
+            created_utc="synthetic-provenance-tamper",
+        )
 
 
 def test_candidate_probability_table_hash_is_enforced_at_lock_build() -> None:
@@ -560,4 +649,4 @@ def test_label_marginal_is_one_global_shared_mapping_not_rowwise_mixture() -> No
         [item["log_weighted_likelihood"] for item in label["ranked_components"]]
     )
     assert math.isclose(label["log_marginal_likelihood"], manual, abs_tol=1e-12)
-    assert label["mapping_scope"] == "global_shared_across_dynamic_rows"
+    assert label["mapping_scope"] == "global_shared_across_primary_rows"

@@ -13,6 +13,10 @@ import dark_cmb_bao_growth_s8_likelihood
 import dark_homogeneous_state_selection
 import dark_parent_collar_grid
 import dark_sector_measurement_ledger
+from d6_capacity_calculator import (
+    DEFAULT_COSMOLOGY_SUM_MNU_EV,
+    neutrino_mass_input_provenance,
+)
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -44,6 +48,8 @@ def build_parent_grid(args: argparse.Namespace) -> dict[str, Any]:
         hold=args.hold,
         a_grid=args.a_grid,
         k_grid=args.k_grid,
+        mu_eq_source=getattr(args, "mu_eq_source", "explicit_input"),
+        neutrino_input_status=getattr(args, "neutrino_input_status", "unknown"),
         out=None,
         json=False,
     )
@@ -122,6 +128,9 @@ def build_cluster(
             omega_anomaly=fractions["Omega_A"],
             omega_lambda=fractions["Omega_Lambda_OPH"],
             omega_r=fractions["Omega_r"],
+            neutrino_input_status=getattr(
+                args, "neutrino_input_status", "external_input_unknown"
+            ),
             h0_km_s_mpc=args.H0,
             redshifts=args.redshifts,
             parent_collar_json=str(args.parent_grid_out),
@@ -138,6 +147,7 @@ def build_cmb(args: argparse.Namespace) -> dict[str, Any]:
                 H0=args.H0,
                 ombh2=args.ombh2_cmb,
                 sum_mnu_eV=args.sum_mnu_eV,
+                neutrino_hierarchy=args.neutrino_hierarchy,
                 tau=args.tau_reio,
                 As=args.As,
                 ns=args.ns,
@@ -200,8 +210,12 @@ def render_markdown(payload: dict[str, Any]) -> str:
         f"| parent grid category | `{parent['status']['category']}` |",
         f"| parent paper grade | `{parent['status']['paper_grade']}` |",
         f"| rho_A/rho_b supplied to parent grid | `{parent['rho_A_over_rho_b']:.9f}` |",
+        f"| rho_A/rho_b source | `{inputs['mu_eq_source']}` |",
         f"| homogeneous Omega_A | `{homogeneous['density_fractions']['Omega_A']:.9f}` |",
         f"| homogeneous Omega_Lambda | `{homogeneous['density_fractions']['Omega_Lambda_OPH']:.9f}` |",
+        f"| supplied sum mnu eV | `{inputs['sum_mnu_eV']:.9f}` |",
+        f"| supplied neutrino hierarchy | `{inputs['neutrino_hierarchy']}` |",
+        f"| neutrino input status | `{inputs['neutrino_mass_input_provenance']['status']}` |",
         f"| repair gamma_rec | `{parent['repair_matrix']['gap']['gamma_rec']:.9f}` |",
         "",
         "## SPARC Galaxy Tests",
@@ -312,6 +326,7 @@ def render_markdown(payload: dict[str, Any]) -> str:
             "",
             "- SPARC numbers use public SPARC tables. The systematic run profiles stellar mass-to-light ratios, distance, inclination, and gas scale. It omits the full hierarchical treatment.",
             "- The CMB, BAO, growth, and S8 rows use a diagnostic scalar-load parent grid passed to CAMB as a cold pressureless component. They remain diagnostic unless a finite-collar parent evaluator and custom Boltzmann module emit the required receipts.",
+            "- The neutrino mass sum is an explicitly labeled external background input, not an OPH neutrino prediction. A run using the rejected weighted-cycle sum is invalidated and compare-only.",
             "- The cluster row is an offset-timing gate. Publication use requires real lensing maps, gas maps, merger ages, and covariance.",
             "",
             "## External Measurement Sources",
@@ -327,15 +342,33 @@ def render_markdown(payload: dict[str, Any]) -> str:
 
 
 def compute(args: argparse.Namespace) -> dict[str, Any]:
-    parent = build_parent_grid(args)
+    neutrino_provenance = neutrino_mass_input_provenance(args.sum_mnu_eV)
     homogeneous = build_homogeneous_state(args)
-    sparc = build_sparc(args)
-    cluster = build_cluster(args, homogeneous)
-    cmb = build_cmb(args)
+    if args.mu_eq is None:
+        fractions = homogeneous["density_fractions"]
+        effective_mu_eq = fractions["Omega_A"] / fractions["Omega_b"]
+        mu_eq_source = "derived_from_declared_homogeneous_external_neutrino_input"
+    else:
+        effective_mu_eq = float(args.mu_eq)
+        mu_eq_source = "explicit_cli_input"
+    run_args = argparse.Namespace(**vars(args))
+    run_args.mu_eq = effective_mu_eq
+    run_args.mu_eq_source = mu_eq_source
+    run_args.neutrino_input_status = neutrino_provenance["status"]
+
+    parent = build_parent_grid(run_args)
+    sparc = build_sparc(run_args)
+    cluster = build_cluster(run_args, homogeneous)
+    cmb = build_cmb(run_args)
     return {
         "status": {
             "category": "OPH dark empirical implementation scorecard",
             "publication_grade": False,
+            "public_promotion_allowed": False,
+            "neutrino_input_status": neutrino_provenance["status"],
+            "invalidated_by_rejected_neutrino_input": neutrino_provenance[
+                "rejected_candidate"
+            ],
             "outputs": {
                 "parent_grid": str(args.parent_grid_out),
                 "json": str(args.out_json),
@@ -344,12 +377,15 @@ def compute(args: argparse.Namespace) -> dict[str, Any]:
         },
         "inputs": {
             "N_scr": args.n_scr,
-            "mu_eq": args.mu_eq,
+            "mu_eq": effective_mu_eq,
+            "mu_eq_source": mu_eq_source,
             "B_A": args.B_A,
             "H0": args.H0,
             "ombh2_cmb": args.ombh2_cmb,
             "ombh2_homogeneous": args.ombh2_homogeneous,
             "sum_mnu_eV": args.sum_mnu_eV,
+            "neutrino_hierarchy": args.neutrino_hierarchy,
+            "neutrino_mass_input_provenance": neutrino_provenance,
             "separation_kpc": args.separation_kpc,
             "time_since_passage_gyr": args.time_since_passage_gyr,
             "observed_offset_kpc": args.observed_offset_kpc,
@@ -366,7 +402,15 @@ def compute(args: argparse.Namespace) -> dict[str, Any]:
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--n-scr", type=float, default=3.31e122)
-    parser.add_argument("--mu-eq", type=float, default=5.363470440729118)
+    parser.add_argument(
+        "--mu-eq",
+        type=float,
+        default=None,
+        help=(
+            "Optional explicit rho_A/rho_b parent-grid diagnostic. By default it is "
+            "derived from the homogeneous run using the declared external neutrino input."
+        ),
+    )
     parser.add_argument("--B-A", dest="B_A", type=float, default=1.0)
     parser.add_argument("--n-max", type=int, default=40)
     parser.add_argument("--hold", type=float, default=0.25)
@@ -383,7 +427,17 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--sum-mnu-eV",
         type=float,
-        default=dark_cmb_bao_growth_s8_likelihood.OPH_SUM_MNU_EV,
+        default=DEFAULT_COSMOLOGY_SUM_MNU_EV,
+        help=(
+            "Externally supplied neutrino mass sum. The default is the minimal-normal "
+            "reference, not an OPH prediction."
+        ),
+    )
+    parser.add_argument(
+        "--neutrino-hierarchy",
+        choices=("normal", "inverted", "degenerate"),
+        default="normal",
+        help="CAMB hierarchy for the explicitly supplied neutrino mass input.",
     )
     parser.add_argument("--omega-r", type=float, default=9.17e-5)
     parser.add_argument("--tau-reio", type=float, default=0.0544)

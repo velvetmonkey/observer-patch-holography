@@ -23,5 +23,5 @@ def test_quark_exact_pdg_end_to_end_theorem_closes() -> None:
     assert payload["minimal_exact_blocker_set"] == []
     assert payload["strengthening_above_target"]["status"] == "separate_question"
     masses = payload["exact_running_values_gev"]
-    assert abs(float(masses["t"]) - 172.35235532883115) < 1.0e-12
+    assert abs(float(masses["t"]) - 172.1) < 1.0e-12
     assert abs(float(masses["u"]) - 0.0021600000000000005) < 1.0e-12

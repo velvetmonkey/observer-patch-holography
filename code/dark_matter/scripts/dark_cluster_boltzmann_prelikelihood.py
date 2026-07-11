@@ -14,11 +14,11 @@ import dark_repair_transition_matrix
 
 
 PLANCK_H = 0.674
-OPH_FLAT_OMEGA_B = 0.04924319136384048
-OPH_FLAT_OMEGA_A = 0.26411440128712577
-OPH_FLAT_OMEGA_LAMBDA = 0.6844233323779534
-OPH_FLAT_OMEGA_R = 9.17e-5
-OPH_FLAT_MU_EQ = OPH_FLAT_OMEGA_A / OPH_FLAT_OMEGA_B
+DEFAULT_REFERENCE_OMEGA_B = 0.04924319136384048
+DEFAULT_REFERENCE_OMEGA_A = 0.26484971204748087
+DEFAULT_REFERENCE_OMEGA_LAMBDA = 0.6844233323779534
+DEFAULT_REFERENCE_OMEGA_R = 9.17e-5
+DEFAULT_REFERENCE_MU_EQ = DEFAULT_REFERENCE_OMEGA_A / DEFAULT_REFERENCE_OMEGA_B
 
 
 def parse_csv_floats(value: str) -> list[float]:
@@ -136,6 +136,13 @@ def compute(args: argparse.Namespace) -> dict[str, Any]:
     return {
         "status": {
             "category": "dark-sector cluster and Boltzmann pre-likelihood interface",
+            "public_promotion_allowed": False,
+            "default_background_status": "external_minimal_normal_neutrino_reference",
+            "neutrino_input_status": getattr(
+                args,
+                "neutrino_input_status",
+                "external_minimal_normal_reference",
+            ),
             "cluster_likelihood_ready": args.observed_offset_kpc is not None
             and args.offset_sigma_kpc is not None,
             "boltzmann_likelihood_ready": parent_payload is not None
@@ -231,7 +238,7 @@ def print_markdown(payload: dict[str, Any]) -> None:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--mu-eq", type=float, default=OPH_FLAT_MU_EQ)
+    parser.add_argument("--mu-eq", type=float, default=DEFAULT_REFERENCE_MU_EQ)
     parser.add_argument("--n-max", type=int, default=40)
     parser.add_argument("--hold", type=float, default=0.25)
     parser.add_argument("--tau-values-gyr", default="0.3,0.5,1.0")
@@ -239,10 +246,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--time-since-passage-gyr", type=float, default=0.2)
     parser.add_argument("--observed-offset-kpc", type=float, default=None)
     parser.add_argument("--offset-sigma-kpc", type=float, default=None)
-    parser.add_argument("--omega-b", type=float, default=OPH_FLAT_OMEGA_B)
-    parser.add_argument("--omega-anomaly", type=float, default=OPH_FLAT_OMEGA_A)
-    parser.add_argument("--omega-lambda", type=float, default=OPH_FLAT_OMEGA_LAMBDA)
-    parser.add_argument("--omega-r", type=float, default=OPH_FLAT_OMEGA_R)
+    parser.add_argument("--omega-b", type=float, default=DEFAULT_REFERENCE_OMEGA_B)
+    parser.add_argument("--omega-anomaly", type=float, default=DEFAULT_REFERENCE_OMEGA_A)
+    parser.add_argument("--omega-lambda", type=float, default=DEFAULT_REFERENCE_OMEGA_LAMBDA)
+    parser.add_argument("--omega-r", type=float, default=DEFAULT_REFERENCE_OMEGA_R)
     parser.add_argument("--h0-km-s-mpc", type=float, default=67.4)
     parser.add_argument("--redshifts", default="0,10,1100")
     parser.add_argument("--parent-collar-json", default=None)

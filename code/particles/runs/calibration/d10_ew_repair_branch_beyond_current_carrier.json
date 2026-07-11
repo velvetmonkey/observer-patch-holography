@@ -4,12 +4,12 @@
   "current_carrier_chart_artifact": "oph_d10_ew_exact_mass_pair_chart_current_carrier",
   "current_carrier_chart_status": "closed_smaller_primitive",
   "current_carrier_exact_mass_pair": {
-    "MW_pole": 80.377,
-    "MZ_pole": 91.18797809193725
+    "MW_pole": 80.3625,
+    "MZ_pole": 91.1879
   },
   "current_carrier_tau2_obstruction_artifact": "oph_d10_ew_tau2_current_carrier_obstruction",
   "current_carrier_tau2_obstruction_status": "closed_smaller_primitive",
-  "generated_utc": "2026-06-29T07:35:18Z",
+  "generated_utc": "2026-07-11T06:46:40Z",
   "notes": [
     "The present selected/current carrier closes its own exact W/Z chart.",
     "The builder-local next object on that chart is `EWExactMassPairSelector_D10`.",

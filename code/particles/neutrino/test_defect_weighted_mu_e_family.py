@@ -18,10 +18,11 @@ def test_defect_weighted_mu_e_family_tracks_live_readback_status() -> None:
     payload = json.loads(OUTPUT.read_text(encoding="utf-8"))
 
     assert payload["artifact"] == "oph_defect_weighted_majorana_edge_weight_family"
-    assert payload["realized_same_label_gap_defect_readback_status"] == "complete_from_live_flavor_artifacts"
-    assert payload["proof_status"] == "closed_constructive_subbridge_object"
+    assert payload["realized_same_label_gap_defect_readback_status"] == "complete_numeric_values_source_open"
+    assert payload["proof_status"] == "conditional_constructive_subbridge_from_source_open_inputs"
+    assert payload["source_only_physical_input_eligible"] is False
     assert payload["smallest_constructive_missing_object"] is None
-    assert payload["strict_repo_missing_object"] is None
+    assert payload["strict_repo_missing_object"] == "source_closed_family_transport_kernel_and_overlap_edge_line_lift"
     assert payload["upstream_exact_clause"] == "same_label_overlap_nonzero_on_realized_refinement_arrows"
     assert payload["same_label_overlap_sq"]["psi12"] > 0.99
     assert payload["raw_edge_score"]["psi12"] > 0.0

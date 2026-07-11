@@ -93,13 +93,20 @@ def _quark_public_promotable(payload: dict[str, Any] | None) -> bool:
 def _neutrino_absolute_promotable(payload: dict[str, Any] | None) -> bool:
     return (
         bool(payload)
+        and payload.get("artifact") == "oph_neutrino_absolute_attachment_theorem"
         and payload.get("status") == "theorem_grade_emitted"
+        and payload.get("weighted_cycle_base_eligible") is True
+        and payload.get("prediction_promotion_allowed") is True
         and payload.get("public_surface_candidate_allowed") is True
-        and _non_circularity_promotable(payload, default=True)
+        and _non_circularity_promotable(payload, default=False)
     )
 
 
 def _is_public_mass_output(entry: dict[str, Any]) -> bool:
+    if entry.get("legacy_particle_id_slot") is True:
+        # Oscillation eigenmasses are not masses of flavor states. A future
+        # physical theorem must use dedicated mass-eigenstate identifiers.
+        return False
     exact_kind = str(entry.get("exact_kind", ""))
     if "target_anchored" in exact_kind:
         return False
@@ -143,6 +150,8 @@ def _withheld_entry(entry: dict[str, Any]) -> dict[str, Any]:
         "selected_class",
         "exact_sigma_target",
         "strongest_source_candidate",
+        "legacy_particle_id_slot",
+        "mass_basis_semantics",
     ):
         if key in entry:
             withheld[key] = entry[key]
@@ -307,14 +316,14 @@ def build_all_entries() -> list[dict[str, Any]]:
         higgs_exact_kind = "exact_target_anchored_compare_only_inverse_slice"
     neutrino_promotable = _neutrino_absolute_promotable(neutrino)
     neutrino_exact_kind = (
-        "theorem_grade_weighted_cycle_absolute_attachment"
+        "theorem_grade_source_closed_physical_neutrino_eigenstate"
         if neutrino_promotable
         else "rejected_target_informed_weighted_cycle_candidate"
     )
     neutrino_note_prefix = (
-        "Theorem-grade weighted-cycle absolute neutrino mass from the emitted bridge-rigidity and absolute-attachment pair, "
+        "Source-closed physical neutrino mass eigenvalue with an independent operator, basis, label, and scale contract, "
         if neutrino_promotable
-        else "Rejected target-informed weighted-cycle candidate with compare-only absolute attachment, "
+        else "Rejected target-informed weighted-cycle candidate mass eigenvalue, not a flavor-neutrino mass, with compare-only absolute attachment, "
     )
     c_nu_display = neutrino_bridge_rigidity.get("emitted_value")
     if c_nu_display is None:
@@ -568,11 +577,17 @@ def build_all_entries() -> list[dict[str, Any]]:
         },
         {
             "particle_id": "electron_neutrino",
-            "label": "Electron Neutrino",
+            "label": "Neutrino Mass Eigenstate s0 (Legacy nu_e Slot)",
             "mass_eV": neutrino["outputs"]["masses_eV"][0],
             "exact_kind": neutrino_exact_kind,
-            "scope": "weighted_cycle_bridge_rigid_absolute_family",
+            "scope": (
+                "source_closed_weighted_cycle_mass_eigenstate"
+                if neutrino_promotable
+                else "rejected_weighted_cycle_mass_eigenstate_candidate"
+            ),
             "promotable": neutrino_promotable,
+            "legacy_particle_id_slot": True,
+            "mass_basis_semantics": "ascending_candidate_mass_eigenstate_s0_not_electron_flavor_mass",
             "source_artifact": _repo_ref(NEUTRINO_JSON),
             "supporting_bridge_rigidity_artifact": _repo_ref(NEUTRINO_BRIDGE_RIGIDITY_JSON),
             "note": (
@@ -585,11 +600,17 @@ def build_all_entries() -> list[dict[str, Any]]:
         },
         {
             "particle_id": "muon_neutrino",
-            "label": "Muon Neutrino",
+            "label": "Neutrino Mass Eigenstate s1 (Legacy nu_mu Slot)",
             "mass_eV": neutrino["outputs"]["masses_eV"][1],
             "exact_kind": neutrino_exact_kind,
-            "scope": "weighted_cycle_bridge_rigid_absolute_family",
+            "scope": (
+                "source_closed_weighted_cycle_mass_eigenstate"
+                if neutrino_promotable
+                else "rejected_weighted_cycle_mass_eigenstate_candidate"
+            ),
             "promotable": neutrino_promotable,
+            "legacy_particle_id_slot": True,
+            "mass_basis_semantics": "ascending_candidate_mass_eigenstate_s1_not_muon_flavor_mass",
             "source_artifact": _repo_ref(NEUTRINO_JSON),
             "supporting_bridge_rigidity_artifact": _repo_ref(NEUTRINO_BRIDGE_RIGIDITY_JSON),
             "note": (
@@ -602,11 +623,17 @@ def build_all_entries() -> list[dict[str, Any]]:
         },
         {
             "particle_id": "tau_neutrino",
-            "label": "Tau Neutrino",
+            "label": "Neutrino Mass Eigenstate s2 (Legacy nu_tau Slot)",
             "mass_eV": neutrino["outputs"]["masses_eV"][2],
             "exact_kind": neutrino_exact_kind,
-            "scope": "weighted_cycle_bridge_rigid_absolute_family",
+            "scope": (
+                "source_closed_weighted_cycle_mass_eigenstate"
+                if neutrino_promotable
+                else "rejected_weighted_cycle_mass_eigenstate_candidate"
+            ),
             "promotable": neutrino_promotable,
+            "legacy_particle_id_slot": True,
+            "mass_basis_semantics": "ascending_candidate_mass_eigenstate_s2_not_tau_flavor_mass",
             "source_artifact": _repo_ref(NEUTRINO_JSON),
             "supporting_bridge_rigidity_artifact": _repo_ref(NEUTRINO_BRIDGE_RIGIDITY_JSON),
             "note": (

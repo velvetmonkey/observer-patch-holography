@@ -41,8 +41,9 @@ theorem.
   `N_det(P) = 0`.
 - Quarks remain closed only as a selected-class theorem on the public frame
   class `f_P`; no global frame-class classification is claimed.
-- Neutrinos remain theorem-grade on the weighted-cycle absolute branch, while
-  PMNS angles and `delta_CP` stay visible comparison-tension rows.
+- Neutrinos are open at source level. The weighted-cycle point is a rejected,
+  target-informed comparison candidate; its historical basis transport is
+  tautological, and neither physical PMNS nor absolute masses are emitted.
 
 ## Direct-Use Conclusion
 
@@ -51,6 +52,6 @@ worker or local patch must instantiate at least one sector restriction of the
 schema, preferably the charged determinant normalization surface
 `N_det(P) = 0`, or emit a machine-readable certificate interface for that
 restriction.  Do not use the schema to promote charged-lepton rows, globalize
-the quark theorem, or hide the neutrino PMNS residuals.
+the quark theorem, or promote the rejected neutrino candidate.
 
 Obstruction-only output is not an accepted result.

@@ -29,409 +29,2057 @@
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/157"
     }
   ],
-  "generated_utc": "2026-05-05T01:48:21Z",
-  "open_issue_count": 25,
+  "generated_utc": "2026-07-11T06:36:33Z",
+  "open_issue_count": 121,
   "repo": "FloatingPragma/observer-patch-holography",
   "rows": [
     {
-      "blocker": "Hypercharge lattice and exact Z6 quotient proof packet.",
-      "chrome_policy": "Use only for proof audit after a local lattice packet exists.",
-      "claim_level": "theorem gap",
-      "closure": "Compact paper and DAG surfaces cite the same theorem-grade lattice/quotient derivation.",
-      "falsification": "A required SM charge assignment cannot be represented on the proposed OPH lattice.",
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
       "labels": [
-        "surface: compact",
+        "documentation",
+        "surface: archive",
         "dag:ready-now"
       ],
-      "number": 28,
-      "phase": "compact-structure",
-      "title": "[OPH Task] papers.compact.d.22-prove-the-hypercharge-lattice-and-exact-z6-quotient: 22. Prove the hypercharge lattice and exact Z6 quotient",
-      "updated_at": "2026-04-24T03:19:51Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/28"
+      "number": 294,
+      "phase": "unclassified",
+      "title": "Clay YM: complete OS reconstruction and nontriviality package",
+      "updated_at": "2026-06-24T13:01:53Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/294"
     },
     {
-      "blocker": "Populate scheme lock, threshold map, beta provenance table, and matching interval certificate.",
-      "chrome_policy": "Use only after the local RG packet exists.",
-      "claim_level": "constructive contract",
-      "closure": "Every running/matching ingredient is OPH-derived, explicitly borrowed, or declared with interval impact.",
-      "falsification": "Hidden threshold or scheme freedom is needed to recover the quantitative rows.",
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
       "labels": [
-        "surface: compact",
+        "documentation",
+        "surface: archive",
         "dag:ready-now"
       ],
-      "number": 32,
-      "phase": "particle-rg",
-      "title": "[OPH Task] papers.compact.e.26-derive-rg-matching-and-threshold-structure-from-oph: 26. Derive RG matching and threshold structure from OPH",
-      "updated_at": "2026-05-05T00:34:55Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/32"
+      "number": 295,
+      "phase": "unclassified",
+      "title": "Clay YM: certify the finite repair-gap floor",
+      "updated_at": "2026-07-11T04:48:20Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/295"
     },
     {
-      "blocker": "Proton stability and proton-spin claims need theorem-grade status or downgrade wording.",
-      "chrome_policy": "Use for independent claim audit if local wording remains ambiguous.",
-      "claim_level": "claim-hygiene gap",
-      "closure": "Observer paper and summaries agree on exact theorem, conditional result, or open-continuation status.",
-      "falsification": "A retained proton claim depends on unsupported QCD or baryon-structure assumptions.",
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
       "labels": [
-        "surface: observers"
-      ],
-      "number": 49,
-      "phase": "observer-monograph",
-      "title": "[OPH Task] papers.observers.c.09-close-proton-stability-and-proton-spin-claims: 9. Close proton stability and proton-spin claims",
-      "updated_at": "2026-04-11T04:39:04Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/49"
-    },
-    {
-      "blocker": "Critical-superstring lift needs either a theorem packet or an explicit non-claim decision.",
-      "chrome_policy": "Use for proof/claim audit after local classification.",
-      "claim_level": "decision gate",
-      "closure": "Paper and book consistently mark the lift as proved, conditional, or not part of the OPH core.",
-      "falsification": "The lift is required for a core OPH claim but cannot be derived or cleanly removed.",
-      "labels": [
-        "surface: observers"
-      ],
-      "number": 55,
-      "phase": "observer-monograph",
-      "title": "[OPH Task] papers.observers.d.15-decide-the-status-of-the-critical-superstring-lift: 15. Decide the status of the critical-superstring lift",
-      "updated_at": "2026-04-11T04:38:57Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/55"
-    },
-    {
-      "blocker": "Observer continuation/backup theorem package.",
-      "chrome_policy": "Use for proof audit after local theorem packet.",
-      "claim_level": "theorem package gap",
-      "closure": "Continuation, recovery, and backup statements are packaged with hypotheses and proof boundary.",
-      "falsification": "Observer continuation requires nonlocal state access outside OPH overlap rules.",
-      "labels": [
-        "surface: observers",
+        "documentation",
+        "surface: archive",
         "dag:ready-now"
       ],
-      "number": 58,
-      "phase": "observer-monograph",
-      "title": "[OPH Task] papers.observers.e.18-formalize-observer-continuation-backup-as-a-theorem-package: 18. Formalize observer continuation / backup as a theorem package",
-      "updated_at": "2026-04-15T23:22:07Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/58"
+      "number": 296,
+      "phase": "unclassified",
+      "title": "Clay YM: build the submission dependency map",
+      "updated_at": "2026-06-24T13:02:21Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/296"
     },
     {
-      "blocker": "Line-by-line audit of the Additional Problem Closures table.",
-      "chrome_policy": "Use for independent table audit after local row mapping.",
-      "claim_level": "audit gap",
-      "closure": "Every table row links to a theorem, conditional claim, or open issue.",
-      "falsification": "A table row asserts closure without a traceable theorem or artifact.",
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
       "labels": [
-        "surface: observers"
-      ],
-      "number": 59,
-      "phase": "observer-monograph",
-      "title": "[OPH Task] papers.observers.e.19-audit-the-additional-problem-closures-table-line-by-line: 19. Audit the Additional Problem Closures table line by line",
-      "updated_at": "2026-04-15T17:44:25Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/59"
-    },
-    {
-      "blocker": "Final proof, citation, and reproducibility audit.",
-      "chrome_policy": "Use for final independent audit after local checks are green.",
-      "claim_level": "final audit gate",
-      "closure": "The monograph passes local build, citation, theorem-status, and reproducibility checks.",
-      "falsification": "A core claim cannot be linked to a proof or reproducible artifact.",
-      "labels": [
-        "surface: observers"
-      ],
-      "number": 60,
-      "phase": "observer-monograph",
-      "title": "[OPH Task] papers.observers.e.20-run-the-final-monograph-proof-citation-and-reproducibility-audit: 20. Run the final monograph proof / citation / reproducibility audit",
-      "updated_at": "2026-04-11T04:38:51Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/60"
-    },
-    {
-      "blocker": "Extension from abelian cycle holonomy to the full OPH defect hierarchy.",
-      "chrome_policy": "Use for proof search only after local hierarchy packet.",
-      "claim_level": "theorem gap",
-      "closure": "Reality paper states the full hierarchy construction with hypotheses and proof boundary.",
-      "falsification": "Nonabelian or higher-defect holonomy is incompatible with the proposed reconciliation law.",
-      "labels": [
-        "surface: reality",
+        "documentation",
+        "surface: archive",
         "dag:ready-now"
       ],
-      "number": 66,
-      "phase": "reality-paper",
-      "title": "[OPH Task] papers.reality.b.06-extend-cycle-holonomy-from-abelian-defects-to-the-full-oph-defect-hierarchy: 6. Extend cycle holonomy from abelian defects to the full OPH defect hierarchy",
-      "updated_at": "2026-04-24T03:18:58Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/66"
+      "number": 297,
+      "phase": "unclassified",
+      "title": "Publication: branch-scope Yang-Mills claim audit",
+      "updated_at": "2026-06-24T13:01:49Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/297"
     },
     {
-      "blocker": "No public theorem package or falsifiable closure artifact is defined.",
-      "chrome_policy": "Do not spend Chrome workers until a precise theorem target exists.",
-      "claim_level": "personal/open hypothesis",
-      "closure": "Either define a falsifiable OPH theorem target or archive as non-core speculation.",
-      "falsification": "The hypothesis cannot be connected to OPH overlap consistency without extra metaphysics.",
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "documentation",
+        "surface: archive",
+        "dag:ready-now"
+      ],
+      "number": 298,
+      "phase": "unclassified",
+      "title": "Three-body: tighten holonomy demo claim boundary",
+      "updated_at": "2026-06-24T13:01:47Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/298"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "documentation",
+        "surface: archive",
+        "dag:ready-now"
+      ],
+      "number": 304,
+      "phase": "unclassified",
+      "title": "Proof packet: Boundary-Fiber Identifiability",
+      "updated_at": "2026-07-11T04:50:49Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/304"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "documentation",
+        "surface: archive",
+        "dag:ready-now"
+      ],
+      "number": 306,
+      "phase": "unclassified",
+      "title": "Proof packet: Uniform Collar Projection Gap",
+      "updated_at": "2026-07-11T04:48:21Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/306"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "documentation",
+        "surface: archive",
+        "dag:ready-now"
+      ],
+      "number": 307,
+      "phase": "unclassified",
+      "title": "Proof packet: Collar CMI Decay from Finite-Range Gibbs Mixing",
+      "updated_at": "2026-07-07T09:01:22Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/307"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "documentation",
+        "surface: archive",
+        "dag:ready-now"
+      ],
+      "number": 311,
+      "phase": "unclassified",
+      "title": "Proof packet: Particle-Like Defect Criterion",
+      "updated_at": "2026-06-24T13:01:34Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/311"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "documentation",
+        "surface: archive",
+        "dag:ready-now"
+      ],
+      "number": 312,
+      "phase": "unclassified",
+      "title": "Proof packet: Gauge Classification and Selection Separation",
+      "updated_at": "2026-07-11T04:48:23Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/312"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "documentation",
+        "surface: archive",
+        "dag:ready-now"
+      ],
+      "number": 313,
+      "phase": "unclassified",
+      "title": "Proof packet: MAR Minimal Package Uniqueness",
+      "updated_at": "2026-07-10T05:35:58Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/313"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "documentation",
+        "surface: archive",
+        "dag:ready-now"
+      ],
+      "number": 314,
+      "phase": "unclassified",
+      "title": "Proof packet: Super-Tannakian Matter Lift",
+      "updated_at": "2026-06-24T13:01:29Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/314"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "documentation",
+        "surface: archive",
+        "dag:ready-now"
+      ],
+      "number": 315,
+      "phase": "unclassified",
+      "title": "Proof packet: OPH Strong-CP Cancellation",
+      "updated_at": "2026-06-24T13:01:27Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/315"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "documentation",
+        "surface: archive",
+        "dag:ready-now"
+      ],
+      "number": 316,
+      "phase": "unclassified",
+      "title": "Proof packet: Charged-Lepton Trace Lift",
+      "updated_at": "2026-06-24T13:01:26Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/316"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "documentation",
+        "surface: archive",
+        "dag:ready-now"
+      ],
+      "number": 317,
+      "phase": "unclassified",
+      "title": "Proof packet: OPH Hadronic Spectral Measure",
+      "updated_at": "2026-06-24T13:01:24Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/317"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "documentation",
+        "surface: archive",
+        "dag:ready-now"
+      ],
+      "number": 318,
+      "phase": "unclassified",
+      "title": "Proof packet: Same-Scheme Hadronic Endpoint Transport for Alpha",
+      "updated_at": "2026-06-24T13:01:23Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/318"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "documentation",
+        "surface: archive",
+        "dag:ready-now"
+      ],
+      "number": 320,
+      "phase": "unclassified",
+      "title": "Proof packet: Refinement-Stable Collar Opportunities Are Poisson",
+      "updated_at": "2026-06-24T13:01:21Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/320"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "documentation",
+        "surface: archive",
+        "dag:ready-now"
+      ],
+      "number": 321,
+      "phase": "unclassified",
+      "title": "Proof packet: OPH Static Galaxy Potential Well-Posedness",
+      "updated_at": "2026-06-24T13:01:20Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/321"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "documentation",
+        "surface: archive",
+        "dag:ready-now"
+      ],
+      "number": 322,
+      "phase": "unclassified",
+      "title": "Proof packet: Repair-Stress Transport and Relaxation",
+      "updated_at": "2026-06-24T13:01:18Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/322"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "documentation",
+        "surface: archive",
+        "dag:ready-now"
+      ],
+      "number": 323,
+      "phase": "unclassified",
+      "title": "Proof packet: Linear OPH Repair-Stress Perturbations",
+      "updated_at": "2026-06-24T13:01:17Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/323"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "documentation",
+        "surface: archive",
+        "dag:ready-now"
+      ],
+      "number": 324,
+      "phase": "unclassified",
+      "title": "Proof packet: Coherent-Matter Channel Co-Registration",
+      "updated_at": "2026-07-10T05:35:58Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/324"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "documentation",
+        "surface: archive",
+        "dag:ready-now"
+      ],
+      "number": 325,
+      "phase": "unclassified",
+      "title": "Proof packet: Evidence-Bundle Sufficiency for Hardware Claim Class H",
+      "updated_at": "2026-07-11T06:35:54Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/325"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "documentation",
+        "surface: archive",
+        "dag:ready-now"
+      ],
+      "number": 326,
+      "phase": "unclassified",
+      "title": "Proof packet: Finite Markov-Kernel Fair-Block Certificate",
+      "updated_at": "2026-07-11T06:35:55Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/326"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "documentation",
+        "surface: archive",
+        "dag:ready-now"
+      ],
+      "number": 327,
+      "phase": "unclassified",
+      "title": "Proof packet: OPH Topological-Code Realization",
+      "updated_at": "2026-06-24T13:01:11Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/327"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "documentation",
+        "surface: archive",
+        "dag:ready-now"
+      ],
+      "number": 328,
+      "phase": "unclassified",
+      "title": "Proof packet: Uniform Settling for Compiled Boolean Lattices",
+      "updated_at": "2026-07-11T04:48:26Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/328"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "documentation",
+        "surface: archive",
+        "dag:ready-now"
+      ],
+      "number": 330,
+      "phase": "unclassified",
+      "title": "Proof packet: Screen-Spectrum Derivation for OPH Inflation Alternative",
+      "updated_at": "2026-06-24T13:01:07Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/330"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
       "labels": [
         "enhancement",
         "surface: archive",
         "dag:ready-now"
       ],
-      "number": 112,
-      "phase": "archive-speculative",
-      "title": "Prove the strange loop hypothesis to explain why and how the Universe exists and why it necessarily has the shape it does (Bernhard's favorite, this one belongs to me )",
-      "updated_at": "2026-04-15T02:10:11Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/112"
+      "number": 331,
+      "phase": "unclassified",
+      "title": "[reverse-engineering-reality] Add outward-rounded interval log for the R_U hierarchy certificate",
+      "updated_at": "2026-06-24T13:01:05Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/331"
     },
     {
-      "blocker": "Closure map and invariant sector construction.",
-      "chrome_policy": "Use for proof audit after local construction.",
-      "claim_level": "theorem construction gap",
-      "closure": "Observer paper gives a reproducible closure-map/invariant-sector theorem package.",
-      "falsification": "The closure map is not well-defined or is not invariant under allowed patch refinements.",
-      "labels": [
-        "surface: observers",
-        "dag:ready-now"
-      ],
-      "number": 113,
-      "phase": "observer-monograph",
-      "title": "[OPH Task] papers.observers.e.17a-construct-the-oph-closure-map-and-invariant-sector: 17a. Construct the OPH closure map and invariant sector",
-      "updated_at": "2026-04-11T04:38:31Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/113"
-    },
-    {
-      "blocker": "Strong-CP branch theorem or explicit continuation boundary.",
-      "chrome_policy": "Use only after a concrete branch packet exists.",
-      "claim_level": "open branch",
-      "closure": "Strong-CP mechanism is derived, falsified, or downgraded consistently across public surfaces.",
-      "falsification": "The proposed OPH branch leaves theta_QCD unconstrained while claiming closure.",
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
       "labels": [
         "enhancement",
-        "help wanted",
-        "good first issue",
-        "surface: continuation",
+        "surface: archive",
         "dag:ready-now"
       ],
-      "number": 155,
-      "phase": "continuation",
-      "title": "[OPH Task] continuations.strongcp.01-close-the-strong-cp-branch: Close the strong-CP branch",
-      "updated_at": "2026-04-14T06:43:31Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/155"
+      "number": 333,
+      "phase": "unclassified",
+      "title": "[reverse-engineering-reality] Emit raw Higgs/top interval input box and Jacobian enclosure",
+      "updated_at": "2026-06-24T13:01:03Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/333"
     },
     {
-      "blocker": "Class-uniform public quark-frame descent and sigma classification.",
-      "chrome_policy": "Use for proof audit after local classification packet.",
-      "claim_level": "selected-class theorem closed, global classification open",
-      "closure": "Global quark frame classes are classified or every claim remains selected-class.",
-      "falsification": "Another admissible public quark class breaks the selected-class exact theorem language.",
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
       "labels": [
-        "surface: compact",
+        "enhancement",
+        "surface: archive",
         "dag:ready-now"
       ],
-      "number": 199,
-      "phase": "quark-global-classification",
-      "title": "[OPH Task] papers.compact.e.36-derive-class-uniform-public-quark-frame-descent-and-sigma-classification: 36. Derive class-uniform public quark-frame descent and sigma classification",
-      "updated_at": "2026-04-14T03:16:48Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/199"
+      "number": 334,
+      "phase": "unclassified",
+      "title": "[reverse-engineering-reality] Complete the no-G clock stack for theorem-grade G_SI",
+      "updated_at": "2026-06-24T13:01:01Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/334"
     },
     {
-      "blocker": "Sector-isolated charged determinant trace-lift attachment and normalization.",
-      "chrome_policy": "Use for proof search after local trace-lift packet.",
-      "claim_level": "source theorem gap",
-      "closure": "The determinant character lands on the physical charged determinant line without target readback.",
-      "falsification": "The additive determinant normalization remains underdetermined on the OPH source data.",
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
       "labels": [
-        "surface: particles",
+        "documentation",
+        "surface: archive",
         "dag:ready-now"
       ],
-      "number": 201,
-      "phase": "charged-lepton-source",
-      "title": "[OPH Task] charged.03b-derive-d10-to-charged-determinant-line-landing: prove charged determinant trace-lift attachment / normalization",
-      "updated_at": "2026-04-26T05:00:19Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/201"
+      "number": 363,
+      "phase": "unclassified",
+      "title": "Paper theorem: Boltzmann transfer and frozen likelihood closure",
+      "updated_at": "2026-07-11T04:06:15Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/363"
     },
     {
-      "blocker": "Source-side extraction response kernel from Q007TP4 coordinate to Q007TP codomain.",
-      "chrome_policy": "Use only to audit a proposed response kernel.",
-      "claim_level": "constructive conversion contract",
-      "closure": "Converted top coordinate and uncertainty budget close without using Q007TP as calibration input.",
-      "falsification": "The direct-top codomain cannot be mapped from the current theorem coordinate without a free shift.",
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "documentation",
+        "surface: archive",
+        "dag:ready-now"
+      ],
+      "number": 364,
+      "phase": "unclassified",
+      "title": "String theorem: critical-edge heterotic VOA closure",
+      "updated_at": "2026-07-11T04:06:14Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/364"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "documentation",
+        "surface: archive",
+        "dag:ready-now"
+      ],
+      "number": 365,
+      "phase": "unclassified",
+      "title": "String certificate: Bouchard-Donagi cohomology and one-Higgs witness reproduction",
+      "updated_at": "2026-07-11T04:06:12Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/365"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "documentation",
+        "surface: archive",
+        "dag:ready-now"
+      ],
+      "number": 366,
+      "phase": "unclassified",
+      "title": "String certificate: Z4R safety-layer realization on the BD branch",
+      "updated_at": "2026-07-11T04:06:11Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/366"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "documentation",
+        "surface: archive",
+        "dag:ready-now"
+      ],
+      "number": 367,
+      "phase": "unclassified",
+      "title": "String certificate: BD superpotential and Yukawa/operator audit",
+      "updated_at": "2026-07-11T04:06:10Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/367"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "documentation",
+        "surface: archive",
+        "dag:ready-now"
+      ],
+      "number": 369,
+      "phase": "unclassified",
+      "title": "String theorem: moduli-locking full-rank target isolation",
+      "updated_at": "2026-07-11T04:06:07Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/369"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "documentation",
+        "surface: archive",
+        "dag:ready-now"
+      ],
+      "number": 370,
+      "phase": "unclassified",
+      "title": "String theorem: comparative uniqueness audit for OPH-correct critical strings",
+      "updated_at": "2026-07-11T04:06:06Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/370"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "documentation",
+        "surface: archive",
+        "dag:ready-now"
+      ],
+      "number": 374,
+      "phase": "unclassified",
+      "title": "Cosmology theorem: physical B_A(k,a), rho_A(a), and Gamma_rec kernels",
+      "updated_at": "2026-07-11T04:06:01Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/374"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
       "labels": [
         "surface: archive",
         "dag:ready-now"
       ],
-      "number": 207,
-      "phase": "top-codomain-bridge",
-      "title": "[OPH Task] particles.calibration.04-bridge-the-declared-d11-top-coordinate-to-the-direct-top-pdg-row: derive the direct-top conversion theorem or obstruction",
-      "updated_at": "2026-05-05T00:34:55Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/207"
+      "number": 376,
+      "phase": "unclassified",
+      "title": "Backlog theorem: source-only charged determinant trace-lift attachment for A_ch(P)",
+      "updated_at": "2026-07-11T04:05:59Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/376"
     },
     {
-      "blocker": "Target-free off-canonical flavor transport law and P-to-sigma evaluator.",
-      "chrome_policy": "Use for proof audit after local off-canonical transport packet.",
-      "claim_level": "candidate-only",
-      "closure": "Off-canonical quark masses move by theorem-grade P-driven transport, not default-universe anchoring.",
-      "falsification": "Off-canonical motion requires anchoring to the canonical PDG target surface.",
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
       "labels": [
         "surface: archive",
         "dag:ready-now"
       ],
-      "number": 212,
-      "phase": "quark-off-canonical",
-      "title": "Close theorem-grade off-canonical flavor transport and P->sigma->quark-mass evaluator",
-      "updated_at": "2026-04-24T06:39:49Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/212"
+      "number": 377,
+      "phase": "unclassified",
+      "title": "Backlog theorem: source-only quark sigma/spread datum for running mass sextet",
+      "updated_at": "2026-07-11T04:05:58Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/377"
     },
     {
-      "blocker": "Ward-projected source endpoint including hadronic spectral measure and interval certificate.",
-      "chrome_policy": "Use only after the source endpoint packet exists.",
-      "claim_level": "constructive contract",
-      "closure": "alpha_Th(P) is emitted from source objects with certified transport/error bounds.",
-      "falsification": "Measured alpha(0) or a free screened ansatz is required to close the endpoint.",
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
       "labels": [
-        "enhancement",
-        "surface: particles"
+        "surface: archive",
+        "dag:ready-now"
       ],
-      "number": 223,
-      "phase": "thomson-endpoint",
-      "title": "[OPH Task] Close the Ward-projected Thomson endpoint theorem gap on the P-closure branch",
-      "updated_at": "2026-05-05T00:34:55Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/223"
+      "number": 378,
+      "phase": "unclassified",
+      "title": "Backlog theorem: global public quark-frame classifier and bridge map",
+      "updated_at": "2026-07-11T04:05:57Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/378"
     },
     {
-      "blocker": "Certified P root after #223 and #32 close.",
-      "chrome_policy": "Do not use until endpoint and RG interval gates close.",
-      "claim_level": "blocked on certified root",
-      "closure": "Live particle consumers read the certified trunk root and legacy P paths are non-default.",
-      "falsification": "Derived P cannot replace legacy/candidate paths without weakening prediction rows.",
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
       "labels": [
-        "enhancement",
-        "surface: particles"
+        "surface: archive",
+        "dag:ready-now"
       ],
-      "number": 224,
-      "phase": "p-root-adoption",
-      "title": "[OPH Task] Update all particle-derivation code paths to use the derived P closure root",
-      "updated_at": "2026-05-05T00:34:55Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/224"
+      "number": 379,
+      "phase": "unclassified",
+      "title": "Backlog theorem: source-only up-type quark spread and branch generator",
+      "updated_at": "2026-07-11T04:05:55Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/379"
     },
     {
-      "blocker": "Certified derived P closure values and live consumer adoption.",
-      "chrome_policy": "Use for claim-hygiene audit after code root certification.",
-      "claim_level": "blocked on #223/#224",
-      "closure": "Observers and particle papers quote the same certified P, alpha, and dependent quantities.",
-      "falsification": "Paper values must be published before the code root is certified.",
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
       "labels": [
-        "enhancement",
-        "surface: publication"
+        "surface: archive",
+        "dag:ready-now"
       ],
-      "number": 225,
-      "phase": "publication-sync",
-      "title": "[OPH Task] Publish the derived P closure values across the observers and particle papers",
-      "updated_at": "2026-04-26T05:00:19Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/225"
+      "number": 380,
+      "phase": "unclassified",
+      "title": "Backlog theorem: source-only down-type quark spread and branch generator",
+      "updated_at": "2026-07-11T04:05:54Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/380"
     },
     {
-      "blocker": "Axiom 3/Axiom 4 independence proof or downgrade.",
-      "chrome_policy": "Use for proof/countermodel audit after local packet.",
-      "claim_level": "independence decision gate",
-      "closure": "Five-axiom basis language matches the proved independence/dependence status.",
-      "falsification": "Axiom independence is asserted while a dependency proof or countermodel is missing.",
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
       "labels": [
-        "enhancement",
-        "surface: compact"
+        "surface: archive",
+        "dag:ready-now"
       ],
-      "number": 231,
-      "phase": "axiom-status",
-      "title": "[OPH Task] Resolve the Axiom 3 / Axiom 4 independence status or stop presenting the five-axiom basis as independent",
-      "updated_at": "2026-04-25T09:30:06Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/231"
+      "number": 381,
+      "phase": "unclassified",
+      "title": "Backlog theorem: light-quark low-energy scheme and readout map",
+      "updated_at": "2026-07-11T04:05:52Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/381"
     },
     {
-      "blocker": "Transported BW/geometric cap-pair extraction and ordered cut-pair rigidity.",
-      "chrome_policy": "Use for proof audit after local BW packet.",
-      "claim_level": "theorem gap",
-      "closure": "BW cap-pair extraction and ordered cut-pair rigidity are emitted as theorem-grade artifacts.",
-      "falsification": "The extracted cap/cut structure depends on arbitrary collar choices.",
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
       "labels": [
-        "enhancement",
-        "surface: compact"
+        "surface: archive",
+        "dag:ready-now"
       ],
-      "number": 232,
-      "phase": "bw-cap-pair",
-      "title": "[OPH Task] Close the transported BW/geometric cap-pair extraction and ordered cut-pair rigidity gap",
-      "updated_at": "2026-04-26T14:58:43Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/232"
+      "number": 382,
+      "phase": "unclassified",
+      "title": "Backlog theorem: heavy-quark matching and threshold scheme transport",
+      "updated_at": "2026-07-11T04:05:51Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/382"
     },
     {
-      "blocker": "MAR realization space, well-founded order, minimality, and uniqueness theorems.",
-      "chrome_policy": "Use for proof audit after local formalization.",
-      "claim_level": "theorem gap",
-      "closure": "MAR claims have formal definitions, order, minimality theorem, and uniqueness boundary.",
-      "falsification": "MAR has no well-founded order compatible with the stated minimality claims.",
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
       "labels": [
-        "enhancement",
-        "surface: compact"
+        "surface: archive",
+        "dag:ready-now"
       ],
-      "number": 233,
-      "phase": "mar-formalization",
-      "title": "[OPH Task] Formalize the MAR realization space, well-founded order, and minimality/uniqueness theorems",
-      "updated_at": "2026-04-25T09:30:19Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/233"
+      "number": 383,
+      "phase": "unclassified",
+      "title": "Backlog theorem: direct-top extraction response kernel for Q007TP",
+      "updated_at": "2026-07-11T04:05:49Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/383"
     },
     {
-      "blocker": "Blind-prediction provenance and convention-sensitivity ledger.",
-      "chrome_policy": "Use for audit only after local provenance artifact exists.",
-      "claim_level": "audit gap",
-      "closure": "Every quantitative row records input use, blind/compare status, provenance, and convention sensitivity.",
-      "falsification": "A public quantitative row hides target leakage or unquantified convention dependence.",
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
       "labels": [
-        "enhancement",
-        "surface: particles"
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
       ],
-      "number": 234,
-      "phase": "particle-provenance",
-      "title": "[OPH Task] Add blind-prediction provenance and convention-sensitivity audits for the quantitative particle outputs",
-      "updated_at": "2026-05-05T00:28:03Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/234"
+      "number": 387,
+      "phase": "unclassified",
+      "title": "[Physics problems] Navier-Stokes Existence And Smoothness",
+      "updated_at": "2026-07-11T04:05:47Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/387"
     },
     {
-      "blocker": "Root monotonicity/uniqueness and exact endpoint boundary.",
-      "chrome_policy": "Use for proof audit after local monotonicity packet.",
-      "claim_level": "residual theorem gap",
-      "closure": "P-closure has a scalar root theorem and endpoint status boundary synchronized across surfaces.",
-      "falsification": "The claimed root is nonunique or endpoint-dependent in a way the papers do not state.",
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
       "labels": [
-        "enhancement",
-        "surface: particles"
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
       ],
-      "number": 235,
-      "phase": "p-closure-theorem",
-      "title": "[OPH Task] Close the residual P-closure theorem gap: root monotonicity/uniqueness and exact endpoint boundary",
-      "updated_at": "2026-04-26T05:00:20Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/235"
+      "number": 390,
+      "phase": "unclassified",
+      "title": "[Physics problems] Mathematical Modeling Of Fluid Dynamics And Soft Matter",
+      "updated_at": "2026-07-11T04:05:44Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/390"
     },
     {
-      "blocker": "Keep this ledger synchronized across README, papers, book, and public summaries.",
-      "chrome_policy": "Not needed unless a downstream claim-hygiene audit is ambiguous.",
-      "claim_level": "ledger artifact",
-      "closure": "Public OPH surfaces point to the same open-problem ledger and no longer imply hidden closure.",
-      "falsification": "A public surface claims a branch is closed while this ledger or its issue says open.",
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
       "labels": [
-        "enhancement",
-        "surface: publication"
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
       ],
-      "number": 236,
-      "phase": "publication-ledger",
-      "title": "[OPH Task] Add a consolidated open-problem ledger for unsolved OPH branches and missing closure artifacts",
-      "updated_at": "2026-05-05T00:28:04Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/236"
+      "number": 397,
+      "phase": "unclassified",
+      "title": "[Physics problems] Black-hole radiation and Page curve",
+      "updated_at": "2026-07-11T04:05:37Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/397"
     },
     {
-      "blocker": "Explicit existence-program benchmark suite for screen microphysics reference architecture.",
-      "chrome_policy": "Use for architecture audit after local benchmark suite skeleton.",
-      "claim_level": "benchmark suite gap",
-      "closure": "Benchmarks specify model class, expected artifacts, pass/fail criteria, and reproducibility path.",
-      "falsification": "The reference architecture cannot be exercised by any finite benchmark suite.",
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 398,
+      "phase": "unclassified",
+      "title": "[Physics problems] Cosmic Censorship",
+      "updated_at": "2026-07-11T04:05:35Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/398"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 399,
+      "phase": "unclassified",
+      "title": "[Physics problems] Chronology Protection",
+      "updated_at": "2026-07-11T04:05:34Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/399"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 403,
+      "phase": "unclassified",
+      "title": "[Physics problems] General constructive QFT beyond Yang-Mills",
+      "updated_at": "2026-07-11T04:05:30Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/403"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 409,
+      "phase": "unclassified",
+      "title": "[Physics problems] Matter-Antimatter Asymmetry",
+      "updated_at": "2026-07-11T04:05:24Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/409"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 414,
+      "phase": "unclassified",
+      "title": "[Physics problems] Dark Flow",
+      "updated_at": "2026-07-11T04:05:18Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/414"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 417,
+      "phase": "unclassified",
+      "title": "[Physics problems] Hubble Tension",
+      "updated_at": "2026-07-11T04:05:16Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/417"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 420,
+      "phase": "unclassified",
+      "title": "[Physics problems] Neutron Lifetime Puzzle",
+      "updated_at": "2026-07-11T04:05:13Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/420"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 422,
+      "phase": "unclassified",
+      "title": "[Physics problems] Proton Spin Crisis",
+      "updated_at": "2026-07-11T04:05:11Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/422"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 425,
+      "phase": "unclassified",
+      "title": "[Physics problems] Confinement-to-hadron spectrum",
+      "updated_at": "2026-07-11T04:05:08Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/425"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 429,
+      "phase": "unclassified",
+      "title": "[Physics problems] Reactor Antineutrino Anomaly",
+      "updated_at": "2026-07-11T04:05:04Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/429"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 430,
+      "phase": "unclassified",
+      "title": "[Physics problems] Strong CP Problem And Axions",
+      "updated_at": "2026-07-11T04:05:03Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/430"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 431,
+      "phase": "unclassified",
+      "title": "[Physics problems] Muon g-2 hadronic endpoint derivation",
+      "updated_at": "2026-07-11T04:05:01Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/431"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 432,
+      "phase": "unclassified",
+      "title": "[Physics problems] Pentaquarks And Other Exotic Hadrons",
+      "updated_at": "2026-07-11T04:05:00Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/432"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 435,
+      "phase": "unclassified",
+      "title": "[Physics problems] Strange Matter",
+      "updated_at": "2026-07-11T04:04:57Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/435"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 436,
+      "phase": "unclassified",
+      "title": "[Physics problems] Glueballs",
+      "updated_at": "2026-07-11T04:04:56Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/436"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 437,
+      "phase": "unclassified",
+      "title": "[Physics problems] Gallium Anomaly",
+      "updated_at": "2026-07-11T04:04:55Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/437"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 438,
+      "phase": "unclassified",
+      "title": "[Physics problems] Solar Cycle",
+      "updated_at": "2026-07-11T04:04:54Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/438"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 439,
+      "phase": "unclassified",
+      "title": "[Physics problems] Coronal Heating Problem",
+      "updated_at": "2026-07-11T04:04:53Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/439"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 440,
+      "phase": "unclassified",
+      "title": "[Physics problems] Astrophysical Jets",
+      "updated_at": "2026-07-11T04:04:52Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/440"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 441,
+      "phase": "unclassified",
+      "title": "[Physics problems] Diffuse Interstellar Bands",
+      "updated_at": "2026-07-11T04:04:51Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/441"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 442,
+      "phase": "unclassified",
+      "title": "[Physics problems] Supermassive Black Holes",
+      "updated_at": "2026-07-11T04:04:50Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/442"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 443,
+      "phase": "unclassified",
+      "title": "[Physics problems] Kuiper Cliff",
+      "updated_at": "2026-07-11T04:04:49Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/443"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 444,
+      "phase": "unclassified",
+      "title": "[Physics problems] Flyby Anomaly",
+      "updated_at": "2026-07-11T04:04:48Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/444"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 446,
+      "phase": "unclassified",
+      "title": "[Physics problems] Supernova Explosion Mechanism",
+      "updated_at": "2026-07-11T04:04:45Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/446"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 447,
+      "phase": "unclassified",
+      "title": "[Physics problems] p-Nuclei",
+      "updated_at": "2026-07-11T04:04:44Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/447"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 448,
+      "phase": "unclassified",
+      "title": "[Physics problems] Ultra-High-Energy Cosmic Rays",
+      "updated_at": "2026-07-11T04:04:43Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/448"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 449,
+      "phase": "unclassified",
+      "title": "[Physics problems] Rotation Rate Of Saturn",
+      "updated_at": "2026-07-11T04:04:42Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/449"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 450,
+      "phase": "unclassified",
+      "title": "[Physics problems] Origin Of Magnetar Magnetic Fields",
+      "updated_at": "2026-07-11T04:04:41Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/450"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 451,
+      "phase": "unclassified",
+      "title": "[Physics problems] Large-Scale Anisotropy",
+      "updated_at": "2026-07-11T04:04:40Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/451"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 452,
+      "phase": "unclassified",
+      "title": "[Physics problems] Age-Metallicity Relation In The Galactic Disk",
+      "updated_at": "2026-07-11T04:04:39Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/452"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 453,
+      "phase": "unclassified",
+      "title": "[Physics problems] Lithium Problem",
+      "updated_at": "2026-07-11T04:04:38Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/453"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 455,
+      "phase": "unclassified",
+      "title": "[Physics problems] Fast Radio Bursts",
+      "updated_at": "2026-07-11T04:04:36Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/455"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 456,
+      "phase": "unclassified",
+      "title": "[Physics problems] Origin Of Cosmic Magnetic Fields",
+      "updated_at": "2026-07-11T04:04:35Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/456"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 457,
+      "phase": "unclassified",
+      "title": "[Physics problems] QCD phases, partonic structure, and CP ledger",
+      "updated_at": "2026-07-11T04:04:34Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/457"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 458,
+      "phase": "unclassified",
+      "title": "[Physics problems] Quark-Gluon Plasma",
+      "updated_at": "2026-07-11T04:04:32Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/458"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 459,
+      "phase": "unclassified",
+      "title": "[Physics problems] Specific Models Of Quark-Gluon Plasma Formation",
+      "updated_at": "2026-07-11T04:04:31Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/459"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 460,
+      "phase": "unclassified",
+      "title": "[Physics problems] Nuclei And Nuclear Astrophysics",
+      "updated_at": "2026-07-11T04:04:30Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/460"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 461,
+      "phase": "unclassified",
+      "title": "[Physics problems] Neutron Stars And Dense Nuclear Matter",
+      "updated_at": "2026-07-11T04:04:29Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/461"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 462,
+      "phase": "unclassified",
+      "title": "[Physics problems] Origin Of The Elements",
+      "updated_at": "2026-07-11T04:04:28Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/462"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 463,
+      "phase": "unclassified",
+      "title": "[Physics problems] Heaviest Possible Chemical Element",
+      "updated_at": "2026-07-11T04:04:27Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/463"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 464,
+      "phase": "unclassified",
+      "title": "[Physics problems] Turbulent Flow",
+      "updated_at": "2026-07-11T04:04:26Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/464"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 465,
+      "phase": "unclassified",
+      "title": "[Physics problems] Granular Convection",
+      "updated_at": "2026-07-11T04:04:25Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/465"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 468,
+      "phase": "unclassified",
+      "title": "[Physics problems] Universality Of Low-Temperature Amorphous Solids",
+      "updated_at": "2026-07-11T04:04:21Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/468"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 469,
+      "phase": "unclassified",
+      "title": "[Physics problems] Cryogenic Electron Emission",
+      "updated_at": "2026-07-11T04:04:20Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/469"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 470,
+      "phase": "unclassified",
+      "title": "[Physics problems] Sonoluminescence",
+      "updated_at": "2026-07-11T04:04:19Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/470"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 472,
+      "phase": "unclassified",
+      "title": "[Physics problems] Gauge Block Wringing",
+      "updated_at": "2026-07-11T04:04:17Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/472"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 474,
+      "phase": "unclassified",
+      "title": "[Physics problems] Liquid Crystals",
+      "updated_at": "2026-07-11T04:04:15Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/474"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 475,
+      "phase": "unclassified",
+      "title": "[Physics problems] Semiconductor Nanocrystals",
+      "updated_at": "2026-07-11T04:04:14Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/475"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 476,
+      "phase": "unclassified",
+      "title": "[Physics problems] Metal Whiskering",
+      "updated_at": "2026-07-11T04:04:13Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/476"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 477,
+      "phase": "unclassified",
+      "title": "[Physics problems] Helium-4 superfluid transition",
+      "updated_at": "2026-07-11T04:04:12Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/477"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 482,
+      "phase": "unclassified",
+      "title": "[Physics problems] Quantum complexity class implications",
+      "updated_at": "2026-07-11T04:04:07Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/482"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 483,
+      "phase": "unclassified",
+      "title": "[Physics problems] Post-Quantum Cryptography",
+      "updated_at": "2026-07-11T04:04:06Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/483"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 484,
+      "phase": "unclassified",
+      "title": "[Physics problems] Quantum Capacity",
+      "updated_at": "2026-07-11T04:04:05Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/484"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 486,
+      "phase": "unclassified",
+      "title": "[Physics problems] Fermi acceleration injection problem",
+      "updated_at": "2026-07-11T04:04:03Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/486"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 487,
+      "phase": "unclassified",
+      "title": "[Physics problems] Alfvenic Turbulence",
+      "updated_at": "2026-07-11T04:04:02Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/487"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 488,
+      "phase": "unclassified",
+      "title": "[Physics problems] Ball Lightning",
+      "updated_at": "2026-07-11T04:04:01Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/488"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now",
+        "physics-problems"
+      ],
+      "number": 493,
+      "phase": "unclassified",
+      "title": "[Physics problems] Magnetoreception",
+      "updated_at": "2026-07-11T04:03:56Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/493"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "surface: archive",
+        "dag:ready-now"
+      ],
+      "number": 503,
+      "phase": "unclassified",
+      "title": "[reverse-engineering-reality] Prove Einstein branch-entry from finite consensus",
+      "updated_at": "2026-07-11T04:03:47Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/503"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
       "labels": [
         "enhancement",
-        "surface: reality"
+        "surface: archive",
+        "dag:ready-now"
       ],
-      "number": 237,
-      "phase": "screen-microphysics",
-      "title": "[OPH Task] Turn the screen-microphysics reference architecture into an explicit existence-program benchmark suite",
-      "updated_at": "2026-04-25T09:30:46Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/237"
+      "number": 505,
+      "phase": "unclassified",
+      "title": "[Scientific audit] Construct or falsify the source-only D6 cosmic-capacity map",
+      "updated_at": "2026-07-11T06:23:21Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/505"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "enhancement",
+        "surface: archive",
+        "dag:ready-now"
+      ],
+      "number": 506,
+      "phase": "unclassified",
+      "title": "[Scientific audit] Run an independent same-scheme alpha/HVP falsification test",
+      "updated_at": "2026-07-11T04:03:44Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/506"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "bug",
+        "surface: archive",
+        "dag:ready-now"
+      ],
+      "number": 507,
+      "phase": "unclassified",
+      "title": "[Scientific audit] Make the scientific receipt suite reproducible from a clean checkout",
+      "updated_at": "2026-07-11T06:35:55Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/507"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "enhancement",
+        "surface: archive",
+        "dag:ready-now"
+      ],
+      "number": 508,
+      "phase": "unclassified",
+      "title": "[Scientific audit] Replace the template flavor kernel and run a frozen neutrino likelihood",
+      "updated_at": "2026-07-11T05:30:41Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/508"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "enhancement",
+        "surface: archive",
+        "dag:ready-now"
+      ],
+      "number": 510,
+      "phase": "unclassified",
+      "title": "[Scientific audit] Derive or rule out the finite information-defect to covariant stress map",
+      "updated_at": "2026-07-11T04:03:39Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/510"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "enhancement",
+        "surface: archive",
+        "dag:ready-now"
+      ],
+      "number": 511,
+      "phase": "unclassified",
+      "title": "[Scientific audit] Preregister a source-calibrated blinded chi_nu force test",
+      "updated_at": "2026-07-11T06:23:24Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/511"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "bug",
+        "surface: archive",
+        "dag:ready-now"
+      ],
+      "number": 512,
+      "phase": "unclassified",
+      "title": "[Scientific audit] Make claim status and open-problem ledgers fail closed against live gates",
+      "updated_at": "2026-07-11T06:35:54Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/512"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "bug",
+        "surface: archive",
+        "dag:ready-now"
+      ],
+      "number": 513,
+      "phase": "unclassified",
+      "title": "[Bug] Fix neutrino Takagi, source-basis, and ordering gates",
+      "updated_at": "2026-07-11T06:27:41Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/513"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "bug",
+        "surface: archive",
+        "dag:ready-now"
+      ],
+      "number": 514,
+      "phase": "unclassified",
+      "title": "[Security/data integrity] Rotate IBM credential and restore authoritative PDG/release data",
+      "updated_at": "2026-07-11T06:25:13Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/514"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "bug",
+        "surface: archive",
+        "dag:ready-now"
+      ],
+      "number": 515,
+      "phase": "unclassified",
+      "title": "[Scientific audit] Enforce source-vs-CODATA two-pixel provenance corpus-wide",
+      "updated_at": "2026-07-11T06:25:12Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/515"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "bug",
+        "surface: archive",
+        "dag:ready-now"
+      ],
+      "number": 516,
+      "phase": "unclassified",
+      "title": "[Scientific audit] Reclassify target-fitted particle lanes and publish forward discrepancies",
+      "updated_at": "2026-07-11T06:25:11Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/516"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "enhancement",
+        "surface: archive",
+        "dag:ready-now"
+      ],
+      "number": 517,
+      "phase": "unclassified",
+      "title": "[Proof audit] Repair confluence merging, refinement moduli, BFT safety, and sieve claims",
+      "updated_at": "2026-07-11T06:25:10Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/517"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "bug",
+        "surface: archive",
+        "dag:ready-now"
+      ],
+      "number": 518,
+      "phase": "unclassified",
+      "title": "[Scientific audit] Replace tautological certificates with independently computed witnesses",
+      "updated_at": "2026-07-11T06:25:09Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/518"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "documentation",
+        "surface: archive",
+        "dag:ready-now"
+      ],
+      "number": 519,
+      "phase": "unclassified",
+      "title": "[Publication audit] Reconcile falsifiability, applications, framing, and numeric errata",
+      "updated_at": "2026-07-11T06:25:08Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/519"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "enhancement",
+        "surface: archive",
+        "dag:ready-now"
+      ],
+      "number": 520,
+      "phase": "unclassified",
+      "title": "[Theory audit] Close the chi_nu derivation and equivalence-principle gaps",
+      "updated_at": "2026-07-11T06:25:06Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/520"
     }
   ],
   "worker_policy": {

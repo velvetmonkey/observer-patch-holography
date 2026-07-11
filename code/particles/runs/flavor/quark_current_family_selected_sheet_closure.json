@@ -44,28 +44,28 @@
     "a theorem-grade physical CKM closure on the selected D12 sheet"
   ],
   "exact_fit_residuals_d": [
-    1.734723475976807e-18,
+    -8.673617379884035e-19,
     -1.3877787807814457e-17,
-    -6.217248937900877e-15
+    0.0
   ],
   "exact_fit_residuals_u": [
-    -4.336808689942018e-19,
-    -4.440892098500626e-16,
-    -1.1368683772161603e-13
+    8.673617379884035e-19,
+    4.440892098500626e-16,
+    -2.8421709430404007e-13
   ],
   "exact_outputs_gev": {
-    "b": 4.182999999999994,
-    "c": 1.2729999999999995,
-    "d": 0.004700000000000002,
-    "s": 0.09349999999999999,
-    "t": 172.3523553288311,
-    "u": 0.0021599999999999996
+    "b": 4.186,
+    "c": 1.2729000000000004,
+    "d": 0.004699999999999999,
+    "s": 0.0929,
+    "t": 172.0999999999997,
+    "u": 0.002160000000000001
   },
   "exact_sector_geometric_means": {
-    "g_d": 0.12249897208633505,
-    "g_u": 0.7796501962057188
+    "g_d": 0.12226559489803175,
+    "g_u": 0.7792490879740623
   },
-  "generated_utc": "2026-06-29T07:35:28Z",
+  "generated_utc": "2026-07-11T06:46:51Z",
   "notes": [
     "This closes the exact same-family quark readout on the selected local sheet.",
     "It does not remove the separate physical-branch no-go on sigma_ref and does not emit quark_d12_t1_value_law."

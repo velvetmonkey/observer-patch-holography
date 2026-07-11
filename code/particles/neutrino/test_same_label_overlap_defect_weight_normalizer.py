@@ -24,7 +24,9 @@ def test_same_label_overlap_defect_weight_normalizer() -> None:
     assert "saved:" in completed.stdout
     payload = json.loads(OUTPUT.read_text(encoding="utf-8"))
     assert payload["artifact"] == "oph_same_label_overlap_defect_weight_normalizer"
-    assert payload["status"] == "closed_from_live_same_label_scalar_certificate"
+    assert payload["status"] == "conditional_normalizer_from_source_open_scalar_certificate"
+    assert payload["proof_status"] == "exact_normalization_identity_conditional_on_certificate"
+    assert payload["source_only_physical_input_eligible"] is False
     assert payload["identities_verified"]["qbar_matches_exp_eta_bar"] is True
     assert payload["identities_verified"]["mu_e_matches_base_times_qbar"] is True
-    assert payload["next_exact_object"]["artifact"] == "oph_neutrino_attachment_bridge_invariant"
+    assert payload["next_exact_object"]["artifact"] == "source_closed_neutrino_operator_basis_and_mass_label_contract"

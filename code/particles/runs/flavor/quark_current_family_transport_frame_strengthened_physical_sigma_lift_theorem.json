@@ -62,7 +62,7 @@
     "id": "strengthened_quark_physical_sigma_ud_lift",
     "role": "one_nonalgebraic_public_burden_after_absolute_collapse"
   },
-  "generated_utc": "2026-06-29T07:35:28Z",
+  "generated_utc": "2026-07-11T06:46:51Z",
   "notes": [
     "This theorem merges the restricted-carrier physical sigma lift with the exact current-family sigma target.",
     "It is the local strengthened analogue of the single remaining nonalgebraic public burden after absolute readout collapse.",
@@ -206,10 +206,10 @@
     "restricted_physical_sigma_lift_theorem": "oph_quark_current_family_transport_frame_physical_sigma_lift_theorem"
   },
   "theorem_grade_physical_sigma_datum": {
-    "eta_ud": 1.1388321137934274,
-    "sigma_d": 3.296264198808688,
-    "sigma_seed_ud": 4.4350963126021155,
-    "sigma_u": 5.573928426395543
+    "eta_ud": 1.139688878603012,
+    "sigma_d": 3.300314452061615,
+    "sigma_seed_ud": 4.440003330664627,
+    "sigma_u": 5.579692209267639
   },
   "theorem_scope": "current_family_common_refinement_transport_frame_only",
   "theorem_statement": "On the explicit current-family common-refinement transport-frame carrier, the same-label line-lift transport data determine a sector-attached element of Sigma_ud^phys over the frame class [F0^dagger F1], and the fixed affine readout law attaches the unique exact sigma target (sigma_seed_ud, eta_ud, sigma_u, sigma_d). Equivalently, the restricted-carrier analogue of the strengthened quark physical sigma lift is closed on that declared surface."

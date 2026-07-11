@@ -1,59 +1,64 @@
 {
-  "collective_projector_phase_stable": true,
-  "delta_m21_sq_bounds_gev2": {
-    "max": 9.62541040878508e-25,
+  "artifact": "oph_neutrino_majorana_phase_envelope",
+  "ascending_gap_s10_sq_bounds_gev2": {
+    "max": 9.625410408785124e-25,
     "min": 0.0
   },
-  "delta_m31_sq_bounds_gev2": {
-    "max": 1.0595172246077544e-24,
-    "min": 1.557124826569896e-25
+  "ascending_gap_s20_sq_bounds_gev2": {
+    "max": 1.0595172246077522e-24,
+    "min": 1.557124826569874e-25
   },
+  "collective_mode_location_phase_stable": false,
+  "collective_mode_location_samples": [
+    "s0",
+    "s1",
+    "s2"
+  ],
+  "collective_projector_phase_stable": true,
   "delta_sigma_radius_gev": 3.73091307184548e-13,
   "gap_vs_radius_certificate": {
-    "delta_h_radius_gev2": 4.143730700225407e-24,
+    "collective_location_gap_test_passes": false,
+    "delta_h_radius_gev2": 4.1437307002254064e-24,
     "delta_sigma_radius_gev": 3.73091307184548e-13,
-    "ordering_gap_test_passes": false,
     "projector_gap_seed_gev2": 1.1102230246251565e-16,
     "projector_gap_test_passes": true,
     "real_seed_gaps_gev": [
-      4.0389678347315804e-28,
-      1.91429206011187e-13
+      0.0,
+      1.9142920601118741e-13
     ]
   },
   "inputs": {
-    "family_artifact": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/family_response_tensor.json",
-    "lift_artifact": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/majorana_holonomy_lift.json",
-    "majorana_artifact": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/forward_majorana_matrix.json",
-    "scale_anchor_artifact": "/Users/muellerberndt/Projects/oph-meta/particles/runs/neutrino/neutrino_scale_anchor.json"
+    "family_artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/neutrino/family_response_tensor.json",
+    "lift_artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/neutrino/majorana_holonomy_lift.json",
+    "majorana_artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/neutrino/forward_majorana_matrix.json",
+    "scale_anchor_artifact": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/neutrino/neutrino_scale_anchor.json"
   },
   "mass_bounds_gev": [
     {
-      "index": 1,
       "max": 2.448310491895263e-12,
-      "min": 2.3269048295601224e-12
+      "min": 2.326904829560122e-12,
+      "state": "s0"
     },
     {
-      "index": 2,
       "max": 2.525277633589767e-12,
-      "min": 2.39864484476272e-12
+      "min": 2.3986448447627196e-12,
+      "state": "s1"
     },
     {
-      "index": 3,
-      "max": 2.5900740507739074e-12,
-      "min": 2.479906600535877e-12
+      "max": 2.590074050773907e-12,
+      "min": 2.4799066005358767e-12,
+      "state": "s2"
     }
   ],
   "notes": [
     "This is the compulsory support-check surface for phase dependence in the neutrino lane.",
-    "Ordering or splitting outputs are not phase-certified unless the gap-vs-radius certificate passes."
-  ],
-  "ordering_phase_stable": false,
-  "ordering_samples": [
-    "inverted_like_collective_dominance",
-    "normal_like_collective_dominance",
-    "undetermined"
+    "The envelope bounds ascending singular states and gaps, not physically labeled neutrino splittings.",
+    "Phase stability of a collective spectral mode cannot supply the missing mass-eigenstate label rule."
   ],
   "phase_mode": "residual_envelope",
+  "physical_mass_ordering_status": "not_established_mass_label_rule_absent",
+  "proof_scope": "spectral_envelope_conditional_on_declared_matrix_family",
+  "public_surface_candidate_allowed": false,
   "sample_count": 1089,
   "sample_grid_per_axis": 33,
   "selector_reference": {
@@ -64,5 +69,44 @@
     "selector": "least_distortion",
     "status": "candidate_only"
   },
+  "source_closure_status": {
+    "closed": false,
+    "family_response": {
+      "closed": false,
+      "missing_objects": [
+        "source_emitted_family_transport_kernel"
+      ],
+      "upstream_proof_status": "conjugacy_riesz_candidate",
+      "upstream_status": "template"
+    },
+    "forward_matrix": {
+      "closed": false,
+      "family_response": {
+        "closed": false,
+        "missing_objects": [
+          "source_emitted_family_transport_kernel"
+        ],
+        "upstream_proof_status": "conjugacy_riesz_candidate",
+        "upstream_status": "template"
+      },
+      "majorana_lift": {
+        "closed": false,
+        "missing_objects": [
+          "source_emitted_family_transport_kernel"
+        ],
+        "upstream_proof_status": "conjugacy_riesz_candidate",
+        "upstream_status": "template"
+      }
+    },
+    "majorana_lift": {
+      "closed": false,
+      "missing_objects": [
+        "source_emitted_family_transport_kernel"
+      ],
+      "upstream_proof_status": "conjugacy_riesz_candidate",
+      "upstream_status": "template"
+    }
+  },
+  "source_only_physical_input_eligible": false,
   "status": "residual_phase_envelope"
 }

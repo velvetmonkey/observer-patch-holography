@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import importlib.util
 import json
 import pathlib
 import subprocess
@@ -14,6 +15,29 @@ import pytest
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / "particles" / "scripts" / "build_exact_nonhadron_mass_bundle.py"
+
+
+def _load_module():
+    spec = importlib.util.spec_from_file_location("build_exact_nonhadron_mass_bundle", SCRIPT)
+    assert spec is not None and spec.loader is not None
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+def test_neutrino_absolute_promotion_requires_explicit_non_circularity_pass() -> None:
+    module = _load_module()
+    candidate = {
+        "artifact": "oph_neutrino_absolute_attachment_theorem",
+        "status": "theorem_grade_emitted",
+        "weighted_cycle_base_eligible": True,
+        "prediction_promotion_allowed": True,
+        "public_surface_candidate_allowed": True,
+    }
+    assert module._neutrino_absolute_promotable(candidate) is False
+    candidate["non_circularity_status"] = {"promotion_allowed": True}
+    assert module._neutrino_absolute_promotable(candidate) is True
+    assert module._is_public_mass_output({"legacy_particle_id_slot": True, "exact_kind": "theorem_grade"}) is False
 
 
 def test_exact_nonhadron_mass_bundle_is_complete() -> None:
@@ -52,8 +76,8 @@ def test_exact_nonhadron_mass_bundle_is_complete() -> None:
         assert withheld["electron"]["reason"] == "target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction"
         assert withheld["electron"]["public_theorem_value"] is None
         assert withheld["electron"]["source_only"] is False
-        assert withheld["electron"]["centered_log"] == -4.495210108808081
-        assert withheld["electron"]["formula_if_anchor_exists"] == "m_e(P)=exp(A_ch(P)-4.495210108808081)"
+        assert withheld["electron"]["centered_log"] == -4.495209645475038
+        assert withheld["electron"]["formula_if_anchor_exists"] == "m_e(P)=exp(A_ch(P)-4.495209645475038)"
         assert "charged_determinant_trace_lift_attachment" in withheld["electron"]["missing_for_promotion"]
         assert "NO_TARGET_LEAK_DAG_CHARGED_A_CH" in withheld["electron"]["missing_for_promotion"]
         assert withheld["top_quark"]["reason"] == "target_anchored_witness_kept_in_exact_fit_audit_not_public_prediction"

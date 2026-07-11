@@ -24,11 +24,11 @@
     "nonidentifiability_result": "Two extensions can agree on f_P and on every selected-class exact artifact while differing on off-selected public frame labels. Since the corpus emits no global classifier rejecting the free label direction, class-uniform factorization through F_phys is not identifiable.",
     "selected_point": {
       "name": "P_star",
-      "sigma_d_star": 3.296264198808688,
-      "sigma_u_star": 5.573928426395543
+      "sigma_d_star": 3.300314452061615,
+      "sigma_u_star": 5.579692209267639
     }
   },
-  "generated_utc": "2026-06-29T10:25:42Z",
+  "generated_utc": "2026-07-11T06:46:47Z",
   "github_issue": 199,
   "issue_199_acceptance_met_as_obstruction": true,
   "lane_closure_verdict": {
@@ -61,10 +61,10 @@
       "selected_public_class_symbol": "[F0^dagger F1]"
     },
     "descended_physical_sigma_datum": {
-      "eta_ud": 1.1388321137934274,
-      "sigma_d": 3.296264198808688,
-      "sigma_seed_ud": 4.4350963126021155,
-      "sigma_u": 5.573928426395543
+      "eta_ud": 1.139688878603012,
+      "sigma_d": 3.300314452061615,
+      "sigma_seed_ud": 4.440003330664627,
+      "sigma_u": 5.579692209267639
     },
     "invariance_theorem": "declared_selected_public_bridge_fiber_sigma_constancy",
     "selected_public_physical_frame_class": {

@@ -227,6 +227,7 @@ def build_bundle(output: pathlib.Path, lock_time: str) -> dict[str, Any]:
         "claim_class": "retrospective_target_informed_template_candidate",
         "prediction_promotion_allowed": False,
         "ordering": "normal",
+        "ordering_status": "locked_declared_hypothesis_not_source_derived",
         "independent_coordinates": {
             "sin2_theta12": sin2_theta12,
             "sin2_theta13": sin2_theta13,
@@ -271,7 +272,11 @@ def build_bundle(output: pathlib.Path, lock_time: str) -> dict[str, Any]:
             "profiles_are_never_summed": True,
             "scores": score_rows,
             "candidate_rejected_by_declared_3sigma_gate": score["decision"]["current_weighted_cycle_candidate_rejected_by_declared_gate"],
-            "convention_rescue_found": convention["decision"]["convention_error_found"],
+            "stored_pmns_relabeling_rescue_found": convention["decision"].get(
+                "stored_pmns_relabeling_rescue_found",
+                convention["decision"].get("convention_error_found", False),
+            ),
+            "physical_basis_contract_audited": convention.get("scope", {}).get("weighted_cycle_operator_basis_placement_audited", False),
         },
         "future_no_rescue_rule": {
             "point_may_change_after_lock": False,

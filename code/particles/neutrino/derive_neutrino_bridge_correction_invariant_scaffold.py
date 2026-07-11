@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Emit the reduced exact scaffold for the neutrino bridge-correction invariant."""
+"""Emit a conditional bridge-correction reparameterization for the rejected candidate."""
 
 from __future__ import annotations
 
@@ -36,11 +36,12 @@ def build_payload(
     return {
         "artifact": "oph_neutrino_bridge_correction_invariant_scaffold",
         "generated_utc": _timestamp(),
-        "status": "minimal_exact_reduction",
-        "proof_grade": "exact_proxy_relative_reduction",
+        "status": "conditional_exact_reparameterization_on_rejected_candidate",
+        "proof_grade": "exact_proxy_relative_reduction_conditional_on_declared_candidate",
         "public_promotion_allowed": False,
-        "exact_missing_object": "oph_neutrino_bridge_correction_invariant",
-        "parent_missing_object": "oph_neutrino_attachment_bridge_invariant",
+        "exact_missing_object": "source_closed_neutrino_operator_basis_and_mass_label_contract",
+        "conditional_absolute_scale_missing_object": "oph_neutrino_bridge_correction_invariant",
+        "conditional_parent_missing_object": "oph_neutrino_attachment_bridge_invariant",
         "residual_invariant_symbol": "C_nu",
         "parent_bridge_scalar_symbol": "B_nu",
         "current_attached_stack_irreducibility_theorem": {
@@ -56,14 +57,13 @@ def build_payload(
             "exact_residual_moduli_space": reduced.get("exact_residual_moduli_space"),
         },
         "strongest_locally_justified_exact_theorem": {
-            "name": "proxy_relative_single_coordinate_reduction_for_neutrino_attachment",
+            "name": "conditional_proxy_relative_single_coordinate_reduction",
             "statement": (
-                "On the current weighted-cycle attachment lane, once the internal positive proxy P_nu is fixed, "
-                "the remaining exact attachment quotient is one positive coordinate C_nu. Emitting C_nu is "
-                "exactly equivalent to emitting the parent bridge scalar B_nu, so any theorem-grade absolute "
-                "attachment closure on this lane must factor through that one proxy-relative coordinate."
+                "Inside the rejected weighted-cycle candidate, once the internal positive proxy P_nu is fixed, "
+                "the conditional absolute-scale quotient is one positive coordinate C_nu. This is an exact "
+                "reparameterization of that candidate only; it does not close a physical neutrino branch."
             ),
-            "scope": "current_weighted_cycle_branch_with_fixed_internal_positive_proxy",
+            "scope": "rejected_weighted_cycle_candidate_with_fixed_internal_positive_proxy",
             "exact_residual_moduli_space": reduced.get("exact_residual_moduli_space"),
             "equivalent_parent_object": {
                 "artifact": "oph_neutrino_attachment_bridge_invariant",
@@ -71,9 +71,9 @@ def build_payload(
                 "bridge_reconstruction": reduced.get("bridge_reconstruction"),
             },
             "local_justification": [
-                "The attachment irreducibility theorem leaves exactly one positive residual orbit on the current attached stack.",
-                "The chosen proxy P_nu is already internal to the emitted stack and strictly positive on the live branch.",
-                "Dividing by P_nu is therefore an exact reparameterization of the same residual orbit, not a new theorem burden.",
+                "The conditional attachment algebra leaves one positive residual orbit on the declared candidate stack.",
+                "The chosen proxy P_nu is internal to that candidate stack and strictly positive at the stored point.",
+                "Dividing by P_nu is therefore an exact reparameterization of the same conditional orbit, not a physical theorem.",
             ],
             "non_claims": [
                 "no_numeric_value_for_C_nu_is_emitted",
@@ -82,7 +82,8 @@ def build_payload(
             ],
         },
         "contract": {
-            "must_emit": "one positive reduced bridge-correction scalar C_nu or an exactly equivalent reduced attachment invariant",
+            "must_emit": "a source-closed neutrino operator, physical basis placement, charged basis, and mass-label rule",
+            "conditional_absolute_scale_must_emit": "one positive reduced bridge-correction scalar C_nu or an exactly equivalent reduced attachment invariant",
             "must_imply": [
                 reduced.get("bridge_reconstruction"),
                 f"lambda_nu = (m_star_eV / q_mean^p_nu) * ({proxy['formula']}) * C_nu",
@@ -96,8 +97,8 @@ def build_payload(
         "strongest_compare_only_correction_window": correction_window,
         "induced_target_containing_bridge_scalar_window": induced_bridge_window,
         "notes": [
-            "This scaffold is smaller than the raw bridge-scalar scaffold because the internal positive proxy P_nu has already been factored out exactly.",
-            "The remaining exact theorem burden is therefore the reduced correction invariant C_nu, not an arbitrary positive bridge scalar above the emitted proxy.",
+            "Inside the rejected candidate, factoring out P_nu leaves a smaller one-coordinate absolute-scale diagnostic.",
+            "The first physical theorem burden remains the source-closed operator, basis, charged-basis, and mass-label contract, not C_nu.",
             "The correction window and its induced B_nu window are compare-only diagnostics and must not be promoted.",
         ],
     }

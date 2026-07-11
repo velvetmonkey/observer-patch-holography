@@ -47,7 +47,15 @@ def build_payload(
         and weighted_cycle.get("source_only_prediction_eligible") is True
         and weighted_cycle.get("historical_target_exposure") is False
     )
+    bridge_promotable = (
+        bridge_rigidity.get("status") == "theorem_grade_emitted"
+        and bridge_rigidity.get("prediction_promotion_allowed") is True
+        and (bridge_rigidity.get("non_circularity_status") or {}).get("promotion_allowed") is True
+    )
     absolute_promotable = (
+        scale_free_promotable
+        and bridge_promotable
+        and
         absolute_attachment.get("status") == "theorem_grade_emitted"
         and absolute_attachment.get("public_surface_candidate_allowed") is True
         and (absolute_attachment.get("non_circularity_status") or {}).get("promotion_allowed") is True
@@ -59,7 +67,8 @@ def build_payload(
     return {
         "artifact": "oph_neutrino_lane_closure_contract",
         "generated_utc": _timestamp(),
-        "scope": "weighted_cycle_bridge_rigidity_plus_absolute_attachment",
+        "scope": "rejected_weighted_cycle_plus_compare_only_bridge_and_absolute_attachment_audit",
+        "legacy_artifact_names_retained_for_compatibility": True,
         "proof_status": (
             "source_closed_neutrino_prediction"
             if scale_free_promotable and absolute_promotable
@@ -67,6 +76,7 @@ def build_payload(
         ),
         "public_promotion_allowed": scale_free_promotable and absolute_promotable,
         "scale_free_prediction_promotion_allowed": scale_free_promotable,
+        "bridge_prediction_promotion_allowed": bridge_promotable,
         "source_closure_status": weighted_cycle.get("source_closure_status"),
         "historical_target_exposure": bool(weighted_cycle.get("historical_target_exposure", True)),
         "non_circularity_status": absolute_attachment.get("non_circularity_status"),
@@ -79,6 +89,8 @@ def build_payload(
             "absolute_family": "m_i = lambda_nu * mhat_i, Delta m^2_ij = lambda_nu^2 * Delta_hat_ij",
         },
         "emitted_bridge_rigidity_theorem": {
+            "legacy_field_name": True,
+            "semantic_role": "compare_only_bridge_candidate_audit",
             "artifact": bridge_rigidity["artifact"],
             "status": bridge_rigidity["status"],
             "statement": bridge_rigidity["statement"],
@@ -88,6 +100,8 @@ def build_payload(
             "P_nu": bridge_rigidity["emitted_proxy"]["value"],
         },
         "emitted_absolute_attachment_theorem": {
+            "legacy_field_name": True,
+            "semantic_role": "compare_only_absolute_attachment_candidate",
             "artifact": absolute_attachment["artifact"],
             "status": absolute_attachment["status"],
             "public_surface_candidate_allowed": absolute_attachment["public_surface_candidate_allowed"],
@@ -115,7 +129,7 @@ def build_payload(
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Build the exact neutrino closure contract.")
+    parser = argparse.ArgumentParser(description="Build the fail-closed neutrino lane status contract.")
     parser.add_argument("--output", default=str(DEFAULT_OUT))
     args = parser.parse_args()
 

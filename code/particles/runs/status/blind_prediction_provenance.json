@@ -37,7 +37,7 @@
     "source_only_hadrons_suppressed_by_default": true,
     "source_spectral_stage_gate": "populated source spectral measure payload plus interval certificate"
   },
-  "generated_utc": "2026-07-11T04:19:04Z",
+  "generated_utc": "2026-07-11T06:25:23Z",
   "github_issue": 234,
   "pipeline_inputs": {
     "P": 1.630968209403959,
@@ -244,7 +244,7 @@
       "particle_id": "electron_neutrino",
       "promotable": false,
       "reason": "target_informed_candidate_rejected_by_correlated_profile",
-      "scope": "weighted_cycle_bridge_rigid_absolute_family",
+      "scope": "rejected_weighted_cycle_mass_eigenstate_candidate",
       "source_artifact": "code/particles/runs/neutrino/neutrino_absolute_attachment_theorem.json",
       "target_use": "target_ranked_selector_development_and_correlated_profile_rejection"
     },
@@ -254,7 +254,7 @@
       "particle_id": "muon_neutrino",
       "promotable": false,
       "reason": "target_informed_candidate_rejected_by_correlated_profile",
-      "scope": "weighted_cycle_bridge_rigid_absolute_family",
+      "scope": "rejected_weighted_cycle_mass_eigenstate_candidate",
       "source_artifact": "code/particles/runs/neutrino/neutrino_absolute_attachment_theorem.json",
       "target_use": "target_ranked_selector_development_and_correlated_profile_rejection"
     },
@@ -264,7 +264,7 @@
       "particle_id": "tau_neutrino",
       "promotable": false,
       "reason": "target_informed_candidate_rejected_by_correlated_profile",
-      "scope": "weighted_cycle_bridge_rigid_absolute_family",
+      "scope": "rejected_weighted_cycle_mass_eigenstate_candidate",
       "source_artifact": "code/particles/runs/neutrino/neutrino_absolute_attachment_theorem.json",
       "target_use": "target_ranked_selector_development_and_correlated_profile_rejection"
     }

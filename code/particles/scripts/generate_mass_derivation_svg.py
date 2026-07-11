@@ -272,26 +272,29 @@ LANES: List[Dict[str, Any]] = [
     {
         "key": "neutrinos",
         "title": "Neutrinos",
-        "summary": "The neutrino lane closes the scale-free weighted-cycle mixing/hierarchy branch; the absolute family is retained as a compare-only attachment candidate.",
-        "takeaway": "The weighted-cycle branch emits PMNS and hierarchy observables. The absolute neutrino masses use a compare-only normalization and are not promoted source-only predictions.",
+        "summary": "The neutrino lane proves an exact no-go for the isotropic ansatz and retains the weighted-cycle construction only as a rejected, target-informed comparison candidate.",
+        "takeaway": "No physical PMNS matrix, ordering, Majorana phases, or absolute neutrino masses are currently derived from source-closed OPH inputs.",
         "logic": (
             "The lane derives the light-neutrino scale from the electroweak core, builds the family-response tensor, the "
-            "Majorana holonomy lift, the pullback metric, the forward Majorana matrix, and the splitting/ordering "
+            "Majorana holonomy lift, the pullback metric, the forward Majorana matrix, and the ascending-splitting "
             "bundle. The old selector-law branch is S3-isotropic and is ruled out for the physical "
             "atmospheric scale by the exact general cap `max |Delta m^2| <= 8 a rho + 4 rho^2`. The repaired branch uses the "
             "same-label scalar certificate together with the flavor cocycle invariants `gamma`, `eps`, and "
             "`gamma_half` to define the positive load segment between `chi = 1 + eps` and `1 + gamma_half`. On that "
             "one-dimensional affine segment, the balanced selector and the least-distortion selector coincide exactly at "
             "the midpoint, so `D_nu = (chi + 1 + gamma_half) / 2` and the repaired edge law becomes "
-            "`w_e = q_e^(1 + gamma + eps / D_nu)`. That repaired branch "
-            "lands in the physical PMNS window and the correct splitting hierarchy. The normalized same-label overlap-defect weight section `qbar_e` closes below the absolute attachment problem. "
-            "No hidden discrete branch remains on that repaired lane; once the normalizer is fixed, the residual quotient is exactly the positive rescaling orbit. "
-            "On that positive selector segment, the two-parameter exact adapter moves one selector coordinate and one positive rescaling to hit the representative central splittings exactly. "
-            "That same compare-only branch also carries explicit bridge coordinates `(B_nu, C_nu)`, evaluated on the exact adapter without feeding back into theorem state. "
-            "The bridge-rigidity theorem emits `C_nu`, the emitted proxy is `P_nu = I_nu^0.5 * ratio_hat^0.5 * sum_defect^-1`, and the paper-facing amplitude is `B_nu = P_nu * C_nu`. The absolute-attachment value uses a compare-only normalization candidate, so the absolute neutrino family is not promoted."
+            "`w_e = q_e^(1 + gamma + eps / D_nu)`. That construction is not source-closed: its family-transport kernel "
+            "and line lift remain candidate inputs, while the stored charged-lepton left basis is open and nearly "
+            "degenerate. The historical shared-basis cancellation therefore does not derive a physical PMNS matrix. "
+            "After correcting the Majorana Takagi convention, the conditional intrinsic point also lies far outside the "
+            "oscillation data; the earlier weighted point fails the official NuFIT 6.1 correlated "
+            "`(sin^2 theta_23, delta_CP)` profile. The two-parameter exact adapter and `(B_nu, C_nu)` coordinates are "
+            "target-fit diagnostics on this rejected candidate and cannot feed back into theorem state. A future physical "
+            "result requires a source-closed neutrino operator, a nondegenerate charged-lepton basis, and an independently "
+            "derived mass-eigenstate labeling rule fixed before comparison with data."
         ),
-        "frontier_text": "Claim boundary: the weighted-cycle branch is scale-free; positive-segment exact adapters, bridge-coordinate readouts, and absolute mass normalization remain compare-only diagnostics.",
-        "prediction_surface": "Weighted-cycle neutrino surface with PMNS/hierarchy closure, emitted bridge invariant `C_nu`, emitted proxy `P_nu`, paper-facing amplitude `B_nu`, and a compare-only absolute attachment candidate.",
+        "frontier_text": "Physical gates: derive a source-closed neutrino operator, a stable charged-lepton left basis, and a neutrino mass-eigenstate label/order rule without oscillation-target feedback. The current weighted-cycle and bridge objects remain rejected diagnostics.",
+        "prediction_surface": "No current neutrino prediction surface. The exact isotropic no-go is retained; weighted-cycle mixing, bridge coordinates, and absolute masses are rejected or compare-only diagnostics.",
         "particles": ["electron_neutrino", "muon_neutrino", "tau_neutrino"],
     },
     {
@@ -1008,7 +1011,7 @@ def draw_lane_panel(
         render_wrapped_text(
             inner_x,
             summary_bottom_y + 18 + len(takeaway_lines) * 18 + 12,
-            [f"{len(visible_particles)} public outputs shown in this lane"],
+            [f"{len(visible_particles)} tracked particle rows shown in this lane"],
             font_size=14,
             fill=COLORS["subtle"],
             line_height=16,
@@ -1030,7 +1033,7 @@ def draw_lane_panel(
         draw_section_label(
             inner_x,
             cursor,
-            "Implemented theorem / technique",
+            "Implemented derivation / audit",
             fill="#0d2232",
             stroke=COLORS["logic_stroke"],
             text_fill=COLORS["ink"],
@@ -1098,7 +1101,7 @@ def draw_lane_panel(
         draw_section_label(
             inner_x,
             cursor,
-            "Prediction surface",
+            "Claim / prediction surface",
             fill="#161f34",
             stroke=COLORS["status_stroke"],
             text_fill=COLORS["ink"],
@@ -1114,7 +1117,7 @@ def draw_lane_panel(
             y=prediction_y,
             w=inner_w,
             h=prediction_h,
-            title="Prediction surface",
+            title="Claim / prediction surface",
             body=[lane["prediction_surface"]],
             fill=COLORS["status_fill"],
             stroke=COLORS["status_stroke"],
@@ -1213,7 +1216,7 @@ def build_svg(results: Dict[str, Any], exact_by_id: Dict[str, Dict[str, Any]]) -
             "x": MARGIN_X + axiom_w + input_gap + p_w + input_gap,
             "w": other_w,
             "title": "Global Fixed Point: N_CRC",
-            "body": [f"N_CRC = {PUBLIC_CAPACITY_DISPLAY}. Cosmic record-capacity closure fixes the Lambda readout; legacy neutrino side settings remain separate from the weighted-cycle theorem lane. loops = {inputs['loops']}; hadron_profile = {inputs['hadron_profile']}."],
+            "body": [f"N_CRC = {PUBLIC_CAPACITY_DISPLAY}. Cosmic record-capacity closure fixes the Lambda readout; legacy neutrino side settings remain separate from the rejected weighted-cycle comparison lane. loops = {inputs['loops']}; hadron_profile = {inputs['hadron_profile']}."],
             "fill": COLORS["input_fill"],
             "stroke": COLORS["input_stroke"],
         },

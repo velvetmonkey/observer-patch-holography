@@ -13,7 +13,7 @@ import tempfile
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 CERT_SCRIPT = ROOT / "particles" / "neutrino" / "derive_same_label_scalar_certificate.py"
 BUNDLE_SCRIPT = ROOT / "particles" / "neutrino" / "build_intrinsic_neutrino_mass_eigenstate_bundle.py"
-ISOTROPIC = ROOT / "particles" / "runs" / "neutrino" / "forward_neutrino_closure_bundle.json"
+ISOTROPIC = ROOT / "particles" / "runs" / "neutrino" / "forward_majorana_matrix.json"
 
 
 def main() -> int:
@@ -59,6 +59,10 @@ def main() -> int:
             return 1
         if payload.get("paper_export_policy", {}).get("pmns_status") != "not_formed_here":
             print("bundle should keep PMNS out of scope", file=sys.stderr)
+            return 1
+        mu_values = list(payload.get("mu_e_normalized", {}).values())
+        if len(mu_values) != 3 or abs(sum(mu_values) / 3.0 - 1.0) > 1.0e-12:
+            print("mu_e_normalized must have arithmetic mean one", file=sys.stderr)
             return 1
     return 0
 

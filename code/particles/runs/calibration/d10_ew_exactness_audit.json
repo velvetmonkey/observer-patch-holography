@@ -1,8 +1,8 @@
 {
   "active_builder_smallest_missing_object": "EWTargetFreeRepairValueLaw_D10",
   "alpha_sin_candidate_residual_vs_reference_masses": {
-    "delta_MW_pole": 0.009291692442758404,
-    "delta_MZ_pole": 0.4644821936694541
+    "delta_MW_pole": 0.023791692442756585,
+    "delta_MZ_pole": 0.4645602856067086
   },
   "artifact": "oph_d10_ew_exactness_audit",
   "broader_supported_repair_frontier": "EWTargetFreeRepairValueLaw_D10",
@@ -138,10 +138,10 @@
       "tau_Y_formula": "sigma_EW - eta_EW_fixed"
     },
     "sigma_required_by_reference_mass_pair": {
-      "mass_pair_sigma_midpoint": -0.02220750685382161,
-      "mass_pair_sigma_split": -0.0003413134026063261,
-      "sigma_from_reference_MW": -0.022378163555124772,
-      "sigma_from_reference_MZ": -0.022036850152518446
+      "mass_pair_sigma_midpoint": -0.022388696475128585,
+      "mass_pair_sigma_split": -0.0007003017424799043,
+      "sigma_from_reference_MW": -0.022738847346368538,
+      "sigma_from_reference_MZ": -0.022038545603888633
     },
     "sigma_required_by_running_readouts": {
       "running_sin2w_eff_admissible_on_fixed_eta_family": false,
@@ -157,7 +157,7 @@
       }
     },
     "verdict": {
-      "mass_pair_nearly_coherent": true,
+      "mass_pair_nearly_coherent": false,
       "running_alpha_conflicts_with_mass_pair": true,
       "running_sin2_forces_family_escape": true
     }
@@ -213,8 +213,8 @@
   "freeze_once_coherent_repair_summary": {
     "compare_only_validation_against_target_free_surface": null,
     "frozen_surface_mass_pair": {
-      "MW_pole": 80.377,
-      "MZ_pole": 91.18797809193725
+      "MW_pole": 80.3625,
+      "MZ_pole": 91.1879
     },
     "historical_compare_only": false,
     "repair_law_id": "FreezeOnceCoherentD10ElectroweakRepairLaw_D10",
@@ -222,7 +222,7 @@
     "stricter_still_open_object": "EWTargetFreeRepairValueLaw_D10",
     "target_free_predictive_emission_closed": false
   },
-  "generated_utc": "2026-06-29T07:35:18Z",
+  "generated_utc": "2026-07-11T06:46:40Z",
   "notes": [
     "This audit computes a purely inverse reference-W/Z slice for diagnosis only; that slice is not a predictive artifact and is not emitted by the live D10 source-pair builder.",
     "Any coherent family matching those reference W/Z values forces sin2(theta_W) = 1 - (MW/MZ)^2, so the current mixed reference surface cannot be hit exactly by one simple tree-level family.",
@@ -235,25 +235,25 @@
     "That target-free step is now split sharply on disk: the current source-only D10 corpus underdetermines the repair coefficients, the smallest supported conditional theorem route goes through ColorBalancedQuadraticRepairDescent_D10, and the strongest current source-only candidate is EWTargetEmitter_D10."
   ],
   "reference_inputs": {
-    "MW_pole_gev": 80.377,
-    "MZ_pole_gev": 91.18797809193725,
+    "MW_pole_gev": 80.3625,
+    "MZ_pole_gev": 91.1879,
     "alpha_em_eff_inv_running_surface": 128.30576920234813,
     "sin2w_eff_running_surface": 0.23073542347506173,
     "v_report_gev": 246.76711732749683
   },
   "reference_wz_audit_slice": {
-    "MW_pole": 80.377,
-    "MZ_pole": 91.18797809193725,
-    "alpha2_prime": 0.03377062798822147,
-    "alphaY_prime": 0.009695476948076182,
-    "alpha_em_eff_inv": 132.75240855096686,
-    "sin2w_eff": 0.22305833389684956,
+    "MW_pole": 80.3625,
+    "MZ_pole": 91.1879,
+    "alpha2_prime": 0.03375844465375371,
+    "alphaY_prime": 0.009707585835210919,
+    "alpha_em_eff_inv": 132.63444112101874,
+    "sin2w_eff": 0.22333729871365937,
     "status": "audit_only_inverse_slice",
     "v_report": 246.76711732749683
   },
   "reference_wz_audit_slice_residual_vs_running_alpha_sin": {
-    "delta_alpha_em_eff_inv": 4.4466393486187314,
-    "delta_sin2w_eff": -0.007677089578212171
+    "delta_alpha_em_eff_inv": 4.328671918670608,
+    "delta_sin2w_eff": -0.007398124761402364
   },
   "repair_target_point_diagnostic": {
     "MW_pole_target_gev": 80.3692,
@@ -281,18 +281,18 @@
       "v_report": 246.76711732749683
     },
     "comparison_to_frozen_local_reference_surface": {
-      "MW_difference_gev": 1.5395315244859376e-08,
-      "MW_target_gev": 80.377,
-      "MZ_difference_gev": -1.3994039704812167e-08,
-      "MZ_target_gev": 91.18797809193725,
-      "delta_alpha2_tree_compare_only": -7.808313968675484e-06,
-      "delta_alphaY_parallel_compare_only": 2.3421435088719127e-06,
-      "delta_alphaY_perp_compare_only": 1.0302896547401353e-05,
-      "delta_alphaY_tree_compare_only": 1.2645040056273265e-05,
-      "delta_n_difference": -5.984440487377587e-10,
-      "delta_n_tree_exact_compare_only": 0.00023463647868753065,
-      "tau2_difference": 3.82988750387064e-10,
-      "tau2_tree_exact_compare_only": -0.0002311626831633662
+      "MW_difference_gev": 0.014500015395313426,
+      "MW_target_gev": 80.3625,
+      "MZ_difference_gev": 7.807794321479378e-05,
+      "MZ_target_gev": 91.1879,
+      "delta_alpha2_tree_compare_only": -1.9991648436440412e-05,
+      "delta_alphaY_parallel_compare_only": 5.996972752691734e-06,
+      "delta_alphaY_perp_compare_only": 2.2411783682160835e-05,
+      "delta_alphaY_tree_compare_only": 2.840875643485257e-05,
+      "delta_n_difference": -0.0002757664110049179,
+      "delta_n_tree_exact_compare_only": 0.0005104022912483998,
+      "tau2_difference": 0.0003606841742326269,
+      "tau2_tree_exact_compare_only": -0.0005918464744072427
     },
     "emitter_scalar": {
       "lambda_formula": "eta_source * alpha_u_from_seed / 4 = eta_source^2 / (4 * beta_EW)",
@@ -326,17 +326,17 @@
       "v_report": 246.76711732749683
     },
     "compare_only_validation_against_frozen_surface": {
-      "MW_reference_gev": 80.377,
-      "MZ_reference_gev": 91.18797809193725,
-      "alpha2_reference": 0.03377062798822147,
-      "alphaY_reference": 0.009695476948076182,
-      "alpha_em_eff_inv_reference": 132.75240855096686,
-      "delta_MW_gev": 1.5395315244859376e-08,
-      "delta_MZ_gev": -1.3994039704812167e-08,
-      "delta_alpha_em_eff_inv": 2.681999262676982e-07,
-      "delta_sin2w_eff": -5.36093780478808e-10,
+      "MW_reference_gev": 80.3625,
+      "MZ_reference_gev": 91.1879,
+      "alpha2_reference": 0.03375844465375371,
+      "alphaY_reference": 0.009707585835210919,
+      "alpha_em_eff_inv_reference": 132.63444112101874,
+      "delta_MW_gev": 0.014500015395313426,
+      "delta_MZ_gev": 7.807794321479378e-05,
+      "delta_alpha_em_eff_inv": 0.11796769814804975,
+      "delta_sin2w_eff": -0.00027896535290358737,
       "reference_surface_kind": "freeze_once_authoritative_target_coherent_repair_surface",
-      "sin2w_eff_reference": 0.22305833389684956
+      "sin2w_eff_reference": 0.22333729871365937
     },
     "object_id": "EWTargetFreeRepairValueLaw_D10",
     "repair_chart": {
@@ -424,13 +424,13 @@
     "subobject_split": {
       "charged_anchor_object": "EWChargedAnchorLaw_D10",
       "current_frozen_target_values": {
-        "delta_alpha2_dagger": -7.808313968675484e-06,
-        "delta_alpha2_tree": -7.808313968675484e-06,
-        "delta_alphaY_parallel": 2.3421435088707883e-06,
-        "delta_alphaY_perp": 1.0302892666790446e-05,
-        "delta_n_dagger": 0.00023463639031113336,
-        "delta_n_tree_exact": 0.00023463639031113336,
-        "tau2_w_anchor": -0.00023116268316325517
+        "delta_alpha2_dagger": -1.9991648436440412e-05,
+        "delta_alpha2_tree": -1.9991648436440412e-05,
+        "delta_alphaY_parallel": 5.9969727526906094e-06,
+        "delta_alphaY_perp": 1.8756950557734103e-05,
+        "delta_n_dagger": 0.00042716772021678714,
+        "delta_n_tree_exact": 0.00042716772021678714,
+        "tau2_w_anchor": -0.0005918464744071317
       },
       "neutral_shear_object": "EWNeutralShearLaw_D10"
     },
@@ -444,8 +444,8 @@
     "strictly_smaller_than": "tau2_tree_exact"
   },
   "tree_level_identity_audit": {
-    "identity_residual_on_mixed_reference_surface": 0.007677089578212476,
-    "mass_ratio_sin2_from_reference_WZ": 0.22305833389684926,
+    "identity_residual_on_mixed_reference_surface": 0.007398124761402253,
+    "mass_ratio_sin2_from_reference_WZ": 0.22333729871365948,
     "required_identity": "sin2w_eff = 1 - (MW_pole / MZ_pole)^2 on one coherent family",
     "running_surface_sin2": 0.23073542347506173
   },
@@ -453,28 +453,28 @@
     "artifact": "oph_d10_ew_w_anchor_neutral_shear_box_dominance",
     "bounds": {
       "delta_MZ_after_exact_W_anchor_mev": [
-        1.388386266697239,
-        20.22660220146122
+        12.926047890161385,
+        26.428286663033873
       ],
       "delta_alphaY_parallel": [
-        -6.826941583483183e-07,
-        5.366844521303444e-06
+        4.056157951255659e-06,
+        7.937728000640752e-06
       ],
       "delta_alphaY_perp": [
-        1.3235505888408134e-06,
-        1.92809083393621e-05
+        1.2321631438495854e-05,
+        2.5191751198110626e-05
       ],
       "delta_n_tree_exact": [
-        3.014232435525575e-05,
-        0.0004391002489281554
+        0.00028061081649348874,
+        0.0005737128161873988
       ],
       "fiber_parallel_share_of_total": [
-        -1.0652840883935129,
-        0.2579197577499231
+        0.20088835891974358,
+        0.2707628500148257
       ],
       "neutral_shear_share_of_total": [
-        0.7420802422500768,
-        2.0652840883935126
+        0.7292371499851744,
+        0.7991116410802565
       ]
     },
     "status": "diagnostic_compare_only",
@@ -486,37 +486,37 @@
   "w_anchor_neutral_shear_factorization": {
     "artifact": "oph_d10_ew_w_anchor_neutral_shear_factorization",
     "central_target_point": {
-      "MW_target_gev": 80.377,
-      "MZ_fiber_after_exact_W_anchor_gev": 91.17717018044121,
-      "MZ_target_gev": 91.18797809193725,
-      "alpha2_dagger": 0.033770627988221474,
+      "MW_target_gev": 80.3625,
+      "MZ_fiber_after_exact_W_anchor_gev": 91.16822266259587,
+      "MZ_target_gev": 91.1879,
+      "alpha2_dagger": 0.03375844465375371,
       "alpha2_star": 0.03377843630219015,
-      "alphaY_dagger": 0.009695476948076156,
+      "alphaY_dagger": 0.00970758583521092,
       "alphaY_star": 0.009682831911900495,
-      "alpha_em_eff_inv_dagger": 132.75240855096712,
-      "coeff_delta_alphaY_perp_per_gev_delta_MZ": 0.0009532732267988105,
-      "coeff_delta_n_per_gev_delta_MZ": 0.02170968835163044,
-      "delta_MZ_after_exact_W_anchor_gev": 0.010807911496044653,
-      "delta_MZ_after_exact_W_anchor_mev": 10.807911496044653,
-      "delta_alpha2_dagger": -7.808313968675484e-06,
-      "delta_alpha2_tree": -7.808313968675484e-06,
-      "delta_alphaY_parallel": 2.3421435088707883e-06,
-      "delta_alphaY_perp": 1.0302892666790446e-05,
-      "delta_alphaY_total": 1.2645036175661233e-05,
-      "delta_n_dagger": 0.00023463639031113336,
-      "delta_n_tree_exact": 0.00023463639031113336,
-      "fiber_parallel_share_of_total": 0.18522236522967583,
-      "n_fiber_dagger": 0.9896553190793422,
-      "neutral_shear_share_of_total": 0.8147776347703242,
-      "sin2w_eff_dagger": 0.22305833389684906,
-      "tau2_w_anchor": -0.00023116268316325517,
-      "tauY_fiber_dagger": -0.04406282964256108
+      "alpha_em_eff_inv_dagger": 132.6344411210187,
+      "coeff_delta_alphaY_perp_per_gev_delta_MZ": 0.0009532260474323427,
+      "coeff_delta_n_per_gev_delta_MZ": 0.021708613896464966,
+      "delta_MZ_after_exact_W_anchor_gev": 0.0196773374041328,
+      "delta_MZ_after_exact_W_anchor_mev": 19.6773374041328,
+      "delta_alpha2_dagger": -1.9991648436440412e-05,
+      "delta_alpha2_tree": -1.9991648436440412e-05,
+      "delta_alphaY_parallel": 5.9969727526906094e-06,
+      "delta_alphaY_perp": 1.8756950557734103e-05,
+      "delta_alphaY_total": 2.475392331042471e-05,
+      "delta_n_dagger": 0.00042716772021678714,
+      "delta_n_tree_exact": 0.00042716772021678714,
+      "fiber_parallel_share_of_total": 0.2422635263705888,
+      "n_fiber_dagger": 0.9894610922980669,
+      "neutral_shear_share_of_total": 0.7577364736294113,
+      "sin2w_eff_dagger": 0.22333729871365943,
+      "tau2_w_anchor": -0.0005918464744071317,
+      "tauY_fiber_dagger": -0.043702094037244274
     },
     "coherent_repaired_quintet": {
-      "MW_pole": 80.377,
-      "MZ_pole": 91.18797809193725,
-      "alpha_em_eff_inv": 132.75240855096712,
-      "sin2w_eff": 0.22305833389684906,
+      "MW_pole": 80.3625,
+      "MZ_pole": 91.1879,
+      "alpha_em_eff_inv": 132.6344411210187,
+      "sin2w_eff": 0.22333729871365943,
       "v_report": 246.76711732749683
     },
     "conclusion": {

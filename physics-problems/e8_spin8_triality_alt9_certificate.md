@@ -1,4 +1,4 @@
-# Finite E8/Spin8 Triality Certificate For An Alt(9) Double Cover
+# Finite E8/Spin8 Triality Claim Statement For An Alt(9) Double Cover
 
 ## Motivating Result
 
@@ -13,9 +13,9 @@ $\mathrm{Spin}(8)$ vector/half-spin construction can be recorded as an exact,
 public matrix certificate without being promoted into physical $E_8$
 speculation.
 
-**Status:** certificate specification; exact verification pending. The
-repository currently contains the manifest and receipt skeleton under
-`code/e8_triality/`, but not the promised Sage programs, matrices, lattice
+**Status:** claim statement; exact verification pending. The
+repository currently contains only the claim statement under
+`code/e8_triality_claim_statement/`, not the promised Sage programs, matrices, lattice
 bases, check output, or stable hash bundle. The statements below are therefore
 verification targets, not a proved OPH theorem.
 
@@ -113,9 +113,9 @@ The current evidence labels are:
   can be rerun from a clean environment;
 - **physical evidence:** none, and none is implied by this algebraic sidecar.
 
-For public verifier status, `code/e8_triality/` must contain the Sage source,
+For public verifier status, a future certificate bundle must contain the Sage source,
 exact matrix data, lattice bases, mod-2 orbit computation, machine-readable
-check receipts, and stable hashes named in its manifest. The checks must derive
+check receipts, and stable hashes named in the claim statement. The checks must derive
 the group orders, relations, Gram invariance, orbit exhaustion, and triality
 intertwining from the matrices; a manifest that merely repeats the expected
 answers is not a certificate.

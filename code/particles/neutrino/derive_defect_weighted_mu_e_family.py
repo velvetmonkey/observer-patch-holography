@@ -36,9 +36,24 @@ def main() -> int:
     m0 = sum(masses[:2]) / 2.0 if len(masses) >= 2 else None
     heavy_light_gap = (masses[2] - m0) if len(masses) >= 3 and m0 is not None else None
     mu_nu = float(scalar.get("mu_nu", 0.0))
-    readback_complete = readback.get("payload_status") == "complete_from_live_flavor_artifacts"
+    readback_complete = all(
+        isinstance(readback.get(key), dict)
+        and all(readback[key].get(edge) is not None for edge in ("psi12", "psi23", "psi31"))
+        for key in ("same_label_overlap_sq", "gap_e", "defect_e")
+    )
+    readback_source_closed = (
+        readback_complete
+        and readback.get("source_only_physical_input_eligible") is True
+        and (readback.get("source_closure_status") or {}).get("closed") is True
+    )
     smallest_constructive_missing = None if readback_complete else "oph_realized_same_label_gap_defect_readback"
-    strict_repo_missing_object = None if readback_complete else "oph_same_label_overlap_defect_log_source"
+    strict_repo_missing_object = (
+        None
+        if readback_source_closed
+        else "source_closed_family_transport_kernel_and_overlap_edge_line_lift"
+        if readback_complete
+        else "oph_same_label_overlap_defect_log_source"
+    )
     same_label_overlap_sq = dict(readback.get("same_label_overlap_sq") or {})
     same_label_gap_witness = dict(readback.get("same_label_gap_witness") or {})
     same_label_defect_witness = dict(readback.get("same_label_defect_witness") or {})
@@ -48,6 +63,8 @@ def main() -> int:
 
     proof_status = (
         "closed_constructive_subbridge_object"
+        if readback_source_closed
+        else "conditional_constructive_subbridge_from_source_open_inputs"
         if readback_complete
         else "candidate_only"
     )
@@ -61,6 +78,8 @@ def main() -> int:
         "realized_same_label_gap_defect_readback_status": (
             readback.get("payload_status") if readback else "missing_readback_artifact"
         ),
+        "source_only_physical_input_eligible": readback_source_closed,
+        "source_closure_status": dict(readback.get("source_closure_status") or {"closed": False}),
         "smallest_constructive_missing_object": smallest_constructive_missing,
         "strict_repo_missing_object": strict_repo_missing_object,
         "raw_edge_score_emitter": "oph_same_label_overlap_defect_log_source",
@@ -109,13 +128,14 @@ def main() -> int:
             "The best reduced family is a realized-arrow readback of same-label gap and defect witnesses, followed by the canonical raw score q_e = sqrt(gap_e * defect_e), centered-log lift, and mean-preserving mu_e family.",
             "The current canonical no-new-parameter point is q_e = sqrt(gap_e * defect_e), but the actual next mover is the realized flavor-side same-label gap/defect readback that feeds that rule.",
             (
-                "The same-label overlap-nonvanishing subclause is discharged by the live flavor-side gap/defect readback, so this family is closed as a constructive sub-bridge object beneath the remaining attachment scalar."
+                "The same-label overlap-nonvanishing subclause is discharged by source-closed flavor-side gap/defect readback."
+                if readback_source_closed
+                else "The numeric readback is complete, but its family-kernel and line-lift inputs remain source-open."
                 if readback_complete
                 else "The exact theorem blocker remains on same-label overlap / edge-bundle normalization."
             ),
             (
-                "On the live corpus the realized same-label gap/defect readback is already complete from flavor-side certificates, "
-                "so this family no longer treats that readback as the next missing constructive object."
+                "The realized same-label gap/defect values are numerically complete, so the remaining issue is provenance rather than missing scalar fields."
                 if readback_complete
                 else "The smallest spectrum-moving local object is still the realized same-label gap/defect readback beneath the repo-facing log-source wrapper."
             ),

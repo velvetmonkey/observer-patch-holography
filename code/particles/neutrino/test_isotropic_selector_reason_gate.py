@@ -26,6 +26,12 @@ def main() -> int:
     if lift.get("selector_closure_reason") != "s3_fixed_point":
         print("isotropic selector branch lost its s3_fixed_point reason", file=sys.stderr)
         return 1
+    if bool((lift.get("source_closure_status") or {}).get("closed", False)):
+        print("template selector input was incorrectly marked source-closed", file=sys.stderr)
+        return 1
+    if lift.get("public_surface_candidate_allowed") is not False:
+        print("conditional selector point is incorrectly public-promotable", file=sys.stderr)
+        return 1
     if not pullback or not pullback.get("phase_action_closed", False):
         if lift.get("canonical_selector_status") != "closed_equal_split":
             print("isotropic selector branch overpromoted beyond closed_equal_split without a phase-action theorem", file=sys.stderr)

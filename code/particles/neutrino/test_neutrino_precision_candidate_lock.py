@@ -45,7 +45,8 @@ def test_lock_is_fail_closed_hashed_and_immutable() -> None:
         assert source_dag["source_closure_gate"]["passes"] is False
         assert predictions["absolute_scale"]["absolute_mass_prediction_allowed"] is False
         assert adjudication["baseline"]["candidate_rejected_by_declared_3sigma_gate"] is True
-        assert adjudication["baseline"]["convention_rescue_found"] is False
+        assert adjudication["baseline"]["stored_pmns_relabeling_rescue_found"] is False
+        assert adjudication["baseline"]["physical_basis_contract_audited"] is False
 
         for filename, expected_hash in manifest["files"].items():
             assert _sha256(output / filename) == expected_hash

@@ -17,6 +17,7 @@
   "delta_m21_sq_gev2": 1.788985827699037e-25,
   "delta_m31_sq_gev2": 1.0143949544256282e-24,
   "delta_m32_sq_gev2": 8.354963716557245e-25,
+  "delta_mij_field_status": "ascending_gap_coordinates_under_declared_normal_ordering_hypothesis",
   "determinant_audit_abs_gev3": 1.6036628712291962e-49,
   "determinant_direct_complex_gev3": {
     "imag": -3.260199333788387e-38,
@@ -38,16 +39,16 @@
     "p_invariant_gev4": 2.931760022551886e-49,
     "q_invariant_gev6": 2.6841028959275748e-74
   },
-  "generated_utc": "2026-06-29T07:35:35Z",
+  "generated_utc": "2026-07-11T06:47:00Z",
   "h_shift_eigenvalues_gev2_sorted": [
     -3.977645123985104e-25,
     -2.188659296286065e-25,
     6.1663044202711775e-25
   ],
   "intrinsic_mass_eigenstates": {
-    "nu_1": 2.3820288435078732e-12,
-    "nu_2": 2.4192891505715804e-12,
-    "nu_3": 2.5862050123161317e-12
+    "s0": 2.3820288435078732e-12,
+    "s1": 2.4192891505715804e-12,
+    "s2": 2.5862050123161317e-12
   },
   "isotropic_reference_bundle": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/neutrino/forward_majorana_matrix.json",
   "majorana_matrix_imag": [
@@ -85,6 +86,7 @@
     ]
   ],
   "mass_audit_max_abs_gev": 4.0389678347315804e-28,
+  "mass_eigenstate_label_status": "ascending_singular_states_only",
   "masses_from_h_eigvalsh_gev_sorted": [
     2.3820288435078732e-12,
     2.4192891505715804e-12,
@@ -101,17 +103,39 @@
     "psi31": 0.5534471424944483
   },
   "notes": [
-    "This artifact closes the intrinsic builder-facing neutrino chain exactly from the centered eta-class.",
+    "This artifact computes the intrinsic builder-facing neutrino chain exactly from the centered eta-class.",
     "Once eta_e is emitted at the flavor boundary, no further selector ambiguity remains on the principal branch.",
-    "The proof-facing eta provenance is supplied directly by the live same-label scalar certificate; PMNS is formed downstream from the shared charged-lepton left basis."
+    "The same-label scalar certificate is numerically complete, but its upstream family kernel and overlap-line lift remain source-open."
   ],
-  "ordering_phase_certified": "normal_like_collective_dominance",
+  "ordering_phase_certified": null,
+  "ordering_status": "unresolved_without_mass_eigenstate_label_rule",
   "payload_kind": "eta_e",
   "payload_source": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/neutrino/same_label_scalar_certificate.json",
+  "physical_ordering_assignments": {
+    "inverted_ordering_hypothesis": {
+      "nu1": "s1",
+      "nu2": "s2",
+      "nu3": "s0"
+    },
+    "missing_source_object": "solar_pair_and_atmospheric_sign_eigenstate_label_rule",
+    "normal_ordering_hypothesis": {
+      "nu1": "s0",
+      "nu2": "s1",
+      "nu3": "s2"
+    },
+    "selected": null
+  },
   "pmns_status": "not_formed_here",
   "proof_facing_residual_object": null,
   "public_flavor_rows_gate": "pmns_and_flavor_rows_formed_downstream_from_shared_charged_basis",
   "selector_common_scale_invariant": true,
+  "selector_domain": {
+    "F_max_rad": 2.5511001322101827,
+    "abs_omega_rad": 1.7561442767905913,
+    "condition": "|Omega| < F_max, F_max = sum_e arcsin(mu_min / mu_e)",
+    "margin_rad": 0.7949558554195915,
+    "satisfied": true
+  },
   "selector_equation": "sum_e arcsin(lam / mu_e) = Omega on the principal branch",
   "selector_point_absolute": {
     "psi12": 0.31893255645006824,
@@ -120,40 +144,89 @@
   },
   "selector_scale_free_multiplier": 0.4545580596512337,
   "selector_sum_check": 1.7561442767905913,
+  "source_closure_status": {
+    "closed": false,
+    "family_transport_kernel_explicit_source_closure": false,
+    "family_transport_kernel_proof_status": "conjugacy_riesz_candidate",
+    "family_transport_kernel_status": "template",
+    "missing_objects": [
+      "source_emitted_family_transport_kernel",
+      "theorem_grade_overlap_edge_line_lift"
+    ],
+    "overlap_edge_line_lift_explicit_source_closure": false,
+    "overlap_edge_line_lift_proof_status": "candidate_only"
+  },
+  "source_only_physical_input_eligible": false,
   "splitting_ratio_r": 0.1763598901881367,
-  "theorem_surface_status": "intrinsic_builder_complete_exact",
+  "takagi_congruence_max_offdiag_gev": 5.362042103076255e-28,
+  "theorem_surface_status": "intrinsic_builder_exact_conditional_on_source_open_inputs",
+  "u_nu_field_semantics": "Takagi U satisfying U^T M U = diag(m_i) > 0; legacy u_nu_left keys are aliases",
   "u_nu_left_imag": [
     [
-      -0.004407603353743034,
-      0.0012571804388628366,
-      0.00404832076952888
+      -0.0011298935184550511,
+      0.009340896593904439,
+      0.009503330199232033
     ],
     [
-      -1.295333292535467e-19,
-      0.0014339845078543544,
-      1.05853712582875e-16
+      -0.005198093349845636,
+      0.002008473509770035,
+      0.006097540020074538
     ],
     [
-      -0.003286837379116839,
-      1.1544134905109202e-16,
-      0.005790882859117473
+      -0.0006749297497610676,
+      -0.009000701559717597,
+      0.011079286272247876
     ]
   ],
   "u_nu_left_real": [
     [
-      -0.490860999841411,
-      -0.6674425090765509,
-      0.5599451576192574
+      0.4908794877291769,
+      0.6673783267951489,
+      -0.5598791433491981
     ],
     [
-      0.7784758016929949,
-      -0.04744157274726579,
-      0.6258775176040008
+      -0.7784584469623783,
+      0.047420725115312715,
+      -0.6258478146065947
     ],
     [
-      -0.39115300682195736,
-      0.7431461211892576,
-      0.5428524939532446
+      0.39116623386440147,
+      -0.7430916126629752,
+      -0.5427703141580632
+    ]
+  ],
+  "u_nu_takagi_imag": [
+    [
+      -0.0011298935184550511,
+      0.009340896593904439,
+      0.009503330199232033
+    ],
+    [
+      -0.005198093349845636,
+      0.002008473509770035,
+      0.006097540020074538
+    ],
+    [
+      -0.0006749297497610676,
+      -0.009000701559717597,
+      0.011079286272247876
+    ]
+  ],
+  "u_nu_takagi_real": [
+    [
+      0.4908794877291769,
+      0.6673783267951489,
+      -0.5598791433491981
+    ],
+    [
+      -0.7784584469623783,
+      0.047420725115312715,
+      -0.6258478146065947
+    ],
+    [
+      0.39116623386440147,
+      -0.7430916126629752,
+      -0.5427703141580632
     ]
   ]
 }

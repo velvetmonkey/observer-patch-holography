@@ -36,8 +36,17 @@ def main() -> int:
     readback = json.loads(readback_path.read_text(encoding="utf-8")) if readback_path.exists() else {}
     normalizer_path = pathlib.Path(args.normalizer)
     normalizer = json.loads(normalizer_path.read_text(encoding="utf-8")) if normalizer_path.exists() else {}
-    readback_complete = readback.get("payload_status") == "complete_from_live_flavor_artifacts"
-    normalizer_closed = normalizer.get("status") == "closed_from_live_same_label_scalar_certificate"
+    readback_complete = all(
+        isinstance(readback.get(key), dict)
+        and all(readback[key].get(edge) is not None for edge in ("psi12", "psi23", "psi31"))
+        for key in ("same_label_overlap_sq", "gap_e", "defect_e")
+    )
+    source_closed = (
+        readback.get("source_only_physical_input_eligible") is True
+        and (readback.get("source_closure_status") or {}).get("closed") is True
+        and normalizer.get("source_only_physical_input_eligible") is True
+    )
+    normalizer_closed = normalizer.get("proof_status") == "exact_normalization_identity_conditional_on_certificate"
     edge_weights = dict(action_germ.get("edge_coefficients", {}))
     mu_nu = float(next(iter(edge_weights.values()), 0.0))
     selector_absolute = dict(hessian.get("selector_point", {}))
@@ -55,6 +64,9 @@ def main() -> int:
     payload = {
         "artifact": "oph_majorana_overlap_defect_scalar_evaluator",
         "generated_utc": _timestamp(),
+        "source_only_physical_input_eligible": source_closed,
+        "source_closure_status": dict(readback.get("source_closure_status") or {"closed": False}),
+        "public_surface_candidate_allowed": False,
         "theorem_candidate_id": "oph_majorana_scalar_from_centered_edge_norm",
         "sublemma_candidate_id": "selector_centered_quadraticity_polarization_law_on_edge_bundle",
         "parent_theorem_id": "oph_majorana_scalar_from_centered_edge_norm",
@@ -114,9 +126,7 @@ def main() -> int:
         "defect_weighted_mu_e_family_status": defect_family_status,
         "defect_weighted_mu_e_normalizer_candidate": "oph_same_label_overlap_defect_weight_normalizer",
         "attachment_normalizer_candidate_id": "oph_same_label_overlap_defect_weight_normalizer",
-        "attachment_normalizer_status": (
-            "closed_from_live_same_label_scalar_certificate" if normalizer_closed else "candidate_only"
-        ),
+        "attachment_normalizer_status": normalizer.get("status", "candidate_only") if normalizer_closed else "candidate_only",
         "attachment_normalizer_artifact": normalizer.get("artifact"),
         "defect_weight_rule": "mu_e = base_mu_nu * exp(delta_e) / mean_f(exp(delta_f))",
         "defect_weighted_mu_e_family_role": "breaks isotropic 1_2 near_degeneracy while preserving the centered edge-norm route",
@@ -172,9 +182,13 @@ def main() -> int:
             "lower": 0.0,
             "upper": 6.0 * mu_nu,
         },
-        "proof_status": "closed_on_current_isotropic_branch",
+        "proof_status": (
+            "closed_on_source_closed_current_isotropic_branch"
+            if source_closed
+            else "exact_scalar_evaluator_conditional_on_source_open_inputs"
+        ),
         "nonisotropic_formula_status": "open_centered_family_only",
-        "oph_origin_status": "closed_on_current_isotropic_branch",
+        "oph_origin_status": "closed_on_current_isotropic_branch" if source_closed else "not_established_from_source",
         "invariant_ring_obstruction": {
             "status": "closed_on_current_isotropic_branch",
             "quadratic_invariant": action_germ.get("quadratic_invariant_residual"),
@@ -187,10 +201,18 @@ def main() -> int:
         "naive_uncentered_formula_ruled_out": True,
         "naive_uncentered_cubic_coeff": 0.0016047225727754176,
         "cubic_kill_mechanism": "Hermitian displacement depends only on Re(z_e), so odd I3 terms vanish",
-        "exact_remaining_ingredient": "one positive residual bridge invariant above the closed normalizer",
+        "exact_remaining_ingredient": (
+            "one positive residual bridge invariant above the closed normalizer"
+            if source_closed
+            else "source_closed_neutrino_operator_basis_and_mass_label_contract"
+        ),
         "smallest_exact_missing_clause": None,
         "strictly_smaller_missing_clause_if_not_closed": None,
-        "next_exact_object_after_scalar_closure": "oph_neutrino_attachment_bridge_invariant",
+        "next_exact_object_after_scalar_closure": (
+            "oph_neutrino_attachment_bridge_invariant"
+            if source_closed
+            else "source_closed_neutrino_operator_basis_and_mass_label_contract"
+        ),
         "fallback_family_if_not_closed": "sum_e mu_e*Phi(z_e), Phi(z)=Phi(conj(z)), Phi(1)=0, second jet fixed",
         "remaining_theorem_object": None,
         "notes": [
@@ -198,13 +220,17 @@ def main() -> int:
             "The current sharp origin candidate is the Hermitian displacement norm of a centered OPH Majorana edge-character functor.",
             "The selector-centered unitary common-refinement descent theorem on the direct-sum edge bundle is closed on the current isotropic branch from the normalized same-label line-transport cocycle, so the descended direct-sum bundle and its Hermitian norm are presentation-independent on that branch.",
             (
-                "The overlap-nonvanishing subclause is already discharged by the live same-label gap/defect readback exported from flavor-side certificates."
+                "The overlap-nonvanishing subclause is discharged by source-closed flavor-side certificates."
+                if source_closed
+                else "The numeric overlap/gap readback is complete, but its physical source closure is not established."
                 if readback_complete
                 else "The current local witness hint for overlap nonvanishing is not a theorem yet, but it is expected to live in the same gap/defect fields already exported by the flavor artifacts."
             ),
             (
-                "The normalized overlap-defect weight normalizer is already carried by the live same-label scalar certificate; with the same-label phase-cocycle theorem and the selector-centered bundle descent both closed on the current isotropic branch, the remaining exact attachment content is one positive bridge invariant above qbar_e."
-                if normalizer_closed
+                "The normalization algebra is exact on the supplied certificate, but physical promotion remains blocked by source provenance, basis, and mass-label gates."
+                if normalizer_closed and not source_closed
+                else "The source-closed normalizer and selector-centered bundle descent leave one positive bridge invariant above qbar_e."
+                if source_closed
                 else "The same-label phase-cocycle theorem and selector-centered bundle descent are closed on the current isotropic branch; once the normalizer is closed on disk, the remaining exact attachment content is one positive bridge invariant above qbar_e."
             ),
             "Numerically, the current remaining defect is the exact 1-2 near-degeneracy induced by isotropic mu_nu, so the next forward object is a defect-weighted mu_e family rather than another isotropic re-evaluation.",

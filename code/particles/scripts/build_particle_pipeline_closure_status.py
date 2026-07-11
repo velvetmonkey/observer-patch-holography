@@ -376,10 +376,14 @@ def build_status() -> dict[str, Any]:
             {
                 "issue": 117,
                 "title": "Neutrino splittings and mixing",
-                "state": "closed_keep_visible_comparison_tension",
-                "closable_now": True,
+                "state": (
+                    "source_closed_prediction"
+                    if neutrino.get("public_promotion_allowed") is True
+                    else "rejected_candidate_source_basis_and_kernel_open"
+                ),
+                "closable_now": neutrino.get("public_promotion_allowed") is True,
                 "local_next_artifact": _rel(NEUTRINO_CONTRACT),
-                "chrome_workers": "not_needed",
+                "chrome_workers": "not_needed_for_finite_audit_repairs",
             },
             {
                 "issue": 198,

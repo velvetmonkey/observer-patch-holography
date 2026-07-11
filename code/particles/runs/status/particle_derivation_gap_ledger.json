@@ -21,8 +21,8 @@
         "neutrino.pmns-status-and-absolute-rows"
       ],
       "id": "spectrum-source-bundle",
-      "promotion_question": "Is there one OPH excitation dictionary and sector-isolated trace-lift theorem that explains the charged affine anchor, quark selected-class boundary, and neutrino PMNS comparison surface without hidden target fitting?",
-      "result": "No promotion. Charged leptons are closed as a corpus-limited no-go by the end-to-end impossibility theorem: the same-family witness and conditional algebraic readout remain, but no theorem-grade A_ch(P) is emitted. Quarks remain selected-class on f_P with global classification closed as a corpus-limited no-go, and neutrino PMNS rows remain visible comparison-tension rows.",
+      "promotion_question": "Is there one OPH excitation dictionary and sector-isolated trace-lift theorem that explains the charged affine anchor and quark selected-class boundary while also deriving a source-closed neutrino operator, charged basis, and mass-label rule without target fitting?",
+      "result": "No promotion. Charged leptons are closed as a corpus-limited no-go by the end-to-end impossibility theorem: the same-family witness and conditional algebraic readout remain, but no theorem-grade A_ch(P) is emitted. Quarks remain selected-class on f_P with global classification closed as a corpus-limited no-go. The weighted-cycle neutrino point is a rejected target-informed candidate; no physical PMNS, ordering, Majorana, or absolute-mass row is emitted.",
       "status": "closed_current_corpus_source_boundaries_emitted"
     },
     {
@@ -119,7 +119,7 @@
     },
     "v_over_E_cell_source": "2.5797040595276223506583341903922018695490035369903290256096683452314630559578761079150341073645683725521032233E-17"
   },
-  "generated_utc": "2026-06-29T10:22:10Z",
+  "generated_utc": "2026-07-11T06:25:23Z",
   "p_trunk": {
     "P": "1.63097210492078846050203640439",
     "alpha_inv": "136.994020662724205139718642793",
@@ -254,17 +254,22 @@
       "title": "Keep exact quark rows scoped to the selected public frame class"
     },
     {
-      "current_boundary": "The weighted-cycle absolute splitting lane is emitted, while PMNS angle/phase comparisons still show visible displacement from current central values.",
-      "github_issue": 117,
+      "current_boundary": "The weighted-cycle point is a target-informed candidate, not a physical PMNS derivation. Its shared-basis construction cancels the inserted charged basis algebraically; the stored charged artifact is open and nearly degenerate; the same-label scalar inputs inherit an underived family kernel and candidate line lift; and the point fails the official NuFIT 6.1 correlated theta23/delta_CP profile. Absolute-splitting rows are fitted diagnostics.",
+      "github_issue": 513,
       "id": "neutrino.pmns-status-and-absolute-rows",
       "lane": "Neutrinos",
-      "next_action": "Do not hide PMNS residuals behind the exact absolute-splitting rows; either prove a better branch or leave the comparison tension explicit.",
-      "status": "theorem_rows_with_visible_comparison_tension",
+      "next_action": "Derive a source-closed neutrino operator, stable physical charged-lepton left basis, and mass-eigenstate label/order rule without oscillation-target feedback; freeze that construction before evaluating a later likelihood. Keep all present weighted-cycle, bridge, and exact-adapter numbers rejected or compare-only.",
+      "related_github_issues": [
+        117,
+        508,
+        513
+      ],
+      "status": "rejected_candidate_source_basis_and_kernel_open",
       "target_surfaces": [
         "code/particles/neutrino",
         "RESULTS_STATUS.md"
       ],
-      "title": "Keep neutrino theorem rows and comparison tension separated"
+      "title": "Rebuild the neutrino lane from source-closed operator and basis data"
     },
     {
       "current_boundary": "The selected-class quark support wrapper conditionally carries the running-quark sextet and exact forward Yukawas on the public class f_P, but its sigma datum is still target-derived. The available corpus does not derive theta_QCD, does not emit the physical anomaly-invariant bar(theta), and does not prove that the physical strong-CP phase vanishes.",

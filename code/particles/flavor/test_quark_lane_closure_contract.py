@@ -90,7 +90,7 @@ def test_quark_lane_closure_contract_records_closed_exact_pdg_target_and_open_pu
     assert exact_target["minimal_exact_blocker_set"] == []
     assert exact_target["artifact"] == "oph_quark_current_family_end_to_end_exact_pdg_derivation_chain"
     assert exact_target["wrapper_theorem"] == "oph_quark_exact_pdg_end_to_end_theorem"
-    assert exact_target["exact_running_values_gev"]["t"] == 172.35235532883115
+    assert exact_target["exact_running_values_gev"]["t"] == 172.09999999999965
     assert exact_target["not_the_same_as"] == "target_free_public_physical_sheet_promotion"
     exact_yukawa_target = payload["exact_yukawa_derivation_target"]
     assert exact_yukawa_target["target_name"] == "exact_forward_quark_yukawas_on_declared_current_family_transport_frame"

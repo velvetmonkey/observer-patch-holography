@@ -94,12 +94,27 @@ def main() -> int:
         "isotropic_branch_status": "local_quadratic_germ_closed",
         "nonisotropic_formula_status": "open",
         "proof_status": "local_quadratic_germ_closed",
-        "oph_origin_status": "closed_on_current_isotropic_branch",
-        "upstream_missing_object": "oph_neutrino_attachment_bridge_invariant",
+        "proof_scope": "conditional_algebra_on_declared_family_response_and_majorana_lift",
+        "public_surface_candidate_allowed": False,
+        "source_only_physical_input_eligible": False,
+        "source_closure_status": {
+            "closed": False,
+            "missing_objects": [
+                "source_derived_neutrino_operator_and_family_response",
+                "source_derived_overlap_defect_action",
+            ],
+        },
+        "oph_origin_status": "not_established_from_source",
+        "upstream_missing_object": "source_closed_neutrino_operator_basis_and_mass_label_contract",
+        "upstream_missing_objects": [
+            "source_derived_neutrino_operator_and_family_response",
+            "source_derived_overlap_defect_action",
+            "oph_neutrino_attachment_bridge_invariant",
+        ],
         "primitive_metric_source": "oph_overlap_defect_candidate",
         "notes": [
-            "This artifact now records the local quadratic action-germ/Hessian class on the affine Majorana lift.",
-            "On the current isotropic branch the centered edge-norm theorem closes the finite-angle scalar side; the remaining OPH-only burden is the positive attachment bridge invariant above the closed normalizer, together with any future nonisotropic continuation.",
+            "This artifact records the local quadratic action-germ/Hessian class conditional on the declared family-response and Majorana-lift inputs.",
+            "It does not establish a source-derived physical neutrino operator or overlap-defect action. A positive attachment bridge becomes meaningful only after those source, basis, and mass-label gates close.",
         ],
     }
 

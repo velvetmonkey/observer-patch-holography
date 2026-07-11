@@ -21,11 +21,13 @@
     },
     "lambda_nu": 1.7237014208357415,
     "lambda_reconstruction": "lambda_nu = (m_star_eV / q_mean^p_nu) * P_nu * C_nu",
+    "mass_basis_semantics": "ascending_weighted_cycle_candidate_mass_eigenstates_not_flavor_neutrino_masses",
     "masses_eV": [
       0.017454720257976796,
       0.019481987935919015,
       0.05307522145074924
-    ]
+    ],
+    "physical_mass_ordering_status": "declared_hypothesis_not_source_derived"
   },
   "absolute_attachment_status": "compare_only_blocked",
   "artifact": "oph_forward_neutrino_closure_bundle",
@@ -41,8 +43,9 @@
   "delta_m31_sq_gev2": 2.5123118727618474e-21,
   "delta_m32_sq_gev2": 2.437431278110779e-21,
   "display_allowed_as_compare_only": true,
-  "generated_utc": "2026-07-11T04:06:17Z",
+  "generated_utc": "2026-07-11T06:25:22Z",
   "legacy_absolute_fields_are_compare_only": true,
+  "legacy_absolute_mass_basis_semantics": "ascending_candidate_mass_eigenstates_not_flavor_neutrino_masses",
   "masses_gev_sorted": [
     1.7454720257976798e-11,
     1.9481987935919017e-11,
@@ -55,6 +58,7 @@
   ],
   "ordering_phase_certified": false,
   "phase_mode": "weighted_cycle_candidate",
+  "physical_mass_ordering_status": "declared_hypothesis_not_source_derived",
   "pmns_status": "target_informed_template_candidate_rejected_by_nufit61_profile",
   "prediction_promotion_allowed": false,
   "profile_score": {

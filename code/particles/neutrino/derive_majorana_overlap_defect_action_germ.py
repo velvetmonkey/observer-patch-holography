@@ -56,6 +56,17 @@ def main() -> int:
         "selector_center": "principal_equal_split",
         "selector_point": selector_point,
         "proof_status": "local_quadratic_germ_closed",
+        "proof_scope": "conditional_algebra_on_declared_family_response_and_majorana_lift",
+        "public_surface_candidate_allowed": False,
+        "source_only_physical_input_eligible": False,
+        "source_closure_status": {
+            "closed": False,
+            "missing_objects": [
+                "source_derived_neutrino_operator_and_family_response",
+                "source_derived_overlap_defect_action",
+            ],
+        },
+        "oph_origin_status": "not_established_from_source",
         "residual_symmetry_group": "S3_on_A2_reflection_representation",
         "quadratic_invariant_residual": "I2(u,v)=u^2+u*v+v^2",
         "cubic_invariant_obstruction": {
@@ -69,10 +80,15 @@ def main() -> int:
         "scale_status": "unresolved_without_positive_attachment_bridge_invariant",
         "candidate_scale_from_edge_coefficients": candidate_scale,
         "edge_coefficients": edge_coefficients,
-        "upstream_missing_object": "oph_neutrino_attachment_bridge_invariant",
+        "upstream_missing_object": "source_closed_neutrino_operator_basis_and_mass_label_contract",
+        "upstream_missing_objects": [
+            "source_derived_neutrino_operator_and_family_response",
+            "source_derived_overlap_defect_action",
+            "oph_neutrino_attachment_bridge_invariant",
+        ],
         "notes": [
-            "This artifact closes the local quadratic action germ on the affine Majorana lift, and on the current isotropic branch the centered edge-norm theorem removes the former cubic freedom exactly.",
-            "The exact remaining neutrino absolute gap is no longer a finite-angle scalar-evaluator gate on this branch, but one positive attachment bridge invariant above the closed normalizer.",
+            "Conditional on the declared family-response and Majorana-lift inputs, this artifact closes the local quadratic action germ and removes the former cubic freedom on the isotropic branch.",
+            "This local algebra does not establish that those inputs descend from a source-closed physical neutrino operator. A bridge invariant is relevant only after the operator, basis, and mass-label contracts close.",
         ],
     }
 

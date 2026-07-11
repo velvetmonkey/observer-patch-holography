@@ -11,7 +11,6 @@ from typing import Any
 import dark_repair_transition_matrix
 
 
-DEFAULT_MU_EQ = 5.363470440729118
 DEFAULT_A_GRID = "1.0,0.5,0.1,0.000908265"
 DEFAULT_K_GRID = "0.01,0.05,0.1,0.2,0.5,1.0"
 
@@ -91,6 +90,10 @@ def from_samples(samples: dict[str, Any]) -> dict[str, Any]:
 
 
 def diagnostic_scalar_load(args: argparse.Namespace) -> dict[str, Any]:
+    if args.mu_eq is None:
+        raise ValueError(
+            "diagnostic scalar-load mode requires an explicit --mu-eq or a caller-derived ratio"
+        )
     a_grid = parse_csv_floats(args.a_grid)
     k_grid = parse_csv_floats(args.k_grid)
     repair_args = argparse.Namespace(mu_eq=args.mu_eq, n_max=args.n_max, hold=args.hold)
@@ -100,8 +103,15 @@ def diagnostic_scalar_load(args: argparse.Namespace) -> dict[str, Any]:
             "category": "diagnostic scalar-load parent grid",
             "source": "finite scalar-load schema",
             "paper_grade": False,
+            "public_promotion_allowed": False,
+            "rho_A_over_rho_b_source": getattr(
+                args, "mu_eq_source", "explicit_input"
+            ),
+            "neutrino_input_status": getattr(
+                args, "neutrino_input_status", "unknown"
+            ),
             "notes": [
-                "The default mu_eq is the flat capacity-saturated Omega_A/Omega_b diagnostic ratio.",
+                "mu_eq is supplied explicitly or derived by the scorecard from its declared homogeneous background inputs.",
                 "This diagnostic tests the likelihood plumbing. A finite-collar derivation of the abundance is not emitted by this code path.",
                 "B_A is set to a scale-independent contrast response for interface testing.",
             ],
@@ -172,7 +182,15 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--samples-json", default=None)
     parser.add_argument("--diagnostic-scalar-load", action="store_true")
-    parser.add_argument("--mu-eq", type=float, default=DEFAULT_MU_EQ)
+    parser.add_argument(
+        "--mu-eq",
+        type=float,
+        default=None,
+        help=(
+            "Required for --diagnostic-scalar-load. No legacy flat-residual ratio "
+            "is used implicitly."
+        ),
+    )
     parser.add_argument("--B-A", type=float, default=1.0)
     parser.add_argument("--n-max", type=int, default=40)
     parser.add_argument("--hold", type=float, default=0.25)

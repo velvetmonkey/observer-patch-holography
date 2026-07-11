@@ -31,7 +31,7 @@
     "CODATA",
     "compare_only"
   ],
-  "generated_utc": "2026-06-29T10:27:30Z",
+  "generated_utc": "2026-07-11T06:46:51Z",
   "missing_for_promotion": [
     "QUARK_SIGMA_SOURCE_QUOTIENT",
     "QUARK_SIGMA_SOURCE_SELECTOR",
@@ -78,9 +78,9 @@
     "x2": -0.5175863354681689
   },
   "target_values_for_future_source_theorem": {
-    "eta_ud": 1.1388321137934274,
-    "sigma_d": 3.296264198808688,
-    "sigma_seed_ud": 4.4350963126021155,
-    "sigma_u": 5.573928426395543
+    "eta_ud": 1.139688878603012,
+    "sigma_d": 3.300314452061615,
+    "sigma_seed_ud": 4.440003330664627,
+    "sigma_u": 5.579692209267639
   }
 }

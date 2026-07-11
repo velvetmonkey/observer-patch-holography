@@ -1,6 +1,11 @@
 {
   "a_gev": 2.4617526608923523e-12,
   "artifact": "oph_intrinsic_neutrino_mass_eigenstate_bundle",
+  "ascending_mass_sq_gaps_gev2": {
+    "s1_minus_s0": 1.788985827699037e-25,
+    "s2_minus_s0": 1.0143949544256282e-24,
+    "s2_minus_s1": 8.354963716557245e-25
+  },
   "completion_scope": "intrinsic_mass_eigenstates_only",
   "cubic_invariants": {
     "P": 2.931760022551886e-49,
@@ -17,12 +22,13 @@
   "delta_m21_sq_gev2": 1.788985827699037e-25,
   "delta_m31_sq_gev2": 1.0143949544256282e-24,
   "delta_m32_sq_gev2": 8.354963716557245e-25,
+  "delta_mij_field_status": "ascending_gap_coordinates_under_declared_normal_ordering_hypothesis",
   "eta_e": {
     "psi12": 0.4458183707200445,
     "psi23": 0.07130912844682102,
     "psi31": -0.5171274991668642
   },
-  "generated_utc": "2026-03-29T09:29:19Z",
+  "generated_utc": "2026-07-11T06:24:13Z",
   "majorana_matrix_imag": [
     [
       0.0,
@@ -57,21 +63,25 @@
       2.4617526608923523e-12
     ]
   ],
+  "mass_eigenstate_label_status": "ascending_singular_states_only",
   "mass_eigenstates": [
     {
+      "ascending_index": 0,
       "mass_gev": 2.3820288435078732e-12,
       "mass_sq_gev2": 5.674061411303455e-24,
-      "state": "nu1"
+      "state": "s0"
     },
     {
+      "ascending_index": 1,
       "mass_gev": 2.4192891505715804e-12,
       "mass_sq_gev2": 5.852959994073359e-24,
-      "state": "nu2"
+      "state": "s1"
     },
     {
+      "ascending_index": 2,
       "mass_gev": 2.5862050123161317e-12,
       "mass_sq_gev2": 6.688456365729083e-24,
-      "state": "nu3"
+      "state": "s2"
     }
   ],
   "masses_gev_sorted": [
@@ -84,29 +94,52 @@
     5.852959994073359e-24,
     6.688456365729083e-24
   ],
+  "mu_e_certificate": {
+    "psi12": 0.0013874214804477558,
+    "psi23": 0.000954027990417139,
+    "psi31": 0.0005296711718162312
+  },
   "mu_e_normalized": {
-    "psi12": 0.03873422208374146,
-    "psi23": 0.026634683530340906,
-    "psi31": 0.014787432002180275
+    "psi12": 1.4497002945360173,
+    "psi23": 0.9968525629695345,
+    "psi31": 0.5534471424944483
   },
   "not_completed_items": [
-    "live_physical_scalar_certificate_if_demo_only",
-    "shared_charged_lepton_left_basis_for_pmns"
+    "source_closed_same_label_scalar_certificate",
+    "shared_charged_lepton_left_basis_for_pmns",
+    "source_derived_mass_eigenstate_label_and_ordering_rule"
   ],
   "notes": [
-    "This bundle is exact once the same-label scalar certificate is given.",
+    "This bundle computes an exact ascending singular spectrum conditional on the same-label scalar certificate.",
+    "The current certificate is numerically complete but inherits template/candidate source inputs.",
+    "Sorting does not select normal versus inverted physical mass labels; a source-side eigenstate label rule is still required.",
     "It does not by itself close PMNS or flavor-labeled neutrino rows."
   ],
   "omega": 1.7561442767905913,
-  "ordering": "normal_like_collective_dominance",
+  "ordering": "unresolved_without_mass_eigenstate_label_rule",
   "paper_export_policy": {
+    "diagnostic_singular_rows": [
+      "s0",
+      "s1",
+      "s2"
+    ],
     "flavor_rows_status": "keep_gated_until_shared_charged_lepton_left_basis_closes",
     "pmns_status": "not_formed_here",
-    "recommended_particle_rows": [
-      "nu1",
-      "nu2",
-      "nu3"
-    ]
+    "recommended_particle_rows": []
+  },
+  "physical_ordering_assignments": {
+    "inverted_ordering_hypothesis": {
+      "nu1": "s1",
+      "nu2": "s2",
+      "nu3": "s0"
+    },
+    "missing_source_object": "solar_pair_and_atmospheric_sign_eigenstate_label_rule",
+    "normal_ordering_hypothesis": {
+      "nu1": "s0",
+      "nu2": "s1",
+      "nu3": "s2"
+    },
+    "selected": null
   },
   "rho_gev": 7.615694417250985e-14,
   "row_basis_labels": [
@@ -128,40 +161,54 @@
     "psi23": 0.4734879499188133,
     "psi31": 0.9637237704217096
   },
-  "source_isotropic": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/neutrino/forward_neutrino_closure_bundle.json",
+  "source_closure_status": {
+    "closed": false,
+    "family_transport_kernel_explicit_source_closure": false,
+    "family_transport_kernel_proof_status": "conjugacy_riesz_candidate",
+    "family_transport_kernel_status": "template",
+    "missing_objects": [
+      "source_emitted_family_transport_kernel",
+      "theorem_grade_overlap_edge_line_lift"
+    ],
+    "overlap_edge_line_lift_explicit_source_closure": false,
+    "overlap_edge_line_lift_proof_status": "candidate_only"
+  },
+  "source_isotropic": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/neutrino/forward_majorana_matrix.json",
+  "source_only_physical_input_eligible": false,
   "source_scalar_certificate": "/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality/code/particles/runs/neutrino/same_label_scalar_certificate.json",
   "u_nu_imag": [
     [
-      -0.004407603353743034,
-      0.0012571804388628366,
-      0.00404832076952888
+      -0.0011298935184550511,
+      0.009340896593904439,
+      0.009503330199232033
     ],
     [
-      -1.295333292535467e-19,
-      0.0014339845078543544,
-      1.05853712582875e-16
+      -0.005198093349845636,
+      0.002008473509770035,
+      0.006097540020074538
     ],
     [
-      -0.003286837379116839,
-      1.1544134905109202e-16,
-      0.005790882859117473
+      -0.0006749297497610676,
+      -0.009000701559717597,
+      0.011079286272247876
     ]
   ],
   "u_nu_real": [
     [
-      -0.490860999841411,
-      -0.6674425090765509,
-      0.5599451576192574
+      0.4908794877291769,
+      0.6673783267951489,
+      -0.5598791433491981
     ],
     [
-      0.7784758016929949,
-      -0.04744157274726579,
-      0.6258775176040008
+      -0.7784584469623783,
+      0.047420725115312715,
+      -0.6258478146065947
     ],
     [
-      -0.39115300682195736,
-      0.7431461211892576,
-      0.5428524939532446
+      0.39116623386440147,
+      -0.7430916126629752,
+      -0.5427703141580632
     ]
-  ]
+  ],
+  "u_nu_semantics": "Takagi U satisfying U^T M U = diag(m_i) > 0"
 }

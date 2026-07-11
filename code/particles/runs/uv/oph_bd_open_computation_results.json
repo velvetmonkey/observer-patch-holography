@@ -1,18 +1,18 @@
 {
   "gauge_unification_proxy": {
     "M_SUSY_GeV": 1000.0,
-    "M_U_GeV": 1.206649766648254e+16,
-    "alpha3_pred_mZ": 0.11151131031890348,
-    "alpha_U_inverse": 26.017680752978418,
-    "delta_alpha3_inverse_needed": -0.4931239301668497,
-    "log10_MU_GeV": 16.08158123324212
+    "M_U_GeV": 1.2066484257463724e+16,
+    "alpha3_pred_mZ": 0.1115113080187738,
+    "alpha_U_inverse": 26.017681361450855,
+    "delta_alpha3_inverse_needed": -0.4931241151424704,
+    "log10_MU_GeV": 16.08158075062767
   },
   "inputs": {
     "alpha2_mz": 0.03377843630219015,
     "alpha3_reference_mz": 0.118,
     "alphaY_mz": 0.010131601067241624,
     "mH_gev": 125.1995304097179,
-    "mZ_reference_gev": 91.18797809193725,
+    "mZ_reference_gev": 91.1879,
     "mt_gev": 172.3523553288312,
     "v_gev": 246.76711732749683
   },

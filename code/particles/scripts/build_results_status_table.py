@@ -249,7 +249,8 @@ NEUTRINO_CONTINUATION_NOTE = (
     "NuFIT 6.1 gives correlated `T23/DCP` profile values `Delta chi2 = 20.11955` with the tabulated atmospheric likelihood and "
     "`18.43528` without it, above the two-parameter 3-sigma threshold `11.82916`. The candidate is rejected by the declared gate. "
     "The family kernel is a hand-written template, the exponent law followed target-ranked model selection, and the basis/orientation choices are not source-derived. "
-    "The bridge invariant, absolute attachment, and Majorana values remain compare-only. No neutrino row is eligible for prediction promotion."
+    "The historical shared-basis recovery is tautological, the stored charged basis is open and nearly singular-value degenerate, and physical mass ordering lacks a source label rule. "
+    "The source-level PMNS matrix is therefore unformed. Bridge, absolute-attachment, and Majorana values have diagnostic status only. No neutrino row is eligible for prediction promotion."
 )
 HADRON_CONTINUATION_NOTE = (
     "Source-only hadron masses are suppressed by default because they require a working OPH production backend. Empirical hadron closure values stay in a separate output class with an e+e- source registry and schema. Issues #153/#157 are closed as source-backend boundaries with empirical closure policy documented. The active hadron scaffold path is `derive_lambda_msbar_descendant.py -> "
@@ -651,9 +652,35 @@ def _neutrino_public_candidate_allowed(bundle: Dict[str, Any]) -> bool:
 def _neutrino_absolute_theorem_allowed(payload: Dict[str, Any]) -> bool:
     non_circularity = dict(payload.get("non_circularity_status") or {})
     return (
-        payload.get("status") == "theorem_grade_emitted"
+        payload.get("artifact") == "oph_neutrino_absolute_attachment_theorem"
+        and payload.get("status") == "theorem_grade_emitted"
+        and payload.get("weighted_cycle_base_eligible") is True
+        and payload.get("prediction_promotion_allowed") is True
         and payload.get("public_surface_candidate_allowed") is True
         and non_circularity.get("promotion_allowed") is True
+    )
+
+
+def _neutrino_compare_only_adapter_allowed(payload: Dict[str, Any] | None) -> bool:
+    if not payload:
+        return False
+    boundary = dict(payload.get("theorem_boundary") or {})
+    sources = dict(payload.get("source_artifacts") or {})
+    return (
+        payload.get("artifact") == "oph_neutrino_two_parameter_exact_adapter"
+        and payload.get("proof_status") == "compare_only_exact_two_parameter_continuation_adapter"
+        and payload.get("proof_chain_role") == "diagnostic_target_fit_only"
+        and payload.get("promotable") is False
+        and payload.get("must_not_feed_back") is True
+        and boundary.get("status") == "non_promotable_compare_only_segment_and_scale_inverse_adapter"
+        and all(
+            key in sources
+            for key in (
+                "same_label_scalar_certificate",
+                "overlap_edge_transport_cocycle",
+                "selector_phase_source",
+            )
+        )
     )
 
 
@@ -983,7 +1010,7 @@ def build_neutrino_oscillation_comparison_rows(surface_state: Dict[str, Any]) ->
                     err_plus=NEUTRINO_PDG_2025_NO_1SIGMA["delta_m21_sq_eV2"]["plus"],
                     err_minus=NEUTRINO_PDG_2025_NO_1SIGMA["delta_m21_sq_eV2"]["minus"],
                     unit="eV^2",
-                    note="Theorem-grade absolute solar splitting from the emitted weighted-cycle bridge rigidity and absolute attachment theorems.",
+                    note="Absolute solar splitting from a source-closed neutrino operator, physical basis/label contract, and independently derived scale attachment.",
                 ),
                 _row(
                     observable_id="delta_m32_sq_eV2",
@@ -994,11 +1021,11 @@ def build_neutrino_oscillation_comparison_rows(surface_state: Dict[str, Any]) ->
                     err_plus=NEUTRINO_PDG_2025_NO_1SIGMA["delta_m32_sq_eV2"]["plus"],
                     err_minus=NEUTRINO_PDG_2025_NO_1SIGMA["delta_m32_sq_eV2"]["minus"],
                     unit="eV^2",
-                    note="Theorem-grade absolute atmospheric splitting from the emitted weighted-cycle bridge rigidity and absolute attachment theorems.",
+                    note="Absolute atmospheric splitting from a source-closed neutrino operator, physical basis/label contract, and independently derived scale attachment.",
                 ),
             ]
         )
-    elif two_parameter_adapter:
+    elif _neutrino_compare_only_adapter_allowed(two_parameter_adapter):
         exact_dm2 = dict(two_parameter_adapter["exact_outputs"]["delta_m_sq_eV2"])
         rows.extend(
             [
@@ -1011,7 +1038,7 @@ def build_neutrino_oscillation_comparison_rows(surface_state: Dict[str, Any]) ->
                     err_plus=NEUTRINO_PDG_2025_NO_1SIGMA["delta_m21_sq_eV2"]["plus"],
                     err_minus=NEUTRINO_PDG_2025_NO_1SIGMA["delta_m21_sq_eV2"]["minus"],
                     unit="eV^2",
-                    note="Exact compare-only central solar splitting from the two-parameter positive-segment neutrino adapter; this remains non-promotable because the live theorem lane still waits on the reduced bridge-correction invariant C_nu.",
+                    note="Exact central-value reproduction from a two-parameter compare-only adapter fitted on the rejected candidate. It has no theorem or prediction status.",
                 ),
                 _row(
                     observable_id="delta_m32_sq_eV2",
@@ -1022,7 +1049,7 @@ def build_neutrino_oscillation_comparison_rows(surface_state: Dict[str, Any]) ->
                     err_plus=NEUTRINO_PDG_2025_NO_1SIGMA["delta_m32_sq_eV2"]["plus"],
                     err_minus=NEUTRINO_PDG_2025_NO_1SIGMA["delta_m32_sq_eV2"]["minus"],
                     unit="eV^2",
-                    note="Exact compare-only central atmospheric splitting from the same two-parameter positive-segment neutrino adapter; the older one-parameter atmospheric anchor remains on disk only as a narrower diagnostic slice.",
+                    note="Exact central-value reproduction from the same fitted compare-only adapter. The older one-parameter atmospheric anchor is a narrower diagnostic slice.",
                 ),
             ]
         )
@@ -1087,13 +1114,13 @@ def build_majorana_phase_surface_rows(surface_state: Dict[str, Any]) -> List[Dic
             )
         else:
             alpha21_deg, alpha31_deg = emitted
-            alpha21_note = "Canonical Takagi readout of the rejected target-informed weighted-cycle candidate. The value has comparison-only status."
-            alpha31_note = "Same rejected target-informed candidate and comparison-only status as `alpha21^(Maj)`."
+            alpha21_note = "Canonical Takagi readout from a source-closed physical neutrino and charged-basis theorem surface."
+            alpha31_note = "Same theorem surface and convention as `alpha21^(Maj)`."
             return [
                 {
                     "observable_id": "alpha21_majorana",
                     "observable": "alpha21^(Maj)",
-                    "status": "rejected_target_informed_candidate",
+                    "status": "theorem_grade",
                     "prediction_value": alpha21_deg,
                     "prediction_display": format_observable_value(alpha21_deg, "deg"),
                     "unit": "deg",
@@ -1102,7 +1129,7 @@ def build_majorana_phase_surface_rows(surface_state: Dict[str, Any]) -> List[Dic
                 {
                     "observable_id": "alpha31_majorana",
                     "observable": "alpha31^(Maj)",
-                    "status": "rejected_target_informed_candidate",
+                    "status": "theorem_grade",
                     "prediction_value": alpha31_deg,
                     "prediction_display": format_observable_value(alpha31_deg, "deg"),
                     "unit": "deg",
@@ -1112,9 +1139,8 @@ def build_majorana_phase_surface_rows(surface_state: Dict[str, Any]) -> List[Dic
 
     if theorem is None:
         alpha21_note = (
-            "Absent on the public surface, with no declaration of unphysical status. "
-            "The weighted-cycle branch emits PMNS-type observables, masses, and splittings, "
-            "with no declared public Majorana readout artifact."
+            "Absent on the public surface. The weighted-cycle artifact stores only conditional candidate "
+            "coordinates; no source-closed physical PMNS matrix or Majorana readout exists."
         )
         alpha31_note = "Same current boundary as `alpha21^(Maj)`."
     else:
@@ -1123,13 +1149,12 @@ def build_majorana_phase_surface_rows(surface_state: Dict[str, Any]) -> List[Dic
             or "The repaired weighted-cycle branch lacks an explicit representation on the closed shared basis for public Majorana promotion."
         )
         alpha21_note = (
-            "Absent on the public surface, with no declaration of unphysical status. "
-            "A canonical Takagi readout candidate exists on the repaired weighted-cycle matrix, "
-            f"with public promotion open. {blocker}"
+            "Absent on the public surface. A canonical Takagi coordinate exists only conditional on the rejected "
+            f"weighted-cycle matrix; public promotion is prohibited until a new source-closed basis and operator exist. {blocker}"
         )
         alpha31_note = (
             "Same boundary as `alpha21^(Maj)`: absent on the public surface while the weighted-cycle "
-            f"candidate remains below the public-promotion blocker. {blocker}"
+            f"candidate remains rejected and basis-open. {blocker}"
         )
 
     return [
@@ -1162,7 +1187,11 @@ def prediction_surface_for_row(row_spec: Dict[str, Any], surface_state: Dict[str
     if particle_id in {"electron", "muon", "tau"} and active.get("charged_local_candidate"):
         return "local_charged_public_candidate"
     if particle_id in {"electron_neutrino", "muon_neutrino", "tau_neutrino"}:
-        return "rejected_target_informed_neutrino_candidate"
+        return (
+            "source_closed_physical_neutrino_candidate"
+            if active.get("neutrino_local_candidate")
+            else "rejected_target_informed_neutrino_candidate"
+        )
     if particle_id in {
         "up_quark",
         "down_quark",

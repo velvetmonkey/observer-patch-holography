@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Emit the residual bridge-invariant scaffold above the closed normalizer."""
+"""Emit a conditional residual bridge-invariant diagnostic for the rejected candidate."""
 
 from __future__ import annotations
 
@@ -38,18 +38,20 @@ def build_payload(
     return {
         "artifact": "oph_neutrino_attachment_bridge_invariant_scaffold",
         "generated_utc": _timestamp(),
-        "status": "minimal_constructive_extension",
+        "status": "diagnostic_attachment_scaffold_on_rejected_candidate",
         "public_promotion_allowed": False,
-        "exact_missing_object": "oph_neutrino_attachment_bridge_invariant",
-        "closed_lower_object": normalizer.get("artifact"),
+        "exact_missing_object": "source_closed_neutrino_operator_basis_and_mass_label_contract",
+        "conditional_absolute_attachment_missing_object": "oph_neutrino_attachment_bridge_invariant",
+        "conditional_lower_object": normalizer.get("artifact"),
+        "conditional_lower_object_status": normalizer.get("status"),
         "bridge_factor_schema": bridge_candidate.get("bridge_factor_schema"),
         "residual_invariant_symbol": "B_nu",
         "exact_residual_moduli_space": "R_{>0}",
-        "no_hidden_discrete_branch": True,
-        "one_additional_positive_bridge_invariant_is_necessary_and_sufficient": True,
+        "no_hidden_discrete_branch": False,
+        "one_additional_positive_bridge_invariant_is_necessary_and_sufficient": False,
         "immediate_theorem_gate": smaller_gate,
         "contract": {
-            "must_emit": "one positive non-homogeneous residual attachment scalar B_nu or an exactly equivalent bridge invariant",
+            "must_emit": "a source-closed neutrino operator, physical basis placement, charged basis, and mass-label rule before any residual attachment scalar is considered",
             "must_imply": "lambda_nu = (m_star_eV / q_mean^p_nu) * B_nu",
             "must_not_use": [
                 "external_oscillation_anchors",
@@ -58,14 +60,14 @@ def build_payload(
             ],
         },
         "ruled_out_current_selected_point_scalar": {
-            "status": "already_internal_to_current_emitted_stack_not_the_missing_bridge_scalar",
+            "status": "already_internal_to_current_candidate_stack_not_the_missing_bridge_scalar",
             "definition": "I_nu^(wc) = 0.5 * sum_e qbar_e * |z_e(psi_wc) - 1|^2",
             "equivalent_if_edge_character_norm_closes": "I_nu^(wc) = sum_e qbar_e * (1 - cos(delta_psi_e))",
             "selected_point": "weighted_cycle_selector_psi_wc",
             "gate": bridge_candidate["bridge_interface_theorem_stack"][1]["id"],
             "type": "positive_dimensionless_scalar",
             "why_ruled_out": (
-                "The selected-point scalar is already fixed by the emitted qbar_e, psi_wc, and psi* data, so it cannot be the missing bridge-external scalar."
+                "The selected-point scalar is already fixed by the candidate qbar_e, psi_wc, and psi* data, so it cannot be an independent bridge-external scalar."
             ),
         },
         "qbar_only_collapse_status": (
@@ -90,7 +92,11 @@ def build_payload(
             "raw_edge_score_rule": defect_weighted_family["raw_edge_score_rule"],
             "mu_family_rule": "mu_e = mu_nu * exp(eta_e) / mean_f(exp(eta_f))",
         },
-        "smallest_exact_missing_object": (
+        "smallest_exact_missing_object": {
+            "name": "source_closed_neutrino_operator_basis_and_mass_label_contract",
+            "status": "open",
+        },
+        "conditional_absolute_attachment_object": (
             None if irreducibility is None else irreducibility.get("reduced_remaining_object")
         ),
         "smaller_exact_object_above_emitted_proxy": (
@@ -113,23 +119,24 @@ def build_payload(
             }
         ),
         "residual_attachment_quotient_theorem": (
-            "After fixing the closed weighted-cycle scale-free branch, the closed PMNS observables, "
-            "the scale-free masses/splittings, the D10 amplitude anchor m_star, and the closed normalized "
-            "same-label overlap-defect weight section qbar_e, the remaining absolute family is exactly "
+            "Conditional on fixing the rejected weighted-cycle coordinates, their PMNS-like readout, "
+            "scale-free masses/splittings, the D10 amplitude anchor m_star, and the source-open normalized "
+            "same-label overlap-defect weight section qbar_e, the candidate absolute family is algebraically "
             "m_i = lambda_nu * mhat_i and Delta m^2_ij = lambda_nu^2 * Delta_hat_ij with lambda_nu > 0. "
-            "Equivalently, after exact factorization through q_e = q_mean * qbar_e, the residual non-homogeneous attachment scalar can be parameterized as B_nu = lambda_nu * q_mean^p_nu / m_star_eV."
+            "Equivalently, inside that conditional ansatz the residual non-homogeneous attachment scalar can be "
+            "parameterized as B_nu = lambda_nu * q_mean^p_nu / m_star_eV. This quotient identity does not close a physical PMNS branch."
         ),
         "notes": [
-            "The normalized same-label overlap-defect weight section is already emitted below this object.",
-            "This scaffold isolates the remaining positive scalar attachment content above qbar_e and below lambda_nu.",
-            "The remaining residual quotient is exactly one-dimensional, so there is no second hidden continuous object and no hidden discrete neutrino branch on this lane.",
-            "The current attached stack does not collapse the bridge factor to a qbar-only law; the irreducibility theorem shows one positive bridge invariant remains genuinely external to that attached stack.",
-            "The selected-point scalar I_nu^(wc) is diagnostic-only on the present corpus because it is already internal to the emitted stack and therefore cannot be the missing bridge-external scalar.",
-            "The best constructive local object beneath the bridge is the defect-weighted same-label edge family, but that object still sits below the irreducible positive bridge scalar B_nu rather than replacing it.",
-            "Factoring through the best emitted residual-amplitude proxy exposes a smaller exact correction scalar C_nu, so the remaining open bridge can also be tracked as a near-unity positive factor above the live proxy.",
-            "Because that proxy is already internal to the current stack, the reduced correction invariant C_nu is now the smallest exact missing object on the lane.",
+            "The normalized same-label overlap-defect weight section inherits source-open inputs.",
+            "This scaffold isolates a conditional positive scalar quotient inside the rejected candidate.",
+            "One-dimensionality of that conditional quotient does not establish a physical branch or exclude missing discrete operator, basis, or mass-label choices.",
+            "The conditional attached-stack algebra does not collapse the bridge factor to a qbar-only law.",
+            "The selected-point scalar I_nu^(wc) is diagnostic-only because it is already internal to the candidate stack.",
+            "The defect-weighted same-label edge family is numerically complete but inherits source-open flavor inputs.",
+            "Factoring through the internal candidate proxy exposes a conditional correction scalar C_nu for debugging only.",
+            "The first physical missing object is the source-closed operator, basis, charged-basis, and mass-label contract, not C_nu.",
             "Direct C_nu auditing now induces a narrower target-containing B_nu window than the old direct bridge corridor, but that sharpening remains compare-only and does not collapse the irreducibility theorem.",
-            "The shortlist-consensus window is narrower than the primary target-containing corridor, but it remains a route-agreement diagnostic and not a theorem-grade emission of B_nu.",
+            "The shortlist-consensus window is a target-informed route-agreement diagnostic and has no theorem status.",
             "The exact remaining scalar is better parameterized as B_nu := lambda_nu * q_mean^p_nu / m_star_eV, equivalently A_nu / m_star_eV.",
         ],
     }

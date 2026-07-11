@@ -145,11 +145,14 @@ consistency, and minimality on the same low-energy branch. The photon,
 gluons, and graviton stay massless because they ride on redundancy directions
 the architecture cannot break. The broader particle table then carries the
 weak-sector comparison pair, the low-energy electromagnetic endpoint, the
-Higgs/top relation, the conditional running-quark support sector, and one neutrino branch. Charged
-leptons, direct-top comparison, hadrons, and strong CP sit around that same
-particle map as neighboring pieces of physics rather than identical kinds of
-entry. Hadrons add the strong-binding problem on top of the particle-level
-picture.
+Higgs/top relation, the conditional running-quark support sector, and a
+target-informed weighted-cycle neutrino candidate rejected by the correlated
+NuFIT 6.1 profile. The charged basis is open and has nearly degenerate singular
+values, leaving its physical PMNS matrix, mass ordering, and absolute masses
+unresolved. Charged leptons, direct-top comparison, hadrons, and strong CP sit
+around that same particle map as neighboring pieces of physics rather than
+identical kinds of entry. Hadrons add the strong-binding problem on top of the
+particle-level picture.
 
 The particle words here refer to roles explained in Chapters 12-16: color is the
 three-way strong-force bookkeeping, CKM phases describe quark mixing under the
@@ -506,8 +509,10 @@ views mutually legible without erasing their differences.
 
 The gauge quotient, charge lattice, counting chain, Yang-Mills repair gap,
 massless carriers, Lorentz geometry, the branch-qualified Einstein relation, and the
-electroweak, Higgs-top, conditional quark, and neutrino surfaces form one organized
-reconstruction.
+electroweak, Higgs-top, and conditional quark surfaces form one organized
+reconstruction. The weighted-cycle neutrino candidate sits in its failure
+ledger: NuFIT 6.1 rejects the frozen point, while the open charged basis prevents
+a physical PMNS matrix or mass spectrum.
 
 The local-ruler story is therefore a cluster of related claims rather than one
 flat table. The weak pair, charged leptons, conditional running quarks, direct-top

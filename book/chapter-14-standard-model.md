@@ -827,8 +827,11 @@ loop mismatch. The small-economy selection then picks the realized Standard
 Model quotient, the hypercharge lattice, and the color-generation count. The
 same structure keeps the photon, gluons, and graviton massless. From there the
 pixel fixed point organizes the electroweak sector, the Higgs/top relation, the
-conditional running-quark support surface, the charged-lepton story, and one
-neutrino branch.
+conditional running-quark support surface, the charged-lepton story, and a
+target-informed weighted-cycle neutrino comparison candidate rejected by the
+correlated NuFIT 6.1 profile. Its source kernel and charged basis are open, so
+physical mixing, mass ordering, Majorana phases, and absolute masses are
+unformed.
 Hadrons add the strong-binding problem on top of that particle-level picture.
 
 The sphere ladder from Chapter 3 is useful here only as a logic map. It says
@@ -865,9 +868,11 @@ time.
 The fine-structure constant belongs here beside the weak sector. It is the
 local electromagnetic width of the observer-supporting pixel. From there the
 same construction continues into the weak sector, the Higgs/top relation, the
-conditional running-quark support sector, and one neutrino branch. Hadrons come later, because
-protons and mesons are bound states of quarks and gluons. Their masses live in
-the strong-binding problem, not in the bare quark table.
+conditional running-quark support sector. The weighted-cycle neutrino entry is
+a target-informed comparison candidate rejected by the correlated NuFIT 6.1
+profile, with no physical prediction status. Hadrons come later, because protons
+and mesons are bound states of quarks and gluons. Their masses live in the
+strong-binding problem, not in the bare quark table.
 
 For that reason, a laboratory observer does not measure the undressed source
 diagnostic as the fine-structure constant. A low-energy electromagnetic
@@ -1069,9 +1074,12 @@ The framework accounts for several concrete facts.
 **The particle structure.** Section 14.14 gives the concrete structure. The
 framework fixes the massless carriers. It then organizes the fine-structure
 fixed point, the weak-boson benchmark pair, a Higgs/top relation, a conditional
-six-quark running-mass support surface with Yukawas, and one neutrino branch
-with definite masses and Majorana phases. Charged leptons, direct-top comparison, hadrons, and strong
-CP sit around that same map with different levels of support.
+six-quark running-mass support surface with Yukawas, and a target-informed
+weighted-cycle neutrino candidate rejected by the correlated NuFIT 6.1 profile.
+The charged-lepton basis is open and has nearly degenerate singular values, so
+the physical PMNS matrix is unformed. Neutrino mass ordering, Majorana phases,
+and absolute masses are unresolved. Charged leptons, direct-top comparison,
+hadrons, and strong CP sit around that same map with different levels of support.
 
 The reason these numbers belong in one chapter is that the framework organizes
 them with one local fixed-point structure. The same pixel ratio feeds the
@@ -1166,10 +1174,13 @@ ultraviolet consistency.
 
 The result is concrete. The book points to a specific gauge
 structure, charge pattern, color count, and generation count. It also reaches
-the massless carriers, the $W$ and $Z$ benchmark pair, a Higgs/top quantitative relation, one
-weighted-cycle neutrino branch, and a conditional running-quark support sector
-on a chosen physical basis. Strongly coupled bound states add the QCD problem on top of
-that particle-level structure.
+the massless carriers, the $W$ and $Z$ benchmark pair, a Higgs/top quantitative
+relation, and a conditional running-quark support sector on a chosen physical
+basis. The weighted-cycle neutrino point belongs to the comparison ledger:
+NuFIT 6.1 rejects it. The charged basis is open and has nearly degenerate
+singular values, leaving physical mixing, mass ordering, and absolute masses
+unresolved. Strongly coupled bound states add the QCD problem on top of that
+particle-level structure.
 
 Particles emerge from the screen as stable patterns that transform under emergent symmetries. The natural sequel is spacetime itself. If the particle inventory is fixed by consistency, can geometry be fixed the same way?
 

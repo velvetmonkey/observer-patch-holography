@@ -34,4 +34,4 @@ def test_current_family_end_to_end_exact_pdg_chain_closes() -> None:
     masses = payload["exact_running_values_gev"]
     assert abs(float(masses["u"]) - 0.00216) < 1.0e-12
     assert abs(float(masses["d"]) - 0.0047) < 1.0e-12
-    assert abs(float(masses["b"]) - 4.183) < 1.0e-12
+    assert abs(float(masses["b"]) - 4.186) < 1.0e-12

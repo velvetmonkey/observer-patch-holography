@@ -76,7 +76,7 @@ def orchestrated_bundle():
     return bundle
 
 
-def test_two_phase_orchestration_builds_catalog_once_and_verifies_qpy(
+def test_two_phase_orchestration_builds_catalog_once_and_verifies_logical_hashes(
     orchestrated_bundle,
 ) -> None:
     public, reveal, analysis = orchestrated_bundle
