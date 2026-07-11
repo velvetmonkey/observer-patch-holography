@@ -44,8 +44,10 @@ that survive refinement. The public world is what remains stable after those
 local views are made mutually consistent. OPH simulation language names this
 self-consistent observer network at the operating level.
 The case for OPH is mathematical and empirical: the same
-observer-consistency architecture recovers established physics and explains why
-a world exists that can produce observers capable of reconstructing it.
+observer-consistency architecture is proposed to recover established physics.
+Its further account of why a self-consistent world exists and can produce
+observers capable of reconstructing it is an interpretation outside the
+recovered theorem package.
 
 In the paper stack, an observer patch means an abstract algebraic object with
 accessible algebra, state, record algebra, visible overlap interfaces, repair
@@ -92,8 +94,11 @@ overlap-visible data, reject inconsistent continuations, and keep the stable
 patterns that can be synchronized. Geometry, particles, laws, and records are
 the large-scale fixed points of that observer-network computation.
 
-OPH is formulated as a zero-input theory. Quantitatively, the public rows are
-organized by three internal quantities: a local pixel fixed point $P_\star$, a
+OPH is formulated as a zero-input theory. The term concerns numerical
+provenance: no measured target or fitted numerical constant may enter a
+declared source map. The quantum-algebraic axioms and the $S^2$ screen remain
+explicit premises. Quantitatively, the public rows are organized by three
+internal quantities: a local pixel fixed point $P_\star$, a
 global record-capacity fixed point $N_{\mathrm{CRC}}$, and a scale-setting
 ratio $\gamma_\star$. The source coordinates are not fitted constants.
 Measurements can tell us which branch we are on, but source values must come
@@ -256,7 +261,7 @@ exact hypercharge, $N_c=3$, and $N_g=3$ live in the papers.
 | --- | --- | --- | --- | --- |
 | Gravitational constant | G | 6.6742999959e-11, scale/clock display | 6.67430(15)e-11 | 0.00003σ |
 | Speed of light | c | structural Lorentz speed; SI value conventional | 299792458 exact by definition | not a numeric prediction |
-| Fine-structure (inv) | $A_{\alpha_U}^{\mathrm{fp}}=\alpha_{\mathrm{root}}^{-1}+\alpha_U(P_\star)$ | source-side OPH no-hadron prediction 137.03595950081728; root-only audit trunk 136.99483516462165 | 137.035999177(21) | open same-scheme QCD/hadronic endpoint correction: 0.00003967618 inverse-alpha units, about 2.9e-7 relative |
+| Fine-structure (inv) | $A_{\alpha_U}^{\mathrm{fp}}=\alpha_{\mathrm{root}}^{-1}+\alpha_U(P_C)$ | mixed-provenance no-hadron comparison diagnostic 137.03595950081728; source-only root audit trunk 136.99483516462165; $P_C$ is the CODATA comparison pixel | 137.035999177(21) | CODATA-minus-diagnostic bookkeeping gap: 0.00003967618 inverse-alpha units; source-only promotion still requires the same-scheme OPH-QCD/hadronic endpoint backend |
 | Higgs boson | $m_H$ | 125.1995304097179 GeV, conditional repair-gate surface candidate | 125.20 ± 0.11 GeV | conditional target-free repair-gate row |
 | Photon mass | m_γ | 0 GeV, structural zero | <1e-18 eV | below bound |
 | Gluon mass | m_g | 0 GeV, structural zero | no isolated free-gluon mass row | confined gauge carrier |
@@ -281,7 +286,7 @@ papers that carry the core theorem surface.
 - **Paper 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)**: particle-sector derivation and audit surface. It carries the \(P_\star\)-driven particle reconstruction, structural carriers, the Borel-Weil one-Higgs carrier bridge, electroweak/Higgs/top, quark, charged-lepton, neutrino, and hadron lanes, quantitative benchmark checks, and conditional record-worldline stitching.
 - **Paper 4. [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf)**: finite patch-net consensus mechanics. It proves how local observers compare overlap records, apply repair moves, handle defects, and converge to quotient normal forms when the fixed-cutoff assumptions hold. The consensus result stops at quotient normal forms; Lorentzian and Einstein geometry enter through the separate geometric branch in the compact paper. The repair operator is stated on the physical quotient, repaired readouts are invariant under hidden implementation choices, a finite layered carrier witnesses boundary reconstruction, and a finite binary audit fixture gives sharp positive/negative repair and boundary-reconstruction tests.
 - **Paper 5. [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf)**: finite carrier and observer-record surface. It gives the echosahedral multi-port patch-carrier architecture, twelve-port screen-sieve theorem, edge-center scalar-slot completeness, the finite scalar channel bridge, the quotient-edge \(Z_6\) reserve and finite-thickness scalar coefficient gates, $A_5$-icosahedral and $E_8$-type symmetry framing, public hardware-evidence rules, records, recovery moves, checkpoint restoration, and observer synchronization.
-- **Paper 6. [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf)**: meaning-layer synthesis. It reads the same OPH machinery as a theory of observer continuation, paradise and hell as continuation environments, resurrection as record-preserving continuation, justice as harm-and-repair bookkeeping, and the strange loop in which observers reverse engineer and build continuation machinery.
+- **Paper 6. [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf)**: speculative meaning-layer synthesis outside the recovered physics theorem package. It reads the same OPH machinery as a theory of observer continuation, paradise and hell as continuation environments, resurrection as record-preserving continuation, justice as harm-and-repair bookkeeping, and a strange loop in which observers reverse engineer and build continuation machinery.
 
 ## Supplemental Papers And Notes
 

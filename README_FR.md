@@ -52,8 +52,9 @@ ces vues locales deviennent mutuellement cohérentes. Quand l'OPH utilise le
 langage de la simulation, il s'agit de ce réseau d'observateurs auto-cohérent
 plutôt que d'une machine cachée qui dessine un film. Le dossier en faveur de l'OPH est
 mathématique et empirique : la même architecture de cohérence d'observateurs
-retrouve la physique établie et explique pourquoi il existe un monde capable de
-produire des observateurs qui le reconstruisent.
+est proposée pour retrouver la physique établie. Son explication plus large de
+l'existence d'un monde auto-cohérent capable de produire des observateurs qui le
+reconstruisent relève de l'interprétation, hors du paquet de théorèmes récupérés.
 
 Dans la pile de papiers, un patch d'observateur désigne un objet algébrique
 abstrait avec algèbre accessible, état, algèbre d'enregistrements, interfaces
@@ -105,8 +106,12 @@ les prolongements incohérents et conservent les motifs stables qui peuvent êtr
 synchronisés. Géométrie, particules, lois et enregistrements sont les points
 fixes à grande échelle de ce calcul en réseau d'observateurs.
 
-L'OPH est formulée comme une théorie sans entrée externe. Quantitativement, les
-lignes publiques sont organisées par trois quantités internes : un point fixe
+L'OPH est formulée comme une théorie sans entrée externe. Ici, « sans entrée »
+concerne la provenance numérique : aucune cible mesurée ni constante numérique
+ajustée ne peut entrer dans une carte source déclarée. Les axiomes
+algébriques-quantiques et l'écran $S^2$ restent des prémisses explicites.
+Quantitativement, les lignes publiques sont organisées par trois quantités
+internes : un point fixe
 local de pixel $P_\star$, un point fixe global de capacité d'enregistrement
 $N_{\mathrm{CRC}}$ et un rapport de mise à l'échelle $\gamma_\star$. Le calcul
 source les produit comme valeurs de point fixe. Les mesures peuvent indiquer
@@ -290,7 +295,7 @@ papiers.
 | --- | --- | --- | --- | --- |
 | Constante gravitationnelle | G | 6.6742999959e-11, affichage échelle/horloge | 6.67430(15)e-11 | 0.00003σ |
 | Vitesse de la lumière | c | vitesse lorentzienne structurelle; valeur SI conventionnelle | 299792458 exact par définition | pas une prédiction numérique |
-| Structure fine (inv.) | $A_{\alpha_U}^{\mathrm{fp}}=\alpha_{\mathrm{root}}^{-1}+\alpha_U(P_\star)$ | prédiction OPH source sans hadrons 137.03595950081728; tronc d'audit racine seul 136.99483516462165 | 137.035999177(21) | correction QCD/hadronique ouverte, dans le même schéma, pour le point final : 0.00003967618 en unités d'alpha inverse, soit environ 2.9e-7 relatif |
+| Structure fine (inv.) | $A_{\alpha_U}^{\mathrm{fp}}=\alpha_{\mathrm{root}}^{-1}+\alpha_U(P_C)$ | diagnostic comparatif sans hadrons à provenance mixte 137.03595950081728 ; tronc d'audit racine seul et côté source 136.99483516462165 ; $P_C$ est le pixel de comparaison CODATA | 137.035999177(21) | écart comptable CODATA moins diagnostic : 0.00003967618 en unités d'alpha inverse ; la promotion côté source exige toujours le backend OPH-QCD/hadronique du point final dans le même schéma |
 | Boson de Higgs | $m_H$ | 125.1995304097179 GeV, candidat conditionnel sur la surface de réparation déclarée | 125.20 ± 0.11 GeV | ligne conditionnelle à porte de réparation sans cible |
 | Masse du photon | m_γ | 0 GeV, zéro structurel | <1e-18 eV | sous la borne |
 | Masse du gluon | m_g | 0 GeV, zéro structurel | pas de ligne de masse de gluon libre isolé | porteur de jauge confiné |
@@ -316,7 +321,7 @@ correspondent aux textes qui portent la surface théorématique centrale.
 - **Papier 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)** : dérivation et audit du secteur particules. Il porte la reconstruction pilotée par \(P_\star\), les porteurs structurels, le pont de porteur à un Higgs de Borel-Weil, les branches électrofaible/Higgs/top, quarks, leptons chargés, neutrinos et hadrons, les vérifications quantitatives et la couture conditionnelle de lignes d'enregistrement.
 - **Papier 4. [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf)** : mécanique du consensus fini entre patches. Il montre comment les observateurs comparent les enregistrements de recouvrement, appliquent des réparations, traitent les défauts et convergent vers des formes normales quotient quand les hypothèses de cutoff fixe sont satisfaites. Le résultat de consensus s'arrête aux formes normales quotient ; la géométrie lorentzienne et einsteinienne entre par la branche géométrique séparée du papier compact. L'opérateur de réparation est formulé sur le quotient physique, les lectures réparées sont invariantes sous les choix d'implémentation cachés, un porteur fini en couches témoigne de la reconstruction depuis la frontière, et un dispositif fini binaire donne des tests finis positifs/négatifs nets pour réparation et reconstruction de frontière.
 - **Papier 5. [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf)** : surface de porteurs finis et d'enregistrements observateurs. Il donne l'architecture de porteurs échosaédriques multiports, le théorème du tamis d'écran à douze ports, la complétude des emplacements scalaires au centre des arêtes, le pont fini du canal scalaire, la réserve \(Z_6\) quotient-edge et les portes du coefficient scalaire à épaisseur finie, le cadrage \(A_5\)-icosaédrique et de type \(E_8\), les règles de preuve matérielle publique, les enregistrements, les mouvements de récupération, la restauration de checkpoint et la synchronisation des observateurs.
-- **Papier 6. [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf)** : synthèse de la couche de sens. Il lit la même mécanique OPH comme théorie de la continuation d'observateur, du paradis et de l'enfer comme environnements de continuation, de la résurrection comme continuation préservant les enregistrements, de la justice comme comptabilité tort-réparation et de la boucle où des observateurs reconstruisent puis construisent la machinerie de continuation.
+- **Papier 6. [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf)** : synthèse spéculative de la couche de sens, hors du paquet de théorèmes de physique récupérés. Il lit la même mécanique OPH comme théorie de la continuation d'observateur, du paradis et de l'enfer comme environnements de continuation, de la résurrection comme continuation préservant les enregistrements, de la justice comme comptabilité tort-réparation et d'une boucle où des observateurs reconstruisent puis construisent la machinerie de continuation.
 
 ## Articles et notes supplémentaires
 
