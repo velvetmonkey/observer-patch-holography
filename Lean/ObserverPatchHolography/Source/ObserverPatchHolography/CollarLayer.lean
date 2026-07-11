@@ -787,4 +787,365 @@ theorem collarClause_not_channel_determined :
 #print axioms exists_integral_nonunital_idempotent
 #print axioms collarClause_not_channel_determined
 
+/-! ## Equivariant-universal no-go (#544): closure under ANY fixed
+equivariant channel family cannot force the clause
+
+The no-gos above kill the concrete algebraic forcing routes one at a time.
+This section proves the universal statement over an honestly-statable
+channel class: the **equivariant channels** — additive, unital,
+`Ad(K̂_Σ)`-equivariant endomorphisms. The class is defined FIRST,
+witness-free (it references only the boundary charge `uu`, never the
+refuting coupling or centrality), and is a genuine algebraic shadow of the
+framework's admissible coarse-grainings (gauge covariance and linearity are
+uncontroversial admissibility requirements; positivity/trace-preservation
+are the state-side residue).
+
+**The two halves of the dimension count** ("invariant sector has rank 8,
+the clause-compliant sector only rank 4"), each *proven*, not asserted:
+
+* `closure_E8_eq_invariantPart` — the eight even matrix units `E8` span
+  the invariant sector `V₊` exactly (both inclusions; the ⊇ direction is
+  the load-bearing decomposition: an invariant matrix has vanishing odd
+  entries and is an integer combination of the even units).
+* `collarClause_family_misses_invariant_unit` — every clause-compliant
+  retained family lies inside the kernel of the `((0,1),(1,0))` entry
+  functional (one-sided elements and flux elements all vanish there), so
+  it can never reach the invariant unit `E0110`; hence
+  (`collarClause_family_not_spanning`) no clause-compliant family spans
+  the invariant sector. This is the `8 > 4` separation in ℤ-module form.
+
+**The universal no-go** (`equivariant_closure_cannot_force`): for EVERY
+family `C` of equivariant channels simultaneously, the full
+invariant-sector family `E8` is a legal `RetainedFamily` with
+`refineChannels = C` — equivariance forces each channel to preserve the
+invariant sector, which `E8` spans, so refinement closure holds — and it
+violates the collar clause (`E0110` is cross-cut and not a flux term). So
+closure under a fixed equivariant channel family, no matter which, cannot
+exclude non-central cross-cut couplings. (Unitality is not even needed by
+the proof; the result covers the wider non-unital equivariant class.)
+
+**Honest scope (non-negotiable).** This is a no-go over the *equivariant*
+class — a genuine algebraic channel class, but NOT the full admissible
+class. The universal over all admissible channels remains the state-side
+meta-boundary (branch selection, relative entropy, I-projections); this
+brick does not touch it, and issue #544 stays open. -/
+
+/-- The equivariant channel class, stated first and witness-free: additive
+    endomorphisms that are unital and `Ad(K̂_Σ)`-equivariant. References
+    only the boundary charge; never the refuting coupling, never
+    centrality. -/
+def IsEquivariantChannel (Φ : CollarM →+ CollarM) : Prop :=
+  Φ 1 = 1 ∧ ∀ m : CollarM, Φ (uu * m * uu) = uu * Φ m * uu
+
+/-- The invariant sector `V₊`: fixed points of conjugation by the boundary
+    charge. An additive subgroup. -/
+def InvariantPart : AddSubgroup CollarM where
+  carrier := {m | uu * m * uu = m}
+  zero_mem' := by
+    show uu * 0 * uu = 0
+    rw [mul_zero, zero_mul]
+  add_mem' := fun {a b} ha hb => by
+    show uu * (a + b) * uu = a + b
+    rw [mul_add, add_mul, show uu * a * uu = a from ha, show uu * b * uu = b from hb]
+  neg_mem' := fun {a} ha => by
+    show uu * -a * uu = -a
+    rw [mul_neg, neg_mul, show uu * a * uu = a from ha]
+
+theorem mem_invariantPart {m : CollarM} :
+    m ∈ InvariantPart ↔ uu * m * uu = m := Iff.rfl
+
+/-- Equivariance forces every channel to preserve the invariant sector. -/
+theorem IsEquivariantChannel.maps_invariant {Φ : CollarM →+ CollarM}
+    (hΦ : IsEquivariantChannel Φ) {m : CollarM} (hm : m ∈ InvariantPart) :
+    Φ m ∈ InvariantPart := by
+  rw [mem_invariantPart] at hm ⊢
+  rw [← hΦ.2 m, hm]
+
+/-- The eight even matrix units, indexed by pairs of equal parity — the
+    integer basis of the invariant sector. -/
+private def eUnit (I J : Fin 2 × Fin 2) : CollarM := Matrix.single I J 1
+
+def E8 : Finset CollarM :=
+  { eUnit ((0 : Fin 2), (0 : Fin 2)) ((0 : Fin 2), (0 : Fin 2)),
+    eUnit ((0 : Fin 2), (0 : Fin 2)) ((1 : Fin 2), (1 : Fin 2)),
+    eUnit ((1 : Fin 2), (1 : Fin 2)) ((0 : Fin 2), (0 : Fin 2)),
+    eUnit ((1 : Fin 2), (1 : Fin 2)) ((1 : Fin 2), (1 : Fin 2)),
+    eUnit ((0 : Fin 2), (1 : Fin 2)) ((0 : Fin 2), (1 : Fin 2)),
+    eUnit ((0 : Fin 2), (1 : Fin 2)) ((1 : Fin 2), (0 : Fin 2)),
+    eUnit ((1 : Fin 2), (0 : Fin 2)) ((0 : Fin 2), (1 : Fin 2)),
+    eUnit ((1 : Fin 2), (0 : Fin 2)) ((1 : Fin 2), (0 : Fin 2)) }
+
+/-- The invariant unit that clause-compliant families provably miss. -/
+def E0110 : CollarM := eUnit ((0 : Fin 2), (1 : Fin 2)) ((1 : Fin 2), (0 : Fin 2))
+
+theorem E8_subset_invariant : ∀ e ∈ E8, e ∈ InvariantPart := by
+  intro e he
+  fin_cases he <;> (rw [mem_invariantPart]; decide)
+
+/-! ### The spanning half: `closure E8 = V₊` -/
+
+private theorem cast_mul_apply (c : ℤ) (M : CollarM) (i j : Fin 2 × Fin 2) :
+    ((c : CollarM) * M) i j = c * M i j := by
+  rw [Matrix.mul_apply, Finset.sum_eq_single i]
+  · rw [Matrix.intCast_apply, if_pos rfl, Int.cast_id]
+  · intro k _ hk
+    rw [Matrix.intCast_apply, if_neg fun h => hk h.symm, Int.cast_zero, zero_mul]
+  · intro h
+    exact absurd (Finset.mem_univ _) h
+
+/-- Additive subgroups are closed under integer-cast left multiplication —
+    proved by integer induction, deliberately avoiding the `ℤ`-scalar
+    action (no smul instances involved). -/
+private theorem cast_mul_mem {H : AddSubgroup CollarM} {e : CollarM}
+    (he : e ∈ H) : ∀ c : ℤ, (c : CollarM) * e ∈ H := by
+  intro c
+  induction c using Int.induction_on with
+  | zero => rw [Int.cast_zero, zero_mul]; exact zero_mem H
+  | succ n ih =>
+    rw [Int.cast_add, Int.cast_one, add_mul, one_mul]
+    exact add_mem ih he
+  | pred n ih =>
+    rw [Int.cast_sub, Int.cast_one, sub_mul, one_mul]
+    exact sub_mem ih he
+
+private theorem single_eq_cast_mul (I J : Fin 2 × Fin 2) (c : ℤ) :
+    Matrix.single I J c = (c : CollarM) * Matrix.single I J 1 := by
+  ext i j
+  rw [cast_mul_apply]
+  by_cases h : I = i ∧ J = j
+  · obtain ⟨rfl, rfl⟩ := h
+    rw [Matrix.single_apply_same, Matrix.single_apply_same, mul_one]
+  · rw [Matrix.single_apply_of_ne _ _ _ _ _ h, Matrix.single_apply_of_ne _ _ _ _ _ h,
+      mul_zero]
+
+/-- Conjugation by the diagonal boundary charge acts entrywise. -/
+private theorem conj_uu_apply (m : CollarM) (I J : Fin 2 × Fin 2) :
+    (uu * m * uu) I J = uu I I * m I J * uu J J := by
+  rw [Matrix.mul_apply, Finset.sum_eq_single J]
+  · rw [Matrix.mul_apply, Finset.sum_eq_single I]
+    · intro k _ hk
+      rw [uu_diagonal I k fun h => hk h.symm, zero_mul]
+    · intro h
+      exact absurd (Finset.mem_univ _) h
+  · intro k _ hk
+    rw [uu_diagonal k J hk, mul_zero]
+  · intro h
+    exact absurd (Finset.mem_univ _) h
+
+/-- Invariant matrices have vanishing odd entries. -/
+private theorem invariant_entry_zero {m : CollarM} (hm : uu * m * uu = m)
+    {I J : Fin 2 × Fin 2} (hodd : uu I I * uu J J = -1) : m I J = 0 := by
+  have h := congrFun (congrFun hm I) J
+  rw [conj_uu_apply] at h
+  have h2 : (-1 : ℤ) * m I J = m I J := by
+    calc (-1 : ℤ) * m I J = uu I I * uu J J * m I J := by rw [hodd]
+      _ = uu I I * m I J * uu J J := by ring
+      _ = m I J := h
+  rw [neg_one_mul] at h2
+  omega
+
+/-- **Spanning, ⊇ direction (load-bearing):** every invariant matrix is an
+    integer combination of the eight even units. -/
+private theorem invariant_mem_closure_E8 {m : CollarM} (hm : uu * m * uu = m) :
+    m ∈ AddSubgroup.closure (E8 : Set CollarM) := by
+  rw [Matrix.matrix_eq_sum_single m]
+  apply sum_mem
+  intro I _
+  apply sum_mem
+  intro J _
+  rw [single_eq_cast_mul]
+  by_cases hpar : uu I I * uu J J = -1
+  · rw [invariant_entry_zero hm hpar, Int.cast_zero, zero_mul]
+    exact zero_mem _
+  · apply cast_mul_mem
+    apply AddSubgroup.subset_closure
+    rw [Finset.mem_coe]
+    fin_cases I <;> fin_cases J <;>
+      first
+        | exact absurd (by decide) hpar
+        | decide
+
+theorem closure_E8_le_invariantPart :
+    AddSubgroup.closure (E8 : Set CollarM) ≤ InvariantPart := by
+  rw [AddSubgroup.closure_le]
+  intro e he
+  exact E8_subset_invariant e (Finset.mem_coe.mp he)
+
+/-- **The rank-8 half, proven:** the even units span the invariant sector
+    exactly. -/
+theorem closure_E8_eq_invariantPart :
+    AddSubgroup.closure (E8 : Set CollarM) = InvariantPart :=
+  le_antisymm closure_E8_le_invariantPart fun _ hm => invariant_mem_closure_E8 hm
+
+/-! ### The separation half: clause-compliant families miss `E0110` -/
+
+private theorem K_le_diagonal : modelLayer.K ≤ diagonalSubring := by
+  rw [Subring.closure_le]
+  intro g hg
+  rw [Set.mem_singleton_iff] at hg
+  subst hg
+  exact uu_diagonal
+
+/-- The kernel of the `((0,1),(1,0))` entry functional. -/
+private def entryKer : AddSubgroup CollarM where
+  carrier := {m | m ((0 : Fin 2), (1 : Fin 2)) ((1 : Fin 2), (0 : Fin 2)) = 0}
+  zero_mem' := Matrix.zero_apply _ _
+  add_mem' := fun {a b} ha hb => by
+    show (a + b) ((0 : Fin 2), (1 : Fin 2)) ((1 : Fin 2), (0 : Fin 2)) = 0
+    rw [Matrix.add_apply,
+      show a ((0 : Fin 2), (1 : Fin 2)) ((1 : Fin 2), (0 : Fin 2)) = 0 from ha,
+      show b ((0 : Fin 2), (1 : Fin 2)) ((1 : Fin 2), (0 : Fin 2)) = 0 from hb, add_zero]
+  neg_mem' := fun {a} ha => by
+    show (-a) ((0 : Fin 2), (1 : Fin 2)) ((1 : Fin 2), (0 : Fin 2)) = 0
+    rw [Matrix.neg_apply,
+      show a ((0 : Fin 2), (1 : Fin 2)) ((1 : Fin 2), (0 : Fin 2)) = 0 from ha, neg_zero]
+
+/-- **The rank-4 half, proven as a separation:** every retained density of
+    a clause-compliant family vanishes at the `((0,1),(1,0))` entry
+    (one-sided elements and flux elements all do), so the family's span
+    never contains the invariant unit `E0110`. -/
+theorem collarClause_family_misses_invariant_unit
+    (F : RetainedFamily modelLayer) (h : CollarClause modelLayer F) :
+    E0110 ∉ AddSubgroup.closure (F.densities : Set CollarM) := by
+  have hker : AddSubgroup.closure (F.densities : Set CollarM) ≤ entryKer := by
+    rw [AddSubgroup.closure_le]
+    intro d hd
+    rw [Finset.mem_coe] at hd
+    rcases Classical.em (modelLayer.CrossCut d) with hcc | hcc
+    · obtain ⟨hK, -⟩ := (h d hd).1 hcc
+      exact K_le_diagonal hK ((0 : Fin 2), (1 : Fin 2)) ((1 : Fin 2), (0 : Fin 2))
+        (by decide)
+    · obtain ⟨-, hos⟩ := (h d hd).2 hcc
+      rcases hos with ⟨mm, rfl⟩ | ⟨nn, rfl⟩
+      · show mm 0 1 * (1 : Matrix (Fin 2) (Fin 2) ℤ) 1 0 = 0
+        rw [show (1 : Matrix (Fin 2) (Fin 2) ℤ) 1 0 = 0 by decide, mul_zero]
+      · show (1 : Matrix (Fin 2) (Fin 2) ℤ) 0 1 * nn 1 0 = 0
+        rw [show (1 : Matrix (Fin 2) (Fin 2) ℤ) 0 1 = 0 by decide, zero_mul]
+  intro hmem
+  have h0 : E0110 ((0 : Fin 2), (1 : Fin 2)) ((1 : Fin 2), (0 : Fin 2)) = 0 := hker hmem
+  exact absurd h0 (by decide)
+
+/-- Clause-compliant families never span the invariant sector: the `8 > 4`
+    conclusion. -/
+theorem collarClause_family_not_spanning
+    (F : RetainedFamily modelLayer) (h : CollarClause modelLayer F) :
+    AddSubgroup.closure (F.densities : Set CollarM) ≠ InvariantPart := by
+  intro heq
+  apply collarClause_family_misses_invariant_unit F h
+  rw [heq, mem_invariantPart]
+  decide
+
+/-! ### The universal no-go -/
+
+private theorem E0110_notMem_ML : E0110 ∉ modelLayer.ML := by
+  rintro ⟨m, hm⟩
+  have h1 : m 0 1 * 0 = 1 :=
+    congrFun (congrFun hm ((0 : Fin 2), (1 : Fin 2))) ((1 : Fin 2), (0 : Fin 2))
+  rw [mul_zero] at h1
+  exact absurd h1 (by decide)
+
+private theorem E0110_notMem_MR : E0110 ∉ modelLayer.MR := by
+  rintro ⟨n, hn⟩
+  have h1 : 0 * n 1 0 = 1 :=
+    congrFun (congrFun hn ((0 : Fin 2), (1 : Fin 2))) ((1 : Fin 2), (0 : Fin 2))
+  rw [zero_mul] at h1
+  exact absurd h1 (by decide)
+
+theorem E0110_crossCut : modelLayer.CrossCut E0110 := by
+  rintro (h | h)
+  · exact E0110_notMem_ML h
+  · exact E0110_notMem_MR h
+
+theorem E0110_notMem_flux : E0110 ∉ modelLayer.Flux := by
+  rintro ⟨hK, -⟩
+  exact absurd
+    (K_le_diagonal hK ((0 : Fin 2), (1 : Fin 2)) ((1 : Fin 2), (0 : Fin 2)) (by decide))
+    (by decide)
+
+/-- **THEOREM (equivariant-universal no-go).** For EVERY family of
+    equivariant channels simultaneously, there is a legal retained family —
+    the full invariant sector `E8` — that is refinement-closed under all of
+    them and violates the collar clause. Closure under a fixed equivariant
+    channel family, no matter which, cannot force the clause. (The proof
+    uses only equivariance, not unitality, so the wider non-unital
+    equivariant class is covered too.) Honest scope: this quantifies over
+    the equivariant class only; the universal over all admissible channels
+    remains the state-side meta-boundary, untouched here. -/
+theorem equivariant_closure_cannot_force
+    (C : Set (CollarM →+ CollarM)) (hC : ∀ Φ ∈ C, IsEquivariantChannel Φ) :
+    ∃ F : RetainedFamily modelLayer,
+      F.refineChannels = C ∧ ¬ CollarClause modelLayer F := by
+  refine ⟨⟨E8, ?_, ?_, C, ?_⟩, rfl, ?_⟩
+  · -- gauge invariance: even units commute with the boundary algebra
+    intro d hd
+    apply invariant_of_comm_uu
+    have hinv : uu * d * uu = d := E8_subset_invariant d hd
+    have h1 : uu * d * uu * uu = d * uu := by rw [hinv]
+    rw [mul_assoc (uu * d) uu uu, uu_mul_uu, mul_one] at h1
+    exact h1
+  · -- collar support: each even unit is a product of one-sided units
+    intro d hd
+    fin_cases hd
+    · have h : eUnit ((0 : Fin 2), (0 : Fin 2)) ((0 : Fin 2), (0 : Fin 2))
+          = kronLeft (Matrix.single 0 0 1) * kronRight (Matrix.single 0 0 1) := by decide
+      rw [h]
+      exact mul_mem (Subring.subset_closure (Or.inl ⟨_, rfl⟩))
+        (Subring.subset_closure (Or.inr ⟨_, rfl⟩))
+    · have h : eUnit ((0 : Fin 2), (0 : Fin 2)) ((1 : Fin 2), (1 : Fin 2))
+          = kronLeft (Matrix.single 0 1 1) * kronRight (Matrix.single 0 1 1) := by decide
+      rw [h]
+      exact mul_mem (Subring.subset_closure (Or.inl ⟨_, rfl⟩))
+        (Subring.subset_closure (Or.inr ⟨_, rfl⟩))
+    · have h : eUnit ((1 : Fin 2), (1 : Fin 2)) ((0 : Fin 2), (0 : Fin 2))
+          = kronLeft (Matrix.single 1 0 1) * kronRight (Matrix.single 1 0 1) := by decide
+      rw [h]
+      exact mul_mem (Subring.subset_closure (Or.inl ⟨_, rfl⟩))
+        (Subring.subset_closure (Or.inr ⟨_, rfl⟩))
+    · have h : eUnit ((1 : Fin 2), (1 : Fin 2)) ((1 : Fin 2), (1 : Fin 2))
+          = kronLeft (Matrix.single 1 1 1) * kronRight (Matrix.single 1 1 1) := by decide
+      rw [h]
+      exact mul_mem (Subring.subset_closure (Or.inl ⟨_, rfl⟩))
+        (Subring.subset_closure (Or.inr ⟨_, rfl⟩))
+    · have h : eUnit ((0 : Fin 2), (1 : Fin 2)) ((0 : Fin 2), (1 : Fin 2))
+          = kronLeft (Matrix.single 0 0 1) * kronRight (Matrix.single 1 1 1) := by decide
+      rw [h]
+      exact mul_mem (Subring.subset_closure (Or.inl ⟨_, rfl⟩))
+        (Subring.subset_closure (Or.inr ⟨_, rfl⟩))
+    · have h : eUnit ((0 : Fin 2), (1 : Fin 2)) ((1 : Fin 2), (0 : Fin 2))
+          = kronLeft (Matrix.single 0 1 1) * kronRight (Matrix.single 1 0 1) := by decide
+      rw [h]
+      exact mul_mem (Subring.subset_closure (Or.inl ⟨_, rfl⟩))
+        (Subring.subset_closure (Or.inr ⟨_, rfl⟩))
+    · have h : eUnit ((1 : Fin 2), (0 : Fin 2)) ((0 : Fin 2), (1 : Fin 2))
+          = kronLeft (Matrix.single 1 0 1) * kronRight (Matrix.single 0 1 1) := by decide
+      rw [h]
+      exact mul_mem (Subring.subset_closure (Or.inl ⟨_, rfl⟩))
+        (Subring.subset_closure (Or.inr ⟨_, rfl⟩))
+    · have h : eUnit ((1 : Fin 2), (0 : Fin 2)) ((1 : Fin 2), (0 : Fin 2))
+          = kronLeft (Matrix.single 1 1 1) * kronRight (Matrix.single 0 0 1) := by decide
+      rw [h]
+      exact mul_mem (Subring.subset_closure (Or.inl ⟨_, rfl⟩))
+        (Subring.subset_closure (Or.inr ⟨_, rfl⟩))
+  · -- refinement closure: equivariance preserves the invariant sector,
+    -- which E8 spans
+    intro Φ hΦ d hd
+    have hd' : d ∈ InvariantPart := E8_subset_invariant d hd
+    have h2 : Φ d ∈ InvariantPart := (hC Φ hΦ).maps_invariant hd'
+    exact invariant_mem_closure_E8 h2
+  · -- the clause fails: E0110 is retained, cross-cut, and not a flux term
+    intro hclause
+    have hmem : E0110 ∈ E8 := by decide
+    exact E0110_notMem_flux ((hclause E0110 hmem).1 E0110_crossCut)
+
+/-! ### Axiom audit — the equivariant-universal no-go is admission-free. -/
+#print axioms IsEquivariantChannel
+#print axioms IsEquivariantChannel.maps_invariant
+#print axioms E8_subset_invariant
+#print axioms closure_E8_eq_invariantPart
+#print axioms collarClause_family_misses_invariant_unit
+#print axioms collarClause_family_not_spanning
+#print axioms E0110_crossCut
+#print axioms E0110_notMem_flux
+#print axioms equivariant_closure_cannot_force
+
 end OPH
