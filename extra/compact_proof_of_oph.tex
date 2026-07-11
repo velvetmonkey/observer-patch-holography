@@ -71,17 +71,19 @@ the charged-family shape, the QCD-free weak hierarchy, and the geometric
 gravity normalization---and the same integer triple and the same two closure
 constants must reappear across those sectors with no per-sector adjustment.
 Any one match could be luck; the claim is the conjunction. Independent
-witnesses multiply, so the probability that one frozen branch accidentally
-lands every sector at once falls geometrically with each added row. And the
+witnesses may multiply only after shared ancestry and search multiplicity are
+charged, so each accepted row must carry a source and dependence audit. The
 source side is small: where the standard description spends roughly thirty
 tuned inputs, OPH carries two computed endpoints and a small integer package.
 Two numbers do not have room to memorize that much independent structure; if
 the structure appears anyway, it was generated, not stored.
-\textbf{The headline result: under the deliberately coincidence-friendly
-windows itemized in Section 5, the hypothesis that every hit is an accident
-carries odds of roughly \(1\) in \(10^{14}\)---and still below \(1\) in
-\(10^4\) after inflating every window a further \(100\)-fold in coincidence's
-favor.} The compression score in Section 5 states the same argument exactly.
+\textbf{The headline coincidence illustration: multiplying the deliberately
+coincidence-friendly window fractions itemized in Section 5 gives roughly
+\(1\) in \(10^9\)---and about \(1\) in \(10^3\) after inflating every
+remaining window a further \(100\)-fold in coincidence's favor.} This is not
+a posterior probability that OPH is correct or incorrect. Section 5 states
+the preregistered compression protocol needed to turn the illustration into a
+formal test.
 
 Once the rules and readout maps are fixed before comparison, the finite branch
 has one output. OPH is wrong if that output leaks targets, admits an equally
@@ -991,19 +993,14 @@ windows. Grant the accident hypothesis generous per-row odds: the one-phase
 charged-family direction landing both ordered lepton ratios at the observed
 \(\le70\) ppm (\(\sim10^{-4}\)); the source-only fine-structure root landing
 within \(3\times10^{-4}\) of measured \(\alpha^{-1}(0)\) with a residual of
-hadronic size and sign (\(\sim10^{-3}\)); the conditional tilt
-\(1-P_{\rm src}/48\) landing \(0.3\sigma\) from Planck (\(\sim10^{-2}\));
-the hierarchy-implied and closure screen depths agreeing to \(2\times10^{-4}\)
-(\(\sim10^{-3}\)); the exact Standard Model quotient with three colors and
-three generations (\(\ge10^{-2}\), charitably). The product is
-\(\sim10^{-14}\)---about \(47\) bits---before counting the Born/Tsirelson
-structure, gravity normalization, the emergent CMB-shaped sky, SPARC, or
-\(\Lambda\) at all. In plain terms: \textbf{under these windows, the
-hypothesis that every hit is an accident carries odds of roughly \(1\) in
-\(10^{14}\), a \(0.000000000001\%\) chance---and the estimate is robust to
-its own generosity: inflate every window a further \(100\)-fold in
-coincidence's favor and the joint accident probability is still below
-\(0.01\%\) (\(1\) in \(10^4\)).}
+hadronic size and sign (\(\sim10^{-3}\)); the exact Standard Model quotient
+with three colors and three generations (\(\ge10^{-2}\), charitably). The
+product is \(\sim10^{-9}\)---about \(30\) bits---before counting the
+Born/Tsirelson structure, gravity normalization, SPARC, or \(\Lambda\) at all.
+In plain terms: \textbf{the assigned window product is roughly \(1\) in
+\(10^9\), or \(0.0000001\%\). Inflate every remaining window a further
+\(100\)-fold in coincidence's favor and that product becomes about \(0.1\%\)
+(\(1\) in \(10^3\)).}
 This is an illustration, not a posterior: the windows are judgment calls,
 independence is approximate, and selection over discarded branches would
 deflate it---which is exactly why the counted protocol freezes maps first and
@@ -1074,47 +1071,6 @@ The next entries are clean ways to break OPH branches. They sit outside the
 compact proof until their own calculation and checks are supplied without
 reading the measured answer.
 \par\smallskip
-\textbf{Conditional screen-spectrum and CMB lift [O2,O4].}
-The finite-screen theorem is a conditional continuation: scalar readout and
-inverse-repair receipts can promote the branch to a MaxEnt Gaussian screen
-covariance with screen exponent \(\theta_{\rm scr}=P/48\), and only after the
-complete source-side bridge passes may the thin-shell power-law branch write
-the spectral tilt \(n_s=1-\theta_{\rm scr}\). At \(P_{\rm src}\) that
-conditional tilt is
-\[
-  n_s=1-\frac{P_{\rm src}}{48}=0.966021\ldots,
-  \qquad
-  n_s^{\rm Planck}=0.9649\pm0.0042,
-\]
-a \(0.3\sigma\) comparison-class coincidence [S5]; it becomes a counted row
-only if the gates pass. The 64k patch run already shows both halves of this
-story (figure below). Qualitatively, the frozen record-signature field on the
-observer boundary is a CMB-shaped sky: a statistically isotropic random field
-with finite correlation length, which is what the MaxEnt screen-covariance
-theorem says a repaired boundary must freeze into. Nobody asked the
-simulation to look like the sky; that is what repair-mismatch records look
-like when the boundary settles, and no CMB data enters the run.
-Quantitatively, the run's finite transition-matrix repair clock supplies a
-scalar tilt which, pushed through standard CAMB transfer, lands
-\(\chi^2/{\rm pt}=1.63\) on the 83 Planck TT bins with no tuning at all, and
-\(1.42\) after a single \(0.5\%\) amplitude rescaling (a fitted
-\(\Lambda\)CDM power law scores \(0.99\)). The Boltzmann transfer and the
-amplitude are imported---exactly the declared missing gates---so the run
-reports the curve as measurement-comparable simulator output behind its own
-receipt,
-\(\texttt{physical\_cmb\_prediction\_receipt=false}\), not a counted
-prediction
-(\href{https://simulation.floatingpragma.io/v/cmb}{\texttt{simulation.floatingpragma.io/v/cmb}})
-[C7]. The missing steps are explicit gates: scalar release
-amplitude, radial screen-to-primordial lift, a finite covariant collar-packet
-parent for any dark or anomaly source, Boltzmann transfer, source-provenance
-and pooled-reducer closure, and frozen likelihood execution. Every promoted
-quantity must come from an immutable source dependency DAG with frozen
-source/solver/likelihood hashes; contradictory no-data-use metadata fails
-closed. The consensus-protocol paper supplies the test language and
-fixed-point firewall; this compact proof cites that package instead of
-reproducing the math [A23,A24,A25].
-\par\smallskip
 \textbf{Collider tests [O5,C2,S6].}
 The particle files carry concrete collider-facing surfaces, including
 \(m_H=125.1995\,{\rm GeV}\), \(m_t=172.3524\,{\rm GeV}\),
@@ -1130,16 +1086,15 @@ with systematic profiling over mass-to-light, distance, inclination, and gas,
 the OPH unit branch scores \(\chi^2/{\rm pt}=1.017\) against \(1.023\) for the
 same-function empirical reference, with \(11.25\,{\rm km\,s^{-1}}\) velocity
 RMS and \(0.13\,\)dex all-point radial-acceleration scatter [C4]. This is a
-pre-likelihood scorecard. The earlier compressed CMB/\(S_8\) decimal row is an
-invalidated legacy snapshot (it consumed the rejected neutrino sum) and is
-excluded here. Test: first emit a finite covariant collar-packet parent with
+pre-likelihood scorecard. Test: first emit a finite covariant collar-packet
+parent with
 stress closure, recipient stress and exchange-current closure for any nonzero
 exchange branch, gauge-independent \(B_A\), active-fiber/physical-clock
 receipts for any promoted \(\Gamma_{\rm rec}\), refinement convergence, and
 frozen likelihood hashes; then run the public dark-sector scorecard in [C4]
-and replace the compact CAMB/SPARC scaffolds by the full covariance
-likelihoods named in [O7]. Falsification: the fixed branch fails the joint
-CMB, BAO, SPARC, cluster, and weak-lensing likelihood.
+and replace the compact SPARC scaffold by the full covariance likelihoods
+named in [O7]. Falsification: the fixed branch fails the preregistered galaxy,
+cluster, or weak-lensing tests.
 \par\smallskip
 \textbf{Neutrino closure [O5,C2,A17].}
 The earlier weighted-cycle candidate is rejected and demoted per the
@@ -1147,28 +1102,6 @@ anti-fitting rule; coordinates and audit detail live in the
 \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/OPH_falsifiability.md}{falsifiability map}.
 A future counted neutrino row requires a source-emitted operator, closed
 charged basis, physical mass-label rule, and pre-registered hash.}
-
-\vspace{0.2em}
-\begin{center}
-\includegraphics[width=0.98\linewidth]{assets/oph_cmb_shape_diagnostic.pdf}
-\end{center}
-\vspace{-0.3em}
-{\small \textbf{The emergent sky.} Left: the frozen record-signature field of
-the audited 64k run---no CMB data enters the simulation, yet the settled
-observer boundary is a statistically isotropic, finite-correlation-length
-random field: a CMB-shaped sky. Right: Planck 2018 binned TT spectrum against
-the same run's repair-clock scalar tilt pushed through standard CAMB
-transfer; the solid curve is the single-number amplitude rescaling
-(\(\times0.995\), shape-only \(\chi^2/{\rm pt}=1.42\) over 83 bins), the
-dotted curve is unscaled (\(\chi^2/{\rm pt}=1.63\)), and the strip shows the
-scaled-fit residuals. Why this curve: overlap repair writes corrections by
-the same rule at every refinement scale, so the frozen boundary carries
-nearly equal power per log scale; the finite repair clock lets large scales
-freeze slightly hot, tilting the spectrum red; and any such nearly
-scale-invariant input driven through the photon--baryon fluid rings the
-standard acoustic peaks. The imported Boltzmann transfer and the amplitude
-are the declared open gates, so the run reports
-\(\texttt{physical\_cmb\_prediction\_receipt=false}\) [C7].}\par
 
 \vspace{0.55em}
 \sect{Appendix A. Assigning a number to Newton's constant}
@@ -1214,7 +1147,6 @@ compact anti-circularity proof.
 \textbf{[S2]} & \href{https://physics.nist.gov/cgi-bin/cuu/Value?alphinv=}{CODATA inverse fine-structure constant \(\alpha^{-1}\).}\\
 \textbf{[S3]} & \href{https://physics.nist.gov/cgi-bin/cuu/Value?c=}{CODATA exact speed of light \(c\).}\\
 \textbf{[S4]} & \href{https://physics.nist.gov/cgi-bin/cuu/Value?hbar=}{CODATA reduced Planck constant \(\hbar\).}\\
-\textbf{[S5]} & \href{https://arxiv.org/abs/1807.06209}{Planck Collaboration cosmological parameters.}\\
 \textbf{[S6]} & \href{https://pdg.lbl.gov/2024/tables/rpp2024-sum-gauge-higgs-bosons.pdf}{Particle Data Group gauge and Higgs-boson summary tables.}\\
 \textbf{[S7]} & \href{https://pdg.lbl.gov/2024/tables/rpp2024-sum-quarks.pdf}{Particle Data Group quark summary tables.}\\
 \textbf{[S8]} & \href{https://pdg.lbl.gov/2024/tables/rpp2024-sum-leptons.pdf}{Particle Data Group lepton summary tables.}\\
@@ -1247,10 +1179,10 @@ compact anti-circularity proof.
 \textbf{[C7]} & \href{https://github.com/muellerberndt/oph-physics-sim}{OPH physics simulation: 64k-record universe runs with Born/L\"uders record receipts}.\\
 \multicolumn{2}{@{}l}{\bfseries Direct reading anchors (theorem keys \(\to\) source papers; each key is named where cited)}\\
 \multicolumn{2}{@{}p{0.96\linewidth}}{%
-[A1]\,\(\to\)\,[O1];\quad [A2], [A23], [A24]\,\(\to\)\,[O2];\quad
+[A1]\,\(\to\)\,[O1];\quad [A2], [A23]\,\(\to\)\,[O2];\quad
 [A3], [A18]\,\(\to\)\,[O3];\quad [A19]\,\(\to\)\,[O1] synthesis fragments;\quad
 [A4], [A13], [A15]\,\(\to\)\,[O6];\quad
-[A5]--[A7], [A9], [A14], [A20]--[A22], [A25]\,\(\to\)\,[O4];\quad
+[A5]--[A7], [A9], [A14], [A20]--[A22]\,\(\to\)\,[O4];\quad
 [A8], [A10]--[A12], [A16], [A17]\,\(\to\)\,[O5].}\\
 \end{longtable}
 }
