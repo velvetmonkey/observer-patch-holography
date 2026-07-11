@@ -35,9 +35,9 @@ OPH is the observer-first reconstruction of fundamental physics. It starts from
 finite observers on finite holographic screen geometry. Its working basis is
 quantum-algebraic: patch algebras, states, trace/Born event probabilities on
 declared record surfaces, and generalized entropy are part of the formal
-starting point. From that basis, OPH recovers the observed effective universe:
-spacetime, gauge structure, particles, records, and observer synchronization all
-follow from overlap consistency. At the operating level, finite observer
+starting point. From that basis, OPH proposes conditional reconstruction branches
+for spacetime, gauge structure, particles, records, and observer synchronization;
+each branch retains the premises and receipt gates stated in the papers. At the operating level, finite observer
 patches carry local records, compare only what their overlaps expose, repair
 mismatches through declared recovery moves, and settle into stable fixed points
 that survive refinement. The public world is what remains stable after those
@@ -100,8 +100,9 @@ declared source map. The quantum-algebraic axioms and the $S^2$ screen remain
 explicit premises. Quantitatively, the public rows are organized by three
 internal quantities: a local pixel fixed point $P_\star$, a
 global record-capacity fixed point $N_{\mathrm{CRC}}$, and a scale-setting
-ratio $\gamma_\star$. The source coordinates are not fitted constants.
-Measurements can tell us which branch we are on, but source values must come
+ratio $\gamma_\star$. A source coordinate earns that label only when its declared
+map emits it without a fitted target; otherwise it remains a diagnostic or
+comparison coordinate. Measurements can tell us which branch we are on, but source values must come
 from the fixed-point calculations. Empirical closure rows are marked below. The
 detailed scale discussion is collected once below in **Geometry, Symmetry, And
 Scale**.

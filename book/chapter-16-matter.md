@@ -97,11 +97,12 @@ weak-boson masses, not a separate derivation lane for new particles.
 
 The same family follows the unbroken electromagnetic channel to the
 long-distance Thomson limit. The undressed source/root inverse coupling gives
-$136.9948351646\ldots$. Adding the finite-screen unified gauge-width
-contribution gives $137.0359595008\ldots$, the source calculation with hadrons
-withheld. With the empirical hadronic endpoint contribution supplied, the
-laboratory Thomson endpoint is $137.035999177(21)$, with the pixel ratio
-$P\simeq1.6309682094$.
+$136.9948351646\ldots$. Combining it with the finite-screen unified gauge width
+evaluated at the CODATA-derived comparison pixel gives the mixed-provenance
+diagnostic $137.0359595008\ldots$. The laboratory Thomson endpoint is the
+measured value $137.035999177(21)$, with comparison pixel
+$P_C\simeq1.6309682094$. A source-only endpoint requires the missing
+same-scheme hadronic spectral backend.
 
 Here $\alpha$ is the electromagnetic fine-structure constant, and
 $\alpha^{-1}(0)$ is its long-distance, zero-momentum inverse. The number in

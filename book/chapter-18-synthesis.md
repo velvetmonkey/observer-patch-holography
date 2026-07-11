@@ -347,12 +347,12 @@ digits. The number is the zero-momentum electromagnetic strength familiar from
 precision physics.
 
 The source calculation tells a narrower story. The undressed source/root pixel
-lands at $136.9948351646\ldots$. Adding the finite-screen unified gauge-width
-contribution gives $137.0359595008\ldots$, with the hadronic endpoint step
-withheld. The remaining gap to the Thomson value has a physical address:
-low-energy hadronic spectral transport in the same electromagnetic convention.
-The remaining payload is the hadronic spectral-transport calculation in the
-same convention.
+lands at $136.9948351646\ldots$. Combining it with the finite-screen unified
+gauge width evaluated at the CODATA-derived comparison pixel gives the
+mixed-provenance diagnostic $137.0359595008\ldots$. The gap to the measured
+Thomson value states the burden on low-energy hadronic spectral transport in the
+same electromagnetic convention. The source-side spectral calculation remains
+required.
 
 The phrase $e^+e^-\to\mathrm{hadrons}$ names electron-positron annihilation
 into strongly interacting composite particles. Those data account for the

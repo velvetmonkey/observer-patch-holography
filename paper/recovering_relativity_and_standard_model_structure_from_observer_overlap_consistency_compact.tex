@@ -453,12 +453,15 @@ detuning as
 P=\varphi+\alpha_{\mathrm{in}}(P)\sqrt{\pi},
 \]
 where the inner side is the electromagnetic observation scale emitted by the same cell on the
-declared quantitative branch. The fixed-point readout is
+declared quantitative branch. The OPH-plus-empirical comparison coordinate is
 \[
 \alpha^{-1}(0)=137.035999177(21),\qquad
 \alpha\simeq0.00729735256433,\qquad
-P\simeq1.6309682094.
+P_C\simeq1.6309682094.
 \]
+Here \(P_C\) is defined from the measured CODATA/NIST endpoint. A source-only fixed point requires
+the OPH-QCD endpoint map and its interval certificate; the comparison coordinate does not supply
+that missing map.
 The source computation runs in the order
 \[
 P\mapsto M_U(P)\mapsto\alpha_U(P)\mapsto\alpha_i(m_Z;P)\mapsto
@@ -475,8 +478,9 @@ transport is supplied, emits
 \alpha_{\mathrm{root}}^{-1}
 =136.994835164621649457949994585787\ldots.
 \]
-Adding the emitted finite-screen unified gauge-width contribution
-\(\alpha_U(P_\star)\) gives the source-side no-hadron near-endpoint,
+For comparison bookkeeping, adding the finite-screen unified gauge-width contribution evaluated at
+the CODATA-derived comparison pixel, \(\alpha_U(P_C)=0.041124336195630495\), to the source/root
+value gives the mixed-provenance no-hadron diagnostic
 \[
 A_{\alpha_U}^{\mathrm{fp}}
 =136.994835164621649457949994585787\ldots
@@ -487,19 +491,19 @@ An observer inside the realized branch does not measure either no-hadron
 source-side value as the Thomson-limit fine-structure constant. A low-energy
 measurement probes the dressed \(\U(1)_Q\) current after charged-lepton vacuum
 polarization, confined-quark/hadron spectral transport, and same-scheme endpoint
-matching have been transported to \(q^2=0\). Calibrated to the CODATA/NIST endpoint, the
-post-\(\alpha_U\) missing correction is
+matching have been transported to \(q^2=0\). At that mixed comparison coordinate, the
+CODATA/NIST-minus-diagnostic bookkeeping gap is
 \[
 \Delta^{\mathrm{fp}}_{\mathrm{H,req}}
 =137.035999177
 -137.035959500817279952949994585787\ldots
 =0.000039676182720047050005414213\ldots.
 \]
-Normalized by the branch \(\alpha_U(P_\star)=0.041124336195630495\),
+Normalized by the comparison-pixel value \(\alpha_U(P_C)=0.041124336195630495\),
 this correction is
 \[
 \Delta^{\mathrm{fp}}_{\mathrm{H,req}}
-=\alpha_U(P_\star)\,(C_{24,Q}-1),\qquad
+=\alpha_U(P_C)\,(C_{24,Q}-1),\qquad
 C_{24,Q}=1.0009647859732326253849511140702475\ldots.
 \]
 The full root-to-CODATA difference
@@ -507,10 +511,10 @@ The full root-to-CODATA difference
 \Delta^{\mathrm{fp}}_{\mathrm{H,cal}}
 =137.035999177-\alpha_{\mathrm{root}}^{-1}
 =0.041164012378350542050005414213\ldots
-=\alpha_U(P_\star)C_{24,Q}
+=\alpha_U(P_C)C_{24,Q}
 \]
-is bookkeeping; it includes the emitted \(\alpha_U(P_\star)\) contribution and is
-not the remaining correction after the OPH output \(A_{\alpha_U}^{\mathrm{fp}}\).
+is bookkeeping; it includes the comparison-pixel \(\alpha_U(P_C)\) contribution and is
+not a source-emitted hadronic correction.
 The proximity to \(\alpha_U\) is a branch-scale clue rather than an identity or
 source-only endpoint prediction. The 24-register count explains the scale. It
 does not determine the nonconstant Ward-projected hadronic spectral functional.
@@ -7989,7 +7993,7 @@ Tier & Representative outputs & What would actually falsify the tier \\
 \endfoot
 Phase I recovered core (Theorem~\ref{thm:master}; D1--D5, D7--D9) & Confluence of overlap repair, Lorentz kinematics, the three-dimensional observer-facing spatial chart, the Jacobson-type Einstein branch in the stated scaling regime, compact gauge reconstruction in the bosonic branch, the controlled four-dimensional Euclidean Yang--Mills form and compact-gauge repair-gap mechanism under the declared compact-gauge continuum/transfer assumptions, the realized Standard Model quotient chain on the explicit realized matter package, the exact hypercharge lattice on that realized matter package, the realized color triplet \(N_c=3\), the generation count \(N_g=3\), and the product-group consequence of no gauge-mediated proton decay & A mathematical failure in the derivation chain, loss of the Yang--Mills form or exact repair-gap branch conditions, or data that require a different realized gauge quotient, different realized hypercharges, a different color or generation count on the admissible branch, or gauge-mediated proton decay \\
 Phase II zero-input global closure (D6) & \(\Lambda_{\mathrm{CRC}}\ell_\star^2=3\pi/N_{\mathrm{CRC}}\), \(S_{\mathrm{dS}}=N_{\mathrm{CRC}}\), and, after the selected OPH scale certificate, \(\Lambda_{\mathrm{CRC}}=\frac{3\pi}{G N_{\mathrm{CRC}}}\), \(r_{\mathrm{dS}}=\sqrt{3/\Lambda_{\mathrm{CRC}}}\), and \(t_\Lambda=r_{\mathrm{dS}}/c\) from the cosmic record-closure fixed point \(N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}})\), with \(F(N)=\operatorname{Cap}_{\mathrm{read}}(\operatorname{Obs}(\operatorname{nf}(\mathfrak U_N)))\), represented in counts by \(N_\star=\operatorname{MAR}\arg\max_N(\log|\Omega^{\mathrm{sc}}_N|-N)\); any retained capacity-level neutrino side estimate on that branch value is legacy bookkeeping instead of the weighted-cycle neutrino theorem lane; the observed cosmic age is a downstream FLRW benchmark & Failure of the readback fixed-point certificate or of the specific global capacity relation would falsify the D6 closure without erasing the recovered core \\
-Phase II quantitative-closure branch (D10) & forward transmutation data \(\alpha_U(P)\), \(t_U(P)\), \(t_{\mathrm{tr}}(P)\), pixel-closure gauge-coupling consistency, \(\alpha_i(m_Z)\), the source-locked anchor \(a_0(P)=\alpha_{\mathrm{em}}^{-1}(m_Z^2;P)\), and the declared electroweak transport family \((W,Z,\alpha_{\mathrm{em}}^{-1}(q^2),\sin^2\theta_W(q^2),v)\). The Thomson endpoint \(\alpha_{\mathrm{Th}}^{-1}=137.035999177(21)\) is on the OPH plus empirical hadron closure row. The source-side diagnostic trunk emits the root value \(\alpha_{\mathrm{root}}^{-1}\simeq136.9948351646\) at \(P_{\mathrm{cand}}\simeq1.6309720957\). Adding the emitted \(\alpha_U(P_\star)\) gives the source-side no-hadron near-endpoint \(A_{\alpha_U}^{\mathrm{fp}}=137.0359595008\ldots\). The CODATA-calibrated fixed-point residual is \(\Delta^{\mathrm{fp}}_{\mathrm{H,cal}}=0.04116401237835\ldots=\alpha_U(P_\star)C_{24,Q}\), with \(C_{24,Q}=1.00096478597323262538\ldots\). The endpoint residual table also records \(0.0414658610\ldots\) inverse-alpha units at the public endpoint pixel, with \(S_{\mathrm{required}}\simeq0.8954001326\) and \(c_Q\simeq0.6580257599\). Empirical \(e^+e^-\to\mathrm{hadrons}\) input is kept separate from the first-principles theorem. The 24-register count does not determine the nonconstant OPH-QCD hadronic backend; its two-current spectral measure is only the running-\(\alpha\)/HVP marginal, while HLbL and rare-decay rows require higher-point and transition spectral sectors & Failure of the integrated quantitative closure once \(P\) and the printed running/matching/scheme conventions are imposed, or failure of the explicit OPH-QCD quotient ensemble, source QCD parameter map, Ward current ledger, two-current/higher-point/transition spectral exports, same-scheme remainder, no-target-leak dependency record, empirical source disclosure, and interval-certificate records \\
+Phase II quantitative-closure branch (D10) & forward transmutation data \(\alpha_U(P)\), \(t_U(P)\), \(t_{\mathrm{tr}}(P)\), pixel-closure gauge-coupling consistency, \(\alpha_i(m_Z)\), the source-locked anchor \(a_0(P)=\alpha_{\mathrm{em}}^{-1}(m_Z^2;P)\), and the declared electroweak transport family \((W,Z,\alpha_{\mathrm{em}}^{-1}(q^2),\sin^2\theta_W(q^2),v)\). The Thomson endpoint \(\alpha_{\mathrm{Th}}^{-1}=137.035999177(21)\) is an empirical comparison coordinate. The source/root audit trunk emits \(\alpha_{\mathrm{root}}^{-1}\simeq136.9948351646\) at \(P_{\mathrm{cand}}\simeq1.6309720957\). Combining that root with \(\alpha_U(P_C)\), evaluated at the CODATA-derived comparison pixel, gives the mixed-provenance no-hadron diagnostic \(A_{\alpha_U}^{\mathrm{fp}}=137.0359595008\ldots\). The root-to-CODATA bookkeeping difference is \(\Delta^{\mathrm{fp}}_{\mathrm{H,cal}}=0.04116401237835\ldots=\alpha_U(P_C)C_{24,Q}\), with \(C_{24,Q}=1.00096478597323262538\ldots\); it is not a source-emitted hadronic correction. The endpoint residual table also records \(0.0414658610\ldots\) inverse-alpha units at the public endpoint pixel, with \(S_{\mathrm{required}}\simeq0.8954001326\) and \(c_Q\simeq0.6580257599\). The declared empirical route would use separately labeled \(e^+e^-\to\mathrm{hadrons}\) input; no same-scheme integrated endpoint payload is emitted here. The 24-register count does not determine the nonconstant OPH-QCD hadronic backend; its two-current spectral measure is only the running-\(\alpha\)/HVP marginal, while HLbL and rare-decay rows require higher-point and transition spectral sectors & Failure of the integrated quantitative closure once \(P\) and the printed running/matching/scheme conventions are imposed, or failure of the explicit OPH-QCD quotient ensemble, source QCD parameter map, Ward current ledger, two-current/higher-point/transition spectral exports, same-scheme remainder, no-target-leak dependency record, empirical source disclosure, and interval-certificate records \\
 Phase III phenomenological continuations (D12 and beyond) & Flavor ans\"atze, charged-lepton continuation ans\"atze beyond exact centered readback, \(H^3\) record-worldline stitching certificates, texture branches, the weighted-cycle / Majorana-holonomy neutrino branch above the legacy D6 side estimate, further neutrino mass/mixing refinements, dark-sector response laws, early compact-object/JWST source-release audit lanes, conditional screen-spectrum and CMB/inflation-replacement kernels, \(H_0/S_8\) and growth continuations, heuristic baryogenesis continuations, proton-spin bookkeeping, proton-lifetime estimates beyond the gauge-channel exclusion, black-hole spectroscopy templates, physical black-hole evaporation/ringdown bridge programs, controlled large-\(N_{\mathrm{edge}}\) string/worldsheet effective descriptions, conjectural critical-superstring extensions, and other downstream phenomenology & Retraction of the corresponding continuation only. These branches are not part of the recovered core and their failure is not, by itself, a falsification of relativity-plus-Standard-Model recovery \\
 \end{longtable}
 \endgroup

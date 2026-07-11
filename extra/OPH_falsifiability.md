@@ -121,7 +121,7 @@ of silently moving the goalposts.
 | QCD-free hierarchy | \(v/E_\star=2.0199803239725553\times10^{-17}\) | source-certified hierarchy witness |
 | Higgs naturality | \(\epsilon_H=0\) with interval \([0,0]\) | hierarchy-problem solution |
 | Newton constant display | \(G_{\mathrm{OPH}}=6.674299995910528\ldots\times10^{-11}\,\mathrm{m^3\,kg^{-1}\,s^{-2}}\) | SI display with QCD/clock caveat |
-| Fine structure | undressed source/root inverse coupling \(\alpha_{\mathrm{root}}^{-1}=136.994835\ldots\); adding the finite-screen unified gauge-width contribution \(\alpha_U(P_\star)\) gives the source-side no-hadron near-endpoint \(137.0359595008\ldots\); public Thomson endpoint \(137.035999177(21)\) | endpoint row uses empirical hadron closure |
+| Fine structure | undressed source/root inverse coupling \(\alpha_{\mathrm{root}}^{-1}=136.994835\ldots\); combining it with \(\alpha_U(P_C)\) at the CODATA-derived comparison pixel gives the mixed-provenance diagnostic \(137.0359595008\ldots\); public Thomson endpoint \(137.035999177(21)\) | source-only endpoint requires the OPH-QCD spectral backend and no-target-leak certificate |
 | Higgs | `125.1995304097179 GeV` | closed on the declared Higgs/top surface |
 | Top coordinate | `172.35235532883115 GeV` | selected public quark-frame and cross-section codomain |
 | Quarks | exact running sextet on the selected public frame | selected-frame theorem |
@@ -216,13 +216,13 @@ This row does not use the public Thomson endpoint, hadron masses, the cesium
 clock, \(G\), \(\Lambda\), \(W\), \(Z\), or the Higgs mass as ancestors. That is why it
 is the compact proof's answer to the QCD-circularity criticism.
 
-The fine-structure weakpoint is precise. The pure source-side trunk gives the undressed
+The fine-structure weakpoint is precise. The source-side trunk gives the undressed
 source/root inverse coupling \(\alpha_{\mathrm{root}}^{-1}=136.9948351646\ldots\).
-Adding the emitted finite-screen unified gauge-width contribution \(\alpha_U(P_\star)\)
-gives the source-side no-hadron near-endpoint \(137.0359595008\ldots\). The public Thomson
+Combining it with \(\alpha_U(P_C)\), evaluated at the CODATA-derived comparison pixel,
+gives the mixed-provenance diagnostic \(137.0359595008\ldots\). The public Thomson
 endpoint \(137.035999177(21)\) requires the same-scheme QCD/hadronic
-electromagnetic payload, equivalently the calibrated factor
-\(C_{24,Q}=1.00096478597323262538\ldots\) multiplying \(\alpha_U\). The public
+electromagnetic payload. The calibrated factor
+\(C_{24,Q}=1.00096478597323262538\ldots\) is comparison bookkeeping, not that payload. The public
 fine-structure endpoint is therefore tracked separately from the QCD-free
 hierarchy witness.
 

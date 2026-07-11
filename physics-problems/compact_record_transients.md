@@ -8,27 +8,59 @@ environments rather than only young magnetar channels: FRB 20200120E was
 localized to a globular cluster in M81
 ([Nature 602, 585-589, 2022](https://www.nature.com/articles/s41586-021-04354-w)),
 and FRB 20240209A was traced to the outskirts of an old elliptical host
-([Keck Observatory, 2025](https://keckobservatory.org/fbr/)). Second,
+([Eftekhari et al., 2025](https://doi.org/10.3847/2041-8213/ad9de2)). Second,
 gravitational-wave catalogs contain high-mass merger candidates such as
 GW190521 where hierarchical black-hole recycling is a serious possibility
-([LIGO/Virgo, 2020](https://www.ligo.org/detections/GW190521.php)).
+([Abbott et al., 2020](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.125.101102)).
+
+These observations establish population diversity and motivate delayed FRB
+channels and hierarchical-merger models; they do not select OPH. FRBs and
+black-hole mergers are separate physical case studies. They share an
+observer-facing source-to-record audit architecture here, not a demonstrated
+common repair mechanism.
 
 The OPH question is not "can OPH explain FRBs or black-hole mergers" in
-general. The question is whether compact record surfaces can define a
-quotient-correct transient law for repeaters, old-host compact sources,
-hierarchical black-hole genealogies, packet emissions, detector thinning,
-censoring, controls, and frozen likelihoods without silently promoting a
-visual or simulator artifact into a physical prediction.
+general. The question is whether an observer-like compact-source patch can be
+instantiated with local state, boundaries or ports, readback, persistent
+records, feedback or repair moves, emitted packets, and public evidence, and
+whether that object can be connected to a normalized transient law without
+silently promoting a visual or schema artifact into a physical prediction.
 
-**Status:** solved as a conditional compact-transient theorem package and
-simulator contract. The default simulator output is conditional
-phenomenology. A frozen physical prediction requires the full receipt
-conjunction below. A source-only OPH prediction remains work in progress until
-the compact source action, emission microphysics, physical compact-repair
-clock, old-host FRB source law, and black-hole genealogy prior are derived from
-OPH source data.
+**Status:** completed visual/schema contract at
+`CR1_QUOTIENT_DIAGNOSTIC`, not validated compact-transient phenomenology. The
+objects and receipts below specify what an end-to-end model must contain, but
+this note supplies no normalized channel-specific source law, fitted detector
+model, catalog analysis, held-out likelihood result, or OPH-derived emission
+microphysics. `CR2_CONDITIONAL_PHENOMENOLOGY` begins only after concrete toy or
+empirical kernels, units, parameters, exposure, data, and reproducible outputs
+are attached. A source-derived OPH prediction remains work in progress.
 
-Date: 2026-07-08
+Date: 2026-07-11
+
+## Standard Baseline, Remaining Problem, and OPH Contribution
+
+**Established physics and inference.** Young magnetars are an observationally
+supported FRB channel, while globular-cluster and quiescent hosts motivate
+additional delayed formation routes. Standard repeater analyses use renewal,
+Poisson, Weibull, clustered, periodic, and state-space timing models with survey
+selection. Standard hierarchical black-hole models use cluster or AGN
+population dynamics, numerical-relativity remnant fits, detector selection,
+and genealogical mixture priors. General-relativistic ringdown is already a
+sum of damped quasinormal modes.
+
+**Unresolved part.** The open work is to identify channel-specific source and
+emission microphysics, infer rates and host mixtures without selection bias,
+and make distinguishing held-out predictions. For black holes, an additional
+tail must be distinguished from ordinary Kerr modes, overtones, nonlinear
+modes, precession, eccentricity, waveform error, and detector noise.
+
+**OPH contribution in this note.** OPH supplies the explicit observer-patch and
+receipt boundary: source state and history, ports, packet readback, record-
+conditioned updates, propagation, exposure, detector response, censoring,
+controls, and promotion evidence are kept in one auditable chain. The Markov
+and point-process machinery is standard. OPH becomes physically distinctive
+only if its source/repair structure yields a frozen prediction that standard
+controls do not already contain.
 
 ## Claim Boundary
 
@@ -45,11 +77,13 @@ hierarchical-generation tag is not allowed to read the ringdown residual
 detected catalog rows are not the full likelihood without exposure and censoring
 ```
 
-A compact-transient simulator may generate plausible bursts, ringdown tails, or
-catalog rows only as diagnostics until it declares the quotient, source law,
-repair-emission kernel, packet parent, physical clock, propagation map,
-detector thinning, censoring, point-process likelihood, controls, refinement
-audit, frozen hashes, and promotion receipt.
+A compact-transient visualization may generate plausible bursts, ringdown
+tails, or catalog rows only as diagnostics until a model declares the quotient,
+source law, repair-emission kernel, packet parent, physical clock, propagation
+map, detector thinning, censoring, point-process likelihood, controls,
+refinement audit, frozen hashes, and promotion receipt. A receipt name or
+schema field is not evidence that the corresponding physical map has been
+implemented or validated.
 
 ## Compact-Transient Objects
 
@@ -102,7 +136,9 @@ H=(q_0,\gamma_1,\Pi_1,\tau_1,\ldots,\gamma_N,\Pi_N,\tau_N,q_N)
 Here $q_k\in Q_r^{\rm CR}$ is a compact record-surface quotient state,
 $\gamma_k:q_{k-1}\to q_k$ is an accepted compact repair path, $\Pi_k$ is the
 emitted packet ledger, and $\tau_k$ is the physical or dimensionless commit
-time. A history is source-valid when $q_0$ is drawn from $\mu_r^{\rm CR}$, each
+time. Physical and dimensionless clocks must never be mixed without an explicit
+clock map. A history is source-valid when $q_0$ is drawn from
+$\mu_r^{\rm CR}$, each
 transition is drawn from $K_{\Gamma,r}$, and each emitted packet ledger obeys
 
 ```math
@@ -110,6 +146,18 @@ C(B(q_{k-1}))-C(B(q_k))
 =
 C_{\rm pkt}(\Pi_k)+C_{\rm env,k}+\rho_k.
 ```
+
+Here $C$ is a declared vector of conserved quantities, such as four-momentum,
+angular momentum, and charge, with a sign convention, common units, and a
+componentwise or normed residual bound $\|\rho_k\|\le\varepsilon_{\rm cons}$.
+Four-momenta at separated events must be compared in a declared common tetrad
+or by a specified parallel-transport/boundary-flux convention. Angular
+momentum additionally needs an origin or center-of-mass convention and a stated
+spin/orbital split. In a generic curved spacetime, a global conserved vector
+exists only with the required symmetry or asymptotic/boundary construction;
+otherwise the ledger must use the appropriate local covariant flux law. The
+equation is a required model assumption until a channel-specific emission
+calculation supplies those quantities.
 
 This object is load-bearing for FRB repeaters and hierarchical black holes:
 they are histories, not independent catalog rows.
@@ -138,26 +186,40 @@ p_{\rm det}(y_c;\mathsf{ObsWin}_c)
 \mathcal R_{{\rm det},c}(d\mathcal O\mid y_c).
 ```
 
-The censoring kernel is
+The complement
 
 ```math
-\mathsf{Cens}_c(dU\mid y_c,\mathsf{ObsWin}_c)
-=
-\left[1-p_{\rm det}(y_c;\mathsf{ObsWin}_c)\right]
-\mathcal U_c(dU\mid y_c).
+p_{\rm miss}(y_c;\mathsf{ObsWin}_c)=1-p_{\rm det}(y_c;\mathsf{ObsWin}_c)
 ```
 
-The observed record space is
+describes a latent missed event. It is not automatically an observed censored
+row. A censoring or upper-limit kernel is appropriate only when a trial,
+follow-up observation, or externally triggered event is itself known:
+
+```math
+\mathsf{Cens}_c(dU\mid y_c,w)
+=p_{\rm cens}(y_c;w)\mathcal U_c(dU\mid y_c,w).
+```
+
+For a blind survey, a window with no detected events is scored by the
+point-process compensator or zero-count probability, not by fabricating one row
+for every latent missed event. The observed record space, when both kinds of
+records genuinely exist, is
 
 ```math
 \mathcal Z_c=\mathcal O_c\sqcup\mathcal U_c.
 ```
 
-Detections and non-detections must be scored together.
+Detected events, known upper limits, and zero-detection exposure must be scored
+together without double counting.
 
 ## Compact-Transient Law
 
-The full compact-transient law is the pushforward
+**Model contract.** Let $\zeta$ collect source context such as host,
+environment, redshift, distance, and sky position. A channel-specific model
+must define a normalized source law $\mu_r^{\rm CR}(dq_0,d\zeta)$ and measurable
+kernels for history, emission, propagation, and observation. Its trial-level
+pushforward is
 
 ```math
 \mathbb P_{c,r}^{\rm CT}
@@ -170,39 +232,39 @@ E_{c,r}
 \to
 \mathcal P_{\rm prop,c}
 \to
-(\mathsf{Thin}_c\sqcup\mathsf{Cens}_c).
+\mathsf{Obs}_c.
 ```
 
-Expanded:
+Expanded, with every latent variable bound:
 
 ```math
 \begin{aligned}
 \mathbb P_{c,r}^{\rm CT}(dZ)
 &=
 \int
-\mu_r^{\rm CR}(dq_0)
+\mu_r^{\rm CR}(dq_0,d\zeta)
 \int
-K_{\Gamma,r}^{\rm hist}(dH\mid q_0)
+K_{\Gamma,r}^{\rm hist}(dH\mid q_0,\zeta)
 \int
-E_{c,r}(dy\mid H) \\
+E_{c,r}(dy\mid H,\zeta) \\
 &\quad\times
-\mathcal P_{\rm prop,c}(dy'\mid y,z,h)
-\left[
-\mathsf{Thin}_c(dZ\mid y',\mathsf{ObsWin}_c)
-+
-\mathsf{Cens}_c(dZ\mid y',\mathsf{ObsWin}_c)
-\right].
+\int \mathcal P_{\rm prop,c}(dy'\mid y,\zeta)
+\mathsf{Obs}_c(dZ\mid y',\mathsf{ObsWin}_c).
 \end{aligned}
 ```
 
-This is the object the simulator must sample or approximate.
+$\mathsf{Obs}_c$ may include detection and genuine censoring outcomes for a known
+trial. A blind catalog additionally requires a source-event intensity and
+exposure compensator. The arrows and integral above are a schema until all
+spaces, normalized kernels, units, parameters, assumptions, and data products
+are attached; no such attachment is claimed in this note.
 
-## Theorem Package
+## Conditional Definitions and Lemmas
 
-### Theorem 1: Compact Record Realization
+### Operational Definition 1: Compact Record Realization
 
-**Statement.** A compact object is an OPH compact record surface when its finite
-presentation realizes observer-like material:
+An astrophysical compact object is modeled as an OPH compact record surface
+only when its finite presentation instantiates observer-like material:
 
 ```math
 \mathsf O_i=
@@ -215,28 +277,33 @@ presentation realizes observer-like material:
 
 with compact support and boundary data.
 
-**Proof.** A compact record surface adds compact support, boundary state,
+This is an operational modeling definition, not a proof that every compact
+object is self-reading. A channel must identify the physical boundary, ports,
+readback, persistent record, feedback/update dynamics, and emitted public
+packet. A compact record surface adds compact support, boundary state,
 mismatch ledger, and packet ledger to the abstract observer-patch tuple. OPH
 identifies patches by accessible algebra, visible interface maps, record
-readout, repair instruments, and checkpoint continuation. Hidden coordinates
-and presentation labels are silent under the quotient. $\square$
+readout, repair instruments, and checkpoint continuation. Only coordinates and
+presentation labels proven inert under all retained dynamics may be quotiented.
 
-### Theorem 2: Compact Quotient Invariance
+### Conditional Lemma 2: Compact Quotient Invariance
 
 **Statement.** If every simulator readout factors through
 $Q_r^{\rm CR}=\Sigma_r^{\rm CR}/\Gamma_r^{\rm CR}$, compact-transient
 observables are invariant under gauge representatives, coordinate charts, mesh
-labels, port labels, worker IDs, repair schedules, hidden carrier coordinates,
-and inert ancillas.
+labels, inert port relabelings, worker IDs, and inert ancillas.
 
 **Proof.** Equivalent presentations map to the same quotient state. If source,
 transition, emission, propagation, detector, and likelihood maps depend only on
-that quotient state, they assign the same observed-record law. $\square$
+that quotient state, they assign the same observed-record law. A repair
+schedule or hidden state that changes timing, emission, or likelihood is
+physical history and must not be quotiented. $\square$
 
-### Theorem 3: Normal Form Is Not a Transient Source Law
+### Lemma 3: Normal Form Is Not a Transient Source Law
 
-**Statement.** The compact normal-form map
-$n_r:Q_r^{\rm CR}\to N_r^{\rm CR}$ does not determine FRB rates, burst timings,
+**Statement.** The compact normal-form map is typed as an idempotent
+$n_r:Q_r^{\rm CR}\to Q_r^{\rm CR}$ with image
+$N_r^{\rm CR}\subseteq Q_r^{\rm CR}$. It does not determine FRB rates, burst timings,
 black-hole generation rates, host distributions, or waveform residual
 amplitudes.
 
@@ -257,23 +324,24 @@ $\operatorname{Rep}_{R,r}:Q_r^{\rm CR}\to Q_r^{\rm CR}$.
 completeness gives confluence. Termination plus confluence gives a unique
 normal form independent of schedule. $\square$
 
-### Theorem 5: Packet-Conserving Repair Discharge
+### Evidence Requirement 5: Packet-Conserving Repair Discharge
 
-**Statement.** A compact repair path is physical only if it emits a packet
-ledger $\Pi(\gamma)$ satisfying
+A compact repair path is promoted as physical only if each accepted local step
+obeys a declared vector conservation law and the path emits a packet ledger
+$\Pi(\gamma)$ satisfying
 
 ```math
 C(B(q_0))-C(B(q_N))
 =
 C_{\rm pkt}(\Pi(\gamma))+C_{\rm env}(\gamma)+\rho_{\rm cons}(\gamma),
 \qquad
-|\rho_{\rm cons}|\le\varepsilon_{\rm cons}.
+\|\rho_{\rm cons}\|\le\varepsilon_{\rm cons}.
 ```
 
 **Proof.** Local conservation holds at each accepted step. Summing over steps
 telescopes the intermediate boundary terms. $\square$
 
-### Theorem 6: Finite Packet Parent
+### Evidence Requirement 6: Finite Packet Parent
 
 **Statement.** A compact emission channel is physical only if its packet parent
 supplies finite covariant packet data sufficient for stress, exchange,
@@ -294,12 +362,13 @@ only when its joint sampler reconstructs the same coupled law.
 do not determine the joint law, so independence shortcuts require a declared
 factorization theorem. $\square$
 
-### Theorem 8: Physical Clock
+### Conditional Lemma 8: Kernel Relaxation Clock
 
-**Statement.** A compact repair eigenvalue becomes a physical duration only
-after a physical clock map
-$\Delta\tau_{\rm phys}=\mathcal T_{\rm clock}(q,\ell;b,\theta,h)$ is supplied.
-For a reversible finite kernel,
+**Model assumptions.** A finite, time-homogeneous, irreducible, aperiodic,
+reversible kernel has a stationary law, and each transition uses the same
+physical step duration supplied by
+$\Delta\tau_{\rm phys}=\mathcal T_{\rm clock}(q,\ell;b,\theta,h)$.
+When $0<r_\star<1$, its slowest spectral relaxation rate is
 
 ```math
 \Gamma_{\rm phys}
@@ -309,62 +378,77 @@ For a reversible finite kernel,
 r_\star=\max_{\lambda_j\ne1}|\lambda_j(K_{\Gamma,r}^Q)|.
 ```
 
-**Proof.** Eigenvalues measure contraction per repair step. Physical rates are
-logarithmic contraction divided by physical step time. $\square$
+**Proof.** Under the assumptions above, $r_\star$ controls asymptotic
+$L^2$ contraction per step, and physical relaxation rates are logarithmic
+contraction divided by the physical step time. $\square$
 
-### Theorem 9: Compact Event Pushforward
+This is a relaxation or mixing rate, not automatically an event duration,
+emission clock, or compact-object repair time. Those identifications require a
+channel-specific physical derivation or calibration.
+
+### Conditional Lemma 9: Compact Event Pushforward
 
 **Statement.** The observer-facing compact-transient law is the composed
 Markov law
 
 ```math
-(\mathsf{Thin}_c\sqcup\mathsf{Cens}_c)
+\mathsf{Obs}_c
 \circ\mathcal P_{\rm prop,c}
 \circ E_{c,r}
 \circ K_{\Gamma,r}^{\rm hist}
 \circ\mu_r^{\rm CR}.
 ```
 
-**Proof.** Composition of Markov kernels gives a probability law on detection
-and censoring records. Quotient invariance follows when each map is defined on
-the compact quotient. $\square$
+**Proof.** Composition of normalized measurable Markov kernels gives a
+probability law on the declared observation records. Quotient invariance
+follows when each map is defined on the compact quotient. This lemma applies
+only after the schematic maps have been instantiated. $\square$
 
-### Theorem 10: Detector Thinning and Non-Detection
+### Standard Lemma 10: Detector Thinning and Latent Misses
 
 **Statement.** If $\lambda_{\rm src}(y)$ is the source-event intensity and
 $p_{\rm det}(y)$ is the selection probability, detected events have intensity
-$p_{\rm det}(y)\lambda_{\rm src}(y)$ and censored exposure has complementary
-intensity $(1-p_{\rm det}(y))\lambda_{\rm src}(y)$.
+$p_{\rm det}(y)\lambda_{\rm src}(y)$ and the latent rejected process has
+complementary intensity $(1-p_{\rm det}(y))\lambda_{\rm src}(y)$.
 
 **Proof.** Independent thinning retains each event with probability
 $p_{\rm det}$ and rejects it with probability $1-p_{\rm det}$. $\square$
 
-### Theorem 11: Marked Catalog Likelihood
+The rejected process is not observed censoring. Zero-detection exposure is
+scored through the compensator; a censoring row requires a known trial or
+external trigger.
 
-**Statement.** A marked compact-transient catalog in observing window
-$\mathsf{ObsWin}_c$ has inhomogeneous point-process likelihood
+### Standard Lemma 11: Conditional Poisson Catalog Likelihood
+
+**Model assumption.** Conditional on model $M$, suppose the detected catalog is
+an inhomogeneous marked Poisson process with intensity density $\lambda_c$
+relative to base measure $\nu_c$. Then
 
 ```math
 \log\mathcal L(D\mid M)
 =
-\sum_{i=1}^N\log \Lambda_c(\mathcal O_i)
+\sum_{i=1}^N\log \lambda_c(\mathcal O_i)
 -
-\int_{\mathsf{ObsWin}_c}\Lambda_c(d\mathcal O).
+\int_{\mathsf{ObsWin}_c}\lambda_c(\mathcal O)\,\nu_c(d\mathcal O).
 ```
 
 **Proof.** This is the likelihood of an inhomogeneous marked Poisson process:
 observed events contribute the log intensity and the compensator scores the
-expected event count over exposure. $\square$
+expected event count over exposure. Event-level measurement uncertainty
+requires integrating $\lambda_c$ against the measurement likelihood. Repeating
+sources with history-dependent intensity are not Poisson catalogs. $\square$
 
-### Theorem 12: Repeater History Likelihood
+### Standard Lemma 12: Repeater History Likelihood with Selection
 
-**Statement.** For a repeating compact source $s$ with marked conditional
-intensity $\lambda_s(t,m\mid\mathcal H_t)$, detected bursts have likelihood
+If $\lambda_s(t,m\mid\mathcal H_t)$ is the source intensity and the complete
+latent history $\mathcal H_t$ is known, independent detector thinning gives
 
 ```math
 \log\mathcal L_s
 =
-\sum_k\log\lambda_s(t_k,m_k\mid\mathcal H_{t_k})
+\sum_k\log\!\left[
+p_{\rm det}(t_k,m_k)\lambda_s(t_k,m_k\mid\mathcal H_{t_k})
+\right]
 -
 \int_{T_{\rm obs}}\int\lambda_s(t,m\mid\mathcal H_t)p_{\rm det}(t,m)\,dm\,dt.
 ```
@@ -373,40 +457,69 @@ intensity $\lambda_s(t,m\mid\mathcal H_t)$, detected bursts have likelihood
 The compensator subtracts expected detectable bursts across the exposure
 window. $\square$
 
-### Theorem 13: FRB Repair-Reload
+The $\log p_{\rm det}$ event terms may be omitted only as a stated
+parameter-independent constant. If missed bursts change a reservoir or future
+hazard, the latent history is not known. The observed conditional intensity
+must then be filtered,
 
-**Statement.** If an old compact record source has a mismatch reservoir whose
-hazard increases with reservoir level, and if fluence is monotone in discharge,
-then the waiting time to the next high-fluence burst is stochastically
-increasing in the previous high fluence after conditioning on source identity,
-cadence, exposure, and host class.
-
-**Proof.** A larger burst discharges more reservoir, leaving a lower
-post-burst reservoir. Under monotone reload and monotone hazard, a lower
-starting reservoir reaches the same hazard threshold later. $\square$
-
-The first FRB prediction is therefore:
-
-```text
-old/GC repeaters show fluence-conditioned recovery after cadence and exposure correction.
+```math
+\lambda_{\rm obs}(t,m\mid\mathcal H_t^{\rm obs})
+=p_{\rm det}(t,m)\,
+\mathbb E\!\left[
+\lambda_s(t,m\mid\mathcal H_t^{\rm latent})
+\mid\mathcal H_t^{\rm obs}
+\right],
 ```
 
-### Theorem 14: Host-Mixture Identifiability
+and $\lambda_{\rm obs}$ is used in both event and compensator terms.
 
-**Statement.** In a host model
+### Design Hypothesis 13: FRB Reservoir Reload
+
+Let $R^+=g(R^-,E)$ be the post-burst reservoir after intrinsic emitted energy
+$E$. Assume, rather than infer, that larger $E$ leaves an ordered lower
+post-burst state after conditioning on $R^-$, that the reload flow preserves
+that ordering, and that the hazard of a high-energy event is nondecreasing in
+$R$. Under those assumptions, the waiting time to the next high-energy burst is
+stochastically increasing with the previous emitted energy.
+
+**Derivation.** Ordered post-burst states remain ordered under the assumed
+reload flow, so the high-energy hazard along the trajectory following the
+larger discharge is pointwise no greater. The survival function
+$\exp[-\int_0^t\lambda_H(R_u)du]$ is therefore larger. Without the conditioned
+pre-burst state and order-preserving reset assumption, a larger observed burst
+need not leave a lower reservoir. $\square$
+
+The first conditional FRB hypothesis is therefore:
+
+```text
+old/GC repeaters show emitted-energy-conditioned recovery after source,
+bandpass, cadence, exposure, propagation, and missed-burst correction.
+```
+
+This is not unique to OPH. Frozen controls must include renewal/Weibull,
+periodic, Hawkes or self-inhibiting, self-organized-criticality, and ordinary
+magnetar reservoir models.
+
+### Necessary Rank Condition 14: Host Mixture
+
+In a host model
 $S_{\rm FRB}=A_y{\rm SFR}+A_oM_{\star,\rm old}+A_{\rm GC}M_{\rm GC}$, the
-coefficients are identifiable only when the exposure-corrected features are
-not collinear under the survey selection function.
+coefficients have units that convert the corresponding star-formation or mass
+tracer to an event intensity. A necessary local identifiability condition is
+that the exposure-corrected features are not collinear under the survey
+selection function.
 
 **Proof.** If a nonzero vector annihilates the exposure-weighted feature vector
 almost everywhere, two coefficient vectors give the same source density. Full
-rank removes that degeneracy locally. $\square$
+rank removes that linear degeneracy locally, but host-association uncertainty,
+missing hosts, tracer error, and a non-identifiable observation model can still
+prevent global identification. $\square$
 
-### Theorem 15: Record-Surface Recycling
+### Operational Genealogy 15: Record-Surface Recycling
 
-**Statement.** A hierarchical black-hole merger is a compact record-surface
-recycling morphism that consumes two compact boundary ledgers and an orbital
-ledger, emits a GW packet, and updates a genealogy DAG:
+A hierarchical black-hole population model may represent a merger as a
+record-surface recycling morphism that consumes two compact boundary ledgers
+and an orbital ledger, emits a GW packet, and updates a genealogy DAG:
 
 ```math
 \mathcal G_3=\operatorname{Join}(\mathcal G_1,\mathcal G_2,y_{\rm GW}),
@@ -414,62 +527,76 @@ ledger, emits a GW packet, and updates a genealogy DAG:
 g_3=1+\max(g_1,g_2).
 ```
 
-**Proof.** Conservation assigns the remnant ledger to the two progenitors plus
+This is genealogy bookkeeping. A physical implementation must use
+numerical-relativity remnant mass, spin, radiated energy, angular momentum, and
+recoil fits, together with environmental escape velocity and retention
+probability. Conservation assigns the remnant ledger to the two progenitors plus
 orbital ledger minus the emitted GW packet. The genealogy DAG records the
-public descent relation. $\square$
+public descent relation.
 
-### Theorem 16: No Generation Leakage
+### Evidence Rule 16: No Generation Leakage
 
 **Statement.** A ringdown repair-tail test is valid only if the generation prior
 $p(g_{\rm gen}\ge2\mid M_1,M_2,\chi_1,\chi_2,q,h_{\rm env})$ is computed
-without using the ringdown residual being tested.
+without using the ringdown residual being tested. Because full-waveform mass
+and spin posteriors can contain ringdown information, the generation predictor
+must use inspiral-only information, independent environmental data, or an
+explicit cross-fitting scheme.
 
 **Proof.** If the residual defines the generation prior, the predictor contains
 the target variable. If mass, spin, mass ratio, and environment define the
 prior, the residual remains held out. $\square$
 
-### Theorem 17: Linear Repair Tail
+### Undemonstrated Ansatz 17: Additional Linear Repair Tail
 
-**Statement.** If a remnant repair perturbation satisfies $\dot x=A_{\rm rep}x$
-and an active eigenpair is $-\Gamma_{\rm rep}\pm i\omega_{\rm rep}$, then the
-held-out repair template is a damped sinusoid plus faster modes. If its
-amplitude is proportional to an independently computed generation probability,
-hierarchical candidates should have larger expected repair-tail amplitude than
-first-generation controls.
+General relativity already predicts a superposition of damped quasinormal modes
+for a perturbed remnant. OPH has not derived an additional mode in this note.
+As a provisional ansatz only, suppose an extra repair perturbation obeys
+$\dot x=A_{\rm rep}x$, has an active eigenpair
+$-\Gamma_{\rm rep}\pm i\omega_{\rm rep}$, and every other retained extra mode
+has real part strictly below $-\Gamma_{\rm rep}$. Then that extra component has
+a damped-sinusoid tail plus faster extra modes.
 
-**Proof.** Linear systems decompose into eigenmodes. A complex eigenpair gives
-a damped sinusoid, and an independently supplied initial projection controls
-its expected amplitude. $\square$
+**Derivation.** Linear systems decompose into eigenmodes, and a complex
+eigenpair gives a damped sinusoid. This algebra does not establish that the mode
+exists in nature. A physical OPH claim must derive and freeze its frequency,
+damping, dimensionless strain amplitude, start time, and dependence on an
+independently computed generation probability, then show that it is not
+absorbed by Kerr fundamentals, overtones, nonlinear modes, precession,
+eccentricity, waveform error, calibration error, or noise. $\square$
 
-### Theorem 18: Control-Model Dominance
+### Promotion Rule 18: Control-Model Dominance
 
-**Statement.** An OPH compact-transient claim is physical only if the frozen OPH
-model improves held-out likelihood relative to declared controls by a
-predeclared threshold.
+A frozen OPH compact-transient model gains distinguishing predictive support
+only if it improves a preregistered held-out proper score relative to declared
+controls by a calibrated threshold and also passes absolute calibration,
+injection recovery, and multiple-testing checks.
 
 **Proof.** A model that does not outperform relevant controls adds no
 predictive content. Post-hoc controls or thresholds do not test the frozen
 law. $\square$
 
-### Theorem 19: Refinement Stability
+### Conditional Lemma 19: Refinement Stability
 
-**Statement.** If source laws, repair kernels, and emission maps cohere under
+If source laws, repair kernels, and emission maps cohere in total variation
+under
 coarse maps $c_{sr}:Q_s^{\rm CR}\to Q_r^{\rm CR}$ with defects
 $\delta^\mu_{sr}$, $\delta^K_{sr}$, and $\delta^E_{sr}$, the output event laws
-differ by at most the accumulated defects plus detector and propagation error.
+differ by at most the accumulated dimensionless defects plus detector and
+propagation kernel error, provided the expected history length is finite.
 
 **Proof.** Couple source draws, transition paths, and emitted packets under the
 declared defects. Propagation and detector kernels are Markov contractions in
 total variation. $\square$
 
-### Theorem 20: Simulator Accuracy
+### Conditional Error Bound 20: Model Approximation
 
-**Statement.** If the simulator approximates source, kernel, emission,
+If an implementation approximates source, kernel, emission,
 propagation, detector, canonicalization, clock, and Monte Carlo steps with
 declared errors, then
 
 ```math
-|\mathbb P_{\rm sim}-\mathbb P_{\rm paper}|_{\rm TV}
+\|\mathbb P_{\rm approx}-\mathbb P_{\rm model}\|_{\rm TV}
 \le
 \varepsilon_\mu+\mathbb E[N]\varepsilon_K+\varepsilon_E+\varepsilon_P
 +\varepsilon_D+\varepsilon_{\rm canon}+\varepsilon_{\rm clock}
@@ -477,12 +604,15 @@ declared errors, then
 ```
 
 **Proof.** Couple each stage. The final observer-record law differs only if at
-least one coupling fails. $\square$
+least one coupling fails. This bound requires uniform per-kernel total-
+variation errors, compatible state spaces, finite $\mathbb E[N]$, and all clock
+or canonicalization errors already converted to total variation. Until those
+conditions and errors are supplied, the equation is a target bound. $\square$
 
-### Theorem 21: Promotion
+### Evidence Rule 21: Promotion
 
-**Statement.** A compact-transient simulator output is a physical OPH
-prediction only if all promotion gates pass:
+A compact-transient visualization or model output is a physical OPH prediction
+only if all promotion gates are implemented and evidence-backed:
 
 ```text
 QUOTIENT SOURCE KERNEL CLOCK PACKET PROP DETECTOR POINTPROCESS CENSORING
@@ -492,15 +622,17 @@ CONTROLS REFINEMENT FREEZE LIKE
 **Proof.** Each gate is a required map in the source-to-record chain. Missing
 one gate leaves the law undefined, unphysical, unscored, or post hoc. $\square$
 
-### Theorem 22: Falsification
+### Evidence Rule 22: Falsification
 
-**Statement.** A compact-record transient channel is falsified at claim tier CR3
-if frozen source, exposure, detector, controls, and likelihood receipts exclude
-the distinguishing held-out predictions below predeclared amplitudes.
+A compact-record transient model at claim tier CR3 is falsified on its declared
+domain when it predicts a distinguishing effect $A\ge A_{\min}$ and a frozen
+source, exposure, detector, control, and likelihood analysis places a
+predeclared upper bound $A<A_{\min}$, or when its held-out proper score misses a
+predeclared acceptance region.
 
 **Proof.** A CR3 model is a frozen probability law. Held-out data that exclude
-its predeclared distinguishing amplitudes falsify that law on the declared
-domain. A law changed after inspection was not tested. $\square$
+its predeclared distinguishing region falsify that law on the declared domain.
+A law changed after inspection was not tested. $\square$
 
 ## Claim Tiers
 
@@ -522,6 +654,11 @@ means all maps are frozen, controls are declared, censoring is included,
 refinement is checked, and likelihood receipts pass. `CR4` means source
 action, emission microphysics, physical clock, old-host source law, and
 genealogy prior are OPH-derived without target leakage.
+
+The present Markdown/schema package is `CR1`. Derivation provenance and
+empirical validation should also be reported separately: an OPH-derived but
+untested model is not empirically stronger than a phenomenological model that
+passes held-out and replication tests.
 
 ## Required Receipts
 
@@ -552,9 +689,15 @@ HELDOUT_LIKELIHOOD_RECEIPT
 PROMOTION_AUDIT_RECEIPT
 ```
 
-## Simulator Fail-Closed Rules
+Each receipt has status `MISSING`, `PLACEHOLDER`, `DECLARED`, or `VALIDATED`.
+A schema key, prose equation, or generated Boolean is not a validated receipt;
+`VALIDATED` requires an evidence path, content hash, assumptions, units, and a
+passing check.
 
-The simulator must refuse physical promotion if any are true:
+## Model Fail-Closed Rules
+
+Any visualization or implementation must refuse physical promotion if any are
+true:
 
 1. quotient schema missing;
 2. canonicalizer non-deterministic;
@@ -579,33 +722,37 @@ The simulator must refuse physical promotion if any are true:
 
 ## First Implementation Targets
 
-Implement FRBs first with three frozen controls:
+An FRB implementation should begin with at least these frozen controls:
 
 ```text
 M0 = young-only
-M1 = young+old/GC with Poisson or Weibull timing
-M2 = young+old/GC with repair-reload timing
+M1 = young+old/GC with Poisson, renewal, or Weibull timing
+M2 = young+old/GC with periodic/Hawkes/self-inhibiting timing
+M3 = young+old/GC with the frozen reservoir-reload timing law
 ```
 
 The promotion condition is
 
 ```math
-\log\mathcal L_{\rm heldout}(M_2)
+S_{\rm heldout}(M_3)
 -
-\max[
-\log\mathcal L_{\rm heldout}(M_0),
-\log\mathcal L_{\rm heldout}(M_1)
-]
+\max_{j<3}S_{\rm heldout}(M_j)
 >
 \Delta_{\rm min}.
 ```
+
+$S$ is a preregistered proper score with its per-event normalization,
+uncertainty, and calibrated $\Delta_{\min}$ stated before evaluation. Passing
+this comparison supports the timing law; it does not by itself identify OPH as
+the unique mechanism.
 
 Implement black-hole recycling second:
 
 ```text
 genealogy DAG
 -> generation prior
--> frozen repair-tail template
+-> frozen GR/numerical-relativity ringdown baseline
+-> optional predeclared extra-tail ansatz
 -> injection tests
 -> stacked ringdown likelihood
 ```
@@ -620,13 +767,42 @@ That is target leakage.
 
 ## Scope
 
-This note closes the compact-transient lane at conditional simulator level.
-The simulator samples or approximates
+This note closes a visual/schema-level audit at `CR1`; it does not close either
+compact-transient physics case. A future channel-specific model must instantiate
+and sample or approximate
 
 ```text
-mu_CR -> K_hist -> E -> propagation -> thinning/censoring -> catalog likelihood
+mu_CR -> K_hist -> E -> propagation -> observation/exposure -> catalog likelihood
 ```
 
-and emit the receipt ladder. It should not claim that OPH explains compact
-transients without rate, host, timing, waveform, exposure, censoring, control,
-refinement, and frozen-likelihood receipts.
+and emit evidence-backed receipts. It must not claim that OPH explains compact
+transients without rate, host, timing, waveform, exposure, selection,
+censoring, control, refinement, held-out likelihood, and replication evidence.
+
+## References and Baselines
+
+- F. Kirsten et al., "A repeating fast radio burst source in a globular cluster
+  in the nearby galaxy M81", Nature, 2022.
+  https://www.nature.com/articles/s41586-021-04354-w
+- V. Shah et al., "A Repeating Fast Radio Burst Source in the Outskirts of a
+  Quiescent Galaxy", Astrophysical Journal Letters, 2025.
+  https://doi.org/10.3847/2041-8213/ad9ddc
+- T. Eftekhari et al., "The Massive and Quiescent Elliptical Host Galaxy of the
+  Repeating Fast Radio Burst FRB 20240209A", Astrophysical Journal Letters,
+  2025. https://doi.org/10.3847/2041-8213/ad9de2
+- C. D. Bochenek et al., "A fast radio burst associated with a Galactic
+  magnetar", Nature, 2020.
+  https://www.nature.com/articles/s41586-020-2872-x
+- CHIME/FRB Collaboration, "The First CHIME/FRB Fast Radio Burst Catalog",
+  Astrophysical Journal Supplement Series, 2021.
+  https://doi.org/10.3847/1538-4365/ac33ab
+- R. Abbott et al., "GW190521: A Binary Black Hole Merger with a Total Mass of
+  150 Solar Masses", Physical Review Letters, 2020.
+  https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.125.101102
+- M. Capano et al., "Multimode Quasinormal Spectrum from a Perturbed Black
+  Hole", Physical Review Letters, 2023.
+  https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.131.221402
+- I. Mandel, W. M. Farr, and J. R. Gair, "Extracting distribution parameters
+  from multiple uncertain observations with selection biases", Monthly Notices
+  of the Royal Astronomical Society, 2019.
+  https://doi.org/10.1093/mnras/stz896

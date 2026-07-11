@@ -41,9 +41,10 @@ Il part d'observateurs finis sur une géométrie finie d'écran holographique. S
 base de travail est algébrique-quantique : algèbres de patchs, états,
 probabilités de type trace/Born sur les surfaces d'enregistrement déclarées et
 entropie généralisée font partie du point de départ formel. À partir de cette
-base, l'OPH retrouve l'univers effectif observé : espace-temps, structure de
-jauge, particules, enregistrements et synchronisation des observateurs
-découlent de la cohérence de recouvrement. Au niveau opératoire, des patches
+base, l'OPH propose des branches conditionnelles de reconstruction pour
+l'espace-temps, la structure de jauge, les particules, les enregistrements et la
+synchronisation des observateurs ; chaque branche conserve les prémisses et les
+portes de preuve déclarées dans les papiers. Au niveau opératoire, des patches
 d'observateurs finis portent des enregistrements locaux, ne comparent que les
 données visibles dans leurs recouvrements, réparent les désaccords par des
 mouvements de récupération déclarés et convergent vers des points fixes stables
@@ -113,8 +114,9 @@ algébriques-quantiques et l'écran $S^2$ restent des prémisses explicites.
 Quantitativement, les lignes publiques sont organisées par trois quantités
 internes : un point fixe
 local de pixel $P_\star$, un point fixe global de capacité d'enregistrement
-$N_{\mathrm{CRC}}$ et un rapport de mise à l'échelle $\gamma_\star$. Le calcul
-source les produit comme valeurs de point fixe. Les mesures peuvent indiquer
+$N_{\mathrm{CRC}}$ et un rapport de mise à l'échelle $\gamma_\star$. Une
+coordonnée n'est dite source que si sa carte déclarée l'émet sans cible
+ajustée ; sinon elle reste un diagnostic ou une coordonnée de comparaison. Les mesures peuvent indiquer
 sur quelle branche nous sommes, mais les valeurs source doivent venir des
 calculs de point fixe. Les lignes à fermeture empirique sont marquées
 ci-dessous. La discussion d'échelle détaillée est rassemblée une seule fois

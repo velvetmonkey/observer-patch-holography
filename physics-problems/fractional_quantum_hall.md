@@ -11,74 +11,92 @@ Landau-level setting and entered a material-engineered Chern band. The OPH
 question is which boundary-visible records identify the fractional sector, and
 which material details merely choose a representative.
 
-**Status:** solved as a conditional OPH theorem package. Standalone markdown
-supplemental writeup for public reading and OPH Sage ingestion.
+**Status:** conditional OPH reformulation and receipt specification. The note
+recovers standard $K$-matrix and fusion-category readouts, proves limited
+non-selection statements, and separates high-field FQH from zero-field
+FCI/FQAH branches. It does not select a material $5/2$ order or derive a
+fractional phase from an arbitrary Hamiltonian.
 
 Date: 2026-07-08
 
 ## Introduction
 
-Fractional Hall physics is hard in legacy language because the measured plateau
-is a macroscopic transport record, while the microscopic many-electron state,
-edge channels, quasiparticle statistics, disorder, and sample geometry all
-enter the answer. The problem statement is to classify which gapped charged
-phases survive as public transport plateaus and to identify what extra data
-selects the $5/2$ sector. In OPH the boundary is the object: a Hall droplet is
-a charged collar with edge records and holonomy defects, so the surviving phases
-are its repair normal forms. Abelian plateaus become the ordinary integral
-edge/holonomy ledger; $5/2$ becomes the branch that requires a noncentral
-repair sector.
+The problem has three distinct layers: classify a gapped charged topological
+phase, infer its public transport and defect data, and determine which phase a
+specific Hamiltonian or sample realizes. A plateau alone need not distinguish
+candidate orders. At $\nu=5/2$, filling and minimal charge do not by themselves
+imply non-Abelian order; a noncentral sector is required only if a
+non-invertible fusion package is independently established.
 
-## Why Legacy Physics Gets Stuck
+## Standard-Theory Baseline and Unresolved Target
 
-Legacy fractional Hall physics has powerful local ingredients: Landau-level
+Conventional fractional Hall physics has powerful local and
+substrate-neutral ingredients: Landau-level
 projection, trial wavefunctions, composite-fermion constructions, Chern-Simons
-effective theories, edge conformal field theories, and numerical spectra. The
-hard part is that the laboratory plateau is a boundary-visible transport record,
-while the proposed explanation usually lives in a microscopic state, an
-effective topological field theory, or an edge model. Several gauge-distinct
-presentations can produce the same coarse transport plateau, and several
-physically different edge or defect sectors can agree on part of the readout.
+effective theories, $K$-matrix stable equivalence, spin topological field
+theories, braided fusion categories, edge conformal field theories, and
+numerical spectra. These methods classify broad Abelian and non-Abelian
+branches. The unresolved target is material selection and identifiability:
+several physically different phases can agree on a coarse transport plateau,
+and finite width, Landau-level mixing, disorder, and edge reconstruction affect
+which candidate is realized and which measurements distinguish it.
 
 The $\nu=5/2$ sector is the sharp failure mode. Pfaffian, anti-Pfaffian,
 PH-Pfaffian, Abelian, and reconstructed candidates can share filling fraction
 and partial charge data while disagreeing about fusion, chirality, thermal
 transport, interferometry, and edge reconstruction. A plateau alone therefore
 does not select the observer-facing sector. Legacy physics can name candidate
-phases and compute many invariants, but it lacks a single substrate-neutral
-normal-form object that says which public boundary records identify the phase
-and which hidden details are gauge.
+phases and compute their invariants. No OPH argument here supersedes that
+machinery or makes the many-body selection calculation easier.
 
 In that framing, the classification target is underdetermined: the same public
 plateau can sit over more than one observer-distinct sector.
 
-## Why OPH Makes It Solvable
+## Actual OPH Contribution
 
-OPH classifies the finite Hall collar. The hidden bulk presentation enters
+OPH repackages the system as a bounded self-reading patch: it has local
+many-body state, electromagnetic and edge ports, durable transport records,
+repair or continuation maps, readback, and public receipts. The hidden bulk presentation enters
 through the declared source law, then passes through quotienting. The physical
 state is the quotient of droplet, flux, active Landau level, source Hamiltonian,
-edge algebra, records, repair instruments, and checkpoint data by gauge
+edge algebra, records, repair instruments, and checkpoint data. Gauge
 representatives, basis choices, mesh labels, electron labels, edge charts, port
-labels, repair schedules, hidden carrier coordinates, and inert ancillas.
+labels, repair schedules, hidden carrier coordinates, and ancillas are removed
+only when they demonstrably preserve visible interface statistics, record
+readout, repair dynamics, and checkpoint continuation.
 
-That quotient turns the problem into a normal-form classification. Abelian
+That quotient supplies an evidence ledger around the conventional normal-form
+classification. Abelian
 plateaus are identified by an integral edge/holonomy ledger. Non-Abelian
 branches require defect and higher-defect data. The $5/2$ branch becomes
-solvable only when the boundary record includes enough data to distinguish the
+identifiable only when the public record includes enough data to distinguish the
 noncentral repair sector: charge, heat, tunneling, interferometry, fusion,
 braiding, chirality, and refinement-stable gap information. The OPH step that
 matters is the observer-facing equivalence relation. Hidden-label differences
 collapse. Boundary-visible differences in fusion or transport receipts remain
 physical.
 
+The epistemic ledger is:
+
+- **Assumed:** a gapped branch, a declared physical equivalence relation, an
+  accepted repair/canonicalization map, and a conventional topological-order
+  description on the chosen branch.
+- **Derived within the model:** coordinate-invariant readouts from a valid
+  $(K,t)$ presentation, the conditional non-Abelian implication of
+  non-invertible fusion, and normal-form non-selection.
+- **Empirical or numerical receipts:** the source Hamiltonian, gap, Hall and
+  thermal Hall response, charge, fusion/braiding evidence, edge realization,
+  refinement stability, and no-target-leak audit.
+
 ## Abstract
 
-Fractional Hall systems become Hall-collar quotients in OPH. Bulk repair stays
-inside a topological sector; the public residue lives at the edge, in charge
-holonomy, and in defect data. Abelian plateaus recover the standard integral
-ledger. The $\nu=5/2$ branch needs noncentral repair data, which separates the
-Pfaffian, anti-Pfaffian, PH-Pfaffian, Abelian, and reconstructed sectors by
-boundary-visible receipts.
+Fractional Hall systems become Hall-collar quotients in OPH. Gap-preserving
+local continuation stays inside a topological phase; the public residue lives
+in bulk topological data, charge holonomy, and a separately declared edge
+realization. Abelian plateaus recover the standard integral ledger. At
+$\nu=5/2$, an observed non-invertible fusion package would require a noncentral
+repair sector; filling and $e/4$ charge alone remain compatible with multiple
+Abelian and non-Abelian candidates.
 
 ## Source Branch
 
@@ -119,32 +137,58 @@ charts, port labels, and mesh labels are silent when they preserve visible
 interface statistics, record readout, repair instruments, and checkpoint
 continuation.
 
-## Branch Assumptions
+## Branch Assumptions: Continuum FQH Versus FCI/FQAH
 
-The theorem assumes a finite regulated two-dimensional charged electron system
-with conserved electromagnetic $U(1)$, nonzero magnetic flux, a bulk mobility
-gap on the plateau, observer-visible boundary/collar algebra, and
-quotient-visible charge, heat, tunneling, and interferometry records:
+Both branches assume a finite regulated two-dimensional charged system with
+conserved electromagnetic $U(1)$, a declared many-body or mobility gap,
+observer-visible boundary/collar records, and quotient-visible charge, heat,
+tunneling, and interferometry readouts. Their source presentations differ.
+
+The continuum Landau-level FQH branch is
 
 ```math
-\mathrm{Hall}_r =
+\mathrm{FQH}_r =
 \left(
 2+1\mathrm{D},
 U(1)_{\rm em},
-B\neq0,
+B_{\rm ext}\ne0,
+N_{\phi,r},
+P_{\mathrm{LL},r},
 \Delta_{\rm bulk}>0,
 \mathcal A_{\partial,r},
 \mathcal R_{\partial,r}
 \right).
 ```
 
-The result fixes the normal-form shape of fractional Hall response. It carries
-no claim that an arbitrary Hamiltonian enters a fractional Hall phase.
+The zero-field fractional-Chern or fractional-quantum-anomalous-Hall branch
+motivated by twisted MoTe$_2$ is instead
+
+```math
+\mathrm{FCI/FQAH}_r =
+\left(
+2+1\mathrm{D},
+U(1)_{\rm em},
+B_{\rm ext}=0,
+P_{C,r},
+C_r\ne0,
+\nu_{\rm cell,r},
+\Delta_{\rm bulk}>0,
+\mathcal A_{\partial,r},
+\mathcal R_{\partial,r}
+\right),
+```
+
+with a Chern-band projector, moire-cell filling, and a declared explicit or
+spontaneous time-reversal-breaking source and record. $N_\phi$ and a
+Landau-level projector must not be inserted into this zero-field branch as if
+they were material inputs. The results below classify a supplied gapped
+topological ledger; they do not prove that an arbitrary Hamiltonian enters
+either phase.
 
 ## Hall-Collar Quotient
 
-Let the finite Hall presentation space $\Sigma_r^{\mathrm{Hall}}$ consist of
-tuples
+For the continuum FQH branch, let the finite presentation space
+$\Sigma_r^{\mathrm{FQH}}$ consist of tuples
 
 ```math
 s=
@@ -174,24 +218,35 @@ $\mathcal R_{\partial,r}$ is the record algebra; $\mathcal U_{\partial,r}$
 is the allowed repair/update family; and $\mathrm{Chk}_r$ is
 refinement/checkpoint data.
 
-Let $\Gamma_r^{\mathrm{Hall}}$ quotient away gauge representatives, basis
+Let $\Gamma_r^{\mathrm{FQH}}$ quotient away gauge representatives, basis
 choices, mesh labels, electron labels, edge charts, port labels, repair
 schedules, hidden carrier coordinates, and inert ancillas. The physical
 quotient is
 
 ```math
-Q_r^{\mathrm{Hall}}
+Q_r^{\mathrm{FQH}}
 =
-\Sigma_r^{\mathrm{Hall}}/\Gamma_r^{\mathrm{Hall}}.
+\Sigma_r^{\mathrm{FQH}}/\Gamma_r^{\mathrm{FQH}}.
 ```
+
+For the FCI/FQAH branch, replace $(B_r,N_{\phi,r},P_{\mathrm{LL},r})$ by the
+lattice or moire geometry, active Chern-band projector $P_{C,r}$, unit-cell
+count and filling, and declared time-reversal-breaking source/record. Denote
+the resulting quotient by $Q_r^{\mathrm{FCI}}$. Later uses of
+$Q_r^{\mathrm{Hall}}$ mean the disjoint declared union of these branch-specific
+quotients, not a single presentation containing incompatible inputs.
 
 For the $\nu=5/2$ branch,
 
 ```math
-\Sigma_r^{5/2}\subset \Sigma_r^{\mathrm{Hall}},
+\Sigma_r^{5/2}\subset \Sigma_r^{\mathrm{FQH}},
 \qquad
 \nu_r=\frac{N_{e,r}}{N_{\phi,r}}\to \frac52.
 ```
+
+The arrow is a thermodynamic statement; finite spherical systems also carry a
+topological shift, so $N_\phi=\nu^{-1}N_e-\mathcal S$ rather than an exact
+finite-size ratio.
 
 After subtracting two filled lower Landau levels,
 
@@ -210,6 +265,12 @@ n_r^{\mathrm{Hall}}:
 Q_r^{\mathrm{Hall}}\to N_r^{\mathrm{Hall}}.
 ```
 
+Here $N_r^{\mathrm{Hall}}$ is either embedded in $Q_r^{\mathrm{Hall}}$ as a
+chosen set of representatives or supplied with an inclusion
+$i_r:N_r^{\mathrm{Hall}}\hookrightarrow Q_r^{\mathrm{Hall}}$ satisfying
+$n_r\circ i_r=\mathrm{id}_{N_r}$. This typing is required before calling $n_r$
+idempotent or applying its pushforward twice.
+
 A Hall normal form is
 
 ```math
@@ -225,7 +286,8 @@ n_r^{\mathrm{Hall}}(q)
 \right).
 ```
 
-$\mathcal E_{\partial,r}$ is the repaired edge/collar algebra.
+$\mathcal E_{\partial,r}$ is a declared edge/collar realization, not by itself
+a bulk invariant: distinct reconstructed edges can bound the same bulk order.
 $\mathcal H_{\mathrm{hol},r}$ is the Abelian holonomy lattice or
 non-Abelian higher-holonomy datum. $\mathcal C_r$ is the defect/fusion
 category. $\mathfrak e_r$ is the local electron object. The charge grading is
@@ -264,12 +326,12 @@ The components are filling fraction, electrical Hall conductance, minimal
 quasiparticle charge, chiral central charge, anyon set, fusion rules, exchange
 data, braiding data, modular/geometric response, and interferometry response.
 
-## Theorem 1: Hall Normal Form
+## Proposition 1: Conditional Hall Normal Form
 
-**Statement.** Let $Q_r^{\mathrm{Hall}}$ be the finite physical quotient of a
-gapped $2+1$ dimensional charged Hall system with conserved
-$U(1)_{\rm em}$, nonzero magnetic flux, a bulk mobility gap, and an
-observer-visible boundary/collar algebra. Assume the accepted OPH repair law on
+**Statement.** Let $Q_r^{\mathrm{Hall}}$ be a branch-specific finite physical
+quotient of a gapped $2+1$ dimensional charged Hall or Chern system with
+conserved $U(1)_{\rm em}$ and an observer-visible boundary/collar algebra.
+Assume the accepted OPH repair law on
 this branch is terminating, quotient-descended, locally confluent, and
 repair-complete. Then every stable Hall phase has a schedule-independent normal
 form
@@ -285,8 +347,10 @@ n_r^{\mathrm{Hall}}(q)
 \right).
 ```
 
-If the residual defect datum is Abelian, it is classified by Abelian holonomy.
-If it is genuinely noncentral, it is classified by higher-gauge/fusion data.
+If the residual defect datum is Abelian, it is recorded by an integral
+holonomy lattice together with its charge and quadratic/braiding pairing. If it
+is genuinely noncentral, the ledger must retain full braided fusion-category
+data; a generic reduction to a crossed module is not assumed.
 
 **Proof.** OPH physical data factor through accessible algebras, records,
 visible interface restrictions, repair instruments, and checkpoint
@@ -294,18 +358,19 @@ continuation. Hidden presentation data are quotient artifacts.
 
 The consensus theorem gives schedule-independent quotient normal forms when the
 repair relation is terminating, quotient-descended, locally confluent, and
-repair-complete. The same theorem surface states that pairwise overlap agreement
-does not guarantee global agreement; the residual obstruction is holonomic,
-Abelian in the central branch and crossed-module Cech in the genuinely
-noncentral branch.
+repair-complete. Pairwise overlap agreement need not guarantee global
+agreement; on the Abelian branch the residual can be holonomic. A general
+non-Abelian Hall branch is recorded by its braided fusion data. No equivalence
+between arbitrary such data and a crossed-module Cech obstruction is assumed.
 
-In a gapped Hall phase, all local bulk mismatches that preserve the mobility gap
-repair inside the same topological sector. The quotient-visible residue after
-local repair is boundary/collar data or global obstruction data. A stable Hall
-phase is represented by edge algebra, charge holonomy, defect/higher-defect
-data, and observer-facing readout. $\square$
+The additional physical premise is that gap-preserving local continuation stays
+inside the same bulk topological phase. That premise comes from the conventional
+stability theory of topological order; it is not proved by confluence alone.
+The bulk order, a compatible edge realization, charge holonomy,
+defect/higher-defect data, and observer-facing readout then form the declared
+normal form. $\square$
 
-## Theorem 2: Abelian Normal Forms Are $K$ Matrix Normal Forms
+## Theorem 2: Abelian $U(1)^N$ Chern-Simons Readout
 
 On the Abelian branch, let $\Lambda\simeq\mathbb Z^N$ be the stable defect
 lattice, let
@@ -315,20 +380,38 @@ K:\Lambda\times\Lambda\to\mathbb Z
 ```
 
 be a nondegenerate symmetric integral pairing, and let $t\in\Lambda^\ast$ be
-the electromagnetic charge vector.
+the electromagnetic charge vector. On an electronic branch require a primitive
+unit-charge vector and the fermionic parity condition
+
+```math
+n^TKn\equiv t^Tn\pmod 2
+\qquad(n\in\mathbb Z^N).
+```
 
 **Statement.** On the Abelian branch,
 
 ```math
-n_r^{\mathrm{Hall}}(q)=(K,t)
+n_r^{\mathrm{Hall}}(q)=[K,t]
 ```
 
-has readouts
+where the brackets identify
+
+```math
+(K,t)\sim(W^TKW,W^Tt),
+\qquad W\in GL(N,\mathbb Z),
+```
+
+and, when declared, stable addition or removal of explicitly specified
+counter-propagating null-response blocks. An arbitrary unimodular block is not
+automatically trivial: an invertible Hall or neutral chiral phase can change
+electrical or thermal response. Without the stated quotient, $(K,t)$ is a
+coordinate presentation rather than a normal form. Its readouts are
 
 ```math
 \nu=t^TK^{-1}t,
 \qquad
-\mathcal A_{\rm qp}=\mathbb Z^N/K\mathbb Z^N,
+\mathcal A_{\rm qp}=\Lambda^\ast/K\Lambda
+\simeq\mathbb Z^N/K\mathbb Z^N,
 ```
 
 ```math
@@ -341,14 +424,31 @@ Q_\ell/e=t^TK^{-1}\ell,
 \theta_{\ell,\ell'}=2\pi\ell^TK^{-1}\ell'.
 ```
 
-**Proof.** In the Abelian OPH holonomy branch, stable defects are vectors
-$\ell\in\Lambda\simeq\mathbb Z^N$. Local electron excitations form the
-sublattice $K\Lambda$. Hence quotient-visible quasiparticles are
+Charges are defined modulo local integer charge and the angles modulo $2\pi$
+(with the transparent-local-fermion qualification on a spin theory). The
+transport units are
+
+```math
+\sigma_{xy}=\nu\frac{e^2}{h},
+\qquad
+\frac{\kappa_{xy}}{T}
+=
+c_-\frac{\pi^2k_B^2}{3h}
+```
+
+when the edge is thermally equilibrated.
+For a minimal Abelian Chern--Simons presentation $c_-=\operatorname{sig}(K)$;
+any separately stacked invertible sector must be recorded rather than silently
+removed.
+
+**Proof.** In coordinates, stable quasiparticle lines are vectors
+$\ell\in\Lambda^\ast\simeq\mathbb Z^N$. Local excitations form the sublattice
+$K\Lambda\subset\Lambda^\ast$. Hence quotient-visible quasiparticles are
 
 ```math
 \mathcal A_{\rm qp}
 =
-\Lambda/K\Lambda
+\Lambda^\ast/K\Lambda
 \simeq
 \mathbb Z^N/K\mathbb Z^N.
 ```
@@ -379,8 +479,10 @@ connection is
 \nu=t^TK^{-1}t.
 ```
 
-Thus the Abelian OPH holonomy normal form is exactly the $K$ matrix Hall
-normal form. $\square$
+Thus a declared Abelian $U(1)^N$ Chern-Simons branch has the standard
+$K$-matrix readout. This is a recovery of conventional mathematics in the OPH
+receipt ledger, not a new classification theorem for every Abelian spin
+topological order. $\square$
 
 ## Corollary 2.1: Laughlin Branch
 
@@ -432,13 +534,18 @@ n-\frac{2pn^2}{1+2pn}
 \frac{n}{2pn+1}.
 ```
 
-The opposite flux orientation gives $\nu=n/(2pn-1)$.
+For the reverse-flux convention use
 
-## Theorem 3: Hierarchy as Normal-Form Refinement
+```math
+K=-I_n+2p\,\mathbf 1_n\mathbf 1_n^T,
+```
 
-**Statement.** Suppose an Abelian Hall normal form $(K,t)$ has a stable
-quasiparticle class $\ell$ that condenses as an additional repair-stable
-defect generator. Then the refined OPH normal form is an enlarged $K$ matrix
+which gives $\nu=n/(2pn-1)$ when $2pn>1$.
+
+## Proposition 3: Abelian Hierarchy Presentation
+
+**Statement.** In the conventional Haldane-Halperin daughter-fluid
+construction, adjoining one statistical gauge field gives the presentation
 
 ```math
 K'=
@@ -450,20 +557,22 @@ K & \ell\\
 t'=
 \begin{pmatrix}
 t\\
-q
+0
 \end{pmatrix},
 ```
 
-where $m$ and $q$ encode the self-statistics and charge of the condensed
-generator. Iterating this step gives the Abelian hierarchy.
+provided $\ell$ and $m$ obey the required integrality, fermionic parity,
+nondegeneracy, and charge-conservation conditions. Iterating an admissible step
+gives an Abelian hierarchy presentation.
 
-**Proof.** A hierarchy step adds one stable quotient-visible defect generator to
-the Abelian holonomy lattice. Adding a generator enlarges the lattice from
-$\Lambda$ to $\Lambda'=\Lambda\oplus\mathbb Z e_{\rm add}$. The integral
-pairing on the enlarged lattice restricts to $K$ on $\Lambda$, pairs the
-additional generator with old defects by $\ell$, and assigns it self-pairing
-$m$. The charge vector extends by $q$. The Abelian readout theorem gives the
-usual hierarchy formulas from $(K',t')$. $\square$
+**Proof.** The added statistical gauge field enlarges the integral lattice,
+pairs with the old fields through $\ell$, and has self-pairing $m$. It carries
+no independent electromagnetic charge-vector entry in this convention. The
+standard Abelian readout formulas then apply to $(K',t')$. $\square$
+
+This block extension must not be conflated with arbitrary anyon condensation.
+General anyon condensation requires a condensable bosonic algebra and can
+identify or confine sectors rather than merely append a generator.
 
 ## Non-Abelian Hall Normal Forms
 
@@ -485,18 +594,18 @@ captured by a single commuting charge holonomy group.
 
 **Statement.** If a Hall normal form has a simple defect $a$ with
 $d_a>1$, then the OPH normal form cannot be represented by Abelian holonomy
-alone. It requires a genuinely noncentral repair sector, modeled at finite
-cutoff by crossed-module or fusion-category data.
+alone. It requires a genuinely noncentral repair sector represented here by
+braided fusion-category data. Crossed-module data may model restricted
+higher-gauge examples but are not asserted to classify arbitrary non-Abelian
+anyon theories.
 
 **Proof.** Abelian holonomy sectors form a pointed category. Each simple sector
 is invertible, fusion has a unique output, and all quantum dimensions are one.
 If $d_a>1$, the corresponding sector is not invertible. Its fusion rule cannot
-be encoded by a group-valued Abelian holonomy class. OPH's noncentral
-obstruction branch is the higher-gauge/crossed-module branch, and the
-finite-cutoff edge-sector language records it as fusion-category data.
-$\square$
+be encoded by a group-valued Abelian holonomy class. The finite-cutoff ledger
+must therefore retain its non-pointed fusion and braid data. $\square$
 
-## Theorem 5: $5/2$ Noncentral Admissibility
+## Theorem 5: Conditional $5/2$ Noncentral Implication
 
 **Statement.** Let $q\in Q_r^{5/2}$ be a Hall quotient state whose observed
 readout includes
@@ -515,6 +624,9 @@ and an Ising/Majorana fusion package
 
 Then $n_r^{5/2}(q)$ cannot be purely Abelian. It must include a noncentral
 neutral repair sector.
+
+The Ising/Majorana fusion package is a premise to be established by an
+independent receipt. It does not follow from $\nu=5/2$ and $e^\ast=e/4$.
 
 **Proof.** In a purely Abelian $K$ matrix normal form, quasiparticle sectors
 form the finite Abelian group $\mathbb Z^N/K\mathbb Z^N$, and fusion is group
@@ -550,7 +662,9 @@ thermal Hall response. Since the map
 ```math
 \mathrm{HallRead}_{\mathrm{charge}}:
 N_r^{5/2}\to
-\{(\nu,e^\ast)\}
+\mathbb R^2,
+\qquad
+n\longmapsto(\nu(n),e^\ast(n)/e)
 ```
 
 collapses those neutral and edge distinctions, it is not injective. Charge
@@ -580,10 +694,12 @@ additional quotient-intrinsic ensemble or action
 \mu_r(q)=Z_r^{-1}m_r(q)e^{-S_r(q)}.
 ```
 
-**Proof.** The induced map on probability laws is
+**Proof.** Let $i_r:N_r^{5/2}\hookrightarrow Q_r^{5/2}$ be the declared
+inclusion with $n_r\circ i_r=\mathrm{id}$. The induced self-map on probability
+laws over $Q_r^{5/2}$ is
 
 ```math
-\mathcal C(\mu)=(n_r)_\#\mu.
+\mathcal C(\mu)=(i_r)_\#(n_r)_\#\mu.
 ```
 
 It is idempotent:
@@ -592,7 +708,7 @@ It is idempotent:
 \mathcal C^2=\mathcal C.
 ```
 
-Every law supported on $N_r^{5/2}$ is fixed. In particular, a law supported
+Every law supported on the embedded normal forms is fixed. In particular, a law supported
 entirely on $N_{\rm Pf}$, a law supported entirely on $N_{\rm APf}$, and a
 law supported entirely on $N_{\rm PH}$ are all fixed points of
 $\mathcal C$. Hence $n_r$ is a canonicalizer, not a selector. A unique
@@ -612,26 +728,30 @@ over a finite set of candidate $5/2$ sectors $\mathcal X$, there exists a
 quotient-intrinsic action $S_r$ whose induced sector probabilities are
 $(p_X)$. Therefore normal-form data alone cannot imply a unique sector.
 
-**Proof.** Let $N_{r,X}\subset N_r^{5/2}$ be the normal forms in sector $X$,
-and let $M_X=|N_{r,X}|$, assuming finite regulator $r$. Choose uniform base
-weight $m_r=1$. Define
+**Proof.** Let $N_{r,X}\subset N_r^{5/2}$ be the normal forms in sector $X$ and
+$Q_{r,X}=n_r^{-1}(N_{r,X})$. At finite regulator choose a base measure $m_r$
+with $0<M_X:=m_r(Q_{r,X})<\infty$. Define an extended action on $Q_r$ by
 
 ```math
-e^{-S_r(n)}=\frac{p_X}{M_X}
+e^{-S_r(q)}=\frac{p_X}{M_X}
 \quad
-\text{for } n\in N_{r,X}.
+\text{for } q\in Q_{r,X},
 ```
+
+where $p_X=0$ means $S_r=+\infty$ on that sector.
 
 Then the partition function is
 
 ```math
-Z_r=\sum_X\sum_{n\in N_{r,X}}\frac{p_X}{M_X}
+Z_r=\sum_X\int_{Q_{r,X}}m_r(dq)\frac{p_X}{M_X}
 =\sum_X p_X=1.
 ```
 
 The induced probability of sector $X$ is $p_X$. Since every probability
 vector over candidate sectors can be realized by some quotient action, the
-normal-form data alone cannot force a unique sector. $\square$
+normal-form data alone cannot force a unique sector. This constructed action is
+a countermodel, not an admissible prediction: choosing $p_X$ from the desired
+material outcome would violate the no-target-leak rule. $\square$
 
 ## Missing Selector Object
 
@@ -651,7 +771,8 @@ c_{sr},
 ```
 
 $Q_r^{5/2}$ is the finite physical quotient. $m_r$ is the base measure.
-$S_r$ is the source-side material action. $c_{sr}:Q_s\to Q_r$ are
+$S_r$ is a dimensionless source-side action (or an explicitly declared
+$\beta H$, Euclidean action, or ground-state limit). $c_{sr}:Q_s\to Q_r$ are
 refinement maps. $P_{r,X}$ are sector projectors. The readout map records
 charge, heat, edge, tunneling, and interferometry data.
 
@@ -672,10 +793,11 @@ W_r(X)
 m_r(q)e^{-S_r(q)}
 ```
 
-have a unique maximizer $X_\star$. If the gap
+are positive and have a unique maximizer $X_\star$. Define the log-weight
+margin
 
 ```math
-\Delta_r
+g_r^W
 =
 \min_{Y\ne X_\star}
 \left[
@@ -683,8 +805,10 @@ have a unique maximizer $X_\star$. If the gap
 \right]
 ```
 
-satisfies $\Delta_r\to+\infty$ or stays above the declared refinement margin,
-then the material selector chooses $X_\star$ in the refinement limit.
+If $g_r^W\to+\infty$ for the same eventual sector $X_\star$, then its
+sector probability tends to one. A finite positive margin identifies only the
+maximum-weight sector at that regulator; it does not imply concentration or
+refinement stability by itself.
 
 **Proof.** The sector probability is
 
@@ -696,7 +820,7 @@ For $Y\ne X_\star$,
 
 ```math
 \frac{W_r(Y)}{W_r(X_\star)}
-\le e^{-\Delta_r}.
+\le e^{-g_r^W}.
 ```
 
 Thus
@@ -706,12 +830,10 @@ Thus
 =
 \frac{1}{1+\sum_{Y\ne X_\star}W_r(Y)/W_r(X_\star)}
 \ge
-\frac{1}{1+(|\mathcal X|-1)e^{-\Delta_r}}.
+\frac{1}{1+(|\mathcal X|-1)e^{-g_r^W}}.
 ```
 
-If $\Delta_r\to+\infty$, the bound tends to one. If $\Delta_r$ exceeds the
-declared finite refinement margin, the selector is stable at that regulator.
-$\square$
+If $g_r^W\to+\infty$, the bound tends to one. $\square$
 
 ## Theorem 10: Refinement-Compatible Selector
 
@@ -721,10 +843,13 @@ $\square$
 (c_{sr})_\#\mu_s=\mu_r
 ```
 
-and
+and the sector labels intertwine with refinement up to null sets,
 
 ```math
-c_{sr}(P_{s,X}Q_s)\subseteq P_{r,X}Q_r
+P_{s,X}Q_s
+=
+c_{sr}^{-1}(P_{r,X}Q_r)
+\quad(\mathrm{mod}\ \mu_s),
 ```
 
 for each sector $X$, then the sector probabilities are refinement-compatible:
@@ -733,10 +858,24 @@ for each sector $X$, then the sector probabilities are refinement-compatible:
 \Pr_s(X)=\Pr_r(X).
 ```
 
-If exact compatibility has total-variation defect $\epsilon_{sr}$, then
+More generally, let $\epsilon_{sr}$ bound the total-variation defect of the
+pushforward law and define the sector-label mismatch
 
 ```math
-|\Pr_s(X)-\Pr_r(X)|\le \epsilon_{sr}.
+\delta_{sr,X}
+=
+\mu_s\!\left(
+P_{s,X}Q_s\,\triangle\,
+c_{sr}^{-1}(P_{r,X}Q_r)
+\right).
+```
+
+Then
+
+```math
+|\Pr_s(X)-\Pr_r(X)|
+\le
+\epsilon_{sr}+\delta_{sr,X}.
 ```
 
 **Proof.** Exact compatibility gives
@@ -753,8 +892,9 @@ If exact compatibility has total-variation defect $\epsilon_{sr}$, then
 \Pr_r(X).
 ```
 
-The approximate statement is the definition of total variation applied to the
-indicator of $P_{r,X}Q_r$. $\square$
+The approximate statement follows by adding and subtracting
+$\mu_s(c_{sr}^{-1}(P_{r,X}Q_r))$, then applying total variation and the
+symmetric-difference bound. $\square$
 
 ## Theorem 11: No-Target-Leak Rule
 
@@ -828,29 +968,45 @@ Optical fractional excitons add a module category
 ```
 
 over the topological sector category. Each optically active object has a
-topological shadow $\tau$, total electromagnetic charge $Q_{\mathrm{tot}}$,
-polarization, oscillator data, and binding-energy data. The public optical line
-fan is
+predicted topological shadow $\tau_{\mathrm{pred}}$, modeled total
+electromagnetic charge $Q_{\mathrm{tot}}$, polarization, oscillator data, and
+binding-energy data. Those topological labels are candidate annotations. A
+minimal measured record instead lies in an observable space
+$\mathcal Y_{\mathrm{opt}}$:
 
 ```math
-\mathcal L_{\mathrm{opt}}
-=
-\{(E,I,\partial_g E,\mathrm{pol},\tau,Q_{\mathrm{tot}},\eta)\}.
+y=(\Delta E,I,\partial_g\Delta E,\mathrm{pol},\eta,\ldots)
+\in\mathcal Y_{\mathrm{opt}}.
 ```
 
-The important correction is the slope boundary. A gate or field slope identifies
-charge only when the binding-energy derivative is independently bounded. A
-neutral fractional exciton can have
+Each frozen candidate $m$ supplies an acceptance region
+$R_m\subseteq\mathcal Y_{\mathrm{opt}}$. The annotated prediction ledger is
+
+```math
+\widehat{\mathcal L}_{\mathrm{opt}}
+=
+\{(R_m,\tau_{\mathrm{pred}}(m),Q_{\mathrm{tot}}(m)):m\in\mathcal X\}.
+```
+
+A gate or field slope identifies charge only when the lever arm and all
+binding or nuisance derivatives are independently bounded. A neutral
+composite may have
 
 ```math
 Q_{\mathrm{tot}}=0,
 \qquad
-\tau\ne 1,
+\tau_{\mathrm{pred}}^{\mathrm{rel}}\ne 1,
 ```
 
-so its leading charge slope may vanish while its quotient-sector shadow remains
-nontrivial. If the optical identifier is not injective after stated
-uncertainties, the correct result is `OPTICAL_SECTOR_AMBIGUOUS`.
+so its leading charge slope may vanish while an internal relative fusion
+channel remains nontrivial. A strictly local photon operator preserves the
+global superselection sector. The complete state therefore needs a
+compensating anyon, a pre-existing sector, or an explicitly modeled boundary
+or nonlocal process. An optical identification requires frozen candidate
+regions that separate at the declared resolution and a record compatible with
+exactly one region; inserting $\tau_{\mathrm{pred}}$ into the measured tuple
+would be circular. Otherwise the correct result is
+`OPTICAL_SECTOR_AMBIGUOUS`.
 
 The companion problem note
 [Fractional Excitons as OPH Quotient-Sector Readouts](fractional_excitons_as_oph_quotient_sector_readouts.md)
@@ -864,15 +1020,16 @@ proof is supplied.
 
 ## Summary
 
-Let $Q_r^{\mathrm{Hall}}$ be the finite OPH quotient of a gapped charged Hall
-collar with conserved electromagnetic $U(1)$ and accepted repair normal form
-$n_r$. Every stable fractional Hall phase has a quotient-visible
-edge/holonomy normal form. On the Abelian branch this normal form is an
-integral $K$ matrix pair $(K,t)$, with
+Let $Q_r^{\mathrm{Hall}}$ denote the declared continuum-FQH or FCI/FQAH
+quotient, with conserved electromagnetic $U(1)$ and an accepted typed
+canonicalizer $n_r$. Given a conventional gapped topological-order ledger, OPH
+packages its bulk invariants, compatible edge realization, readback, and
+evidence receipts as a self-reading patch. On the Abelian $U(1)^N$
+Chern-Simons branch the normal form is an equivalence class $[K,t]$, with
 
 ```math
 \nu=t^TK^{-1}t,\qquad
-\mathcal A_{\rm qp}=\mathbb Z^N/K\mathbb Z^N,
+\mathcal A_{\rm qp}=\Lambda^\ast/K\Lambda,
 ```
 
 ```math
@@ -880,15 +1037,48 @@ Q_\ell/e=t^TK^{-1}\ell,\qquad
 \theta_\ell=\pi\ell^TK^{-1}\ell.
 ```
 
-Hierarchy formation is normal-form refinement by adjoining surviving defect
-generators. At $\nu=5/2$, any Ising/Majorana package with
+The conventional hierarchy admits block-matrix presentations subject to its
+integrality, parity, and charge constraints. At $\nu=5/2$, an independently
+established Ising/Majorana package with
 $\sigma\times\sigma=1+\psi$ is impossible as Abelian holonomy and requires a
-noncentral repair sector. The normal-form projector remains an idempotent
-canonicalizer. Unique material selection requires a quotient-intrinsic ensemble
-and refinement-stable sector gap.
+noncentral repair sector; $\nu$ and $e/4$ alone do not. The normal-form
+canonicalizer does not select a material phase. Selection requires a frozen
+source Hamiltonian or ensemble and refinement-stable evidence.
 
 For fractional-exciton and fractional-Chern optical branches, the same selector
 rule applies. The optical line fan is evidence only when it descends from a
 frozen source, a certified topological ledger, a quotient-descended optical
 module, and a simulator certificate with representative invariance, quotient
 lumpability, no orbit-size bias, refinement compatibility, and no target leak.
+
+## Promotion Tests and Falsifiers
+
+A material claim must freeze the continuum-FQH or FCI/FQAH source before
+comparison and report, as applicable, the many-body gap, spectral flow and
+charge pump, Hall conductance, torus ground-sector structure, entanglement or
+modular data, edge anomaly, thermal Hall response, and refinement uncertainty.
+The OPH contribution fails as an identifying ledger if representative changes
+alter those readouts, if the same frozen receipts remain non-injective on the
+candidate sectors, or if the claimed selector uses the target measurement it is
+supposed to predict.
+
+## References
+
+- R. B. Laughlin, "Anomalous Quantum Hall Effect: An Incompressible Quantum
+  Fluid with Fractionally Charged Excitations", Physical Review Letters 50,
+  1395, 1983. https://doi.org/10.1103/PhysRevLett.50.1395
+- F. D. M. Haldane, "Fractional Quantization of the Hall Effect: A Hierarchy of
+  Incompressible Quantum Fluid States", Physical Review Letters 51, 605, 1983.
+  https://doi.org/10.1103/PhysRevLett.51.605
+- J. K. Jain, "Composite-Fermion Approach for the Fractional Quantum Hall
+  Effect", Physical Review Letters 63, 199, 1989.
+  https://doi.org/10.1103/PhysRevLett.63.199
+- X.-G. Wen and A. Zee, "Classification of Abelian Quantum Hall States and
+  Matrix Formulation of Topological Fluids", Physical Review B 46, 2290, 1992.
+  https://doi.org/10.1103/PhysRevB.46.2290
+- G. Moore and N. Read, "Nonabelions in the Fractional Quantum Hall Effect",
+  Nuclear Physics B 360, 362, 1991.
+  https://doi.org/10.1016/0550-3213(91)90407-O
+- J. Cai et al., "Signatures of Fractional Quantum Anomalous Hall States in
+  Twisted MoTe2", Nature 622, 63, 2023.
+  https://doi.org/10.1038/s41586-023-06289-w

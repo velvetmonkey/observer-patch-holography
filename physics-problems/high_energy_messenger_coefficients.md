@@ -22,12 +22,12 @@ artifact can emit the coefficients of a common hidden compact-engine source law
 before event coordinates, energies, associations, likelihood residuals, or
 diagnostic overlays are read.
 
-**Status:** solved as a source-only coefficient-emission theorem package and
-simulator receipt contract. The theorem closes the coefficient gap for finite
-source ledgers: OPH may emit a high-energy messenger source law only when the
-moments, baseline, feature map, compact-engine source loads, solver, and
-no-target-leak DAG are frozen source-side. The result is not a detected-source
-claim and not a UHE event fit.
+**Status:** conditional finite-MaxEnt result plus an open physical source
+problem. Existence and uniqueness of coefficients follow under the stated
+finite-support assumptions. OPH does not yet derive the compact-engine loads,
+feature map, or astrophysical baseline needed to turn that result into a
+source-only physical prediction. The result is not a detected-source claim and
+not a UHE event fit.
 
 Date: 2026-07-08
 
@@ -53,6 +53,23 @@ OPH does not get a free coefficient for every messenger channel. The source
 coefficient must be common at the compact-engine layer; neutrino, cosmic-ray,
 and gamma maps are downstream species kernels.
 
+The common-coefficient lock is a declared joint-source hypothesis, not a
+consequence of OPH alone. It is useful precisely because the different
+messenger data can falsify it after it is frozen.
+
+## What Is Standard, What Is Open, And What OPH Adds
+
+Exponential families, maximum-entropy duality, multimessenger transport, and
+Poisson detector likelihoods are standard machinery. The unresolved physics is
+the actual source population, acceleration and interaction laws, composition,
+propagation, and the derivation of source-side moment constraints.
+
+OPH adds a disciplined observer-like source patch: bounded engine state,
+physical ports, source readback, repair/load records, a frozen dependency DAG,
+and public receipts proving that target events did not leak upstream. That
+makes the source-versus-fit distinction unusually explicit; it does not make
+the MaxEnt mathematics or source-identification problem uniquely OPH.
+
 ## Source Artifact
 
 For regulator $r$, the finite UHE coefficient artifact is
@@ -77,17 +94,21 @@ H_r
 The components are:
 
 - $Q_r^{\rm rel}=\Sigma_r^{\rm rel}/\Gamma_r^{\rm rel}$, with hidden
-  representatives, port labels, repair schedules, worker metadata, mesh labels,
-  inert coordinates, and ancillary stabilizers quotiented out.
+  gauge-equivalent representatives and demonstrably inert computation
+  metadata quotiented out. Physical ports, source-region labels, duty state,
+  and repair histories that alter a load remain visible.
 - $\mu_r^{\rm rel}(q)=Z_r^{-1}m_r(q)\exp[-S_r(q)]$, or a declared finite
   source MaxEnt law.
 - $G_r$, a source-cell partition. A cell has labels such as sky/source region,
-  redshift shell, and source class.
+  redshift shell, and source class. If those labels come from an external
+  survey, the result is source-separated from the target UHE events but is not
+  an ab initio OPH population prediction.
 - $U_r$, the astrophysical support. A point $u=(g,\theta)$ includes compactness,
   luminosity, obscuration, baryon loading, photon field, magnetic environment,
   maximum rigidity, duty state, and opacity.
-- $m_{0,r}(u)$, a frozen baseline source measure with full support, fixed before
-  UHE comparison.
+- $m_{0,r}(u)$, a frozen baseline probability mass with full support, fixed
+  before UHE comparison and normalized by
+  \(\sum_{u\in U_{r,g}}m_{0,r}(u)=1\).
 - $F_r(u)$, a finite feature map. The first UHE lane uses
   $\widehat A_r(g)$, $C_{\rm compact}(\theta)$, $H_{\rm hidden}(\theta)$,
   $\widehat A_r C_{\rm compact}$, and $\widehat A_r H_{\rm hidden}$.
@@ -132,6 +153,13 @@ L_{\alpha,r}^{\rm CE}(Q;g)
 \right].
 ```
 
+This is a modeling bridge, not yet an OPH derivation. The normalization
+\(N_{\alpha,r}\) must state units and map the load vector to the same
+dimensionless feature-moment coordinates as \(F_r\); the resulting
+\(c_r(g)\) must lie in \(\operatorname{relint}\operatorname{conv}F_r(U_{r,g})\).
+Changing \(N\), the gates, or the source-cell definition changes the physical
+hypothesis and requires a new frozen artifact.
+
 No simulator output, likelihood value, observed event target, tuned diagnostic,
 or human-selected event pattern may enter this source law or constraint ledger.
 
@@ -169,15 +197,16 @@ equivalently minimizing
 A_{r,g}(\eta)-\eta\cdot c_r(g).
 ```
 
-It defines the source law
+It defines the source probability mass function
 
 ```math
-d\mu^{\rm UHE}_{r,g}(u)
+p_{\eta,r,g}(u)
 =
 m_{0,r}(u)
 \exp[
 \eta_r(g)\cdot F_r(u)-A_{r,g}(\eta_r(g))
-]\,du
+],
+\qquad u\in U_{r,g}.
 ```
 
 and the OPH source weight
@@ -219,6 +248,10 @@ For a Poisson opportunity count $K$,
 =
 \log(\lambda_{\rm OPH}/\lambda_0).
 ```
+
+This Poisson relation is a separate count-family example on infinite support;
+it is not a corollary of the finite-support theorem without an explicit
+truncation-and-limit argument.
 
 For small moment displacement $\delta c$ around the baseline,
 
@@ -266,7 +299,15 @@ event patterns.
 
 ## Coefficients To Messenger Emissivity
 
-The shared compact-engine density is
+Let \(N_g\) be the declared total compact-engine number density in source cell
+\(g\), and identify the physical baseline density with the MaxEnt base mass by
+
+```math
+\rho_{\rm HCE}^{0}(u|g)=N_gm_{0,r}(u|g),
+\qquad \sum_{u\in U_{r,g}}m_{0,r}(u|g)=1.
+```
+
+The shared compact-engine density is then
 
 ```math
 \rho_{\rm HCE}^{\rm OPH}(u|g)
@@ -274,6 +315,10 @@ The shared compact-engine density is
 \rho_{\rm HCE}^{0}(u|g)
 \exp[\eta_r(g)\cdot F_r(u)-A_{r,g}(\eta_r(g))].
 ```
+
+It sums to \(N_g\). If a different \(\rho^0\) is used, its normalized shape
+must replace \(m_0\) in the partition function; multiplying an unrelated
+baseline by the MaxEnt weight would not preserve normalization.
 
 Species emissivities are downstream:
 
@@ -292,22 +337,29 @@ An observed intensity has the form
 =
 b_a(y)
 +
-\int
+\sum_Z\int
 S_a(E_s,Z,u)
 P_a^{\rm prop}(y_{\rm true}|E_s,Z,u)
 R_a(y|y_{\rm true})
-\,dE_s\,dZ\,du.
+\,dE_s\,du.
 ```
+
+For neutrinos or photons the discrete composition sum is replaced by the
+appropriate species sum. Every source yield and kernel must state its measure
+and units so that \(\lambda_a\) has the detector intensity units used by the
+likelihood.
 
 The coefficient is common. Channel-specific differences enter through species
 yield, propagation, and detector kernels.
 
 ## Refinement Stability
 
-If coarse maps push forward the source laws, loads, and features with defects
-$\epsilon_\mu$, $\epsilon_L$, and $\epsilon_F$, and the smallest Hessian
-eigenvalue is bounded below by $\kappa>0$, then the emitted coefficients obey
-a stability bound of the form
+On a common coefficient chart, suppose two adjacent regulators have pushed
+source laws, loads, and features with normed defects \(\epsilon_\mu\),
+\(\epsilon_L\), and \(\epsilon_F\). If both target moments remain in a
+common compact subset of the moment-polytope interior and the smallest Hessian
+eigenvalue there is bounded below by \(\kappa>0\), the inverse-function
+estimate has the conditional form
 
 ```math
 \|\eta_r-\eta_s\|
@@ -316,8 +368,11 @@ a stability bound of the form
 O(\epsilon_\mu+\epsilon_L+\epsilon_F).
 ```
 
-Thus a cofinal refinement chain with vanishing defects has a stable coefficient
-limit on the declared finite source branch.
+Vanishing adjacent defects alone does not imply convergence: increments can go
+to zero while their sum diverges. A stable refinement limit additionally needs
+summable defects, a direct comparison to a declared common limit, or another
+Cauchy/compactness argument. The norms, constants hidden by \(O(\cdot)\), and
+coarse-map identifications must be part of the receipt.
 
 ## Simulator Contract
 
@@ -331,6 +386,12 @@ oph-fpe uhe-emit-coefficients \
   --source-dag-json @source_dag.json \
   --out runs/uhe/coefficient_emission
 ```
+
+`--target-json` is the current CLI's legacy name for the source-side moment
+constraint \(c\); it must not contain target messenger events or fitted
+summaries. A future interface should call this `--source-moments-json`. If the
+command uses its planted default coefficients or generated moments, the output
+is a synthetic algebra/visualization fixture and may not claim a source receipt.
 
 It must emit `uhe_coefficient_emission_report.json` and
 `uhe_coefficient_emission_report.md` with:

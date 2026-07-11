@@ -2,21 +2,26 @@
 
 ## Motivating Result
 
-This note entered the queue after Fermi-LAT analyses reported a diffuse
-gamma-ray dipole-like feature larger than expected, with an axis different from
-the CMB dipole
-([NASA Goddard, 2024](https://svs.gsfc.nasa.gov/14476/)). The older Galactic
-Center excess debate supplied the second pressure point: the same gamma-ray
-residual can be read as dark matter, unresolved pulsars, diffuse-emission
-modeling, or foreground structure depending on the chosen morphology template.
+This note entered the queue after a 13-year Fermi-LAT analysis reported a
+diffuse gamma-ray-background dipole of roughly \(6.5\)--\(7\%\) over
+\(2.74<E\le115.5\,\mathrm{GeV}\), with an axis close to the Pierre Auger UHECR
+dipole rather than the CMB dipole
+([Kashlinsky, Atrio-Barandela, and Korotkov, 2024](https://arxiv.org/abs/2401.04564)).
+The older Galactic Center excess debate supplies a separate pressure point:
+there a residual can be read as dark matter, unresolved pulsars,
+diffuse-emission modeling, or foreground structure depending on the chosen
+morphology template. The diffuse-background dipole and Galactic Center excess
+are different datasets and must never be merged into one claimed signal.
 The OPH question is therefore not whether there are "extra photons." It is
 whether a source-derived, frozen OPH morphology survives ordinary source,
 foreground, instrument, held-out, cross-tracer, and null tests.
 
-**Status:** solved as a morphology-first audit theorem package and simulator
-receipt contract. The default claim is diagnostic; candidate promotion requires
-frozen source artifacts, count-space response, controls, held-out validation,
-cross-tracer tests, and null tests.
+**Status:** conditional morphology-audit specification. The note defines a
+fail-closed route from an assumed OPH source artifact to a testable count-space
+template; it does not derive a gamma-ray morphology from the recovered OPH core
+and does not report a detection. Candidate promotion requires frozen source
+artifacts, count-space response, controls, held-out validation, cross-tracer
+tests, and null tests.
 
 Date: 2026-07-08
 
@@ -30,6 +35,28 @@ arbitrary residual power.
 The answer is a paper-side closure of admissible objects, not a detection
 claim. OPH gamma signatures are source-derived morphology claims. They are not
 excess-power claims.
+
+## What Is Standard, What Is Open, And What OPH Adds
+
+Standard high-energy astrophysics already supplies photon-production channels,
+radiative transport, catalog and diffuse-source models, instrument response,
+Poisson likelihoods, and template/null-test methodology. The open physical
+question is whether OPH supplies a source law that fixes a nonzero morphology
+and spectrum before gamma-ray data are inspected.
+
+OPH's present contribution is narrower and useful: it makes the candidate an
+observer-like self-reading patch with bounded state, declared ports, source
+readback, immutable records, repair/refinement checks, and a public promotion
+receipt. This architecture makes source-to-map provenance unusually explicit;
+it is not a unique solution to gamma-ray source identification.
+
+Throughout this note:
+
+- **assumed** means a provisional source or response ansatz;
+- **derived within the declared model** means algebra following from those
+  assumptions;
+- **software-checked** means a finite receipt or invariant was recomputed; and
+- **empirically supported** requires held-out photon data and alternatives.
 
 ## Claim Boundary
 
@@ -55,10 +82,10 @@ the frozen consequence survives foregrounds, source catalogs, masks,
 instrument response, likelihood comparison, held-out validation, cross-tracer
 tests, and null tests.
 
-The observed model is
+The pre-instrument expected sky intensity is
 
 ```math
-I_\gamma(\hat n,E)
+I_\gamma^{\rm sky}(\hat n,E)
 =
 I_{\rm iso}(E)
 +
@@ -66,23 +93,23 @@ I_{\rm gal}(\hat n,E)
 +
 I_{\rm src}(\hat n,E)
 +
-I_{\rm OPH}(\hat n,E)
-+
-\epsilon .
+I_{\rm OPH}^{\rm sky}(\hat n,E).
 ```
+
+Foreground-model discrepancy may be represented by separately declared
+nuisance fields or priors. It is not an additive random count after a Poisson
+count model has already been specified.
 
 The OPH component is allowed only when it is a forward projection of a frozen
 source artifact:
 
 ```math
-I_{\rm OPH}
+I_{\rm OPH}^{\rm sky}
 =
 \Pi_{\gamma,r}(\mathfrak G_{\gamma,r}),
 \qquad
 \Pi_{\gamma,r}
 =
-\mathcal I_{\gamma,r}
-\circ
 \mathcal L_{\gamma,r}
 \circ
 \mathcal R_{\gamma,r}
@@ -136,6 +163,15 @@ Q_r=\Sigma_r/\Gamma_r,
 \mu_r(q)=Z_r^{-1}m_r(q)e^{-S_r(q)} .
 ```
 
+Here \(\Sigma_r\) and the action of \(\Gamma_r\) must be declared, and only
+genuine gauge or presentation redundancies may be quotiented out; physical
+ports and currents remain visible. On a finite state space, \(m_r\ge0\),
+\(S_r\) is dimensionless, and
+\(0<Z_r=\sum_qm_r(q)e^{-S_r(q)}<\infty\). On a continuous space the base
+measure, domain, and integrability condition must be stated. A quantum source
+branch needs a positive trace-one density operator rather than this classical
+Gibbs notation.
+
 Normal form is not a probability law. If the source law, parent artifact,
 boundary artifact, response, instrument, foreground registry, likelihood, and
 freeze manifest are not declared before comparison, the gamma row is only a
@@ -169,22 +205,27 @@ the default OPH gamma morphology scalar is
 T_A^{\mu\nu}u_{b,\mu}u_{b,\nu}.
 ```
 
-On the positive kinetic parent branch this contraction is nonnegative. The
-simulator must not replace this theorem path by `abs(rho_A)`. Any use of flux,
+This contraction is nonnegative only on a branch that supplies a
+future-timelike \(u_b\) and an energy condition such as
+\(T_A^{\mu\nu}u_\mu u_\nu\ge0\). That condition is an assumption to be
+checked, not a consequence of the contraction notation. The simulator must
+not replace it by `abs(rho_A)`. Any use of flux,
 anisotropic stress, gradients, smoothing axes, or extended contractions is an
 extended branch that needs an `EXTENDED_STRESS_CONTRACTION_RECEIPT`.
 
 ## No-Direct-Gamma Rule
 
-Gamma rays are electromagnetic Standard Model radiation. On the neutral anomaly
-branch, anomaly packets carry no Standard Model electromagnetic, color, or weak
-current unless a separate theorem proves otherwise:
+Gamma rays are electromagnetic Standard Model radiation. On the declared
+neutral, electromagnetically decoupled anomaly branch, anomaly packets carry no
+Standard Model electromagnetic, color, or weak current:
 
 ```math
 q_z^{\rm EM}=q_z^{\rm color}=q_z^{\rm weak}=0.
 ```
 
-Therefore
+Neutral charge alone is insufficient: a neutral composite can still couple
+electromagnetically through moments or polarizability. Therefore the following
+zero-current statement additionally requires a decoupling/current theorem:
 
 ```math
 j_{\gamma,\rm direct}[T_A]=0
@@ -217,19 +258,25 @@ Phi
 
 where `pi0` is gas/cosmic-ray hadronic emission, `IC` is inverse-Compton
 emission, `brem` is bremsstrahlung, and `Phi` is a declared baryonic-potential
-or stress-lensing-correlated response. For a channel \(c\),
+or stress-lensing-correlated response. For a channel \(c\), a dimensionally
+explicit **illustrative linear-response ansatz** is
 
 ```math
 j_{\gamma,T,r}^{(c)}(x,E)
 =
-\kappa_{c,r}(E)\,
-\bar\sigma_{T,r}(x)\,
-E_{c,r}(x,E).
+j_{0,c,r}(x,E)
+\left[
+1+\kappa_{c,r}(E)
+\frac{\bar\sigma_{T,r}(x)}{\sigma_{0,r}}
+\right].
 ```
 
-The spectral weight \(\kappa_{c,r}(E)\), units, normalization, smoothing, and
-ordinary emissivity fields must be frozen before comparison. No arbitrary
-residual-shaped spectrum is allowed.
+Here \(\kappa\) is dimensionless, \(\sigma_0\) is a positive reference
+stress in the same units as \(\bar\sigma_T\), and positivity of the bracket
+is required. A different response is admissible if its units, normalization,
+smoothing, and ordinary emissivity fields are frozen before comparison. This
+response is assumed until derived from a microscopic OPH-matter coupling; no
+arbitrary residual-shaped spectrum is allowed.
 
 ## Boundary-Record Dipole
 
@@ -271,8 +318,11 @@ The dipole axis is
 \frac{\mathbf a_{\partial,r}}{|\mathbf a_{\partial,r}|}.
 ```
 
-If the dipole amplitude is zero, the boundary-dipole route is disabled. If the
-axis is chosen after inspecting gamma maps, the claim fails closed.
+If the dipole amplitude is zero or fails a predeclared source-side numerical
+threshold, the axis is undefined and the boundary-dipole route is disabled.
+The threshold, mask, mode-coupling correction, and axis uncertainty must be
+frozen before comparison. If the axis is chosen after inspecting gamma maps,
+the claim fails closed.
 
 The signed dipole template is
 
@@ -317,13 +367,28 @@ I_{\rm iso}
 +
 I_{\rm gal}
 +
-I_{\rm src}
-+
-\sum_c A_{T,c}\tau_{T,c,r}
-+
-A_D\tau_{D,r}
+I_{\rm src}+I_{\rm OPH}^{\rm sky}
 \right]_{pe}.
 ```
+
+Two amplitude conventions are allowed, and they must not be mixed:
+
+1. **Source-amplitude prediction.** The frozen source projection supplies
+   \(I_{\rm OPH}^{\rm sky}\) with physical intensity units, including the
+   normalization of \(\bar\sigma_T\), \(\mathbf a_\partial\), and
+   \(s_D(E)\). No extra fitted amplitude is applied; equivalently every
+   multiplier is fixed to one.
+2. **Morphology-only test.** Each raw template is divided by a preregistered
+   nonzero norm \(N_j\), giving \(\widehat\tau_j=\tau_j/N_j\), and
+   \(I_{\rm OPH}^{\rm sky}=\sum_jA_j\widehat\tau_j\). The fitted \(A_j\)
+   carries the intensity units. This can test a frozen shape, axis, and spectrum
+   family, but it is not a source-derived amplitude or absolute-intensity
+   prediction.
+
+The template norm, sign convention, energy dependence, and positivity range are
+frozen before data comparison. Allowing \(A_D\), \(s_D\), and
+\(|\mathbf a_\partial|\) all to float would be an unidentifiable
+rescaling, not an OPH prediction.
 
 The likelihood is binned Poisson:
 
@@ -352,7 +417,8 @@ truth
 ## Identifiability
 
 Let \(\tilde\tau_{\rm OPH}\) be the instrument-convolved OPH template and
-\(\tilde B_j\) the nuisance templates. With
+let the columns of \(B\) span the local nuisance tangent space at a strictly
+positive baseline \(\mu_0\). With
 
 ```math
 \langle X,Y\rangle_W
@@ -360,7 +426,8 @@ Let \(\tilde\tau_{\rm OPH}\) be the instrument-convolved OPH template and
 \sum_{p,e}\frac{X_{pe}Y_{pe}}{\mu_{0,pe}},
 ```
 
-project away the nuisance span:
+let \(P_B\) be the \(W\)-orthogonal projector onto that span and project it
+away:
 
 ```math
 \tilde\tau_\perp
@@ -373,15 +440,33 @@ The identifiability metric is
 ```math
 \eta_{\rm id}
 =
-\frac{|\tilde\tau_\perp|_W}
-{|\tilde\tau_{\rm OPH}|_W}.
+\frac{\|\tilde\tau_\perp\|_W}
+{\|\tilde\tau_{\rm OPH}\|_W}.
 ```
+
+This ratio is defined only when \(\|\tilde\tau_{\rm OPH}\|_W>0\); a zero
+template disables the route rather than earning an identifiability score.
 
 If \(\eta_{\rm id}\) is below the declared threshold, the OPH amplitude is not
 identifiable under the foreground model. A likelihood improvement alone cannot
 promote the claim.
 
 ## Promotion Receipt
+
+Let \(U_T\) and \(U_D\) indicate whether the declared route uses transported
+stress and boundary dipole, respectively. Define
+
+```math
+R_T=(\neg U_T)\vee
+\left(R_{\rm parent}\wedge R_{\mathcal C}\wedge R_{\rm neutral}\right),
+\qquad
+R_D=(\neg U_D)\vee R_{\rm boundary}.
+```
+
+Thus a boundary-only model does not need a neutral-anomaly or stress-parent
+receipt, while a transported-stress model does; `BOTH` must pass both branches.
+The route declaration itself must be one of the three allowed values and agree
+with \((U_T,U_D)\).
 
 The gamma promotion receipt is
 
@@ -392,9 +477,8 @@ R_Q
 \wedge R_\mu
 \wedge R_{\rm route}
 \wedge R_{\rm source}
-\wedge R_{\rm parent/boundary}
-\wedge R_{\mathcal C}
-\wedge R_{\rm neutral}
+\wedge R_T
+\wedge R_D
 \wedge R_{\mathcal R}
 \wedge R_{\mathcal L}
 \wedge R_{\mathcal I}
@@ -474,8 +558,10 @@ from gamma residuals.
 
 ## Outcome
 
-This note closes at the OPH theorem-package level for admissible gamma
-morphology claims. It remains empirically open at the detection level. A future
-claim must pass \(R_\gamma\), including frozen source provenance, count-space
-instrument response, foreground alternatives, identifiability, held-out
-validation, cross-tracer tests, and null tests.
+This note supplies a conditional audit specification for admissible gamma
+morphology claims. It remains open both at the OPH source-derivation level and
+at the empirical detection level. A future claim must first derive or
+explicitly assume a nonzero source morphology and then pass \(R_\gamma\),
+including frozen source provenance, count-space instrument response,
+foreground alternatives, identifiability, held-out validation, cross-tracer
+tests, and null tests.

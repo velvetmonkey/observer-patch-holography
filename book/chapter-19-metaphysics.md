@@ -100,13 +100,12 @@ it is a tiny screen area, sitting slightly above the golden-ratio balance point.
 From inside the encoded world, the same displacement is the smallest
 electromagnetic observation strength available to observers.
 
-The endpoint branch gives a pixel ratio near $1.6309682094$ and the public
-inverse fine-structure value $137.035999177(21)$. The no-hadron source
-calculation lands lower: $136.9948351646\ldots$ before the unified gauge-width
-contribution, and $137.0359595008\ldots$ after that contribution. The public
-value includes the same-scheme hadronic endpoint correction. The constant
-therefore represents the electromagnetic width of the smallest
-observer-supporting pixel.
+The empirical endpoint branch gives a comparison pixel near $1.6309682094$ and
+the public inverse fine-structure value $137.035999177(21)$. The source/root
+audit lands at $136.9948351646\ldots$. Combining that root with the unified
+gauge width evaluated at the CODATA-derived comparison pixel gives the
+mixed-provenance diagnostic $137.0359595008\ldots$. A source-only endpoint
+requires the same-scheme hadronic spectral calculation.
 
 The pixel ratio and global capacity closure fix dimensionless geometry. The SI
 size of the scale area comes from the selected scale bridge. For the displayed

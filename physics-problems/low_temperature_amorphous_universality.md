@@ -13,16 +13,17 @@ suppression of tunneling states
 The OPH question is why a broad ordinary branch has a nearly universal
 readout, while special films can escape it.
 
-**Status:** solved as a source-only OPH theorem package for the saturated
-ordinary-rigid-record branch of low-temperature amorphous solids (LTAS).
-Standalone markdown supplemental writeup for public reading and OPH Sage
-ingestion.
+**Status:** conditional OPH phenomenological branch and simulator specification.
+The standard TLS reduction is recovered, while the twelve-port/twenty-four-slot
+acoustic bridge is an explicit model assumption awaiting independent material
+receipts. The numerical output is therefore a within-model benchmark, not yet a
+source-only material theorem.
 
 Date: 2026-07-08
 
 ## Introduction
 
-Low-temperature amorphous solids are hard in legacy language because many
+Low-temperature amorphous solids pose a microscopic-selection problem because many
 different disordered materials show nearly the same acoustic and thermal
 phonon attenuation. Composition, bond topology, density, sound speed, elastic
 coupling, quench history, and defect history vary widely. The measured
@@ -37,40 +38,54 @@ evidence receipts. Material details live in the source branch. The universal
 claim belongs to the quotient that removes hidden labels and projects onto the
 ordinary rigid-record normal form.
 
-On the saturated branch, one wavelength samples a quotient-visible
-rigid-record event with probability
+On the illustrative single-active-pair branch, the declared Bernoulli event
+probability per wavelength-sized cell is
 
 ```math
-\frac{\lambda}{\ell}
+p_{\rm cell}
 =
 \frac{e^{-P_{\rm src}/24}}{12\cdot24}
 =
 3.2440989\times10^{-3}.
 ```
 
-The acoustic tunneling-strength readout gives
+If, in addition, this cell event is identified with exponential acoustic
+scattering, the exact attenuation exponent and acoustic tunneling-strength
+readout are
+
+```math
+\frac{\lambda}{\ell}
+=
+-\log(1-p_{\rm cell})
+=
+3.2493724\times10^{-3},
+```
 
 ```math
 C_\ast^{\rm OPH}
 =
-\frac{e^{-P_{\rm src}/24}}{288\pi^2}
+\frac{-\log(1-p_{\rm cell})}{\pi^2}
 =
-3.2869594\times10^{-4}.
+3.2923026\times10^{-4}.
 ```
 
 Those values use the OPH source-side pixel, twelve exposed acoustic ports, a
 twenty-four-state oriented repair register, and protected-reserve survival.
-Measured attenuation, internal friction, thermal conductivity, and tunneling
-strength serve as comparison data.
+Those ingredients do not by themselves imply an acoustic cross section: the
+event subset, product probability law, and material bridge are assumptions
+stated below. Measured attenuation, internal friction, thermal conductivity,
+and tunneling strength serve only as comparison data.
 
-This is a strong OPH result. Against the ordinary amorphous-solid table of
-Pohl, Liu, and Thompson, the source value sits only $0.088\sigma$ from the
+As a descriptive comparison, against the ordinary amorphous-solid table of
+Pohl, Liu, and Thompson, the conditional value sits about $0.090\sigma$ from the
 measured log-center. The same value sits $2.01\sigma$ above the separate
 low-attenuation amorphous Si, Ge, and C film pool. The first number is the
-goodness check for the saturated ordinary LTAS branch. The second number is the
-class-separation check for the known exception films.
+location of the benchmark within the pooled historical spread; it is not a
+prediction-significance or goodness-of-fit statistic. The second number is a
+descriptive comparison with the known exception films, not a pre-registered
+class-separation test.
 
-## Why Legacy Physics Gets Stuck
+## Standard-Theory Baseline and Unresolved Target
 
 The standard tunneling-state model is empirically successful. It represents
 low-energy defects in glasses as two-level systems coupled to strain and then
@@ -95,10 +110,14 @@ Three ledgers need separation:
 - the normal form of low-energy two-basin records;
 - the quotient-visible acoustic probability seen by a long-wavelength phonon.
 
-Without that separation, universality is a description of the data. The
-parameter $C$ becomes a fitted material quotient with no source-side value.
+The standard tunneling model is not the whole conventional baseline.
+Soft-potential, interacting-TLS, elastic-block, and collective-mode approaches
+also seek a microscopic explanation of the narrow band. This note does not
+prove those approaches impossible. Its narrower target is to make the source
+law, TLS normal form, public attenuation readout, and promotion evidence
+separate and auditable.
 
-## Why OPH Makes It Solvable
+## Actual OPH Contribution
 
 OPH separates the material source branch from the observer-visible readout.
 The source branch keeps composition, bond topology, density, elastic tensor,
@@ -112,42 +131,67 @@ long-wavelength phonon is insensitive to the hidden basin label. It records
 whether one wavelength intersects an active quotient-visible rigid-record
 event.
 
-The port/register fixed point supplies the decisive quotient. On the saturated
-ordinary LTAS branch, the acoustic carrier exposes one of twelve scalar ports,
-the internal rigid-record repair move occupies one of twenty-four oriented
-write/check slots, and the protected reserve survives with factor
-$e^{-P_{\rm src}/24}$. The LTAS branch declares the visibility space as a
-tensor product:
+OPH's specific contribution is the self-reading-patch presentation: a bounded
+material region has local state, strain-visible ports, durable TLS-like records,
+feedback or repair moves, phonon readback, and public receipts. The
+port/register construction is a provisional specialization of that
+presentation, not a consequence of ordinary elasticity. On the illustrative
+branch the visibility space and probability law are separately declared as
 
 ```math
 \mathcal V_{\rm LTAS}
 =
 \mathcal P_{12}^{\rm ac}
-\otimes
+\times
 \mathcal R_{24}^{\rm or}.
 ```
 
-This tensor product licenses the product $12\cdot24$.
+```math
+\mu_{\rm LTAS}
+=
+\mu_{12}^{\rm unif}\otimes\mu_{24}^{\rm unif}.
+```
+
+The Cartesian product specifies the classical outcome set. It does not license
+multiplication of probabilities; the product measure is an additional
+independence assumption. A declared event subset is also required before
+$1/(12\cdot24)$ can be interpreted as an event probability.
 
 ## Abstract
 
-Low-temperature amorphous-solid universality is the OPH normal form of a
-saturated rigid-record material quotient. A long-wavelength phonon sees twelve
-acoustic ports, a twenty-four-slot oriented repair register, and the
-protected-reserve survival factor. The readout value is
-$\lambda/\ell=3.2440989\times10^{-3}$ and acoustic tunneling strength
-$3.2869594\times10^{-4}$. The class is ordinary disordered rigid materials
-with saturated, scale-flat, strain-coupled rigid records. Low-attenuation
-films such as selected amorphous Si, Ge, and C samples fall outside that class
-when the receipt conditions fail.
+This note gives a conditional OPH normal form for a saturated rigid-record
+material quotient. Given a twelve-port acoustic presentation, a twenty-four-slot
+repair register, a product probability law, a single active event pair, and the
+protected-reserve survival assumption, it emits
+$p_{\rm cell}=3.2440989\times10^{-3}$ and
+$\lambda/\ell=3.2493724\times10^{-3}$. These are within-model consequences,
+not a derivation that every glass realizes the branch. Low-attenuation films are
+tests of independently declared membership receipts, not exceptions assigned
+after their attenuation is inspected.
 
 ## Claim Boundary
 
-The numerical value applies to the uniform saturated LTAS branch. Its inputs
-are $P_{\rm src}$, the screen-sieve twelve-port theorem, the twenty-four-slot
-oriented repair register, and protected-reserve survival. Measured
-$\lambda/\ell$, internal friction, thermal conductivity, and tunneling
-strength are excluded from the source calculation.
+The numerical value applies only to the declared uniform saturated LTAS model.
+Its inputs are the candidate $P_{\rm src}$, a twelve-port acoustic
+specialization of the screen sieve, a twenty-four-slot repair register, a
+product law, a one-pair event subset, Poisson protected-reserve survival, and
+the event-to-scattering bridge. Measured $\lambda/\ell$, internal friction,
+thermal conductivity, and tunneling strength are excluded from the numerical
+evaluation, but the choice of acoustic specialization requires an
+independent no-target-leak audit.
+
+The epistemic ledger is:
+
+- **Assumed for this branch:** acoustic realization of the twelve ports,
+  uniform product measure, one active port/register pair, independent reserve
+  survival, scale-flat TLS action over declared cutoffs, and the material
+  cross-section bridge.
+- **Derived within the model:** the TLS two-state reduction, the event
+  probability $p_{\rm cell}$, the exact Bernoulli attenuation exponent, and
+  standard TLS readout conversions.
+- **Empirical receipts:** pre-attenuation branch membership, TLS density and
+  strain coupling, frequency/temperature plateau, polarization, processing
+  history, attenuation, internal friction, and thermal conductivity.
 
 Equal attenuation across every amorphous solid is outside the claim. The branch
 claim is the quotient-visible leading scattering probability for
@@ -162,7 +206,7 @@ claim is the quotient-visible leading scattering probability for
 
 on the saturated branch.
 
-The branch excludes materials lacking scale-flat rigid records, with sparse
+The branch excludes materials independently shown to lack scale-flat rigid records, with sparse
 repair ensembles, with biased port or register activation, with non-uniform
 protected-reserve behavior, or with suppressed elastic coupling to strain.
 
@@ -229,7 +273,7 @@ The source branch is
 \mathsf{FiniteQuotientEnsemble}.
 ```
 
-The OPH source-side pixel used here is
+The OPH source-audit pixel candidate used here is
 
 ```math
 P_{\rm src}
@@ -245,9 +289,12 @@ P_C
 1.630968209403959\ldots
 ```
 
-changes the numerical answer only beyond the displayed precision. The LTAS
-theorem uses $P_{\rm src}$ because the value is a source-side OPH output. The
-measured Thomson endpoint is a comparison coordinate.
+changes the result by about $1.6\times10^{-7}$ relatively. It is negligible at
+four significant figures but visible in the long decimal displays, so the two
+values must not be described as numerically identical. The local source ledger
+classifies $P_{\rm src}$ as a source-audit witness rather than a
+completed physical-endpoint proof. The measured Thomson endpoint remains a
+comparison coordinate.
 
 The bounded observer-like patch is a rigid material region with strain-visible
 interfaces, local two-basin records, repair amplitudes, readback by acoustic or
@@ -354,57 +401,76 @@ different under strain, and connected by a permitted repair move.
 
 ## Definition 3: Rigid-Record Spectral Measure
 
-The rigid-record spectral measure is
+Choose finite physical cutoffs
+
+```math
+|\Delta|\le \Delta_{\max},
+\qquad
+u_{\min}\le u\le u_{\max},
+\qquad
+u=-\log(\Delta^0/E_0).
+```
+
+The rigid-record spectral measure on this regulated domain is
 
 ```math
 \nu_{x,r}
 =
 \frac1{V_r}
 \sum_{j\in{\rm RR}(x,r)}
-\delta_{\Delta_j}
-\delta_{\lambda_j}
-\delta_{\gamma_j}
-\delta_{\rho_r}
-\delta_{v_r},
+\delta_{(\Delta_j,u_j,\gamma_j;\rho_r,v_r)},
 ```
 
 where
 
 ```math
-\lambda_j
+u_j
 =
 -\log(\Delta_j^0/E_0).
 ```
 
-The active low-energy density is
+The energy-resolved density of states is
 
 ```math
-P_{0,r}
+g_r(E)
 =
-\left.
 \frac{d}{dE}
 \mathbb E_{\mu_{x,r,0}}
 \left[
 \frac1{V_r}\#\{j:E_j\le E\}
-\right]
-\right|_{E=0}.
+\right].
 ```
+
+It need not equal the joint TLS distribution coefficient. Denote that
+coefficient by $\bar P_{0,r}$ through
+
+```math
+dN
+=
+\bar P_{0,r}\,dV\,d\Delta\,du
+```
+
+within the stated low-energy window. The cutoffs are essential: exact
+translation invariance on an unbounded $u$ axis is not normalizable.
 
 The elastic repair strength is
 
 ```math
 C_{s,r}
 =
-\frac{P_{0,r}\langle\gamma_s^2\rangle_r}
+\frac{\bar P_{0,r}\langle\gamma_s^2\rangle_r}
 {\rho_r v_{s,r}^2}.
 ```
 
-This is the standard material-facing TLS quantity. OPH derives its saturated
-branch value by deriving the quotient-visible scattering probability first.
+This is the standard material-facing TLS quantity. The conditional OPH branch
+assigns its benchmark by first specifying a quotient-visible event probability;
+the physical equality requires the material bridge below.
 
 ## Theorem 1: Rigid-Record TLS Reduction
 
-**Statement.** Every isolated two-basin rigid record reduces to
+**Statement.** In a localized-basin basis, after choosing the relative phase so
+the leading tunneling amplitude is real and neglecting off-diagonal strain
+coupling, an isolated two-basin rigid record reduces to
 
 ```math
 H_j
@@ -419,21 +485,24 @@ H_j
 ```
 
 **Proof.** A two-basin quotient sector has a two-dimensional low-energy
-subspace. Any Hermitian operator on it is a scalar plus Pauli terms. The scalar
-is invisible to the readout. The diagonal energy difference gives
+subspace. Any Hermitian operator on it is a scalar plus Pauli terms. A
+strain-independent scalar is irrelevant to the level dynamics; a
+strain-dependent common-mode term must instead be retained in an elastic-stress
+calculation. In the declared localized basis the diagonal energy difference gives
 $\Delta\sigma^z/2$. The off-diagonal repair move gives
 $\Delta^0\sigma^x/2$. Long-wavelength strain perturbs the two basins through
 opposite elastic dipoles, so it enters as $\gamma\varepsilon\sigma^z$.
-Hidden basin labels are quotiented away, so the expression is invariant up to
-two-state basis rotation. $\square$
+Exchanging the two basin labels changes the corresponding parameter signs but
+not the spectrum or readout. The displayed form is basis-fixed, not invariant
+term by term under an arbitrary two-state rotation. $\square$
 
-## Theorem 2: Scale-Flat Repair Action
+## Proposition 2: Scale-Flat Repair Action
 
-**Statement.** If the rigid-record action is smooth in $\Delta$ near zero and
-translation-invariant in
+**Statement.** If the regulated rigid-record density is smooth in $\Delta$
+near zero and approximately translation-invariant in
 
 ```math
-\lambda
+u
 =
 -\log(\Delta^0/E_0),
 ```
@@ -443,9 +512,9 @@ then
 ```math
 dN
 =
-P_0\,dV\,d\Delta\,d\lambda
+\bar P_0\,dV\,d\Delta\,|du|
 =
-P_0\,dV\,d\Delta\,\frac{d\Delta^0}{\Delta^0},
+\bar P_0\,dV\,d\Delta\,\frac{|d\Delta^0|}{\Delta^0},
 ```
 
 or
@@ -453,63 +522,50 @@ or
 ```math
 P(\Delta,\Delta^0)
 =
-\frac{P_0}{\Delta^0}.
+\frac{\bar P_0}{\Delta^0}
 ```
 
-**Proof.** Smoothness near $\Delta=0$ gives a locally flat $d\Delta$
-density. Translation invariance in barrier action gives a locally flat
-$d\lambda$ density. Since $d\lambda=-d\Delta^0/\Delta^0$, the tunneling
-distribution follows. $\square$
+over the declared finite window.
 
-## Theorem 3: Rigid-Record Port-Slot Fixed Point
+**Proof.** Smoothness near $\Delta=0$ gives a leading locally flat $d\Delta$
+density. Approximate translation invariance in barrier action gives a leading
+locally flat $|du|$ density on the finite window. Since
+$|du|=|d\Delta^0|/\Delta^0$, the regulated tunneling distribution
+follows. $\square$
 
-**Statement.** On the saturated ordinary-rigid-record LTAS branch, the
-quotient-visible rigid-record scattering probability per acoustic wavelength
-is
+## Assumption 3 and Proposition 3: Port-Slot Event Model
 
-```math
-p_{\rm rr}^{\rm vis}
-=
-\frac{e^{-P_{\rm src}/24}}{12\cdot24}.
-```
-
-Equivalently,
-
-```math
-\eta_{\rm OPH}
-:=
-p_{\rm rr}^{\rm vis}
-=
-3.244098917358505\times10^{-3}.
-```
-
-**Hypotheses.** The LTAS visibility branch factors as
+**Assumptions.** The LTAS visibility space factors as
 
 ```math
 \mathcal V_{\rm LTAS}
 =
 \mathcal P_{12}^{\rm ac}
-\otimes
+\times
 \mathcal R_{24}^{\rm or}.
 ```
 
-The acoustic port orbit is uniform:
+The probability law, which does not follow from the Cartesian-product sample space,
+is the uniform product law
 
 ```math
-\Pr(a)=\frac1{12}
-\qquad
-(a\in\mathcal P_{12}^{\rm ac}).
+\Pr(a,o)
+=
+\frac1{12}\frac1{24}.
 ```
 
-The oriented repair register is uniform:
+A subset
 
 ```math
-\Pr(o)=\frac1{24}
-\qquad
-(o\in\mathcal R_{24}^{\rm or}).
+\mathcal A_{\rm scat}
+\subseteq
+\mathcal P_{12}^{\rm ac}\times\mathcal R_{24}^{\rm or}
 ```
 
-The protected reserve survives with
+must declare which pairs count as scattering events. The numerical benchmark
+uses the **single-active-pair ansatz** $|\mathcal A_{\rm scat}|=1$. Reserve
+survival is assumed independent of the selected pair and, on the uniform
+Poisson product-thickening branch, has probability
 
 ```math
 \Pr(\text{reserve survives})
@@ -517,18 +573,34 @@ The protected reserve survives with
 e^{-P_{\rm src}/24}.
 ```
 
-**Proof.** The screen-sieve theorem gives twelve indistinguishable exposed
-scalar/acoustic ports. No-marked-point maximum entropy gives uniform port
-weight $1/12$. The reversible write/check repair register gives twenty-four
-indistinguishable oriented repair slots. Quotient invariance gives uniform
-register weight $1/24$. The protected-reserve theorem gives the survival
-factor $e^{-P_{\rm src}/24}$. The LTAS tensor-product hypothesis makes the
-acoustic carrier port and the internal oriented repair slot independent on the
-quotient. Therefore the visible active probability is the product. $\square$
+**Proposition.** Under those assumptions,
+
+```math
+p_{\rm cell}
+=
+\Pr[(a,o)\in\mathcal A_{\rm scat}]\,
+\Pr(\text{reserve survives})
+=
+\frac{|\mathcal A_{\rm scat}|}{12\cdot24}
+e^{-P_{\rm src}/24}.
+```
+
+For $|\mathcal A_{\rm scat}|=1$,
+
+```math
+p_{\rm cell}
+=
+3.244098917358505\times10^{-3}.
+```
+
+This is a conditional finite-event calculation. The port and slot counts alone
+do not select $\mathcal A_{\rm scat}$ and do not establish that a real phonon
+samples one independent cell per wavelength.
 
 ## Protected-Reserve Survival
 
-The protected-reserve factor is
+On the uniform product-thickening branch with local Poisson reserve occupancy,
+the protected-reserve factor is assumed to be
 
 ```math
 \lambda_{\rm collar}
@@ -536,7 +608,7 @@ The protected-reserve factor is
 e^{-P/24}.
 ```
 
-Using the source-side pixel,
+Using the source-audit pixel candidate,
 
 ```math
 \lambda_{\rm collar}^{\rm src}
@@ -546,10 +618,10 @@ e^{-1.630972095694329/24}
 0.9343004881992495.
 ```
 
-The visible probability per wavelength is therefore
+The single-active-pair cell probability is therefore
 
 ```math
-p_{\rm rr}^{\rm vis}
+p_{\rm cell}
 =
 \frac{1}{12}
 \frac{1}{24}
@@ -558,42 +630,52 @@ e^{-P_{\rm src}/24}
 3.244098917358505\times10^{-3}.
 ```
 
-This is the OPH source-only value for the universal inverse relative mean free
-path.
+This is a within-model cell probability, not yet a universal inverse relative
+mean free path.
 
-## Theorem 4: Mean-Free-Path Theorem
+## Proposition 4: Event-to-Mean-Free-Path Bridge
 
-**Statement.** If active rigid-record events are independent at the wavelength
-scale, then
+**Assumption.** Let $n_{\rm TLS}$ be an active-defect number density and
+$\sigma_{\rm TLS}(\omega,T)$ the total scattering cross section derived from
+the TLS Hamiltonian. The material bridge is
+
+```math
+p_{\rm cell}(\omega,T)
+=
+1-\exp[-n_{\rm TLS}\sigma_{\rm TLS}(\omega,T)\lambda].
+```
+
+This equation is dimensionally coherent and makes explicit the object missing
+from a purely combinatorial count. It must be derived or empirically certified
+for a material before promotion.
+
+**Proposition.** If successive wavelength-sized cells are independent and a
+scattering event removes the carrier from the unscattered beam, then after $n$
+cells the survival probability is
+
+```math
+(1-p_{\rm cell})^n
+=
+\exp[n\log(1-p_{\rm cell})].
+```
+
+Consequently the exponential attenuation convention gives
 
 ```math
 \frac{\lambda}{\ell}
 =
-p_{\rm rr}^{\rm vis}
+-\log(1-p_{\rm cell})
 =
-\frac{e^{-P_{\rm src}/24}}{288}.
+3.249372414504198\times10^{-3}.
 ```
 
-**Proof.** A phonon crossing $n$ wavelengths survives with probability
+Only at leading order for $p_{\rm cell}\ll1$ is
+$\lambda/\ell\simeq p_{\rm cell}$. $\square$
 
-```math
-(1-p)^n.
-```
+## Proposition 5: Elastic TLS Readout
 
-For $p\ll1$,
-
-```math
-(1-p)^n
-\simeq
-e^{-np}.
-```
-
-The mean distance in wavelength units is $1/p$. Hence
-$\lambda/\ell=p$. $\square$
-
-## Theorem 5: Elastic TLS Readout
-
-**Statement.** For the TLS ensemble of Theorems 1 and 2,
+**Statement.** For the TLS ensemble of Theorem 1 and Proposition 2, in the weak-drive
+relaxation plateau and the stated acoustic attenuation convention,
 
 ```math
 Q_0^{-1}
@@ -618,47 +700,48 @@ convention,
 12.5C_t.
 ```
 
-Therefore the saturated OPH branch has
+The thermal coefficient additionally assumes transverse-dominant heat
+transport, the dominant-phonon approximation, and the empirical
+longitudinal/transverse velocity and coupling relations used in the cited
+review. Under the event-to-attenuation bridge, the conditional OPH benchmark is
 
 ```math
 C_\ast^{\rm OPH}
 =
-\frac{p_{\rm rr}^{\rm vis}}{\pi^2}
-=
-\frac{e^{-P_{\rm src}/24}}{288\pi^2}.
+\frac{-\log(1-p_{\rm cell})}{\pi^2}.
 ```
 
 **Proof.** The standard TLS attenuation calculation integrates the
 strain-coupled TLS matrix element over the scale-flat distribution
-$P(\Delta,\Delta_0)=P_0/\Delta_0$. The leading material combination is
+$P(\Delta,\Delta_0)=\bar P_0/\Delta_0$. The leading material combination is
 
 ```math
 C
 =
-\frac{P_0\langle\gamma^2\rangle}{\rho v^2}.
+\frac{\bar P_0\langle\gamma^2\rangle}{\rho v^2}.
 ```
 
 The acoustic plateau relation maps $\lambda/\ell$ to $\pi^2C$. The dominant
 thermal relation maps the same source branch to $12.5C_t$. Combining these
-readout identities with Theorem 4 gives the source-only value of $C_\ast$.
-$\square$
+readout identities with Proposition 4 gives the conditional value of $C_\ast$.
+This step does not derive $\bar P_0\langle\gamma^2\rangle/(\rho v^2)$ from the
+port count; equality with the event model is the material bridge that requires
+a receipt. $\square$
 
 ## Numerical Comparison
 
-The source-only OPH values are:
+The conditional single-active-pair benchmark values are:
 
 ```math
-\eta_{\rm OPH}
-=
 \frac{\lambda}{\ell}
 =
-3.244098917358505\times10^{-3},
+3.249372414504198\times10^{-3},
 ```
 
 ```math
 C_\ast^{\rm OPH}
 =
-3.2869594215959025\times10^{-4},
+3.292302591323264\times10^{-4},
 ```
 
 ```math
@@ -666,7 +749,7 @@ Q_0^{-1}
 =
 \frac{\pi}{2}C_\ast
 =
-5.163143785766721\times10^{-4},
+5.171536817147902\times10^{-4},
 ```
 
 ```math
@@ -674,18 +757,19 @@ Q_0^{-1}
 =
 12.5C_\ast
 =
-4.108699276994878\times10^{-3}.
+4.115378239154080\times10^{-3}.
 ```
 
-| quantity | OPH source-only value | empirical target |
+| quantity | OPH conditional benchmark | empirical target |
 | --- | ---: | ---: |
-| acoustic $\lambda/\ell$ | $3.2441\times10^{-3}$ | $10^{-3}$ to $10^{-2}$ |
-| acoustic $C_\ast$ | $3.2870\times10^{-4}$ | $10^{-4}$ to $10^{-3}$ |
-| acoustic plateau $Q_0^{-1}$ | $5.1631\times10^{-4}$ | typical glass plateau scale |
-| dominant thermal $\lambda_{\rm dom}/\ell$ | $4.1087\times10^{-3}$ | $10^{-3}$ to $10^{-2}$ |
+| acoustic $\lambda/\ell$ | $3.2494\times10^{-3}$ | $10^{-3}$ to $10^{-2}$ |
+| acoustic $C_\ast$ | $3.2923\times10^{-4}$ | $10^{-4}$ to $10^{-3}$ |
+| acoustic plateau $Q_0^{-1}$ | $5.1715\times10^{-4}$ | typical glass plateau scale |
+| dominant thermal $\lambda_{\rm dom}/\ell$ | $4.1154\times10^{-3}$ | $10^{-3}$ to $10^{-2}$ |
 
-The values land inside the measured universal glass band using no
-material-specific fit of $P_0$, $\gamma$, $\rho$, or $v$.
+The benchmark lands inside the historical glass band without a
+material-specific numerical fit of $\bar P_0$, $\gamma$, $\rho$, or $v$.
+That coincidence is a comparison result, not proof of the acoustic bridge.
 
 ## Sigma Comparison With Measured Values
 
@@ -735,7 +819,7 @@ The OPH value has
 ```math
 \log_{10}C_\ast^{\rm OPH}
 =
--3.483205657,
+-3.482500256,
 ```
 
 so its measured-table sigma displacement is
@@ -746,7 +830,7 @@ z_C
 \frac{\log_{10}C_\ast^{\rm OPH}-\mu_{\log C}}
 {\sigma_{\log C}}
 =
-0.0880.
+0.0902.
 ```
 
 The acoustic $\lambda/\ell$ comparison uses the same sigma, since
@@ -766,7 +850,7 @@ The OPH value
 ```math
 \left(\frac{\lambda}{\ell}\right)_{\rm OPH}
 =
-3.2440989\times10^{-3}
+3.2493724\times10^{-3}
 ```
 
 is again
@@ -774,7 +858,7 @@ is again
 ```math
 z_{\lambda/\ell}
 =
-0.0880.
+0.0902.
 ```
 
 Ordinary amorphous-solid pool, from Pohl/Liu/Thompson Tables I-IV:
@@ -783,9 +867,9 @@ Ordinary amorphous-solid pool, from Pohl/Liu/Thompson Tables I-IV:
 - entries: $N=83$;
 - measured geometric mean: $C_{\rm meas,geo}=3.0741\times10^{-4}$;
 - measured log spread: $\sigma_{\log C}=0.3303$ dex;
-- OPH displacement: $0.0880\sigma$;
+- OPH displacement: $0.0902\sigma$;
 - acoustic readout mean: $\lambda/\ell=3.0340\times10^{-3}$;
-- acoustic OPH displacement: $0.0880\sigma$.
+- acoustic OPH displacement: $0.0902\sigma$.
 
 The Table V exception films have a separate transverse-strength pool. For the
 listed amorphous Si, Ge, and C films,
@@ -800,32 +884,29 @@ C_{t,{\rm exc,geo}}
 0.7811\ {\rm dex}.
 ```
 
-Relative to that exception pool, the OPH ordinary-branch value sits
-$2.01\sigma$ above the exception-pool center. Numerically, the source value is
-centered on the ordinary amorphous pool and separated from the
-low-attenuation exception-film pool.
+Relative to that exception pool, the conditional ordinary-branch benchmark
+sits about $2.01\sigma$ above the exception-pool center.
 
-The two sigma values answer different questions. The ordinary-pool statistic
-is the goodness check for the OPH branch claimed in this article:
+The two standardized locations answer different descriptive questions. The
+ordinary-pool value is
 
 ```math
-z_{\rm ordinary}=0.0880.
+z_{\rm ordinary}=0.0902.
 ```
 
-That is the relevant empirical comparison for the saturated ordinary
-rigid-record branch. The exception-pool statistic asks a different question:
-how far the ordinary-branch value lies from the known low-attenuation film
-class. The answer,
+The exception-pool statistic asks how far the conditional benchmark lies from
+the historical low-attenuation film pool. The answer,
 
 ```math
 z_{\rm exception}=2.01,
 ```
 
-shows class separation. It is unfavorable only for a claim that the same
-ordinary saturated theorem covers those exception films. This article makes the
-opposite class statement: the exception films require their own branch receipts,
-and their low attenuation is evidence against saturated/uniform branch
-membership.
+does not by itself establish class separation: the entries are pooled
+measurements rather than independent material draws, include multiple
+polarizations and processing states, and use the sample spread rather than a
+prediction uncertainty. A reproducible comparison must publish the 83-row
+extraction ledger, measurement qualifications, and a material-level
+hierarchical or held-out analysis.
 
 ## Exception Boundary
 
@@ -846,14 +927,14 @@ The universal branch covers this class:
 The branch fails if any of the following fail:
 
 ```math
-\text{scale-flat }P(\Delta,\lambda),
+\text{scale-flat }P(\Delta,u),
 ```
 
 ```math
 \mathcal V_{\rm LTAS}
 =
 \mathcal P_{12}^{\rm ac}
-\otimes
+\times
 \mathcal R_{24}^{\rm or},
 ```
 
@@ -880,21 +961,24 @@ low-energy rigid-record ensemble. A material with sparse active records,
 biased repair slots, strongly suppressed strain coupling, or non-scale-flat
 barrier statistics lies outside the universal band.
 
-Known exceptions such as certain amorphous Si, Ge, and C films belong outside
-the saturated/uniform branch when their receipts fail the stated conditions.
+Known low-attenuation samples such as certain amorphous Si, Ge, and C films may
+belong outside the saturated/uniform branch only if receipts fixed independently
+of the attenuation measurement fail the stated conditions. Otherwise they are
+counterexamples to the branch prediction.
 
 ## Simulator Receipts
 
-A simulator freezes the source value
+A future simulator should freeze the conditional cell probability
 
 ```math
-\eta_{\rm source}
+p_{\rm cell}
 =
 \frac{e^{-P_{\rm src}/24}}{12\cdot24}
 ```
 
-Experimental data enter after this source value is frozen. The simulator emits
-receipts for the branch hypotheses.
+Experimental data enter after this benchmark and the branch-classification
+rule are frozen. The following objects and receipts specify the required audit;
+they supply no material receipts by themselves.
 
 Required simulator objects:
 
@@ -920,32 +1004,32 @@ Required receipts:
 - `MEAN_FREE_PATH_READOUT_RECEIPT`
 - `EXCEPTION_CLASS_RECEIPT`
 
-The simulator comparison audits branch membership. It verifies whether a
-material belongs to the ordinary saturated LTAS branch and compares its
-measured attenuation against the frozen source value.
+The simulator comparison must audit branch membership from independent inputs
+and compare the measured attenuation against the frozen conditional benchmark.
 
 ## Falsifiers
 
 The OPH LTAS branch fails if:
 
-- the ordinary saturated branch predicts the universal value and the material
-  receipts show non-scale-flat barrier action;
+- a material passes all pre-registered branch receipts before attenuation is
+  inspected but its attenuation disagrees with the benchmark outside the
+  declared combined uncertainty;
 - a material is classified as saturated even though the active rigid-record
   density is sparse or history-biased;
 - port and register activation are empirically biased and the theorem uses the
   uniform $12\cdot24$ denominator anyway;
-- a low-attenuation amorphous Si, Ge, or C film is treated as a counterexample
-  before classifying its branch receipts;
+- branch membership is changed after a low-attenuation result is seen;
 - the numerical value is re-fit after experimental data are loaded.
 
 ## Scope
 
-OPH closes the low-temperature amorphous-solid universality problem at the
-theorem-package level. The source-only number is fixed on the saturated
-ordinary-rigid-record branch. Material-specific claims require receipts:
-declared material source law, identified rigid-record ensemble, verified
-scale-flat repair action, verified port/register uniformity, and exception
-classification.
+OPH supplies a self-reading-patch organization and a conditional finite-event
+benchmark; it does not yet close the microscopic universality problem. A
+material-specific claim requires a declared source law, an identified
+rigid-record ensemble, regulated scale-flat action, a derived acoustic
+event/cross-section bridge, pre-registered port/register and reserve receipts,
+and an uncertainty-aware comparison. Until then the $12\times24$ branch is a
+useful visualization and falsifiable ansatz rather than a unique resolution.
 
 ## References
 
@@ -957,3 +1041,6 @@ classification.
   1, 1972. https://doi.org/10.1080/14786437208229210
 - W. A. Phillips, "Two-level states in glasses", Reports on Progress in
   Physics 50, 1657, 1987. https://doi.org/10.1088/0034-4885/50/12/003
+- X. Liu, D. R. Queen, T. H. Metcalf, J. E. Karel, and F. Hellman,
+  "Hydrogen-Free Amorphous Silicon with No Tunneling States", Physical Review
+  Letters 113, 025503, 2014. https://doi.org/10.1103/PhysRevLett.113.025503

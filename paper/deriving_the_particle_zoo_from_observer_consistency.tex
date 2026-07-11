@@ -207,14 +207,16 @@ regulated screen language used later when flavor transport and observer-facing r
 
 The quantitative particle side adds one local closure variable. The common pixel ratio \(P\),
 fixed on the synthesis paper's outer/inner closure branch~\cite{ophsynthesis}, feeds the forward
-electroweak map and its descendants. The public endpoint branch displays
+electroweak map and its descendants. The public empirical comparison branch displays
 \[
 \alpha^{-1}(0)=137.035999177(21),
 \qquad
 \alpha(0)\simeq0.00729735256433,
 \qquad
-P\simeq1.6309682094.
+P_C\simeq1.6309682094.
 \]
+The comparison pixel \(P_C\) is defined from the measured endpoint; it is not a source-root
+coordinate.
 The computation has a fixed source order: golden-ratio entropy balance gives
 \(\varphi\), boundary Gaussian normalization supplies the \(\sqrt{\pi}\) width,
 a trial \(P\) feeds the source map through unification, running, and electroweak
@@ -232,14 +234,13 @@ P&=\decnum{1.63097209569432901817967892561191884270169},\\
 &=\decnum{136.994835164621649457949994585787193262029}.
 \end{aligned}
 \]
-The approximately \(0.041\) inverse-alpha gap to the public Thomson endpoint is the declared
-QCD/hadronic electromagnetic input. The endpoint row is therefore a public fixed-point result with
-empirical hadron closure records, while the QCD-free hierarchy witness is the cleaner first-principles
-stress test. Adding the emitted finite-screen unified gauge-width contribution
-\(\alpha_U(P_\star)\) gives the source-side no-hadron near-endpoint,
-\(A_{\alpha_U}^{\mathrm{fp}}=137.0359595008\ldots\), below the Thomson endpoint.
-This sum, not the root-only audit value, is the source-side fine-structure
-prediction displayed in the repository README.
+The approximately \(0.041\) inverse-alpha difference to the public Thomson endpoint identifies the
+declared QCD/hadronic electromagnetic transport boundary; it is not a source-emitted correction.
+The QCD-free hierarchy witness is the cleaner first-principles stress test. Combining the source/root
+value with the finite-screen unified gauge-width contribution evaluated at the CODATA-derived
+comparison pixel, \(\alpha_U(P_C)\), gives the mixed-provenance no-hadron diagnostic
+\(A_{\alpha_U}^{\mathrm{fp}}=137.0359595008\ldots\), below the Thomson endpoint. It is comparison
+bookkeeping rather than a source-only fine-structure prediction.
 The detailed endpoint table appears in Section~\ref{sec:particle-input-ledger}.
 The separate
 cosmic record-closure target \(N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}})\), with count representation
@@ -449,7 +450,7 @@ Detailed scope statements are collected in the support sections that follow.
 \toprule
 Chain & OPH output & Role \\
 \midrule
-\(P\)-closure and fine structure & \(\alpha_{\mathrm{root}}^{-1}=136.9948351646\ldots\); \(A_{\alpha_U}^{\mathrm{fp}}=137.0359595008\ldots\); endpoint \(\alpha^{-1}(0)=137.035999177(21)\) & source-side no-hadron near-endpoint plus empirical endpoint closure \\
+\(P\)-closure and fine structure & \(\alpha_{\mathrm{root}}^{-1}=136.9948351646\ldots\); \(A_{\alpha_U}^{\mathrm{fp}}=137.0359595008\ldots\); endpoint \(\alpha^{-1}(0)=137.035999177(21)\) & source/root audit, mixed-provenance comparison diagnostic, and measured endpoint \\
 Structural massless carriers & \(m_\gamma=m_g=m_{\mathrm{grav}}=0\) & symmetry-protected zeros \\
 Electroweak \(W/Z\) & \(\begin{gathered}80.377\\91.18797809193725\end{gathered}~\mathrm{GeV}\) & weak-sector benchmark pair \\
 Electroweak hierarchy/naturality & \(\begin{gathered}N_{\mathrm{CRC}}^{\mathrm{EW}}\simeq3.53235\times10^{122}\\ \mathcal B_{\mathrm{EW}}=0,\ \epsilon_H=0\end{gathered}\) & selected local/global bridge \\
@@ -567,18 +568,18 @@ Thomson residual. At the implemented fixed point the residual is
 \[
 0.041164012378350542050005414212806738
 \]
-inverse-alpha units. Adding the finite-screen unified gauge-width contribution
-\(\alpha_U(P_\star)\) to the undressed source/root inverse coupling gives the
-source-side no-hadron near-endpoint
+inverse-alpha units. Combining the undressed source/root inverse coupling with the finite-screen
+unified gauge-width contribution evaluated at the CODATA-derived comparison pixel gives the
+mixed-provenance no-hadron diagnostic
 \[
 A_{\alpha_U}^{\mathrm{fp}}
 =136.99483516462165\ldots
 +0.041124336195630495
 =137.03595950081728\ldots,
 \]
-The sum \(\alpha_{\mathrm{root}}^{-1}+\alpha_U(P_\star)\), not \(\alpha_U(P_\star)\) by
-itself, is the source-side no-hadron near-endpoint. It lands close to the Thomson endpoint
-and does not reach it. OPH source-only closure requires the Ward-projected hadronic spectral
+The sum uses \(\alpha_U(P_C)\), while the root is emitted at \(P_{\mathrm{cand}}\). It lands close to
+the Thomson endpoint and does not reach it, but its mixed provenance prevents source-only promotion.
+OPH source-only closure requires the Ward-projected hadronic spectral
 transport. The remaining inverse-alpha shortfall is
 \[
 137.035999177-A_{\alpha_U}^{\mathrm{fp}}
@@ -587,7 +588,7 @@ transport. The remaining inverse-alpha shortfall is
 Equivalently, the calibrated fixed-point residual can be written
 \[
 \Delta^{\mathrm{fp}}_{\mathrm{H,cal}}
-=\alpha_U(P_\star)\,C_{24,Q},
+=\alpha_U(P_C)\,C_{24,Q},
 \qquad
 C_{24,Q}
 =1.0009647859732326253849511140702475\ldots.
@@ -601,10 +602,9 @@ the endpoint residual package requires
 \Delta_{\mathrm{source}}(P)=0.041465861005223389053448715357314044\ldots.
 \]
 That scalar belongs to the source-side hadronic spectral transport and
-scheme-remainder map. The OPH plus empirical hadron closure surface supplies
-the display row through the measured Thomson endpoint while the
-\(e^+e^-\to\mathrm{hadrons}\) input record carries the data-driven hadron
-path. The first-principles transport row excludes an inserted comparison endpoint. The
+scheme-remainder map. The declared empirical route would use a separately labeled
+\(e^+e^-\to\mathrm{hadrons}\) spectral input. No same-scheme integrated endpoint payload is emitted
+here. The first-principles transport row excludes an inserted comparison endpoint. The
 electroweak support record names the residual map and the
 RG/matching/threshold/scheme packet.
 An observer inside the branch measures the dressed Thomson coupling, not the
@@ -4236,14 +4236,14 @@ on the weighted-cycle branch. The ledger also marks four separate row classes: t
 \(P\)-closure source audit, the electroweak \(W/Z\) validation row, the charged-lepton
 absolute-mass landing, and the hadron backend plus empirical closure split.
 The \(W/Z\) row is a frozen compare-only adapter with its own public validation records. The
-Ward-projected Thomson lane records a source-side no-hadron value, the source-plus-unified-gauge-width
-prediction, and the empirical hadron-completed endpoint as separate rows on the declared
+Ward-projected Thomson lane records the source/root audit, the mixed-provenance
+root-plus-comparison-pixel diagnostic, and the measured endpoint as separate rows on the declared
 \(P\)-closure surface. In the charged lane the theorem surface carries an exact
 same-family witness, a determinant-line lift, and an algebraic mass readout from
 theorem-grade \(A_{\mathrm{ch}}(P)\), while the source landing from the D10 quantitative
 descendants of \(P\) to physical charged data is closed as a corpus-limited no-go. Source-only
-hadron masses require a working OPH hadron backend. Empirical hadron closure values use a
-separate \(e^+e^-\to\mathrm{hadrons}\) payload class.
+hadron masses require a working OPH hadron backend. The declared empirical route would use a
+separate \(e^+e^-\to\mathrm{hadrons}\) payload class; no integrated endpoint payload is emitted here.
 
 That accounting belongs on the page because it is part of the derivation. The paper puts the
 structural results, the fixed-point fine-structure value, the emitted quantitative rows, and the

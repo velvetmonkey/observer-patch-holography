@@ -3,20 +3,24 @@
 ## Motivating Result
 
 This note entered the queue after JWST made the question unavoidable: early red
-galaxy candidates appeared massive only 500 to 700 million years after the Big
-Bang
+galaxy **candidates**, interpreted through stellar-population models, appeared
+massive only 500 to 700 million years after the Big Bang
 ([Labbe et al., Nature 616, 266-269, 2023](https://www.nature.com/articles/s41586-023-05786-2)).
 The later "little red dot" literature sharpened the ambiguity: compact red
 objects with broad lines can be read as starbursts, dust, dense gas, selection,
 or accreting black holes
-([Nature, 2025](https://www.nature.com/articles/s41586-025-09900-4)). The OPH
+([Rusakov et al., Nature 649, 574--579, 2026](https://www.nature.com/articles/s41586-025-09900-4)).
+That analysis found electron-scattering-broadened lines in its high-quality
+sample and inferred black-hole masses about two orders of magnitude below prior
+line-width estimates, illustrating why the forward model matters. The OPH
 question is how to audit compactness, color, luminosity, AGN contribution,
 source release, and mass-age interpretation without treating a catalog row as a
 physical closure.
 
-**Status:** solved as a source-release audit theorem package and simulator
-receipt contract. The JWST lane remains source-open and simulation-buildable,
-not a physical mass-age or OPH-confirmation claim.
+**Status:** conditional audit specification and receipt schema. It does not
+derive a compact-object source law, execute a physical JWST forward model, or
+establish an OPH mass-age prediction. The current lane is source-open and may
+support visual or synthetic demonstrations when their assumptions are labeled.
 
 Date: 2026-07-08
 
@@ -38,6 +42,20 @@ JWST compact objects are an audit surface for source release, compact record
 surfaces, finite object parents, forward modeling, and degeneracy receipts.
 They are not confirmation of OPH by themselves.
 ```
+
+## What Is Standard, What Is Open, And What OPH Adds
+
+Standard astronomy already supplies photometric and spectroscopic inference,
+SED and line-profile modeling, lensing, radiative transfer, population
+selection, PSF convolution, and catalog likelihoods. The unresolved OPH
+physics is a source-derived object population and emission history that makes a
+distinct prediction after those conventional effects are included.
+
+OPH's useful addition is the observer-like self-reading object patch: bounded
+local state, release boundary, readback records, repair/refinement lineage, and
+a public evidence bundle linking source assumptions to detector-level rows.
+This can expose category errors such as luminosity-to-mass or compactness-to-age
+promotion. It is not a unique explanation of early compact sources.
 
 ## Claim Boundary
 
@@ -109,9 +127,11 @@ baryon/gas/star/dust/black-hole/accretion/radiation sectors, object-facing
 records, environment data, repair/update maps, checkpoint lineage, emission,
 lensing, and radiative-transfer maps.
 
-The redundancy groupoid removes gauge representatives, mesh labels, port
-labels, packet labels, basis choices, hidden carrier coordinates, worker IDs,
-queue order, retry counters, repair schedules, and inert ancillas:
+The redundancy groupoid removes gauge representatives and demonstrably inert
+presentation metadata such as mesh names, worker IDs, queue order, retry
+counters, and random-number bookkeeping. Physical ports, release surfaces,
+packet species, repair histories, and any label that changes emission, lensing,
+selection, or dynamics remain quotient-visible:
 
 ```math
 Q^{obj}_r=\Sigma^{obj}_r/\Gamma^{obj}_r.
@@ -130,6 +150,12 @@ A source-only compact-object claim requires:
 Z^{-1}_{obj,r}m^{obj}_r(q)
 \exp[-S^{obj}_r(q)].
 ```
+
+For a finite classical branch, \(m_r^{obj}\ge0\), the action is dimensionless,
+and \(0<Z_{obj,r}=\sum_qm_r^{obj}(q)e^{-S_r^{obj}(q)}<\infty\). A
+continuous branch must declare its base measure, domain, and integrability; a
+quantum branch requires a positive trace-one density operator. Writing a Gibbs
+symbol does not establish any of these properties.
 
 Every constraint in the action must declare its name, units, support, target,
 source derivation, zero-mode convention, sector convention, refinement map, and
@@ -168,15 +194,26 @@ A compact record surface records:
 \mathcal E_{env},\Phi_{sync},\mathsf{Emit}_r).
 ```
 
-Useful compactness/readout indices are:
+Useful compactness/readout indices must compare quantities in one plane. Under
+a locally constant scalar magnification, define
+\(A^{src}=A^{img}/\mu_{lens}\) for both the object and PSF. Then
 
 ```math
-\kappa_R = R_{rec}/R_{halo},
+\kappa_R = R_{rec}^{src}/R_{halo}^{src},
 \qquad
-\kappa_{PSF}=A_{rec}/(A_{PSF}/\mu_{lens}),
+\kappa_{PSF}
+=
+\frac{A_{rec}^{img}}{A_{PSF}^{img}}
+=
+\frac{A_{rec}^{src}}{A_{PSF}^{src}},
 \qquad
-\Sigma_{rec}=\frac{\sum_e a_ep_{e,rec}}{A_{rec}}.
+\Sigma_{rec}=\frac{\sum_e a_ep_{e,rec}}{A_{rec}^{src}}.
 ```
+
+For anisotropic lensing, the full Jacobian and source-plane PSF are required;
+a scalar \(\mu_{lens}\) is insufficient. The record activation
+\(p_{e,rec}\) is dimensionless, while \(a_e\) must declare its record-weight
+units, so \(\Sigma_{rec}\) has record weight per physical area.
 
 Low synchronization residual `Phi_sync` means observer-facing records align
 coherently across the compact surface. It does not imply that the system is
@@ -189,11 +226,17 @@ For an observer bin `B`, define compact-object record load:
 ```math
 \mathsf L_{obj,r}(q;B)
 =
-\sum_C V^{phys}_{C,r}(q)
-\sum_{e\in E_{rec,r}(C)}
+\sum_C\sum_{e\in E_{rec,r}(C)}
 a_ep_{e,rec}(q)
 \mathbf 1_B[\mathsf{Read}_{obj,r}(e,q)].
 ```
+
+With \(a_e\) in record-weight units, \(\mathsf L\) is a record weight and
+\(\rho_{rec}\) below is record weight per comoving volume. A volume-weighted
+field is a different construction: it must introduce a proper-volume density
+\(w^{vol}_{e,C}\), use \(V_C^{phys}w^{vol}_{e,C}\), and apply the explicit
+proper-to-comoving factor. The surface weight \(a_e\) must not be multiplied
+by cell volume without that new definition.
 
 The source-side record density is:
 
@@ -210,9 +253,10 @@ density, halo-mass density, black-hole mass density, or galaxy number density.
 ## Theorem Gates
 
 1. **Normal forms do not select compact-object probability laws.**  
-   The pushforward of a law by a normal-form map is idempotent, so every law
-   supported on the normal-form image is fixed. A source law must be
-   supplied separately.
+   Let \(c:Q_r^{obj}\to Q_r^{obj}\) satisfy \(c^2=c\), with normal-form
+   image \(N=\operatorname{im}c\). Then \(c_\#(c_\#\mu)=c_\#\mu\), and
+   every law supported on \(N\) is fixed. Idempotence therefore leaves many
+   laws possible; a source law must be supplied separately.
 
 2. **Record density is quotient-invariant.**  
    If load, volume, record activation, readout, and bin membership are defined
@@ -236,11 +280,13 @@ density, halo-mass density, black-hole mass density, or galaxy number density.
    without paths from JWST catalog counts, anomaly labels, posterior summaries,
    likelihood residuals, or hand-selected interesting objects.
 
-6. **JWST maturity is non-identifiable when degeneracy support is large.**  
-   If two quotient states have indistinguishable JWST catalog readouts but
-   separated physical maturity tuples, no estimator using only the catalog
-   record can uniformly recover physical maturity below half that separation,
-   up to observational stability.
+6. **Exact readout degeneracy gives a minimax lower bound.**
+   Let maturity values lie in a metric space \((M,d_M)\). If two admissible
+   states have the same frozen JWST readout but
+   \(d_M(m_1,m_2)=\Delta\), then every estimator from that readout has
+   worst-case error at least \(\Delta/2\), by the triangle inequality. A
+   noisy or approximate version needs an explicit readout metric, noise ball,
+   and stability modulus; "large degeneracy support" alone is not a theorem.
 
 7. **Mass/age tension promotion requires full degeneracy closure.**  
    A compact object may be labeled `PHYSICAL_MASS_AGE_TENSION` only after
@@ -249,53 +295,69 @@ density, halo-mass density, black-hole mass density, or galaxy number density.
    physical support lies outside the conventional baseline by a predeclared
    threshold.
 
-8. **Source release and synchronization can change apparent maturity.**  
-   OPH source release may shift compactness, surface brightness, line
-   coherence, or record density. It does not by itself imply old age, high
-   stellar mass, large black-hole seed mass, or completed assembly.
+8. **Source-release effects are a provisional hypothesis.**
+   A declared OPH response model may shift compactness, surface brightness,
+   line coherence, or record density. No such shift follows from the abstract
+   release definition alone. Even when assumed in a visual model, it does not
+   imply old age, high stellar mass, large black-hole seed mass, or completed
+   assembly.
 
 9. **Forward counts are pushforwards.**  
    JWST-facing expected counts are the pushforward histogram of
    `mu^{obj}_r` through the frozen JWST forward operator.
 
-10. **Refinement compatibility bounds finite evidence.**  
-    If source-law and load defects are bounded under coarse maps, then object
-    abundance changes across regulators are bounded by the total-variation and
-    load-defect terms. A refinement failure blocks source-only promotion.
+10. **Refinement compatibility bounds bounded loads.**
+    For a coarse map \(c_{sr}:Q_s\to Q_r\), assume
+    \(\|L_r\|_\infty\le M\),
+    \(\|\mu_r-c_{sr\#}\mu_s\|_{TV}\le\epsilon_\mu\), and
+    \(\sup_{q\in Q_s}|L_s(q)-L_r(c_{sr}q)|\le\epsilon_L\). Then
+    \(|\mathbb E_{\mu_s}L_s-\mathbb E_{\mu_r}L_r|\le
+    \epsilon_L+M\epsilon_\mu\), using the convention
+    \(|E_\mu f-E_\nu f|\le\|f\|_\infty\|\mu-\nu\|_{TV}\).
+    The convention and finite bound must be recorded. A refinement failure
+    blocks source-only promotion.
 
-11. **Simulator soundness is bounded-observable soundness.**  
-    For bounded catalog statistics, simulation error is bounded by sampling,
-    refinement, and forward-operator defects. Continuum or physical maturity
-    claims need the stronger parent and likelihood receipts.
+11. **Simulator soundness is conditional bounded-observable soundness.**
+    For bounded catalog statistics, one may add declared sampling, refinement,
+    and forward-operator error bounds. Those terms require a concentration
+    inequality and operator norm; their mere names are not a bound. Continuum
+    or physical-maturity claims need the stronger parent and likelihood
+    receipts.
 
-## Claim-Tier Ladder
+## Two-Axis Claim Status
 
 ```text
-J0_DIAGNOSTIC_PROXY
-J1_CATALOG_RECORD
-J2_SPECTROSCOPIC_OR_PHOTOMETRIC_OBJECT
-J3_DEGENERACY_AUDITED_OBJECT
-J4_CONDITIONAL_PHYSICAL_OBJECT
-J5_SOURCE_RELEASE_CANDIDATE
-J6_SOURCE_ONLY_OBJECT_ABUNDANCE
-J7_FORWARD_MOCK_PHYSICAL_SPECTRUM
-J8_LIKELIHOOD_EVALUATED_PHYSICAL_PREDICTION
+OBSERVATION AXIS
+O0_DIAGNOSTIC_PROXY
+O1_CATALOG_RECORD
+O2_SPECTROSCOPIC_OR_PHOTOMETRIC_OBJECT
+O3_DEGENERACY_AUDITED_OBJECT
+
+OPH MODEL AXIS
+M0_NO_PHYSICAL_SOURCE_MODEL
+M1_CONDITIONAL_PHYSICAL_PARENT
+M2_FROZEN_SOURCE_RELEASE_CANDIDATE
+M3_SOURCE_ONLY_OBJECT_ABUNDANCE
+M4_FORWARD_MOCK_PHYSICAL_SPECTRUM
+M5_LIKELIHOOD_EVALUATED_PHYSICAL_PREDICTION
 ```
 
-Promotion requires:
+Every result receives a pair \((O_i,M_j)\). Better observations can raise the
+first coordinate without providing an OPH source model; a sophisticated OPH
+mock can raise the second only if its parent receipts pass. This prevents a
+catalog-quality improvement from being mistaken for OPH confirmation.
 
-- J1: catalog ingestion and provenance.
-- J2: object ID, aperture, redshift posterior, photometry/spectrum, and
-  morphology records.
-- J3: redshift, dust, AGN, nebular, stellar-population, lensing, morphology,
-  PSF, and selection receipts.
-- J4: object parent, packet mass-shell, packet stress, total-stress closure,
-  radiative transfer, lensing source-plane, and chemical/SFH receipts.
-- J5: OPH release state and source-release residual not tuned to the object.
-- J6: object abundance source receipt, no-target leakage receipt, and load
-  refinement compatibility.
-- J7: frozen JWST forward operator.
-- J8: frozen catalog likelihood and predeclared falsification thresholds.
+Observation promotion requires provenance for O1; object ID, aperture,
+redshift posterior, photometry/spectrum, and morphology for O2; and redshift,
+dust, AGN, nebular, stellar-population, lensing, PSF, morphology, and selection
+alternatives for O3.
+
+Model promotion requires the physical parent and stress/transfer receipts for
+M1; a source-release state and response model frozen without object tuning for
+M2; source
+abundance, no-target leakage, and refinement for M3; a frozen JWST forward
+operator for M4; and a frozen likelihood plus predeclared falsification
+thresholds for M5.
 
 ## Catalog-Level Checklist
 
@@ -308,7 +370,7 @@ Every catalog row should carry:
 - dynamical-mass receipt status;
 - compact-record-surface receipt status;
 - degeneracy-audit receipt status;
-- claim tier `J0` through `J8`;
+- observation tier `O0` through `O3` and OPH-model tier `M0` through `M5`;
 - blocking receipts;
 - printed nonclaims.
 
@@ -340,14 +402,16 @@ JWST_LIKELIHOOD_EVALUATED_PHYSICAL_PREDICTION_RECEIPT
 
 ## Simulator Contract
 
-The simulator must implement this chain:
+A future physical simulator must implement this chain. A schema-only run may
+display it, but must remain \((O0,M0)\) and mark every uninstantiated parent
+receipt false:
 
 ```text
 quotient -> source law -> release state -> record density -> object parent
 -> JWST forward operator -> degeneracy audit -> frozen likelihood
 ```
 
-It must fail promotion when:
+Any implementation must fail promotion when:
 
 - a normal-form map is used as a probability law;
 - representative sampling changes orbit-size weights without declaring that
@@ -401,9 +465,11 @@ the lane retracts or fails under any of these conditions:
 The first useful workbench is not a claim that JWST has confirmed OPH. It is a
 receipt-producing pipeline that ingests catalog rows, freezes the forward model,
 constructs degeneracy pairs, verifies no-target source artifacts, and reports
-the strongest allowed claim tier for every object and population bin.
+the strongest allowed observation/model status pair for every object and
+population bin.
 
-The active simulator surface is `oph-physics-sim/oph_fpe/jwst`, with commands
+The current receipt-scaffold surface is `oph-physics-sim/oph_fpe/jwst`, with
+commands
 such as:
 
 ```bash
@@ -415,7 +481,7 @@ python3 -m oph_fpe.cli jwst-compact-object-simulation-plan \
 
 The paper-stack code mirror is
 `reverse-engineering-reality/code/particles/jwst/build_compact_object_source_release_receipts.py`.
-It emits the same fail-closed claim ladder into the OPH content repository:
+It emits the same fail-closed schema into the OPH content repository:
 
 ```bash
 cd reverse-engineering-reality/code/particles
@@ -423,7 +489,9 @@ python3 jwst/build_compact_object_source_release_receipts.py \
   --output runs/jwst/compact_object_source_release
 ```
 
-The remaining hard paper-side object is the actual numerical compact-object
-source action `S^{obj}_r(q)`. Until OPH derives it upstream or declares it as a
+These commands do not yet execute the source-to-spectrum chain or validate a
+physical object parent. The remaining hard paper-side object is the actual
+numerical compact-object source action `S^{obj}_r(q)`. Until OPH derives it
+upstream or declares it as a
 conditional branch with no-data receipts, the JWST lane remains source-open and
 simulation-buildable rather than physically closed.

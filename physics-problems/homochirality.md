@@ -23,10 +23,12 @@ These results establish viable seed and gain mechanisms. They do not yet form
 one demonstrated path from geochemically plausible feedstock to the linked
 amino-acid and sugar handedness of biology.
 
-**Status:** complete at the OPH derivation-and-audit level. The reduction,
-branch-selection criterion, route audit, and falsification conditions are
-explicit. The absolute sign and the historical prebiotic chemistry are an
-empirical source-and-repair boundary, not an unproved OPH theorem.
+**Status:** conditional OPH audit and reduced-model derivation. The Frank-type
+normal form, source/gain separation, route audit, and falsification conditions
+are explicit under their stated assumptions. The note does not derive a unique
+prebiotic pathway, the terrestrial sign, spatial planetary fixation, or a new
+chiral force. Those remain empirical source, transport, and chemistry
+boundaries.
 
 **Date:** 2026-07-11.
 
@@ -40,14 +42,37 @@ chemical state, a readback variable such as product enantiomeric excess,
 persistent chiral templates or catalysts as records, and record-conditioned
 copying, inhibition, recycling, or repair. In a symmetric Frank-type kinetic
 normal form, the racemic state cannot choose a sign deterministically, but any
-nonzero seed is amplified toward one of two stable chiral branches. With
-chirality-erasing error rate \(\mu\), macroscopic branches exist only when the
-effective amplification rate \(\kappa\) exceeds \(2\mu\). Mineral surfaces,
+nonzero seed is amplified toward one of two stable chiral branches. In the
+constant-coefficient, source-off error model below, non-racemic fixed branches
+exist only when the effective amplification rate \(\kappa\) exceeds
+\(2\mu\). This is not a universal prebiotic threshold. Mineral surfaces,
 circularly polarized light, and electroweak parity violation are therefore
 candidate source terms, not substitutes for amplification and repair.
 Autocatalysis, mutual inhibition, and recycling are candidate gain terms, not
 proofs of the original sign. The remaining scientific gap is an end-to-end,
 prebiotically plausible, spatially resolved source-to-fixation receipt.
+
+## Standard Baseline, Remaining Problem, and OPH Contribution
+
+**Established chemistry.** Frank-type nonlinear kinetics, asymmetric
+autocatalysis, mutual inhibition, crystallization/recycling, chiral surfaces,
+circularly polarized photochemistry, stochastic fixation, and reaction--
+diffusion models already supply standard mechanisms for enrichment and
+symmetry breaking. The cited experiments demonstrate particular seed or gain
+mechanisms under particular conditions.
+
+**Unresolved part.** No cited experiment supplies one geochemically plausible,
+spatially resolved path from near-racemic feedstock through coupled amino-acid
+and sugar selection to durable biological homochirality. The historical sign,
+transport between compartments, survival under racemization and dilution, and
+replicator architecture remain open.
+
+**OPH contribution in this note.** OPH does not uniquely supply the kinetic
+equations. It contributes the observer-like patch and audit decomposition:
+boundary source, record-conditioned gain, readback, repair/error, transport,
+checkpoint persistence, and public evidence are kept distinct. A specifically
+OPH physical result would require the self-reading record architecture to make
+a frozen prediction beyond the standard kinetic controls.
 
 ## 1. Claim boundary
 
@@ -62,7 +87,8 @@ Three claims must not be conflated:
 
 The first is ordinary stereochemistry. The experiments cited here establish
 instances of the second. The third requires a coupled, durable selection
-process. OPH supplies a normal form for that selection process. It does not
+process. OPH places a standard reduced normal form inside an observer-patch and
+receipt audit for that selection process. It does not
 identify the historically realized molecular network from observer
 consistency alone.
 
@@ -99,9 +125,9 @@ back the record, and repair preferentially restores the same branch. No claim
 of consciousness is involved.
 
 The separation between **normal form** and **source selection** is essential.
-OPH can classify the two fixed branches and the repair threshold. A chemical
-rate law, mineral population, radiation field, or parity-violating energy
-difference must supply the sign, magnitude, and physical realization.
+OPH can classify the two fixed branches and the conditional model threshold. A
+chemical rate law, mineral population, radiation field, or parity-violating
+energy difference must supply the sign, magnitude, and physical realization.
 
 ## 3. Minimal branch-selection derivation
 
@@ -114,6 +140,9 @@ net autocatalytic growth \(g=a-d\) with mutual inhibition at rate \(b>0\):
 \dot R=gR-bLR.
 \tag{1}
 \]
+
+If $L$ and $R$ are amounts, $g$ has units of inverse time and $b$ has units of
+inverse amount per unit time, so $\kappa=bx/2$ below has units of inverse time.
 
 This is a deliberately minimal quotient of the chemistry, descended from
 [Frank's asymmetric-synthesis model](https://doi.org/10.1016/0006-3002(53)90082-1).
@@ -151,19 +180,28 @@ bias changes the fixation probabilities.
 
 ### Proposition 2: a nonzero seed has logarithmic amplification cost
 
-For constant \(\kappa>0\) and \(e_0\ne0\), equation (3) integrates to
+Equation (3) does not generally have constant $\kappa$, because
+$\kappa(t)=b x(t)/2$ changes as total abundance grows or depletes. Define the
+cumulative dimensionless amplification exposure
+
+\[
+K(t):=\int_0^t\kappa(s)\,ds.
+\]
+
+For $e_0\ne0$, equation (3) integrates to
 
 \[
 e(t)^2=
-\left[1+\bigl(e_0^{-2}-1\bigr)e^{-2\kappa t}\right]^{-1}.
+\left[1+\bigl(e_0^{-2}-1\bigr)e^{-2K(t)}\right]^{-1}.
 \tag{4}
 \]
 
-The sign of \(e\) is conserved and \(|e|\to1\). The dimensionless exposure
-needed to reach a target \(0<e_\star<1\) is
+The sign of \(e\) is conserved. The limit $|e|\to1$ follows only if
+$K(t)\to\infty$; resource depletion can leave a finite final excess. The
+exposure needed to reach a target \(0<e_\star<1\) is
 
 \[
-\kappa t_\star=
+K_\star=
 \frac12\log\!\left[
 \frac{e_\star^2}{1-e_\star^2}
 \frac{1-e_0^2}{e_0^2}
@@ -171,8 +209,9 @@ needed to reach a target \(0<e_\star<1\) is
 \tag{5}
 \]
 
-Thus \(e_0=10^{-2}\to e_\star=0.99\) requires \(\kappa t_\star=6.554\),
-while \(e_0=10^{-6}\to0.99\) requires \(15.764\). A very small seed is not
+For constant $\kappa$, $K(t)=\kappa t$ is the special case used for a clock
+estimate. Thus \(e_0=10^{-2}\to e_\star=0.99\) requires \(K_\star=6.554\),
+while \(e_0=10^{-6}\to0.99\) requires \(K_\star=15.764\). A very small seed is not
 automatically irrelevant: in this normal form, the required additional gain
 grows only logarithmically. Whether a real system supplies that gain before
 hydrolysis, racemization, depletion, or dispersal is an experimental question.
@@ -189,9 +228,14 @@ A useful biased, error-prone quotient is
 Here \(h\) is a signed source bias and \(\mu\) is an effective racemization,
 wrong-handed copying, or record-erasure rate. Equation (6) is a phenomenological
 normal form; each proposed chemistry must derive its own mapping to
-\((\kappa,h,\mu)\).
+\((\kappa,h,\mu)\). All three have units of inverse time in this normalization.
+The factor \(-2\mu e\) follows exactly from symmetric first-order
+interconversion \(L\rightleftarrows R\) with one-way rate \(\mu\); using it
+for copy errors, selective degradation, or template loss is an additional
+effective-model assumption.
 
-When \(h=0\), the non-racemic fixed points are
+For constant \(\kappa>0\) and \(\mu\ge0\) with the source switched off
+\((h=0)\), the non-racemic fixed points are
 
 \[
 e_\star=\pm\sqrt{1-\frac{2\mu}{\kappa}},
@@ -205,12 +249,19 @@ and they exist only if
 \tag{8}
 \]
 
-Below this threshold, the racemic record is stable. Above it, the racemic
-record is unstable and two stable chiral records exist. This is the precise
-OPH repair statement: branch retention requires copying, inhibition, or
-recycling gain to outrun the processes that erase handedness. A bias \(h\)
-tilts the two basins; it need not itself be large enough to generate a
-macroscopic equilibrium excess.
+Within this autonomous normal form, the linearization at \(e=0\) is
+\(\dot e\simeq(\kappa-2\mu)e\). Below the threshold the racemic fixed point is
+stable; above it the racemic fixed point is unstable and two stable chiral
+fixed points exist. At equality, \(\dot e=-\kappa e^3\), so the racemic
+point is nonhyperbolic but still attracting in this one-dimensional model.
+This is a source-off pitchfork condition for the stated
+model, not a universal repair threshold. If \(h\ne0\), \(e=0\) is not a fixed
+point and the symmetric pitchfork is tilted. If \(\kappa\), \(h\), or \(\mu\)
+varies with time, an instantaneous inequality \(\kappa(t)>2\mu(t)\) does not by
+itself prove fixation or persistence; the full exposure and checkpoint
+dynamics must be integrated. The qualitative OPH audit statement is only that
+measured gain must outpace measured chirality-erasing processes on the claimed
+timescale.
 
 ## 4. Local fixation is not yet global homochirality
 
@@ -220,16 +271,32 @@ droplets. A minimal spatial stochastic extension is
 \[
 de_i=\left[(1-e_i^2)(\kappa_i e_i+h_i)-2\mu_i e_i
 +D\sum_j A_{ij}(e_j-e_i)\right]dt
-+\sqrt{\frac{2\sigma_i^2}{N_i}}\,dW_i.
++\sqrt{\frac{2\sigma_i^2}{N_i}(1-e_i^2)}\,dW_i.
 \tag{9}
 \]
 
 The adjacency matrix \(A\) declares material exchange, \(D\) its rate,
 \(N_i\) the effective molecular population, and \(W_i\) independent noise
-terms. Equation (9) exposes a second no-go result: local amplification alone
-does not imply one planetary sign. Weakly coupled patches can freeze into a
-mosaic of opposite chiral domains. A global claim therefore needs at least one
-of the following, measured rather than assumed:
+terms. Here $D$ and $\sigma_i^2$ have units of inverse time when $A$ is
+dimensionless. The simple exchange drift $D\sum_jA_{ij}(e_j-e_i)$ assumes
+symmetric transport and equal or externally fixed total record abundance in
+connected compartments. If $x_i=L_i+R_i$ differs appreciably, transport must be
+written for $L_i$ and $R_i$ and then reduced; abundance-weighted drift terms
+result.
+The factor $1-e_i^2$ is an illustrative bounded, Wright--Fisher-like
+choice that makes the diffusion vanish at $e_i=\pm1$; the earlier additive
+noise form would leave the physical interval with nonzero probability. Equation
+(9) still assumes symmetric effective abundance noise for the two hands,
+independent compartments, and sufficiently large $N_i$. If $L$ and $R$ have
+unequal copy/death noise, correlated feed fluctuations, or strongly varying
+total abundance, the diffusion and Itô drift must be derived from the underlying
+count process rather than assumed. Reflecting boundaries are an alternative but
+must be stated.
+
+Under those assumptions, equation (9) exposes a second limitation: local
+amplification alone does not imply one planetary sign. Weakly coupled patches
+can freeze into a mosaic of opposite chiral domains. A global claim therefore
+needs at least one of the following, measured rather than assumed:
 
 - a globally correlated signed seed;
 - sufficiently rapid migration and competitive replacement to coarsen domains;
@@ -324,9 +391,11 @@ and publish enough information to reconstruct the branch ledger. At minimum:
 4. **Record/readback receipt:** demonstrate that a surviving chiral template,
    catalyst, or crystal population predicts the next cycle's products better
    than a shuffled-record control.
-5. **Repair threshold:** independently estimate \(\kappa\) and \(\mu\), then
-   test the transition near \(\kappa=2\mu\) rather than merely fitting a final
-   excess.
+5. **Repair threshold:** for a source-off, approximately autonomous regime,
+   independently estimate \(\kappa\) and \(\mu\), then test the model
+   bifurcation near \(\kappa=2\mu\) rather than merely fitting a final excess.
+   For time-dependent chemistry, freeze and test the integrated exposure model
+   instead of applying an instantaneous threshold.
 6. **Spatial receipt:** sample multiple compartments and both mineral-face
    orientations; report domain size, exchange rate, sign concordance, and
    whether coarsening follows equation (9) or a declared alternative.
@@ -341,24 +410,27 @@ resource accounting; opposite signs persisting in weakly coupled patches; or a
 result explained by contamination, selective detection, or unrecorded
 post-processing.
 
-## 8. What is solved and what remains
+## 8. What the conditional model establishes and what remains
 
-The OPH-level question is solved to the following precision:
+Under the declared reduced-model assumptions, the audit establishes:
 
 - Homochirality can be represented as fixation of a persistent chiral record
   in a bounded replication-and-repair patch.
 - Exact symmetry supplies no absolute hand.
-- A nonzero seed is amplified by the Frank normal form with the closed solution
-  (4) and logarithmic fixation cost (5).
-- Error-prone repair has the explicit threshold \(\kappa>2\mu\).
+- A nonzero seed is amplified by the Frank normal form according to cumulative
+  exposure (4), with logarithmic target exposure (5); complete fixation also
+  requires unbounded or sufficiently large exposure.
+- The autonomous, constant-coefficient, source-off error model has a pitchfork
+  threshold \(\kappa>2\mu\); time-dependent or biased chemistry requires the
+  full dynamics.
 - Autocatalytic, mineral, circular-polarization, and parity-violation routes
   occupy different terms in the model and cannot be substituted for one
   another without evidence.
 - Local fixation does not imply global homochirality; transport, bottlenecking,
   or correlated bias must close the spatial consensus step.
 
-The audit closes without promoting an unknown historical pathway to a theorem.
-Its residual empirical boundary is the following finite certificate:
+The audit specification stops without promoting an unknown historical pathway
+to a theorem. Its empirical target is the following finite certificate:
 
 > Produce one end-to-end source-to-fixation receipt: freeze a chemically and
 > geochemically plausible network, measure
@@ -366,11 +438,11 @@ Its residual empirical boundary is the following finite certificate:
 > copying and repair across serial checkpoints, and show spatial sign
 > concordance plus amino-acid/sugar coupling against blinded controls.
 
-This is an observational acceptance condition, not a second unresolved OPH
-derivation. The completed OPH account explains the architecture by which a
+This is an observational acceptance condition, not a completed physical
+derivation. The OPH audit explains the proposed architecture by which a
 microscopic or stochastic chiral difference becomes a durable biological
-record and states exactly what would falsify that account on a chosen chemical
-branch. It deliberately does not claim that observer consistency fixes the
+record and states what would test that account on a chosen chemical branch. It
+deliberately does not claim that observer consistency fixes the
 terrestrial L-amino-acid sign or reconstructs which combination of
 astrophysical, mineral, and autocatalytic events occurred.
 

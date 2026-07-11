@@ -1,0 +1,2000 @@
+\documentclass[11pt]{amsart}
+
+\usepackage[margin=1.05in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage[nameinlink,capitalise,noabbrev]{cleveref}
+\usepackage{tikz-cd}
+\usepackage{mathrsfs}
+\usepackage{csquotes}
+\usepackage[numbers,sort&compress]{natbib}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!45!black,
+  citecolor=green!30!black,
+  urlcolor=blue!55!black,
+  pdftitle={Observation-Determined Normal Forms: Stability, Obstructions, and Refinement in Constraint and Rewrite Systems},
+  pdfauthor={Bernhard Mueller, David Matscheko, and Jonathan Hill}
+}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{problem}[theorem]{Problem}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\NF}{\operatorname{NF}}
+\newcommand{\Fix}{\operatorname{Fix}}
+\newcommand{\diam}{\operatorname{diam}}
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\Stab}{\operatorname{Stab}}
+\newcommand{\Lip}{\operatorname{Lip}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\cB}{\mathcal B}
+\newcommand{\cC}{\mathcal C}
+\newcommand{\cQ}{\mathcal Q}
+\newcommand{\cR}{\mathcal R}
+\newcommand{\cS}{\mathcal S}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\Rmax}{\overline{\mathbb R}_{\ge 0}}
+
+\title[Observation-Determined Normal Forms]{Observation-Determined Normal Forms: Stability, Obstructions, and Refinement in Constraint and Rewrite Systems}
+\author{Bernhard Mueller}
+\author{David Matscheko}
+\author{Jonathan Hill}
+\date{Draft of July 11, 2026}
+
+\subjclass[2020]{Primary 68Q42; Secondary 49J53, 68Q25, 68Q85, 94B05}
+\keywords{abstract rewriting, observation-determined normal forms, observational confluence, error bounds, metric subregularity, boundary reconstruction, refinement, local repair, Lean 4}
+
+\begin{document}
+
+\begin{abstract}
+Confluence compares reductions from one initial state.  Many distributed and reconstruction problems instead compare states or executions that expose the same observable boundary.  We study this distinction first for finite rewrite and constraint systems after quotienting representation changes that are declared unobservable, and then for compact metric systems and refinement towers.
+
+The exact layer separates unrealizable, uniquely reconstructing, and ambiguous observable fibers.  It also characterizes identification modulo an arbitrary silent equivalence as endpoint agreement across all sources with the same observation; this is distinct from both same-source confluence and all-schedule termination.  The associated unique-normal-form statements are classical; we record them only to identify the correct hypotheses and to distinguish failed normalization from an impossible boundary.  The principal contribution is a robust, refinement-compatible calculus.  A residual error-bound modulus controls distance to the consistent set, while an inverse-observation modulus controls distance between consistent states with close observations.  Their composition yields a sharp two-output estimate and, conditional on settling and observation-drift receipts, bounds disagreement between schedule endpoints without further critical-pair, commutation, or contraction analysis.  We prove that the inverse-observation term is exact at zero residual and that the universal coefficient of the residual term cannot be improved.
+
+For inverse systems, one-step normalization defects telescope across arbitrary refinement depth.  At one fixed level, approximate solvers admit a receipt-only comparison, with no refinement tail.  Across different levels, an anchor-optimized theorem adds the amplified normalizer defects between each solver level and a common comparison level, together with protected-observation mismatch there.  For a compatible admissible input, nonexpansive restrictions, summable pathwise defects, and vanishing receipt errors make the solver families induce the same coordinatewise projective limit, unchanged on cofinal subsequences; zero defects recover the exact inverse-limit normalizer.  Stagewise uniqueness alone is insufficient: uniform inverse conditioning is necessary for uniform zero-residual stability, while a uniform residual error bound is separately required away from the consistent set.  We also give the finite conditional-expectation projector associated with observation fibers and a directly checkable matrix receipt, isolate supporting repair obstructions, prove finite update bounds for ranked functional systems, derive singular-value certificates for linear quotient systems, and record coNP- and $\Pi_2^P$-completeness classifications for succinct boundary determination and strong local repair.  A small Rule-90 carrier is retained only as a formal regression test.
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}\label{sec:intro}
+
+A confluent rewrite system has a familiar geometry: paths may split, but paths from the same source eventually rejoin.  In many applications the source itself is hidden.  What is fixed is an interface, input, conserved sector, sensor record, or boundary condition.  The relevant question is then not
+\[
+ x\to^*y,\quad x\to^*z\quad\Longrightarrow\quad y\downarrow z,
+\]
+but rather
+\[
+ B(x)=B(x')\quad\Longrightarrow\quad
+ \text{the settled observable outputs of }x\text{ and }x'\text{ agree}.
+\]
+The two statements have different proof obligations.  Confluence is a property of paths.  Observable reconstruction is a property of the consistent set and of the observation map on that set.
+
+We use \emph{observation-determined normal form} for a settled state determined
+through an observation map on the consistent set.  This is distinct from the
+control-theory use of \enquote{observable normal form} for a state-space form
+obtained by coordinate transformation, including in Boolean control networks
+\citep{ChengLiQi2010}.
+
+Let $Q$ be a state space after quotienting representation changes that are regarded as silent, let $C\subseteq Q$ be the consistent states, and let
+\[
+ B:Q\longrightarrow\cB
+\]
+be protected observable data.  For $b\in\cB$, set
+\[
+ C_b:=C\cap B^{-1}(b).
+\]
+The three possibilities
+\[
+ |C_b|=0,\qquad |C_b|=1,\qquad |C_b|>1
+\]
+mean, respectively, that the observation is unrealizable, reconstructing, or ambiguous.  Termination and confluence do not alter this trichotomy.  They control how a computation reaches $C$; they do not determine how many points of $C$ share one observation.
+
+The distinction becomes more consequential under perturbation.  Exact injectivity of $B|_C$ says nothing about conditioning.  A sequence of finite systems may have injective observation maps at every stage and nevertheless become arbitrarily unstable under refinement.  To capture the missing information, we use two moduli:
+\begin{enumerate}[label=(\roman*)]
+\item an error-bound modulus carrying a constraint residual to distance from $C$;
+\item an inverse-observation modulus carrying observation discrepancy within $C$ to state discrepancy.
+\end{enumerate}
+The first is an error-bound or metric-subregularity object in the sense of variational analysis \citep{Hoffman1952,Kruger2015,CibulkaDontchevKruger2018,DontchevRockafellar2014}.  The second is the modulus of continuity of the inverse of $B|_C$.  We do not claim either notion as new.  The object studied here is their use as an \emph{observation-determined normal-form certificate} for constraint and rewrite systems and, especially, the uniform and multi-stage refinement calculus that results.
+
+\subsection{Main contributions}
+
+The manuscript has six technical contributions.
+
+\begin{enumerate}[label=\textbf{C\arabic*.},leftmargin=3.2em]
+\item \textbf{Correct exact interface.}
+We state a canonical partial normalizer and a boundary-indexed unique-normal-form theorem with the empty-fiber case separated from weak normalization.  An audited-terminal theorem further separates computational quiescence from semantic consistency.  Identification modulo a silent equivalence is characterized exactly by cross-source endpoint agreement.  The exact confluence implications are explicitly treated as classical.
+
+\item \textbf{Sharp observational stability.}
+For a residual $\Phi$ and an observation map $B$, we define intrinsic moduli $\eta_\Phi$ and $\omega_B$.  For arbitrary residual levels $\delta_x,\delta_y$,
+\begin{equation}\label{eq:intro-master}
+\begin{split}
+ d_Q(x,y)\le{}&\eta_\Phi(\delta_x)+\eta_\Phi(\delta_y)\\
+ &+\omega_B\!\left(
+ d_{\cB}(Bx,By)+L_B[\eta_\Phi(\delta_x)+\eta_\Phi(\delta_y)]
+ \right).
+\end{split}
+\end{equation}
+At zero residual the bound is exact by definition.  Across all finite metric systems, the coefficient $2$ in the equal-residual specialization cannot be lowered.
+
+\item \textbf{Uniform refinement towers.}
+One-step approximate naturality follows from consistency and observation defects.  We distinguish same-level receipt-conditioned agreement from genuinely cross-level comparison.  An anchor-optimized theorem compares independently computed outputs at arbitrary refinement levels after restriction to a common level.  Compatible nested inputs leave only the intervening defect segment, and summable pathwise defects yield an implementation-independent projective limit.  A counterexample shows that stagewise injectivity is not enough without a uniform inverse modulus.
+
+\item \textbf{Repair and selection obstructions.}
+A total exact local repair preserving an exterior collar exists if and only if the local consistency relation projects surjectively onto that collar.  On a finite full-support probability space, observation-fiber resampling is the weighted orthogonal conditional-expectation projector and has a finite matrix recognition receipt.  A stabilizer obstruction prevents an equivariant selector on ambiguous fibers.  These results are elementary, but their integration prevents a normalizer from silently becoming a sector-selection axiom.
+
+\item \textbf{Constructive and linear classes.}
+Ranked functional-audit systems have singleton-or-empty fibers, terminate under every effective asynchronous schedule with an explicit update bound, and settle synchronously in dependency depth; acyclic Boolean circuits compile directly into this class.  Linear quotient systems admit rank tests and singular-value bounds that instantiate \eqref{eq:intro-master}; finite linear dynamics yield the usual observability matrix as a special case.
+
+\item \textbf{Receipts, complexity, and formal audit.}
+A standard finite Markov drift lemma turns a row-wise kernel inequality into endpoint, stationary, and expected-occupation receipts, without asserting infinite-horizon confinement under persistent noise.  For succinct Boolean systems, we record tight coNP- and $\Pi_2^P$-completeness classifications in this formulation; these supporting results are not part of the principal novelty claim.  We audit the accompanying Lean sources theorem by theorem and state exactly which results remain to be formalized.
+\end{enumerate}
+
+\subsection{Novelty boundary and intended venue}
+
+The exact theory overlaps several established areas.  Abstract rewriting supplies Newman's lemma, Church--Rosser properties, unique normal forms, and normalization theory \citep{Newman1942,Huet1980,BaaderNipkow1998,Terese2003,AotoToyama2018}.  Rewriting modulo equivalence and confluence under invariants already address quotient and relevant-state restrictions \citep{ChristiansenKirkeby2016,GallFruehwirth2018,CampbellPlump2021,Lucas2025}.  Quantitative rewriting enriches rewrite relations themselves and proves metric analogues of classical confluence theorems \citep{GavazzoDiFlorio2022}.  Error bounds and inverse stability are mature subjects in variational analysis \citep{Kruger2015,CibulkaDontchevKruger2018}.  Functoriality of rewriting is also established in categorical graph transformation \citep{DuvalEchahedProst2011}.
+
+Accordingly, the paper makes no claim that a triangle inequality, an error
+bound, inverse continuity, a section criterion, or boundary-indexed unique
+normal forms are individually new.  The contribution advanced for review is
+the integrated certificate architecture, particularly the explicit
+anchor-optimized cross-level receipt comparison and its cofinal-limit
+consequence, rather than the triangle inequality or Lipschitz telescope in
+isolation.  Approximate inverse-system theory is important neighboring prior
+art, and the displayed estimate itself is elementary; we therefore claim an
+organizing synthesis, not priority for approximate commutativity or inverse
+limits.  External specialist review remains necessary.
+The intended contribution is in mathematical theoretical computer science,
+with rewriting and semantics as the primary audience.
+
+\section{Relation to existing theories}\label{sec:related}
+
+\subsection{Rewriting, invariants, and quotients}
+
+The classical properties of an abstract reduction system are standard \citep{Huet1980,BaaderNipkow1998,Terese2003}.  Confluence restricted to an invariant or taken modulo an equivalence has been developed in Constraint Handling Rules and graph transformation \citep{ChristiansenKirkeby2016,GallFruehwirth2018,CampbellPlump2021}.  Those frameworks are close to the first arrow in
+\[
+ \text{presentations}\longrightarrow Q\longrightarrow\cB:
+\]
+they identify states that should count as the same or restrict attention to relevant states.  Our observation map is the second arrow.  It may be strictly coarser than equality in $Q$, and it is required to be injective only on the consistent subset when exact reconstruction is desired.
+
+Unique-normal-form properties weaker than confluence are well known and have
+been automated for term rewriting \citep{AotoToyama2018}.  The fiber
+trichotomy and partial-normalizer universal property here are elementary set
+theory; only the reachable-normal-form and fiberwise-confluence corollaries
+specialize classical rewriting theory.
+
+\subsection{Quantitative rewriting versus output stability}
+
+Gavazzo and Di Florio enrich rewriting relations over quantales and derive quantitative Newman, Church--Rosser, and critical-pair theorems \citep{GavazzoDiFlorio2022}.  Here the rewrite relation remains ordinary.  Distances are attached to two semantic interfaces: residual-to-solution error and inversion of observable data on the solution set.  Thus the theory does not estimate a quantitative rewrite path; it estimates disagreement between settled outputs of possibly unrelated schedules or initial interiors.
+
+\subsection{Error bounds and inverse mappings}
+
+The inequality
+\[
+ \dist(x,C)\le \eta(\Phi(x))
+\]
+is an error-bound property.  In variational analysis, local linear versions are equivalent to metric subregularity or calmness of suitable set-valued mappings \citep{Kruger2015,CibulkaDontchevKruger2018,DontchevRockafellar2014}.  The inverse-observation modulus is a global finite or compact analogue of inverse Lipschitz/calmness information.  Our use of these notions is intentionally transparent: the novelty claim concerns their operational consequences for schedules and refinement towers, not their analytic origin.
+
+\subsection{Approximate inverse systems}
+
+Approximate inverse systems and almost-commuting diagrams have a substantial
+topological literature, including stability and resolution theorems for
+compacta \citep{MardesicSegal1989,MardesicRubin1989,Mardesic1993}.  Those
+works perturb or relax compatibility of bonding data in topological or cover
+terms.  Our setting keeps the ambient inverse system exact and instead gives
+pointwise metric bounds for normalizer defects, solver receipts, and
+protected-observation mismatch.  The connection limits the novelty claim:
+the contribution is an explicit certificate adapted to
+observation-determined normalizers, not the invention of approximate inverse
+systems.
+
+\subsection{Static reconstruction and functional observability}
+
+Control-theoretic observability reconstructs a state, or a prescribed function of state, from an output history.  Linear observability and functional observability supply rank and conditioning tests; recent nonlinear work characterizes when a nonlinear functional can be reconstructed from measurements and studies the quality of the inverse map \citep{Kailath1980,MontanariEtAl2023,Kravaris2024}.  This is the closest neighboring language for the map $B|_C$.  Our setting is nevertheless static at the theorem interface: $C$ is the already-settled consistent set, $B$ may be any protected quotient observation, and the new questions are how residual error and inverse conditioning control schedule disagreement and how these certificates propagate through refinement towers.
+
+\subsection{Constraints, databases, and global sections}
+
+Acyclic database schemes and positive-semiring relations provide local-to-global consistency results \citep{BeeriEtAl1983,AtseriasKolaitis2020}.  Constraint satisfaction studies local consistency as an algorithmic reduction \citep{DalmauOprsal2023}.  Database repair semantics distinguishes the existence of many consistent repairs from the answers invariant across them \citep{ArenasBertossiChomicki1999}.  Sheaf-theoretic contextuality similarly turns failure of a global section into an obstruction \citep{AbramskyBrandenburger2011}.  Our empty-fiber certificate belongs to this broad lineage.  The additional layer is the interaction with normal-form stability and refinement.
+
+\subsection{Asynchronous functional networks}
+
+Kahn process networks provide timing-independent determinacy for networks of
+functional components, while generalized Kahn principles treat broader
+abstract asynchronous, including nondeterministic, models under their stated
+hypotheses \citep{Kahn1974,Abramsky2011}.  Ranked functional systems below
+are a finite terminating special case with residual audits.  Their purpose is
+not to reprove those principles, but to give a class in which the exact
+boundary hypotheses, update bound, and obstruction output are explicit.
+
+\subsection{Formalized rewriting}
+
+Formalized rewriting has established libraries such as CoLoR in Coq
+\citep{BlanquiKoprowski2011}.  Recent developments include a constructive
+Agda library for abstract rewriting \citep{ArklePolonsky2026}, a Lean~4
+framework for confluence and normalization of lambda calculi
+\citep{RamosEtAl2025}, and a Rocq library for adhesive-category graph
+rewriting \citep{ArsacHarmerPous2025}.  The
+accompanying standalone Lean artifact formalizes selected exact, stability,
+refinement, repair, ranked, and stochastic results from this paper; its
+coverage boundary is stated in \cref{sec:lean}.
+
+\section{Exact observable fibers}\label{sec:exact}
+
+\begin{definition}[Observable quotient system]
+An \emph{observable quotient system} is a tuple
+\[
+ \mathfrak S=(Q,C,\cB,B),
+\]
+where $Q$ is a set, $C\subseteq Q$ is the consistent subset, $\cB$ is an observation set, and $B:Q\to\cB$ is the protected observation map.  In applications, $Q$ may itself be a quotient $\Sigma/\Gamma$ of presentations by gauge, implementation, or representation changes.
+\end{definition}
+
+\begin{definition}[Fiber trichotomy]
+For $b\in\cB$, define $C_b=C\cap B^{-1}(b)$.  The observation $b$ is \emph{unrealizable}, \emph{reconstructing}, or \emph{ambiguous} according as $|C_b|$ is $0$, $1$, or greater than $1$.  The system is \emph{observable-determined} if $B|_C$ is injective.
+\end{definition}
+
+\begin{definition}[Canonical partial normalizer]
+If $B|_C$ is injective, define
+\[
+ \mathsf N_B:Q\longrightarrow C\sqcup\{\bot\}
+\]
+by returning the unique member of $C_{B(x)}$ when the fiber is nonempty and $\bot$ otherwise.  The symbol $\bot$ denotes a mathematically proved no-extension outcome, not a failure of search.
+\end{definition}
+
+\begin{remark}[Proof-carrying interpretation]
+For finite data with decidable membership and equality, exhaustive search
+returns the dependent alternative
+\[
+ \left(\sum_{c\in C} [B(c)=B(x)]\right)
+ \;\sqcup\;
+ [C_{B(x)}=\varnothing].
+\]
+Thus \enquote{obstructed} carries a proof of empty fiber.  In the ordinary
+classical setting the same alternative is defined by excluded middle and
+choice, but injectivity alone is not an algorithm for deciding which side
+holds.  Even for finite succinct inputs, such a proof need not be
+computationally cheap; \cref{sec:complexity} shows that realizability is
+NP-complete.
+\end{remark}
+
+\begin{theorem}[Universal property]\label{thm:universal}
+The following are equivalent.
+\begin{enumerate}[label=(\alph*)]
+\item $B|_C$ is injective.
+\item There is a unique map $N:Q\to C\sqcup\{\bot\}$ such that:
+  \begin{enumerate}[label=(\roman*)]
+  \item $N(x)=c\in C$ implies $B(c)=B(x)$;
+  \item $N(x)=\bot$ if and only if $C_{B(x)}=\varnothing$;
+  \item $N(c)=c$ for all $c\in C$;
+  \item $B(x)=B(y)$ implies $N(x)=N(y)$.
+  \end{enumerate}
+\item $B|_C:C\to B(C)$ is a bijection.
+\end{enumerate}
+If all observation values under consideration are realizable, $N$ is a total idempotent retraction $Q\to C$ preserving $B$.
+\end{theorem}
+
+\begin{proof}
+If $B|_C$ is injective, every nonempty fiber contains exactly one point, so $\mathsf N_B$ has all listed properties and any competing map is forced to agree with it fiber by fiber.  Conversely, if $c,c'\in C$ have $B(c)=B(c')$, then boundary extensionality and the fixed-point property give $c=N(c)=N(c')=c'$.  The equivalence with (c) is immediate.
+\end{proof}
+
+Let $\to$ be a relation on $Q$, write $\to^*$ for its reflexive transitive closure, and let $\NF(\to)$ be the normal forms.
+
+\begin{definition}
+The relation $\to$ is \emph{observation preserving} if $x\to y$ implies $B(x)=B(y)$, and \emph{complete for $C$} if $\NF(\to)=C$.
+\end{definition}
+
+\begin{proposition}[Reachable normal forms live in the observable fiber]\label{prop:reachable-fiber}
+If $\to$ preserves $B$ and is complete for $C$, then every normal form reachable from $x$ belongs to $C_{B(x)}$.
+\end{proposition}
+
+\begin{proof}
+Completeness puts the reachable normal form in $C$, and observation preservation puts it in the fiber of $B(x)$.
+\end{proof}
+
+\begin{theorem}[Cross-source endpoint identification modulo equivalence]
+\label{thm:cross-source-modulo}
+Assume that $\to$ preserves $B$ and that $\NF(\to)=C$.  Let $\approx$ be
+an equivalence relation on $C$.  The following are equivalent:
+\begin{enumerate}[label=(\roman*)]
+\item for all $c,d\in C$, $B(c)=B(d)$ implies $c\approx d$;
+\item whenever $B(x)=B(y)$, $x\to^*n_x$, $y\to^*n_y$, and
+      $n_x,n_y\in\NF(\to)$, one has $n_x\approx n_y$.
+\end{enumerate}
+Thus observation identifiability modulo $\approx$ is exactly agreement modulo
+$\approx$ of reachable endpoints from \emph{possibly different} sources with
+the same observation.
+\end{theorem}
+
+\begin{proof}
+Under (i), \cref{prop:reachable-fiber} puts $n_x,n_y$ in $C$ and observation
+preservation gives $B(n_x)=B(x)=B(y)=B(n_y)$, hence $n_x\approx n_y$.
+Conversely, take $c,d\in C$ with $B(c)=B(d)$.  Since $C=\NF(\to)$ and
+$\to^*$ is reflexive, apply (ii) to $c\to^*c$ and $d\to^*d$.
+\end{proof}
+
+\begin{corollary}[Silent-quotient criterion]\label{cor:silent-quotient}
+In addition to the hypotheses of \cref{thm:cross-source-modulo}, suppose
+$c\approx d$ implies $B(c)=B(d)$.  Then $B|_C$ induces a surjection
+\[
+ \overline B:C/{\approx}\longrightarrow B(C),\qquad [c]\longmapsto B(c),
+\]
+and $\overline B$ is injective, hence bijective, if and only if either
+condition of \cref{thm:cross-source-modulo} holds.  This includes quotients by
+silent representation or gauge changes; equality recovers ordinary endpoint
+uniqueness.
+\end{corollary}
+
+\begin{proof}
+Silence makes $\overline B$ well defined and it is surjective by its
+codomain.  Its injectivity says exactly that $B(c)=B(d)$ implies
+$[c]=[d]$, equivalently $c\approx d$.
+\end{proof}
+
+\begin{remark}[Three separate obligations]
+Same-source confluence compares arms of a peak from one state;
+\cref{thm:cross-source-modulo} compares endpoints from all sources in one
+observation fiber.  Weak normalization is a separate existence hypothesis
+ensuring that every source has at least one endpoint.  Strong normalization,
+fairness, or another liveness argument is still needed to conclude that every
+allowed schedule settles.  None of these three obligations may be substituted
+for either of the others.
+\end{remark}
+
+\begin{corollary}[Correct empty/singleton alternative]\label{cor:empty-singleton}
+Under the hypotheses of \cref{prop:reachable-fiber}:
+\begin{enumerate}[label=(\roman*)]
+\item if $C_b=\varnothing$, no state of $B^{-1}(b)$ reaches a normal form;
+\item if $C_b=\{c_b\}$, every reachable normal form from $B^{-1}(b)$ equals $c_b$;
+\item if, in addition, every state of $B^{-1}(b)$ is weakly normalizing, then every such state reduces to $c_b$, and $\to$ is confluent on that fiber.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+The first two claims follow directly from \cref{prop:reachable-fiber}.  For (iii), normalize both arms of any peak.  Their normal forms are both $c_b$, providing a join.
+\end{proof}
+
+The completeness hypothesis $\NF(\to)=C$ is sometimes too strong: a
+computation may halt uniquely and then fail a separate semantic audit.  The
+next theorem separates those two layers.
+
+\begin{theorem}[Audited terminal alternative]\label{thm:audited-terminal}
+Let $T=\NF(\to)$ be the computational terminal set and let $C\subseteq T$
+be the semantically consistent terminals.  Assume that $\to$ preserves $B$,
+every state is weakly normalizing, and $B|_T$ is injective.  Then every
+$x\in Q$ reaches a unique terminal $t_x\in T$, and
+\[
+ B(t_x)=B(x),
+ \qquad
+ t_x\in C
+ \quad\Longleftrightarrow\quad
+ C_{B(x)}\ne\varnothing.
+\]
+Thus a realizable observation has a unique reachable terminal at its
+consistent extension, whereas an unrealizable observation can still have a
+unique reachable terminal, but only outside $C$.  The theorem does not assert
+strong normalization of every execution.
+\end{theorem}
+
+\begin{proof}
+Weak normalization supplies a reachable $t_x\in T$, and observation
+preservation gives $B(t_x)=B(x)$.  Any other reachable terminal has the same
+observation, so injectivity of $B|_T$ makes it equal to $t_x$.  If
+$t_x\in C$, it witnesses a nonempty consistent fiber.  Conversely, if
+$c\in C_{B(x)}$, then $c\in T$ and $B(c)=B(t_x)$; injectivity on $T$ gives
+$c=t_x$, hence $t_x\in C$.
+\end{proof}
+
+When $T=C$, \cref{thm:audited-terminal} reduces to the realizable part of
+\cref{cor:empty-singleton}.  When $T\supsetneq C$, it prevents an audit
+failure from being misreported as nontermination or as a consistent normal
+form.
+
+\begin{remark}[Classical status]
+Part (iii) is the invariant-fiber form of the classical implication from weak normalization and uniqueness of normal forms with respect to reduction to confluence.  It is included to identify the exact hypotheses needed for observable reconstruction; it is not part of the novelty claim.
+\end{remark}
+
+\section{Observational stability moduli}\label{sec:stability}
+
+Let $(Q,d_Q)$ be a finite metric space, let $(\cB,d_{\cB})$ be any metric
+space, let $\varnothing\ne C\subseteq Q$, and let
+$\Phi:Q\to\mathbb R_{\ge0}$ satisfy
+\[
+ C=\Phi^{-1}(0).
+\]
+All maxima below therefore exist.  The same formulas extend to compact spaces
+by replacing maxima with suprema and imposing the continuity hypotheses stated
+in \cref{prop:compact-extension}; the displayed Lipschitz estimates continue
+to assume a finite Lipschitz constant for $B$.
+
+\begin{definition}[Residual error-bound modulus]
+Define
+\[
+ \eta_\Phi(t):=
+ \max\{\dist_Q(x,C):\Phi(x)\le t\}.
+\]
+An \emph{error-bound modulus} is any nondecreasing $\eta$ satisfying
+\[
+ \dist_Q(x,C)\le\eta(\Phi(x)).
+\]
+\end{definition}
+
+\begin{definition}[Inverse-observation modulus]
+Define
+\[
+ \omega_B(r):=
+ \max\{d_Q(c,c'):c,c'\in C,\ d_{\cB}(Bc,Bc')\le r\}.
+\]
+The system is \emph{stably observable-determined} if $\omega_B(r)\to0$ as $r\downarrow0$.
+\end{definition}
+
+\begin{proposition}[Minimality of the intrinsic moduli]\label{prop:minimal-moduli}
+The functions $\eta_\Phi$ and $\omega_B$ are nondecreasing.  Moreover:
+\begin{enumerate}[label=(\roman*)]
+\item $\eta_\Phi(0)=0$;
+\item $\eta_\Phi$ is the least nondecreasing error-bound modulus on the attained residual values;
+\item $\omega_B(0)=0$ if and only if $B|_C$ is injective;
+\item $\omega_B$ is the least nondecreasing modulus satisfying
+\[
+ d_Q(c,c')\le\omega(d_{\cB}(Bc,Bc'))\qquad(c,c'\in C).
+\]
+\end{enumerate}
+For finite $C$, injectivity of $B|_C$ implies that there is an $r_0>0$ such that
+$\omega_B(r)=0$ for $0\le r<r_0$.  When $|C|>1$, one may take $r_0$ to be
+the minimum distance between distinct points of $B(C)$; when $|C|=1$, any
+positive $r_0$ works.
+\end{proposition}
+
+\begin{proof}
+Monotonicity follows from inclusion of the defining sets.  Since $C=\Phi^{-1}(0)$, residual zero has distance zero from $C$.  If $\eta$ is any nondecreasing error-bound modulus and $\Phi(x)\le t$, then $\dist(x,C)\le\eta(\Phi(x))\le\eta(t)$; taking the maximum gives $\eta_\Phi(t)\le\eta(t)$.  The proof for $\omega_B$ is identical.  The statement at zero is exactly injectivity, and finiteness gives a positive minimum separation among distinct boundary images.
+\end{proof}
+
+Let $L_B$ be any Lipschitz constant for $B$ on $Q$.
+
+\begin{theorem}[Heterogeneous two-output estimate]\label{thm:master-bound}
+If $x,y\in Q$ satisfy
+\[
+ \Phi(x)\le\delta_x,\qquad \Phi(y)\le\delta_y,
+ \qquad d_{\cB}(Bx,By)\le\eps,
+\]
+then
+\begin{equation}\label{eq:master-bound}
+\begin{split}
+ d_Q(x,y)\le{}&\eta_\Phi(\delta_x)+\eta_\Phi(\delta_y)\\
+ &+\omega_B\!\left(
+ \eps+L_B[\eta_\Phi(\delta_x)+\eta_\Phi(\delta_y)]
+ \right).
+\end{split}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Choose nearest points $c_x,c_y\in C$.  Then
+\[
+ d_Q(x,c_x)\le\eta_\Phi(\delta_x),\qquad
+ d_Q(y,c_y)\le\eta_\Phi(\delta_y).
+\]
+Lipschitz continuity and the triangle inequality give
+\begin{align*}
+ d_{\cB}(Bc_x,Bc_y)
+ &\le d_{\cB}(Bc_x,Bx)+d_{\cB}(Bx,By)+d_{\cB}(By,Bc_y)\\
+ &\le \eps+L_B[\eta_\Phi(\delta_x)+\eta_\Phi(\delta_y)].
+\end{align*}
+The definition of $\omega_B$ bounds $d_Q(c_x,c_y)$.  A final triangle inequality yields \eqref{eq:master-bound}.
+\end{proof}
+
+The symmetric form used most often is
+\begin{equation}\label{eq:symmetric-bound}
+ d_Q(x,y)\le
+ 2\eta_\Phi(\delta)+
+ \omega_B\!\left(\eps+2L_B\eta_\Phi(\delta)\right).
+\end{equation}
+
+\begin{corollary}[Rate transfer]\label{cor:rate-transfer}
+Suppose, on the residual and observation ranges under consideration,
+\[
+ \eta_\Phi(t)\le a t^p,
+ \qquad
+ \omega_B(r)\le b r^q
+\]
+for constants $a,b\ge0$ and exponents $p,q>0$.  Then
+\[
+\begin{split}
+ d_Q(x,y)\le{}&a(\delta_x^p+\delta_y^p)\\
+ &+b\!\left(\eps+L_Ba(\delta_x^p+\delta_y^p)\right)^q
+\end{split}
+\]
+under the hypotheses of \cref{thm:master-bound}.  In particular, linear
+error bounds and a Lipschitz inverse give a linear output certificate.
+\end{corollary}
+
+\begin{proof}
+Substitute the two rate bounds into \eqref{eq:master-bound}.
+\end{proof}
+
+\subsection{Optimality and the exact observational modulus}
+
+\begin{definition}[Settled-output modulus]
+For $\delta,r\ge0$, define
+\[
+ \Theta_{\Phi,B}(\delta,r):=
+ \max\left\{
+ d_Q(x,y):\Phi(x),\Phi(y)\le\delta,
+ \ d_{\cB}(Bx,By)\le r
+ \right\}.
+\]
+\end{definition}
+
+\begin{theorem}[Sharpness]\label{thm:sharpness}
+The following statements hold.
+\begin{enumerate}[label=(\roman*)]
+\item At zero residual,
+\[
+ \Theta_{\Phi,B}(0,r)=\omega_B(r).
+\]
+Thus the inverse-observation term in \eqref{eq:symmetric-bound} is exact.
+\item No universal estimate of the form
+\[
+ \Theta_{\Phi,B}(\delta,0)\le a\,\eta_\Phi(\delta)+\omega_B(0)
+\]
+can hold for all finite metric systems with a constant $a<2$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+When $\delta=0$, the admissible points are precisely $C$, so the two defining maxima coincide.
+
+For (ii), fix $s>0$ and let $Q=\{c,x,y\}$ with distances
+\[
+ d(c,x)=d(c,y)=s,\qquad d(x,y)=2s.
+\]
+Let $C=\{c\}$, let $B$ be constant, and set $\Phi(c)=0$, $\Phi(x)=\Phi(y)=1$.  Then $\eta_\Phi(1)=s$, $\omega_B(0)=0$, and $\Theta_{\Phi,B}(1,0)=2s$.
+\end{proof}
+
+\begin{remark}
+The theorem does not assert that every term in \eqref{eq:master-bound} can be attained simultaneously in every structured class.  It states the correct universal boundary: the observation term is forced already on $C$, and the coefficient $2$ on two independent residual errors is globally sharp.
+\end{remark}
+
+\subsection{Approximate schedule independence}
+
+A finite execution is a sequence $x=x_0\to x_1\to\cdots\to x_n$.  It is $(\delta,\beta)$-\emph{settled} if its endpoint $z$ satisfies
+\[
+ \Phi(z)\le\delta,
+ \qquad d_{\cB}(Bz,Bx)\le\beta.
+\]
+No exact observation-preservation assumption is made.
+
+\begin{corollary}[Approximate schedule independence]\label{cor:schedule}
+Suppose two executions start at the same state $x$ and end at $z_1,z_2$, where the $i$th execution is $(\delta_i,\beta_i)$-settled.  Then
+\begin{equation}\label{eq:schedule}
+\begin{split}
+ d_Q(z_1,z_2)\le{}&\eta_\Phi(\delta_1)+\eta_\Phi(\delta_2)\\
+ &+\omega_B\!\left(
+ \beta_1+\beta_2+L_B[\eta_\Phi(\delta_1)+\eta_\Phi(\delta_2)]
+ \right).
+\end{split}
+\end{equation}
+The same bound holds for executions starting from two different states with equal initial observations.
+\end{corollary}
+
+\begin{proof}
+The endpoint observation discrepancy is at most $\beta_1+\beta_2$.  Apply \cref{thm:master-bound}.
+\end{proof}
+
+\begin{corollary}[High-probability schedules]\label{cor:probabilistic}
+Let $Z_1,Z_2$ be random endpoints of two schedules from a common initial state in finite $Q$.  Suppose schedule $i$ is $(\delta_i,\beta_i)$-settled with probability at least $1-p_i$.  Let $D$ denote the right-hand side of \eqref{eq:schedule}.  Then
+\[
+ \mathbb P[d_Q(Z_1,Z_2)\le D]\ge1-p_1-p_2
+\]
+and
+\[
+ \mathbb E[d_Q(Z_1,Z_2)]
+ \le D+(p_1+p_2)\diam(Q).
+\]
+\end{corollary}
+
+\begin{proof}
+Use the union bound for the two settling events.  On their intersection apply \cref{cor:schedule}; on its complement use the diameter bound.
+\end{proof}
+
+The preceding result consumes a probabilistic settling receipt.  The following
+standard drift calculation is one finite mechanism for producing such a
+receipt.
+
+\begin{proposition}[Finite Markov drift receipt]\label{prop:markov-receipt}
+Let $K$ be a Markov kernel on finite $Q$, write
+\[
+ (Kf)(x)=\sum_{y\in Q}K(x,y)f(y),
+\]
+and let $V:Q\to\mathbb R_{\ge0}$.  Suppose $0\le\kappa<1$,
+$\xi\ge0$, and
+\[
+ (KV)(x)\le\kappa V(x)+\xi
+ \qquad(x\in Q).
+\]
+For the chain $(X_n)$ started at $x$,
+\[
+ \mathbb E_x[V(X_n)]
+ \le
+ \kappa^nV(x)+
+ \xi\frac{1-\kappa^n}{1-\kappa}.
+\]
+Consequently, for every $\delta>0$,
+\[
+ \mathbb P_x[V(X_n)>\delta]
+ \le
+ \frac{\kappa^nV(x)+
+ \xi(1-\kappa^n)/(1-\kappa)}{\delta}.
+\]
+If $V=\Phi$ and every transition with positive probability preserves $B$,
+then the complementary event supplies a $(\delta,0)$-settling receipt for
+\cref{cor:probabilistic}.  When the kernel is meant to sample rewrite
+schedules, its support must additionally consist of permitted rewrite steps
+or stuttering moves.  This is a one-time endpoint bound; pathwise confinement
+over a time interval requires an additional excursion or concentration
+hypothesis.
+\end{proposition}
+
+\begin{proof}
+The tower property and the drift inequality give
+$a_{n+1}\le\kappa a_n+\xi$ for
+$a_n=\mathbb E_x[V(X_n)]$.  Induction solves this scalar recurrence and
+gives the displayed geometric sum.  The probability bound is Markov's
+inequality.  Positive-probability transitions preserve the initial
+observation along every sampled path.
+\end{proof}
+
+\begin{corollary}[Stationary and occupation receipts]
+\label{cor:markov-occupation}
+Under the hypotheses of \cref{prop:markov-receipt}, every stationary
+distribution $\pi$ satisfies, for $\delta>0$,
+\[
+ \mathbb E_\pi V\le\frac{\xi}{1-\kappa},
+ \qquad
+ \pi\{V>\delta\}\le\frac{\xi}{(1-\kappa)\delta}.
+\]
+For a chain started at $x$ and $N\ge1$,
+\[
+ \mathbb E_x\!\left[\frac1N\sum_{n=0}^{N-1}
+       \mathbf1_{\{V(X_n)>\delta\}}\right]
+ \le
+ \frac{V(x)}{N\delta(1-\kappa)}
+ +\frac{\xi}{\delta(1-\kappa)}.
+\]
+The same right-hand side bounds the probability of being outside the
+$\delta$-tube at an independent uniformly sampled time in
+$\{0,\ldots,N-1\}$.  When $\xi>0$, these expectation and occupation bounds do
+not imply infinite-horizon pathwise confinement; persistent noise can permit
+repeated excursions.
+\end{corollary}
+
+\begin{proof}
+Integrate the drift inequality against $\pi$ and use stationarity.  For the
+occupation bound, use
+$\mathbf1_{\{V>\delta\}}\le V/\delta$, sum the estimate in
+\cref{prop:markov-receipt}, and bound
+$\sum_{n=0}^{N-1}\kappa^n\le(1-\kappa)^{-1}$.
+\end{proof}
+
+\subsection{Compact and uniform families}
+
+\begin{proposition}[Compact-space extension]\label{prop:compact-extension}
+Let $Q$ be compact metric, let $C\subseteq Q$ be nonempty and closed, let $\Phi:Q\to\mathbb R_{\ge0}$ be continuous with $C=\Phi^{-1}(0)$, and let $B:Q\to\cB$ be continuous.  Then $\eta_\Phi(t)\to0$ as $t\downarrow0$.  If $B|_C$ is injective, then its inverse on $B(C)$ is uniformly continuous and $\omega_B(r)\to0$ as $r\downarrow0$.
+\end{proposition}
+
+\begin{proof}
+If $\eta_\Phi(t)$ did not tend to zero, there would be $t_n\downarrow0$ and $x_n$ with $\Phi(x_n)\le t_n$ but $\dist(x_n,C)\ge a>0$.  A convergent subsequence has limit $x$ with $\Phi(x)=0$, hence $x\in C$, contradicting the distance bound.  The second statement follows because a continuous bijection from compact $C$ to the Hausdorff space $B(C)$ is a homeomorphism, whose inverse is uniformly continuous.
+\end{proof}
+
+Now let $\{\mathfrak S_i\}_{i\in I}$ be a nonempty family of compact or finite metric systems with a common Lipschitz bound $L$ for the maps $B_i$.  Define
+\[
+ H(t):=\sup_i\eta_i(t),\qquad
+ \Omega(r):=\sup_i\omega_i(r).
+\]
+We assume these suprema are finite on the ranges under consideration; this
+uniform boundedness is not automatic when the diameters of the systems are
+unbounded.
+
+A \emph{uniform settled-output modulus} is a function
+$\Psi(t,r)$ such that
+$\Theta_{\Phi_i,B_i}(t,r)\le\Psi(t,r)$ for every $i\in I$.
+
+\begin{theorem}[Uniform observational stability]\label{thm:uniform-family}
+If $H(t)\to0$ and $\Omega(r)\to0$ at zero, then every member of the family satisfies the uniform estimate
+\[
+ d_i(x,y)\le
+ 2H(\delta)+\Omega(r+2LH(\delta))
+\]
+whenever $\Phi_i(x),\Phi_i(y)\le\delta$ and
+$d_{\cB_i}(B_ix,B_iy)\le r$.  Conversely, any uniform settled-output modulus restricts at zero residual to a modulus dominating $\Omega$.
+\end{theorem}
+
+\begin{proof}
+Apply \cref{thm:master-bound} stagewise and take suprema.  At zero residual, \cref{thm:sharpness}(i) gives the converse statement.
+\end{proof}
+
+\begin{example}[Stagewise uniqueness without uniform stability]\label{ex:nonuniform}
+Let $C_n=Q_n=\{0,1\}$ with discrete state distance, and let $B_n(0)=0$, $B_n(1)=1/n$ in $\mathbb R$.  Every $B_n$ is injective, yet for every $r>0$ one has $\sup_n\omega_{B_n}(r)=1$.  Thus exact uniqueness at every finite stage does not supply a stable refinement limit.
+\end{example}
+
+\begin{example}[Stagewise error bounds without a uniform error bound]\label{ex:nonuniform-residual}
+Let $Q_n=\{0,1\}$ with the discrete metric, let $C_n=\{0\}$, let $B_n$ be
+constant, and put
+\[
+ \Phi_n(0)=0,\qquad \Phi_n(1)=1/n.
+\]
+For every fixed $n$, $\eta_n(t)\to0$ as $t\downarrow0$, and the unique
+consistent fiber is perfectly conditioned.  Nevertheless, for every
+$t>0$ one has $\sup_n\eta_n(t)=1$.  Thus uniform residual control and uniform
+inverse-observation control are independent requirements.
+\end{example}
+
+\subsection{Parallel composition and observation design}
+
+\begin{theorem}[Exact product calculus]\label{thm:product-calculus}
+Let $I$ be nonempty and finite.  For each $i\in I$, let
+\[
+ \mathfrak S_i=(Q_i,C_i,\cB_i,B_i,\Phi_i)
+\]
+be a nonempty finite metric system.  Form the parallel product
+\[
+ Q=\prod_{i\in I}Q_i,
+ \quad C=\prod_{i\in I}C_i,
+ \quad B=(B_i)_{i\in I},
+ \quad \Phi(x)=\max_i\Phi_i(x_i),
+\]
+with maximum metrics on $Q$ and $\prod_i\cB_i$.  Then
+\[
+ \eta_\Phi(t)=\max_i\eta_{\Phi_i}(t),
+ \qquad
+ \omega_B(r)=\max_i\omega_{B_i}(r).
+\]
+Consequently, parallel composition preserves a uniform stability certificate without a dimension-dependent loss in the maximum metric.
+\end{theorem}
+
+\begin{proof}
+For the maximum product metric,
+\[
+ \dist_Q(x,C)=\max_i\dist_{Q_i}(x_i,C_i).
+\]
+The constraint $\Phi(x)\le t$ is equivalent to $\Phi_i(x_i)\le t$ for every $i$.  Taking maxima gives the upper bound for $\eta_\Phi$; equality is attained by choosing a maximizing component and arbitrary consistent points in all other components.  The proof for $\omega_B$ is identical: the product observation discrepancy is at most $r$ exactly when every component discrepancy is at most $r$.
+\end{proof}
+
+\begin{corollary}[Adding observations cannot worsen conditioning]\label{cor:sensor-enrichment}
+Let $D:C\to\mathcal D$ be an additional observation and equip
+$\cB\times\mathcal D$ with the maximum metric.  For the enriched map
+$B^+=(B,D)$,
+\[
+ \omega_{B^+}(r)\le\omega_B(r).
+\]
+Thus extra quotient-visible sensors can only improve the intrinsic inverse-observation certificate; they may, of course, carry their own implementation error outside $C$.
+\end{corollary}
+
+\begin{proof}
+The pairs of consistent states satisfying
+$d_{\cB\times\mathcal D}(B^+c,B^+c')\le r$ form a subset of those satisfying
+$d_{\cB}(Bc,Bc')\le r$.
+\end{proof}
+
+\section{Naturality and refinement towers}\label{sec:refinement}
+
+For an observable system define its reconstructing, realizable domain by
+\[
+ Q^{\mathrm{adm}}
+ :=
+ \{q\in Q:\text{there exists a unique }c\in C
+              \text{ with }B(c)=B(q)\}.
+\]
+Every normalizer in this section is understood to act on a chosen metric
+subspace of $Q^{\mathrm{adm}}$, with the consistent set restricted to the
+corresponding normalizer image; every coarse map is assumed to preserve the
+chosen admissible subspaces.  To avoid carrying restriction notation through
+every formula, we relabel those subspaces and restricted consistent sets as
+$Q_s,Q_r,Q_n$ and $C_s,C_r,C_n$.  Thus $B_n|_{C_n}$ is injective on the
+declared domain.  Obstructed and ambiguous fibers remain governed by
+\cref{sec:exact}; they are not silently assigned a finite normalizer value in
+the metric estimates below.
+
+Let
+\[
+ \mathfrak S_s=(Q_s,C_s,\cB_s,B_s,\Phi_s),
+ \qquad
+ \mathfrak S_r=(Q_r,C_r,\cB_r,B_r,\Phi_r)
+\]
+be finite or compact observable systems on the admissible domains declared
+above.  Their normalizers $N_s$ and $N_r$ are therefore total on these
+domains.  Let $f:Q_s\to Q_r$ be a coarse state map and
+$h:\cB_s\to\cB_r$ a coarse observation map.
+
+\begin{definition}[Morphism defects]
+The pair $(f,h)$ has observation defect $\eps_B$ and consistency defect $\delta_C$ if
+\begin{align}
+ d_{\cB_r}(B_r(fq),h(B_s q))&\le\eps_B &&(q\in Q_s),\label{eq:obs-defect}\\
+ \Phi_r(fc)&\le\delta_C &&(c\in C_s).\label{eq:cons-defect}
+\end{align}
+\end{definition}
+
+\begin{theorem}[One-step approximate naturality]\label{thm:one-step-naturality}
+Assume $B_r$ is $L_r$-Lipschitz.  Under \eqref{eq:obs-defect}--\eqref{eq:cons-defect},
+\begin{equation}\label{eq:one-step-naturality}
+ d_{Q_r}(fN_s q,N_rfq)
+ \le
+ \eta_r(\delta_C)+
+ \omega_r\!\left(2\eps_B+L_r\eta_r(\delta_C)\right)
+\end{equation}
+for every relevant $q\in Q_s$.
+\end{theorem}
+
+\begin{proof}
+Put $y=fN_s q$ and $z=N_rfq$.  By \eqref{eq:cons-defect}, $\Phi_r(y)\le\delta_C$.  Choose $c\in C_r$ with $d_r(y,c)\le\eta_r(\delta_C)$.  Since both normalizers preserve observations,
+\begin{align*}
+ d_{\cB_r}(B_rc,B_rz)
+ &\le d_{\cB_r}(B_rc,B_ry)
+      +d_{\cB_r}(B_rfN_sq,hB_sN_sq)\\
+ &\qquad+d_{\cB_r}(hB_sq,B_rfq)\\
+ &\le L_r\eta_r(\delta_C)+2\eps_B.
+\end{align*}
+Both $c$ and $z$ lie in $C_r$, so the inverse-observation modulus bounds $d_r(c,z)$.  Add $d_r(y,c)$.
+\end{proof}
+
+\begin{corollary}[Exact naturality from uniqueness]\label{cor:exact-naturality}
+If $f(C_s)\subseteq C_r$ and $B_r\circ f=h\circ B_s$, then
+\[
+ f\circ N_s=N_r\circ f.
+\]
+\end{corollary}
+
+\begin{proof}
+Both sides are consistent coarse states with the same coarse observation.  Reconstructing fibers make them equal.  Equivalently, set both defects to zero in \cref{thm:one-step-naturality}.
+\end{proof}
+
+\begin{corollary}[Stability under perturbation of the consistency model]\label{cor:model-perturbation}
+Let $(Q,d_Q)$ carry two nonempty compact consistent sets $C$ and $\widetilde C$, two observation maps $B,\widetilde B:Q\to\cB$, and total observation-preserving normalizers $N,\widetilde N$.  Suppose
+\[
+ d_H(C,\widetilde C)\le\alpha,
+ \qquad
+ \sup_{q\in Q}d_{\cB}(Bq,\widetilde Bq)\le\beta,
+\]
+where $d_H$ is Hausdorff distance.  If $B$ is $L$-Lipschitz and $B|_C$ has inverse modulus $\omega_B$, then
+\[
+ d_Q(Nx,\widetilde Nx)
+ \le
+ \alpha+\omega_B(2\beta+L\alpha)
+ \qquad(x\in Q).
+\]
+\end{corollary}
+
+\begin{proof}
+Choose $c\in C$ with $d_Q(c,\widetilde Nx)\le\alpha$.  Since $N$ and $\widetilde N$ preserve their respective observations,
+\begin{align*}
+ d_{\cB}(Bc,BNx)
+ &\le d_{\cB}(Bc,B\widetilde Nx)
+      +d_{\cB}(B\widetilde Nx,\widetilde B\widetilde Nx)\\
+ &\qquad+d_{\cB}(\widetilde Bx,Bx)\\
+ &\le L\alpha+2\beta.
+\end{align*}
+Both $c$ and $Nx$ lie in $C$, so $d_Q(c,Nx)\le\omega_B(L\alpha+2\beta)$.  Add the Hausdorff error.
+\end{proof}
+
+\begin{remark}
+Categorical functoriality of rewrite steps is an established subject \citep{DuvalEchahedProst2011}.  \Cref{cor:exact-naturality} is a different and simpler statement: it concerns the terminal normalizer, and uniqueness allows it to be proved without simulating each fine rewrite.  The nontrivial content for applications is the defect estimate, its accumulation across a tower, and the perturbation certificate of \cref{cor:model-perturbation}.
+\end{remark}
+
+\subsection{Accumulation through arbitrary depth}
+
+Let
+\[
+ Q_0\xleftarrow{\rho_{1,0}}Q_1
+ \xleftarrow{\rho_{2,1}}Q_2\xleftarrow{}\cdots
+\]
+be an inverse sequence of nonempty finite or compact metric spaces with
+Lipschitz restriction maps, with
+$\rho_{m,n}=\rho_{n+1,n}\circ\cdots\circ\rho_{m,m-1}$.  Let
+$N_n:Q_n\to Q_n$ be normalizers.  The boundedness of each $Q_n$ makes the
+following pathwise and uniform one-step normalization defects finite:
+\[
+ \alpha_n(q)
+ :=
+ d_n(\rho_{n+1,n}N_{n+1}q,N_n\rho_{n+1,n}q),
+ \qquad
+ a_n:=\sup_{q\in Q_{n+1}}\alpha_n(q).
+\]
+For $j\ge n$, write
+\[
+ K_{j,n}:=\Lip(\rho_{j,n}),\qquad K_{n,n}=1.
+\]
+
+\begin{theorem}[Telescoping refinement bound]\label{thm:tower}
+For every $m>n$ and every $q\in Q_m$,
+\begin{equation}\label{eq:tower}
+ d_n(\rho_{m,n}N_mq,N_n\rho_{m,n}q)
+ \le
+ \sum_{j=n}^{m-1}K_{j,n}a_j.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+For $j=n,\dots,m$, define
+\[
+ p_j:=\rho_{j,n}N_j\rho_{m,j}q.
+\]
+Then $p_m=\rho_{m,n}N_mq$ and $p_n=N_n\rho_{m,n}q$.  For $j<m$, put $r=\rho_{m,j+1}q$.  The difference between consecutive terms is
+\begin{align*}
+ d_n(p_{j+1},p_j)
+ &=d_n\bigl(
+ \rho_{j,n}\rho_{j+1,j}N_{j+1}r,
+ \rho_{j,n}N_j\rho_{j+1,j}r
+ \bigr)\\
+ &\le K_{j,n}a_j.
+\end{align*}
+Summing the telescoping chain proves \eqref{eq:tower}.
+\end{proof}
+
+\begin{corollary}[Summable-defect asymptotic naturality]\label{cor:summable}
+If all restriction maps are nonexpansive, then
+\[
+ d_n(\rho_{m,n}N_mq,N_n\rho_{m,n}q)
+ \le\sum_{j=n}^{m-1}a_j.
+\]
+If $\sum_ja_j<\infty$, the defect is uniformly small when the comparison
+level tends outward along the refinement index.  More generally, the
+sufficient condition is
+\[
+ \sup_{m>n}\sum_{j=n}^{m-1}K_{j,n}a_j\longrightarrow0
+ \quad(n\to\infty).
+\]
+\end{corollary}
+
+Combining \cref{thm:one-step-naturality} with \cref{thm:tower} gives an explicit tower certificate in terms of residual, observation, and Lipschitz data at each stage.
+
+\begin{corollary}[Modulus-generated tower certificate]\label{cor:modulus-tower}
+Suppose the $n$th restriction map has consistency defect $\delta_n$ and observation defect $\eps_n$, and let
+\[
+ a_n^*:=\eta_n(\delta_n)+
+ \omega_n\!\left(2\eps_n+L_n\eta_n(\delta_n)\right).
+\]
+Then \eqref{eq:tower} holds with $a_j$ replaced by $a_j^*$.
+\end{corollary}
+
+\begin{definition}[Run-specific approximate solver receipt]
+At level $m$, an output $\widehat x_m\in Q_m$ produced from
+$q_m\in Q_m$ has receipt $(\delta_m,\beta_m)$ when
+\[
+ \Phi_m(\widehat x_m)\le\delta_m,
+ \qquad
+ d_{\cB_m}(B_m\widehat x_m,B_mq_m)\le\beta_m.
+\]
+Set
+\[
+ e_m(\delta,\beta)
+ :=
+ \eta_m(\delta)+
+ \omega_m\!\left(\beta+L_m\eta_m(\delta)\right).
+\]
+Uniform receipts for a solver map mean that the two inequalities hold for
+every admissible input, but the comparison results below require only the
+displayed run-specific evidence.
+\end{definition}
+
+\begin{lemma}[Receipt-to-exact comparison]\label{lem:receipt-to-exact}
+If $\widehat x_m$ has receipt $(\delta_m,\beta_m)$ relative to $q_m$, then
+\begin{equation}\label{eq:receipt-to-exact}
+ d_m(\widehat x_m,N_mq_m)
+ \le e_m(\delta_m,\beta_m).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+The exact normal form has residual zero and preserves the observation of
+$q_m$.  Apply the heterogeneous two-output estimate to $\widehat x_m$ and
+$N_mq_m$, using $\eta_m(0)=0$.
+\end{proof}
+
+\begin{proposition}[Same-level implementation agreement]
+\label{prop:same-level-implementations}
+Let $n\le m$.  If $\widehat x_m$ and $\widehat y_m$ are outputs on the same
+input $q_m$ with receipts $(\delta_m,\beta_m)$ and
+$(\delta'_m,\beta'_m)$, then
+\[
+ d_n(\rho_{m,n}\widehat x_m,\rho_{m,n}\widehat y_m)
+ \le
+ K_{m,n}\bigl(
+ e_m(\delta_m,\beta_m)+e_m(\delta'_m,\beta'_m)
+ \bigr).
+\]
+No refinement-defect term occurs in this same-level comparison.
+\end{proposition}
+
+\begin{proof}
+Compare both outputs with the same exact state $N_mq_m$ using
+\cref{lem:receipt-to-exact}, then apply the $K_{m,n}$-Lipschitz restriction
+map.
+\end{proof}
+
+For $n\le h\le r$ and $q_r\in Q_r$, define the amplified pathwise defect
+segment
+\[
+ \mathsf A_{r,h}^{(n)}(q_r)
+ :=
+ \sum_{j=h}^{r-1}
+ K_{j,n}\,
+ \alpha_j\!\left(\rho_{r,j+1}q_r\right),
+\]
+with an empty sum equal to zero.  By definition of $a_j$,
+\[
+ \mathsf A_{r,h}^{(n)}(q_r)
+ \le
+ \sum_{j=h}^{r-1}K_{j,n}a_j.
+\]
+
+\begin{lemma}[Pathwise telescoping to an anchor]\label{lem:pathwise-anchor}
+For $n\le h\le r$ and $q_r\in Q_r$,
+\[
+ d_n\!\left(
+ \rho_{r,n}N_rq_r,
+ \rho_{h,n}N_h\rho_{r,h}q_r
+ \right)
+ \le
+ \mathsf A_{r,h}^{(n)}(q_r).
+\]
+\end{lemma}
+
+\begin{proof}
+For $j=h,\ldots,r$, put
+$p_j=\rho_{j,n}N_j\rho_{r,j}q_r$.  Consecutive terms satisfy
+\[
+ d_n(p_{j+1},p_j)
+ \le
+ K_{j,n}\alpha_j(\rho_{r,j+1}q_r).
+\]
+Summing these inequalities proves the claim.
+\end{proof}
+
+\begin{corollary}[Fine-to-coarse solver certificate]
+\label{cor:fine-to-coarse-solver}
+For $m\ge n$ and an output $\widehat x_m$ with receipt
+$(\delta_m,\beta_m)$ relative to $q_m$,
+\[
+\begin{split}
+ d_n\!\left(
+ \rho_{m,n}\widehat x_m,
+ N_n\rho_{m,n}q_m
+ \right)
+ \le{}&
+ K_{m,n}e_m(\delta_m,\beta_m)
+ +\mathsf A_{m,n}^{(n)}(q_m).
+\end{split}
+\]
+\end{corollary}
+
+\begin{proof}
+Use \cref{lem:receipt-to-exact}, apply $\rho_{m,n}$, and then use
+\cref{lem:pathwise-anchor} with $h=n$.
+\end{proof}
+
+\begin{theorem}[Anchored cross-level solver comparison]
+\label{thm:anchored-cross-level}
+Let $n\le h\le\min\{m,\ell\}$.  Let $q_m\in Q_m$ and
+$q_\ell\in Q_\ell$, and suppose $\widehat x_m$ and $\widehat y_\ell$
+have receipts $(\delta_m,\beta_m)$ and
+$(\delta'_\ell,\beta'_\ell)$, respectively.  Define the protected
+observation mismatch at the anchor by
+\[
+ \gamma_h
+ :=
+ d_{\cB_h}\!\left(
+ B_h\rho_{m,h}q_m,
+ B_h\rho_{\ell,h}q_\ell
+ \right).
+\]
+Then
+\begin{equation}\label{eq:anchored-cross-level}
+\begin{split}
+&d_n\!\left(
+ \rho_{m,n}\widehat x_m,
+ \rho_{\ell,n}\widehat y_\ell
+ \right)
+\\
+&\quad\le
+ K_{m,n}e_m(\delta_m,\beta_m)
+ +\mathsf A_{m,h}^{(n)}(q_m)
+ +K_{h,n}\omega_h(\gamma_h)
+ +\mathsf A_{\ell,h}^{(n)}(q_\ell)
+ +K_{\ell,n}e_\ell(\delta'_\ell,\beta'_\ell).
+\end{split}
+\end{equation}
+The two pathwise segments may be replaced by their uniform $a_j$ bounds.
+Because the estimate holds for every admissible $h$, the right-hand side may
+be minimized over the possible anchors.
+\end{theorem}
+
+\begin{proof}
+Compare each approximate output with its exact normal form using
+\cref{lem:receipt-to-exact}, and apply the corresponding restriction to
+level $n$.  Use \cref{lem:pathwise-anchor} to move both exact branches to
+level $h$.  The two anchor normal forms are consistent, preserve the
+observations of their anchor inputs, and hence differ in $Q_h$ by at most
+$\omega_h(\gamma_h)$.  Applying $\rho_{h,n}$ contributes $K_{h,n}$.
+The triangle inequality gives \eqref{eq:anchored-cross-level}.
+\end{proof}
+
+\begin{corollary}[Nested compatible solver levels]
+\label{cor:nested-cross-level}
+Under the output and receipt hypotheses of
+\cref{thm:anchored-cross-level}, let $n\le m\le\ell$ and suppose
+\[
+ B_mq_m=B_m\rho_{\ell,m}q_\ell.
+\]
+Then
+\[
+\begin{split}
+ d_n\!\left(
+ \rho_{m,n}\widehat x_m,
+ \rho_{\ell,n}\widehat y_\ell
+ \right)
+ \le{}&
+ K_{m,n}e_m(\delta_m,\beta_m)
+ +\mathsf A_{\ell,m}^{(n)}(q_\ell)\\
+ &+K_{\ell,n}e_\ell(\delta'_\ell,\beta'_\ell).
+\end{split}
+\]
+In particular, the middle term is at most
+$\sum_{j=m}^{\ell-1}K_{j,n}a_j$.  The compatibility hypothesis holds when
+$q_m=\rho_{\ell,m}q_\ell$.
+\end{corollary}
+
+\begin{proof}
+Take $h=m$ in \cref{thm:anchored-cross-level}.  The first pathwise segment
+is empty and $\omega_m(0)=0$ on the observation-determined consistent
+domain.
+\end{proof}
+
+\begin{corollary}[Cofinal projective implementation independence]
+\label{cor:cofinal-projective}
+Assume every $Q_n$ is complete and every restriction map is nonexpansive.
+Let $q=(q_n)\in\varprojlim Q_n$ be a compatible admissible input and suppose
+its pathwise exact-normalizer defects are summable:
+\[
+ \sum_{j=0}^{\infty}\alpha_j(q_{j+1})<\infty.
+\]
+For $i\in\{1,2\}$, let $\widehat x_m^{(i)}$ be outputs at $q_m$ whose
+receipt errors
+\[
+ e_m^{(i)}
+ :=
+ e_m(\delta_m^{(i)},\beta_m^{(i)})
+ \longrightarrow0.
+\]
+Then, for every fixed $n$, the limits
+\[
+ x_n
+ =
+ \lim_{m\to\infty}\rho_{m,n}\widehat x_m^{(i)}
+\]
+exist, are independent of $i$, and are unchanged by passage to a cofinal
+subsequence.  The family $x=(x_n)$ belongs to $\varprojlim Q_n$, and
+\[
+ d_n(x_n,N_nq_n)
+ \le
+ \sum_{j=n}^{\infty}\alpha_j(q_{j+1}).
+\]
+If all pathwise normalizer defects vanish, then $x_n=N_nq_n$ for every $n$.
+\end{corollary}
+
+\begin{proof}
+For $s\ge r\ge n$, compatibility gives $q_r=\rho_{s,r}q_s$.
+\Cref{cor:nested-cross-level} and nonexpansiveness give, for either pair of
+implementations,
+\[
+ d_n\!\left(
+ \rho_{r,n}\widehat x_r^{(i)},
+ \rho_{s,n}\widehat x_s^{(i')}
+ \right)
+ \le
+ e_r^{(i)}+e_s^{(i')}
+ +\sum_{j=r}^{s-1}\alpha_j(q_{j+1}).
+\]
+The right-hand side tends to zero as $r,s\to\infty$.  Completeness gives
+the coordinate limits, and the same estimate makes them independent of the
+implementation and of a cofinal subsequence.  Continuity of the restriction
+maps passes compatibility to the limits.  Finally,
+\cref{cor:fine-to-coarse-solver} gives
+\[
+ d_n\!\left(
+ \rho_{m,n}\widehat x_m^{(i)},N_nq_n
+ \right)
+ \le
+ e_m^{(i)}
+ +\sum_{j=n}^{m-1}\alpha_j(q_{j+1});
+\]
+let $m\to\infty$.
+\end{proof}
+
+The uniform hypotheses used earlier imply $e_m^{(i)}\to0$ whenever
+$\delta_m^{(i)},\beta_m^{(i)}\to0$, the observation maps have a common
+Lipschitz bound, and $H(t),\Omega(t)\to0$ at zero.  Uniform summability of
+$\sum_j a_j$ implies the pathwise summability condition.  Thus raw receipt
+parameters alone are not enough: uniform conditioning and the amplified
+restriction factors remain load-bearing.
+
+\subsection{Exact inverse limits}
+
+Assume now that all one-step defects vanish and that
+$\rho_{n+1,n}(C_{n+1})\subseteq C_n$.  Let
+\[
+ Q_\infty:=\varprojlim Q_n
+ =\{(q_n):\rho_{n+1,n}q_{n+1}=q_n\},
+\]
+and similarly let $C_\infty=\varprojlim C_n$.
+Here $Q_\infty$ is the inverse limit of the admissible domains fixed at the
+start of the section.  It is the full ambient inverse limit only when every
+observation value is reconstructing and realizable.
+
+\begin{theorem}[Inverse-limit normalizer]\label{thm:inverse-limit}
+For each $n$, let $N_n:Q_n\to C_n\subseteq Q_n$ be an idempotent
+observation-preserving normalizer that fixes every point of $C_n$.  Assume the
+restriction maps form an inverse system, preserve the consistent subsets, and
+satisfy
+\[
+ \rho_{n+1,n}N_{n+1}=N_n\rho_{n+1,n}
+ \qquad(n\ge0).
+\]
+Assume also that the observation spaces carry compatible restriction maps
+$\beta_{n+1,n}:\cB_{n+1}\to\cB_n$ with
+\[
+ B_n\rho_{n+1,n}=\beta_{n+1,n}B_{n+1}.
+\]
+Then
+\[
+ N_\infty((q_n))=(N_nq_n)
+\]
+defines an idempotent map $Q_\infty\to C_\infty$ preserving the induced
+inverse-limit observation.  If, for every $n$ and every
+$b_n\in B_n(C_n)$, the fiber $C_n\cap B_n^{-1}(b_n)$ is a singleton, then
+every realizable inverse-limit consistent observation fiber is a singleton.
+\end{theorem}
+
+\begin{proof}
+Naturality makes $(N_nq_n)$ a compatible family.  Because each coordinate lies in $C_n$ and each $N_n$ is idempotent, the resulting map lands in $C_\infty$ and is idempotent.  Compatibility of the $B_n$ makes observation preservation coordinatewise.  If two inverse-limit consistent families have the same inverse-limit observation, their $n$th coordinates lie in the same finite consistent observation fiber for every $n$, hence agree at every coordinate.
+\end{proof}
+
+\begin{remark}[What the theorem does not prove]
+The theorem supplies a normalizer on an already defined inverse system.  It
+does not prove compactness, nonemptiness, a continuum dynamics, or adequacy of
+the chosen refinement maps.  Those are separate mathematical or
+model-specific obligations.
+\end{remark}
+
+\section{Repairability and selection obstructions}\label{sec:repair}
+
+The existence of a unique consistent state with a given observation does not imply that a prescribed local write support can construct it.  This section separates extension, uniqueness, and repair support.
+
+Let $X_W$ be an interior write space, let $X_D$ be a protected collar space, and let
+\[
+ R\subseteq X_W\times X_D
+\]
+be the locally consistent relation.
+
+\begin{definition}[Strong local repair]
+A \emph{strong local repair} is a map
+\[
+ \mathsf R:X_W\times X_D\longrightarrow R
+\]
+such that
+\begin{enumerate}[label=(\roman*)]
+\item $\pi_D\mathsf R(x,d)=d$ for every $(x,d)$;
+\item $\mathsf R(r)=r$ for every $r\in R$.
+\end{enumerate}
+Thus every local state is repaired, the collar is preserved, and already consistent states are fixed.
+\end{definition}
+
+\begin{theorem}[Collar-section criterion]\label{thm:collar-section}
+For nonempty finite $X_W$ and finite $X_D$, a strong local repair exists if and only if the collar projection
+\[
+ \pi_D:R\longrightarrow X_D
+\]
+is surjective.
+\end{theorem}
+
+\begin{proof}
+A repair sends every $(x,d)$ to a point of $R$ with collar $d$, so surjectivity is necessary.  Conversely, choose a section $s:X_D\to R$ of $\pi_D$ and define
+\[
+ \mathsf R(z)=
+ \begin{cases}
+ z,&z\in R,\\
+ s(\pi_Dz),&z\notin R.
+ \end{cases}
+\]
+This is a strong repair.
+\end{proof}
+
+If $R=\varnothing$ while $X_W\times X_D\ne\varnothing$, nonexistence of a
+repair is immediate; when the domain is empty, the unique empty map is a
+vacuous repair.  The next proposition assumes $R\ne\varnothing$ because
+ordinary real-valued distance to the empty set is convention-dependent; an
+extended-distance formulation may instead assign that case margin $+\infty$.
+
+\begin{corollary}[Finite no-repair certificate]
+For nonempty $X_W$, a single collar value
+$d\notin\pi_D(R)$ certifies that no total exact repair preserving that collar
+exists.
+\end{corollary}
+
+\begin{proposition}[Robust no-repair margin]\label{prop:robust-no-repair}
+Suppose $X_W$ and $X_D$ are metric spaces, $\varnothing\ne R\subseteq X_W\times X_D$, and the product metric dominates collar distance:
+\[
+ d_{X_W\times X_D}((w,d),(w',d'))\ge d_{X_D}(d,d').
+\]
+For $d\in X_D$, set
+\[
+ \mu_R(d):=\dist_{X_D}(d,\pi_D(R)).
+\]
+Then for every $w\in X_W$,
+\[
+ \dist_{X_W\times X_D}((w,d),R)\ge\mu_R(d).
+\]
+If $R$ is compact and $d\notin\pi_D(R)$, then $\mu_R(d)>0$.  Hence no procedure whose output preserves the collar value $d$ exactly can approximate consistency to error below $\mu_R(d)$.
+\end{proposition}
+
+\begin{proof}
+For every $(w',d')\in R$, the product-metric assumption gives
+\[
+ d((w,d),(w',d'))
+ \ge d_{X_D}(d,d')
+ \ge \mu_R(d).
+\]
+Take the infimum.  Compactness makes $\pi_D(R)$ compact and therefore
+closed, so a point outside it has positive distance.
+\end{proof}
+
+\begin{definition}[Repair width]
+Let $\mathscr W$ be a finite family of admissible write supports with a cost function $w:\mathscr W\to\mathbb R_{\ge0}$.  For each $W\in\mathscr W$, let $R_W\subseteq X_W\times X_{D(W)}$ be the induced local consistency relation and let $D_{\mathrm{adm}}(W)\subseteq X_{D(W)}$ be the declared admissible collar domain.  The \emph{repair width} is
+\[
+ \min\{w(W):D_{\mathrm{adm}}(W)\subseteq\pi_{D(W)}(R_W)\},
+\]
+with value $+\infty$ when no admissible support has the required projection property.
+\end{definition}
+
+The definition prevents a one-site no-go from being misreported as a global inconsistency: increasing the transaction support may restore surjectivity.
+
+\subsection{Finite observation-conditioned resampling}
+
+There is nevertheless a canonical \emph{averaging} operation once a reference
+measure is supplied; unlike a section, it does not select one state from an
+ambiguous fiber.
+
+\begin{theorem}[Fiber averaging is conditional expectation]
+\label{thm:fiber-conditional-expectation}
+Let $Q$ be finite, let $\mu(x)>0$ with $\sum_x\mu(x)=1$, and let
+$B:Q\to\cB$.  For $b\in B(Q)$ put
+$F_b=B^{-1}(b)$ and $\mu(F_b)=\sum_{y\in F_b}\mu(y)$.  Define
+\[
+ (P_Bf)(x)
+ =\frac{1}{\mu(F_{B(x)})}
+   \sum_{y\in F_{B(x)}}\mu(y)f(y).
+ \]
+Then $P_B=\mathbb E_\mu[\,\cdot\mid\sigma(B)]$.  In the weighted inner
+product $\langle f,g\rangle_\mu=\sum_x\mu(x)f(x)g(x)$ it satisfies
+\[
+ P_B^2=P_B,\qquad P_B^*=P_B,\qquad
+ \|P_Bf\|_{2,\mu}\le\|f\|_{2,\mu},
+\]
+and its fixed space is exactly
+\[
+ \mathcal M_B=\{f\in\mathbb R^Q:B(x)=B(y)\Rightarrow f(x)=f(y)\},
+\]
+the observation-measurable functions.
+
+Moreover, a Markov matrix $K$ on $Q$ equals the matrix of $P_B$ if and only
+if the following finite receipt holds:
+\begin{align*}
+ K(x,y)&=0 &&\text{when }B(x)\ne B(y),\tag{R1}\\
+ K(x,\cdot)&=K(x',\cdot)&&\text{when }B(x)=B(x'),\tag{R2}\\
+ \mu(x)K(x,y)&=\mu(y)K(y,x)&&\text{for all }x,y.\tag{R3}
+\end{align*}
+Equivalently, its entries are
+\[
+ K(x,y)=\mathbf1_{\{B(x)=B(y)\}}
+ \frac{\mu(y)}{\mu(F_{B(x)})}.
+\]
+\end{theorem}
+
+\begin{proof}
+The displayed average is constant on each fiber and fixes every
+fiber-constant function, which proves the conditional-expectation and fixed
+space statements.  Grouping both variables by fibers gives
+\[
+ \langle P_Bf,g\rangle_\mu
+ =\sum_{b\in B(Q)}
+ \frac{(\sum_{x\in F_b}\mu(x)f(x))
+       (\sum_{y\in F_b}\mu(y)g(y))}{\mu(F_b)},
+\]
+which is symmetric in $f,g$.  Hence $P_B$ is an orthogonal projection and is
+$L^2$-contractive.  Its matrix plainly satisfies (R1)--(R3).  Conversely,
+(R1)--(R2) give one probability row $k_b$ on each fiber.  By (R3),
+$\mu(x)k_b(y)=\mu(y)k_b(x)$ there, so normalization forces
+$k_b(y)=\mu(y)/\mu(F_b)$.
+\end{proof}
+
+\begin{remark}
+\Cref{thm:fiber-conditional-expectation} recognizes the exact finite
+resampling projector from checkable matrix identities.  It neither chooses a
+representative of a fiber nor supplies a spectral gap or a convergence rate
+for a different repair dynamics; those require additional structure.  A
+noncircular receipt enumerates the states and fibers, derives $K$ independently
+from the declared transition table or transition counts, and then verifies
+(R1)--(R3); constructing $K$ from the target entry formula is not a
+verification.
+\end{remark}
+
+\subsection{Symmetry and hidden tie-breaking}
+
+Let a group $G$ act on $C$ and $\cB$, and assume $B|_C$ is equivariant.
+
+\begin{theorem}[Equivariant-section criterion]\label{thm:equivariant-section}
+Let a finite group $G$ act on $C$ and $B(C)$, and let $B|_C:C\to B(C)$ be an equivariant surjection.  A $G$-equivariant section $s:B(C)\to C$ exists if and only if, for one (equivalently every) representative $b$ of each $G$-orbit in $B(C)$, the fiber $C_b$ contains a point fixed by the stabilizer
+\[
+ G_b=\{g\in G:gb=b\}.
+\]
+\end{theorem}
+
+\begin{proof}
+Necessity follows from $gs(b)=s(gb)=s(b)$ for $g\in G_b$.  Conversely, choose an orbit representative $b$ and a $G_b$-fixed point $c_b\in C_b$.  Define $s(gb)=gc_b$.  If $gb=g'b$, then $g^{-1}g'\in G_b$, so $gc_b=g'c_b$; hence the definition is well posed.  It is visibly a section and equivariant.  Repeat independently on each orbit.
+\end{proof}
+
+\begin{corollary}[Stabilizer obstruction]\label{thm:stabilizer}
+If some fiber $C_b$ has no $G_b$-fixed point, there is no equivariant boundary-only selector on that orbit.  In particular, a transitive ambiguous fiber with no fixed point cannot be canonically collapsed without adding symmetry-breaking data.
+\end{corollary}
+
+\begin{remark}[No selection by normalization]
+Lexicographic order, an energy, a prior, maximum entropy, or an external sector label can select an ambiguous fiber.  None is entailed by consistency and the observation alone.  The theorem is elementary, but it is a useful firewall: a normal-form map cannot silently become a physical or probabilistic selector without additional structure.
+\end{remark}
+
+\section{Ranked functional-audit systems}\label{sec:functional}
+
+We now give a broad constructive class in which the partial normalizer, asynchronous dynamics, and obstruction output are all explicit.
+
+\begin{definition}[Ranked functional-audit system]
+Let
+\[
+ V=V_0\sqcup V_1\sqcup\cdots\sqcup V_m
+\]
+be a finite ranked site set with $V_0\ne\varnothing$.  Every site $v\in V$
+has a nonempty finite state set $X_v$, and sites in $V_0$ are boundary sites.
+Every generated site $v\in V_k$, $k>0$, has a parent set
+\[
+ P(v)\subseteq V_0\cup\cdots\cup V_{k-1},
+\]
+and a function
+\[
+ F_v:\prod_{u\in P(v)}X_u\longrightarrow X_v.
+\]
+A state satisfies the generating constraints when
+\[
+ x_v=F_v(x|_{P(v)})\qquad(v\notin V_0).
+\]
+A finite family of audits $A_j(x)\in\{0,1\}$ imposes residual global constraints.  A state is globally consistent when it satisfies all generating constraints and every audit returns $1$.
+\end{definition}
+
+Write
+\[
+ Q=\prod_{v\in V}X_v,
+ \qquad
+ B:Q\longrightarrow\prod_{v\in V_0}X_v
+\]
+for the full state space and the boundary-coordinate projection.  For a
+boundary value $b\in\prod_{v\in V_0}X_v$, define $E(b)$ recursively by
+rank.
+
+\begin{theorem}[Singleton-or-empty fiber]\label{thm:functional-fiber}
+For every boundary $b$, exactly one of the following holds:
+\begin{enumerate}[label=(\roman*)]
+\item every audit passes on $E(b)$ and the consistent fiber is $\{E(b)\}$;
+\item some audit fails on $E(b)$ and the consistent fiber is empty.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Rank recursion constructs one state satisfying all generating constraints.  Any other such state with boundary $b$ agrees at rank $0$ and therefore agrees inductively at every rank.  The audits either accept this sole candidate or eliminate it.
+\end{proof}
+
+\begin{definition}[Asynchronous functional update]
+For $v\notin V_0$, let $T_v$ replace $x_v$ by $F_v(x|_{P(v)})$ and leave every other coordinate unchanged.  An update is \emph{effective} when it changes $x_v$.
+\end{definition}
+
+Define recursively
+\[
+ M(v)=0\quad(v\in V_0),
+ \qquad
+ M(v)=1+\sum_{u\in P(v)}M(u)\quad(v\notin V_0).
+\]
+
+\begin{theorem}[Finite asynchronous normalization with an update bound]\label{thm:functional-termination}
+In every sequence of effective asynchronous updates, site $v$ is updated at most $M(v)$ times.  Consequently every such sequence has length at most
+\[
+ \sum_{v\in V}M(v),
+\]
+and every maximal sequence terminates at $E(Bx)$ independently of update order.
+\end{theorem}
+
+\begin{proof}
+Proceed by induction on rank.  Boundary sites never change.  Assume the bound
+holds below rank $k$.  The parent tuple of a rank-$k$ site can change at most
+$\sum_{u\in P(v)}M(u)$ times.  Before the first parent change, between
+consecutive parent changes, and after the last parent change, at most one
+effective update at $v$ is possible on each fixed-parent interval: after that
+update, $v$ equals the value prescribed by the fixed parent tuple.  Hence $v$
+changes at most $M(v)$ times.  Summing over sites proves termination.
+
+At a maximal endpoint no functional update is enabled, so all generating equations hold.  The endpoint has the original boundary and therefore equals the unique generated extension $E(Bx)$.
+\end{proof}
+
+\begin{corollary}[Synchronous settling by dependency depth]\label{cor:functional-synchronous}
+Let $x^{(0)}=x$.  In one synchronous round, keep the boundary coordinates
+fixed and replace every generated coordinate using the values from the
+previous round:
+\[
+ x_v^{(k+1)}
+ =
+ \begin{cases}
+ x_v^{(k)},&v\in V_0,\\
+ F_v\bigl(x^{(k)}|_{P(v)}\bigr),&v\notin V_0.
+ \end{cases}
+\]
+For $0\le k\le m$, after round $k$ every site in
+$V_0\cup\cdots\cup V_k$ agrees with
+$E(Bx)$.  Consequently $x^{(m)}=E(Bx)$.  This is a depth bound for the
+explicit ranked system; correspondence with a separately specified compiler
+or update rule requires its own theorem.
+\end{corollary}
+
+\begin{proof}
+Induct on $k$.  Boundary values are fixed.  If all sites of rank at most
+$k-1$ are correct after round $k-1$, then every parent of a rank-$k$ site is
+correct, so its round-$k$ update evaluates the defining function at the same
+parent tuple as $E(Bx)$.  Sites of lower rank remain correct because their
+parents were already correct in the preceding round.
+\end{proof}
+
+\begin{corollary}[Acyclic Boolean circuit compiler]
+\label{cor:boolean-circuit-compiler}
+Every nonempty finite acyclic Boolean circuit compiles to a ranked functional
+system with one $\{0,1\}$-valued site per input or gate.  Inputs and constant
+gates form $V_0$, with the constant coordinates restricted to their prescribed
+values; every other gate is ranked by its longest source-to-gate path, has its
+incoming wires as parents, and uses its truth function as $F_v$.  The
+extension $E(b)$ is ordinary circuit evaluation on the admissible input
+$b$.  Updating all nonconstant gate sites in parallel from the preceding
+round reaches $E(b)$ in at most the circuit depth, independently of the
+initial gate-register values.
+\end{corollary}
+
+\begin{proof}
+The topological ranking makes every nonconstant gate depend only on lower
+ranks, so the compilation satisfies the definition on the boundary domain
+where constants have their prescribed values.  Recursive evaluation is $E$,
+and the depth bound is \cref{cor:functional-synchronous}.
+\end{proof}
+
+\begin{corollary}[Certified solver]
+The procedure ``settle the generating equations asynchronously, then evaluate the audits'' returns either the unique consistent extension or a named failed audit.  It cannot confuse an empty fiber with nontermination.
+\end{corollary}
+
+\begin{theorem}[Propagation of boundary perturbations]\label{thm:functional-lipschitz}
+Equip every $X_v$ with a metric $d_v$.  Suppose that for each generated site $v$ there are coefficients $L_{vu}\ge0$ such that
+\[
+ d_v(F_v(p),F_v(p'))
+ \le
+ \sum_{u\in P(v)}L_{vu}d_u(p_u,p'_u).
+\]
+For a boundary site $r\in V_0$, define coefficients recursively by
+\[
+ K_{rr}=1,
+ \qquad K_{vr}=0\ (v\in V_0,\ v\ne r),
+ \qquad
+ K_{vr}=\sum_{u\in P(v)}L_{vu}K_{ur}\ (v\notin V_0).
+\]
+Then for all boundary values $b,b'$ and every site $v$,
+\[
+ d_v(E(b)_v,E(b')_v)
+ \le
+ \sum_{r\in V_0}K_{vr}d_r(b_r,b'_r).
+\]
+With the $\ell^1$ product metrics,
+\[
+ d_Q(E(b),E(b'))
+ \le
+ \Lambda_E d_{\cB}(b,b'),
+ \qquad
+ \Lambda_E:=\max_{r\in V_0}\sum_{v\in V}K_{vr}.
+\]
+Thus the generated extension supplies an explicit inverse-observation modulus
+$\omega_B(t)\le\Lambda_Et$ on every accepted audit branch.
+\end{theorem}
+
+\begin{proof}
+The sitewise estimate follows by induction on rank.  Boundary sites satisfy it by definition.  At a generated site, apply the local Lipschitz inequality and substitute the induction hypotheses; regrouping coefficients gives the recursion for $K_{vr}$.  Summing over $v$ and then bounding each boundary coefficient by $\Lambda_E$ proves the $\ell^1$ estimate.
+\end{proof}
+
+\begin{remark}
+The local updates need not commute when one site depends on another.  Order independence follows from well-founded dependency and unique extension, not from a global pairwise-commutation hypothesis.  \Cref{thm:functional-lipschitz} additionally exposes the amplification carried by every dependency path.
+\end{remark}
+
+\section{Linear quotient systems and observability}\label{sec:linear}
+
+Let $V,W,Z$ be finite-dimensional real inner-product spaces.  Let
+\[
+ A:V\to Z,
+ \qquad C=\ker A,
+ \qquad G\subseteq C
+\]
+be a gauge subspace.  Let $B:V\to W$ vanish on $G$, so it descends to $V/G$.  Equip $V/G$ with the quotient norm.
+
+\begin{proposition}[Linear information-boundary criterion]\label{prop:linear-criterion}
+The induced map $C/G\to W$ is injective if and only if
+\[
+ \ker(B|_C)=G.
+\]
+Equivalently,
+\[
+ \rank(B|_C)=\dim C-\dim G.
+\]
+The same statement holds over any field.
+\end{proposition}
+
+\begin{proof}
+The kernel of the induced map is $\ker(B|_C)/G$.
+\end{proof}
+
+Let
+\[
+ H=C\cap G^\perp.
+\]
+Under the injectivity hypothesis, $B|_H$ is injective.  Let
+\[
+ \kappa_A:=\|A^\dagger\|,
+ \qquad
+ \kappa_B:=\|(B|_H)^\dagger\|,
+\]
+where $\dagger$ denotes the Moore--Penrose pseudoinverse.  Thus, when
+$H\ne\{0\}$, $\kappa_B$ is the reciprocal of the smallest singular value
+of $B|_H$; on the zero space the pseudoinverse convention gives
+$\kappa_B=0$.  The constant $\kappa_A$ is the global linear error-bound
+constant for $C=\ker A$.
+
+\begin{theorem}[Linear stability certificate]\label{thm:linear-certificate}
+For all $x,y\in V$,
+\begin{equation}\label{eq:linear-certificate}
+\begin{split}
+ d_{V/G}([x],[y])\le{}&
+ \kappa_A(\|Ax\|+\|Ay\|)\\
+ &+\kappa_B\!\left(
+ \|B(x-y)\|+
+ \|B\|\kappa_A(\|Ax\|+\|Ay\|)
+ \right).
+\end{split}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Let $c_x=P_Cx$ and $c_y=P_Cy$ be the orthogonal projections onto $C$.  The pseudoinverse estimate gives
+\[
+ \|x-c_x\|\le\kappa_A\|Ax\|,
+ \qquad
+ \|y-c_y\|\le\kappa_A\|Ay\|.
+\]
+Let $h_x=P_Hc_x$ and $h_y=P_Hc_y$.  Since $C=G\oplus H$, the vectors $h_x,h_y$ are the minimal-norm representatives of the quotient classes $[c_x],[c_y]$.  Because $B$ vanishes on $G$,
+\[
+ B(h_x-h_y)=B(c_x-c_y).
+\]
+Hence
+\begin{align*}
+ \|B(h_x-h_y)\|
+ &\le \|B(x-y)\|+\|B\|(\|x-c_x\|+\|y-c_y\|),
+\end{align*}
+and injectivity of $B|_H$ gives
+\[
+ d_{C/G}([c_x],[c_y])=\|h_x-h_y\|
+ \le\kappa_B\|B(c_x-c_y)\|.
+\]
+Finally,
+\[
+ d_{V/G}([x],[c_x])\le\|x-c_x\|,
+ \qquad
+ d_{V/G}([y],[c_y])\le\|y-c_y\|,
+\]
+so the quotient triangle inequality yields \eqref{eq:linear-certificate}.
+\end{proof}
+
+The finite-field version retains the rank criterion but not singular values.  It is the quotient form of an information-set condition from coding theory \citep{HuffmanPless2003}.
+
+\subsection{Finite linear dynamics}
+
+Let $T:U\to U$ be a linear update, let $S:U\to Y$ be a sensor, and let
+$G\subseteq U$ satisfy $T(G)\subseteq G$ and $S(G)=0$.  Equip
+$Y^{k+1}$ with its product inner product.  The length-$k$ observation map is
+\[
+ \mathcal O_kx=(Sx,STx,\ldots,ST^kx).
+\]
+
+\begin{corollary}[Observability modulo gauge]\label{cor:observability}
+The time tube $\mathcal O_k$ reconstructs $U/G$ if and only if
+\[
+ \ker\mathcal O_k=G.
+\]
+Over $\mathbb R$ or $\mathbb C$ and when $G^\perp\ne\{0\}$, the smallest
+singular value of $\mathcal O_k$ on $G^\perp$ is the separation margin; its
+reciprocal (equivalently, the norm of the restricted pseudoinverse) is the
+inverse-stability constant.  On the zero space only the pseudoinverse
+convention is used.  The static Rule-90 example
+in \cref{sec:examples} instead instantiates the earlier finite-field quotient
+rank criterion; it is not asserted to instantiate this time-tube corollary.
+\end{corollary}
+
+This is the classical observability matrix viewed through the quotient-boundary language; no novelty is claimed for the control-theoretic rank test \citep{Kailath1980}.
+
+\section{Complexity of succinct boundary problems}\label{sec:complexity}
+
+The finite theory is elementary when $Q$ and $C$ are listed explicitly.  It becomes computationally nontrivial when consistency is given by a Boolean circuit or formula.
+
+\begin{definition}[Succinct Boolean boundary instance]
+A succinct instance consists of a Boolean circuit $F:\{0,1\}^n\to\{0,1\}$ and a coordinate set $S\subseteq\{1,\ldots,n\}$.  The consistent set is $C=F^{-1}(1)$ and the observation is the projection $B_S(x)=x|_S$.
+\end{definition}
+
+\begin{theorem}[Boundary realizability is NP-complete]\label{thm:realizability-complexity}
+Given $(F,S,b)$, deciding whether
+\[
+ \{x:F(x)=1,\ B_S(x)=b\}
+\]
+is nonempty is NP-complete.
+\end{theorem}
+
+\begin{proof}
+A satisfying extension is a polynomial witness.  SAT reduces to the problem by taking $S=\varnothing$.
+\end{proof}
+
+\begin{theorem}[Boundary determination is coNP-complete]\label{thm:injectivity-complexity}
+Given $(F,S)$, deciding whether $B_S|_C$ is injective is coNP-complete, even when $S$ contains all but one variable.
+\end{theorem}
+
+\begin{proof}
+Non-injectivity has an NP certificate: two distinct satisfying assignments agreeing on $S$.  For coNP-hardness, reduce UNSAT while keeping the consistent set nonempty.  Given a formula $\varphi(x_1,\ldots,x_m)$, introduce bits $z,t$ and define
+\[
+ F(x,z,t)=
+ \bigl(\neg t\wedge[x=0^m]\wedge\neg z\bigr)
+ \vee
+ \bigl(t\wedge\varphi(x)\bigr),
+ \qquad
+ S=\{x_1,\ldots,x_m,t\}.
+\]
+The baseline assignment $(0^m,0,0)$ is always consistent.  If $\varphi$ is satisfiable, any satisfying $x$ gives the two distinct consistent assignments $(x,0,1)$ and $(x,1,1)$ with the same boundary.  If $\varphi$ is unsatisfiable, the baseline is the only consistent assignment, so the boundary restriction is injective.  Thus boundary determination is equivalent to unsatisfiability even for nonempty $C$, and $S$ observes all but one variable.
+\end{proof}
+
+\begin{theorem}[Strong repair existence is $\Pi_2^P$-complete]\label{thm:repair-complexity}
+Let a Boolean circuit $R(w,d)$ represent a local consistency relation on write bits $w$ and protected collar bits $d$.  Deciding whether an unrestricted total strong collar-preserving repair (equivalently, a set-theoretic section of the collar projection) exists is $\Pi_2^P$-complete.
+\end{theorem}
+
+\begin{proof}
+By \cref{thm:collar-section}, a strong repair exists exactly when
+\[
+ \forall d\ \exists w\quad R(w,d)=1.
+\]
+This is in $\Pi_2^P$ and is $\Pi_2^P$-hard by the canonical quantified-Boolean-formula problem with one universal and one existential block \citep{Stockmeyer1976,Papadimitriou1994}.
+\end{proof}
+
+\begin{remark}
+These results explain why an abstract finite normalizer can be mathematically canonical yet computationally difficult.  The ranked functional class avoids the hardness by supplying a directed generative presentation; the linear class avoids it through rank computation.
+\end{remark}
+
+\begin{proposition}[Explicit-table algorithms]
+If $Q$, $C$, $B$, $d_Q$, $d_{\cB}$, and $\Phi$ are given by explicit finite tables, then:
+\begin{enumerate}[label=(\roman*)]
+\item the fiber trichotomy and partial normalizer are computable in time $O(|Q|+|C|)$ after hashing observations;
+\item $\omega_B$ is computable from $O(|C|^2)$ pairs;
+\item $\eta_\Phi$ is computable from all-pairs distances to $C$ and a sort by residual value.
+\end{enumerate}
+\end{proposition}
+
+\section{Examples and separation results}\label{sec:examples}
+
+\begin{example}[Confluence does not imply observable reconstruction]
+Let $Q=C=\{a,b\}$ with the identity rewrite relation and a constant observation map.  The relation is confluent, but the sole observation fiber contains two consistent states.
+\end{example}
+
+\begin{example}[A two-bit positive witness]\label{ex:two-bit-positive}
+Let $Q=\mathbb F_2^2$, let $B(u,v)=u$, and put
+$C=\{(0,0),(1,0)\}$.  For each $u\in\mathbb F_2$, take the step
+$(u,1)\to(u,0)$.  It preserves $B$, the normal forms
+are exactly $C$, and every source $(u,v)$ terminates at $(u,0)$.  Thus sources
+with the same observation have the same endpoint, jointly witnessing
+normalization, same-source confluence, and the stronger cross-source property
+of \cref{thm:cross-source-modulo} for equality.
+\end{example}
+
+\begin{example}[Observable determination does not imply realizability]
+Let $C=\{c\}\subset Q$ and let $\cB=\{0,1\}$ with $B(c)=0$.  The restriction $B|_C$ is injective, but the fiber over $1$ is empty.
+\end{example}
+
+\begin{example}[Termination does not imply completeness]
+Let $Q=\{x,n\}$, let $x\to n$, and declare $C=\{x\}$.  The relation terminates, but its only normal form is not consistent.
+\end{example}
+
+\begin{example}[A singleton fiber does not replace observation preservation]
+Let $Q=\{x,c,d\}$, let $C=\{c,d\}$, set
+$B(x)=B(c)=0$ and $B(d)=1$, and take $x\to d$ as the sole rewrite step.
+Then the normal forms are exactly $C$ and the consistent fiber over $0$ is the
+singleton $\{c\}$.  Nevertheless, the boundary-$0$ state $x$ normalizes to
+$d$, not to $c$, because the rewrite changes the observation.  Thus the
+observation-preservation hypothesis in \cref{cor:empty-singleton} is
+load-bearing.
+\end{example}
+
+\subsection{Rule 90 as a regression test}\label{sec:rule90}
+
+No cellular automaton is used in the general theory.  Rule 90 is retained because a three-cell instance simultaneously exhibits a hidden kernel, a proper information boundary, a deficient boundary, and a reverse-repair obstruction.
+
+Over $\mathbb F_2$, define
+\[
+ F(a,b,c)=(b,a+c,b).
+\]
+A one-step spacetime record is a pair $(s,t)$ satisfying $t=F(s)$.
+
+\begin{proposition}[Width-three Rule 90]
+The kernel and image are
+\[
+ \ker F=\operatorname{span}\{(1,0,1)\},
+ \qquad
+ \im F=\{(u,v,u):u,v\in\mathbb F_2\}.
+\]
+The coordinate observation $B_{01}(u,v,w)=(u,v)$ is injective on $\im F$, while $B_{02}(u,v,w)=(u,w)$ is not.  No total exact repair can preserve an arbitrary target row and alter only the seed.
+\end{proposition}
+
+\begin{proof}
+The kernel and image follow immediately from the formula for $F$.  On the image, the first two coordinates determine $(u,v,u)$, whereas the first and third coordinates repeat the same bit.  A reverse repair preserving every target would require $F$ to be surjective by \cref{thm:collar-section}; for example $(0,0,1)$ is not in the image.
+\end{proof}
+
+The accompanying standalone Lean artifact proves these exact width-three statements and includes theorem-level axiom-audit commands.  Rule 90 is a regression test, not a rule selected by the theory or a load-bearing assumption.
+
+\section{Formal artifact and coverage}\label{sec:lean}
+
+The accompanying \texttt{ObservableNormalForms} directory is a standalone
+Lean~4 project.  It pins Lean and Mathlib at version~4.29.1, includes an
+immutable Lake manifest, and builds both on its own and as a library of the
+parent formalization repository.  Its theorem-bearing files contain no
+\texttt{sorry} or \texttt{admit}.  The recorded \texttt{\#print axioms}
+reports contain only standard Mathlib axioms---\texttt{propext},
+\texttt{Classical.choice}, and \texttt{Quot.sound} where required---and no
+\texttt{sorryAx}.
+
+\begin{center}
+\small
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.24\textwidth}>{\raggedright\arraybackslash}p{0.67\textwidth}}
+\toprule
+\textbf{Module} & \textbf{Machine-checked coverage}\\
+\midrule
+\texttt{Exact}
+& Proof-carrying partial normalizers, the universal property, reachable
+observable fibers, the empty/singleton alternatives, audited terminals, and
+the observation-leak counterexample.\\
+\texttt{ObserverConfluence}
+& The equivalence in \cref{thm:cross-source-modulo}, weak-normalization
+endpoint existence, the matching two-bit positive system, and a coarse-sensor
+counterexample separating same-source confluence from cross-source endpoint
+uniqueness.\\
+\texttt{Stability}
+& The heterogeneous and symmetric output estimates, approximate schedule
+independence, and a sensor-enrichment certificate.\\
+\texttt{Refinement}
+& One-step and exact naturality, arbitrary-depth metric telescoping,
+same-level agreement without a tower term, fine-to-coarse comparison, and the
+anchored and nested metric cores.\\
+\texttt{Repair}
+& The collar-section criterion, no-repair and robust-margin certificates, and
+counterexamples showing why the nonempty-domain hypotheses are necessary.\\
+\texttt{ConditionalResampling}
+& The finite weighted fiber kernel in
+\cref{thm:fiber-conditional-expectation}, observation-measurable fixed space,
+idempotence, weighted self-adjointness, a Pythagorean identity, and weighted
+$L^2$ contraction.\\
+\texttt{Functional}
+& Synchronous settling through dependency rank, fixed-point behavior, and
+generated-extension uniqueness.\\
+\texttt{Stochastic}
+& Finite Markov affine-drift iteration and the corresponding one-time
+finite-state tail estimate.\\
+\texttt{Examples/Rule90}
+& Exact width-three kernel, image, information-boundary, deficient-boundary,
+and reverse-repair obstruction results.\\
+\bottomrule
+\end{tabular}
+\normalsize
+\end{center}
+
+The artifact's proof index gives theorem-level names and labels; its build
+receipt records the parent and standalone commands, tool versions, and axiom
+audit.  This is substantial coverage of the finite core, but it is not a
+complete mechanization of the manuscript.  In
+particular, the intrinsic-modulus minimality and sharpness results, compact
+and uniform extensions, probability-event and occupation wrappers, the
+matrix-recognition converse in \cref{thm:fiber-conditional-expectation},
+Hausdorff perturbation wrapper, dependent cofinal and inverse-limit
+constructions, equivariant sections, the circuit-specialization wrapper,
+asynchronous path-gain estimate, linear-algebraic certificates, and
+complexity classifications remain paper proofs.  The status distinction is
+deliberate: only declarations listed in the proof index are claimed as
+machine checked.
+
+\section{Discussion}\label{sec:discussion}
+
+\subsection{Why the factorization is useful}
+
+The estimate
+\[
+ \text{residual}\xrightarrow{\ \eta\ }
+ \text{distance to consistency}
+ \xrightarrow{\ \omega\ }
+ \text{observable uniqueness}
+\]
+separates two burdens that are often mixed.  A rewrite algorithm, numerical solver, or physical implementation controls $\eta$ by showing that a small residual means closeness to $C$.  The observation architecture controls $\omega$ by showing that $B|_C$ is not merely injective but well conditioned.  Critical-pair arguments may help establish exact completion or small residuals, but they are not required in the final output comparison.
+
+\subsection{Why finite uniqueness is not enough}
+
+In a refinement program, proving $B_r|_{C_r}$ injective for every $r$ does not prevent the inverse condition number from diverging.  \Cref{ex:nonuniform} is deliberately minimal.  The correct limit-facing statement is uniform stable separation, not a list of stagewise singleton claims.  This is the main strengthening contributed to refinement-sensitive applications.
+
+\subsection{Limitations}
+
+The theory assumes that a meaningful quotient, consistent set, residual, observation metric, and refinement map have already been declared.  It does not select those objects.  In particular:
+\begin{itemize}
+\item a normalizer is not a probability measure;
+\item an inverse-limit normalizer is not a continuum field theory;
+\item a finite update bound is not a wall-clock liveness theorem;
+\item a boundary pseudometric does not acquire additional semantics without a separate interpretation theorem;
+\item a small Rule-90 example does not establish cellular-automaton universality or generality.
+\end{itemize}
+These exclusions are necessary for both mathematical correctness and journal review.
+
+\section{Artifact and data availability}\label{sec:availability}
+The repository artifact contains the PDF, LaTeX source, bibliography, and the
+standalone \texttt{ObservableNormalForms} Lean project.  The formal directory
+includes a pinned toolchain and dependency manifest, theorem-to-source index,
+axiom audit, reproducible build receipt, archive manifest, and SHA-256
+checksums.  The mathematical proofs in this manuscript are self-contained;
+the Lean artifact checks the subset stated in \cref{sec:lean}.  No empirical
+dataset is used.
+
+\section{Conclusion}
+
+Confluence is about paths from one state.  Observable normalization is about what partial data determine after consistency is enforced.  Their exact intersection is classical unique-normal-form theory: under observation preservation and $\NF(\to)=C$, identification modulo any silent equivalence is equivalent to agreement of normal endpoints across all sources with the same observation.  This does not by itself provide normalization or all-schedule settlement.  Their robust intersection is governed by two analytic objects: an error bound to the consistent set and an inverse modulus for the observation map on that set.
+
+The resulting estimate is universal and sharp in its two unavoidable components.  More importantly, it survives refinement: one-step defects telescope, same-level solver agreement needs no tower term, and compatible cross-level computations differ by their receipt errors and the intervening normalizer-defect tail.  For a compatible admissible input in complete spaces, nonexpansive restrictions, vanishing receipt errors, and summable pathwise tails give a common projective limit; exact compatibility recovers the inverse-limit normalizer.  On finite probability spaces, fiber averaging supplies the canonical conditional-expectation projector, while its matrix receipt keeps that averaging distinct from representative selection or a spectral-gap claim.  Empty fibers and ambiguous fibers remain visible rather than being hidden inside a repair operator.  The theory therefore supplies a precise answer to three different questions:
+\[
+\boxed{
+\begin{array}{c}
+\text{Does a consistent extension exist?}\\
+\text{Is it observably unique and stable?}\\
+\text{Can the declared local support construct it?}
+\end{array}}
+\]
+No one of these questions answers the others.  Keeping them separate is the central mathematical lesson and the reason the framework applies across rewrite, reconstruction, and distributed-inference models.
+
+\bibliographystyle{plainnat}
+\bibliography{observable_normal_forms}
+
+\end{document}

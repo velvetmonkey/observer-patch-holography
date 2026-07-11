@@ -777,8 +777,9 @@ The conditional classifier and audit specification supports the following
 conclusions; it is not a complete physical account of ULXs:
 
 - ULXs are a luminosity-selected mixture rather than one engine class.
-- The physical state factors into accretor, mass, intrinsic regime, geometry,
-  viewing angle, and source mode.
+- A single-compact-accretor hypothesis factors into accretor, mass, opacity,
+  intrinsic regime, geometry, viewing angle, and source mode; blends and
+  contaminants use separate composite or alternative state spaces.
 - Luminosity measures \(M\lambda/b\); equations (11) to (16) prove the
   two-dimensional degeneracy and state the assumptions needed for a mass bound.
 - Neutron-star-specific pulsation records identify neutron stars, dynamics

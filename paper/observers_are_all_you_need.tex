@@ -542,20 +542,25 @@ display require confined-quark and nuclear source payloads that are not emitted 
 first-principles trunk in this paper. For the Thomson endpoint the missing object is the OPH-QCD
 hadronic backend: source QCD parameters, a quotient ensemble, finite Euclidean vacuum transfer,
 Ward-normalized electromagnetic currents, the two-current spectral marginal, same-scheme
-remainder, systematics, and no-target-leak receipts. The source-side no-hadron fine-structure diagnostic emits
+remainder, systematics, and no-target-leak receipts. The source/root fine-structure audit emits
 the undressed source/root inverse coupling
 \(\alpha_{\mathrm{root}}^{-1}=136.9948351646\ldots\). Adding the emitted finite-screen
-unified gauge-width contribution \(\alpha_U(P_\star)=0.041124336195630495\)
-gives the source-side no-hadron near-endpoint
+unified gauge-width contribution evaluated at the CODATA-derived comparison pixel
+\(P_C\simeq1.6309682094\),
+\(\alpha_U(P_C)=0.041124336195630495\), gives the mixed-provenance no-hadron diagnostic
 \[
 A_{\alpha_U}^{\mathrm{fp}}=137.0359595008\ldots.
 \]
 The public Thomson endpoint
-\(\alpha^{-1}(0)=137.035999177(21)\) requires the same-scheme hadronic endpoint residual
+\(\alpha^{-1}(0)=137.035999177(21)\) differs from that mixed diagnostic by the
+CODATA-minus-diagnostic bookkeeping gap \(0.00003967618272\ldots\). The full root-to-CODATA
+bookkeeping difference is
 \(\Delta^{\mathrm{fp}}_{\mathrm{H,cal}}=0.04116401237835\ldots
-=\alpha_U(P_\star)C_{24,Q}\), with
-\(C_{24,Q}=1.00096478597323262538\ldots\). Empirical closure uses separate
-\(e^+e^-\to\mathrm{hadrons}\) spectral input. A source-only endpoint requires the
+=\alpha_U(P_C)C_{24,Q}\), with
+\(C_{24,Q}=1.00096478597323262538\ldots\); it includes \(\alpha_U(P_C)\) and is not the
+remaining hadronic correction. The declared empirical route would use separate
+\(e^+e^-\to\mathrm{hadrons}\) spectral input; no same-scheme integrated endpoint payload is
+emitted here. A source-only endpoint requires the
 OPH-QCD backend above without Thomson-target leakage. Its two-current spectral measure is only the
 running-\(\alpha\)/HVP marginal; HLbL and rare-decay rows require higher-point and transition
 spectral sectors from the same source law.
@@ -811,12 +816,12 @@ Lane & Output & Role & Support boundary \\
 \midrule
 Massless carriers & \(m_\gamma=m_g=m_{\mathrm{grav}}=0\) & structural theorem & symmetry-protected zeros \\
 \(W/Z\) & \(\begin{gathered}80.377\\91.18797809193725\\\mathrm{GeV}\end{gathered}\) & weak-sector benchmark pair & benchmark scope is explicit \\
-Fine structure & \(\begin{gathered}\alpha_{\mathrm{root}}^{-1}=136.9948351646\ldots\\A_{\alpha_U}^{\mathrm{fp}}=137.0359595008\ldots\\\alpha^{-1}(0)=137.035999177(21)\end{gathered}\) & fixed-point endpoint bookkeeping & source-side no-hadron near-endpoint and empirical hadron closure are separate steps \\
+Fine structure & \(\begin{gathered}\alpha_{\mathrm{root}}^{-1}=136.9948351646\ldots\\A_{\alpha_U}^{\mathrm{fp}}=137.0359595008\ldots\\\alpha^{-1}(0)=137.035999177(21)\end{gathered}\) & endpoint provenance bookkeeping & source/root audit, mixed-provenance comparison diagnostic, and measured endpoint are separate coordinates; source-only promotion requires the OPH-QCD backend \\
 Higgs/top & \(\begin{gathered}125.1995304097179\\172.35235532883115\\\mathrm{GeV}\end{gathered}\) & declared electroweak quantitative relation & auxiliary direct-top PDG comparison is a benchmark check in the available derivation \\
 Charged leptons & \(\begin{gathered}0.00051099895\\0.1056583755\\1.7769324651340912\\\mathrm{GeV}\end{gathered}\) & empirically anchored same-family exact witness & source landing from \(P\) to physical charged data lacks a theorem-level uncentered trace lift in the available derivation \\
 Quarks & \(\begin{gathered}u=0.00216,\ d=0.00470\\s=0.0935,\ c=1.273\\b=4.183\\t=172.35235532883115\\\mathrm{GeV}\end{gathered}\) & selected-frame exact theorem & exact only on the selected public quark frame class; global public-frame classification has a no-go boundary in this paper; the physical strong-CP invariant is not derived here \\
 Neutrinos & \(\begin{gathered}0.017454720257976796\\0.019481987935919015\\0.05307522145074924\\\mathrm{eV}\end{gathered}\) & weighted-cycle theorem branch & absolute masses are not directly measured; PMNS comparison tension is visible \\
-Hadrons & no first-principles prediction emitted; empirical closure checks separate & OPH-QCD backend absent; empirical closure policy stated & source-only rows require source QCD parameters, quotient ensemble, Ward current ledger, two-current/higher-point/transition spectral exports, same-scheme remainder, and no-target-leak receipts; empirical closure uses separate \(e^+e^-\to\mathrm{hadrons}\) data \\
+Hadrons & no first-principles prediction emitted; empirical closure route separate & OPH-QCD backend absent; empirical closure policy stated & source-only rows require source QCD parameters, quotient ensemble, Ward current ledger, two-current/higher-point/transition spectral exports, same-scheme remainder, and no-target-leak receipts; the declared empirical route would use separate \(e^+e^-\to\mathrm{hadrons}\) data, but no integrated endpoint payload is emitted here \\
 \bottomrule
 \end{tabular}
 \end{table}

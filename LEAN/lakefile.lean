@@ -13,5 +13,9 @@ package «ObserverPatchHolography» where
 @[default_target]
 lean_lib «ObserverPatchHolography» where
 
+@[default_target]
+lean_lib «ObservableNormalForms» where
+  srcDir := "ObservableNormalForms"
+
 lean_exe «oph» where
   root := `Main

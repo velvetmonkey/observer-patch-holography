@@ -228,11 +228,11 @@ A strange consequence of renormalization: coupling constants change with energy.
 
 The fine-structure constant measures the strength of electromagnetism. OPH keeps
 three readings separate. The undressed source/root pixel gives
-$136.9948351646\ldots$. Adding the finite-screen unified gauge-width
-contribution gives the source calculation with hadrons withheld:
-$137.0359595008\ldots$. The number measured in the laboratory is the
-long-distance Thomson endpoint, $137.035999177(21)$, after the empirical
-hadronic endpoint contribution is supplied.
+$136.9948351646\ldots$. Combining that root with the finite-screen unified
+gauge width evaluated at the CODATA-derived comparison pixel gives the
+mixed-provenance diagnostic $137.0359595008\ldots$. The number measured in the
+laboratory is the long-distance Thomson endpoint, $137.035999177(21)$. A
+source-only endpoint requires the missing same-scheme hadronic spectral backend.
 
 That low-energy number sits inside the same particle sector as the weak bosons.
 Once the electroweak transport family is read from the selected local fixed
@@ -873,11 +873,10 @@ For that reason, a laboratory observer does not measure the undressed source
 diagnostic as the fine-structure constant. A low-energy electromagnetic
 measurement sees the dressed Thomson current after lepton vacuum polarization,
 confined-quark/hadron spectral transport, and finite endpoint matching. The
-source calculation with the unified gauge-width contribution reaches
-$137.0359595008\ldots$, just below the public endpoint. The remaining gap has a
-specific address: the same-scheme hadronic endpoint transport, the place where
-quark-level bookkeeping has to pass through confined hadrons before a Thomson
-measurement sees it.
+mixed root-plus-comparison-pixel diagnostic is $137.0359595008\ldots$, just
+below the public endpoint. The CODATA-minus-diagnostic gap names the numerical
+burden on the same-scheme hadronic endpoint transport; it does not calculate
+that transport from source data.
 
 The screen cell wants to sit at the golden-ratio balance point, the exact
 self-similar equilibrium of the local entropy hierarchy. A universe with

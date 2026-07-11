@@ -10,73 +10,64 @@ That laboratory result made the old phrase "fusion solved" too blunt. The OPH
 question is which receipt actually closed: fusion products at the target, heat
 capture, delivered electrical load, or net plant output.
 
-**Status:** solved as an OPH repair-ledger theorem package. Standalone markdown
-supplemental writeup for public reading and OPH Sage ingestion.
+**Status:** proposed OPH repair-ledger and promotion contract; empirical fusion
+and reactor claims unresolved. The conditional mathematical statements below
+organize confinement and evidence checks. They do not establish a new
+confinement regime, a superior controller, DD production, or net plant power.
 
 Date: 2026-07-08
+Audit revision: 2026-07-11
 
-## Introduction
+## Problem, Standard Physics, and OPH Contribution
 
-Fusion is hard in legacy language because reaction products, core confinement,
-edge stability, heat exhaust, ash removal, wall damage, tritium breeding, and
-plant power all live on different ledgers. The problem statement is to keep a
-hot plasma record alive under those constraints and to separate fusion products,
-captured heat, delivered load power, and net plant output. In OPH the reactor is
-a boundary-repair ledger: H-mode is the contracting edge-collar branch, ELMs are
-obstruction/reset cycles, Lawson is one energy projection, and reactor relevance
-requires a matched-controller score plus a closed plant ledger.
-
-## Why Legacy Physics Gets Stuck
-
-Legacy fusion physics has accurate local models for many pieces: cross
-sections, magnetohydrodynamic stability, kinetic turbulence, confinement
+**Standard physics.** Fusion science has quantitative models for reaction
+cross sections, magnetohydrodynamic stability, kinetic turbulence, confinement
 scalings, edge physics, neutral transport, wall loading, tritium breeding, and
-plant engineering. The reactor claim gets stuck because those pieces live on
-different ledgers. A device can produce fusion products without capturing useful
-heat. A target can reach a high gain relative to target input while the facility
-ledger remains energy-negative. A plasma can improve confinement while creating
-edge bursts, divertor overload, ash accumulation, or wall damage. A small
-desktop device can produce a detector event while failing calorimetry, load
-delivery, or whole-system accounting.
+plant engineering. Standard fusion programs also distinguish target or plasma
+gain, engineering gain, net electric output, availability, and material
+survivability. The difficulty is physical integration: a device can produce
+fusion products without capturing useful heat; improve confinement while
+worsening divertor or wall loads; or pass a target-level gain metric while the
+facility remains energy-negative.
 
-That makes “fusion solved” ambiguous in legacy language. Lawson and triple
-product are real gates, but they are scalar projections of a larger boundary
-and plant problem. Product evidence, captured heat, electricity, net plant
-output, and useful availability are different claims. Without a single typed
-ledger that keeps those tiers separate, a partial success can be promoted into a
-reactor story before the missing receipt is visible.
+**Unresolved target.** The unresolved problem is to sustain a reactor-relevant
+burn while simultaneously controlling core transport, pedestal stability, heat
+exhaust, ash, impurities, wall damage, fuel supply, tritium breeding on DT
+branches, recirculating power, and availability. No scalar Lawson value,
+detector event, or bookkeeping convention solves that integrated optimization.
 
-In that framing, the reactor target is underdetermined: a scalar or detector
-gate can pass while the plant claim fails.
+**OPH contribution.** OPH represents the device as a bounded self-reading
+physical/software patch: local plasma and wall state, actuator and diagnostic
+ports, boundary readback, durable records, feedback or repair moves, and public
+evidence receipts. It places those objects in one typed ledger and prevents a
+receipt at one claim tier from being silently reused at the next. This is a
+formal control-and-evidence architecture, not a replacement for MHD,
+gyrokinetics, nuclear cross sections, materials science, or plant engineering.
+Model-predictive control, systems engineering, and staged gain accounting are
+not unique to OPH; the OPH-specific proposal is their quotient-visible,
+observer-like self-reading formulation.
 
-## Why OPH Makes It Solvable
+The modeling labels used below are:
 
-OPH makes the reactor a boundary-repair ledger. The state includes the plasma or
-carrier, actuator state, diagnostics, wall state, hard constraints, mismatch
-residuals, repair/control moves, and claim gates. Gauge labels, mesh labels,
-diagnostic order, port labels, hidden carrier coordinates, worker IDs, and
-scheduler metadata are quotiented away when they do not change the physical
-record.
-
-The OPH-specific solvable object is a typed promotion ladder. H-mode is treated
-as an edge-collar contraction. ELMs are obstruction/reset cycles. Lawson is the
-scalar energy-record projection. Loss-channel closure, matched-controller
-comparison, and plant accounting decide reactor relevance. Desktop branches
-such as the twelve-port acoustic carrier can promote only the tier they
-actually receipt: carrier/control, DD products, captured heat, delivered load
-power, or net plant output. OPH is unique here because it forbids promotion
-across missing ledgers. A carrier receipt stops at carrier/control status. DD
-products stop at product status. Heat, delivered power, and net plant output
-each require their own ledger.
+- **standard physics:** conservation laws, fusion source rates, confinement
+  time, established stability variables, and measured plant/device boundaries;
+- **OPH model definition:** quotient state, residual vector, proximal repair
+  map, and receipt ladder;
+- **conditional theorem:** a mathematical implication that holds only under its
+  displayed regularity, feasibility, or contraction assumptions;
+- **empirical evidence:** a public calibrated run, matched controller trial, DD
+  detector likelihood, calorimetry, or plant ledger. No such evidence is
+  supplied by this note.
 
 ## Abstract
 
-Fusion confinement is a boundary-repair ledger. The ledger keeps plasma state,
-actuators, diagnostics, wall state, hard constraints, residuals, repair/control
-moves, and claim gates in one typed record. H-mode is the edge-collar
-contraction branch. ELMs are obstruction/reset cycles. Lawson is the scalar
-energy projection. DD products, heat, delivered power, and net plant power live
-in separate receipt tiers.
+This note models fusion confinement as a boundary-repair ledger. The ledger
+keeps plasma state, actuators, diagnostics, wall state, hard constraints,
+residuals, repair/control moves, and claim gates in one typed record. A
+contracting edge map is an OPH candidate model for a stable H-mode basin; a
+separate hybrid jump model is needed for ELMs. Lawson is a scalar energy
+projection. DD products, heat, delivered power, and net plant power live in
+separate receipt tiers.
 
 ## External Benchmarks and Plant Gate
 
@@ -102,34 +93,57 @@ for $400$ to $600$ second pulses. That is a plasma gate. Electricity
 generation and whole-plant gain occupy separate gates.
 
 NIF's repeated ignition results are target-level inertial-confinement gates.
-The April 2025 LLNL report gives $2.08\,\mathrm{MJ}$ delivered to the target
-and $8.6\,\mathrm{MJ}$ fusion yield, a target gain of $4.13$. The
+The [April 2025 LLNL result](https://annual.llnl.gov/fy-2025/national-ignition-facility-2025)
+reports $2.08\,\mathrm{MJ}$ delivered to the target and
+$8.6\pm0.45\,\mathrm{MJ}$ fusion yield, a target gain of $4.13$. The
 whole-facility and grid-power ledgers remain separate from that target gate.
 
-For a plant claim, OPH uses the plant ledger
+For a plant claim, fix a time interval and a physical boundary. Define
 
 ```math
-L_{\rm plant}
+\Delta E_{\rm stored}
+=E_{\rm stored}(t_1)-E_{\rm stored}(t_0),
+```
+
+and let the nonoverlapping external-input ledger be
+
+```math
+E_{\rm ext,in}
 =
-E_{\rm grid}
--
-\left(
-E_{\rm all\ inputs}
-+\Delta E_{\rm stored}
+E_{\rm drive}
 +E_{\rm startup}
 +E_{\rm shutdown}
 +E_{\rm aux}
 +E_{\rm consumables}
 +E_{\rm maintenance}
-+E_{\rm waste}
-\right).
++E_{\rm waste\ handling}.
 ```
+
+Every term is an energy crossing the declared boundary and may appear exactly
+once. The net exported-energy ledger is
+
+```math
+L_{\rm plant}
+=
+E_{\rm grid,out}
++\Delta E_{\rm stored}
+-E_{\rm ext,in}.
+```
+
+With the stated sign convention, drawing down stored energy reduces rather than
+inflates $L_{\rm plant}$. If stored energy is not a qualified useful output,
+report it separately and use the stricter grid-only ledger after excluding any
+storage drawdown.
 
 The net-plant promotion condition is
 
 ```math
-L_{\rm plant}>5u_L.
+L_{\rm plant}>5u_L,
 ```
+
+where $u_L$ is the propagated uncertainty for the same boundary and interval.
+The factor five is a declared engineering evidence margin, not automatically a
+five-sigma probability statement without a distributional error model.
 
 The OPH contribution in this problem is a confinement and accounting layer:
 magnetic-confinement boundary repair, edge control, loss-channel closure, and
@@ -144,7 +158,7 @@ Fix a regulator $r$. An OPH Fusion Repair Ledger is the tuple
 =
 \left(
 Q_r,
-V_r,E_r,
+\mathcal V_r,\mathcal E_r,
 \{S_{i,r}\},
 \{I_{e,r},\pi_{i,e,r}\},
 \mathcal R^{\rm hot}_r,
@@ -164,9 +178,12 @@ Q_r=\Sigma_r/\Gamma_r.
 ```
 
 $\Sigma_r$ is the presentation space of plasma, actuator, diagnostic, wall,
-control, and evidence records. $\Gamma_r$ removes gauge labels, mesh labels,
-diagnostic channel order, port labels, hidden carrier coordinates, worker IDs,
-scheduler metadata, and any label not declared physical.
+control, and evidence records. Two presentations are equivalent under
+$\Gamma_r$ only when relabeling leaves all declared observables, transition
+probabilities, admissible controls, constraints, and evidence validators
+unchanged. Gauge, mesh, diagnostic-channel, port, worker, and scheduler labels
+may be removed under that test. A nominally hidden carrier coordinate may not
+be quotiented away if it changes a future visible readout or control response.
 
 For a tokamak branch,
 
@@ -239,13 +256,16 @@ The hard constraints are
 \mathcal H_r=
 \{
 q_{\rm div}\le q_{\rm div}^{\max},
-\ s_{\rm ped}<1,
+\ s_{\rm PB}<1,
 \ Z_{\rm eff}\le Z_{\rm eff}^{\max},
 \ f_{\rm ash}\le f_{\rm ash}^{\max},
-\ D_{\rm mat}\le D_{\rm mat}^{\max},
-\ \text{tier receipts closed}
+\ D_{\rm mat}\le D_{\rm mat}^{\max}
 \}.
 ```
+
+These are physical feasibility constraints. Evidence-tier closure is evaluated
+by $\mathsf{Gate}_r$ after a run; it is not an actuator-selectable physical
+constraint and is not inserted into the control objective.
 
 $\mathcal U_r$ is the declared repair/control menu: heating, current drive,
 shaping, fueling, pumping, impurity seeding, divertor control, resonant magnetic
@@ -264,18 +284,18 @@ Define
 ```math
 \Phi^{\rm fus}_r(q)
 =
-\|\mathbf r(q)\|_W^2
-+
-\iota_{\mathcal H_r}(q)
-+
-\iota_{\mathsf{Gate}_r}(q).
+\|\mathbf r(q)\|_{\mathsf W_r}^2
++\iota_{\mathcal H_r}(q).
 ```
 
-$\mathbf r(q)$ is a vector of dimensionless residuals. $W\succ0$ is a
-weight matrix fixed before comparison. $\iota_{\mathcal H_r}$ is zero when
+$\mathbf r(q)$ is a vector of dimensionless residuals.
+$\mathsf W_r\succ0$ is a weight matrix fixed before comparison and is distinct
+from stored energy $W$. $\iota_{\mathcal H_r}$ is zero when
 hard physical constraints pass and $+\infty$ otherwise.
-$\iota_{\mathsf{Gate}_r}$ is zero only when the evidence receipts for the
-claimed tier are present.
+The separately evaluated $\mathsf{Gate}_r$ is zero/pass only when the evidence
+receipts for the claimed tier are present. Keeping it outside
+$\Phi^{\rm fus}_r$ prevents a missing post-run receipt from making every state
+in a control minimization have infinite cost.
 
 A concrete residual vector is
 
@@ -301,15 +321,18 @@ r_{\rm unclass}
 ).
 ```
 
-The energy-balance residual is
+The instantaneous conservation residual is
 
 ```math
 r_{\rm bal}
 =
-\left[
-\frac{P_{\rm loss}-P_{\rm aux}-P_{\rm ch}}{P_0}
-\right]_+.
+\frac{\dot W-P_{\rm aux}-P_{\rm ch}+P_{\rm loss}}{P_0},
+\qquad P_0>0.
 ```
+
+This tests the energy identity rather than penalizing only one sign. A separate
+one-sided survival margin may be used in a declared steady-state controller,
+$[P_{\rm loss}-P_{\rm aux}-P_{\rm ch}]_+/P_0$.
 
 The record residuals are
 
@@ -344,11 +367,14 @@ r_\chi=
 ```math
 r_{\nabla p}
 =
-\left\|
-\frac{\nabla p_{\rm edge}-\nabla p_{\rm target}}
-{\nabla p_{\rm target}}
-\right\|_{G_E},
+\frac{
+\left\|\nabla p_{\rm edge}-\nabla p_{\rm target}\right\|_{G_E}
+}{g_{p,0}},
+\qquad g_{p,0}>0,
 ```
+
+where $g_{p,0}$ is a frozen scalar gradient scale. This avoids undefined
+division by a vector or by a vanishing target component.
 
 ```math
 r_{\rm shear}
@@ -377,7 +403,7 @@ r_{\rm KBM}
 ```math
 r_j=
 \left[
-\frac{j_{\rm ped}}{j_{\rm crit}}-1
+\frac{|j_{\rm ped}|}{j_{\rm crit}}-1
 \right]_+,
 \qquad
 r_q=
@@ -385,6 +411,28 @@ r_q=
 \frac{q_{\rm div}-q_{\rm div}^{\max}}{q_{\rm div}^{\max}}
 \right]_+.
 ```
+
+The remaining declared residuals may be instantiated as
+
+```math
+r_{\rm ash}
+=\left[\frac{f_{\rm ash}}{f_{\rm ash}^{\max}}-1\right]_+,
+\qquad
+r_Z
+=\left[\frac{Z_{\rm eff}}{Z_{\rm eff}^{\max}}-1\right]_+,
+```
+
+```math
+r_{\rm rad}
+=\left[\frac{P_{\rm rad}-P_{\rm rad}^{\max}}{P_0}\right]_+,
+\qquad
+r_{\rm wall}
+=\left[\frac{D_{\rm mat}}{D_{\rm mat}^{\max}}-1\right]_+.
+```
+
+All denominators and thresholds must be positive and frozen before a controller
+comparison. A different branch may replace these formulas, but it must not list
+an undefined residual in the score.
 
 The unclassified-loss residual is
 
@@ -402,12 +450,15 @@ R_{\rm audit}
 \Delta W
 -
 \int_{t_0}^{t_1}(P_{\rm aux}+P_{\rm ch})\,dt
--
++
 \sum_{\ell\in L}
 \int_{t_0}^{t_1}P_\ell\,dt.
 ```
 
-This residual forces every claimed loss channel into the ledger.
+Here $\Delta W=W(t_1)-W(t_0)$, every $P_\ell$ is positive outward, and
+$P_{\rm loss}=\sum_\ell P_\ell$. This residual forces every claimed loss
+channel into the ledger. Signed-flux conventions require the corresponding
+explicit sign change.
 
 ## Boundary-Repair Operator
 
@@ -423,12 +474,18 @@ T^{\rm BR}_{\Delta t,u}(q)
 \left\{
 \Phi^{\rm fus}_r(q')
 +
-\frac{1}{2\Delta t}
-\left\|
-q'-F_{\Delta t}(q,u)
-\right\|_{G(q)}^2
+\frac{1}{2\eta_{\rm BR}}
+d_{G,r}\!\left(q',F_{\Delta t}(q,u)\right)^2
 \right\}.
 ```
+
+$d_{G,r}$ is a metric on the quotient, so subtraction of two quotient states
+is not assumed. The state coordinates, metric, and $\eta_{\rm BR}>0$ must be
+scaled so the two objective terms have compatible units. Existence requires a
+nonempty feasible set and the usual compactness/coercivity and lower
+semicontinuity assumptions; uniqueness requires additional convexity. The
+substrate evolution must also descend to $Q_r$, meaning equivalent
+presentations give equivalent evolved states.
 
 For the edge subsystem $z_E$, define the free edge evolution field
 
@@ -460,6 +517,10 @@ with
 \right\}.
 ```
 
+For this coordinate expression, $z$ is a nondimensional edge chart (or the
+metric carries the required units), $\eta>0$, and the feasible edge basin is
+declared explicitly.
+
 ## OPH Confinement Engine
 
 The reactor-relevant OPH architecture is
@@ -487,9 +548,9 @@ The controller computes
 ```math
 \Phi_{\rm fus}(q_t),
 \qquad
-\kappa_E(q_t),
+\kappa_E^{\rm loc}(z_E(q_t)),
 \qquad
-s_{\rm ped}(q_t),
+s_{\rm PB}(q_t),
 \qquad
 R_{\rm audit}(q_t).
 ```
@@ -520,17 +581,22 @@ u_t^\star
 +
 \lambda_{\rm aux}E_{\rm aux}
 +
-\lambda_{\rm wall}D_{\rm wall}
+\lambda_{\rm wall}D_{\rm mat}
 \mid q_t,u
 \right]
 ```
 
+The expectation is with respect to a declared state-estimation and transition
+model. $\lambda_{\rm aux}$ and $\lambda_{\rm wall}$ carry whatever units are
+needed to make the objective dimensionless, and their values are preregistered.
+Evidence receipts are not decision variables in this optimization.
+
 subject to
 
 ```math
-\kappa_E<1,
+\kappa_E^{\rm loc}(z_E(q_{t+\Delta t}))<1,
 \qquad
-s_{\rm ped}<1,
+s_{\rm PB}<1,
 \qquad
 q_{\rm div}<q_{\rm div}^{\max},
 ```
@@ -550,24 +616,29 @@ L_{\rm plant}>0
 ```
 
 for plant-facing operation. The promoted plant claim uses
-$L_{\rm plant}>5u_L$.
+$L_{\rm plant}>5u_L$ over a declared accounting horizon; it is not an
+instantaneous state constraint unless a causal rolling-horizon estimator is
+specified.
 
-## Theorem 1: Quotient Well-Definedness
+## Conditional Result 1: Quotient Well-Definedness
 
-**Statement.** $\mathfrak L^{\rm fus}_r$ is quotient-visible. If two
-presentation states differ only by $\Gamma_r$ labels, then they have the same
-ledger residuals, hard-constraint status, gates, and readouts.
+**Statement.** Assume the substrate evolution, observation maps, admissible
+controls, residuals, hard constraints, and evidence validators are invariant or
+equivariant under $\Gamma_r$. Then $\mathfrak L^{\rm fus}_r$ descends to a
+quotient-visible ledger. Presentation states in one orbit have the same ledger
+residuals, hard-constraint status, gates, and physical readouts.
 
-**Proof.** By definition, all residuals in $\mathbf r(q)$, all hard
-constraints $\mathcal H_r$, and all evidence gates $\mathsf{Gate}_r$ are
-functions on $Q_r$. Representatives differing only by $\Gamma_r$ labels
-have identical readouts. The OPH carrier formalism treats hidden coordinates,
-port labels, and substrate presentation as silent when visible interfaces,
-records, repair maps, and checkpoints are preserved. $\square$
+**Proof.** Invariance makes each scalar and Boolean constant on
+$\Gamma_r$-orbits, while equivariance makes the evolved orbit independent of
+the chosen representative. Each object therefore induces a well-defined
+function or transition on $Q_r$. This is an obligation to check for the
+declared implementation, not a consequence of merely writing $Q_r$.
+$\square$
 
-## Theorem 2: Fusion Record Survival
+## Standard Energy Result 2: Hot-Record Survival
 
-**Statement.** Let the hot-record energy evolve under
+**Statement.** Let $W$ be absolutely continuous and the powers integrable,
+with the hot-record energy evolving under
 
 ```math
 \frac{dW}{dt}=P_{\rm ch}+P_{\rm aux}-P_{\rm loss}.
@@ -588,7 +659,7 @@ for every $t\in[t_0,t_1]$.
 $W(t)$. The record-survival condition is $W(t)\ge W_{\rm req}$. Substitution
 gives the inequality. $\square$
 
-## Theorem 3: Lawson Criterion as Scalar Projection
+## Conditional Result 3: Lawson Criterion as Scalar Projection
 
 **Statement.** In a steady scalar projection with stored energy $W$ and
 confinement time
@@ -603,16 +674,35 @@ the energy-record survival condition becomes
 P_{\rm ch}+P_{\rm aux}\ge \frac{W}{\tau_E}.
 ```
 
-On a thermal branch where $W\simeq 3nTV$, this is the usual triple-product
-form after substituting the fusion power model.
+On an equimolar quasineutral DT branch with $T_e=T_i=T$, $T$ expressed in
+energy units, and $n=n_e=n_i$, one has $W\simeq3nTV$. For ignition set
+$P_{\rm aux}=0$ and use
 
-**Proof.** Steady survival requires $dW/dt\ge0$, so
+```math
+P_\alpha
+=
+\frac{n^2}{4}\langle\sigma v\rangle_{DT}(T)E_\alpha V.
+```
+
+The balance then gives the temperature-dependent triple-product requirement
+
+```math
+nT\tau_E
+\ge
+\frac{12T^2}{\langle\sigma v\rangle_{DT}(T)E_\alpha},
+```
+
+If $P_{\rm loss}$ and $\tau_E$ exclude a separately modeled radiative term,
+that term must be added to the balance. Other density conventions, fuel
+mixtures, $T_e\ne T_i$, or nonzero auxiliary gain change the factors.
+
+**Proof.** Nondecreasing stored energy requires $dW/dt\ge0$, so
 $P_{\rm ch}+P_{\rm aux}\ge P_{\rm loss}$. Since
-$P_{\rm loss}=W/\tau_E$, the displayed inequality follows. With
-$W\simeq3nTV$ and a fusion source model $P_{\rm ch}\propto n^2\langle\sigma
-v\rangle E V$, rearrangement gives the Lawson/triple-product form. $\square$
+$P_{\rm loss}=W/\tau_E$, the first inequality follows. The stated DT
+assumptions and $P_{\rm ch}=P_\alpha$ give the displayed triple-product
+formula by substitution. Strict steady state uses equality. $\square$
 
-## Theorem 4: Finite Normal Form of Fusion Repair
+## Conditional Result 4: Finite Normal Form of Fusion Repair
 
 **Statement.** Suppose $Q_r$ is finite, accepted repair steps strictly
 decrease a discrete measure $\mu$, atomic conflict-component commits satisfy
@@ -632,7 +722,12 @@ confluence by Newman's lemma. Repair completeness identifies terminal states
 with the declared normal forms or obstruction states. The terminal quotient
 state is unique and schedule-independent. $\square$
 
-## Theorem 5: Noisy Confinement Tube
+This result concerns a finite rewrite/controller abstraction. Connecting its
+normal form to a physical plasma requires a discretization map, validated
+substrate dynamics, and refinement evidence; confluence alone does not imply
+confinement.
+
+## Conditional Result 5: Noisy Repair Tube
 
 **Statement.** Let $\mathcal N\subset Q_r$ be the exact normal-form set.
 Suppose noisy fair blocks satisfy
@@ -668,50 +763,71 @@ Taking $k\to\infty$ gives the bound. The within-block bound follows from the
 stated excursion estimate. This is the noisy fair-block consensus theorem
 specialized to the fusion ledger. $\square$
 
+Here $\varepsilon$ and $\beta$ have the same distance units as $D$, and
+the within-block estimate is understood pathwise or in expectation according
+to the declared excursion assumption. This is a stability bound for the model,
+not a measured confinement scaling.
+
 ## H-Mode Edge Gate
 
-H-mode is the natural OPH entry point because legacy fusion identifies it as an
-edge transport-barrier regime. The barrier builds an edge pedestal and
-raises energy confinement time relative to L-mode, while pedestal stress creates
-the edge-localized-mode burden. In OPH notation,
+H-mode is a useful OPH modeling target because standard fusion physics
+identifies it as an edge transport-barrier regime. The barrier builds an edge
+pedestal and often raises energy confinement time relative to L-mode, while the
+pedestal can approach peeling-ballooning and related stability limits. The OPH
+candidate identification is
 
 ```math
-\text{H-mode}
+\text{contracting OPH edge model}
 =
 \text{edge-collar repair fixed point}.
 ```
 
-The contraction diagnostic is
+This is a model correspondence to test, not a derivation or definition of all
+physical H-mode plasmas.
+
+Define the local Jacobian norm and the basin contraction diagnostic by
 
 ```math
-\kappa_E=|DT_E|_{G_E}<1.
+\kappa_E^{\rm loc}(z)=\|DT_E(z)\|_{G_E},
+\qquad
+\kappa_E^{\rm basin}
+=
+\sup_{z\in\mathcal B_E}
+\kappa_E^{\rm loc}(z)<1,
 ```
 
-The OPH L-H threshold is
+for a declared invariant edge basin $\mathcal B_E$. A local value below one
+at one state is not a Banach contraction certificate for the basin.
+
+The corresponding model threshold diagnostic is
 
 ```math
 P_{LH}^{\rm OPH}
 =
-\inf\{P_{\rm aux}:\kappa_E<1
-\text{ while stability and exhaust constraints pass}\}.
+\inf\{P_{\rm aux}:\kappa_E^{\rm basin}<1
+\text{ and all declared hard constraints pass}\}.
 ```
 
-The edge-localized-mode condition is the pedestal obstruction
+The infimum is evaluated for a frozen operating packet containing density,
+field, geometry, species, actuator menu, initial condition, and hysteresis
+branch. It becomes a physical L-H threshold predictor only after held-out
+validation against an empirical threshold baseline and hysteresis-aware data.
 
-```math
-s_{\rm ped}\ge1.
-```
-
-## Theorem 6: Proximal H-Mode Theorem
+## Conditional Result 6: Proximal Edge Contraction
 
 Let the edge map be
 
 ```math
-T_E=\mathrm{prox}^{G_E}_{\eta\Phi_E}\circ (I+\eta f_E).
+T_E=\mathrm{prox}^{G_E}_{\eta(\Phi_E+\iota_{\mathcal B_E})}
+\circ (I+\eta f_E).
 ```
 
-Assume $\Phi_E$ is $m_E$ strongly convex in the edge metric on the relevant
-basin and $f_E$ is $L_E$ Lipschitz with a sign compatible with descent. If
+Assume the edge chart is a Hilbert space with one fixed metric \(G_E\) and
+\(\mathcal B_E\) is a nonempty closed convex subset. Assume
+\(\Phi_E+\iota_{\mathcal B_E}\) is proper, lower semicontinuous, and
+\(m_E\)-strongly convex, while \(f_E\) is \(L_E\)-Lipschitz on
+\(\mathcal B_E\). The restricted proximal map returns a point in the basin,
+so \(T_E:\mathcal B_E\to\mathcal B_E\). If
 
 ```math
 m_E>L_E,
@@ -720,21 +836,25 @@ m_E>L_E,
 then $T_E$ is a contraction with coefficient
 
 ```math
-\kappa_E\le \frac{1+\eta L_E}{1+\eta m_E}<1.
+\kappa_E^{\rm basin}\le \frac{1+\eta L_E}{1+\eta m_E}<1.
 ```
 
-Hence the H-mode edge fixed point exists and is unique in the basin.
+Hence the model edge fixed point exists and is unique in the basin. Calling it
+an H-mode representation additionally requires the held-out physical
+correspondence tests above.
 
-**Proof.** The proximal map of an $m_E$ strongly convex function is
+**Proof.** On the fixed Hilbert metric, the proximal map of the proper,
+lower-semicontinuous, \(m_E\)-strongly convex function
+\(\Phi_E+\iota_{\mathcal B_E}\) is
 $(1+\eta m_E)^{-1}$ Lipschitz. The free edge step $I+\eta f_E$ is
 $(1+\eta L_E)$ Lipschitz on the declared basin. The composition has Lipschitz
 constant at most $(1+\eta L_E)/(1+\eta m_E)$. If $m_E>L_E$, the constant is
 less than one. Banach's fixed-point theorem gives a unique fixed point and
 geometric convergence. $\square$
 
-## Theorem 7: H-Mode Improves Confinement When Edge Transport Drops
+## Standard Identity 7: Lower Loss Raises $\tau_E$ at Fixed $W$
 
-**Statement.** Let $q_H$ be the edge fixed point from Theorem 6. If the
+**Statement.** Let $q_H$ be a candidate edge fixed point from Result 6. If the
 edge-loss component satisfies
 
 ```math
@@ -748,40 +868,54 @@ at fixed stored energy $W$, then
 ```
 
 **Proof.** Since $\tau_E=W/P_{\rm loss}$, fixed $W$ turns a lower loss into
-a higher confinement time. $\square$
+a higher confinement time. This identity does not predict that a proposed
+controller will achieve the premise. $\square$
 
-## Theorem 8: ELMs as Obstruction/Reset Cycles
+## Conditional Model 8: ELM-Like Hybrid Jump Cycles
 
-Let $s_{\rm ped}$ be the normalized pedestal stress:
+Keep pedestal stability separate from divertor exhaust. Define the candidate
+pedestal margin
 
 ```math
-s_{\rm ped}
+s_{\rm PB}
 =
 \max
 \left(
 \frac{\alpha_{\rm PB}}{\alpha_{\rm PB,crit}},
 \frac{\alpha_{\rm KBM}}{\alpha_{\rm KBM,crit}},
-\frac{j_{\rm ped}}{j_{\rm crit}},
-\frac{q_{\rm div}}{q_{\rm div}^{\max}}
-\right).
+\frac{|j_{\rm ped}|}{j_{\rm crit}}
+\right),
 ```
 
-**Statement.** If edge repair drives the plasma toward an H-mode fixed point
-but $s_{\rm ped}\ge1$, and if the repair menu contains a reset map
-$R_{\rm ELM}$ returning the state to the H-mode basin, then the trajectory is
-an obstruction/reset cycle:
+while $q_{\rm div}/q_{\rm div}^{\max}$ remains a separate exhaust gate. Let
+$\varphi_t$ denote the between-event edge flow, let
+$\tau(z)=\inf\{t>0:s_{\rm PB}(\varphi_t(z))\ge1\}$, and let
+$J_{\rm ELM}$ be a declared physical jump model. A natural ELM instability
+and an actuator-triggered paced event may use different jump maps.
+
+**Statement.** If the threshold is reached transversely, $J_{\rm ELM}$
+returns states to a declared edge basin, and the Poincaré return map
 
 ```math
-q_H\to R_{\rm ELM}(q_H)\to q_H.
+\mathcal P(z)
+=
+\varphi_{\tau(J_{\rm ELM}(z))}
+\!\left(J_{\rm ELM}(z)\right)
 ```
 
-**Proof.** If $s_{\rm ped}\ge1$, at least one stability or exhaust hard
-constraint is violated. Safe non-ELMing H-mode requires all hard residuals below
-tolerance. The state is inadmissible in that branch. If the repair menu contains
-an ELM reset and the reset returns the plasma to the H-mode basin, the
-trajectory alternates between edge build-up and reset. $\square$
+has an attracting fixed point $z_\star$, then the hybrid model has an
+attracting obstruction/jump cycle through $z_\star$.
 
-## Theorem 9: Loss-Channel Audit Closure
+**Proof.** A fixed point of the event-to-event return map reproduces the same
+post-flow threshold state after one jump and rebuild interval. Attraction of
+that fixed point gives stability of the modeled cycle. $\square$
+
+This conditional hybrid result does not show that all physical ELMs have one
+mechanism or that an OPH controller suppresses them. Those are empirical claims
+requiring pedestal diagnostics, event timing, energy-loss distributions, and
+matched conventional control.
+
+## Standard Energy Result 9: Loss-Channel Audit Closure
 
 **Statement.** Over a declared interval $[t_0,t_1]$, the energy ledger closes
 at uncertainty $u_R$ when
@@ -791,57 +925,72 @@ at uncertainty $u_R$ when
 \Delta W
 -
 \int_{t_0}^{t_1}(P_{\rm aux}+P_{\rm ch})\,dt
--
++
 \sum_{\ell\in L}\int_{t_0}^{t_1}P_\ell\,dt
 \right|
 \le u_R.
 ```
 
-**Proof.** This is conservation of energy over the declared boundary. The
-residual is the difference between measured stored-energy change and the
-declared source/loss integral. A residual outside uncertainty implies an omitted
-term or erroneous estimate. $\square$
+**Proof.** With every $P_\ell$ positive outward, conservation gives
+$\Delta W=\int(P_{\rm aux}+P_{\rm ch})dt-\sum_\ell\int P_\ell dt$.
+Rearrangement yields the displayed residual. A value outside the propagated
+uncertainty indicates an omitted term, a sign/boundary mismatch, or an erroneous
+estimate. $\square$
 
 ## Reactor-Relevance Score
 
 OPH earns reactor relevance by beating matched conventional control on declared
 plasma and plant gates. Let $C$ be the accepted set of baseline controllers
 for the same device, wall condition, field, density, heating menu, and
-diagnostic access. Define
+diagnostic access. Select a comparator $c_\star$ before opening the held-out
+evaluation set, or use a preregistered multiplicity-corrected comparison over
+$C$. Define
 
 ```math
-G_{\rm OPH}
+\Delta M_{\rm OPH}
 =
-\frac{M_{\rm OPH}}{\max_{c\in C}M_c}.
+M_{\rm OPH}-M_{c_\star},
+\qquad
+G_{\rm OPH}=e^{\Delta M_{\rm OPH}}>0.
 ```
 
-A reactor-weighted plasma score can be written as
+A preregistered dimensionless plasma utility can be written as
 
 ```math
 M
 =
-w_1\frac{\tau_E}{\tau_{E,0}}
+w_1\log\!\left(\frac{\tau_E}{\tau_{E,0}}\right)
 +
-w_2\frac{P_{\rm fus}}{P_{\rm aux}}
+w_2\log\!\left(1+\frac{P_{\rm fus}}{P_{{\rm fus},0}}\right)
 -
 w_3\frac{q_{\rm div}}{q_{\rm div}^{\max}}
 -
-w_4s_{\rm ped}
+w_4s_{\rm PB}
 -
 w_5\frac{Z_{\rm eff}}{Z_{\rm eff}^{\max}}
 -
 w_6\frac{f_{\rm ash}}{f_{\rm ash}^{\max}}
 -
-w_7\frac{D_{\rm wall}}{D_{\rm wall}^{\max}}.
+w_7\frac{D_{\rm mat}}{D_{\rm mat}^{\max}}.
 ```
+
+All reference scales are positive and frozen, and the weights and aggregation
+rule are fixed before comparison. This avoids division by a vanishing
+$P_{\rm aux}$, negative score ratios, and post hoc selection of a favorable
+baseline. Fusion gain $Q=P_{\rm fus}/P_{\rm aux}$ remains a separately
+reported physical metric on runs where $P_{\rm aux}>0$.
 
 The comparison passes at effect size $\delta$ only when
 
 ```math
-\mathrm{LCB}_{95}(\log G_{\rm OPH})
+\mathrm{LCB}_{95}(\Delta M_{\rm OPH})
 >
 \log(1+\delta).
 ```
+
+The confidence-bound construction must name its discharge-level sampling unit,
+pairing, uncertainty model, and correction for repeated controllers or
+outcomes.
 
 Useful OPH wins include
 
@@ -876,9 +1025,10 @@ Validation uses five gates:
 1. Offline scorebook: freeze
    ```math
    \mathfrak L^{\rm fus}
-   =(Q_r,\Phi_{\rm fus},T_E,\kappa_E,P_{LH}^{\rm OPH},R_{\rm audit})
+   =(Q_r,\Phi_{\rm fus},T_E,\kappa_E^{\rm loc},
+   \kappa_E^{\rm basin},P_{LH}^{\rm OPH},R_{\rm audit})
    ```
-   and test whether $\kappa_E<1$ predicts L-H transition better than a
+   and test whether $\kappa_E^{\rm basin}<1$ predicts L-H transition better than a
    declared empirical threshold baseline.
 2. Digital twin: run the OPH controller in a validated simulator and reduce
    $\Phi_{\rm fus}$ against conventional controllers using only data
@@ -888,9 +1038,9 @@ Validation uses five gates:
    lower ELM burden, and controlled divertor heat flux.
 4. Integrated high-performance plasma: satisfy
    ```math
-   \kappa_E<1,
+   \kappa_E^{\rm basin}<1,
    \qquad
-   s_{\rm ped}<1,
+   s_{\rm PB}<1,
    \qquad
    q_{\rm div}<q_{\rm div}^{\max},
    \qquad
@@ -907,10 +1057,12 @@ Validation uses five gates:
    ```
    and the plant condition $L_{\rm plant}>5u_L$.
 
-The OPH-favored reactor lane is compact high-field magnetic confinement with
-aggressive boundary control: strong shaping, high-bandwidth edge diagnostics,
-real-time profile inference, divertor and impurity control, ELM
-suppression/pacing, alpha-heating-aware control, and whole-plant ledger closure.
+A candidate engineering hypothesis is compact high-field magnetic confinement
+with aggressive boundary control: strong shaping, high-bandwidth edge
+diagnostics, real-time profile inference, divertor and impurity control, ELM
+suppression or pacing, alpha-heating-aware control, and whole-plant ledger
+closure. This preference is not derived by the ledger and must be compared with
+stellarator and other declared reactor baselines.
 
 ## Hydrosahedron Carrier Specialization
 
@@ -969,14 +1121,16 @@ R_{\rm records},
 \right).
 ```
 
-$H_{P_\star}$ is a frozen OPH-template transfer matrix. The held-out score is
+$H_{P_\star}$ is a frozen OPH-template transfer matrix. Its source, parameter
+count, and predictive distribution must be declared. For a comparator $c_\star$
+selected before held-out evaluation, use the paired score
 
 ```math
 S(P_\star)
 =
 \log p(H_{\rm test}\mid H_{P_\star})
 -
-\max_{c\in C}\log p(H_{\rm test}\mid H_c),
+\log p(H_{\rm test}\mid H_{c_\star}),
 ```
 
 with pass condition
@@ -985,7 +1139,10 @@ with pass condition
 \mathrm{LCB}_{1-\alpha}(S(P_\star))>\delta_P.
 ```
 
-## Theorem 10: Hydrosahedron Carrier Theorem
+If several controls are compared, the selection and confidence procedure must
+correct for multiplicity and shared test data.
+
+## Classification Result 10: Hydrosahedron Carrier Status
 
 **Statement.** If the twelve-port carrier exposes bounded ports, durable
 records, self-readout, record-conditioned control, held-out boundary prediction
@@ -1002,7 +1159,7 @@ $\square$
 
 ## DD and Power Promotion Gates
 
-The DD source law is
+Under a local Maxwellian assumption, the total DD reaction yield is
 
 ```math
 Y_{DD}
@@ -1013,36 +1170,42 @@ Y_{DD}
 \,dV\,dt.
 ```
 
+For a nonequilibrium acoustic carrier, the Maxwellian assumption must be tested
+or replaced by the velocity-distribution integral. The neutron yield is
+
+```math
+Y_n
+=
+\int b_n(T)\,
+\frac12 n_D^2\langle\sigma v\rangle_{DD}(T)\,dV\,dt,
+```
+
+where $b_n$ is the neutron-branch fraction unless the tabulated reactivity is
+already branch-specific.
+
 The DD source gate requires source and detector receipts:
 
 ```math
-C_d=B_d+\epsilon_d\Omega_dY_n+A_d,
+C_d\sim\operatorname{Poisson}(\lambda_d),
+\qquad
+\lambda_d
+=B_d+\epsilon_d f_{\Omega,d}T_dY_n+A_d.
 ```
 
-where $C_d$ is detector count, $B_d$ background, $\epsilon_d$ efficiency,
-$\Omega_d$ solid-angle factor, $Y_n$ neutron yield, and $A_d$ allowed
-artifact model.
+Here $B_d$ is the time-matched expected background, $\epsilon_d$ is calibrated
+efficiency, $f_{\Omega,d}=\Omega_d/(4\pi)$ is geometric acceptance, $T_d$
+collects attenuation and live-time response, and $A_d$ is a preregistered
+artifact contribution with nuisance uncertainty. Real promotion also requires
+dead-time treatment, pulse-shape or time-of-flight checks where applicable,
+controls, and a multi-detector likelihood; an isolated count excess is not a DD
+certificate.
 
-The captured-heat gate requires calorimetry. Delivered-power requires an
-isolated load. Net plant power requires
+The captured-heat gate requires calibrated calorimetry. Delivered-power
+requires an isolated load and a source-attribution test. Net plant energy uses
+the same nonoverlapping boundary convention defined above:
 
 ```math
-L=E_{\rm load}-E_{\rm burden},
-```
-
-with
-
-```math
-E_{\rm burden}
-=
-E_{\rm all,inputs}
-+\Delta E_{\rm stored}
-+E_{\rm startup}
-+E_{\rm shutdown}
-+E_{\rm aux}
-+E_{\rm consumables}
-+E_{\rm maintenance}
-+E_{\rm waste}.
+L=E_{\rm load,out}+\Delta E_{\rm stored}-E_{\rm ext,in}.
 ```
 
 The promotion condition is
@@ -1053,7 +1216,7 @@ L>5u_L,
 
 or another declared statistical margin.
 
-## Theorem 11: Non-Promotion
+## Logical Result 11: Non-Promotion
 
 **Statement.** The following implications are invalid without the next receipt:
 
@@ -1090,32 +1253,42 @@ can be real but uncaptured. Delivered electrical power can come from
 stored/startup/auxiliary energy unless the full plant ledger closes. No tier
 promotes to the next tier without the next receipt. $\square$
 
-## Theorem 12: OPH Fusion Repair Ledger Theorem
+## Ledger Summary and Promotion Contract
 
-**Statement.** Given an OPH Fusion Repair Ledger $\mathfrak L^{\rm fus}_r$
-with quotient-visible state space $Q_r$, fusion mismatch
-$\Phi^{\rm fus}_r$, boundary-repair operator $T^{\rm BR}_r$, edge repair
-map $T_E$, hard constraints $\mathcal H_r$, and claim gates
-$\mathsf{Gate}_r$, the following hold:
+Given an OPH Fusion Repair Ledger $\mathfrak L^{\rm fus}_r$ with a validated
+quotient state space $Q_r$, mismatch $\Phi^{\rm fus}_r$, substrate evolution,
+boundary-repair operator $T^{\rm BR}_r$, edge map $T_E$, physical constraints
+$\mathcal H_r$, and separate claim gates $\mathsf{Gate}_r$, the proposal makes
+the following conditional identifications:
 
-1. A confinement regime is a quotient normal form
+1. A finite regulator may represent a confinement regime by a quotient normal
+   form
    ```math
    \mathrm{nf}_{\mathfrak L}(q_0).
    ```
-2. H-mode is the contracting edge normal form
+   This requires termination/confluence and a validated map back to plasma
+   observables.
+2. A contracting admissible edge normal form is an H-mode candidate model
    ```math
-   \{q:T_E(q)=q,\ \kappa_E(q)<1,\ 
-   \Phi_{\rm stab},\Phi_{\rm exhaust}\le\epsilon\}.
+   \mathcal N_E
+   =\{q\in\mathcal B_E:T_E(q)=q,\;
+   \Phi_{\rm stab}(q),\Phi_{\rm exhaust}(q)\le\epsilon\},
+   \qquad \kappa_E^{\rm basin}<1.
    ```
-3. The OPH L-H threshold is
+   The H-mode label requires held-out comparison with physical transition data.
+3. The model L-H diagnostic is
    ```math
    P_{LH}^{\rm OPH}
    =
-   \inf\{P_{\rm aux}:\kappa_E<1
+   \inf\{P_{\rm aux}:\kappa_E^{\rm basin}<1
    \text{ under hard constraints}\}.
    ```
-4. ELMs are obstruction/reset cycles.
-5. Lawson is the scalar energy-record projection
+   It is not a first-principles threshold prediction until the other operating
+   variables and hysteresis branch are fixed and validation passes.
+4. ELM-like obstruction/jump cycles are represented by the hybrid return map
+   of Conditional Model 8; physical ELM identity and control benefit remain
+   empirical.
+5. The Lawson balance is the scalar energy-record projection
    ```math
    P_{\rm ch}+P_{\rm aux}\ge W/\tau_E.
    ```
@@ -1124,7 +1297,7 @@ $\mathsf{Gate}_r$, the following hold:
 7. A reactor-enabling OPH controller must beat matched conventional controllers
    by the declared lower-confidence-bound score:
    ```math
-   \mathrm{LCB}_{95}(\log G_{\rm OPH})
+   \mathrm{LCB}_{95}(\Delta M_{\rm OPH})
    >
    \log(1+\delta).
    ```
@@ -1133,24 +1306,19 @@ $\mathsf{Gate}_r$, the following hold:
    L_{\rm plant}>5u_L.
    ```
 
-**Proof.** The quotient and visibility statements follow from Theorem 1.
-Record survival and Lawson recovery follow from Theorems 2 and 3. Finite exact
-normal forms follow from Theorem 4. Noisy approximate confinement follows from
-Theorem 5. H-mode follows from the proximal edge contraction theorem,
-Theorem 6, plus the confinement improvement result, Theorem 7. ELM obstruction
-follows from Theorem 8. Loss-channel closure follows from Theorem 9.
-Hydrosahedron carrier status follows from Theorem 10. Non-promotion follows
-from Theorem 11. The score and plant gates are definitions of the promoted
-reactor claim. Hence $\mathfrak L^{\rm fus}_r$ is the mathematical object
-that closes the OPH account of fusion confinement as boundary repair. $\square$
+Items 1--5 are conditional mathematics or standard energy identities; items
+6--8 are classification and evidence rules. Together they define what an OPH
+fusion claim would have to report. They do not close the physical confinement
+or reactor problem without the corresponding public evidence.
 
 ## Scope
 
-Fusion confinement is the normal-form theory of
-$\mathfrak L^{\rm fus}_r$. The scalar Lawson row is one projection of a
-larger boundary ledger. H-mode, ELMs, acoustic-carrier control, DD products,
-heat, delivered load power, and net plant power occupy different proof and
-receipt tiers.
+This note proposes a normal-form and repair-ledger model for fusion confinement.
+The scalar Lawson row is one projection of a larger boundary ledger. H-mode
+correspondence, ELM dynamics, acoustic-carrier control, DD products, heat,
+delivered load power, and net plant power occupy different model and evidence
+tiers. A failure of one empirical branch does not become a success by relabeling
+it as another tier.
 
 ## References
 
@@ -1160,6 +1328,15 @@ receipt tiers.
   https://www.iaea.org/topics/energy/fusion/faqs
 - National Ignition Facility and Photon Science, "Achieving Fusion Ignition."
   https://lasers.llnl.gov/science/achieving-fusion-ignition
+- Lawrence Livermore National Laboratory, "National Ignition Facility - 2025."
+  https://annual.llnl.gov/fy-2025/national-ignition-facility-2025
+- J. D. Lawson, "Some Criteria for a Power Producing Thermonuclear Reactor,"
+  *Proceedings of the Physical Society B* **70** (1957), 6--10.
+  https://doi.org/10.1088/0370-1301/70/1/303
+- F. Wagner et al., "Regime of Improved Confinement and High Beta in
+  Neutral-Beam-Heated Divertor Discharges of the ASDEX Tokamak,"
+  *Physical Review Letters* **49** (1982), 1408--1412.
+  https://doi.org/10.1103/PhysRevLett.49.1408
 - P. T. Lang et al., "Overview of Edge Localized Modes Control in Tokamak
   Plasmas", EUROfusion, 2010.
   https://scipub.euro-fusion.org/wp-content/uploads/2014/11/EFDP10019.pdf
