@@ -7,9 +7,10 @@
 **Quick links:** [OPH website](https://floatingpragma.io/oph/) | [OPH Textbooks](https://learn.floatingpragma.io/) | [Book: Reverse Engineering Reality](https://oph-book.floatingpragma.io/) | [Ω](https://omega.floatingpragma.io/) | [Blog](https://blog.floatingpragma.io/) | [Tech](https://omega.floatingpragma.io/) | [Simulation](https://simulation.floatingpragma.io)
 
 **Falsifiability:** [OPH falsifiability map](extra/OPH_falsifiability.md)
-lists 40 hard OPH-killing outcomes and concrete IBM Quantum Cloud tests for
-the reduced-sector hardware signature. Falsifiability is how a physics theory
-pays rent. OPH is highly falsifiable: a massive graviton, a gauge-mediated
+lists 40 hard OPH-killing outcomes. The former IBM Quantum Cloud program is
+frozen as an engineering archive because its programmed circuits do not
+distinguish OPH from standard quantum mechanics. Falsifiability is how a
+physics theory pays rent. OPH is highly falsifiable: a massive graviton, a gauge-mediated
 proton decay event, a fourth light matter generation, a charge-lattice outlier,
 or a prospective exclusion of a source-closed neutrino branch would destroy the
 corresponding OPH claim. The former weighted-cycle neutrino point never reached
@@ -314,7 +315,7 @@ lower-level notes are linked with shorter summaries.
 - **[Thinking as Patch-Net Fixed-Point Search](extra/thinking_as_patch_net_fixed_point_search.pdf)**: cognition and qualia as recurrent patch consensus across neural or artificial self-reading substrates.
 - **[Theoretical Bounds on \(\chi_\nu\) in Observer-Patch Holography](extra/chi_nu_susceptibility_bounds.pdf)**: coherent-matter same-channel theorem, finite channel bridge, protected-reserve collar coefficient \(\chi_\nu^{\rm can}=e^{-P_\chi/24}\), finite-thickness band, conservation-law energy cage, and engineering chart values with device force and cosmological dark stress kept as separate receipt gates.
 - **[Entanglement Geometry Problem in OPH](extra/ENTANGLEMENT_GEOMETRY_PROBLEM_OPH.md)**: note on entanglement geometry as an observer-overlap and record-surface problem.
-- **[IBM Quantum Cloud Tests](extra/IBM_QUANTUM_CLOUD.md)**: reduced-sector hardware-test notes for OPH-facing IBM Quantum experiments.
+- **[Frozen IBM Quantum Cloud Engineering Archive](extra/IBM_QUANTUM_CLOUD.md)**: completed reduced-sector and record-gated hardware demonstrations. They are retained for reproducibility, not as OPH-versus-QM evidence, pending a quantitative discriminator.
 - **[Common Objections](extra/COMMON_OBJECTIONS.md)**: short responses to frequent conceptual and technical objections.
 - **[Hacking the Simulation: Anti-Gravity Exploit](extra/hacking-the-simulation-anti-gravity-exploit.pdf)**: pop-science OPH-adjacent engineering book about the local chi-nu lift test. The [Markdown source chapters](extra/hacking-the-simulation-anti-gravity-exploit/) are included with the repo so OPH Sage can ingest the same text during re-ingestion.
 
@@ -460,7 +461,7 @@ formulas and claim boundaries live in the papers.
 - **OPH Notebook:** [NotebookLM source notebook](https://notebooklm.google.com/notebook/d5249760-6ce8-44a0-927b-ccf90402711a) with explainer videos and additional study material.
 - **Lab:** [oph-lab.floatingpragma.io](https://oph-lab.floatingpragma.io)
 - **Common objections:** [extra/COMMON_OBJECTIONS.md](extra/COMMON_OBJECTIONS.md)
-- **IBM Quantum note:** [extra/IBM_QUANTUM_CLOUD.md](extra/IBM_QUANTUM_CLOUD.md)
+- **Frozen IBM Quantum engineering archive:** [extra/IBM_QUANTUM_CLOUD.md](extra/IBM_QUANTUM_CLOUD.md)
 
 ## Repository Guide
 

@@ -1,4 +1,9 @@
-# Issue 509 blinded IBM Quantum benchmark
+# Frozen Issue 509 Blinded IBM Quantum Engineering Benchmark
+
+> **Archive status:** this completed run is frozen. It remains strong evidence
+> for the programmed controller against its restricted frozen nulls, but it has
+> no power to distinguish OPH from standard quantum mechanics, which predicts
+> the same dynamic circuit.
 
 This is the public evidence bundle for the production-random
 `issue509-20260711-v2` run completed on 11 July 2026. The frozen blind verdict

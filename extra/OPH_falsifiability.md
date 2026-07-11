@@ -388,20 +388,20 @@ Falsification:
 Precision measurements land outside these fixed coordinates after scheme
 conversion is locked before comparison.
 
-## IBM Quantum Cloud Tests
+## Frozen IBM Quantum Cloud Engineering Archive
 
-The IBM quantum-cloud material gives small, public hardware tests with
-controls. Its scope is reduced-sector evidence.
+The former IBM quantum-cloud test program is frozen. Its circuits are useful
+engineering demonstrations with public controls, but standard quantum
+mechanics predicts every programmed target. Success or failure can validate or
+break a preparation, readout, analysis, or feedback implementation; it cannot
+discriminate OPH from quantum mechanics.
 
-These are real disproof routes for the reduced-sector hardware claims. A
-failure removes the specific claim that these small observer-overlap circuits
-carry the advertised OPH fingerprint.
-
-For every run, the reader should fix the protocol before looking at the result:
-chip choice, layout policy, shot count, target number, pass/fail threshold,
-calibration rules, and blind analysis rule. The raw counts, calibration data,
-and final analysis should be kept together. A good replication uses at least two
-IBM chips, or two chip/layout pairs on one chip.
+More shots, chips, or blinding do not repair the missing model contrast. The
+program may reopen only after OPH supplies a source-closed observable with a
+different numerical QM prediction, an effect size, an identifiable noise
+model, an audit against existing constraints, and a preregistered decision
+rule. The following software, evidence checklist, and experiment recipes are
+retained only to document the frozen archive.
 
 Minimum software stack:
 
@@ -424,7 +424,11 @@ Minimum evidence bundle:
 9. Bootstrap confidence intervals.
 10. Blind-analysis notes.
 
-### Concrete IBM Experiments The Reader Can Run
+### Archived IBM Engineering Experiments (Frozen)
+
+The “failure outcomes” below concern only the corresponding implementation.
+They are not OPH falsifiers and are not an invitation to fund another hardware
+campaign without first passing the discriminator gate above.
 
 #### 1. Recovery Fingerprint
 
@@ -445,7 +449,7 @@ Measurement:
 4. Compute conditional mutual information.
 5. Compute quantum-recovery fidelity and trace distance.
 
-Falsifying outcome:
+Engineering failure outcome:
 
 The structured low-overlap states fail to recover better than GHZ and random
 controls on two calibrated chips, or recovery fails to improve as conditional
@@ -453,8 +457,8 @@ mutual information drops.
 
 Why:
 
-This removes the claimed overlap-recovery fingerprint. OPH says lower mismatch
-in the overlap should make recovery easier.
+This would remove the advertised overlap-recovery behavior from this prepared-
+state implementation. It would not distinguish OPH from QM.
 
 #### 2. Three-State Sanity Test
 
@@ -481,15 +485,15 @@ t1 = -log(p1 / p0) / 3
 t2 = -log(p2 / p0) / 3
 ```
 
-Falsifying outcome:
+Engineering failure outcome:
 
 The two time estimates disagree outside the pre-fixed error window on clean
 hardware while the local backend, leakage, and readout calibration pass.
 
 Why:
 
-This breaks the heat-flow benchmark itself. If the three-state sanity check
-fails, the five-state and six-state signatures lose their hardware basis.
+This breaks the encoded heat-flow sanity check. It diagnoses the circuit or
+readout path, not a difference between OPH and QM.
 
 #### 3. Five-State Golden-Ratio Test
 
@@ -520,14 +524,15 @@ delta2 = -log(p2 / p0)
 ratio = delta2 / delta1
 ```
 
-Falsifying outcome:
+Engineering failure outcome:
 
 High-shot runs on clean layouts and two chips exclude `2.618033988749895` with
 the pre-fixed confidence interval, while the three-state sanity test passes.
 
 Why:
 
-This removes the advertised five-state golden-ratio signature.
+This removes the advertised ratio from this prepared-state implementation. QM
+still predicts the ideal target circuit.
 
 #### 4. High-Shot Five-State Retest
 
@@ -547,16 +552,16 @@ Measurement:
 
 Use the same ratio estimator as the five-state golden-ratio test.
 
-Falsifying outcome:
+Engineering failure outcome:
 
 The high-shot confidence interval excludes `2.618033988749895` after
 calibration and blind analysis.
 
 Why:
 
-The public bundle has a high-shot reading near `2.5498`, below the target. A
-clean replication of that miss is a sharp disproof of the five-state hardware
-signature.
+The public bundle already has a high-shot reading near `2.5498`, whose interval
+is below the target. That is a useful hardware diagnostic, not an OPH
+falsification.
 
 #### 5. Six-State Nonabelian Layout Test
 
@@ -600,15 +605,15 @@ The target is:
 2
 ```
 
-Falsifying outcome:
+Engineering failure outcome:
 
 No clean layout lands near `2`, or the target appears only after choosing the
 layout with knowledge of the target.
 
 Why:
 
-This removes the six-state nonabelian signature. It also detects whether the
-result is a layout artifact.
+This diagnoses failure or layout sensitivity in the six-state implementation.
+It does not select between OPH and QM.
 
 #### 6. Blind Relabeling Test
 
@@ -622,14 +627,13 @@ Measurement:
 2. Record the hit rate for random labelings.
 3. Compare the two hit rates using the same target intervals.
 
-Falsifying outcome:
+Engineering failure outcome:
 
 Random label orders hit the target as often as the OPH-favored order.
 
 Why:
 
-This turns the target into a labeling artifact. A real symmetry signature should
-survive blind relabeling in the way specified before the run.
+This would expose a labeling artifact in the implementation analysis.
 
 #### 7. Decoy-Spectrum Test
 
@@ -640,16 +644,16 @@ Measurement:
 
 Use the same ratio estimators as the OPH tests.
 
-Falsifying outcome:
+Engineering failure outcome:
 
 Decoys produce target hits as often as the OPH circuits.
 
 Why:
 
-This removes specificity. If unrelated spectra hit the same targets, the
-targets are not evidence for OPH structure.
+This removes controller-level specificity. Even successful specificity against
+these decoys would not create OPH-versus-QM specificity.
 
-### IBM Bundle Readings To Beat
+### Archived IBM Bundle Readings
 
 | Reading | Bundle value |
 | --- | --- |
@@ -660,23 +664,18 @@ targets are not evidence for OPH structure.
 | High-shot five-state stress point | ratio `2.5498`, below target |
 | Six-state nonabelian layout test | one layout gives about `1.872`; reversed layout gives about `2.030`; target `2` |
 
-### IBM Disproof Rule
+### Former IBM Disproof Rule (Withdrawn)
 
-An IBM result counts as a reduced-sector disproof if all of these hold:
-
-1. The target and tolerance are written down before submission.
-2. Simulator controls pass.
-3. Readout calibration passes.
-4. Leakage stays below the pre-fixed limit.
-5. The three-state sanity test passes in the same run batch.
-6. Two chips or chip/layout pairs exclude the OPH target.
-7. The raw counts and analysis notebook are public enough for an outsider to
-   rerun the statistics.
+No result from the present circuit family counts as an OPH-versus-QM disproof
+or confirmation, because the two descriptions do not make different
+predictions for these interventions. The former calibration, leakage,
+two-system, and public-count requirements remain good engineering practice,
+but they cannot substitute for a numerical theory discriminator.
 
 ## Falsification Ladder
 
-This ladder contains hard OPH-killing tests. The IBM cloud tests above have
-their own scope: they kill the reduced-sector hardware claim.
+This ladder contains hard OPH-killing tests. The frozen IBM archive above is
+excluded from the ladder; it tests only its engineered implementations.
 
 Difficulty:
 

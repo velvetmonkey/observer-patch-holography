@@ -1,11 +1,13 @@
-# Blinded Generative Repair Kernel for IBM Quantum
+# Frozen Blinded Generative Repair Kernel for IBM Quantum
 
 ## Status
 
-This document defines the fixed-cutoff acceptance protocol for GitHub issue
-`#509`. It is a declared, falsifiable hardware model and implementation
-contract, not a hardware-run receipt. It is not a new OPH theorem and it does
-not claim that repair dynamics select a physical vacuum.
+This completed issue `#509` protocol is frozen as an engineering and
+reproducibility artifact. It defines a falsifiable implementation contract,
+not an OPH-versus-quantum-mechanics test. Standard quantum mechanics predicts
+the programmed instrument, so no new hardware campaign should extend this
+protocol as OPH evidence until a quantitative discriminator exists. The
+completed run receipt is archived separately.
 
 The source boundary matters. The finite-quotient theorem surface says that
 normal-form settlement does not select a probability law and that a repair
@@ -287,9 +289,10 @@ a factorized causal channel for the primary dynamic-circuit likelihood.
 
 The primary contamination model and its sensitivity alternatives are frozen
 before held-out execution and are never refit on held-out outcomes. A failed
-joint basis-calibration control or more than `10%` leakage in any locked row
-makes the benchmark invalid rather than unfavorable. No mitigation or
-postselection can rescue either gate.
+joint basis-calibration control, pooled leakage above `10%` in any locked
+backend/family cell, or leakage above `25%` in any individual circuit makes the
+benchmark invalid rather than unfavorable. No mitigation or postselection can
+rescue any of these gates.
 
 ## Failure Rule
 

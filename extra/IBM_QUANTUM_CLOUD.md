@@ -1,4 +1,11 @@
-# IBM Quantum Cloud Evidence for OPH
+# Frozen IBM Quantum Cloud Engineering Archive
+
+> **Frozen on 11 July 2026.** These experiments are retained as engineering
+> consistency demonstrations and public receipts. They do not distinguish OPH
+> from standard quantum mechanics: QM predicts every prepared state, dynamic
+> circuit, measurement record, and feedback operation used here. No further
+> quantum-cloud campaign should be presented as OPH evidence until OPH supplies
+> a quantitative observable on which its prediction differs from QM.
 
 ## Informal story
 
@@ -8,11 +15,11 @@ that structure on IBM quantum hardware. The first campaign checked whether
 prepared OPH-motivated states survived hardware execution and readout. A later
 blinded campaign tested a stronger, generative question: whether a bounded
 patch could read a local boundary record and apply the preregistered repair
-move on two held-out backend/layout roles.
+move on one development and one held-out backend/layout role.
 
 - Stage 1 asks a structural question: do OPH-like local states look more Markovian and more recoverable than generic or strongly non-Markovian controls?
 - `Z_3` asks whether the simplest reduced-sector encoding is internally self-consistent.
-- `Z_5` asks for a sharp exact-ratio target: does the measured ratio land near the OPH golden-ratio value?
+- `Z_5` asks whether the measured ratio reproduces a programmed golden-ratio target.
 - `S_3` asks the same kind of question in the first nonabelian case, where representation dimensions matter and the target ratio is `2`.
 - The blinded generative benchmark asks whether a measured record, rather than
   an initial amplitude alone, selects the correct finite repair against frozen
@@ -23,7 +30,7 @@ The first campaign is state-preparation and readout consistency evidence. The
 blinded campaign is implementation evidence for an observer-like self-reading
 patch with local state, a measured boundary, a record, conditional feedback,
 final readback, append-only receipts, and a public evidence bundle. Neither
-campaign distinguishes OPH from unrestricted quantum mechanics.
+campaign supplies evidence for OPH over unrestricted quantum mechanics.
 
 ## What these tests actually are
 
@@ -33,18 +40,21 @@ The names `Z_3`, `Z_5`, and `S_3` come from simple symmetry groups.
 - `Z_5` means a 5-step cyclic symmetry: the same idea, but with five positions.
 - `S_3` means the six permutations of three objects: it is the smallest genuinely nonabelian case, so order matters.
 
-These are small toy symmetry systems. They are useful because OPH makes clean statements about what the reduced local probability pattern should look like in such sectors. Failure in these tiny cases would be a serious warning sign. Success in these cases is evidence that the OPH structural picture is pointing in the right direction.
+These are small toy symmetry systems. They are useful for checking that the
+OPH-motivated encodings and analysis are internally coherent. Because the
+target patterns are directly prepared with standard quantum gates, success is
+not evidence that OPH is favored over quantum mechanics.
 
 ## What the hardware is doing, informally
 
 The original exact-ratio experiments have the same broad shape:
 
-1. pick a tiny reduced sector where OPH predicts a definite probability structure;
+1. pick a tiny reduced sector where the OPH construction specifies a probability structure;
 2. encode that sector into 2 or 3 qubits;
 3. prepare the corresponding state on a real IBM device;
 4. measure many shots;
 5. reconstruct the probabilities from the counts;
-6. compare the measured pattern with the OPH target.
+6. compare the measured pattern with the programmed OPH-motivated target.
 
 The blinded generative experiment instead prepares balanced finite inputs,
 measures a decision record, conditionally applies repair, and retains every
@@ -75,7 +85,9 @@ The intuition is straightforward:
 - sectors with larger dimension `d_R` get more multiplicity weight;
 - `t` controls how strongly the suppression acts.
 
-So the experiment is really checking whether the relative weights of the measured sectors fall off with the OPH-predicted exponential pattern.
+So the experiment checks whether the relative measured weights reproduce the
+exponential pattern encoded by the circuit. Standard quantum mechanics makes
+the same prediction for that preparation.
 
 The measured probabilities are then turned into log-gaps
 
@@ -142,9 +154,12 @@ If `t_1` and `t_2` agree, the reduced-sector preparation and readout path is beh
 
 where `\varphi` is the golden ratio.
 
-That makes `Z_5` much stronger than a vague "looks about right" test. The obvious wrong alternatives, such as `2` and `4`, are well separated from the OPH target.
+That makes `Z_5` a sharper engineering check than a vague "looks about right"
+test. Obvious wrong alternatives such as `2` and `4` are well separated from
+the programmed target, although QM predicts that target too.
 
-`Z_5` matters because it asks for a very specific nontrivial number with very little room for interpretation.
+`Z_5` is useful as an engineering check because it asks for a specific
+nontrivial number with little room for interpretive adjustment.
 
 ### `S_3`
 
@@ -170,9 +185,10 @@ So the parameter-free prediction is
 
 `S_3` is the first nonabelian case in this ladder. It is the first test where the representation dimension plays an essential role in the observable.
 
-## Public code and data
+## Frozen public code and data
 
-The runnable code and representative raw outputs are stored in:
+The runnable code, representative legacy derived summaries, and complete
+blinded-run evidence are stored in:
 
 - `code/ibm_quantum_cloud/programs/`
 - `code/ibm_quantum_cloud/qc_data/`
@@ -183,7 +199,7 @@ hardware outputs, the `S_3` layout diagnostic, and the complete blinded
 generative run: manifest, lock, reveal, provider job IDs, raw joined counts,
 calibration receipts, packet, blind report, hashes, and replay commands.
 
-## Results
+## Frozen archived results
 
 In the tables below, `Prepared t` is the operating point used to prepare the state. The main tested observable depends on the experiment.
 
@@ -191,14 +207,14 @@ In the tables below, `Prepared t` is the operating point used to prepare the sta
 - In `Z_5`, the tested observable is the ratio `Δ₂/Δ₁`, so the comparison is expected `φ²` versus measured `Δ₂/Δ₁`.
 - In `S_3`, the tested observable is the ratio `Δ_sign/Δ_std`, so the comparison is expected `2` versus measured ratio.
 
-### Stage 1: positive on two real backends
+### Stage 1: programmed ordering reproduced on two backends
 
 Hardware runs:
 
 - `ibm_marrakesh`, job `d6t4da6sh9gc73di7720`
 - `ibm_fez`, job `d6t4ejngtkcc73cm8l6g`
 
-OPH prediction and reason:
+Programmed target and reason:
 
 OPH favors locally structured states with lower conditional mutual information and better recoverability. For this benchmark, that gives three direct expectations:
 
@@ -208,7 +224,7 @@ OPH favors locally structured states with lower conditional mutual information a
 
 Measured comparison:
 
-| OPH prediction | Expected relation | `ibm_marrakesh` | `ibm_fez` | Result |
+| Programmed target | Expected relation | `ibm_marrakesh` | `ibm_fez` | Result |
 | --- | --- | --- | --- | --- |
 | structured state has lower CMI than random control | true | `0.2309 < 0.3890` | `0.1498 < 0.4992` | pass |
 | structured state has lower CMI than GHZ control | true | `0.2309 < 0.9474` | `0.1498 < 0.9166` | pass |
@@ -229,13 +245,13 @@ On both backends, the most structured state reconstructs below both controls in 
 
 The Stage 1 export also preserves the fixed random-control choice recorded in the run catalog: `random_seed_2` was selected from a small candidate seed set by exact CMI before the hardware run.
 
-### `Z_3`: clean pass
+### `Z_3`: internal-consistency pass
 
 Hardware run:
 
 - `ibm_marrakesh`, job `d6t4ic790okc73et0n4g`
 
-OPH prediction and reason:
+Programmed target and reason:
 
 In `Z_3`, the two nontrivial sectors have the same eigenvalue `lambda = 3`, so both channels should return the same heat-kernel time. The expected measured value is therefore the prepared `t` itself.
 
@@ -247,7 +263,7 @@ In `Z_3`, the two nontrivial sectors have the same eigenvalue `lambda = 3`, so b
 
 The extracted `t` value stays within about `0.02` of the prepared `t` at all three operating points, and the two independent extractions agree closely. This is a clean internal-consistency success.
 
-### `Z_5`: repeated golden-ratio support
+### `Z_5`: prepared-state readings around the programmed ratio
 
 Hardware runs:
 
@@ -256,9 +272,9 @@ Hardware runs:
 - `ibm_fez`, job `d6t4ipvgtkcc73cm8qg0`
 - focused high-shot `ibm_marrakesh` rerun, job `d6t50e790okc73et186g`
 
-OPH prediction and reason:
+Programmed target and reason:
 
-In `Z_5`, the gap ratio is fixed by the Laplacian spectrum. OPH predicts:
+In `Z_5`, the gap ratio is fixed by the programmed Laplacian spectrum:
 
 `Delta2 / Delta1 = lambda2 / lambda1 = phi^2 ~= 2.6180`
 
@@ -288,25 +304,29 @@ Second `ibm_marrakesh` sweep:
 | `0.60` | `2.6180` | `2.4068` | `0.2113` | `8.1%` | `0.0521` | `0.66%` |
 | `0.90` | `2.6180` | `2.4610` | `0.1570` | `6.0%` | `0.0537` | `0.54%` |
 
-Focused high-shot confirmation at `t = 0.90`:
+Focused high-shot follow-up at `t = 0.90`:
 
 | Backend | Expected `Delta2 / Delta1` | Measured `Delta2 / Delta1` | Abs. ratio error | Relative error | Internal abs. `t1 - t2` | Leakage |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | `ibm_marrakesh` | `2.6180` | `2.5498` | `0.0682` | `2.6%` | `0.0238` | `0.31%` |
 
-The best `ibm_marrakesh` points land within `0.8%`, `1.2%`, and `1.5%` of the OPH target. The noisier points remain in the same neighborhood. The `ibm_fez` run is visibly weaker, but it does not produce a clean contradiction.
+The best `ibm_marrakesh` points land within `0.8%`, `1.2%`, and `1.5%` of the
+programmed target. The noisier points spread more widely, and the separate
+high-shot interval excludes the exact target. In every case, QM predicts the
+prepared circuit rather than a competing value.
 
-### `S_3`: layout bias diagnosed and corrected
+### `S_3`: layout-sensitive post-hoc follow-up
 
 Hardware diagnostic bundle:
 
 - base layout `ibm_marrakesh`, job `d6t5c47gtkcc73cm9pd0`
 - reversed layout `ibm_marrakesh`, job `d6t5cdvgtkcc73cm9pr0`
-- direct reversed-layout confirmation, job `d6t5csmsh9gc73di8e8g`
+- direct reversed-layout repeat, job `d6t5csmsh9gc73di8e8g`
 
-OPH prediction and reason:
+Programmed target and reason:
 
-In `S_3`, the one-plaquette reduced sector has `lambda_sign = 6` and `lambda_std = 3`, so OPH predicts:
+In `S_3`, the programmed one-plaquette reduced sector has `lambda_sign = 6`
+and `lambda_std = 3`, so the target is:
 
 `Delta_sign / Delta_std = 2.0000`
 
@@ -319,7 +339,7 @@ At `t = 0.60`:
 | reversed layout `[8, 7]`, raw | `2.0000` | `2.0348` | `0.0348` | `1.7%` | `0.0172` | `0.04%` |
 | reversed layout `[8, 7]`, mitigated | `2.0000` | `2.0299` | `0.0299` | `1.5%` | `0.0148` | `0.01%` |
 
-Direct confirmation of the corrected mapping:
+Direct repeat of the selected mapping:
 
 - `ibm_marrakesh`, seed `17`, job `d6t5csmsh9gc73di8e8g`
 - expected ratio `2.0000`
@@ -329,9 +349,11 @@ Direct confirmation of the corrected mapping:
 - `Δt/t = 0.0323`
 - leakage `0.01%`
 
-This result matters because the initial low `S_3` values were largely a layout-dependent hardware bias. After that bias is diagnosed and the mapping is corrected, the nonabelian target ratio returns on hardware very close to `2`.
+The physical mapping clearly changes the extracted value. Because the reversed
+mapping was selected after the first result was seen, its near-target repeat is
+a useful device diagnostic, not a blinded confirmation of the ratio.
 
-### Blinded generative repair: preregistered pass on two QPUs
+### Frozen blinded generative repair: preregistered engineering pass
 
 The production-random `issue509-20260711-v2` run used `ibm_fez` for the
 development role and submitted the held-out `ibm_kingston` role only after the
@@ -352,43 +374,27 @@ normalized-OpenQASM logical-circuit hashes verified. The raw receipts and exact
 replay are public in
 `code/ibm_quantum_cloud/runs/issue_509_20260711_v2/`.
 
-## Assessment of the evidence
+## Frozen assessment and interpretation boundary
 
-> On IBM quantum hardware, the exact-ratio campaign validates preparation and
-> readout of OPH-motivated reduced-sector states. The blinded generative
-> campaign adds stronger evidence that an engineered finite self-reading patch
-> can execute record-gated repair against its frozen reduced-controller nulls
-> on two QPUs.
+The engineering outcomes are real:
 
-The main caveats are:
+- the legacy runs show how well IBM devices prepared and read the selected
+  finite-sector states, including visible layout sensitivity;
+- Stage 1's offline reconstruction preserved its intended ordering on two
+  backends; and
+- the blinded run strongly identifies the programmed record-gated controller
+  against its restricted null family and provides unusually complete receipts.
 
-- these are IBM hardware consistency benchmarks for OPH-inspired reduced-sector states;
-- `S_3` revealed a real layout-dependent hardware bias, and the corrected layout restores the target ratio;
-- `Z_5` and `S_3` show that OPH-shaped small-sector states can be prepared and read out with nontrivial fidelity on real hardware.
-- the generative pass tests an engineered observer-like implementation, not
-  OPH against unrestricted quantum mechanics;
-- the reported primary values are conditional likelihood ratios, not Bayes
-  factors, because calibration uncertainty is stress-tested by frozen
-  sensitivity bounds rather than fully marginalized.
+Their evidentiary weight for **OPH versus standard quantum mechanics is zero**.
+The state experiments directly encode the target amplitudes. The dynamic
+experiment uses standard measurement, a classical record, and standard
+conditional feedback. Its likelihood ratios are controller-versus-controller
+comparisons, not OPH-versus-QM comparisons, and they are not Bayes factors for
+OPH.
 
-The new result is stronger than state preparation alone because the output is
-selected by a measured finite record and feedback. It is still an
-implementation-level result under standard quantum mechanics.
-
-## Interpretation boundary
-
-These experiments cover small reduced sectors and one bounded self-reading
-implementation.
-
-- The exact-ratio experiments directly prepare OPH-motivated reduced-sector amplitudes, so the result is that the predicted structure survives real-hardware preparation and measurement in a nontrivial way.
-- Stage 1 is a real structural success, recoverability behavior by itself also appears in frameworks beyond OPH, and its random control was chosen from a fixed candidate pool.
-- The generative experiment instantiates local state, a port or boundary,
-  readback, a record, conditional feedback, and public receipts. Its pass says
-  that this finite implementation beats the listed frozen controllers, label
-  mixture, calibrated-noise model, and decoy checks.
-
-Standard quantum mechanics predicts the programmed circuits. These results do
-not establish OPH claims about relativity, the Standard Model, cosmology, or
-ontology, and they do not compare OPH with unrestricted quantum theory. They
-provide auditable hardware evidence for the narrower prepared-state and
-self-reading-implementation claims stated above.
+More shots, qubits, IBM backends, or blinding would improve engineering
+replication without repairing that missing theory contrast. The archive is
+therefore frozen until OPH produces a source-closed observable with a numerical
+QM disagreement, predicted effect size, nuisance model, audit against existing
+bounds, and preregistered decision rule. The detailed reactivation gate is in
+[`../code/ibm_quantum_cloud/README.md`](../code/ibm_quantum_cloud/README.md).
