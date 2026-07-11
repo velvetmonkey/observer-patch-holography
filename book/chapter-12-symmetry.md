@@ -237,13 +237,17 @@ A conserved current on the screen creates a gauge boson in the bulk.
 
 In this book we take a different route. The gauge group is not assumed in
 advance. Instead, we look at what happens when you glue observer patches
-together: fixed-cutoff edge charges fuse in specific ways, their transport data
-persists coherently across refinement, and the compatible multiplicity spaces
+together: fixed-cutoff edge charges generate a tensor category. On a cofinal
+tail carrying the compact-gauge refinement receipt, their transport data persist
+through coherent surjective pullbacks and the compatible forgetful fibers
 descend with them. A reconstruction theorem then lets you work backward from
 that persistent sector package to the symmetry group behind it.
 
-This is classification before selection. Zero obstruction says which sectors
-can be transported and which compact group their tensor data reconstructs. On
+This is classification before selection. The combined zero-obstruction test
+requires central triangle-class or noncentral higher-associator strictifiability
+and at least one allowed strict representative with trivial represented loop
+holonomy; together with the refinement receipt, it says which sectors can be
+transported and which compact group their tensor data reconstructs. On
 the realized one-Higgs low-energy branch, minimal admissible selection picks
 the physical gauge group $SU(3) \times SU(2) \times U(1)/\mathbb{Z}_6$. On
 that same branch, the minimal coupled carrier fixes the realized color triplet,

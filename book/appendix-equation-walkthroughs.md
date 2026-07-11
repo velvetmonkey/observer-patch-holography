@@ -265,9 +265,13 @@ $$Q=T_3+\frac{Y}{2}$$
 connects electric charge $Q$, weak isospin component $T_3$, and hypercharge
 $Y$. This is one of the basic bookkeeping equations of electroweak theory.
 
-OPH separates classification from selection here. Persistent zero-obstruction
-charge sectors and overlap consistency reconstruct a compact group through
-the Tannaka-Krein idea that a group can be read from its representations. The
+OPH separates classification from selection here. Persistent charge sectors
+must pass both the higher-associator test and the allowed strict-representative
+loop-holonomy test. On a
+cofinal tail carrying the explicit compact-gauge refinement receipt, those
+strictly transportable sectors have coherent surjective pullbacks and
+compatible forgetful fibers, and reconstruct a compact group through the
+Tannaka-Krein idea that a group can be read from its representations. The
 economy principle then narrows the admissible one-Higgs low-energy realization
 to the Standard Model branch.
 

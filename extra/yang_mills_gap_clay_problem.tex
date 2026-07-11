@@ -201,6 +201,7 @@ Notation & Meaning \\
 The compact-gauge branch used below satisfies the following branch-local conditions.
 \begin{enumerate}[(i)]
 \item the ordinary or central zero-obstruction compact-gauge sector survives refinement with compact simple structure group \(G\);
+\item the cofinal regulator tail satisfies the compact paper's explicit compact-gauge refinement receipt;
 \item the support-visible quotient carries a four-dimensional Euclidean scaling chart;
 \item the ordinary vacuum sector is reflection positive and has topological angle \(\theta=0\);
 \item the local finite-constraint MaxEnt/Gibbs family is gauge-invariant, Euclidean local, rotation-invariant, and refinement-stable;
@@ -238,9 +239,10 @@ This is the support-visible compact-gauge Yang--Mills form theorem of the compac
 where it appears as Theorem \texttt{thm:oph-4d-euclidean-yang-mills-form}~\cite{oph2}. The proof
 spine is recalled here because it fixes the target Hamiltonian for the mass-gap step.
 
-The compact-gauge branch reconstructs a compact group \(G\) from the zero-obstruction
-transportable bosonic sector category and its faithful fiber functor
-\cite{oph2}. At fixed cutoff, the declared compact-gauge patch-carrier presentation gives
+The present Yang--Mills branch takes compact simple \(G\) as branch data. When \(G\) is imported
+from OPH reconstruction, that import is conditional on the compact-gauge refinement receipt; on
+that tail the zero-obstruction transportable bosonic sector category and its faithful forgetful
+fiber functor reconstruct \(G\)~\cite{oph2}. At fixed cutoff, the declared compact-gauge patch-carrier presentation gives
 support-visible link holonomies and plaquette holonomies. In the refinement limit, the
 zero-obstruction gluing law makes infinitesimal rectangle holonomies multiplicative and
 path-local. The Cauchy/regularity certificate in items (Y1)--(Y3) upgrades the
@@ -652,13 +654,16 @@ and unital local \(^*\)-maps on the separated support-visible quotient,
 \iota_{rt}^{O}=\iota_{st}^{O_s}\iota_{rs}^{O}.
 \]
 These maps preserve local isotony, gauge invariance, repaired readbacks, and the
-zero-obstruction sector. Their sector-projector restriction is the finite algebra injection in the
-compact paper's refinement/fiber-descent theorem~\cite{oph2}. We use a countable cofinal regulator
+zero-obstruction sector. When this cylinder system is used on the compact paper's refinement-limit
+gauge branch, its sector-projector restriction must match the separately certified
+block-multiplicity injection in the compact-gauge refinement receipt~\cite{oph2}; that injection is
+not a consequence of deterministic coarse shadow. We use a countable cofinal regulator
 sequence and countable bounded-region exhaustion. The unrestricted directed version uses a subnet
 and product compactness instead. If every declared coarse configuration has a fine extension,
 \(p_{sr}\) is surjective and the full pullback is injective. Otherwise the \(C^*\)-inductive limit
 automatically quotients the common refinement-null kernel; Proposition~\ref{prop:extraction} does
-not require prelimit injectivity. Write
+not require prelimit injectivity. That noninjective quotient branch is not, by itself, the compact
+paper's receipt-certified sector ladder. Write
 \(\mathcal A_r^{G,\mathrm{sv}}:=\mathcal A_r^{G,\mathrm{sv}}(\Lambda_r)\).
 \end{definition}
 

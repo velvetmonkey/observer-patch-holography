@@ -404,7 +404,9 @@ chain.
 \label{ass:oph-yang-mills-branch}
 The compact-gauge branch used in this subsection is the ordinary or central zero-obstruction
 compact-gauge sector with compact simple structure group \(G\), a four-dimensional Euclidean
-scaling chart, reflection-positive ordinary vacuum, topological angle \(\theta=0\), gauge-invariant
+scaling chart, and a cofinal tail carrying the compact-gauge refinement receipt of
+Definition~\ref{def:compact-gauge-refinement-receipt}. It also has a reflection-positive ordinary
+vacuum, topological angle \(\theta=0\), gauge-invariant
 local finite-constraint MaxEnt/Gibbs refinement, no additional relevant dimension-four pure-gauge
 operator on the branch besides the positive quadratic curvature invariant, active exact-Markov
 repair collars, bounded-color collar covers, and repair completeness. It is carried on the
@@ -507,17 +509,20 @@ On local cylinders it gives the unital \(^*\)-map
 \qquad
 \iota_{rs}^{O}(a)=a\circ p_{sr}.
 \]
-The sector-projector part of this map is the injection
-\(\jmath_{rs}^{B}\) constructed in
-Theorem~\ref{thm:refinement-functor-fiber-descent}; the holonomy and readback parts are its
-coarse-shadow extension. The maps preserve isotony and obey
+On the compact-gauge refinement branch, the sector-projector part must agree with the separately
+supplied block-multiplicity injection \(\jmath_{rs}^{B}\) of
+Definition~\ref{def:compact-gauge-refinement-receipt}; it is not inferred from the deterministic
+coarse-shadow map. The holonomy and readback parts are its declared compatible extension. The maps
+preserve isotony and obey
 \[
 \iota_{rt}^{O}=\iota_{st}^{O_s}\iota_{rs}^{O}.
 \]
 If every coarse configuration on the selected branch has a fine extension, \(p_{sr}\) is
 surjective and \(\iota_{rs}^{O}\) is injective. Without that finite extendability receipt, the
 \(C^*\)-inductive limit quotients the common refinement-null kernel; the extraction proof below
-does not assume prelimit injectivity of the full cylinder map.
+does not assume prelimit injectivity of the full cylinder map. That broader quotient extraction is
+not, by itself, the receipt-certified sector ladder of
+Theorem~\ref{thm:refinement-functor-fiber-descent}.
 Write \(\mathcal A_r^{G,\mathrm{sv}}:=
 \mathcal A_r^{G,\mathrm{sv}}(\Lambda_r)\).
 Choose a countable cofinal regulator sequence and a countable bounded-region exhaustion of the
@@ -735,8 +740,10 @@ transfer semigroup is the corresponding Euclidean Yang--Mills semigroup.
 
 \begin{proof}
 The proof spine is included here to make the branch target explicit.
-The compact-gauge branch reconstructs the compact group \(G\) from the zero-obstruction
-transportable bosonic sector category and its faithful fiber functor. At fixed cutoff, the finite
+The present Yang--Mills branch takes compact simple \(G\) as branch data. When \(G\) is imported
+from OPH reconstruction, that import is conditional on the compact-gauge refinement receipt; on
+that tail the zero-obstruction transportable bosonic sector category and its faithful forgetful
+fiber functor reconstruct \(G\). At fixed cutoff, the finite
 gauge-register / quantum-link presentation gives support-visible link holonomies and plaquette
 holonomies. In the refinement limit, the zero-obstruction gluing law makes infinitesimal
 rectangle holonomies multiplicative and path-local. The regularity and Cauchy bounds in
@@ -778,7 +785,8 @@ repair-dynamics theorem proves a spectral gap for that Hamiltonian.
 
 \paragraph{Standing compact-gauge setup.}
 Fix a compact simple gauge group \(G\) carried by an OPH compact-gauge zero-obstruction vacuum
-branch, realized at fixed cutoff by the declared compact-gauge patch-carrier architecture. For
+branch on a cofinal tail satisfying Definition~\ref{def:compact-gauge-refinement-receipt}, realized
+at fixed cutoff by the declared compact-gauge patch-carrier architecture. For
 each regulator \(r\), let
 \[
 (\mathcal H_r,\Omega_r,H_r),\qquad T_r(t)=e^{-tH_r},
@@ -800,7 +808,7 @@ E_C:K_r\to K_r
 \]
 be conditional expectation onto the \(\rho_C\)-measurable functions. This subsection stays on the
 ordinary or central zero-obstruction vacuum branch where the compact-gauge reconstruction ladder is
-carried at theorem level in the compact paper.
+carried by the explicit refinement receipt used in the compact paper.
 
 \begin{proposition}[Local exact repair equals conditional expectation]
 \label{prop:sv-repair-expectation}

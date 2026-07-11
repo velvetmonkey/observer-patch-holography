@@ -287,7 +287,11 @@ This is the mathematical heart of the recovery rule: **redundancy implies recons
 Small CMI gives a recovered comparison state with controlled error. Exact HJPW
 factorization, exact splice identities, and exact modular additivity require
 either \(I(A:C|B)=0\) literally or a controlled collar family whose
-distance to the exact Markov set tends to zero.
+distance to the exact Markov set tends to zero — and, wherever the factorization
+is taken over the preselected edge factors rather than the state's own HJPW
+split, the additional Markov-split alignment hypothesis stated in the compact
+paper. Zero CMI alone does not align the split: a Bell pair laid across the cut
+is exactly Markov yet factorizes the opposite way.
 
 ## 7.8 Example Calculations
 

@@ -220,12 +220,14 @@
     },
     {
       "claim_id": "OPH-GAUGE-D7-D9",
-      "statement": "The zero-obstruction bosonic sector category and MAR realized branch recover the Standard Model quotient, exact hypercharge, three colors, and three generations on the declared one-Higgs matter package.",
+      "statement": "On a cofinal tail carrying the compact-gauge refinement receipt, the combined-zero-obstruction bosonic sector category and MAR realized branch recover the Standard Model quotient, exact hypercharge, three colors, and three generations on the declared one-Higgs matter package.",
       "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
       "tier": "realized_branch_theorem",
       "assumptions": [
         "zero_obstruction_bosonic_branch",
         "transportable_sector_category",
+        "compact_gauge_refinement_receipt",
+        "finite_tensor_realization_receipt",
         "MAR_admissible_class",
         "realized_one_generation_chiral_matter_plus_one_Higgs_package"
       ],
@@ -235,12 +237,12 @@
         "compact_Lie_representation_theory",
         "anomaly_cancellation_algebra"
       ],
-      "oph_specific_delta": "OPH supplies the visible-overlap sector category, refinement/fiber descent, and MAR selection rule over the declared admissible realization space.",
+      "oph_specific_delta": "OPH supplies the fixed-stage tensor-generated visible-overlap sector category and the MAR selection rule. Refinement/fiber descent is constructed only from the separately supplied compact-gauge refinement receipt: finite extendability, explicit center-compatible block embeddings, coherent surjective compact-group maps, and finite tensor realizations.",
       "novelty_type": "construction_and_selection",
       "evidence": [
         "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex"
       ],
-      "falsifier": "A lower-complexity admissible competitor exists, the realized package is not admissible, or observations require a different realized gauge quotient or charge lattice.",
+      "falsifier": "The compact-gauge refinement receipt fails, every allowed strict representative of a retained sector has nontrivial represented loop holonomy after its central or higher-associator defect strictifies, a lower-complexity admissible competitor exists, the realized package is not admissible, or observations require a different realized gauge quotient or charge lattice.",
       "scope_if_false": "The realized Standard Model branch falls; Lorentz and consensus branches must be assessed independently.",
       "status": "proved_on_branch"
     },

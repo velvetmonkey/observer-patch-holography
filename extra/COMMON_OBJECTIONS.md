@@ -540,20 +540,29 @@ the modular-algebraic problem it raises; it answers a different question.
 
 ### Short answer
 
-Correct. Zero obstruction is a transportability condition, not the Standard
-Model selector.
+Correct. Here zero obstruction is the combined transportability condition: the
+central triangle defect or noncentral higher associator strictifies, and at least
+one allowed strict edge 1-cocycle representative has trivial represented holonomy
+around every closed overlap loop. It is not the
+Standard Model selector.
 
 The OPH gauge lane factors the logic this way:
 
 ```text
 overlap/gluing data
--> obstruction class
+-> associator strictification test
+-> residual represented loop holonomy
 -> transportable sector category
+-> explicit compact-gauge refinement receipt
 -> compact group by DR/Tannaka reconstruction
 -> one-Higgs matter package selected by Minimal Admissible Realization
 ```
 
-The first four steps classify and reconstruct. They can return a trivial
+The first four steps classify the fixed-stage data. The refinement receipt
+supplies the coherent block embeddings, surjective compact-group pullbacks,
+tensor realizations, and compatible forgetful fibers needed for the colimit;
+without it the refinement-limit category and compact group remain conditional.
+With it, reconstruction can return a trivial
 compact group, or any compact group carried by the persistent tensor-category
 and fiber-functor data. The Standard Model quotient enters only in the final
 step, where MAR is applied to the explicit nonempty one-Higgs chiral matter

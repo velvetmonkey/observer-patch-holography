@@ -326,10 +326,15 @@ observer-first construction. The private-sphere reading is outside the
 construction. A patch is the bounded part of the shared screen net that the
 observer can use.
 
-**Obstruction class.** An obstruction class is a formal mismatch detector. If
-it is nonzero, local data fail to close consistently around a loop or across a
-transport path. If it is zero, the local pieces pass that particular gluing
-test.
+**Obstruction class.** An obstruction class is a formal mismatch detector. The
+central degree-2 class tests the projective triangle defect. For noncentral
+crossed-module data, the full orbit can admit several strict representatives
+related by higher-gauge edge changes and therefore need not determine one
+ordinary 1-cocycle class. Associator strictifiability is the separate question
+whether any strict representative exists. Passing either associator test still
+leaves an allowed strict edge transport free to have nontrivial holonomy around
+a noncontractible loop. Strict transport requires a trivial-holonomy allowed
+representative as well.
 
 **Operator.** An operator is an action on a quantum state. It can represent a
 measurement question, a symmetry transformation, or a time-flow step. Operators

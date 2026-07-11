@@ -75,8 +75,13 @@ spatial chart is $H^3\simeq\mathrm{SO}^+(3,1)/\mathrm{SO}(3)$, which has
 dimension $6-3=3$.
 
 In the gauge part of the theory, OPH asks which internal charges and particle
-labels can be transported consistently across overlaps. That reconstruction
-selects a compact gauge group. With the explicit one-Higgs matter package and
+labels can be transported consistently across overlaps. The visible
+fixed-cutoff charges generate a tensor category, but its refinement limit is
+conditional on an explicit compact-gauge receipt: coherent surjective boundary
+group maps, finite-state extendability, center-compatible finite block
+embeddings, finite tensor realizations, and compatible forgetful fibers. On a
+cofinal tail carrying that receipt, the reconstruction produces some compact
+gauge group. With the explicit one-Higgs matter package and
 the Minimal Admissible Realization rule, the selected Standard Model structure
 is $SU(3)\times SU(2)\times U(1)/\mathbb Z_6$, including the hypercharge
 lattice, three colors, and three generations. Quantum mechanics is the
@@ -279,7 +284,7 @@ hadron derivations.
 Ordered by importance for a technical reader. Longer summaries mark the
 papers that carry the core theorem surface.
 
-- **Paper 2. [Recovering Relativity and the Standard Model from Observer Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)**: compact technical core for the recovered OPH branch. It states the observer-overlap route to Lorentz structure, the Einstein-like gravity branch on the five-axiom recovered core, the formal algebra core that upgrades rest-frame data to the tensor equation and fixes the metric residue to one $\Lambda$ on connected conserved branches, compact-gauge reconstruction, the selected Standard Model quotient and matter package with a formal hypercharge and $Z_6$ algebra core, the Borel-Weil local carrier for the one-Higgs slot, Maxwell on the ordinary photon branch, and the conditional Yang-Mills mass-gap route under its continuum, reflection-positivity, transfer/intertwiner, and nontriviality assumptions.
+- **Paper 2. [Recovering Relativity and the Standard Model from Observer Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)**: compact technical core for the recovered OPH branch. It states the observer-overlap route to Lorentz structure, the Einstein-like gravity branch on the five-axiom recovered core, the formal algebra core that upgrades rest-frame data to the tensor equation and fixes the metric residue to one $\Lambda$ on connected conserved branches, receipt-conditional compact-gauge reconstruction, the selected Standard Model quotient and matter package with a formal hypercharge and $Z_6$ algebra core, the Borel-Weil local carrier for the one-Higgs slot, Maxwell on the ordinary photon branch, and the conditional Yang-Mills mass-gap route under its continuum, reflection-positivity, transfer/intertwiner, and nontriviality assumptions.
 - **Paper 1. [Observers Are All You Need](paper/observers_are_all_you_need.pdf)**: broad synthesis and best first read for the full program. It explains finite observer patches, overlap consistency, records, repair moves, the recovered effective universe, the scale story, and the public claim boundaries without replacing the compact paper's theorem ledger.
 - **Paper 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)**: particle-sector derivation and audit surface. It carries the $P_\star$-driven particle reconstruction, structural carriers, the Borel-Weil one-Higgs carrier bridge, electroweak/Higgs/top, quark, charged-lepton, neutrino, and hadron lanes, quantitative benchmark checks, and conditional record-worldline stitching. The derivation of the physical neutrino mixing matrix and absolute neutrino masses is work in progress.
 - **Paper 4. [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf)**: finite patch-net consensus mechanics. It proves how local observers compare overlap records, apply repair moves, handle defects, and converge to quotient normal forms when the fixed-cutoff assumptions hold. The consensus result stops at quotient normal forms; Lorentzian and Einstein geometry enter through the separate geometric branch in the compact paper. The repair operator is stated on the physical quotient, repaired readouts are invariant under hidden implementation choices, a finite layered carrier witnesses boundary reconstruction, and a finite binary audit fixture gives sharp positive/negative repair and boundary-reconstruction tests. The neutral mathematical companion proves the generic cross-source criterion, but same-boundary physical uniqueness requires the declared boundary map to identify the consistent quotient; same-source confluence and liveness are separate obligations.

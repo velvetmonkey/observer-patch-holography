@@ -54,10 +54,13 @@ the zoo stops looking like a zoo.
 
 The first bridge is symmetry. Once Lorentz kinematics is recovered, a durable
 excitation is sorted by the familiar labels of relativistic physics: mass,
-spin, and helicity. Once compact gauge structure is reconstructed from
-transportable sectors, the charge bookkeeping also stops looking arbitrary. The
-reconstruction step classifies the compact group carried by persistent
-zero-obstruction sectors. On the realized one-Higgs low-energy branch, minimal
+spin, and helicity. On a cofinal tail carrying the compact-gauge refinement
+receipt, compact gauge structure is reconstructed from transportable sectors
+and their forgetful fibers, so the charge bookkeeping also stops looking arbitrary. The
+reconstruction step classifies the compact group carried by persistent sectors
+that pass both the higher-associator test and the allowed strict-representative
+loop-holonomy test. On the
+realized one-Higgs low-energy branch, minimal
 admissible selection then picks the Standard Model quotient
 $SU(3)\times SU(2)\times U(1)/\mathbb Z_6$, the exact hypercharge lattice, the
 realized color triplet $N_c=3$, and the generation count $N_g=3$. Those are

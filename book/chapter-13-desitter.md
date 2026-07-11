@@ -497,9 +497,11 @@ receipts that live outside this chapter.
 The arena is a finite static patch bounded by a holographic horizon. What populates this arena? What are the particles and forces we observe, and why do they have the peculiar properties they do?
 
 The next chapter treats the Standard Model of particle physics as an effective
-structure. The path has three steps: overlap gluing classifies which sectors can
-be transported as ordinary compact-gauge data, compact-gauge reconstruction
-reads a compact group from those sectors, and the one-Higgs matter package with
-minimal admissible selection picks the realized Standard Model branch.
+structure. The path has three steps: overlap gluing classifies which fixed-stage
+sectors can be transported as ordinary compact-gauge data; on a cofinal tail
+carrying the explicit compact-gauge refinement receipt, reconstruction reads a
+compact group from the tensor-generated sectors and their compatible fibers;
+and the one-Higgs matter package with minimal admissible selection picks the
+realized Standard Model branch.
 
 This is **Chapter 14: The Standard Model from Consistency**.

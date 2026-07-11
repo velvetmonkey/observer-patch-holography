@@ -452,7 +452,7 @@ Different observers describe the same overlap region using different frames. The
 
 This is "gauge-as-gluing." Gauge symmetry isn't fundamental. It's the grammar of how patches fit together.
 
-The same branch also carries the Yang-Mills form. Compact-gauge reconstruction,
+The same receipt-certified branch also carries the Yang-Mills form. Compact-gauge reconstruction,
 local holonomy data, the four-dimensional continuum scaling chart, the
 reflection-positive ordinary vacuum sector, and the absence of additional
 gauge-invariant relevant dimension-four pure-gauge operators beyond the
@@ -481,9 +481,12 @@ $\alpha$. The tensor-product symbol joins the left and right sides inside one
 sector. The formula is just the precise way to say that an edge carries a label
 both neighboring patches must respect.
 
-The labels alpha are the edge charges. In the bosonic gauge picture they become
-the sector labels from which the reconstructed boundary gauge group is
-recovered.
+The labels alpha are the edge charges visible in this one-collar algebra. In
+the bosonic gauge picture they are the seed carriers for the tensor category
+from which the boundary gauge group is reconstructed. They are not assumed to
+list every charge generated when seeds are fused. A fixed collar can therefore
+have finitely many visible blocks while the tensor-generated category has
+infinitely many simple charge types.
 
 The letter $\mathcal H$ names a Hilbert space, the quantum state space for a
 piece of the system. "Collar" means the thin overlap zone near a boundary. The
@@ -498,13 +501,13 @@ When you concatenate collars, edge charges fuse. The fusion rules:
 $$\alpha \otimes \beta = \bigoplus_\gamma N_{\alpha\beta}^\gamma \, \gamma$$
 
 define a tensor category. The Tannaka-Krein reconstruction theorem says,
-roughly, that if the fixed-cutoff charge sectors fuse, split, carry duals,
-remain transportable across patches, persist coherently under refinement, and
-admit compatible finite-dimensional multiplicity spaces, then the resulting
-refinement-limit category recovers the compact symmetry group behind them. The
-fusion table is central, and it is used together with the refinement transport
-and fiber data. The group is read off from how charges
-behave in that full persistent sector package.
+roughly, that if the fixed-cutoff seed carriers generate a rigid tensor
+category, remain transportable across patches, persist coherently under a
+certified refinement system, and carry compatible finite-dimensional
+forgetful fibers, then the resulting refinement-limit category recovers the
+compact symmetry group behind them. The fusion table is central, and it is
+used together with the refinement transport and carrier data. The group is
+read off from how charges behave in that full persistent sector package.
 
 For intuition, treat the fusion rules as a multiplication table for charges.
 If you know how every charge combines with every other charge, you have enough
@@ -519,20 +522,27 @@ It is a bookkeeping machine for charges: which charges exist, how they combine,
 which charge is the mirror of which, and which combinations count as the same
 operation in different orders.
 
-The gauge group isn't put in by hand. It is reconstructed from the persistent
-sector data, not guessed in advance.
+On the receipt-certified branch, some compact gauge group is reconstructed from
+the persistent sector data rather than guessed in advance.
 
 ![Tannaka-Krein reconstruction reads a compact gauge group from the way edge sectors fuse and represent one another.](../assets/book_diagrams/tannaka-krein.svg){width=82%}
 
-There is one refinement rule. A charge label seen at one cutoff counts in
-the final category only if it remains visible as the screen is described at
-finer and finer resolution. In the formal language, such a stable path is a
-cofinal refinement chain, and its stable endpoint is a directed colimit. The
-plain meaning is simpler: a real charge cannot vanish or split into a different
-charge just because the bookkeeping became more detailed. If that happened
-without new overlap-visible data, the transport system would have failed. The
-transport conditions supply survival, and once supplied, survival is unique and
-checkable.
+The refinement step needs its own receipt; ordinary state coarse-graining does
+not provide it. At each finer cutoff the receipt must certify that every coarse
+record has a fine extension, exhibit a surjective map of compact boundary
+actions, give a center-compatible embedding of the finite collar blocks with
+explicit multiplicities, and provide compatible finite tensor realizations and
+forgetful fibers. Pulling a representation back along the surjective group
+map preserves its carrier and cannot split a coarse simple. These pullbacks
+compose along a cofinal refinement chain, whose endpoint is the directed
+colimit. Without that receipt, only the fixed-stage categories exist and the
+refinement-limit gauge group remains conditional.
+
+For example, if a U(1) collar sees charge one, tensor closure contains charge
+two and, in fact, every integer charge. The charge-two projector belongs to the
+two-fold tensor-word or concatenated-collar realization; it need not appear in
+the original one-collar center. Its forgetful fiber is still one-dimensional
+and remains the same one-dimensional carrier at the next certified refinement.
 
 ### The Standard Model Factors
 
@@ -543,19 +553,31 @@ all physical states and are counted once. It is like discovering that two labels
 on a wiring diagram name the same actual connection. The Standard Model quotient
 removes that duplicate counting across color, weak isospin, and hypercharge.
 
-The reconstruction step by itself gives a compact gauge group from the
+On that receipt-certified branch, the reconstruction step by itself gives some compact gauge group from the
 transportable sector category. The Standard Model choice enters through minimal admissible
 selection: among the admissible one-Higgs
 low-energy sector packages, choose the minimal package that satisfies the
 transport, anomaly, refinement, Yukawa, CP, and weak-sector conditions.
 Equivalently, the logic factors into classification and selection. Overlap
-gluing gives an obstruction class; zero obstruction gives an ordinary
-transportable sector category; tensor reconstruction gives a compact group.
-Only after that does the selector act on realized matter packages.
+gluing first tests whether triangle or higher associator defects can be
+strictified. It then tests the ordinary holonomy across the allowed strict
+representatives and requires at least one to act trivially around every closed
+loop. Only sectors that pass both tests form the
+transportable category from which tensor reconstruction reads a compact group.
+The selector acts on realized matter packages only after that.
 
-An obstruction class is a precise mismatch detector. If it is nonzero, local
-transport fails to close consistently around loops. If it is zero, the local
-charge sectors can be treated as one transportable package.
+The two tests detect different mismatches. On the central branch, the degree-2
+class records the projective triangle defect, and its vanishing permits a strict
+edge 1-cocycle. On the noncentral branch, the full crossed-module orbit can admit
+several strict representatives related by higher-gauge edge changes, so it need
+not determine one ordinary 1-cocycle class. The associator-only test asks whether
+at least one strict representative exists. In either case an allowed strict
+cocycle may still have nontrivial holonomy around a noncontractible loop, and
+strict transport requires that at least one allowed representative have trivial
+represented holonomy.
+"Zero obstruction" in the gauge-reconstruction branch therefore means both
+associator strictifiability and the existence of a trivial-holonomy strict
+representative.
 
 Once you ask for the smallest matter sector that can carry color, weak
 interactions, chirality, and ordinary charge, the answer is forced into a
@@ -581,9 +603,11 @@ Given the gauge group, what determines the matter content?
 
 ### The Anomaly Condition Again
 
-Loop-coherent gluing requires trivial central obstruction class. This is a
-transportability condition, not a Standard Model selector. In a chiral
-effective field theory, the same consistency burden reappears as anomaly
+Loop-coherent gluing requires a trivial central obstruction class and at least
+one allowed strict edge transport with trivial represented holonomy around every
+closed overlap loop. This combined transportability condition is not a Standard
+Model selector. In a chiral effective field theory, the same consistency burden
+reappears as anomaly
 cancelation, but the full bridge between the two is a separate step.
 
 Given one generation of chiral fermions with
@@ -1031,7 +1055,8 @@ But Super-Kamiokande has been watching for proton decay since 1996. The experime
 $\tau_p > 10^{34}$ years, a thousand times longer than predicted. The simplest GUTs are dead.
 
 OPH takes a different path. The gauge group is not embedded in anything
-larger. On the transported bosonic refinement-ladder branch, Tannaka-Krein
+larger. On the bosonic branch carrying the explicit compact-gauge refinement
+receipt, Tannaka-Krein
 reconstruction builds the gauge group from the persistent charge-sector data,
 yielding the product structure:
 

@@ -1054,14 +1054,23 @@ the nonabelian \v{C}ech class
 \[
 q=[(g,h)]\in \check H^2(N,H\to G)
 \]
-is invariant. Strict global reconciliation exists if and only if \(q=0\), and nonzero \(q\) labels stable fixed-cutoff higher-gauge defects.
+is invariant and classifies the full crossed-module orbit. Its neutral element is equivalent to
+full gauge trivialization of both levels. The higher associator alone is removable precisely when
+\(q\) lies in the image of the natural strict-locus map
+\[
+\check H^1(N,G)\longrightarrow\check H^2(N,H\to G),\qquad[g]\longmapsto[(g,1)].
+\]
+After such a strictification, endpoint-only ordinary reconciliation additionally requires an
+allowed strict representative with trivial represented loop holonomy. The strict-locus map need
+not be injective, so \(q\) need not determine one ordinary \(H^1\) class.
 \end{theorem}
 
 \begin{proof}
-The allowed rechartings are exactly the crossed-module coboundaries. They preserve the class and
-strictify the weak gluing data precisely when the class vanishes. A nonzero class therefore gives
-a topologically protected residual obstruction in the full crossed-module defect hierarchy,
-including the abelian truncation as its first layer.
+The allowed rechartings are exactly the crossed-module coboundaries, so they preserve the full
+orbit. The neutral orbit admits the completely trivial representative. More generally, the higher
+associator is removed when the orbit meets the strict locus \((g,1)\); different points of that
+locus can be related by \(H\)-valued edge changes. Ordinary loop coherence is therefore the
+separate existential holonomy test stated above.
 \end{proof}
 
 
@@ -3022,8 +3031,8 @@ The bridge to physics works as follows in the broader companion corpus:
 \item The patch net becomes a net of support-visible subregion algebras; \(S^2\) is the standard
 observer-facing regulator chart, not a required literal substrate.
 \item Overlap Consistency, one of the canonical framework axioms, is the algebraic version of Definition~\ref{def:patchnet}.
-\item The recoverability clause of the canonical Recoverable Generalized Entropy axiom provides controlled collar recovery data. The exact collar factorization \(\rho_{ABD} = \bigoplus_\alpha p_\alpha\,\rho^{(\alpha)}_{Ab_L^\alpha}\otimes\rho^{(\alpha)}_{b_R^\alpha D}\) is used only at exact Markovity or along the fixed-collar replacement limit, while the declared Petz/Fawzi--Renner recovery channels supply recovered comparison states from which the local repair moves are built (see Appendix~\ref{app:splice} and Definition~\ref{def:oph-repair-map}).
-\item Gauge symmetry as implementation hiding (Theorem~\ref{thm:gauge}) becomes the fixed-cutoff edge-sector package from which the compact-gauge branch, using the theorem-produced coherent refinement transport and compatible finite fibers, reconstructs a compact gauge group from zero-obstruction sectors. Zero obstruction supplies transportability and classification. The realized witness theorem supplies nonempty Minimal Admissible Realization (MAR) branch data, and MAR plus the explicit one-Higgs matter package then selects the Standard Model quotient $\mathrm{SU}(3)\times\mathrm{SU}(2)\times\mathrm{U}(1)/\mathbb{Z}_6$ together with the exact hypercharge lattice and the realized counts \(N_c=3\), \(N_g=3\).
+\item The recoverability clause of the canonical Recoverable Generalized Entropy axiom provides controlled collar recovery data. The exact collar factorization \(\rho_{ABD} = \bigoplus_\alpha p_\alpha\,\rho^{(\alpha)}_{Ab_L^\alpha}\otimes\rho^{(\alpha)}_{b_R^\alpha D}\) is used only at exact Markovity \emph{together with} the Markov-split alignment of the HJPW factors with the preselected edge split (the compact paper's alignment hypothesis; exact Markovity alone yields the normal form only over a state-dependent split), or along the fixed-collar replacement limit with EC-aligned comparison states, while the declared Petz/Fawzi--Renner recovery channels supply recovered comparison states from which the local repair moves are built (see Appendix~\ref{app:splice} and Definition~\ref{def:oph-repair-map}).
+\item Gauge symmetry as implementation hiding (Theorem~\ref{thm:gauge}) becomes the fixed-cutoff edge-sector seed package. On the companion compact paper's branch carrying the explicit compact-gauge refinement receipt, coherent surjective pullback functors and compatible forgetful fibers reconstruct a compact group from the tensor-generated combined-zero-obstruction sectors. Here zero obstruction means central or higher-associator strictifiability together with at least one allowed strict \(1\)-cocycle representative having trivial represented holonomy. This supplies receipt-conditional transport across cutoffs and classification. The cofinal realized witness uses the same receipt, and MAR plus the explicit one-Higgs matter package then selects the Standard Model quotient $\mathrm{SU}(3)\times\mathrm{SU}(2)\times\mathrm{U}(1)/\mathbb{Z}_6$ together with the exact hypercharge lattice and the realized counts \(N_c=3\), \(N_g=3\).
 \item On the declared support-visible compact-gauge branch, the companion compact paper obtains
 the four-dimensional Euclidean Yang--Mills form from compact-gauge holonomy data and the local
 MaxEnt/Gibbs continuum limit only with the branch's renormalized four-dimensional identification
@@ -3190,7 +3199,7 @@ O=(P,\mathcal{A}(P),\rho,R),
 where $P$ is the screen patch, $\mathcal{A}(P)$ the local von Neumann algebra, $\rho$ the local state, and $R$ the record algebra.
 
 \begin{theorem}[Markov-collar splice theorem, exact and controlled]\label{thm:splice}
-Suppose a collar tripartition $A$-$B$-$D$ has exact Markov decomposition
+Suppose a collar tripartition $A$-$B$-$D$ has the EC-aligned exact Markov decomposition
 \[
 \rho_{ABD}
 =
@@ -3198,8 +3207,9 @@ Suppose a collar tripartition $A$-$B$-$D$ has exact Markov decomposition
 p_\alpha\,
 \rho^{(\alpha)}_{A b_L^\alpha}
 \otimes
-\rho^{(\alpha)}_{b_R^\alpha D}.
+\rho^{(\alpha)}_{b_R^\alpha D}
 \]
+over the preselected edge factors. This displayed form is the hypothesis: by the compact paper's Markov-split alignment analysis it is strictly stronger than \(I(A:D\mid B)_\rho=0\), which by HJPW yields such a factorization only over a state-dependent split of \(B\).
 Let $\sigma_{b_R^\alpha D'}^{(\alpha)}$ be any family of normalized environment states compatible with the same right-boundary sectors. Define
 \[
 \rho'_{AB D'}
@@ -3295,7 +3305,7 @@ X\, \rho^{(\alpha)}_{A b_L^\alpha}
 \]
 Each right factor is normalized, so the value agrees with the same computation for \(\rho_{ABD}\).
 
-For the controlled statement, compactness of the fixed finite-dimensional state space and continuity of conditional mutual information imply \(\delta^{\mathrm M}_{A:B:D}(\varepsilon)\to0\): otherwise one could find a sequence with \(I(A:D\mid B)\to0\) staying a fixed trace distance away from every exact Markov state, contradicting convergence of a subsequence to an exact Markov limit point. Once \(\widetilde\omega_\varepsilon\) is chosen, the exact splice identity for \(\widetilde\omega_\varepsilon\) gives
+For the controlled statement, compactness of the fixed finite-dimensional state space and continuity of conditional mutual information imply \(\delta^{\mathrm M}_{A:B:D}(\varepsilon)\to0\): otherwise one could find a sequence with \(I(A:D\mid B)\to0\) staying a fixed trace distance away from every exact Markov state, contradicting convergence of a subsequence to an exact Markov limit point. The splice identity additionally requires \(\widetilde\omega_\varepsilon\) to be EC-aligned over the preselected edge factors; small conditional mutual information supplies closeness only to the full exact Markov set, so the existence of EC-aligned replacements is carried as an explicit hypothesis on the controlled family (the compact paper's Markov-split alignment hypothesis). Once such an EC-aligned \(\widetilde\omega_\varepsilon\) is chosen, the exact splice identity for \(\widetilde\omega_\varepsilon\) gives
 \[
 \left|
 \operatorname{Tr}(X\omega)-\operatorname{Tr}(X\widetilde\omega'_\varepsilon)
@@ -3311,7 +3321,7 @@ For the controlled statement, compactness of the fixed finite-dimensional state 
 The final inequality is the standard Fawzi--Renner recovery bound~\cite{fawziRenner15}.
 \end{proof}
 
-This appendix therefore uses exact splice identities in only two regimes: literal exact Markovity, or a controlled collar family on one fixed finite-dimensional model for which \(\delta^{\mathrm M}_{A:B:D}(\varepsilon)\to0\). Fawzi--Renner recovery supplies the constructive recovered comparison state; the fixed-collar modulus supplies the exact-Markov comparison. Small one-shot conditional mutual information is not silently upgraded to an exact normal form.
+This appendix therefore uses exact splice identities in only two regimes: literal EC-aligned exact Markovity, or a controlled collar family on one fixed finite-dimensional model for which \(\delta^{\mathrm M}_{A:B:D}(\varepsilon)\to0\) and EC-aligned replacements exist. Fawzi--Renner recovery supplies the constructive recovered comparison state; the fixed-collar modulus supplies the exact-Markov comparison. Small one-shot conditional mutual information is not silently upgraded to an exact normal form.
 
 For later dark-sector continuations, the exact finite identity is only an
 expectation identity. For a faithful finite state \(\rho_{ABD}\), with

@@ -168,8 +168,8 @@ observers must agree on.
 
 This is a significant shift from the traditional view, and it works. Gravity
 emerges from how observers share entanglement across their screens. The
-particle world emerges after compact-gauge reconstruction and minimal
-admissible selection on the low-energy branch. The dark-sector problem is read
+particle world emerges after receipt-certified compact-gauge reconstruction and
+minimal admissible selection on the low-energy branch. The dark-sector problem is read
 through modular anomalies, residual mismatches in the bookkeeping that turns
 local observer time into geometry. The question of why anything exists at all
 enters through a self-referential closure picture.

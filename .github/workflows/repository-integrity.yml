@@ -24,6 +24,8 @@ jobs:
           code/particles/leptons/test_no_experiment_label_matching.py
           code/particles/leptons/test_no_koide_import.py
           code/particles/test_pdg_reference_integrity.py
+      - name: Transport obstruction regression
+        run: python -m pytest -q code/consensus/test_transport_from_gluing_obstruction.py
       - name: Drift-sensitive generated artifacts
         run: |
           python code/particles/uv/build_oph_bd_threshold_spectrum_receipts.py --check

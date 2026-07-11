@@ -654,9 +654,12 @@ $SU(3)$ is the color symmetry of the strong interaction. $SU(2)$ is weak
 isospin. $U(1)$ is hypercharge. Fermions come in representations of this
 group. A representation tells how a field transforms under the symmetry.
 
-In OPH, zero-obstruction transport and tensor reconstruction classify the
-compact gauge group carried by persistent sectors. Minimal admissible selection
-is the later step that acts on realized one-Higgs matter packages.
+In OPH, combined zero-obstruction transport includes central or higher-associator
+strictification and an allowed trivial-holonomy strict representative. On a cofinal tail carrying
+the compact-gauge refinement receipt, tensor reconstruction then classifies the
+compact gauge group carried by persistent sectors and their forgetful fiber. Minimal
+admissible selection is the later step that acts on realized one-Higgs matter
+packages.
 
 Hypercharge is written $Y$. Electric charge is related by
 

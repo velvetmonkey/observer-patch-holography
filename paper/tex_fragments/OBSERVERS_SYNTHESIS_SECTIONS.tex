@@ -31,11 +31,15 @@ requires the additional unique consistent extension condition in the preserved b
 fiber.
 \item \textbf{Cycle obstruction and higher-gauge defects.} On the abelian branch, global
 consistency holds exactly when cycle holonomy vanishes; on the genuinely noncentral branch, the
-crossed-module defect class
+crossed-module gluing orbit
 \[
 q_\Sigma \in \check H^2(N_\Sigma,H_\Sigma \to G_\Sigma)
 \]
-labels the fixed-cutoff higher-gauge obstruction.
+labels the full fixed-cutoff gluing orbit. It can admit multiple strict representatives related by
+\(H_\Sigma\)-valued edge changes and need not determine one ordinary \(G_\Sigma\)-valued
+\(1\)-cocycle class. Associator strictifiability is the separate condition that this orbit admit a
+representative \((g^{\mathrm{str}},1)\); strict endpoint-only transport additionally requires at
+least one allowed strict representative with trivial represented loop holonomy.
 \item \textbf{Gauge quotient and observable-level confluence.} The repair law descends to the
 overlap-invariant quotient, and the induced terminal state on the declared physical observable
 algebras is unique there even when microscopic representatives differ by gauge or sector
@@ -56,7 +60,7 @@ finite-state and decidable, automatic approximate stability is only collar-local
 splice and record estimates, and long-run noisy approximate consensus is theorem-grade only after
 a fair-block contraction certificate is supplied for the chosen exported patch-net family. That
 certificate boundary is not a dependency for the support-visible BW theorem, local Einstein
-branch, compact-gauge reconstruction, or realized Standard Model branch.
+branch, receipt-conditional compact-gauge reconstruction, or realized Standard Model branch.
 
 \section{Particle-Spectrum Branch}
 
@@ -84,8 +88,8 @@ The proof route is the one developed in
 \emph{Recovering Relativity and the Standard Model from Observer Overlap Consistency}~\cite{ophcompact}
 and
 \emph{Deriving the Particle Zoo from Observer Consistency}~\cite{ophparticles}.
-Under the explicit coherent bosonic refinement ladder, symmetry, and finite-fiber conditions of the
-compact paper, the surviving transportable edge-sector category reconstructs a compact internal
+Under the explicit compact-gauge refinement receipt, coherent bosonic pullback ladder, symmetry,
+and forgetful-fiber conditions of the compact paper, the surviving transportable edge-sector category reconstructs a compact internal
 symmetry group. MAR then selects the realized admissible branch, anomaly freedom
 fixes the hypercharge lattice, the minimal coupled carrier fixes \(N_c=3\), and the same
 one-Higgs quark branch fixes \(N_g=3\). The particle branch builds on that structural skeleton and does not bypass
@@ -1233,7 +1237,7 @@ selected scale certificate supplies \(G_{\mathrm{geom}}=\ell_\star^2\), this is 
 representation is
 \(N_\star=\operatorname{MAR}\arg\max_N(\log|\Omega^{\mathrm{sc}}_N|-N)\). On the observed branch
 this readback fixed point is the de Sitter entropy capacity.
-\item Compact gauge reconstruction uses the theorem-produced transportability criterion, fixed-cutoff bosonic sector category, and bosonic refinement ladder to reconstruct a compact gauge group from zero-obstruction sectors. That is the classification stage. The realized MAR-admissible witness data plus the explicit one-Higgs matter package then select the realized Standard Model quotient, exact hypercharge, \(N_c=3\), and \(N_g=3\).
+\item Compact gauge reconstruction uses the theorem-produced combined transportability criterion and fixed-cutoff tensor-generated bosonic sector category. On a cofinal tail carrying the explicit compact-gauge refinement receipt, the bosonic refinement ladder and compatible forgetful fibers reconstruct a compact group from sectors with strictifiable central or higher-associator defects and at least one allowed trivial-holonomy strict representative. That is the classification stage. The receipt-certified MAR-admissible witness data plus the explicit one-Higgs matter package then select the realized Standard Model quotient, exact hypercharge, \(N_c=3\), and \(N_g=3\).
 \item The particle branch is sector-split: electroweak \(W/Z\) is a validation pair, Higgs/top is exact on its declared quantitative surface, selected-class quarks close on their declared public frame class, the weighted-cycle neutrino candidate is rejected and has no theorem surface, the physical strong-CP invariant is not emitted by this surface, charged-lepton source landing from \(P\) to physical charged data is a corpus-limited no-go boundary, the auxiliary direct-top PDG row is compare-only, and source-only hadron masses require a production OPH backend.
 \item The string/worldsheet branch is a controlled heat-kernel continuation branch. The critical-string selector is a separate gate on top of that edge-language branch.
 \end{enumerate}
