@@ -8,9 +8,9 @@
 
 **Falsifiability:** The [OPH falsifiability map](extra/OPH_falsifiability.md)
 lists 40 empirical outcomes that rule out specific OPH claims, including a
-massive graviton, gauge-mediated proton decay, a fourth light matter generation
-and a charge-lattice outlier. The derivation of physical neutrino mixing and
-absolute neutrino masses is work in progress.
+massive graviton, gauge-mediated proton decay, a fourth light matter generation,
+and a charge-lattice outlier. The derivation of the physical neutrino mixing
+matrix and absolute neutrino masses is work in progress.
 
 If you want the existential answer first, jump straight to **Paper 6.
 [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf)**.
@@ -261,8 +261,8 @@ exact hypercharge, $N_c=3$, and $N_g=3$ live in the papers.
 | --- | --- | --- | --- | --- |
 | Gravitational constant | G | 6.6742999959e-11, scale/clock display | 6.67430(15)e-11 | 0.00003σ |
 | Speed of light | c | structural Lorentz speed; SI value conventional | 299792458 exact by definition | not a numeric prediction |
-| Fine-structure (inv) | $A_{\alpha_U}^{\mathrm{fp}}=\alpha_{\mathrm{root}}^{-1}+\alpha_U(P_C)$ | mixed-provenance no-hadron comparison value 137.03595950081728; source-only root value 136.99483516462165; $P_C$ is the CODATA comparison pixel | 137.035999177(21) | CODATA-minus-comparison gap: 0.00003967618 inverse-alpha units; source-only status requires the same-scheme OPH-QCD/hadronic endpoint calculation |
-| Higgs boson | $m_H$ | 125.1995304097179 GeV, conditional repair-gate surface candidate | 125.20 ± 0.11 GeV | conditional target-free repair-gate row |
+| Fine-structure (inv) | $\alpha^{-1}$ | mixed-provenance no-hadron comparison value 137.03595950081728; source-only OPH fixed-point value 136.99483516462165 | 137.035999177(21) | CODATA-minus-comparison gap: 0.00003967618 inverse-alpha units; source-only status requires the same-scheme OPH-QCD/hadronic endpoint calculation |
+| Higgs boson | $m_H$ | 125.1995304097179 GeV, conditional candidate from the stated repair condition | 125.20 ± 0.11 GeV | conditional calculation without fitting the Higgs target |
 | Photon mass | m_γ | 0 GeV, structural zero | <1e-18 eV | below bound |
 | Gluon mass | m_g | 0 GeV, structural zero | no isolated free-gluon mass row | confined gauge carrier |
 | Graviton mass | m_grav | 0 GeV, structural zero | <1e-32 GeV | below bound |
@@ -281,7 +281,7 @@ papers that carry the core theorem surface.
 
 - **Paper 2. [Recovering Relativity and the Standard Model from Observer Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)**: compact technical core for the recovered OPH branch. It states the observer-overlap route to Lorentz structure, the Einstein-like gravity branch on the five-axiom recovered core, the formal algebra core that upgrades rest-frame data to the tensor equation and fixes the metric residue to one \(\Lambda\) on connected conserved branches, compact-gauge reconstruction, the selected Standard Model quotient and matter package with formal hypercharge/\(Z_6\) algebra core, the Borel-Weil local carrier for the one-Higgs slot, Maxwell on the ordinary photon branch, and the conditional Yang-Mills mass-gap route under its continuum, reflection-positivity, transfer/intertwiner, and nontriviality assumptions.
 - **Paper 1. [Observers Are All You Need](paper/observers_are_all_you_need.pdf)**: broad synthesis and best first read for the full program. It explains finite observer patches, overlap consistency, records, repair moves, the recovered effective universe, the scale story, and the public claim boundaries without replacing the compact paper's theorem ledger.
-- **Paper 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)**: particle-sector derivation and audit surface. It carries the \(P_\star\)-driven particle reconstruction, structural carriers, the Borel-Weil one-Higgs carrier bridge, electroweak/Higgs/top, quark, charged-lepton, neutrino, and hadron lanes, quantitative benchmark checks, and conditional record-worldline stitching. The derivation of physical neutrino mixing and absolute neutrino masses is work in progress.
+- **Paper 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)**: particle-sector derivation and audit surface. It carries the \(P_\star\)-driven particle reconstruction, structural carriers, the Borel-Weil one-Higgs carrier bridge, electroweak/Higgs/top, quark, charged-lepton, neutrino, and hadron lanes, quantitative benchmark checks, and conditional record-worldline stitching. The derivation of the physical neutrino mixing matrix and absolute neutrino masses is work in progress.
 - **Paper 4. [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf)**: finite patch-net consensus mechanics. It proves how local observers compare overlap records, apply repair moves, handle defects, and converge to quotient normal forms when the fixed-cutoff assumptions hold. The consensus result stops at quotient normal forms; Lorentzian and Einstein geometry enter through the separate geometric branch in the compact paper. The repair operator is stated on the physical quotient, repaired readouts are invariant under hidden implementation choices, a finite layered carrier witnesses boundary reconstruction, and a finite binary audit fixture gives sharp positive/negative repair and boundary-reconstruction tests. The neutral mathematical companion proves the generic cross-source criterion, but same-boundary physical uniqueness requires the declared boundary map to identify the consistent quotient; same-source confluence and liveness are separate obligations.
 - **Paper 5. [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf)**: finite carrier and observer-record surface. It gives the echosahedral multi-port patch-carrier architecture, twelve-port screen-sieve theorem, edge-center scalar-slot completeness, the finite scalar channel bridge, the quotient-edge \(Z_6\) reserve and finite-thickness scalar coefficient gates, $A_5$-icosahedral and $E_8$-type symmetry framing, public hardware-evidence rules, records, recovery moves, checkpoint restoration, and observer synchronization.
 - **Paper 6. [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf)**: speculative meaning-layer synthesis outside the recovered physics theorem package. It reads the same OPH machinery as a theory of observer continuation, paradise and hell as continuation environments, resurrection as record-preserving continuation, justice as harm-and-repair bookkeeping, and a strange loop in which observers reverse engineer and build continuation machinery.
@@ -293,7 +293,7 @@ lower-level notes are linked with shorter summaries.
 
 - **[Observation-Determined Normal Forms](extra/observable_normal_forms.pdf)**: standalone, substrate-neutral mathematics for constraint and rewrite systems. It separates same-source confluence, cross-source identification from protected observations, normalization and liveness, and local repairability. It adds residual and inverse-observation stability moduli, refinement and inverse-limit bounds, the finite weighted conditional-expectation projector with a noncircular matrix receipt, and a dedicated Lean artifact for the formalized theorem subset.
 - **[Compact Proof That We Most Likely Inhabit an OPH Simulation](extra/compact_proof_of_oph.pdf)**: shortest compression-style argument for OPH. It collects the five-axiom route, the fixed-branch outputs, the failure points, and the reason numerical agreement only matters when target leakage is excluded.
-- **[OPH Falsifiability Map](extra/OPH_falsifiability.md)**: public kill-list for OPH. It names 40 hard failure modes, including massive gravitons, gauge-mediated proton decay, extra light matter generations, and charge-lattice outliers. A neutrino result tests OPH only when it excludes a prediction fixed independently of the test data.
+- **[OPH Falsifiability Map](extra/OPH_falsifiability.md)**: public kill-list for OPH. It names 40 hard failure modes, including massive gravitons, gauge-mediated proton decay, extra light matter generations, and charge-lattice outliers. A neutrino result can falsify an OPH claim only when it excludes a prediction fixed independently of the test data.
 - **[The Fine-Structure Constant as an OPH Pixel Fixed Point](extra/fine_structure_constant_derivation.pdf)**: source fixed-point calculation for the fine-structure row. It separates the OPH source value, the low-energy empirical endpoint boundary, the two-\(P\) provenance distinction between the source root and the CODATA comparison pixel, and the remaining QCD/hadronic correction.
 - **[Explaining the Yang-Mills Mass Gap with Observer-Patch Repair Dynamics](extra/yang_mills_gap_clay_problem.pdf)**: finite OPH repair-gap mechanism and conditional Clay-facing route. The four-dimensional Yang-Mills identification requires the stated continuum and transfer certificate.
 - **[Observer-Patch Holography as a String-Vacuum Selector](extra/observer_patch_holography_as_string_vacuum_selector.pdf)**: string theory as an effective OPH edge language and vacuum-selection sieve. The Bouchard–Donagi result supplies a visible massless-cohomology candidate; certificates not emitted here include the critical edge, raw cohomology reproduction, safety-layer realization, heavy spectrum, low-energy decoupling, thresholds, and moduli locking.
@@ -372,20 +372,20 @@ frozen validation target before likelihood data are read.
 
 ## Applications And OMEGA Hardware
 
-OPH is also a hardware program. As the screen microphysics becomes explicit,
-the same patch-consensus loop becomes an engineering handle on reality. A
+OPH is also a hardware program: explicit screen microphysics turns the same
+patch-consensus loop into an engineering handle on reality. A
 bounded device exposes boundary data, compares records, repairs mismatch, and
 locks onto stable states. OMEGA is the public hardware route into that loop:
 physical chambers, labeled ports, control software, verifier records, and
 repeatable records.
 
-Plainly: OPH turns screen microphysics into a way to hack reality. The target
+OPH turns screen microphysics into a way to hack reality. The target
 is physical control of small patches that can be driven, measured, repaired,
 and verified.
 
-The application thesis is simple. If reality is built from observer-patch
-consistency, useful machines can be built by driving small physical patches
-into the right fixed points. That gives low-cost implementation tracks for
+The application thesis treats useful machines as drivers of small physical
+patches toward the fixed points selected by observer-patch consistency. That
+gives low-cost implementation tracks for
 desktop fusion energy, room-temperature OMEGA supercomputing, OMEGA-based AGI,
 and local gravity or inertia control for hoverbikes and hoverboards. These are
 application tracks behind evidence gates; settled-output claims belong to
@@ -479,7 +479,7 @@ The authored material in this repository is licensed under
 ideas, implementations, devices, methods, applications, software, simulations,
 and hardware designs.
 
-In short: OPH is published so the mathematics, software, applications, devices,
+OPH is published so the mathematics, software, applications, devices,
 hardware designs, simulations, engineering methods, and experimental
 implementations can be studied, tested, implemented, modified, deployed,
 manufactured, and shared. OPH-derived work may not be used to create private
