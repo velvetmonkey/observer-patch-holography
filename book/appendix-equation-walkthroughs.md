@@ -364,10 +364,25 @@ masses through Yukawa couplings. The details are part of the Standard Model
 support boundary. OPH's particle chapter is careful that not every mass value
 has the same support level. Higgs and top relations, the exact icosahedral
 face-corner carrier, its target-informed charged-lepton completion conjecture
-and conditional declared-map fixed-point theorem, its target-containing
-transport diagnostics, quark running-mass values, and
-neutrino assumptions must be separated
-by status.
+and conditional declared-map fixed-point theorem, and the engineered finite
+digital record model all have distinct receipts. The digital model proves its
+authored schema nonempty and converts a local noncentral event into a central
+accepted or rejected record. It hard-codes the registers, paths, clock, and
+response, so it supplies no physical source selection.
+
+The reciprocal-ray quark proposal fails against common-scale dimensionless
+Yukawas. Its generic exact interface needs six scalars and a source-derived
+flavor-orbit selector; the 64,000-observer run supplies a calibration null. The
+weighted-cycle neutrino comparison point fails the correlated NuFIT 6.1
+profile. Empirical hadron transport gives
+$\alpha^{-1}(0)=136.2636589431$ on
+$[136.1583832834,136.3690975240]$, an imported-data closure that leaves the
+source-only strong-interaction backend open.
+
+No nonzero source-only physical particle mass is emitted. Protected zeros are
+classical carrier or kernel statements pending quantum pole receipts. Any
+nonzero mass coordinate in the book belongs to explicitly conditional or
+retrospective audit prose.
 
 The equation is a good example of how a simple-looking formula can carry a
 large experimental and theoretical world. It is a mechanism for why the low-energy world has massive weak bosons and massive

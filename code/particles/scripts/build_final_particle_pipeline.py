@@ -130,6 +130,11 @@ FINAL_PIPELINE_STEPS: tuple[PipelineStep, ...] = (
         "Refresh the RSCC ancestry, module-selection, ablation, and mixed-chart audit.",
     ),
     PipelineStep(
+        "quark_further_theorem_audit",
+        "particles/flavor/audit_quark_further_theorems.py",
+        "Refresh the finite-MaxEnt no-go and conditional QFRC rigidity boundary.",
+    ),
+    PipelineStep(
         "quark_flavor_source_closure_contract",
         "particles/flavor/verify_quark_flavor_source_closure.py",
         "Refresh the exact ray lemmas and sufficient physical source-closure obligations.",

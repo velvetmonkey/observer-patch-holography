@@ -92,7 +92,7 @@ STATUS_TEXT = {
     "declared_surface_theorem": "declared-surface theorem",
     "target_anchored_witness_no_go_boundary": "witness boundary",
     "selected_class_theorem": "legacy selected-class audit",
-    "source_spread_nonidentifiability_obstruction": "source non-identifiability",
+    "source_spread_nonidentifiability_obstruction": "reciprocal-ray rejected",
     "continuation": "continuation",
     "simulation_dependent": "out of scope",
 }
@@ -104,7 +104,7 @@ PARTICLE_INFO: Dict[str, Dict[str, str]] = {
     "w_boson": {"symbol": "W", "plain": "Charged weak-force boson used in beta-decay-type processes."},
     "z_boson": {"symbol": "Z", "plain": "Neutral weak-force boson from the same electroweak sector as the W."},
     "higgs": {"symbol": "H", "plain": "Higgs boson tied to the Standard Model mass-giving field."},
-    "top_quark": {"symbol": "t", "plain": "Heaviest known quark. The quark lane retains only a separate target-audit extraction coordinate; its numeric row is withheld from public prediction output."},
+    "top_quark": {"symbol": "t", "plain": "Heaviest known quark. Its conditional Higgs/top companion coordinate is separate from the rejected reciprocal-ray quark spectrum; no nonzero mass is printed here."},
     "electron": {"symbol": "e", "plain": "Light charged matter particle found in atoms."},
     "muon": {"symbol": "mu", "plain": "Heavier unstable cousin of the electron."},
     "tau": {"symbol": "tau", "plain": "Heaviest charged lepton; a short-lived electron cousin."},
@@ -138,7 +138,7 @@ STATUS_EXPLAINER = {
     "declared_surface_theorem": "theorem surface on declared running and matching conventions",
     "target_anchored_witness_no_go_boundary": "target-anchored witness with a corpus-limited no-go boundary",
     "selected_class_theorem": "legacy selected-class target audit with numeric witness withheld",
-    "source_spread_nonidentifiability_obstruction": "theorem-grade two-modulus source-spread obstruction with numeric rows withheld",
+    "source_spread_nonidentifiability_obstruction": "common-scale six-Yukawa audit rejects the reciprocal-ray subfamily; numeric rows withheld",
     "continuation": "declared continuation or witness surface outside theorem-grade public output",
     "simulation_dependent": "source-backend-absent surface with empirical closure policy",
 }
@@ -152,7 +152,7 @@ STATUS_NEXT_STEP = {
     "declared_surface_theorem": "This row belongs to a theorem surface on declared running and matching conventions.",
     "target_anchored_witness_no_go_boundary": "This row belongs to a target-anchored witness with a corpus-limited no-go boundary.",
     "selected_class_theorem": "This legacy status denotes a selected-class target audit; numeric witness values are withheld from public prediction outputs.",
-    "source_spread_nonidentifiability_obstruction": "The source equations leave a free (R_{>0})^2 spread fiber. Target-audit coordinates are withheld, and physical Yukawas require a common-scale dimensionless construction.",
+    "source_spread_nonidentifiability_obstruction": "The generic physical interface has six dimensionless Yukawa coordinates at one scale and scheme. The reciprocal-ray restriction fails the common-scale data, and a source-derived flavor-orbit selector is absent.",
     "continuation": "This row belongs to a declared continuation or witness surface outside theorem-grade public output.",
     "simulation_dependent": "This source-only row requires a backend bundle and publication-grade systematics. Empirical closure values use a separate e+e- payload class.",
 }
@@ -201,84 +201,78 @@ LANES: List[Dict[str, Any]] = [
     {
         "key": "d10",
         "status": "candidate_trunk_compare_only",
-        "title": "Electroweak Massive-Boson Frontier",
-        "summary": "This lane starts from the shared pixel ratio P and builds the electroweak running family, but emits no public W/Z mass prediction row.",
-        "takeaway": "The frozen W/Z adapter is a diagnostic reproduction, not a prediction. Public W/Z rows stay hidden until the target-free D10 repair and endpoint/root stack are promoted.",
+        "title": "Electroweak Massive-Boson Audit",
+        "summary": "The W/Z lane separates a selected-carrier chart, a conditional five-premise value law, and a target-containing freeze-once inverse adapter.",
+        "takeaway": "The older rounded boundary aliases belong to the conditional value-law candidate, not the inverse adapter. No nonzero source-only physical mass or complex-pole row is emitted.",
         "logic": (
-            "From P the calculation builds the unification scale, solves the shared coupling constraint, gets the "
-            "electroweak scale, runs the couplings to the Z scale, and emits the source basis that feeds the "
-            "mass chart. The frozen W/Z adapter sits on that source trunk as a diagnostic reproduction, not as a public particle prediction. The electromagnetic "
-            "side is tracked separately as an outer/inner closure problem for the same pixel. The running-family "
-            "anchor at the Z scale is a consistency surface outside final zero-momentum closure."
+            "From P the calculation builds the electroweak running family and the source basis that feeds the mass chart. "
+            "The selected-carrier chart and the conditional five-premise value law are distinct objects. The finite-carrier "
+            "certificate behind the latter is absent. The freeze-once inverse comparison adapter consumes the reference "
+            "boundary. The electromagnetic side is a separate endpoint-closure problem."
         ),
-        "frontier_text": "Frontier statement: public W/Z mass rows require promotable target-free D10 repair, the Ward-projected zero-momentum endpoint theorem, and the same-scheme interval/root certificate.",
-        "prediction_surface": "No public W/Z particle row is emitted. The low-energy electromagnetic row is tracked separately as a closure problem for the same pixel.",
+        "frontier_text": "A source-only W/Z result requires the finite quotient-transport certificate, one independently fixed physical scale and scheme, a single source branch, prospective provenance, and complex-pole and uncertainty receipts.",
+        "prediction_surface": "No nonzero source-only physical W/Z mass is emitted. The chart, conditional value law, and inverse adapter remain on their separate audit surfaces.",
         "particles": [],
     },
     {
         "key": "d11",
-        "title": "Higgs/Top Split Theorem",
+        "title": "Higgs/Top Conditional Surface",
         "summary": "The Higgs/top lane emits a conditional exact candidate on the declared running, matching, and threshold surface. The one-scalar seed is a lower-rank fixed-ray branch.",
-        "takeaway": "The exact Higgs value and companion top coordinate are retained as declared-surface candidates, not promoted source-only particle predictions.",
+        "takeaway": "The Higgs coordinate and companion top coordinate are retained as conditional audit objects. This diagram prints no nonzero particle mass.",
         "logic": (
             "Take the electroweak substrate, impose the critical-surface condition, then use the synchronized "
             "transport core on the declared running, matching, and threshold surface. The fixed-ray certificate "
             "is a lower-rank one-scalar branch. The split theorem emits a shared Higgs/top scalar together "
-            "with source-only residual selectors for the top and Higgs channels, then reads out "
-            "`m_t = 172.3523553288312 GeV` and `m_H = 125.1995304097179 GeV`. The pair remains conditional "
-            "on the declared D10/D11 surface and is not promoted until the D10 target-free repair closes. The selected-class "
-            "quark numeric witness is target-anchored and therefore withheld from public prediction output. The auxiliary direct-top PDG row is compare-only with a corpus-limited no-go boundary."
+            "with source-only residual selectors for the top and Higgs channels. The pair remains conditional on the "
+            "declared electroweak running and matching surface and is not a source-only complex-pole result. The quark "
+            "spectrum is assessed separately on a common-scale dimensionless Yukawa interface."
         ),
-        "frontier_text": "Claim boundary: the exact Higgs/top pair is a conditional declared-surface candidate; the one-scalar seed is a lower-rank fixed-ray branch; the exact inverse slice is compare-only; the direct-top auxiliary conversion has a corpus-limited no-go boundary.",
-        "prediction_surface": "Electroweak split surface with a conditional Higgs row and companion top coordinate on the declared readout surface.",
+        "frontier_text": "Claim boundary: the Higgs/top pair is a conditional declared-surface candidate. The one-scalar seed is a lower-rank fixed-ray branch, while the inverse slice and direct-top conversion are comparison objects.",
+        "prediction_surface": "No nonzero source-only physical Higgs or top mass is emitted. The conditional split remains on its declared audit surface.",
         "particles": ["higgs"],
     },
     {
         "key": "leptons",
         "title": "Charged Leptons",
-        "summary": "The charged-lepton lane contains an exact same-family readout, a source-side determinant character, a conditional determinant-line lift on theorem-grade physical charged data, and an algebraic charged-mass readout once the absolute anchor is supplied.",
-        "takeaway": "The theorem surface contains the exact same-family witness, the source-side determinant character, the conditional determinant-line lift, and the downstream algebraic mass readout. The available corpus does not emit the sector-isolated trace-lift attachment, so the source-only absolute-mass row has a corpus-limited no-go boundary. The electromagnetic transport breaks the family scale freedom and bounds the absolute masses on the empirical-closure surface, with central values 0.5089 MeV, 105.22 MeV, 1.7695 GeV inside 0.4 percent of measurement.",
+        "summary": "The charged-lepton lane has exact icosahedral face geometry, a conditional affine response law, and an engineered finite digital model that proves the stipulated schema is nonempty.",
+        "takeaway": "The digital witness closes fixed-cutoff satisfiability and the event-to-central-record bridge. It does not select the physical charged response or emit a nonzero source-only mass.",
         "logic": (
-            "The lane starts from the ordered charged package, proves that the realized support is a one-dimensional "
-            "linear subray, exposes the canonical quadratic support-extension direction, maps that into the charged "
-            "excitation gaps, closes the two-scalar support-extension law shell, isolates the eta source-readback "
-            "primitive as a weighted midpoint-defect invariant, and then uses the endpoint-ratio breaker for sigma. "
-            "On the fixed ordered three-point family, the exact same-family quadratic theorem closes the readout to one exact charged triple on that scope. "
-            "The theorem-facing charged absolute lane contains a conditional determinant-line lift on theorem-grade physical charged data: "
-            "mean log determinant, together with the canonical uncentered lift and determinant-line section. "
-            "Once theorem-grade absolute charged data are supplied, the charged absolute scale and the charged mass triple are algebraic readouts. "
-            "The populated source-side determinant character exists for each fixed formal source exponent vector. "
-            "The required closure object is the sector-isolated trace-lift attachment on the charged determinant channel."
+            "The finite witness instantiates a bounded observer-like self-reading patch: local register state, declared path "
+            "interfaces, accepted/rejected central readback, recovery maps, and a public evidence archive. Eight register "
+            "graphs account for 6467 matrix units, eight declared paths, 60 A5 rotation charts, and the central record dilation. "
+            "The construction hard-codes its dimensions, automaton, signs, clock, and response; its dependency record omits "
+            "target-informed ancestry. Per-event response maps do not form a checked global mutually exclusive channel, and "
+            "the exported refinement is inert ancillary stabilization rather than physical cofinal refinement. A conditional "
+            "nature/pole transport lemma assumes the physical Yukawa response and singularity readout it transports; its "
+            "zero-self-energy kernel is a free witness rather than the interacting charged kernel."
         ),
-        "frontier_text": "Frontier statement: the same-family witness, the source-side determinant character, the conditional determinant-line lift, and the algebraic mass readout are part of the charged theorem surface. The source-only absolute-mass lane has a corpus-limited no-go boundary, and the empirical-closure interval lane bounds the absolute masses within 0.4 percent of measurement. Source-only promotion requires a sector-isolated trace-lift attachment.",
-        "prediction_surface": "Charged theorem surface with a target-anchored same-family witness withheld from public prediction output, a conditional determinant-line lift on theorem-grade physical charged data, and an algebraic charged-mass readout from theorem-grade absolute charged data.",
+        "frontier_text": "Physical promotion requires source-derived dynamical selection, honest target-free ancestry, identification with the charged-generation space, a global response channel, an interacting infrared-complete kernel, determinant and pole attachment, and cofinal physical refinement.",
+        "prediction_surface": "No nonzero source-only charged-lepton mass is emitted. The finite digital schema witness and central-record construction remain separate from retrospective and target-informed mass diagnostics.",
         "particles": ["electron", "muon", "tau"],
     },
     {
         "key": "quarks",
         "title": "Quarks",
-        "summary": "The quark lane proves a two-modulus source-spread non-identifiability theorem. Restricted target-audit chains reproduce mixed-convention mass coordinates and GeV-valued mass textures, while numeric public rows remain withheld.",
-        "takeaway": "The source laws fix two ordered profile rays but leave their positive endpoint spans independent. Selected-fiber descent does not choose those moduli, and the stored matrices are not physical dimensionless Yukawas.",
+        "summary": "The generic quark interface is six dimensionless Yukawa coordinates at one declared scale and scheme. The reciprocal-ray subfamily fails the common-scale data.",
+        "takeaway": "The reciprocal product differs from one at every tested scale. Even after four endpoints are granted, the held-out charm/strange discrepancy remains about one fifth.",
         "logic": (
-            "The local quark path takes the shared flavor data, emits the quark sector mean split, assembles the "
-            "quark descent, builds target-audit mass textures, and fixes the ordered source-readback shell. The even "
-            "ordered-family surface is fixed by the mean split and diagonal gap machinery. The theorem-emitted package "
-            "contains the quark mass ray, the restricted-scope affine mean package, and a separate target-free theorem "
-            "for the light-quark overlap defect. After target ancestry is removed, compatible up/down profiles form "
-            "a free (R_{>0})^2 fiber whose two moduli change the affine mass readout. Restricted audit surfaces "
-            "reproduce their chosen target coordinates, but those coordinates mix light MSbar at 2 GeV, heavy "
-            "MSbar at self-scale, and a separate top pole extraction. Their GeV-valued matrices are mass textures. "
-            "A physical Yukawa result would require common-scale RG transport and dimensionless Higgs normalization."
+            "The six-scalar interface is (mu_u, sigma_u, rho_u, mu_d, sigma_d, rho_d), with an exact inverse to each "
+            "ordered positive Yukawa pair. The reciprocal condition rho_u rho_d = 1 fails from the electroweak scale "
+            "through the highest tested scale. Historic sub-percent residuals fit a mixed-convention retrospective mass "
+            "chart, and a lower-order ablation fits that same chart better. Flavor-singlet source scalars cannot emit a "
+            "nonzero fixed bifundamental Yukawa representative. The completed 64k simulator runs measure no quark/Higgs "
+            "operator and are calibration-null. Independent and archived direct-carrier assays remain rank one in the Haar "
+            "basis and miss both required transport shapes; complex orientation and refinement exports are absent."
         ),
-        "frontier_text": "Source-spread boundary: the current corpus leaves two independent positive moduli. Numeric mass rows and physical Yukawas remain blocked; selected-fiber descent and global frame classification are separate questions.",
-        "prediction_surface": "Public quark surface: no numeric prediction rows. The theorem-grade output is the (R_{>0})^2 non-identifiability obstruction; mixed-convention target audits are shown only as withheld diagnostics.",
+        "frontier_text": "A physical result requires a source-derived flavor-orbit selector, a gauge-invariant chiral Higgs attachment, one common-scale six-Yukawa output, full coupled running and matching, and blind covariant validation. All eight prediction-contract gates fail.",
+        "prediction_surface": "No nonzero source-only physical quark mass is emitted. The reciprocal-ray candidate is rejected; historic formula fits and simulator outputs remain comparison diagnostics.",
         "particles": ["up_quark", "down_quark", "strange_quark", "charm_quark", "bottom_quark", "top_quark"],
     },
     {
         "key": "neutrinos",
         "title": "Neutrinos",
         "summary": "The neutrino lane proves an exact no-go for the isotropic ansatz and retains the weighted-cycle construction only as a rejected, target-informed comparison candidate.",
-        "takeaway": "No physical PMNS matrix, ordering, Majorana phases, or absolute neutrino masses are currently derived from source-closed OPH inputs.",
+        "takeaway": "No physical PMNS matrix, ordering, Majorana phases, or nonzero absolute neutrino masses are derived from source-closed OPH inputs.",
         "logic": (
             "The lane derives the light-neutrino scale from the electroweak core, builds the family-response tensor, the "
             "Majorana holonomy lift, the pullback metric, the forward Majorana matrix, and the ascending-splitting "
@@ -293,20 +287,20 @@ LANES: List[Dict[str, Any]] = [
             "degenerate. The historical shared-basis cancellation therefore does not derive a physical PMNS matrix. "
             "After correcting the Majorana Takagi convention, the conditional intrinsic point also lies far outside the "
             "oscillation data; the earlier weighted point fails the official NuFIT 6.1 correlated "
-            "`(sin^2 theta_23, delta_CP)` profile. The two-parameter exact adapter and `(B_nu, C_nu)` coordinates are "
+            "`(sin^2 theta_23, delta_CP)` profile beyond the two-parameter 3-sigma threshold. The two-parameter exact adapter and `(B_nu, C_nu)` coordinates are "
             "target-fit diagnostics on this rejected candidate and cannot feed back into theorem state. A future physical "
             "result requires a source-closed neutrino operator, a nondegenerate charged-lepton basis, and an independently "
             "derived mass-eigenstate labeling rule fixed before comparison with data."
         ),
-        "frontier_text": "Physical gates: derive a source-closed neutrino operator, a stable charged-lepton left basis, and a neutrino mass-eigenstate label/order rule without oscillation-target feedback. The current weighted-cycle and bridge objects remain rejected diagnostics.",
-        "prediction_surface": "No current neutrino prediction surface. The exact isotropic no-go is retained; weighted-cycle mixing, bridge coordinates, and absolute masses are rejected or compare-only diagnostics.",
+        "frontier_text": "Physical gates: derive a source-closed neutrino operator, a stable charged-lepton left basis, and a neutrino mass-eigenstate label/order rule without oscillation-target feedback. The weighted-cycle and bridge objects remain rejected diagnostics.",
+        "prediction_surface": "No nonzero source-only neutrino mass or physical mixing row is emitted. The exact isotropic no-go is retained; weighted-cycle mixing, bridge coordinates, and absolute masses are rejected or comparison diagnostics.",
         "particles": ["electron_neutrino", "muon_neutrino", "tau_neutrino"],
     },
     {
         "key": "hadrons",
         "title": "Hadrons",
-        "summary": "The source-only hadron lane requires a working OPH backend export bundle with publication-complete systematics. Empirical closure values use a separate e+e- payload class.",
-        "takeaway": "This lane splits source-only backend outputs from empirical data-driven closure outputs.",
+        "summary": "The source-only hadron lane lacks a production OPH backend. A separate measured e+e- hadron payload supplies an empirical fine-structure endpoint.",
+        "takeaway": "Empirical closure gives alpha inverse 136.2636589431 on [136.1583832834, 136.3690975240], with a same-scheme anchor gap [0.6485541111, 0.8547920666].",
         "logic": (
             "The hadron path steps down from the electroweak and local quark masses into the strong scale, seeds the "
             "unquenched ensemble family, realizes deterministic cfg/source payload identifiers, attaches a fixed "
@@ -315,8 +309,8 @@ LANES: List[Dict[str, Any]] = [
             "hadron masses require one production backend export bundle with publication-complete manifest provenance, real `pi_iso`, `N_iso_direct`, and `N_iso_exchange` arrays, the executed runtime receipt `(N_therm, N_sep)`, and then declared production continuum/volume/chiral/statistical systematics. "
             "The surrogate execution bridge is only a diagnostic proof that the schema closes; it is not a promotable hadron output surface."
         ),
-        "frontier_text": "Source-only scope: the hadron backend lane requires a GLORB/Echosahedron-class OPH backend with real correlator arrays and published statistical plus continuum/volume/chiral systematics on the seeded stable-channel branch. Empirical closure scope: e+e- spectral data can feed a separate display class.",
-        "prediction_surface": "Stable-channel hadron shell with source-backend prerequisites; source-only public hadron rows are withheld, while empirical closure rows use a separate data-driven class.",
+        "frontier_text": "Source-only scope requires real correlator arrays and declared statistical, continuum, volume, and chiral systematics. The empirical endpoint is data-driven and does not close the source-only hadron backend.",
+        "prediction_surface": "Four fine-structure coordinates stay separate: source/root witness 136.9948351646, mixed-provenance no-hadron diagnostic 137.0359595008, empirical endpoint 136.2636589431, and measured endpoint 137.035999177. No nonzero source-only hadron mass is emitted.",
         "particles": ["proton", "neutron", "neutral_pion", "rho_770_0"],
     },
 ]
@@ -630,11 +624,8 @@ def draw_vertical_arrow(
 
 
 def _format_exact_output(entry: Dict[str, Any]) -> str:
-    if "mass_gev" in entry:
-        return f"{entry['mass_gev']} GeV"
-    if "mass_eV" in entry:
-        return f"{entry['mass_eV']} eV"
-    return "n/a"
+    del entry
+    return "withheld; no nonzero source-only physical mass is emitted"
 
 
 def public_exact_surface(row: Dict[str, Any], exact_entry: Dict[str, Any]) -> str:
@@ -642,7 +633,7 @@ def public_exact_surface(row: Dict[str, Any], exact_entry: Dict[str, Any]) -> st
     if particle_id in {"w_boson", "z_boson"}:
         return "compare-only exact sidecar"
     if particle_id == "higgs":
-        return "conditional declared D10/D11 Higgs/top candidate"
+        return "conditional declared-surface Higgs/top candidate"
     if particle_id in {"electron", "muon", "tau"}:
         return "target-anchored same-family witness withheld from public prediction output"
     if particle_id.endswith("_quark"):
@@ -655,13 +646,13 @@ def public_exact_surface(row: Dict[str, Any], exact_entry: Dict[str, Any]) -> st
 def public_exact_caveat(row: Dict[str, Any], exact_entry: Dict[str, Any]) -> str:
     particle_id = row["particle_id"]
     if particle_id in {"w_boson", "z_boson"}:
-        return "Compare-only frozen-adapter row. Promotion requires the candidate P root, source spectral measure payload, and interval certificate."
+        return "Target-containing inverse-adapter row. It is distinct from the selected carrier chart and conditional value law; physical promotion requires the source, scale, scheme, and complex-pole receipts."
     if particle_id == "higgs":
-        return "Conditional Higgs candidate on the declared electroweak calibration surface. It is not promoted until the D10 target-free repair closes."
+        return "Conditional Higgs candidate on the declared electroweak running and matching surface. It is not a source-only complex-pole prediction."
     if particle_id in {"electron", "muon", "tau"}:
-        return "Exact same-family witness. The charged-lepton absolute-mass lane has a corpus-limited no-go boundary because the determinant-line attachment is absent."
+        return "Target-anchored charged witness. The finite digital model proves schema satisfiability and a central-record bridge, while physical selection, determinant attachment, cofinal refinement, and the pole scheme remain open."
     if particle_id.endswith("_quark"):
-        return "Target-audit coordinate only. The source spread fiber is (R_{>0})^2, and the mixed chart plus physical-Yukawa normalization gates remain open."
+        return "Target-audit coordinate only. The reciprocal-ray subfamily fails the generic common-scale six-Yukawa interface, and the historic mixed-convention chart is not a physical postdiction."
     if particle_id.endswith("_neutrino"):
         return "Scale-free weighted-cycle branch with a compare-only absolute attachment candidate; the absolute mass normalization is not promoted."
     return STATUS_NEXT_STEP.get(row["status"], "")
@@ -677,8 +668,8 @@ def particle_body(row: Dict[str, Any], exact_entry: Dict[str, Any] | None = None
         lines.extend(
             [
                 f"Surface class: {public_exact_surface(row, exact_entry)}.",
-                f"OPH exact output: {_format_exact_output(exact_entry)}.",
-                f"Reference: {row['reference_display']}.",
+                "OPH output: no nonzero source-only physical mass emitted.",
+                "Reference mass: withheld from this diagram ledger.",
                 f"Caveat: {public_exact_caveat(row, exact_entry)}",
             ]
         )
@@ -687,15 +678,13 @@ def particle_body(row: Dict[str, Any], exact_entry: Dict[str, Any] | None = None
         lines.extend(
             [
                 f"Surface class: {STATUS_TEXT[status]} meaning {STATUS_EXPLAINER[status]}.",
-                f"Reference: {row['reference_display']}.",
+                "Reference mass: withheld from this diagram ledger.",
             ]
         )
-        if row["prediction_display_gev"] == "n/a":
-            lines.insert(-1, "OPH output: no public numeric mass output.")
+        if status in {"structural", "conditional_carrier_mode"}:
+            lines.insert(-1, "OPH output: zero hard quadratic parameter on the declared classical-action branch; no quantum-particle pole is claimed.")
         else:
-            lines.insert(-1, f"OPH output: {row['prediction_display_gev']} GeV.")
-        if row["delta_display"] != "n/a":
-            lines.append(f"Gap vs reference: {row['delta_display']}.")
+            lines.insert(-1, "OPH output: no nonzero source-only physical mass emitted.")
         lines.append(f"Caveat: {STATUS_NEXT_STEP[status]}")
     return lines
 
@@ -1182,8 +1171,8 @@ def build_svg(results: Dict[str, Any], exact_by_id: Dict[str, Dict[str, Any]]) -
     # Header sizes
     intro_lines = [
         "A top-down map of the OPH particle program: start at the fixed-point closures, move through the sector lanes, and finish at the particle rows printed by the declared code surfaces.",
+        "Each carrier must instantiate a bounded observer-like self-reading patch with local state, boundaries or ports, readback, records, repair moves, and a public evidence bundle.",
         "Blue and green regions show implemented derivation surfaces. Orange cards mark named theorem or computation burdens on the public lanes.",
-        "This poster is both a reader-facing explainer and a lane-by-lane claim map, so each lane pairs plain-language summaries with the sharper technical boundary.",
     ]
     intro_height = 3 * 24
 
@@ -1267,7 +1256,7 @@ def build_svg(results: Dict[str, Any], exact_by_id: Dict[str, Dict[str, Any]]) -
     scaffold_body = [
         "Start with the OPH axioms plus the two fixed-point closures P and N_CRC; no extra capacity input is introduced.",
         "Then read each lane from top to bottom: implemented theorem content, named frontier objects, prediction surface, and the particle rows shown on the public table.",
-        f"The badge reports {closedish} of {total_rows} tracked rows above continuation / simulation status. Those rows sit on structural, electroweak-compare, secondary quantitative, or selected-class theorem surfaces.",
+        f"The badge reports {closedish} of {total_rows} tracked rows above continuation / simulation status. The quark count preserves a legacy machine status; the reader-facing lane records the common-scale reciprocal-ray rejection.",
         "The broader geometric-premise boundary sits above the particle lanes. Three cap-pair extraction witnesses are explicit. The open geometric clause concerns a common floor for the finitely many modular-transport marginals, followed by ordered null cut-pair rigidity.",
     ]
     scaffold_h = estimate_box_height(
@@ -1330,9 +1319,9 @@ def build_svg(results: Dict[str, Any], exact_by_id: Dict[str, Dict[str, Any]]) -
             "Status colors",
             [
                 "classical carrier = zero hard quadratic parameter on a declared branch; quantum-particle gate open",
-                "electroweak frontier = no public W/Z row until target-free D10 repair promotes",
+                "electroweak frontier = selected chart, conditional value law, and target-containing inverse adapter remain separate",
                 "secondary = quantitative branch built on a declared electroweak layer",
-                "quark obstruction = two source-spread moduli remain; target-audit numbers withheld",
+                "quark boundary = common-scale six-Yukawa data reject the reciprocal ray; numeric rows withheld",
                 "continuation = declared continuation or witness surface",
                 "simulation = execution-bound lane with backend and systematics prerequisites",
             ],
@@ -1351,7 +1340,7 @@ def build_svg(results: Dict[str, Any], exact_by_id: Dict[str, Dict[str, Any]]) -
             "Bottom line",
             [
                 f"Status table generated: {generated_utc}. SVG generated: {built_utc}.",
-                "This chart maps the implemented derivation pipeline, its named frontier objects, and the emitted public rows. The full particle zoo does not sit on one uniform theorem chain from P plus axioms.",
+                "This chart maps the implemented derivation pipeline and its claim boundaries. It emits no nonzero source-only physical particle mass. The full particle zoo does not sit on one uniform theorem chain from P plus axioms.",
             ],
         ),
     ]

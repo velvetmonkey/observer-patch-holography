@@ -41,6 +41,18 @@ quark ancestry, and its optional D10 GeV display mixes nonmatching source
 branches. RSCC therefore remains a fail-closed formula-level candidate beneath
 the same F1--F6 contract; all six receipts remain open.
 
+The subsequent further-theorem/QFRC audit sharpens this boundary. It proves by
+explicit finite countermodels that first and second moments do not fix higher
+cumulants and that finite-support MaxEnt is exponential-quadratic rather than
+Gaussian. It also verifies the proposed QFRC rational weights exactly once its
+QF1--QF9 typed-register and primitive-path certificate is assumed. Those
+clauses include the missing registers, exhaustive path catalogue, ranks,
+signs, winding character, refinement transport, and positive-gap selector;
+the current OPH carrier exports none of them. The selector, scale, and scheme
+results are retained as no-go or conditional well-posedness theorems. They do
+not close F1--F6 or authorize numeric quark rows. See
+[`audit_quark_further_theorems.py`](audit_quark_further_theorems.py).
+
 The intended chain is:
 
 1. derive a refinement-stable flavor observable from overlap / defect data
@@ -93,6 +105,8 @@ Current scripts:
 - [`quark_rscc_completion_candidate.py`](quark_rscc_completion_candidate.py)
 - [`audit_quark_rscc_completion_candidate.py`](audit_quark_rscc_completion_candidate.py)
 - [`test_quark_rscc_completion_candidate.py`](test_quark_rscc_completion_candidate.py)
+- [`audit_quark_further_theorems.py`](audit_quark_further_theorems.py)
+- [`test_audit_quark_further_theorems.py`](test_audit_quark_further_theorems.py)
 - [`derive_quark_d12_internal_backread_source_payload.py`](derive_quark_d12_internal_backread_source_payload.py)
 - [`derive_quark_d12_internal_backread_yukawa_dictionary.py`](derive_quark_d12_internal_backread_yukawa_dictionary.py)
 - [`derive_quark_d12_internal_backread_descent.py`](derive_quark_d12_internal_backread_descent.py)

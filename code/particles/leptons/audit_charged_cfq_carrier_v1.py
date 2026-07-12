@@ -66,6 +66,11 @@ EXPECTED_NEGATIVE_CONTROL_SHA256 = (
 EXPECTED_FINAL_STATUS_SHA256 = (
     "d3c92f36199e3abdc371606808b05b1a00c37c31e13b69966a354458a69e2331"
 )
+EXPECTED_SOURCE_LAW = {
+    "chi": "alpha_U^2/512 + (alpha_U/77)*chi",
+    "kappa": "alpha_U/50 - (alpha_U/31 + alpha_U^2/310)*kappa",
+    "zeta": "alpha_P^2/21 + (alpha_U/27 + alpha_U^2/135)*zeta",
+}
 
 
 def sha256(data: bytes) -> str:
@@ -264,7 +269,7 @@ def build_review(archive_path: Path, canonical_cfq_path: Path) -> dict[str, Any]
             )
         ),
         "finite_patch_tuple_declares_central_record_algebra": (
-            patch_tuple["record_algebra"]["central"] is True
+            patch_tuple["abstract_patch"]["record_algebra"]["central"] is True
         ),
         "sixty_rotation_charts_exported": (
             rotations["order"] == 60
@@ -273,15 +278,17 @@ def build_review(archive_path: Path, canonical_cfq_path: Path) -> dict[str, Any]
             and rotations["selected_face_stabilizer_size"] == 3
         ),
         "inert_refinement_models_exported": (
-            refinement["refinement_kind"] == "inert ancillary tensor refinement"
+            refinement["refinement_family"]
+            == "cofinal inert ancillary refinement by tensor powers"
         ),
         "all_eight_targeted_negative_controls_rejected": (
-            negative["all_mutations_rejected"] is True
-            and len(negative["mutations"]) == 8
-            and all(row["mutation_rejected"] for row in negative["mutations"])
+            negative["all_controls_pass"] is True
+            and len(negative["controls"]) == 8
+            and all(row["mutation_rejected"] for row in negative["controls"])
         ),
-        "source_law_text_matches_conditional_packet": (
-            carrier["source_law"] == verification["derived_source_law"]
+        "source_law_text_independently_matches_conditional_packet": (
+            carrier["source_law"] == EXPECTED_SOURCE_LAW
+            and verification["derived_source_law"] == EXPECTED_SOURCE_LAW
         ),
         "submitted_runtime_has_no_external_input_files": (
             carrier["external_runtime_inputs"] == []
@@ -301,6 +308,7 @@ def build_review(archive_path: Path, canonical_cfq_path: Path) -> dict[str, Any]
             }
             and canonical["historical_charged_target_informed"] is True
         ),
+        "dependency_dag_omits_actual_hard_coded_design_ancestors": True,
         "strict_historical_no_target_ancestry_pass": False,
         "physical_charged_sector_identified_with_constructed_patch": False,
         "five_oph_axioms_uniquely_select_constructed_patch": False,
@@ -355,6 +363,22 @@ def build_review(archive_path: Path, canonical_cfq_path: Path) -> dict[str, Any]
                 "Exhaustion is exact relative to the automaton whose nodes and edges are "
                 "declared by the builder; the automaton is not emitted by prior OPH dynamics."
             ),
+            "global_response_boundary": (
+                "Per-event pinchings are exported, but a globally checked mutually exclusive "
+                "CPTP response update from records to real kappa, chi, and zeta is not."
+            ),
+            "rotation_boundary": (
+                "The A5 maps preserve register graphs, ranks, and reciprocal trace weights. "
+                "They do not supply a canonical equivariant distinguished event section."
+            ),
+            "refinement_boundary": (
+                "The exported maps are inert ancillary stabilizations, not the cofinal "
+                "physical screen-refinement system required for OPH promotion."
+            ),
+            "negative_control_harness_boundary": (
+                "The frozen eight mutations fail at their intended checks, but the harness "
+                "accepts any nonzero verifier exit and can false-pass when the verifier is missing."
+            ),
             "checks": model_checks,
             "checks_pass": all(model_checks.values()),
         },
@@ -363,8 +387,9 @@ def build_review(archive_path: Path, canonical_cfq_path: Path) -> dict[str, Any]
             "submitted_no_target_ancestry_claim_accepted": False,
             "reason": (
                 "The dependency DAG begins with structural integers and omits the actual "
-                "target-informed history of the register dimensions and path catalogue. "
-                "Runtime reference separation cannot repair historical ancestry."
+                "target-informed history and hard-coded EXPECTED_DIMENSIONS, PATH_SPECS, "
+                "automaton, grading, clock, and response assignment. Runtime reference "
+                "separation cannot repair historical ancestry."
             ),
             "digital_existence_consequence": (
                 "The broad finite OPH interface admits a deliberately constructed patch "
@@ -378,6 +403,12 @@ def build_review(archive_path: Path, canonical_cfq_path: Path) -> dict[str, Any]
         "independent_reproduction_observation": {
             "semantic_rebuild_passed_all_submitted_gates": True,
             "negative_controls_rejected_all_eight_mutations": True,
+            "adversarial_source_law_and_provenance_binding_passed": False,
+            "adversarial_finding": (
+                "The submitted verifier still passed after its reported source law, source "
+                "weight, phase sidecar, and builder text were target-corrupted; it is a "
+                "schema conformance checker, not a provenance or source-law binding proof."
+            ),
             "byte_reproducible_across_tested_python_numpy_environment": False,
             "submitted_environment": "Python 3.13.5, NumPy 2.3.5, NetworkX 3.6.1",
             "audit_environment": "Python 3.13.7, NumPy 2.3.5, NetworkX 3.6.1",

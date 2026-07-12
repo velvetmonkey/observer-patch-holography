@@ -31,7 +31,10 @@
       "sha256": "712f4ac9ac065bb5349eda86f168c5aca5f011771cefc5e50ededea56c17152a"
     },
     "particles/runs/flavor/quark_axiom_level_yukawa_moduli_nonidentifiability.json": {
-      "sha256": "39c54115c9aa1bf14a806ff7900874c9575c42c3dfd25cb30801799c4a1a653f"
+      "sha256": "45bec50a087eb790811d944d3d5ae98d39ca851d8893f36261e9575c79f09f6a"
+    },
+    "particles/runs/flavor/quark_further_theorem_audit.json": {
+      "sha256": "06a0f13f28a56139d3658624ff4d8d7951af9a851a4eb1c7ea9588973b8ce688"
     },
     "particles/runs/flavor/quark_odd_response_law.json": {
       "sha256": "b9f15ab24a7231f3b500b270b6c8923e3deba843d28f603e2032f992363b1a55"
@@ -124,11 +127,13 @@
       "current_kernel_status": "template",
       "odd_response_missing_object": "oph_charged_dirac_odd_deformation_form",
       "odd_response_status": "candidate_only",
+      "qfrc_physical_certificate_present": false,
       "required": "source-emitted labeled simple-spectrum family generator, charged seed, and common-refinement intertwiners",
       "rscc_contribution": "proposes F=1+2*V_std but supplies no physical regular-heat-to-F attachment, labeled generator, or refinement transport"
     },
     "F3_physical_channel_identification_functor": {
       "closed": false,
+      "qfrc_status": "conditional rigidity only: QF1--QF9 assume the typed registers, primitive paths, ranks, signs, winding, exhaustion, and selector gap",
       "required": "identify the physical S3 heat carrier, tau_f, rho/x dictionary, and edge response equations, then derive the 5,2,5,10,4 response modules, signs, orientation, and exclusion of competing source-natural assignments",
       "rscc_arithmetic_status": "exact_arithmetic_passed_physical_module_selection_not_proved",
       "rscc_physical_functor_closed": false
@@ -147,10 +152,20 @@
     },
     "F6_source_only_RG_threshold_scheme_packet": {
       "closed": false,
+      "qfrc_rg_result": "standard_conditional_well_posedness_only",
       "required": "locally-Lipschitz beta system with existence/non-blowup over every required interval, frozen thresholds and matching maps, top conversion, common scheme, and no-target provenance",
       "rscc_packet_supplied": false,
       "single_running_sextet_claim_allowed": false
     }
+  },
+  "further_theorem_qfrc_audit": {
+    "all_F1_to_F6_receipts_remain_open": true,
+    "artifact": "oph_quark_further_theorem_audit_v1",
+    "finite_maxent_correction": "The former finite-MaxEnt-to-Gaussian justification is false. An exact primitive-path closure or a proved refinement CLT is required instead.",
+    "physical_QF1_to_QF9_certificate_present": false,
+    "promotion_allowed": false,
+    "qfrc_status": "exact_arithmetic_given_postulated_QF1_to_QF9",
+    "status_statement": "The packet adds exact finite-MaxEnt, selector, scale, and scheme no-go results and exact QFRC arithmetic conditional on QF1--QF9. It does not supply a physical QFRC carrier, source root, scale, or RG packet."
   },
   "necessity_theorem": {
     "artifact": "oph_quark_axiom_level_yukawa_moduli_nonidentifiability",

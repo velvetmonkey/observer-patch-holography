@@ -5,8 +5,15 @@ from __future__ import annotations
 import json
 
 import mpmath as mp
+import pytest
 
 import audit_charged_source_law_rigidity_v1 as lane
+
+
+pytestmark = pytest.mark.skipif(
+    not lane.DEFAULT_ARCHIVE.exists(),
+    reason="external correspondence archive is not present in this workspace snapshot",
+)
 
 
 def review() -> dict:

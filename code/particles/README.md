@@ -131,6 +131,26 @@ part of this canonical tree.
 - rendered public surface:
   `scripts/build_results_status_table.py`
 
+## Conditional Candidate Values
+
+The strict prediction ledger reports `n/a` while the sector source gates are
+open. The conditional charts carry sharp numeric candidates. Each value below
+holds on its stated chart and inherits the open gates recorded in
+[CONDITIONAL_CANDIDATES.md](CONDITIONAL_CANDIDATES.md); none is a promoted
+source-only prediction.
+
+| Observable | Conditional value | Measured / reference | Condition |
+| --- | ---: | --- | --- |
+| `M_W` | `80.37700001539531 GeV` | `80.3692 +- 0.0133 GeV` | D10 target-free value law; exact implication of the QT1--QT5 quotient-path certificate, which the repository does not emit |
+| `M_Z` | `91.18797807794321 GeV` | `91.1880 +- 0.0020 GeV` | same value-law chart and QT1--QT5 gate |
+| `M_W / M_Z` | `0.8814429457652062` | `0.8813572` | scale-free coordinate of the same quintet |
+| `sin^2 theta_W_eff` | `0.22305833336075578` | `0.22321 (on-shell, from the pinned pole masses)` | same quintet; effective chart scheme, compare with care |
+| `m_H` | `125.1995304097179 GeV` | `125.13 +- 0.11 GeV` | declared D10/D11 running, matching, and threshold surface; core couplings and Jacobian slopes are declared calibration inputs |
+| `m_t` | `172.3523553288312 GeV` | `172.1 +- 0.6 GeV` | companion coordinate on the same declared surface |
+| `m_H / m_t` | `0.726416126839982` | `0.7271` | scale-free ratio of the same split pair |
+| `alpha^-1` (no-hadron near endpoint) | `137.0359595008...` | `137.035999177` | deterministic pixel-root evaluation; source spectral endpoint and same-scheme hadronic remainder are work in progress |
+| `v / E_star` | `2.0199803239725553e-17` | dimensionless | public-endpoint hierarchy packet; the physical normalization of `E_star` is work in progress |
+
 The W/Z lane has three distinct numeric surfaces:
 
 - the selected-carrier chart emits
@@ -201,6 +221,8 @@ Full SI gravity remains gated by the no-G clock stack.
   packets:
   [GAP_BUNDLE_CAMPAIGN.md](GAP_BUNDLE_CAMPAIGN.md)
   and [campaigns/gap_bundle](campaigns/gap_bundle)
+- conditional candidate outputs withheld from the public prediction columns:
+  [CONDITIONAL_CANDIDATES.md](CONDITIONAL_CANDIDATES.md)
 - exact-fits-only diagnostic surface:
   [EXACT_FITS_ONLY.md](EXACT_FITS_ONLY.md)
 - exact non-hadron mass bundle:

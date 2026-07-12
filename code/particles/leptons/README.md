@@ -138,6 +138,61 @@ process/readout record-algebra bridge is still required. The one-bit balance,
 attachments. The old multiplier witnesses therefore remain valid against the
 weaker current OPH premises, and public mass promotion remains forbidden.
 
+The later archive `correspondence/oph_charged_cfq_carrier_v1.zip` (SHA-256
+`d4b47d158f80b4bffe318650769812a606e4e065cab1e1a01edd68ff8909291c`)
+constructs an explicit finite digital model of that packet. Its eight graph
+algebras, 6,467 local matrix units, reciprocal traces, path table, `A5` chart
+maps, and inert-ancilla identities are internally consistent. Its
+`B(H) tensor D2` accepted/rejected dilation is a genuine formal resolution of
+the noncentral-event versus central-record distinction at fixed cutoff.
+
+`derive_charged_cfq_central_record_model.py` retains that positive result in a
+small canonical executable. It constructs ten distinct event occurrences,
+their pinching/central-pointer records, all eight exact path products, and
+sixteen inert-refinement checks without emitting mass values. Every physical
+selection and promotion gate remains false in its receipt.
+
+`audit_charged_cfq_carrier_v1.py` verifies the archive without extracting or
+executing it and independently binds its graph, matrix-unit, path, and central
+record exports to the canonical conditional receipt. The model is a schema
+satisfiability witness, not source-law closure: the builder hard-codes the
+dimensions, path automaton, coupling degrees, signs, clock, and scalar response.
+The submitted verifier duplicates that schema, exhausts only its authored
+automaton, and trusts a self-declared dependency DAG that omits the known
+target-informed history. Adversarial source-law and ancestry corruptions still
+pass that verifier, and its negative-control harness accepts any nonzero exit.
+The canonical review therefore rejects the submitted no-target-ancestry claim,
+keeps physical CFQ selection and charged response attachment open, and retains
+promotion `false`.
+
+The archive
+`correspondence/oph_charged_nature_pole_theorem_v1.zip` (SHA-256
+`73e8f5a8d0ca2a5a0c306b0f4f5f319c3000c98a999a240021bc13879dcbf897`)
+adds a valid conditional bridge layer. Given a physical chiral three-family
+carrier and the NI6 identity
+
+```text
+(v^2/2) Y_hat Y_hat^dagger = J_L M_F^2 J_L^dagger,
+```
+
+uniqueness of the positive square root gives the physical left mass response.
+Given the RP4 CFQ-to-Dyson intertwiner and its stipulated singularity readout,
+the same operator is transported to the renormalized singularity coordinate.
+The regular-`C3`, field-redefinition, Nielsen determinant, and fixed-point
+transport lemmas are mathematically valid under their stated premises.
+
+`audit_charged_nature_pole_theorem_v1.py` independently reconstructs the face
+endpoint, verifies archive integrity, and freezes the premise boundary. NI6
+already assumes the desired physical Yukawa response, while RP4 already
+assumes the desired singularity readout. The archive's minimal kernel is
+`K_0(s)=s I-M_*^2` with zero self-energy, so it is a free existence witness,
+not the interacting Standard Model two-point function. The builder also embeds
+the hybrid candidate coordinates as defaults without binding their parent
+receipts. Its verifier checks the mass matrix, determinant, and pole roots
+internally but never checks `M_F = g_end S_F`; a coherently changed ordered
+spectrum with the same product can satisfy the tested relations. All physical
+NI and RP gates remain open, and promotion remains `false`.
+
 ## How To Read The Active Charged-Lepton Files
 
 The live charged scripts use the same compact derivation header:

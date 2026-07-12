@@ -3,8 +3,15 @@
 from __future__ import annotations
 
 import math
+import pytest
 
 import audit_charged_icosahedral_completion_v1 as lane
+
+
+pytestmark = pytest.mark.skipif(
+    not lane.DEFAULT_ARCHIVE.exists(),
+    reason="external correspondence archive is not present in this workspace snapshot",
+)
 
 
 def test_face_candidate_rebuilds_submitted_masses():

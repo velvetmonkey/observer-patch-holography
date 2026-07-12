@@ -153,26 +153,40 @@ three-generation count follows from CKM phase counting, weak-sector
 consistency, and minimality on the same low-energy branch. The electromagnetic,
 color, and metric carrier roles acquire classical transverse or TT modes only
 after their explicit action and phase receipts; their quantum particle poles
-remain a stronger gate. The broader particle table then carries the
+remain a stronger gate. The broader particle status map then carries the
 exact weak-sector selected-carrier chart, the value law conditional on five
-quotient-transport premises, the frozen comparison adapter, the low-energy
-electromagnetic endpoint, the conditional Higgs/top relation, the two-modulus
-quark source-spread obstruction (including
-the equal-MAR-score rescaling counterfamily) with target-audit mass textures,
-exact finite $S_3$/centered-plane lemmas, and a quarantined target-informed
-two-mode template diagnostic that has no physical scale or common RG packet,
-plus a later RSCC candidate that replaces five direct decimals by an unproved
-module/rank/sign/cumulant ledger and leaves all six closure receipts open,
-the exact icosahedral face-corner carrier with its target-informed
-charged-lepton completion conjecture and conditional fixed-point theorem for
-one declared repair map, and a target-informed weighted-cycle
-neutrino candidate rejected by the correlated
-NuFIT 6.1 profile. The charged basis is open and has nearly degenerate singular
-values, leaving its physical PMNS matrix, mass ordering, and absolute masses
-unresolved. Charged leptons, direct-top comparison, hadrons, and strong CP sit
-around that same particle map as neighboring pieces of physics rather than
-identical kinds of entry. Hadrons add the strong-binding problem on top of the
-particle-level picture.
+quotient-transport premises, and the separate frozen inverse adapter. The
+adapter's conditional audit coordinate is $(80.3625,91.1879)$ GeV; the nearby
+$(80.3770000154,91.1879780779)$ GeV pair belongs to the conditional law. The
+low-energy electromagnetic ledger distinguishes a source/root witness, a
+mixed-provenance diagnostic, an empirical hadron closure, and the measured
+Thomson endpoint. The empirical row gives $136.2636589431$ on
+$[136.1583832834,136.3690975240]$ and imports external hadron data, so a
+source-only OPH-QCD backend remains absent. The Higgs/top relation is
+conditional on its declared electroweak surface.
+
+This status map emits no nonzero source-only physical particle mass. The
+symmetry-protected zero modes are classical carrier or kernel results pending
+quantum pole receipts. Every nonzero mass coordinate belongs to a conditional
+or retrospective audit.
+
+The exact icosahedral face-corner carrier supports a conditional charged-lepton
+repair law and an engineered finite digital model with central accepted or
+rejected records. Its registers, paths, clock, and response are hard-coded, and
+physical source selection is absent. A conditional nature/pole interface gives
+the correct positive-square-root and singularity-zero transport after the
+physical Yukawa response and CFQ-to-Dyson readout are supplied. Those two
+premises are the missing attachments, and its zero-self-energy kernel is only a
+free witness. The reciprocal quark ray is rejected by
+common-scale dimensionless Yukawas, with a minimum held-out error between
+$19.93\%$ and $21.56\%$ across the tested scales. Its generic physical interface
+needs six independent scalars and a source-derived flavor-orbit selector. The
+64,000-observer simulator supplies a calibration null. A target-informed
+weighted-cycle neutrino candidate is rejected by the correlated NuFIT 6.1
+profile; the open charged basis leaves its physical PMNS matrix, mass ordering,
+and absolute masses unresolved. Direct-top comparison, hadrons, and strong CP
+sit around that particle map as neighboring pieces of physics with different
+support levels.
 
 The particle words here refer to roles explained in Chapters 12-16: color is the
 three-way strong-force bookkeeping, CKM phases describe quark mixing under the
@@ -293,7 +307,7 @@ readout is produced from the trial pixel value. The fixed point is the value of
 $P$ for which the geometric pixel and the electromagnetic readout name the same
 local scale.
 
-The empirical-endpoint branch and the source-audit branch make different uses
+The measured-endpoint branch and the source-audit branch make different uses
 of the inner electromagnetic reading. The former includes the measured
 long-distance endpoint; the latter excludes it upstream. Their nearby pixel
 values cannot be merged into one source claim.
@@ -373,10 +387,15 @@ precision physics.
 The source calculation tells a narrower story. The undressed source/root pixel
 lands at $136.9948351646\ldots$. Combining it with the finite-screen unified
 gauge width evaluated at the CODATA-derived comparison pixel gives the
-mixed-provenance diagnostic $137.0359595008\ldots$. The gap to the measured
-Thomson value states the burden on low-energy hadronic spectral transport in the
-same electromagnetic convention. The source-side spectral calculation remains
-required.
+mixed-provenance diagnostic $137.0359595008\ldots$.
+
+The empirical hadron calculation is a separate coordinate. Supplying the
+external $e^+e^-\to\mathrm{hadrons}$ contribution gives
+$136.2636589431$ on $[136.1583832834,136.3690975240]$. The measured Thomson
+value lies outside that interval, which constrains the required same-scheme
+source/root anchor correction to $[0.6485541111,0.8547920666]$. The calculation
+tests an empirical closure interface and leaves the source-only spectral
+calculation open.
 
 The phrase $e^+e^-\to\mathrm{hadrons}$ names electron-positron annihilation
 into strongly interacting composite particles. Those data account for the
@@ -551,32 +570,81 @@ views mutually legible without erasing their differences.
 The gauge quotient, charge lattice, counting chain, Yang-Mills repair gap,
 receipt-gated classical carrier modes, Lorentz geometry, the branch-qualified
 Einstein relation, the electroweak selected-carrier chart, the conditional
-quotient-transport and Higgs-top surfaces, and the quark non-identifiability
-boundary form one organized reconstruction. The weighted-cycle neutrino candidate sits in its failure
-ledger: NuFIT 6.1 rejects the frozen point, while the open charged basis prevents
-a physical PMNS matrix or mass spectrum.
+quotient-transport and Higgs-top surfaces, and the quark common-scale
+falsification form one organized reconstruction. The restricted quark
+non-identifiability theorem survives as a lower bound on missing source data,
+while its reciprocal-ray ansatz does not survive the physical Yukawa test. The
+weighted-cycle neutrino candidate sits in the failure ledger: NuFIT 6.1 rejects
+the frozen point, while the open charged basis prevents a physical PMNS matrix
+or mass spectrum.
 
 The local-ruler story is therefore a cluster of related claims rather than one
 flat table. For charged leptons the local three-corner cyclic carrier is exact,
 and the declared repair map has one conditionally proved attracting fixed
-point, while source-law rigidity, attachment, and mass-value laws remain
-conjectural. The weak sector likewise separates an exact carrier chart, a
-conditional law, and a comparison adapter. Its color-balanced model, with
+point. A conditional finite-path theorem fixes the scalar weights inside a
+stipulated packet, and an engineered finite digital model proves that packet is
+internally consistent. The bounded patch has local state and interfaces,
+readback, an accepted or rejected central record, a repair move, and a public
+evidence bundle. Its registers, path automaton, grading, clock, and response are
+hard-coded, so OPH dynamical selection, no-target ancestry, physical attachment,
+and mass-value laws remain conjectural. A conditional downstream theorem
+transports the face operator to a physical mass and singularity operator only
+after assuming the physical Yukawa identity and the exact Dyson readout. It
+organizes the remaining certificate stack without closing it. The weak sector likewise separates an exact carrier chart, a
+conditional law, and an inverse adapter. Its color-balanced model, with
 proposed weights $\sqrt{N_c}/2$ and $N_c$, is a distinct alternative to the
 complete quotient-transport law. The finite
 transport certificate and the physical pole receipt are absent. The
-withheld quark rows and their target audits, direct-top
+adapter gives the conditional audit coordinate $(80.3625,91.1879)$ GeV,
+distinct from the conditional law at
+$(80.3770000154,91.1879780779)$ GeV. The withheld quark rows, direct-top
 comparison, hadrons, and Strong CP each touch a different layer of the particle
 problem.
 
-The RSCC audit makes that quark boundary especially concrete. Its declared
-finite-module arithmetic is reproducible, but the family attachment, full
-isotropy, Gaussian truncation, response signs, inherited affine laws, coherent
-absolute scale, and common-scheme running are not consequences of the current
-axioms. Its Stage-5-dependent pixel witness and mixed-branch D10 display also
-prevent source-only ancestry. A simpler ablation fits the same retrospective
-table better, so RSCC is a useful falsifiable candidate specification rather
-than a selected physical closure.
+The generic implication theorems sharpen this boundary. No further
+stochastic or universe simulation is logically required: exact finite path
+enumeration, interval clock certification, deterministic RG integration, and
+analytic complex-pole enclosures suffice once their source inputs exist. But
+the present structural axioms admit continuous target-free changes of the weak
+transport repair, the Higgs/top split, the absolute scale, and the inverse
+two-point kernels.
+They therefore do not select a nonzero pole mass. The remaining source objects
+are the factorized clock packet, a non-vacuous independently weighted
+quotient-transport carrier, the Higgs/top split-character carrier, and the
+BRST-complete weak-neutral-Higgs pole kernels. A runtime dependency graph also cannot establish historical
+blindness; that requires disclosure and a prospective frozen claim.
+
+The quark audit makes that boundary concrete. At $M_Z$ the common-scheme shape
+coordinates are $\rho_u=1.1108888543$ and $\rho_d=0.7519410008$, whose product
+is $0.8353228768$, short of the reciprocal law's required value one. Even after
+granting four endpoint Yukawas, the best reciprocal shape misses the held-out charm and
+strange values by $21.556\%$. The failure remains between $19.93\%$ and
+$21.56\%$ across scales from $M_Z$ to $10^{16}\,\mathrm{GeV}$.
+
+Six independent scalars
+$(\mu_u,\sigma_u,\rho_u,\mu_d,\sigma_d,\rho_d)$ form the generic exact
+interface. Generation-blind flavor singlets can emit only simultaneous
+$S_3$-invariant matrices in $\{I,J\}$, with degenerate spectra and aligned
+frames, so a source-derived flavor-orbit selector is missing. The finite-module
+arithmetic remains an exact conditional exercise after its registers and paths
+are declared. Its $0.29436\%$ residual, like the older $0.2946\%$ result, was
+computed against a mixed-convention chart; a lower-order ablation fits that
+same chart at $0.214229\%$. Finite-support maximum entropy does not imply a
+Gaussian or determine higher cumulants.
+
+The observer simulator adds no numerical quark evidence. Its dynamics contains
+no quark, Higgs, or Yukawa coupling and therefore has zero Fisher information
+for the six Yukawa coordinates. The 64,000-observer run is a calibration null,
+and the survey's chance count lacks a valid null distribution for several
+population cells. All physical flavor-closure receipts remain open.
+
+The targeted POFT check reaches the same boundary more directly. Across one
+fresh and three archived 4k/64k carriers, the natural S3 permutation transport
+is Haar-rank-one rather than POFT T0 or T1, with every singular-shape distance
+above $0.5407$. Complex orientation and coarse/fine intertwiner data are not
+exported. More scale would sharpen this direct null; the next advance must be
+an independently derived carrier lift or selection theorem, followed by
+another small replication.
 
 The next chapter turns to the deepest metaphysical question. If observers,
 meaning, and world belong to one structure, what exactly should be said about

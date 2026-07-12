@@ -191,21 +191,37 @@ The "particle zoo" is a census of vibrational survivors.
 Within OPH, that census is uneven. Some entries are structurally cleaner:
 photon, gluons, and graviton carrier roles. The weak sector separates an exact
 selected-carrier chart, a value law conditional on five quotient-transport
-premises, and a frozen comparison adapter. The finite certificate for those
-premises and the physical pole receipt are absent. The Higgs and top are tied
-together by a conditional downstream electroweak relation. The quark source equations fix
-two profile shapes but leave their positive spreads independent, so numeric
-quark rows do not close. A later target-informed RSCC module-ledger candidate
-removes five direct template decimals but does not derive its carrier,
-cumulant law, affine readout, scale, or RG packet; it therefore leaves the same
-non-identifiability boundary intact. The weighted-cycle neutrino entry is a target-informed
-comparison candidate rejected by the correlated NuFIT 6.1 profile. Its charged
-basis is open and has nearly degenerate singular values, leaving the physical
-PMNS matrix, mass ordering, and absolute scale unresolved. Charged leptons carry
-an accurate frozen Stage-5 postdiction whose balance, phase, determinant, and
-mass-scheme bridges remain unproved. Composite particles like hadrons demand the hard
-strong-interaction calculation, and empirical hadron checks use the standard
-\(e^+e^-\to\mathrm{hadrons}\) data. Stitching a detector track across a chart
+premises, and a frozen inverse adapter. The adapter gives
+$(80.3625,91.1879)$ GeV as a conditional audit coordinate; the nearby
+$(80.3770000154,91.1879780779)$ GeV pair belongs to the conditional law. The
+finite certificate for those premises and the physical pole receipt are
+absent. The Higgs and top are tied together by a conditional downstream
+electroweak relation.
+
+No nonzero source-only physical particle mass is emitted here. The protected
+zero modes are classical carrier or kernel statements pending quantum pole
+receipts. All displayed nonzero masses serve conditional or retrospective
+audits.
+
+The charged-lepton lane has an exact face-corner carrier and an engineered
+finite digital model. Its bounded patch reads local events into central
+accepted or rejected records, yet its registers, paths, clock, and response are
+authored inputs. Physical source selection and family attachment have no
+certificate. The quark reciprocal-ray proposal fares worse under its physical
+test: common-scale Yukawas miss its shape law by at least $19.93\%$ across the
+tested scales. The generic interface has six independent scalars, and the
+64,000-observer simulator returns a calibration null because its dynamics
+contains no Yukawa coupling.
+
+The weighted-cycle neutrino entry is a target-informed comparison candidate
+rejected by the correlated NuFIT 6.1 profile. Its charged basis is open and has
+nearly degenerate singular values, leaving the physical PMNS matrix, mass
+ordering, and absolute scale unresolved. Composite particles such as hadrons
+demand the hard strong-interaction calculation. Feeding empirical
+$e^+e^-\to\mathrm{hadrons}$ data into the electromagnetic transport gives
+$136.2636589431$ on $[136.1583832834,136.3690975240]$, while the measured
+Thomson inverse coupling is $137.035999177(21)$. The imported-data calculation
+therefore leaves source-only OPH-QCD closure open. Stitching a detector track across a chart
 boundary is another layer again: it can identify one nonbranching
 observer-visible path only when the atlas, clock, interface, transport, and
 separation checks leave no rival track.

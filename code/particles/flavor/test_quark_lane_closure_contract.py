@@ -45,6 +45,9 @@ RSCC_AUDIT_SCRIPT = (
 RSCC_ARITHMETIC_SCRIPT = (
     ROOT / "particles" / "flavor" / "verify_quark_rscc_module_arithmetic.py"
 )
+FURTHER_THEOREM_AUDIT_SCRIPT = (
+    ROOT / "particles" / "flavor" / "audit_quark_further_theorems.py"
+)
 SCRIPT = ROOT / "particles" / "flavor" / "derive_quark_lane_closure_contract.py"
 OUTPUT = ROOT / "particles" / "runs" / "flavor" / "quark_lane_closure_contract.json"
 
@@ -67,6 +70,7 @@ def test_quark_lane_contract_records_two_independent_obstructions_and_audit_only
         cwd=ROOT,
     )
     subprocess.run([sys.executable, str(RSCC_AUDIT_SCRIPT)], check=True, cwd=ROOT)
+    subprocess.run([sys.executable, str(FURTHER_THEOREM_AUDIT_SCRIPT)], check=True, cwd=ROOT)
     subprocess.run([sys.executable, str(FLAVOR_SOURCE_CLOSURE_SCRIPT)], check=True, cwd=ROOT)
     for script in (
         SIGMA_OBSTRUCTION_SCRIPT,

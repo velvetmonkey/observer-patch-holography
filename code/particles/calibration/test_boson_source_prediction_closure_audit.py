@@ -213,6 +213,15 @@ def test_twelve_gate_inventory_treats_d10_models_as_alternatives() -> None:
         "alternative_model_policy"
     ]
     assert gates["T12_full_wzh_source_prediction"]["gate_passed_for_full_source_prediction"] is False
+    assert gates["T12_full_wzh_source_prediction"]["theorem_status"] == (
+        "closed_conditional_capstone_source_packets_absent"
+    )
+    assert report["promotion_decision"]["missing_source_emission_packets"] == [
+        "C_clk_factorized_source_clock",
+        "C_10_non_vacuous_independently_weighted_D10_carrier",
+        "C_11_D11_split_character_and_rigidity_carrier",
+        "P_pole_BRST_complete_W_neutral_Higgs_two_point_kernels",
+    ]
 
 
 def test_scale_rg_pole_and_full_source_dag_remain_open() -> None:

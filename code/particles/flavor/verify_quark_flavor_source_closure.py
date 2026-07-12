@@ -39,6 +39,7 @@ AXIOM_NO_GO = FLAVOR_RUNS / "quark_axiom_level_yukawa_moduli_nonidentifiability.
 RSCC_CANDIDATE = FLAVOR_RUNS / "quark_rscc_completion_candidate.json"
 RSCC_AUDIT = FLAVOR_RUNS / "quark_rscc_completion_candidate_audit.json"
 RSCC_ARITHMETIC = FLAVOR_RUNS / "quark_rscc_module_arithmetic.json"
+FURTHER_THEOREM_AUDIT = FLAVOR_RUNS / "quark_further_theorem_audit.json"
 
 
 def _read_json(path: Path) -> dict[str, Any]:
@@ -193,6 +194,7 @@ def build_artifact(proof_bundle: Path | None = None) -> dict[str, Any]:
     rscc_candidate = _read_json(RSCC_CANDIDATE)
     rscc_audit = _read_json(RSCC_AUDIT)
     rscc_arithmetic = _read_json(RSCC_ARITHMETIC)
+    further_theorems = _read_json(FURTHER_THEOREM_AUDIT)
 
     receipts = {
         "F1_pixel_gauge_source_root": {
@@ -220,6 +222,9 @@ def build_artifact(proof_bundle: Path | None = None) -> dict[str, Any]:
                 "proposes F=1+2*V_std but supplies no physical regular-heat-to-F "
                 "attachment, labeled generator, or refinement transport"
             ),
+            "qfrc_physical_certificate_present": further_theorems[
+                "qfrc_conditional_rigidity"
+            ]["physical_QF1_to_QF9_certificate_present"],
         },
         "F3_physical_channel_identification_functor": {
             "closed": False,
@@ -230,6 +235,10 @@ def build_artifact(proof_bundle: Path | None = None) -> dict[str, Any]:
             ),
             "rscc_arithmetic_status": rscc_arithmetic["proof_status"],
             "rscc_physical_functor_closed": False,
+            "qfrc_status": (
+                "conditional rigidity only: QF1--QF9 assume the typed registers, "
+                "primitive paths, ranks, signs, winding, exhaustion, and selector gap"
+            ),
         },
         "F4_affine_sector_mean_law_on_source_carrier": {
             "closed": False,
@@ -269,6 +278,9 @@ def build_artifact(proof_bundle: Path | None = None) -> dict[str, Any]:
                 "scheme, and no-target provenance"
             ),
             "rscc_packet_supplied": False,
+            "qfrc_rg_result": further_theorems["conditional_routes"]["rg_transport"][
+                "status"
+            ],
         },
     }
     all_receipts_closed = all(receipt["closed"] for receipt in receipts.values())
@@ -283,6 +295,7 @@ def build_artifact(proof_bundle: Path | None = None) -> dict[str, Any]:
         RSCC_CANDIDATE,
         RSCC_AUDIT,
         RSCC_ARITHMETIC,
+        FURTHER_THEOREM_AUDIT,
     ]
     bundle_receipt: dict[str, Any] = {
         "expected_sha256": EXPECTED_PROOF_BUNDLE_SHA256,
@@ -324,6 +337,25 @@ def build_artifact(proof_bundle: Path | None = None) -> dict[str, Any]:
                 "falsifiable formula-level proposal. Its module/effect/sign ledger, "
                 "Gaussian truncation, inherited affine readout, source root, scale, "
                 "and RG packet are not derived, so it discharges no physical receipt."
+            ),
+        },
+        "further_theorem_qfrc_audit": {
+            "artifact": further_theorems["artifact"],
+            "promotion_allowed": further_theorems["promotion_allowed"],
+            "finite_maxent_correction": further_theorems["exact_results_retained"][
+                "finite_maxent_non_gaussianity"
+            ]["effect_on_rscc"],
+            "qfrc_status": further_theorems["qfrc_conditional_rigidity"]["status"],
+            "physical_QF1_to_QF9_certificate_present": further_theorems[
+                "qfrc_conditional_rigidity"
+            ]["physical_QF1_to_QF9_certificate_present"],
+            "all_F1_to_F6_receipts_remain_open": further_theorems["closure_effect"][
+                "all_F1_to_F6_receipts_remain_open"
+            ],
+            "status_statement": (
+                "The packet adds exact finite-MaxEnt, selector, scale, and scheme no-go "
+                "results and exact QFRC arithmetic conditional on QF1--QF9. It does not "
+                "supply a physical QFRC carrier, source root, scale, or RG packet."
             ),
         },
         "exact_algebra": _exact_algebra(),

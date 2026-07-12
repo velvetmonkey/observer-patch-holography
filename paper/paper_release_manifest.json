@@ -12,8 +12,8 @@
     },
     "compact_proof_of_oph": {
       "pdf_path": "extra/compact_proof_of_oph.pdf",
-      "sha256": "55029e58d2e8e95682098c00e4e9bcd2dbf5688ba797a9d274c2a634258c5854",
-      "size_bytes": 346125
+      "sha256": "d4dfbd526abe376ce994f3543e9118420707083999b4d6e0226e2ba8081e61a4",
+      "size_bytes": 255264
     },
     "fine_structure_constant_derivation": {
       "pdf_path": "extra/fine_structure_constant_derivation.pdf",
@@ -46,17 +46,17 @@
       "size_bytes": 145734
     }
   },
-  "generated_at": "2026-07-12T08:13:53.880371Z",
+  "generated_at": "2026-07-12T11:30:49.137889Z",
   "papers": {
     "deriving_the_particle_zoo_from_observer_consistency": {
       "pdf_path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
-      "sha256": "0f54ff3c4629bc22bc4a8ad619d56df3f655db7578024719499888da28d5203a",
-      "size_bytes": 449256
+      "sha256": "c6d5f3c16d7bca387fee65a47bce3352cc3b7d91b1b0a1d6de86f0241916ffa3",
+      "size_bytes": 518054
     },
     "observers_are_all_you_need": {
       "pdf_path": "paper/observers_are_all_you_need.pdf",
-      "sha256": "7dafb37add5c3e0bdf5158baa1d47af09489416f41d0e6c2c10832a4ab562c5a",
-      "size_bytes": 845770
+      "sha256": "ae9b76160e0629078ae861b361d2dd90f70a83ae969bdefc0448af8134c4f2f7",
+      "size_bytes": 848631
     },
     "paradise_as_fixed_point_consensus": {
       "pdf_path": "paper/paradise_as_fixed_point_consensus.pdf",
@@ -70,8 +70,8 @@
     },
     "recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact": {
       "pdf_path": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf",
-      "sha256": "a982517345ba39eaf74fca31d4454680e512d2d746661015559627e4d2ba0756",
-      "size_bytes": 1194383
+      "sha256": "55f2073a85c6c15b6a8c11aa2bce2da5b02cba87af96e19f24f73f071be2490a",
+      "size_bytes": 1226117
     },
     "screen_microphysics_and_observer_synchronization": {
       "pdf_path": "paper/screen_microphysics_and_observer_synchronization.pdf",

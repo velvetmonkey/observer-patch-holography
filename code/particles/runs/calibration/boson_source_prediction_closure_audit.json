@@ -167,7 +167,7 @@
       "parallel_fibre_identity_residual": 4.531626267810507e-20
     }
   },
-  "generated_utc": "2026-07-12T09:53:20Z",
+  "generated_utc": "2026-07-12T10:35:58Z",
   "input_manifest": [
     {
       "bytes": 5021,
@@ -195,9 +195,9 @@
       "sha256": "7d9757901d91ef1dfd7f7e54442e4ca64f136ccb7a56172e39b84c0d75a3185a"
     },
     {
-      "bytes": 33894,
+      "bytes": 34694,
       "path": "code/particles/calibration/derive_boson_source_prediction_closure_audit.py",
-      "sha256": "361c2f89f6f3e8526fb11635d28452caf1f4ef460f9fcba21648016f69658756"
+      "sha256": "054e5a89f61c1f46bf1763a15f01d57c9cca92b035fae1ae9b0a7edf8c9da655"
     },
     {
       "bytes": 10118,
@@ -272,7 +272,7 @@
     {
       "bytes": 3693,
       "path": "code/particles/runs/calibration/d10_ew_observable_family.json",
-      "sha256": "1232c506da197c73b683a479fb9d312fb3655c03d0945051ce31567b309c4616"
+      "sha256": "c30a72e4d2e1c6442bbdcf997d52d0074b20cd209140afd8386b2ab3788330af"
     },
     {
       "bytes": 5681,
@@ -282,12 +282,12 @@
     {
       "bytes": 9245,
       "path": "code/particles/runs/calibration/d10_ew_source_transport_pair.json",
-      "sha256": "dbe49a7a53dfaa9488acc406a3b86cf9a5dad3cc22a2af11f2e619124c14092a"
+      "sha256": "f2f4f6f51498172b2cb23dbc025c90d26c2031dfd26c31f05320dd02e5f24814"
     },
     {
       "bytes": 4715,
       "path": "code/particles/runs/calibration/d10_ew_target_free_repair_value_law.json",
-      "sha256": "6ec1c075fc38f7bbe799408270650ae120aa1efd4d281284ac904d4dbab03bb1"
+      "sha256": "70455b17384c7d9f1bbc6b66db1c147b1333e6f160713fb8347a001a2fe12133"
     },
     {
       "bytes": 6490,
@@ -302,12 +302,12 @@
     {
       "bytes": 1763,
       "path": "code/particles/runs/calibration/d11_declared_calibration_surface.json",
-      "sha256": "2aa48ba9e74474f2f96922850af7f553e3a0e8311ea0aefdd022ad78e2560008"
+      "sha256": "33f2ae6d772dcf08b01d04f4416567bcd992893d206018139a50d3a7b2834805"
     },
     {
       "bytes": 6586,
       "path": "code/particles/runs/calibration/d11_live_exact_split_pair_theorem.json",
-      "sha256": "4f1339ef8716dc3f8b623a1ca0fe294a185dd57e9574ab84b00b2d8d2fcf3637"
+      "sha256": "0f99ecd08e8d46a8e299322d1ba213415b7a1c4348bf30e25ea83bc1b9ec408b"
     },
     {
       "bytes": 2177,
@@ -430,6 +430,12 @@
       "T12_full_wzh_source_prediction"
     ],
     "higgs_status": "conditional_declared_surface_candidate",
+    "missing_source_emission_packets": [
+      "C_clk_factorized_source_clock",
+      "C_10_non_vacuous_independently_weighted_D10_carrier",
+      "C_11_D11_split_character_and_rigidity_carrier",
+      "P_pole_BRST_complete_W_neutral_Higgs_two_point_kernels"
+    ],
     "overall_status": "source_incomplete_no_end_to_end_wzh_pole_prediction",
     "prediction_promotion_allowed": false,
     "shared_blockers": [
@@ -732,10 +738,11 @@
         "emit QT3 to fix the displayed quotient-path coefficients",
         "emit QT5 to exclude additional output-changing deformations",
         "emit the remaining QT1, QT2, and QT4 finite-carrier premises",
-        "bind the theorem to one strict P source branch"
+        "bind the theorem to one strict P source branch",
+        "derive path weights independently rather than encoding the desired character"
       ],
       "theorem_id": "T05_d10_source_uniqueness",
-      "theorem_status": "exact_conditional_QT1_QT5_implication_plus_closed_underdetermination_boundary",
+      "theorem_status": "exact_conditional_QT1_QT5_implication_plus_model_extension_no_go_and_formal_path_vacuity_boundary",
       "title": "D10 source-uniqueness criterion"
     },
     {
@@ -786,7 +793,7 @@
         "BRST-complete pole map"
       ],
       "theorem_id": "T08_conditional_d11_higgs_closure",
-      "theorem_status": "conditional_on_unpromoted_d10_repair_candidate",
+      "theorem_status": "conditional_on_unpromoted_d10_repair_candidate_plus_explicit_analytic_deformation_no_go",
       "title": "Conditional D11 Higgs/top split"
     },
     {
@@ -819,7 +826,7 @@
         "analytic_continuation_and_physical_riemann_sheet_selection"
       ],
       "theorem_id": "T10_complex_pole_promotion",
-      "theorem_status": "generic_rouche_criterion_recorded",
+      "theorem_status": "generic_rouche_nielsen_conjugacy_displacement_readout_and_refinement_theorems_closed",
       "title": "Physical complex-pole promotion and stability"
     },
     {
@@ -835,7 +842,7 @@
         "pre-reference manifest/signature"
       ],
       "theorem_id": "T11_deterministic_source_separation",
-      "theorem_status": "declared_partial_dag_only",
+      "theorem_status": "runtime_dag_theorem_closed_historical_blindness_not_inferable_prospective_freeze_required",
       "title": "Deterministic source DAG and prospective provenance"
     },
     {
@@ -856,7 +863,7 @@
         "T11"
       ],
       "theorem_id": "T12_full_wzh_source_prediction",
-      "theorem_status": "not_closed",
+      "theorem_status": "closed_conditional_capstone_source_packets_absent",
       "title": "Capstone W/Z/H source prediction"
     }
   ]

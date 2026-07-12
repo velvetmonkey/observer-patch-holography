@@ -3,8 +3,15 @@
 from __future__ import annotations
 
 import mpmath as mp
+import pytest
 
 import audit_charged_face_incidence_theorem_bundle as lane
+
+
+pytestmark = pytest.mark.skipif(
+    not lane.DEFAULT_ARCHIVE.exists(),
+    reason="external correspondence archive is not present in this workspace snapshot",
+)
 
 
 def test_bundle_is_safe_hash_bound_and_byte_reproduced():

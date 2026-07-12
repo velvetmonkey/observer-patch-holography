@@ -22,6 +22,30 @@ local state, typed ports and boundaries, readback, persistent records,
 feedback or repair moves, and a public evidence bundle. A generic graph chosen
 to reproduce the desired coefficients is not an OPH derivation.
 
+## Final theorem boundary
+
+The generic implication stack is complete. Model-extension counterfamilies
+prove that the present structural axioms do not emit the D10 coefficients, D11
+split, absolute scale, or physical poles. A formal weighted path realization is
+not evidence by itself: any finite polynomial can be encoded one monomial per
+path. The carrier is non-vacuous only when its transitions, admissibility,
+quotient, response map, normalized measure, mismatch signs, exhaustive census,
+rigidity/MAR gap, and no-target DAG were fixed independently of the desired
+output.
+
+The remaining source-emission packets are exactly:
+
+1. `C_clk`: factorized electromagnetic/electron/nuclear/atomic clock packet;
+2. `C_10`: independently weighted and rigid D10 carrier;
+3. `C_11`: D11 split-character and rigidity carrier;
+4. `P_pole`: BRST-complete W, neutral photon/Z, and Higgs two-point kernels.
+
+Once supplied, certified clock refinement, deterministic RG/matching, Rouché
+pole isolation, Nielsen gauge independence, pole-displacement enclosures, and
+mass/width error propagation require no stochastic simulation. Runtime target
+separation still does not prove historical blindness; a prospective frozen
+claim and disclosure are separate requirements.
+
 ## Phase 0: freeze the carriers
 
 Freeze the pre-repair D10 and pre-split D11 transition systems before running

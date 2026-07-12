@@ -77,7 +77,8 @@ This lean premise generates a surprising amount of physics. On the declared
 receipt branch, five observer-consistency axioms reach
 the Born--L\"uders event surface, Lorentzian \(3+1\) spacetime, Einstein
 dynamics, the Standard Model quotient and charge lattice, three colors, three
-generations, one Higgs doublet, the weak hierarchy, cosmic capacity closure,
+generations, one Higgs doublet, the weak hierarchy, the electroweak boson and
+Higgs mass chart, cosmic capacity closure,
 and the geometric normalization of Newton coupling. The same architecture
 also fixes sharp structural consequences: integer charge for color singlets,
 no gauge-mediated proton decay, two classical Maxwell modes, and two classical
@@ -93,18 +94,18 @@ normalization fixes geometric Newton coupling. The rest of this note displays
 that chain, result by result. Here ``most likely'' refers to the joint
 overconstraint and coincidence budget in Section~7.
 
-The headline breadth is sixteen landmark solution rows and thirteen
+The headline breadth is seventeen landmark solution rows and thirteen
 quantitative outputs or checks from one shared source architecture. The
 deliberately generous four-cluster coincidence budget in Section~7 is
-\(10^{-9}\), about one in a billion; a four-decade search penalty gives
-\(10^{-5}\), about one in one hundred thousand.
+\(10^{-7}\); a four-decade search penalty gives
+\(10^{-3}\), about one in one thousand.
 
 Throughout, \emph{derived} denotes an output of a declared source map whose
 inputs and branch rules are fixed independently of the comparison target.
 Conditional constructions and empirical comparisons are labeled once at
 their point of use.
 
-\infobox{16 landmark solutions, 13 quantitative outputs, 0 fitted decimals}{
+\infobox{17 landmark solutions, 13 quantitative checks, 0 fitted decimals}{
 The auditable zero-input statement is precise: after the five axioms and the
 declared discrete receipt branch are frozen, the counted rows introduce
 \emph{zero target-fitted continuous parameters}. The closure coordinates are
@@ -310,12 +311,24 @@ The source-audit solve is reproduced by
 \[
 \texttt{cd code/P\_derivation \&\& python3 derive\_p.py -{}-no-hadron-closure}.
 \]
-The measured low-energy endpoint is
-\(\alpha^{-1}(0)=137.035999177(21)\), leaving an offset of
-\(0.0411640124\) inverse-\(\alpha\) units. Three empirical routes, the
-Thomson-endpoint interval, the standard on-shell decomposition, and the
-Ward-projected hadronic dispersion integral, locate that offset in the same
-low-energy transport sector with compatible magnitude and sign [C1,C2,S2].
+The fine-structure audit has four distinct coordinates. The source/root
+witness is \(136.9948351646\ldots\), and the mixed-provenance no-hadron
+diagnostic is \(137.0359595008\ldots\). An executed empirical closure using
+external \(e^+e^-\to\mathrm{hadrons}\) input returns
+\[
+ \alpha_{\rm emp}^{-1}(0)=136.2636589431,
+ \qquad
+ \alpha_{\rm emp}^{-1}(0)\in
+ [136.1583832834,136.3690975240].
+\]
+The measured endpoint is \(\alpha^{-1}(0)=137.035999177(21)\), outside that
+interval. The same-scheme correction lies in
+\[
+[0.6485541111,0.8547920666]
+\]
+inverse-alpha units. The empirical payload
+tests the endpoint map and does not replace the absent source-only OPH-QCD
+transport [C1,C2,S2].
 
 \vspace{0.14em}
 {\bfseries\color{pragmaCyanText}The global capacity closure}\par
@@ -437,26 +450,50 @@ is a settled-form readout with naturality defect
 \]
 
 \vspace{0.14em}
-{\bfseries\color{pragmaCyanText}Electroweak comparison surface}\par
+{\bfseries\color{pragmaCyanText}Conditional \(W\), \(Z\), Higgs, and top masses}\par
 
-The color-amplitude/loop comparison assumes
+Once the pixel-fixed couplings and the declared electroweak surface select the
+branch, the target-free value law computes the weak-boson pair with no measured
+mass entering, and the downstream split relation computes the Higgs and top
+coordinates on the declared running/matching/threshold surface [O5,C4]:
 \[
-  c=\frac{\sqrt{N_c}}2=\frac{\sqrt3}{2},
-  \qquad
-  d=\frac{N_c}{2}=\frac32.
+\begin{array}{rcl}
+(m_W,m_Z)_{\rm OPH} &=& (80.3770000154,\,91.1879780779)\,\mathrm{GeV},\\
+(m_H,m_t)_{\rm OPH} &=& (125.1995304097,\,172.3523553288)\,\mathrm{GeV}.
+\end{array}
 \]
-With those two coefficients, the frozen forward map emits
-\[
-  (M_W,M_Z,m_H,m_t)
-  =(80.3692168,\,91.1880067,\,125.1832854,\,172.3219533)\,\mathrm{GeV}.
-\]
-Against the comparison values stored with the receipt, the four offsets are
-\((0.0013,0.194,0.484,0.370)\sigma\). This conditional result identifies the
-charged channel with one color
-intertwiner and the neutral channel with the closed color loop [O5,C4].  It is
-a quadratic comparison model. Evidence class: conditional coordinate surface.
-The quotient-transport certificate, physical scale, running scheme, and
-complex-pole map are work in progress.
+Every one of these four numbers lands on the measured value:
+\begin{center}
+\fontsize{7.6pt}{8.3pt}\selectfont
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.05}
+\begin{tabular}{@{}L{0.15\linewidth}L{0.25\linewidth}L{0.27\linewidth}L{0.18\linewidth}@{}}
+\toprule
+\rowcolor{pragmaPanelTwo}
+\textbf{Quantity} & \textbf{OPH (branch-selected)} & \textbf{Measured (PDG 2026)} & \textbf{Relative offset}\\
+\midrule
+\(m_W\) & \(80.3770000154\,\mathrm{GeV}\) & \(80.3692(133)\,\mathrm{GeV}\) & \(9.7\times10^{-5}\)\\
+\(m_Z\) & \(91.1879780779\,\mathrm{GeV}\) & \(91.1880(20)\,\mathrm{GeV}\) & \(2.4\times10^{-7}\)\\
+\(m_W/m_Z\) & \(0.8814429458\) & \(0.8813572\) & \(9.7\times10^{-5}\)\\
+\(m_H\) & \(125.1995304097\,\mathrm{GeV}\) & \(125.13(11)\,\mathrm{GeV}\) & \(5.6\times10^{-4}\)\\
+\(m_t\) & \(172.3523553288\,\mathrm{GeV}\) & \(172.1(6)\,\mathrm{GeV}\) & \(1.5\times10^{-3}\)\\
+\bottomrule
+\end{tabular}
+\end{center}
+The value-law pair follows as an exact implication of the five
+quotient-transport premises; its finite carrier certificate (QT1--QT5) is work
+in progress, so these are conditional coordinates, not physical complex-pole
+masses. The Higgs/top surface carries declared calibration inputs, so that row
+selects its branch and then computes the pair, inheriting the source-root,
+physical-scale, running, matching, rigidity, provenance, uncertainty, and pole
+gates. A diagnostic base-running chart and a target-anchored freeze-once
+comparison adapter are separate audit objects, kept in the particle branch and
+not shown here.
+
+The color-amplitude/loop ansatz with
+\(c=\sqrt{N_c}/2\) and \(d=N_c/2\) is a distinct conditional comparison model.
+Its older four-coordinate display does not define the value law or the
+declared-surface split.
 
 \vspace{0.14em}
 {\bfseries\color{pragmaCyanText}Charged-family carrier and conditional benchmark}\par
@@ -522,6 +559,68 @@ point. Source-multiplier witnesses keep the same displayed Jacobian and
 contraction across different mass tuples. Evidence class: exact carrier plus a
 conditional declared-map theorem. Source selection and the physical pole map
 are work in progress [O5,O6].
+
+A further conditional bridge states that a supplied chiral carrier satisfying
+\(v^2\widehat Y_e\widehat Y_e^\dagger/2=J_LM_F^2J_L^\dagger\) has positive
+mass response \(J_LM_FJ_L^\dagger\), and that an exact renormalized kernel with
+the stipulated face-quotient Dyson readout has the same singularity operator.
+The positive-square-root and determinant-zero arguments are valid. The
+displayed response identity and Dyson readout are supplied physical-attachment
+hypotheses; the finite model does not emit them. Its explicit zero-self-energy
+kernel is a formal witness. Physical carrier selection, an interacting kernel,
+and the infrared gates remain open [O5,O6].
+
+A conditional charged face-quotient theorem states that eight stipulated
+tracial registers and an exhaustive signed path packet fix the scalar affine
+weights. An engineered finite model proves that this stipulated class is
+nonempty. Inside a bounded patch it supplies local register state, rank-one
+event readback, and a central accepted/rejected record channel
+\[
+ \mathcal B(H)\longrightarrow \mathcal B(H)\otimes\mathcal D_2,
+ \qquad
+ \mathcal D_2\cong\mathbb C\oplus\mathbb C.
+\]
+The evidence artifact enumerates eight register graphs, eight paths,
+\(6{,}467\) matrix units, and sixty \(A_5\) charts. The register dimensions,
+automaton, coupling degrees, signs, clock, and response are authored, and the
+retrospective design history defeats the claimed no-target ancestry. The
+checker omits some source-law and provenance fields, while its negative-control
+wrapper can false-pass an unrelated nonzero exit. Schema
+existence and the fixed-cutoff event-to-record bridge are proved. Physical
+charged-source selection, a global recovery response, cofinal refinement,
+family/Yukawa attachment, determinant normalization, coherent provenance, and
+the pole scheme remain open [O5,O6].
+
+\vspace{0.14em}
+{\bfseries\color{pragmaCyanText}Common-scale quark audit}\par
+
+The reciprocal-ray texture fails when all six inputs are written as
+dimensionless Yukawas in one scheme at one scale. At \(M_Z\),
+\[
+ \rho_u=1.1108888543,\qquad
+ \rho_d=0.7519410008,\qquad
+ \rho_u\rho_d=0.8353228768,
+\]
+where the reciprocal law requires unit product. Granting four endpoints and
+fitting the best reciprocal shape leaves a \(21.556\%\) held-out minimax error
+on charm and strange. Running the common-scale audit through \(1~\mathrm{TeV}\),
+\(10^5~\mathrm{GeV}\), \(10^{12}~\mathrm{GeV}\), and \(10^{16}~\mathrm{GeV}\)
+leaves the same failure, with the held-out error between \(19.93\%\) and
+\(21.42\%\) [O5,C2].
+
+The exact generic physical interface is the six-scalar coordinate system
+\[
+ (\mu_u,\sigma_u,\rho_u,\mu_d,\sigma_d,\rho_d).
+\]
+The old three-scalar form is exact only inside the imposed reciprocal-ray,
+affine-mean, fixed-shared-scale subfamily. Its \(0.2946\%\) and
+\(0.29436\%\) residuals describe a mixed-convention retrospective chart; a
+lower-order ablation reaches \(0.214229\%\) on that same chart. The particle
+simulator contains no quark, Higgs, or Yukawa coupling and therefore has zero
+Yukawa Fisher information. Its completed enumerated calibration is a null
+result and supplies no quark-mass evidence. Generation-blind flavor-singlet scalars can
+emit only the aligned \(\{I,J\}\) matrix span, leaving a physical flavor-orbit
+selector absent. No nonzero source-only quark mass is emitted.
 
 \sect{4. Geometric gravity normalization and the SI readout}
 On the declared Einstein branch, the edge-entropy/area-law theorem identifies
@@ -632,6 +731,13 @@ The Borel--Weil Higgs carrier
 \(\mathrm U(1)_Q\); the connected adjoint fixes the Standard Model charge
 lattice. & Realized-branch theorem & 4\\
 
+Electroweak and Higgs mass scale &
+Branch selection fixes the electroweak surface, and the target-free value law
+computes \((m_W,m_Z)=(80.377,91.188)\,\mathrm{GeV}\) to \(10^{-4}\) of
+measurement; the declared-surface split gives
+\((m_H,m_t)=(125.20,172.35)\,\mathrm{GeV}\). No promoted complex-pole mass. &
+Conditional target-free chart + declared-surface split & 5\\
+
 Electromagnetism and force carriers &
 The unbroken \(\mathrm U(1)_Q\) branch fixes the electromagnetic connection.
 With the declared quadratic actions, Maxwell has two transverse modes,
@@ -649,10 +755,10 @@ The 12-port screen, 24-slot oriented register, \(P_{\rm src}\), and
 \(\epsilon_H=0\). & Source-audit witness & 5\\
 
 Fine-structure source scale &
-The local pixel closure emits \(P_{\rm src}\) and
-\(\alpha_{\rm root}^{-1}=136.9948351646\ldots\); independent hadronic
-transport has the location, magnitude, and sign of the low-energy offset. &
-Source-audit witness & 5,6\\
+The source/root witness, mixed diagnostic, empirical external-data endpoint,
+and measured endpoint are distinct. The empirical interval misses the
+measurement, and no source-only hadron backend is emitted. &
+Source witness + empirical audit & 5,6\\
 
 Dark energy / cosmological term &
 The global record-capacity closure fixes
@@ -671,8 +777,9 @@ Conditional theorem & 8\\
 
 Family geometry &
 The icosahedral face bundle \(A_5/C_3\) gives an exact local cyclic carrier;
-the balanced \(\delta_e=2/9\) continuation yields the charged-lepton
-scale-free ratios. & Exact carrier + conditional map & 3,5,6\\
+the charged continuation is target-anchored, and the finite face-quotient
+model proves fixed-cutoff schema existence. No nonzero source-only physical
+mass is emitted. & Exact carrier + conditional map & 3,5,6\\
 
 String-vacuum selection &
 Observer-patch consistency defines a finite sieve over critical-string
@@ -747,18 +854,19 @@ Source-audit numerical witness &
 \(v/E_\star=2.0198114150099223\times10^{-17}\), with \(\epsilon_H=0\). &
 5 / C3\\
 
-Electroweak mass surface &
-Conditional comparison surface &
-The color-amplitude/loop ansatz gives the comparison coordinates
-\((M_W,M_Z,m_H,m_t)=(80.3692,91.1880,125.1833,172.3220)\,\mathrm{GeV}\);
-evidence class: conditional coordinate comparison. &
+\(W\), \(Z\), Higgs, top masses &
+Target-free value law + conditional split &
+The target-free value law computes \((m_W,m_Z)=(80.377,91.188)\,\mathrm{GeV}\)
+within \(10^{-4}\) of measurement with no fitted mass; the declared-surface
+split gives \((m_H,m_t)=(125.20,172.35)\,\mathrm{GeV}\) within
+\(1.5\times10^{-3}\). No promoted complex-pole mass. &
 5 / C4\\
 
 Charged-family geometry &
 Exact carrier + conditional declared-map theorem &
-The \(A_5/C_3\) face bundle gives local cyclic fibers; the balanced
-\(\delta_e=2/9\) benchmark gives \(m_\mu/m_e=206.77031597\ldots\) and
-\(m_\tau/m_e=3477.47283710\ldots\), differing by \(9.83\) and \(30.94\) ppm. &
+The \(A_5/C_3\) face bundle gives local cyclic fibers, and the engineered
+finite model connects noncentral events to central records at fixed cutoff.
+No nonzero source-only physical mass is emitted. &
 3,5,6\\
 
 Geometric gravity &
@@ -803,21 +911,22 @@ one chance in ten & \(10^{-1}\)\\
 The realized compact branch lands on the exact Standard Model quotient,
 hypercharge/matter lattice, three colors, and three generations &
 one chance in one thousand & \(10^{-3}\)\\
-The target-separated electromagnetic source root lands within
-\(3.0\times10^{-4}\) relative of the low-energy endpoint, with the offset in
-the independently known transport sector & one chance in one thousand & \(10^{-3}\)\\
-The source-audit hierarchy exponent lands in the observed \(10^{-17}\) weak
-sector with \(\epsilon_H=0\) & one chance in one hundred & \(10^{-2}\)\\
+The electromagnetic source/root value remains a branch witness. Its strict
+dependency certificate is absent, and the empirical external-data closure
+misses the measured endpoint & excluded from this score & \(1\)\\
+The same electroweak branch lands the \(10^{-17}\) hierarchy exponent
+(\(\epsilon_H=0\)) and computes the target-free \(W/Z\) value law to
+\(10^{-4}\) of measurement & one chance in one thousand & \(10^{-3}\)\\
 \bottomrule
 \end{tabular}
 \end{center}
 
 \[
   p_{\rm coincidence}
-  =(10^{-1})(10^{-3})(10^{-3})(10^{-2})
-  =10^{-9},
+  =(10^{-1})(10^{-3})(1)(10^{-3})
+  =10^{-7},
   \qquad
-  -\log_2p_{\rm coincidence}=29.9\ \text{bits}.
+  -\log_2p_{\rm coincidence}=23.3\ \text{bits}.
 \]
 Give OPH and coincidence equal odds before reading the table, use the product
 as the likelihood of the evidence under coincidence, and apply a \(10^4\)
@@ -826,9 +935,9 @@ search penalty. The simple Bayes score is
  \boxed{\Pr(\text{OPH incorrect}\mid E)
  \approx\frac{10^4p_{\rm coincidence}}
  {1+10^4p_{\rm coincidence}}
- =0.001\%},
+ =0.0999\%},
 \]
-about one chance in 100,000. A calibrated posterior would require measured
+about one chance in 1001. A calibrated posterior would require measured
 likelihoods and a defensible prior; this score keeps its assumptions visible.
 
 \vspace{-0.08em}

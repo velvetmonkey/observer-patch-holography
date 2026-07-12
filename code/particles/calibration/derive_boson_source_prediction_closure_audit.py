@@ -528,7 +528,10 @@ def build_artifact(
         _gate(
             "T05_d10_source_uniqueness",
             "D10 source-uniqueness criterion",
-            theorem_status="exact_conditional_QT1_QT5_implication_plus_closed_underdetermination_boundary",
+            theorem_status=(
+                "exact_conditional_QT1_QT5_implication_plus_model_extension_no_go_"
+                "and_formal_path_vacuity_boundary"
+            ),
             closure_requirement_status="open_QT1_QT5_source_entailment_and_same_branch_packet",
             gate_passed=False,
             evidence=[
@@ -541,6 +544,7 @@ def build_artifact(
                 "emit QT5 to exclude additional output-changing deformations",
                 "emit the remaining QT1, QT2, and QT4 finite-carrier premises",
                 "bind the theorem to one strict P source branch",
+                "derive path weights independently rather than encoding the desired character",
             ],
         ),
         _gate(
@@ -565,7 +569,9 @@ def build_artifact(
         _gate(
             "T08_conditional_d11_higgs_closure",
             "Conditional D11 Higgs/top split",
-            theorem_status=d11_split["proof_status"],
+            theorem_status=(
+                f"{d11_split['proof_status']}_plus_explicit_analytic_deformation_no_go"
+            ),
             closure_requirement_status="conditional_declared_surface_upstream_open",
             gate_passed=False,
             evidence=[paths["d11_declared_surface"], paths["d11_conditional_split"], paths["ht_declared_surface_certificate"]],
@@ -588,7 +594,10 @@ def build_artifact(
         _gate(
             "T10_complex_pole_promotion",
             "Physical complex-pole promotion and stability",
-            theorem_status="generic_rouche_criterion_recorded",
+            theorem_status=(
+                "generic_rouche_nielsen_conjugacy_displacement_readout_and_refinement_"
+                "theorems_closed"
+            ),
             closure_requirement_status="open_no_self_energy_or_pole_certificate",
             gate_passed=False,
             evidence=[],
@@ -597,7 +606,10 @@ def build_artifact(
         _gate(
             "T11_deterministic_source_separation",
             "Deterministic source DAG and prospective provenance",
-            theorem_status="declared_partial_dag_only",
+            theorem_status=(
+                "runtime_dag_theorem_closed_historical_blindness_not_inferable_"
+                "prospective_freeze_required"
+            ),
             closure_requirement_status="open_full_chain_and_human_selection_ancestry",
             gate_passed=False,
             evidence=[paths["hierarchy_declared_dag"]],
@@ -606,7 +618,7 @@ def build_artifact(
         _gate(
             "T12_full_wzh_source_prediction",
             "Capstone W/Z/H source prediction",
-            theorem_status="not_closed",
+            theorem_status="closed_conditional_capstone_source_packets_absent",
             closure_requirement_status="open",
             gate_passed=False,
             evidence=[paths["wz_boundary_certificate"], paths["ht_declared_surface_certificate"]],
@@ -641,6 +653,12 @@ def build_artifact(
             "D11_DS1_DS5_split_character_core_Jacobian_provenance_and_rigidity_open",
             "complex_pole_and_uncertainty_certificate_open",
             "full_target_free_dependency_DAG_and_prospective_manifest_open",
+        ],
+        "missing_source_emission_packets": [
+            "C_clk_factorized_source_clock",
+            "C_10_non_vacuous_independently_weighted_D10_carrier",
+            "C_11_D11_split_character_and_rigidity_carrier",
+            "P_pole_BRST_complete_W_neutral_Higgs_two_point_kernels",
         ],
         "alternative_model_policy": (
             "Close one source-emitted D10 repair model: either the complete QT1--QT5 quotient-path "

@@ -107,6 +107,7 @@ def test_final_particle_pipeline_orders_contracts_before_predictions() -> None:
     assert "particles/flavor/verify_quark_rscc_module_arithmetic.py" in scripts
     assert "particles/flavor/quark_rscc_completion_candidate.py" in scripts
     assert "particles/flavor/audit_quark_rscc_completion_candidate.py" in scripts
+    assert "particles/flavor/audit_quark_further_theorems.py" in scripts
     assert "particles/flavor/derive_quark_current_family_exact_readout.py" in scripts
     assert "particles/flavor/derive_quark_current_family_affine_anchor_theorem.py" in scripts
     assert "particles/flavor/derive_quark_current_family_exact_pdg_theorem.py" in scripts

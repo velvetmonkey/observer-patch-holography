@@ -1,0 +1,108 @@
+{
+  "artifact": "oph_wzh_strict_branch_candidate_audit",
+  "blockers": [
+    "source_root_is_witness_not_interval_proof",
+    "clock_R_alpha_missing",
+    "clock_R_e_abs_missing",
+    "clock_R_QCD_nuc_133Cs_missing",
+    "clock_R_atom_133Cs_missing",
+    "D10_QT1_QT5_carrier_certificate_missing",
+    "D11_source_character_and_rigidity_certificate_missing",
+    "D11_core_and_Jacobian_are_declared_not_source_emitted",
+    "physical_RG_threshold_matching_packet_missing",
+    "BRST_complete_W_Z_H_self_energies_missing",
+    "fermion_complete_loop_inputs_not_source_closed",
+    "complex_pole_width_residue_and_uncertainty_receipts_missing",
+    "prospective_no_target_claim_freeze_missing"
+  ],
+  "branch": {
+    "P": "1.63097209569432901817967892561191884270169",
+    "alpha_U": "0.04112424744557487",
+    "id": "source_audit_P_cand",
+    "root_status": "source_audit_branch_witness_not_full_endpoint_proof"
+  },
+  "claim_boundary": "These are the strongest reproducible same-P formula-stack coordinates in the current corpus. They are not actual W/Z/H pole predictions because the carrier, clock, D11, RG, self-energy, width, residue, uncertainty, and provenance packets are absent.",
+  "clock_candidate": {
+    "E_star_GeV": "12208901289579269028.3108650894574569093502055358939166291211",
+    "component_status": {
+      "R_QCD_nuc_133Cs": "not supplied",
+      "R_U": "partially supplied by this bundle for electroweak hierarchy",
+      "R_alpha": "not supplied",
+      "R_atom_133Cs": "not supplied",
+      "R_e_abs": "not supplied"
+    },
+    "epsilon_Cs": "3.113930513416012823901050434132426029496608693041876E-33",
+    "legacy_scale_rescaling_factor": "1.00000010562616362066286603129335623269501802258138871062267",
+    "source_clock_closed": false
+  },
+  "d10": {
+    "basis": {
+      "alpha2_mz": 0.033777814112390996,
+      "alphaY_mz": 0.010131400543429992,
+      "alpha_sum_mz": 0.04390921465582099,
+      "alpha_u_seed": 0.041124247445574885,
+      "beta_EW": 0.5385296401748836,
+      "eta_source": 0.02214662617932832,
+      "lambda_EW": 0.00022769083377083613,
+      "v_report_gev": 246.5967818942192
+    },
+    "coherent_emitted_quintet": {
+      "MW_pole": 80.32077891914442,
+      "MZ_pole": 91.12418852956226,
+      "alpha2_prime": 0.03377000622848754,
+      "alphaY_prime": 0.009695292187696075,
+      "alpha_em_eff_inv": 132.75491927241538,
+      "sin2w_eff": 0.22305822209853243,
+      "v_report": 246.5967818942192
+    },
+    "repair_chart": {
+      "delta_n_tree_exact": 0.00023462760775447386,
+      "tau2_tree_exact": -0.00023115420901653248,
+      "tauY_fiber": -0.04406208873229071
+    },
+    "repaired_couplings": {
+      "alpha2_prime": 0.03377000622848754,
+      "alpha2_star": 0.033777814112390996,
+      "alphaY_prime": 0.009695292187696075,
+      "alphaY_star": 0.009682647862413216,
+      "delta_alpha2": -7.807883903457209e-06,
+      "delta_alphaY_parallel": 2.342011289785017e-06,
+      "delta_alphaY_perp": 1.0302313993072962e-05
+    }
+  },
+  "d11_declared_surface": {
+    "core_source_status": "declared_calibration_surface_not_source_emitted",
+    "lambda_H": 0.1286844100775771,
+    "pi_lambda": 0.012667504547981302,
+    "pi_y": 0.012281754937548591,
+    "y_t": 0.9317692675754501
+  },
+  "generated_utc": "2026-07-12T10:27:47Z",
+  "promotion_allowed": false,
+  "same_branch_candidate_coordinates": {
+    "Gamma_H_GeV": null,
+    "Gamma_W_GeV": null,
+    "Gamma_Z_GeV": null,
+    "H_running_chart_GeV": 125.1023219754468,
+    "W_tree_chart_GeV": 80.32077891914442,
+    "Z_tree_chart_GeV": 91.12418852956226,
+    "top_running_companion_GeV": 162.47284636874514,
+    "v_GeV": 246.5967818942192
+  },
+  "status": "same_branch_formula_candidate_not_physical_prediction",
+  "tree_pole_control": {
+    "s_H_GeV2": [
+      15650.59096364836,
+      0.0
+    ],
+    "s_W_GeV2": [
+      6451.427526178074,
+      0.0
+    ],
+    "s_Z_GeV2": [
+      8303.617735171207,
+      0.0
+    ],
+    "status": "zero_width_tree_controls_not_physical_unstable_boson_poles"
+  }
+}
