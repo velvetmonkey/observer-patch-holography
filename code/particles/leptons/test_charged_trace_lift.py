@@ -104,7 +104,11 @@ def test_current_corpus_emits_strengthened_no_go_and_ratio_checksum(tmp_path: pa
 
     assert payload["artifact"] == "oph_charged_trace_lift_theorem"
     assert payload["claim_label"] == "no_go_confirmed_new_source_needed"
-    assert payload["factorization_lemma"]["leakage_bound"]["certified_zero"] is False
+    factorization = payload["factorization_lemma"]
+    assert factorization["status"] == "certified_representation_channel_only_d10_attachment_open"
+    assert factorization["leakage_bound"]["interval"] == ["0", "0"]
+    assert factorization["leakage_bound"]["certified_zero"] is True
+    assert "a fermionic D10 determinant landing" in factorization["does_not_certify"]
     assert payload["uncentered_lift_constant"]["source_object_name"] is None
     assert payload["uncentered_lift_constant"]["value"] is None
     residual = payload["attachment_identity_residual"]
@@ -113,6 +117,14 @@ def test_current_corpus_emits_strengthened_no_go_and_ratio_checksum(tmp_path: pa
     assert residual["computable"] is False
     assert payload["promotion"]["conditional_on_P_allowed"] is False
     assert payload["conditional_mass_rows"] == []
+    assert payload["existing_axiom_independence_theorem"]["status"] == (
+        "proved_by_one_parameter_countermodel"
+    )
+    assert payload["candidate_escape_audit"]["d10_determinant_premise"]["status"] == (
+        "contradicted_by_canonical_artifacts"
+    )
+    assert payload["candidate_escape_audit"]["reference_stage_q_candidate"]["status"] == "fails"
+    assert payload["candidate_escape_audit"]["thomson_inversion"]["status"] == "circular"
 
     regression = payload["exact_ratio_regression"]
     assert regression["status"] == "passed"

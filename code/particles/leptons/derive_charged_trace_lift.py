@@ -270,8 +270,9 @@ def _current_source_audit(
             "forbidden_claims": d10_reduction.get("do_not_claim", []),
         },
         "charged_sector_isolation": {
-            "charged_central_projector_present": False,
-            "determinant_compatibility_present": False,
+            "d9_representation_role_projector_constructible": True,
+            "source_emitted_d10_charged_projector_present": False,
+            "d10_determinant_compatibility_present": False,
             "electron_budget_witness": {
                 "sector_local_closed": electron_sector.get("sector_local_closed"),
                 "status": electron_sector.get("status"),
@@ -283,6 +284,166 @@ def _current_source_audit(
             "stage_indexed_readback_present": False,
             "d10_repair_square_present": False,
             "basepoint_determinant_trivialization_present": False,
+        },
+    }
+
+
+def _representation_sector_factorization() -> dict[str, Any]:
+    """Return the strongest sector lemma supported by the declared D9 carrier.
+
+    This lemma is deliberately narrower than the issue-level D10 attachment.
+    It isolates the gauge-equivariant charged Yukawa *channel* once a Yukawa
+    tensor is supplied.  It neither supplies that tensor nor normalizes its
+    determinant line.
+    """
+
+    return {
+        "status": "certified_representation_channel_only_d10_attachment_open",
+        "theorem_scope": (
+            "declared D9 Standard-Model G-module, a chosen neutral Higgs vacuum, and a supplied "
+            "gauge-equivariant charged Yukawa tensor"
+        ),
+        "joint_charge_spectrum": {
+            "coordinates": ["C2_SU3", "C2_SU2", "Y"],
+            "Q": ["4/3", "3/4", "1/6"],
+            "u^c": ["4/3", "0", "-2/3"],
+            "d^c": ["4/3", "0", "1/3"],
+            "L": ["0", "3/4", "-1/2"],
+            "e^c": ["0", "0", "1"],
+            "H": ["0", "3/4", "1/2"],
+        },
+        "projector_construction": (
+            "Choose a generic Z=a C2_SU3+b C2_SU2+c Y with distinct eigenvalues z_R on the "
+            "six declared roles and set p_R=prod_{S!=R}(Z-z_S I)/(z_R-z_S). The charged "
+            "Yukawa role is selected by p_L, p_e^c and the neutral-Higgs invariant tensor."
+        ),
+        "charged_hom_space": (
+            "Hom_G(L tensor H^dagger,e^c) tensor Hom(F_L,F_e) "
+            "isomorphic to C tensor Mat_3(C)"
+        ),
+        "determinant_line": "Det_ch = det(F_e) tensor det(F_L)^*",
+        "direct_sum_naturality": (
+            "Det(D_ch direct_sum D_rest) isomorphic to Det(D_ch) tensor Det(D_rest)"
+        ),
+        "leakage_bound": {
+            "interval": ["0", "0"],
+            "kind": "exact_gauge_selection_rule_quark_leakage_on_supplied_Y_e",
+            "certified_zero": True,
+        },
+        "does_not_certify": [
+            "a fermionic D10 determinant landing",
+            "rank-one e/mu/tau projectors inside the generation multiplicity space",
+            "a map from psi12/psi23/psi31 to physical charged labels",
+            "a nonzero normalized section of Det_ch",
+            "the issue-level attachment residual",
+        ],
+    }
+
+
+def _existing_axiom_independence_theorem() -> dict[str, Any]:
+    return {
+        "status": "proved_by_one_parameter_countermodel",
+        "family": "Y_e^(kappa)(r) = exp(kappa) Y_e(r), for every real kappa and every r",
+        "preserved_existing_antecedents": [
+            "D9 gauge group, matter representations, Higgs role, hypercharge lattice, N_c and N_g",
+            "anomaly cancellation and the existence of the allowed L H^dagger e^c Yukawa monomial",
+            "Yukawa-completability, rank, and the MAR complexity vector",
+            "D10 gauge-coupling, weak-scale, and electroweak pole outputs",
+            "D9 representation-role projectors and exact quark-channel leakage zero",
+            "all refinement squares when the same constant rescaling is used at every stage",
+            "the centered charged log spectrum and every charged mass ratio",
+            "the current q_psi arrow readback, because no existing theorem attaches it to Y_e",
+        ],
+        "changed_quantities": {
+            "log_abs_det_Y_e": "log_abs_det_Y_e + 3 kappa",
+            "charged_masses": "m_i -> exp(kappa) m_i",
+            "normalization_defect": "N_det -> N_det + 3 kappa",
+        },
+        "generation_center_obstruction": {
+            "commutant": "End_G(W_L tensor C^3) = I_W_L tensor Mat_3(C)",
+            "center": "Z(End_G(W_L tensor C^3)) = C I",
+            "consequence": (
+                "The gauge/collar center selects the full L and e^c isotypic roles but cannot "
+                "select three physical rank-one family lines or their determinant normalization."
+            ),
+        },
+        "even_if_total_determinant_is_granted": (
+            "For an invertible n_rest-dimensional rest block, simultaneously take "
+            "D_rest -> exp(-3 kappa/n_rest) D_rest. The charged and rest log determinants "
+            "shift by +3 kappa and -3 kappa, so the total and exact factorization remain fixed."
+        ),
+        "logical_conclusion": (
+            "The normalized attachment is not a consequence of the currently declared antecedents. "
+            "A proof using only those antecedents would take the same value on this family and is "
+            "therefore contradicted by the displayed determinant shift."
+        ),
+    }
+
+
+def _candidate_escape_audit(same_label: Mapping[str, Any]) -> dict[str, Any]:
+    q_values = same_label.get("q_e") or same_label.get("derived_q_e") or {}
+    q_logs = {
+        edge: math.log(float(q_values[edge]))
+        for edge in EDGE_ORDER
+        if edge in q_values and float(q_values[edge]) > 0.0
+    }
+    symmetric_character = sum(q_logs.values()) if len(q_logs) == len(EDGE_ORDER) else None
+    stage5_log_det_yukawa = 0.5 * math.log(2.0) - 14.0 * math.log(6.0)
+    return {
+        "d10_determinant_premise": {
+            "status": "contradicted_by_canonical_artifacts",
+            "finding": (
+                "The live D10 package emits gauge couplings, v(P), and electroweak pole/readout "
+                "quantities. charged_p_to_affine_anchor_reduction.json is an if-landing reduction "
+                "and explicitly forbids claiming physical Y_e(P), s_det(P), A_ch(P), or masses."
+            ),
+            "numeric_or_interval_matter_s_det_present": False,
+        },
+        "reference_stage_q_candidate": {
+            "status": "fails",
+            "finding": (
+                "The current q_psi values are template-dependent arrows from refinement level 0 "
+                "to 1, not q_psi(r_0). On an identity/reference arrow the declared defect "
+                "1-overlap^2 is zero, hence q=sqrt(gap*defect)=0 and log q is not a finite "
+                "determinant-line trivialization."
+            ),
+        },
+        "stage5_continuation": {
+            "status": "diagnostic_only_not_a_trace_lift_certificate",
+            "assumptions": [
+                "uniform Z6 ensemble epsilon=1/6",
+                "balanced circulant/Koide carrier",
+                "phase delta=(N_c+1)/(2 N_c N_g)=2/9",
+                "hand-built exponent prescription n=(7,4,3), including a residual scan for n_e",
+                "extra factor 2^(1/6) and a sorted-root-to-e/mu/tau assignment",
+            ],
+            "algebraic_consequence_inside_that_ansatz": {
+                "det_M_e_GeV_cubed": "v(P)^3 / (2 * 6^14)",
+                "log_abs_det_Y_e": "(1/2) log 2 - 14 log 6",
+                "log_abs_det_Y_e_numeric": stage5_log_det_yukawa,
+            },
+            "current_q_diagnostic": {
+                "q_psi": {edge: q_values.get(edge) for edge in EDGE_ORDER},
+                "natural_symmetric_M_candidate": {edge: 1 for edge in EDGE_ORDER},
+                "S_(1,1,1)": symmetric_character,
+                "residual_against_stage5_log_det_Y_e": (
+                    stage5_log_det_yukawa - symmetric_character
+                    if symmetric_character is not None
+                    else None
+                ),
+            },
+            "why_not_promotable": (
+                "The determinant formula is algebra inside a quarantined phenomenological "
+                "continuation; it is not emitted by D9/D10 or attached to q_psi."
+            ),
+        },
+        "thomson_inversion": {
+            "status": "circular",
+            "finding": (
+                "paper_math first constructs the Stage-5 charged masses and then evaluates "
+                "Delta_lep from those masses with mass_source=internal_stage5_continuation. "
+                "Inverting that transport only recovers its own mass input."
+            ),
         },
     }
 
@@ -324,20 +485,7 @@ def build_artifact(
             "computable": True,
         }
     else:
-        factorization_lemma = {
-            "status": "not_certified_no_charged_central_projector",
-            "candidate_mechanism": "collar central-interface block structure",
-            "why_insufficient": (
-                "The central-interface clause supplies collar-center blocks, but the declared sources "
-                "contain no charged L-H-E central idempotent, no D10-to-charged determinant morphism, "
-                "and no off-block leakage norm."
-            ),
-            "leakage_bound": {
-                "interval": [None, None],
-                "kind": "unbounded_or_unevaluated",
-                "certified_zero": False,
-            },
-        }
+        factorization_lemma = _representation_sector_factorization()
         uncentered_lift_constant = {
             "status": "absent_from_declared_source_objects",
             "source_object_name": None,
@@ -357,8 +505,8 @@ def build_artifact(
             "blocking_reasons": [
                 "no numeric sector-isolated M_ch",
                 "q_psi is source-open, arrow-indexed, and lacks a certified e/mu/tau map",
-                "no theorem-grade numeric or interval D10 landing to s_det(P)",
-                "no charged determinant factorization/leakage certificate",
+                "no theorem-grade numeric or interval D10 matter landing to s_det(P)",
+                "the D9 zero-leakage channel lemma does not attach the D10 package or normalize its line",
                 "no D10-fixed reference stage and basepoint normalization",
             ],
         }
@@ -382,6 +530,8 @@ def build_artifact(
         "declared_source_audit": _current_source_audit(
             same_label, frontier, d10_reduction, charged_budget
         ),
+        "existing_axiom_independence_theorem": _existing_axiom_independence_theorem(),
+        "candidate_escape_audit": _candidate_escape_audit(same_label),
         "source_certificate": {
             "artifact_ref": (
                 _artifact_ref(DEFAULT_SOURCE_CERTIFICATE) if source_certificate is not None else None
@@ -411,8 +561,8 @@ def build_artifact(
             "independent_current_blockers": [
                 "numeric M_ch is not source-emitted",
                 "q_psi is not source-closed or stage-indexed",
-                "D10 -> s_det(P) is conditional rather than emitted",
-                "charged central projector and leakage bound are absent",
+                "D10 -> matter s_det(P) is conditional rather than emitted",
+                "the exact D9 charged-channel projector is not a D10 determinant attachment",
                 "reference-stage determinant-line trivialization is absent",
             ],
             "prior_no_go_artifact": normalization_no_go.get("artifact"),
@@ -440,8 +590,9 @@ def build_artifact(
         },
         "claim_boundary": (
             "No absolute charged-lepton mass is emitted. The current exact e/mu/tau triple remains "
-            "a target-anchored ratio checksum. Issue #546 closes on the strengthened no-go branch "
-            "until the named source-object class is supplied."
+            "a target-anchored ratio checksum. Under the requested no-new-axiom constraint, the "
+            "kappa countermodel proves that the normalized attachment and absolute masses cannot "
+            "be inferred from the currently declared antecedents."
             if not certified
             else "The trace lift is certified conditionally on P; public promotion remains separately gated."
         ),

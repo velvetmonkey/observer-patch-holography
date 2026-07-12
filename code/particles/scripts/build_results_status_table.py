@@ -43,6 +43,8 @@ QUARK_SHARED_ABSOLUTE_NORM_BINDING = ROOT / "particles" / "runs" / "flavor" / "q
 QUARK_RELATIVE_SHEET_SELECTOR = ROOT / "particles" / "runs" / "flavor" / "quark_relative_sheet_selector.json"
 QUARK_PUBLIC_SIGMA_DESCENT = ROOT / "particles" / "runs" / "flavor" / "quark_public_physical_sigma_datum_descent.json"
 QUARK_PUBLIC_EXACT_YUKAWA_THEOREM = ROOT / "particles" / "runs" / "flavor" / "quark_public_exact_yukawa_end_to_end_theorem.json"
+QUARK_SIGMA_OBSTRUCTION = ROOT / "particles" / "runs" / "flavor" / "quark_sigma_source_nonidentifiability_obstruction.json"
+QUARK_SCHEME_OBSTRUCTION = ROOT / "particles" / "runs" / "flavor" / "quark_running_mass_scheme_convention_obstruction.json"
 D10_SOURCE_TRANSPORT_READOUT = ROOT / "particles" / "runs" / "calibration" / "d10_ew_source_transport_readout.json"
 D11_FORWARD_SEED = ROOT / "particles" / "runs" / "calibration" / "d11_forward_seed.json"
 D11_EXACT_HIGGS_PROMOTION = ROOT / "particles" / "runs" / "calibration" / "d11_live_exact_higgs_promotion.json"
@@ -181,6 +183,16 @@ _QUARK_PUBLIC_EXACT_YUKAWA = (
     if QUARK_PUBLIC_EXACT_YUKAWA_THEOREM.exists()
     else None
 )
+_QUARK_SIGMA_OBSTRUCTION = (
+    json.loads(QUARK_SIGMA_OBSTRUCTION.read_text(encoding="utf-8"))
+    if QUARK_SIGMA_OBSTRUCTION.exists()
+    else None
+)
+_QUARK_SCHEME_OBSTRUCTION = (
+    json.loads(QUARK_SCHEME_OBSTRUCTION.read_text(encoding="utf-8"))
+    if QUARK_SCHEME_OBSTRUCTION.exists()
+    else None
+)
 _QUARK_D12_INTERNAL_BACKREAD_NOTE = ""
 if _QUARK_D12_INTERNAL_BACKREAD is not None:
     _quark_closed = _QUARK_D12_INTERNAL_BACKREAD["closed_mass_side_package"]
@@ -222,22 +234,21 @@ _QUARK_SELECTOR_TOKEN = (
 )
 
 QUARK_CONTINUATION_NOTE = (
-    "Selected-class conditional quark support surface. "
+    "Selected-class target-anchored quark audit surface. "
     f"`{_QUARK_PUBLIC_SIGMA_DESCENT['artifact'] if _QUARK_PUBLIC_SIGMA_DESCENT else 'oph_quark_public_physical_sigma_datum_descent'}` "
     "proves that the attached sigma datum is representative-independent on the selected bridge fiber over the public quark frame class chosen by `P`; "
-    "it does not select that sigma datum from source objects. The current exact sigma datum is inherited from the current-family target surface, so "
+    "it does not select that datum from source objects. "
+    f"`{_QUARK_SIGMA_OBSTRUCTION['artifact'] if _QUARK_SIGMA_OBSTRUCTION else 'oph_quark_sigma_source_nonidentifiability_obstruction'}` "
+    "proves the sharper corpus boundary: the compatible target-free spread fiber is `(R_{>0})^2`, with independent up/down positive moduli that change the affine mass readout. "
     f"`{_QUARK_PUBLIC_EXACT_YUKAWA['artifact'] if _QUARK_PUBLIC_EXACT_YUKAWA else 'oph_quark_public_exact_yukawa_end_to_end_theorem'}` "
-    "is an audit/support witness conditional on a missing source sigma selector, not a public source-only mass prediction. "
-    "Given a source-only sigma datum, the downstream affine mean law, ordered three-point readout, and exact forward construction are closed and emit the running-quark sextet together with explicit exact forward Yukawas `Y_u` and `Y_d`. "
-    "Supporting exact surfaces: `oph_quark_current_family_exact_readout` on `current_family_only` and "
-    "`oph_quark_current_family_transport_frame_exact_pdg_completion` plus "
-    "`oph_quark_current_family_transport_frame_exact_forward_yukawas` on the declared common-refinement transport-frame carrier. "
-    "The D12 mass bridge is target-free on the emitted ray, but it does not emit the physical sigma/spread datum. The exact sextet uses the PDG 2025 cross-section top entry on the audit surface. "
-    "Promotion requires `QUARK_SIGMA_SOURCE_SELECTOR`, `QUARK_EDGE_STATISTICS_CORRECTION_THEOREM`, and `NO_TARGET_LEAK_DAG_QUARK_SIGMA_SOURCE`. "
+    "therefore remains an audit wrapper, not a source-only prediction. "
+    f"`{_QUARK_SCHEME_OBSTRUCTION['artifact'] if _QUARK_SCHEME_OBSTRUCTION else 'oph_quark_running_mass_scheme_convention_obstruction'}` "
+    "separates light MSbar coordinates at 2 GeV, charm and bottom MSbar self-scale coordinates, and the top pole extraction coordinate. The stored GeV-valued matrices are mass textures, not physical dimensionless Yukawa matrices. "
+    "Promotion requires a source map that breaks the two-modulus action, a no-target DAG, an RG-covariant mass trajectory, and one common-scale dimensionless Yukawa conversion. "
     "The auxiliary direct-top entry remains compare-only; "
     "[#207](https://github.com/FloatingPragma/observer-patch-holography/issues/207) is closed as a "
     "corpus-limited no-go by `code/particles/runs/calibration/direct_top_bridge_contract.json`. "
-    "Scope: selected-class closure only; no global classification of quark frame classes. "
+    "Scope: selected-fiber representative independence only; no source spread selection or global classification of quark frame classes. "
     "Synchronization anchor: [#198](https://github.com/FloatingPragma/observer-patch-holography/issues/198)."
 )
 NEUTRINO_CONTINUATION_NOTE = (
