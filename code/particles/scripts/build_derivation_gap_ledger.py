@@ -250,7 +250,8 @@ def build_gap_rows() -> list[dict[str, Any]]:
             "next_action": (
                 "Keep charged masses suppressed on the public theorem lane. Reopen only for a "
                 "theorem-grade uncentered trace lift proving 3 mu(r) = sum_e M_e^ch log q_e(r), "
-                "equivalently zero normalization defect N_det(P), on the physical charged branch."
+                "equivalently zero normalization defect N_det(P), on the physical charged branch; "
+                "the construction is specified in issue #546."
             ),
             "target_surfaces": ["code/particles/leptons", "code/particles/runs/leptons"],
         },
@@ -353,6 +354,31 @@ def build_gap_rows() -> list[dict[str, Any]]:
             "target_surfaces": ["code/particles/hadron", "code/particles/qcd"],
         },
         _empirical_ee_gate(),
+        {
+            "id": "d10.same-scheme-anchor-bridge",
+            "lane": "P closure / D10 electromagnetic endpoint",
+            "status": "open_certified_anchor_gap",
+            "github_issue": 545,
+            "title": "Source-side electroweak scheme bridge for the anchor a0(P)",
+            "current_boundary": (
+                "The empirical Thomson endpoint artifact certifies that the payload interval for "
+                "Delta_alpha_had^(5)(M_Z) excludes the value required to reach the measured endpoint "
+                "with the frozen source anchor a0(P*) = 128.30797. The discrepancy is carried entirely "
+                "by the anchor: the certified same-scheme anchor gap is [0.649, 0.855] inverse-alpha "
+                "units (code/P_derivation/runtime/empirical_thomson_endpoint_current.json)."
+            ),
+            "next_action": (
+                "Emit a source-side scheme-bridge theorem mapping the OPH anchor to the on-shell "
+                "running convention at m_Z, a0_OS(P) = a0_OPH(P) + delta_scheme(P), with an interval "
+                "certificate for delta_scheme(P) landing in the certified gap, or prove the anchor is "
+                "scheme-exact and relocate the discrepancy to a named transport packet."
+            ),
+            "target_surfaces": [
+                "code/P_derivation/runtime/empirical_thomson_endpoint_current.json",
+                "code/P_derivation/EMPIRICAL_HADRON_SCHEME_BRIDGE.md",
+                "code/P_derivation/rg_matching_threshold_contract.py",
+            ],
+        },
     ]
 
 
@@ -418,6 +444,7 @@ def build_bundles() -> list[dict[str, Any]]:
                 "d10.ward-projected-thomson-endpoint",
                 "d10.source-residual-map-and-interval-certificate",
                 "d10.rg-matching-threshold-scheme",
+                "d10.same-scheme-anchor-bridge",
                 "pclosure.certified-codepath-adoption",
             ],
             "promotion_question": (

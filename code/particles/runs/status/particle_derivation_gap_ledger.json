@@ -7,6 +7,7 @@
         "d10.ward-projected-thomson-endpoint",
         "d10.source-residual-map-and-interval-certificate",
         "d10.rg-matching-threshold-scheme",
+        "d10.same-scheme-anchor-bridge",
         "pclosure.certified-codepath-adoption"
       ],
       "id": "electroweak-root-closure-bundle",
@@ -119,7 +120,7 @@
     },
     "v_over_E_cell_source": "2.5797040595276223506583341903922018695490035369903290256096683452314630559578761079150341073645683725521032233E-17"
   },
-  "generated_utc": "2026-07-12T01:15:06Z",
+  "generated_utc": "2026-07-12T01:28:17Z",
   "p_trunk": {
     "P": "1.63097210492078846050203640439",
     "alpha_inv": "136.994020662724205139718642793",
@@ -232,7 +233,7 @@
       "github_issue": 201,
       "id": "charged.determinant-normalization-transport",
       "lane": "Charged leptons",
-      "next_action": "Keep charged masses suppressed on the public theorem lane. Reopen only for a theorem-grade uncentered trace lift proving 3 mu(r) = sum_e M_e^ch log q_e(r), equivalently zero normalization defect N_det(P), on the physical charged branch.",
+      "next_action": "Keep charged masses suppressed on the public theorem lane. Reopen only for a theorem-grade uncentered trace lift proving 3 mu(r) = sum_e M_e^ch log q_e(r), equivalently zero normalization defect N_det(P), on the physical charged branch; the construction is specified in issue #546.",
       "status": "closed_current_corpus_charged_end_to_end_no_go",
       "target_surfaces": [
         "code/particles/leptons",
@@ -328,6 +329,20 @@
         "code/P_derivation/empirical_thomson_endpoint.py"
       ],
       "title": "Empirical e+e- -> hadrons payload and Thomson endpoint evaluation"
+    },
+    {
+      "current_boundary": "The empirical Thomson endpoint artifact certifies that the payload interval for Delta_alpha_had^(5)(M_Z) excludes the value required to reach the measured endpoint with the frozen source anchor a0(P*) = 128.30797. The discrepancy is carried entirely by the anchor: the certified same-scheme anchor gap is [0.649, 0.855] inverse-alpha units (code/P_derivation/runtime/empirical_thomson_endpoint_current.json).",
+      "github_issue": 545,
+      "id": "d10.same-scheme-anchor-bridge",
+      "lane": "P closure / D10 electromagnetic endpoint",
+      "next_action": "Emit a source-side scheme-bridge theorem mapping the OPH anchor to the on-shell running convention at m_Z, a0_OS(P) = a0_OPH(P) + delta_scheme(P), with an interval certificate for delta_scheme(P) landing in the certified gap, or prove the anchor is scheme-exact and relocate the discrepancy to a named transport packet.",
+      "status": "open_certified_anchor_gap",
+      "target_surfaces": [
+        "code/P_derivation/runtime/empirical_thomson_endpoint_current.json",
+        "code/P_derivation/EMPIRICAL_HADRON_SCHEME_BRIDGE.md",
+        "code/P_derivation/rg_matching_threshold_contract.py"
+      ],
+      "title": "Source-side electroweak scheme bridge for the anchor a0(P)"
     }
   ]
 }

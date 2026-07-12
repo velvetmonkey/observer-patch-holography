@@ -302,7 +302,7 @@
     "source_spectral_stage_gate": "populated source spectral measure payload plus interval certificate",
     "symmetry_only_particle_promotion_blocked": true
   },
-  "generated_utc": "2026-07-12T01:15:06Z",
+  "generated_utc": "2026-07-12T01:27:39Z",
   "issue_gates": [
     {
       "chrome_workers": "not_needed_for_analytic_claim_gate",
