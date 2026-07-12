@@ -340,13 +340,14 @@ We can state the recovery rule as a physical principle.
 $$I(A:C|B) \leq \varepsilon(B)$$
 
 Here $\varepsilon(B)$ measures how much correlation can bypass the separator.
-Its form follows the geometry of the separator itself, with natural candidates
-including boundary-size scaling or exponential decay with separation.
+The quantitative Gibbs branch below fixes its form as a boundary-size
+prefactor times exponential decay with collar thickness. Outside that branch,
+the axiom carries $\varepsilon(B)$ without importing the formula.
 
 $A$, $B$, and $C$ are regions or patches. $B$ is the separator. The small
 quantity $\varepsilon(B)$ is the allowed leakage past that separator. Exact
-Markov screening would set it to zero. Realistic geometry permits a small
-nonzero remainder.
+Markov screening sets it to zero. A nonzero remainder is controlled only after
+its mechanism and constants have been declared.
 
 That remainder has to be carried. OPH separates the Fawzi-Renner recovered
 comparison state from the exact-Markov replacement used in ideal splice and
@@ -354,11 +355,106 @@ modular-additivity calculations. The latter is justified only on a fixed
 collar, or after pullback to one, with a collar-local modulus that tends to
 zero.
 
+### Two Collar Routes
+
+Fix a cap $C$ on a UV cell graph with cell scale $\ell_{\mathrm{UV}}$. A
+collar $B_\delta$ of physical thickness $\delta$ separates the inner region
+$A_\delta$ from the exterior $D_\delta$. OPH uses two sufficient routes for
+this tripartition. On the declared **central-interface branch**, the interface
+energy depends only on the conserved central sector label. The edge split is
+then aligned with the state’s Markov split, and
+$I(A_\delta:D_\delta|B_\delta)=0$ exactly. Literal splice and modular
+identities use this route.
+
+The quantitative route starts with a faithful finite-range Gibbs state. Let
+the local Hilbert-space dimension be at most $q$, the interaction degree at
+most $\Delta_0$, and the interaction diameter at most $r_0$ graph layers.
+Assume, uniformly in the cut and refinement stage,
+
+$$
+\sup_x\sum_{X\ni x}\|\beta\Phi(X)\|\le J_0.
+$$
+
+Finite range alone does not give the desired collar estimate. The load-bearing
+premise is **uniform strong conditional mixing**, also called matrix mixing.
+For
+
+$$
+\mathbf J_\rho
+=\log\rho_{A_\delta B_\delta D_\delta}+\log\rho_{B_\delta}
+-\log\rho_{A_\delta B_\delta}-\log\rho_{B_\delta D_\delta},
+$$
+
+assume a sum over UV boundary anchors,
+
+$$
+\mathbf J_\rho=\sum_{z\in\partial^{\mathrm{UV}}_{r_0}C}E_z,
+\qquad
+\|E_z\|_\infty\le
+\kappa\exp\!\left[-\frac{m-r_0}{\zeta}\right],
+\qquad m=\frac{\delta}{\ell_{\mathrm{UV}}},
+$$
+
+where $\kappa$ and $\zeta$ are independent of the boundary condition, cut,
+and stage. Ordinary two-point exponential clustering does not imply this
+conditional premise for a general noncommuting Gibbs state. Neither local
+Gibbs form, a Lieb-Robinson bound, nor a Hamiltonian spectral gap supplies it
+by itself.
+
+Under these assumptions, the collar CMI obeys
+
+$$
+I(A_\delta:D_\delta|B_\delta)
+\le \kappa|\partial C|_{\mathrm{UV}}
+\exp\!\left[-\frac{m-r_0}{\zeta}\right]
+\le c|\partial C|_{\mathrm{UV}}e^{-\delta/\xi_\ell},
+$$
+
+with $\xi_\ell=\zeta\ell_{\mathrm{UV}}$ and
+$c=\kappa e^{r_0/\zeta}$. The proof is short once the matrix-mixing
+premise is available: CMI is the expectation of $\mathbf J_\rho$, and
+trace-norm duality bounds that expectation by the sum of the boundary-anchor
+norms. Greater collar thickness suppresses the exponential term. A larger UV
+boundary creates more anchors and therefore enlarges the prefactor.
+
+The controlled double scaling is sharper than a thick collar measured in cell
+units:
+
+$$
+\ell_{\mathrm{UV}}\to0,\qquad
+\delta\to0,\qquad
+\frac{\delta}{\ell_{\mathrm{UV}}}\to\infty,\qquad
+\frac{\delta}{\xi_\ell}-\log|\partial C|_{\mathrm{UV}}\to+\infty.
+$$
+
+The ratio $\delta/\ell_{\mathrm{UV}}\to\infty$ alone leaves the growing
+boundary prefactor uncontrolled. For a power-law boundary count
+$|\partial C|_{\mathrm{UV}}\le a(\ell_0/\ell_{\mathrm{UV}})^p$, one sufficient
+schedule is
+
+$$
+\delta\ge\zeta(p+\eta)\ell_{\mathrm{UV}}
+\log(\ell_0/\ell_{\mathrm{UV}}),\qquad \eta>0,
+$$
+
+which gives $I(A_\delta:D_\delta|B_\delta)\le
+ca(\ell_{\mathrm{UV}}/\ell_0)^\eta\to0$.
+
+Finite runs can record the interaction range and norm bound, treatment of
+sector terms, boundary-cell count, graph separation, regional CMI, matrix
+defect norm, predeclared mixing constants, held-out cuts, recovery error, and
+the rate margin
+$\delta/(\zeta\ell_{\mathrm{UV}})-\log|\partial C|_{\mathrm{UV}}$. These are
+finite proxies. A cofinal-limit claim additionally needs the uniform premise
+and the declared scaling family.
+
 ### Screening Through the Separator
 
 If region B sits between regions A and C, then B approximately screens A from C. The correlations between A and C are almost entirely mediated through B.
 
-The "almost" is quantified by ε(B). Larger separators allow more "leakage"-more correlation that bypasses the screen.
+The “almost” is quantified by $\varepsilon(B)$. Collar thickness and boundary
+size pull in opposite directions: thickness improves screening, while a longer
+boundary supplies more places for a residual correlation to cross.
 
 ![A cap, a thin collar, and the exterior form the A-B-D split used in recoverability arguments.](../assets/book_diagrams/collar-tripartition.svg){width=70%}
 

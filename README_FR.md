@@ -444,7 +444,26 @@ Le même style de comptabilité traverse le reste de la chaîne de gravité. Le
 paquet de réseau nul prouve la standardité et la structure de translations
 positives que le pont nul consomme, avec un contre-exemple montrant que la
 localité de Gibbs à portée finie n'implique pas la localité modulaire. Le
-paquet de variété d'événements définit les événements comme classes de
+paquet de récupération par collier sépare lui aussi une voie exacte d'une
+voie conditionnelle. Sur la branche déclarée à interface centrale, la CMI du
+collier est nulle. Hors de cette branche, un théorème de Gibbs à portée finie
+donne
+\[
+I(A_\delta:D_\delta\mid B_\delta)
+\le c|\partial C|_{\mathrm{UV}}e^{-\delta/\xi}
+\]
+seulement sous une hypothèse uniforme de mélange matriciel conditionnel fort ;
+la décroissance exponentielle des corrélations à deux points ne suffit pas.
+La famille de limite doit vérifier
+\(\delta/\xi-\log|\partial C|_{\mathrm{UV}}\to+\infty\).
+Le rapport plus faible
+\(\delta/\ell_{\mathrm{UV}}\to\infty\) peut être dominé par le nombre croissant
+de cellules de bord. L'évaluateur fini vérifie l'enveloppe logarithmique
+complète et l'erreur de récupération, mais reste un proxy d'instanciation de
+branche tant que les prémisses de Gibbs et de mélange ne sont pas certifiées
+sur une tour réalisée. La CMI scalaire n'est jamais assimilée à un tenseur
+d'énergie-impulsion ni à une source du secteur sombre.
+Le paquet de variété d'événements définit les événements comme classes de
 coïncidence d'enregistrements localisés. Sur ses reçus nommés (population
 dense, séparation certifiée, repères de réponse de rang quatre,
 recouvrements de cartes cohérents), l'ensemble d'événements est une vraie
@@ -459,7 +478,10 @@ chaîne entière se compose en un unique théorème d'entrée de branche avec
 l'équation d'Einstein comme sortie.
 
 Le côté simulateur porte un évaluateur de reçus pour tout cela, et l'état
-machine se lit ainsi. Une exécution de réparation cyclique authentique
+machine se lit ainsi. L'artefact CMI de collier est un proxy analytique fini,
+sans indicateur de preuve empirique ni de promotion théorique ; il ne certifie
+pas le mélange conditionnel fort sur la tour de réparation réalisée. Une
+exécution de réparation cyclique authentique
 (conflits réels, réparation transactionnelle, confluence et indépendance
 d'ordonnancement vérifiées à l'exécution sur une tour à trois étages) passe
 les reçus de sphère, de maille et de naturalité sur sa propre sortie

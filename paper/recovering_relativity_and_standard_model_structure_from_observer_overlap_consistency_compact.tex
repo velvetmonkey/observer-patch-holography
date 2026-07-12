@@ -325,7 +325,7 @@ Node & Output & Immediate internal ingredients & Standard mathematics used & Bra
 \bottomrule
 \endfoot
 \textbf{D1} & Total local and global quotient repair maps \(\operatorname{locRep}_\lambda,\operatorname{Rep}_\lambda:Q\to Q\); unique schedule-independent normal form from each fixed initial physical quotient state; boundary-conditioned uniqueness under a preserved boundary/sector map with unique consistent extension; layered finite \(H_B\wedge H_{\mathrm{fib}}\) carrier; nontrivial same-boundary branch elimination on the functional selected-fiber branch; observable-level confluence on the declared fixed-cutoff physical algebras for the recovery-derived repair relation, inverse-limit normal-form / holonomy classes on separated cofinal refinement systems, distributed one-universe realization for admissible worker presentations of a single global carrier, and controlled reconciliation/coarse-graining compatibility & overlap-consistency problem on a finite patch net together with the declared fixed-cutoff collar recovery proposal, its touched-overlap local-fit eligibility contract, transactional snapshot/read/write validation with boundary/sector preservation and exact descent, support-local disjoint commutation, restriction-compatible union-collar gluing for canonical conflict-component payloads on the physical quotient, the fixed-point / quotient-local physical observable algebras carried by that same collar package, cofinal refinement projections compatible with finite-stage normal forms and holonomy maps, a distributed physical projection from authoritative worker state to the monolithic quotient, and a coarse-graining channel with declared normal-form and obstruction defects & local-to-global well-founded descent; local-diamond completion from atomic conflict-component commits using validation-complete read sets; Newman's lemma; layered functional boundary reconstruction; rooted functional extension for selected fibers; inverse limits of separated finite quotient systems; reachability invariance of the quotient normal form under projected repair paths, physical stutters, and certified rollbacks; pseudometric control of commuting coarse-graining diagrams & repair completeness; stated Petz support/CPTP control where that branch is used; for same-boundary uniqueness, preservation of the boundary/sector map and at most one consistent quotient extension in the fiber, or the layered/functional selected-fiber theorem with explicit obstruction/ambiguity gates; repair-morphism normal-form naturality, holonomy cochain naturality, visible separation, explicit coarse-graining defect bounds for the refinement system, and distributed certificates for global carrier, partition, cut interfaces, linearized commits, restart roots, final monolithic readout, and normal-form hash evidence only after quotient equality is proved & Phase I structural theorem \\
-\textbf{D2} & Collar Markov/entropy split and \(G\)-dictionary setup (Theorem~\ref{thm:markovcollar}, Propositions~\ref{prop:approxrecover}, \ref{prop:splice}, \ref{prop:gensplit}, Definition~\ref{def:newton}) & Axioms~\ref{ax:screen}--\ref{ax:entropy} & HJPW Markov structure theorem; Petz and Fawzi--Renner recovery theory & exact block-factorized identities require exact Markovity plus the Markov-split alignment hypothesis (Definition~\ref{def:ecaligned}; both derived under the declared central-interface collar clause of Axiom~\ref{ax:maxent}, Theorem~\ref{thm:msaderivation}) or an explicitly stated idealized limit; the \(A/(4G)\) step is the coarse-grained dictionary of Definition~\ref{def:newton} & Phase I structural lemma/proposition layer \\
+\textbf{D2} & Collar Markov/entropy split, finite-range Gibbs conditional-mixing theorem, and \(G\)-dictionary setup (Theorems~\ref{thm:collar-cmi-decay}, \ref{thm:markovcollar}; Propositions~\ref{prop:approxrecover}, \ref{prop:splice}, \ref{prop:gensplit}; Definition~\ref{def:newton}) & Axioms~\ref{ax:screen}--\ref{ax:entropy} plus the strong conditional Gibbs mixing premise off the exact central-interface branch & HJPW Markov structure theorem; matrix conditional-log-density mixing; Petz and Fawzi--Renner recovery theory & the scalar CMI bound has explicit uniform constants and a boundary-count prefactor; ordinary two-point clustering does not imply the required conditional mixing; the scaling limit requires \(\delta/\xi-\log|\partial C|_{\mathrm{UV}}\to+\infty\), not merely \(\delta/\ell_{\mathrm{UV}}\to\infty\); exact block-factorized identities require exact Markovity plus the Markov-split alignment hypothesis (Definition~\ref{def:ecaligned}; both derived under the declared central-interface collar clause of Axiom~\ref{ax:maxent}, Theorem~\ref{thm:msaderivation}); the \(A/(4G)\) step is the coarse-grained dictionary of Definition~\ref{def:newton} & conditional theorem with exact central-interface specialization \\
 \textbf{D3a} & Regularized support-visible modular transport on fixed cap-local algebras & Axioms~\ref{ax:screen}--\ref{ax:entropy}, collar Markov/recovery package, and Theorem~\ref{thm:geosubnet} & weak-\(*\)/GNS extraction; modular theory with regularized finite generators & fixed-collar comparison errors, cutoff schedule, and multiresolution reference tower; no full finite-algebra spectral floor is assumed & theorem \\
 \textbf{D3b} & Finite cap-normal and support-order certificate & D3a plus a cofinal nondegenerate cap mesh & spherical cap geometry; de Sitter cap-normal compactness; finite support-order reflection & BW-framed caps, support-order faithfulness, mixed-GNS Cauchy residuals, and support covariance; this certificate is not produced by bare finite consensus inside D3, and on the producer branch it is produced from the computable incidence/mesh/cross-ratio/normalization receipts (Theorem~\ref{thm:certificate-production}), whose selection is proved underdetermined by confluence (Theorem~\ref{thm:incidence-underdetermination}) & Theorem~\ref{thm:finite-cap-bw-certificate} hypothesis; produced on the D3h receipt branch \\
 \textbf{D3c} & Oriented cross-ratio and framed-cap rigidity & D3b & M\"obius/cross-ratio rigidity on \(S^2\) & held-out separated quartets and an orientation witness; fitted anchors alone carry no validation value & theorem under certificate \\
@@ -1021,7 +1021,13 @@ K_{\ell_{\mathrm{UV}}}(\lambda)
 \sum_x \sum_{a=1}^{N_{\mathrm{con}}}\lambda_a O_a(x)
 +\sum_b \mu_b Q_b,
 \]
-where the \(Q_b\) are the finitely many optional global conserved-charge constraints. Because the constraints are the homogeneous global sums, the exponent carries one cell-independent multiplier \(\lambda_a\) per density label, so the multiplier-space dimension is \(N_{\mathrm{con}}+N_{\mathrm{glob}}\) on every lattice and matches the count of independent constraints there; per-cell constraints would instead produce cell-dependent multipliers \(\lambda_a(x)\) and a parameter space growing with the number of cells. Thus the logarithm of the selected state is itself a quasi-local UV generator built from the same bounded-support densities that define the branch.
+where the \(Q_b\) are the finitely many optional global conserved-charge constraints. Because the constraints are the homogeneous global sums, the exponent carries one cell-independent multiplier \(\lambda_a\) per density label, so the multiplier-space dimension is \(N_{\mathrm{con}}+N_{\mathrm{glob}}\) on every lattice and matches the count of independent constraints there; per-cell constraints would instead produce cell-dependent multipliers \(\lambda_a(x)\) and a parameter space growing with the number of cells. The local-density part of the logarithm is therefore a quasi-local UV generator. Locality of the optional \(Q_b\) terms requires the separate condition in the next paragraph.
+
+For the finite-range collar theorem, each retained \(Q_b\) must itself be a sum of uniformly
+bounded finite-range densities, or it must be fixed and central on the superselection sector under
+study. An otherwise nonlocal charge term remains valid MaxEnt data but falls outside
+Definition~\ref{def:finite-range-collar-gibbs}; the Lagrange-multiplier argument alone does not turn
+such a term into a local interaction.
 
 \paragraph{Derived quasi-local propagation and interval control.}
 Fix the regulator graph metric coming from cell adjacency and let \(\tau_t^{\ell_{\mathrm{UV}}}\) denote the automorphism group generated by \(K_{\ell_{\mathrm{UV}}}(\lambda)\), or more generally by any branch generator lying in the norm-closed algebra generated by the same bounded-support local densities. Standard Lieb--Robinson estimates for finite-range interactions on the finite regulator net then give constants \(C,\xi,v_{\ell_{\mathrm{UV}}}<\infty\) such that for local observables \(A_X,B_Y\), \cite{liebRobinson72}
@@ -1088,6 +1094,12 @@ S_{\mathrm{gen}}(C)=S_{\mathrm{bulk}}(C)+\langle L_C\rangle,
 where \(L_C\) is a positive edge-center entropy functional. In the semiclassical scaling branch, its leading coarse-grained contribution is identified with \(A(\partial C)/(4G)\). The functional obeys quantum focusing on null generators, and collar tripartitions have small CMI with controlled recovery maps \cite{liebRuskai73,petz86,petz88,fawziRenner15}.
 \end{axiom}
 
+The small-CMI clause is exact on the declared central-interface branch by
+Theorem~\ref{thm:msaderivation}. On the finite-range noncommuting branch it has the explicit
+envelope of Theorem~\ref{thm:collar-cmi-decay} only when the uniform strong conditional mixing
+premise is supplied. Outside those branches, recoverability remains an axiom-level input rather
+than a consequence of local Gibbs form.
+
 \begin{axiom}[Minimal Admissible Realization]\label{ax:mar}
 Among realized sector packages \(\mathfrak S\) consisting of the connected Lie gauge-sector image relevant in the low-energy EFT, its admissible light chiral matter content, and one Higgs doublet, and which are loop-coherent, anomaly-free, refinement-stable with light chiral matter, single-Higgs Yukawa-completable with one connected abelian charge factor acting nontrivially on the coupled carrier, intrinsically quark-sector CP-capable, and weak-sector UV-completable on that same one-Higgs branch, the realized package is the lexicographically minimal one under
 \[
@@ -1141,7 +1153,7 @@ Node & Theorem labels and output & Immediate OPH ingredients & Standard mathemat
 \bottomrule
 \endfoot
 \textbf{D1} & Theorems~\ref{thm:confluence}, \ref{thm:boundary-conditioned-uniqueness}, \ref{thm:layered-carrier-HB-Hfib}, \ref{thm:functional-selected-fiber}, and Corollary~\ref{cor:branch-elimination}: total quotient repair maps \(\operatorname{locRep}_\lambda,\operatorname{Rep}_\lambda:Q\to Q\), unique quotient normal form and schedule independence from a fixed initial quotient state, same-boundary uniqueness under unique consistent extension, layered \(H_B\wedge H_{\mathrm{fib}}\), and nontrivial selected-fiber branch elimination & overlap-consistency problem on a finite patch net together with the declared fixed-cutoff collar recovery proposal, its touched-overlap local-fit eligibility contract, transactional snapshot/read/write validation, boundary/sector preservation, and restriction-compatible union-collar gluing for canonical conflict-component payloads on the physical quotient & local-to-global well-founded descent; local-diamond completion from atomic conflict-component commits with validation-complete read sets; Newman's lemma; layered functional boundary reconstruction; rooted functional extension in selected fibers & repair completeness; stated Petz support/CPTP control where that branch is used; for same-boundary uniqueness, boundary/sector preservation and either at most one consistent quotient extension in the boundary fiber or the layered/functional selected-fiber theorem; obstruction/ambiguity gates when no unique quotient endpoint exists; normal-form hashes as equality receipts, not selectors & structural theorem \\
-\textbf{D2} & Theorem~\ref{thm:markovcollar}, Propositions~\ref{prop:approxrecover}, \ref{prop:splice}, \ref{prop:gensplit}, Definition~\ref{def:newton}: collar Markov/entropy layer & Axioms~\ref{ax:screen}--\ref{ax:entropy} & HJPW Markov structure theorem; Petz and Fawzi--Renner recovery theory & exact Markov identities require exact Markovity plus the Markov-split alignment hypothesis (Definition~\ref{def:ecaligned}; both derived under the declared central-interface collar clause of Axiom~\ref{ax:maxent}, Theorem~\ref{thm:msaderivation}) or an explicitly stated idealized recoverability limit; the \(A/(4G)\) identification is the coarse-grained dictionary of Definition~\ref{def:newton} & structural lemma/\newline proposition layer \\
+\textbf{D2} & Theorems~\ref{thm:collar-cmi-decay}, \ref{thm:markovcollar}, Propositions~\ref{prop:approxrecover}, \ref{prop:splice}, \ref{prop:gensplit}, Definition~\ref{def:newton}: collar Markov/entropy and conditional Gibbs-recovery layer & Axioms~\ref{ax:screen}--\ref{ax:entropy} plus strong conditional matrix mixing off the exact branch & matrix conditional-log-density mixing; HJPW Markov structure theorem; Petz and Fawzi--Renner recovery theory & the nonexact CMI bound requires the uniform finite-range and strong-mixing premises together with \(\delta/\xi-\log|\partial C|_{\mathrm{UV}}\to+\infty\); ordinary clustering is insufficient; exact Markov identities require exact Markovity plus the Markov-split alignment hypothesis (Definition~\ref{def:ecaligned}; both derived under the declared central-interface collar clause, Theorem~\ref{thm:msaderivation}); the \(A/(4G)\) identification is the coarse-grained dictionary of Definition~\ref{def:newton} & conditional theorem with exact central-interface specialization \\
 \textbf{D3a} & Regularized support-visible modular transport on fixed cap-local algebras & Axioms~\ref{ax:screen}--\ref{ax:entropy}, collar Markov/recovery package, and Theorem~\ref{thm:geosubnet} & weak-\(*\)/GNS extraction;\newline modular theory with regularized finite generators & fixed-collar comparison errors, cutoff schedule, and multiresolution reference tower; no full finite-algebra spectral floor is assumed & theorem \\
 \textbf{D3b} & Finite cap-normal and support-order certificate & D3a plus a cofinal nondegenerate cap mesh & spherical cap geometry;\newline de Sitter cap-normal compactness;\newline finite support-order reflection & BW-framed caps, support-order faithfulness, mixed-GNS Cauchy residuals, and support covariance; this certificate is not produced by bare finite consensus inside D3, and on the producer branch it is produced from the computable incidence/mesh/cross-ratio/normalization receipts (Theorem~\ref{thm:certificate-production}), whose selection is proved underdetermined by confluence (Theorem~\ref{thm:incidence-underdetermination}) & Theorem~\ref{thm:finite-cap-bw-certificate}\newline hypothesis;\newline produced on the D3h receipt branch \\
 \textbf{D3c} & Oriented cross-ratio and framed-cap rigidity & D3b & M\"obius/cross-ratio rigidity on \(S^2\) & held-out separated quartets and an orientation witness; fitted anchors alone carry no validation value & theorem under certificate \\
@@ -1993,6 +2005,217 @@ allowed to converge to the exact HJPW normal form used by the later spatial and 
 theorems.
 
 The sharp claim boundary is as follows. Small conditional mutual information always gives a constructive recovered comparison state with \(O(\varepsilon^{1/2})\) observable error. It does \emph{not} by itself give a universal one-shot trace-norm bound to an exact Markov state. The exact Markov normal form is recovered either when \(I(A:D\mid B)=0\) holds literally, or for a controlled family on one fixed finite-dimensional collar model, or after pullback to such a model, where \(\varepsilon\to0\). On that fixed collar one gets a collar-dependent modulus \(\delta^{\mathrm M}_{A:B:D}(\varepsilon)\to0\) measuring distance to the exact Markov set, and this is the error that must be carried into later exact splice or modular-additivity identities. A separate boundary, independent of any modulus, is that the HJPW normal form factorizes the state over a \emph{state-dependent} decomposition of the middle system: identifying its factors with the preselected edge-center factors \(b_L^\alpha,b_R^\alpha\) is the Markov-split alignment hypothesis (Definition~\ref{def:ecaligned}), which exact Markovity does not imply (Remark~\ref{rem:hjpwalignment}) and which is carried explicitly wherever the preselected factors are used. On the declared central-interface branch both alignment and exact collar Markovianity are derived rather than assumed (Theorem~\ref{thm:msaderivation}).
+
+The quantitative route off that exact branch needs a stronger premise than ordinary covariance
+clustering. The definitions below isolate the premise, keep all constants visible, and separate the
+finite receipt from the scaling statement.
+
+\begin{definition}[Finite-range collar Gibbs family]\label{def:finite-range-collar-gibbs}
+At regulator scale \(\ell>0\), let \(G_\ell=(V_\ell,E_\ell)\) be the cell-adjacency graph,
+with \(\dim\mathcal H_x\le q\) and interaction degree at most \(\Delta_0\). In each fixed
+superselection sector, let
+\[
+ \rho_\ell=Z_\ell^{-1}e^{-\beta H_\ell},
+ \qquad
+ H_\ell=\sum_{X\subset V_\ell}\Phi_\ell(X)+H_\ell^{\mathrm{cen}},
+\]
+where \(H_\ell^{\mathrm{cen}}\) is central and therefore scalar on the chosen sector. Assume
+constants \(r_0,J_0<\infty\), independent of the cut and of \(\ell\), such that
+\[
+ \operatorname{diam}_{G_\ell}(X)\le r_0,
+ \qquad
+ \sup_{x\in V_\ell}\sum_{X\ni x}\|\beta\Phi_\ell(X)\|\le J_0.
+\]
+A noncentral all-to-all constraint term fails this finite-range premise; it cannot be hidden in
+\(H_\ell^{\mathrm{cen}}\).
+
+For a cut \(C_\ell\subset V_\ell\), let
+\[
+ \partial_{r_0}^{\mathrm{UV}}C_\ell
+ :=\{x\in V_\ell:
+ d_{G_\ell}(x,C_\ell)\le r_0,
+ d_{G_\ell}(x,C_\ell^c)\le r_0\},
+ \qquad
+ |\partial C_\ell|_{\mathrm{UV}}
+ :=|\partial_{r_0}^{\mathrm{UV}}C_\ell|.
+\]
+Let \(A_\delta:B_\delta:D_\delta\) be a tripartition in which \(B_\delta\) shields
+\(A_\delta\subset C_\ell\) from \(D_\delta\subset C_\ell^c\) by
+\(m_\ell\) graph layers, with \(m_\ell>r_0\), and define the resolved physical
+collar width by \(\delta:=m_\ell\ell\).
+\end{definition}
+
+\begin{definition}[Strong conditional Gibbs exponential mixing]\label{def:strong-conditional-gibbs-mixing}
+For the faithful Gibbs state of Definition~\ref{def:finite-range-collar-gibbs}, embed all marginal
+logarithms in the tripartite algebra and define the matrix conditional log-density defect
+\[
+ \mathbf J_\rho(A:D\mid B)
+ :=
+ \log\rho_{ABD}+\log\rho_B-\log\rho_{AB}-\log\rho_{BD}.
+\]
+The family has strong conditional Gibbs exponential mixing with constants
+\(\kappa<\infty\) and \(\zeta>0\) when, for every admitted cut and collar, it has a boundary-anchor
+expansion
+\[
+ \mathbf J_\rho(A_\delta:D_\delta\mid B_\delta)
+ =\sum_{z\in\partial_{r_0}^{\mathrm{UV}}C_\ell}E_{z,\ell,\delta},
+ \qquad
+ \|E_{z,\ell,\delta}\|_\infty
+ \le
+ \kappa e^{-(m_\ell-r_0)/\zeta}.
+\]
+The constants are uniform in \(\ell\), the cut, the boundary condition, and the collar in the
+declared family. This is a conditional or matrix mixing condition. A two-point estimate of the
+form
+\[
+ |\omega(XY)-\omega(X)\omega(Y)|
+ \le K\|X\|\|Y\|e^{-d(\operatorname{supp}X,\operatorname{supp}Y)/\zeta}
+\]
+does not imply Definition~\ref{def:strong-conditional-gibbs-mixing} for a general noncommuting
+Gibbs state. Local Gibbs form and ordinary exponential clustering therefore cannot discharge this
+premise by themselves.
+\end{definition}
+
+\begin{theorem}[Collar CMI decay from finite-range conditional Gibbs mixing]
+\label{thm:collar-cmi-decay}
+Under Definitions~\ref{def:finite-range-collar-gibbs} and
+\ref{def:strong-conditional-gibbs-mixing},
+\[
+ \boxed{
+ I(A_\delta:D_\delta\mid B_\delta)_{\rho_\ell}
+ \le
+ \kappa |\partial C_\ell|_{\mathrm{UV}}
+ e^{-(m_\ell-r_0)/\zeta}
+ \le
+ c |\partial C_\ell|_{\mathrm{UV}}e^{-\delta/\xi_\ell}}
+\]
+with the explicit choices
+\[
+ \xi_\ell:=\zeta\ell,
+ \qquad
+ c:=\kappa e^{r_0/\zeta}.
+\]
+Thus \(c\) and \(\xi_\ell/\ell\) depend only on the declared uniform mixing constants and the
+finite interaction range; \(q,\Delta_0,J_0,\beta\) enter only through an independently proved or
+received pair \((\kappa,\zeta)\).
+\end{theorem}
+
+\begin{proof}
+Every finite Gibbs state is faithful, and so are its marginals. Expanding the four entropy terms
+inside the common tripartite trace gives the exact identity
+\[
+ I(A:D\mid B)_\rho
+ =\operatorname{Tr}\!\left[\rho_{ABD}\,
+ \mathbf J_\rho(A:D\mid B)\right].
+\]
+Strong subadditivity gives nonnegativity. The boundary expansion, trace-norm duality, and the
+triangle inequality give
+\[
+ I(A_\delta:D_\delta\mid B_\delta)_{\rho_\ell}
+ \le
+ \|\mathbf J_{\rho_\ell}(A_\delta:D_\delta\mid B_\delta)\|_\infty
+ \le
+ \kappa |\partial C_\ell|_{\mathrm{UV}}
+ e^{-(m_\ell-r_0)/\zeta}.
+\]
+Since \(\delta=m_\ell\ell\), the last expression equals
+\(\kappa e^{r_0/\zeta}|\partial C_\ell|_{\mathrm{UV}}
+e^{-\delta/(\zeta\ell)}\), which is the displayed bound.
+\end{proof}
+
+\begin{corollary}[Sharp double scaling and recovery error]\label{cor:collar-cmi-double-scaling}
+Let \(\ell_n\downarrow0\) and \(\delta_n\downarrow0\) lie in one family with the uniform constants
+of Theorem~\ref{thm:collar-cmi-decay}. Then
+\[
+ \Gamma_n
+ :=\frac{\delta_n}{\xi_{\ell_n}}
+ -\log|\partial C_{\ell_n}|_{\mathrm{UV}}
+ \longrightarrow+\infty
+ \quad\Longrightarrow\quad
+ I(A_{\delta_n}:D_{\delta_n}\mid B_{\delta_n})\longrightarrow0.
+\]
+If, for constants \(a,p,\ell_0>0\),
+\[
+ |\partial C_\ell|_{\mathrm{UV}}
+ \le a(\ell_0/\ell)^p,
+ \qquad
+ \delta(\ell)\ge
+ \zeta(p+\eta)\ell\log(\ell_0/\ell)
+ \quad(\eta>0),
+\]
+then \(\delta(\ell)\to0\), \(\delta(\ell)/\ell\to\infty\), and
+\[
+ I(A_\delta:D_\delta\mid B_\delta)
+ \le ca(\ell/\ell_0)^\eta\longrightarrow0.
+\]
+For a smooth cut on the two-dimensional screen, \(p=1\). The Fawzi--Renner map may be chosen with
+the certified trace-distance error
+\[
+ r_{\mathrm{FR}}(\ell,\delta)
+ \le 2\sqrt{1-e^{-\varepsilon_{\ell,\delta}}}
+ \le2\sqrt{\varepsilon_{\ell,\delta}},
+ \qquad
+ \varepsilon_{\ell,\delta}:=
+ c|\partial C_\ell|_{\mathrm{UV}}e^{-\delta/\xi_\ell}.
+\]
+\end{corollary}
+
+\begin{proof}
+Taking logarithms of the theorem bound gives
+\[
+ \log I\le\log c+\log|\partial C_\ell|_{\mathrm{UV}}-\delta/\xi_\ell
+ =\log c-\Gamma.
+\]
+This tends to \(-\infty\) under the first condition. The polynomial boundary estimate and the
+displayed schedule give \(\Gamma\ge\eta\log(\ell_0/\ell)-\log a\), which proves the explicit rate.
+The recovery estimate is Proposition~\ref{prop:approxrecover} applied with the theorem envelope.
+\end{proof}
+
+\begin{remark}[The ratio \(\delta/\ell\to\infty\) is not the rate condition]
+\label{rem:collar-slow-double-scaling}
+The bare double-scaling ratio does not force the boundary-prefactored bound to vanish. Set
+\(\ell_n=\ell_0e^{-n^2}\), \(\delta_n=\zeta n\ell_n\), and
+\(|\partial C_{\ell_n}|_{\mathrm{UV}}=e^{n^2}\). Then
+\(\ell_n,\delta_n\to0\) and \(\delta_n/\ell_n=\zeta n\to\infty\), while the theorem envelope is
+proportional to \(e^{n^2-n}\). The condition in Corollary~\ref{cor:collar-cmi-double-scaling}, or
+direct verification of the complete product, is load-bearing.
+\end{remark}
+
+\begin{definition}[Finite collar-decay receipt]\label{def:finite-collar-decay-receipt}
+A theorem-aligned finite-stage receipt records
+\begin{enumerate}[label=\textup{R\arabic*.},leftmargin=2.4em]
+\item the regulator graph hash, local dimensions, \(\beta\), interaction supports and norms,
+      \(r_0,J_0,\Delta_0\), Gibbs reconstruction residual, and the treatment of central sector terms;
+\item the tripartition hash, graph-layer or geodesic collar width, \(\ell\),
+      \(|\partial C|_{\mathrm{UV}}\), and the separator check \(m_\ell>r_0\);
+\item direct regional entropies and CMI in nats, their numerical error bound and spectral floor,
+      together with the matrix defect norm and the boundary-expansion tail where it is computed;
+\item predeclared \(\kappa,\zeta\), boundary-condition and held-out-cut coverage, the log envelope
+\[
+ L_{\ell,\delta}
+ :=\log\kappa+\log|\partial C|_{\mathrm{UV}}
+   -(m_\ell-r_0)/\zeta,
+\]
+      its slack against the measured upper error bar, and the Fawzi--Renner trace-error envelope;
+\item on a tower, one common cap and interaction family, uniform constants, and the rate margin
+      \(\Gamma=\delta/(\zeta\ell)-\log|\partial C|_{\mathrm{UV}}\).
+\end{enumerate}
+A fitted correlation length from the same CMI rows is diagnostic. A finite list of increasing
+rate margins is a scaling proxy. The cofinal conclusion requires an analytic schedule such as the
+one in Corollary~\ref{cor:collar-cmi-double-scaling}, or an independent uniform proof; no finite
+sample proves a limit. A local random-triplet or diagonal packet CMI is likewise diagnostic and
+does not substitute for the regional density-matrix receipt.
+\end{definition}
+
+\begin{remark}[Claim status of the collar theorem]\label{rem:collar-cmi-claim-status}
+On the declared central-interface branch, Theorem~\ref{thm:msaderivation} gives
+\(I(A:D\mid B)=0\) exactly. On a general noncommuting finite-range branch,
+Theorem~\ref{thm:collar-cmi-decay} is conditional on the strong matrix mixing premise of
+Definition~\ref{def:strong-conditional-gibbs-mixing}. It proves recoverability with constants and
+the sharp scaling schedule; it does not derive strong conditional mixing from bare finite OPH
+consensus, ordinary two-point clustering, or local Gibbs form. The scalar CMI and its recovery
+error are not promoted to a rank-two stress tensor or a dark-sector source.
+\end{remark}
 
 \begin{proposition}[Derived regulator gluing datum]\label{prop:regulatedrealization}
 Fix a regulator-scale finite patch cover of a cap neighborhood and let \(R\) be any finite union of regulator cells. Assume only the finite patch-net presentation implicit in Definition~\ref{def:patchnet} together with overlap consistency on common interfaces. Then:
@@ -3439,6 +3662,11 @@ where \(\lambda_\ast>0\) is the lower spectral bound used to compare modular Ham
 \]
 with the finite-stage errors \(r_{\mathrm{FR}}(\varepsilon_\delta)\) and \(\eta_\delta^{\mathrm M}\) carried explicitly.
 \end{enumerate}
+
+On the finite-range conditional-mixing branch, Theorem~\ref{thm:collar-cmi-decay} supplies
+\(\varepsilon_\delta\le c|\partial C|_{\mathrm{UV}}e^{-\delta/\xi}\). Vanishing of this
+quantity uses the full rate condition of Corollary~\ref{cor:collar-cmi-double-scaling}; the ratio
+\(\delta/\ell_{\mathrm{UV}}\to\infty\) without boundary-count control is not used below.
 
 For each cap \(C\), let \(\lambda_C(s)\subset \Conf^+(S^2)\) denote the standard cap-preserving conformal one-parameter subgroup, normalized so that the null blow-up near a smooth cut acts by \(v\mapsto e^{-s}v\), and let \(\alpha_{\lambda_C(s)}\) denote the induced automorphism of the scaling-limit cap net.
 
@@ -7606,7 +7834,7 @@ Theorem~\ref{thm:mobius-bounded-intervals} (scaling-limit statement).
 \label{thm:local-stress-construction}
 On the domain of Definition~\ref{def:local-charge-domain}, with the
 \(\mathsf{MI}\)/assembly branch and the collar-uniform recovery constants
-(the collar CMI interface of node D1), the family
+(the collar CMI interface of node D2), the family
 \(\{T[f;\Omega]\}_{\Omega\in S^2}\) satisfies the compatibility relations of
 Theorem~\ref{thm:null-tomography} for every \(f\), and therefore defines a
 unique semiclassical expectation tensor field
@@ -7908,34 +8136,71 @@ the machine receipt instantiates both with explicit blockwise states.
 
 \begin{theorem}[One uniform scaling family]
 \label{thm:uniform-scaling-family}
-Assume the collar CMI decay interface with uniform constants
-(\(\eta(\delta)\leq C_0e^{-\delta/\xi}\) or the declared power-law form, with
-\(C_0,\xi\) uniform over the event region and cap family, the node-D1
-collar-recovery interface), and the kernel-residual receipt
-\(\epsilon_r=o(\ell_r^4)\) of Theorem~\ref{thm:mobius-bounded-intervals} on
-one declared cofinal scaling family \((r,\ell_r)\), \(\ell_r\downarrow0\).
-Then the remainder bound of Lemma~\ref{lem:diagonal-remainder} holds along
-that single family with margin: there is \(r_0\) such that for all
-\(r\geq r_0\) and all events, observers, and caps in the region,
-\(\eta_\delta(\ell_r)\leq\ell_r^5\), with one common domain of finite-rank
-test vectors. No per-radius diagonal choice is used: the stage is a function
-of \(\ell\) through the declared family, and uniformity over
-events/observers holds because the constants \(C_0,\xi\) and the receipt
-moduli are region-uniform by hypothesis.
+Let \((r,\ell_r,\delta_r)\), with \(\ell_r\downarrow0\), be one declared
+cofinal scaling family on which Theorem~\ref{thm:collar-cmi-decay} holds
+uniformly over the event region and cap family:
+\[
+\varepsilon_r
+:=
+c|\partial C_r|_{\mathrm{UV}}e^{-\delta_r/\xi_r}.
+\]
+Assume that the fixed-collar replacements used on this family have uniform
+constants \(C_{\mathrm M}<\infty\), \(\theta>0\) with
+\[
+\delta_r^{\mathrm M}\le C_{\mathrm M}\varepsilon_r^\theta,
+\]
+and that, for some
+\[
+s>\max\{8,4/\theta\},\qquad \omega_r\longrightarrow+\infty,
+\]
+the same family satisfies the rate receipt
+\[
+\frac{\delta_r}{\xi_r}
+-\log\!\bigl(c|\partial C_r|_{\mathrm{UV}}\bigr)
+\ge
+s\log(\ell_0/\ell_r)+\omega_r.
+\]
+Assume also the kernel-residual receipt
+\(\epsilon_r^{\mathrm{ker}}=o(\ell_r^4)\) of
+Theorem~\ref{thm:mobius-bounded-intervals}. Then, uniformly over the declared
+region and cap family,
+\[
+r_{\mathrm{FR}}(\varepsilon_r)=o(\ell_r^4),
+\qquad
+\delta_r^{\mathrm M}=o(\ell_r^4),
+\qquad
+\epsilon_r^{\mathrm{ker}}=o(\ell_r^4).
+\]
+These estimates hold on one common domain of finite-rank test vectors.
+No per-radius diagonal choice is used.
 \end{theorem}
 
 \begin{proof}
-Insert the exponential (or declared power) decay into the remainder
-estimate of Lemma~\ref{lem:diagonal-remainder}: the collar depth available
-at stage \(r\) scales like \(\delta_r=c\,\ell_r^{-1}\cdot\ell_r
-= c\) in collar units per the declared family, so
-\(\eta_{\delta_r}\leq C_0e^{-c/\xi}\)-type terms are summable against the
-\(o(\ell_r^4)\) kernel residuals, and the product bound gives
-\(\eta_\delta(\ell_r)/\ell_r^5\to0\); choose \(r_0\) where the ratio passes
-one. The domain statement holds because the finite-rank cores of
+The rate receipt gives
+\[
+\varepsilon_r
+\le
+(\ell_r/\ell_0)^s e^{-\omega_r}.
+\]
+Proposition~\ref{prop:approxrecover} therefore gives
+\[
+r_{\mathrm{FR}}(\varepsilon_r)
+\le2\sqrt{\varepsilon_r}
+\le2(\ell_r/\ell_0)^{s/2}e^{-\omega_r/2}
+=o(\ell_r^4)
+\]
+because \(s/2>4\). The uniform fixed-collar modulus gives
+\[
+\delta_r^{\mathrm M}
+\le C_{\mathrm M}(\ell_r/\ell_0)^{s\theta}
+e^{-\theta\omega_r}
+=o(\ell_r^4)
+\]
+because \(s\theta>4\). The kernel estimate is a premise. The domain statement
+holds because the finite-rank cores of
 Proposition~\ref{prop:n3} are nested along the declared family and their
 union is a common core by the mixed-GNS Cauchy clause. Uniformity is the
-region-uniformity of the hypotheses; no further choice is made.
+region-uniformity of the hypotheses.
 \end{proof}
 
 \begin{theorem}[Variation coverage]
@@ -8090,7 +8355,9 @@ normalization \(z_\alpha=\log d_\alpha\) (the Axiom-4 boundary);
 \(\mathsf{KMS}(2\pi)\); \(\mathsf{Cyc}\), \(\mathsf{NTI}\), weak additivity,
 \(\mathsf{MI}\); \(\mathsf{E1}\)--\(\mathsf{E4}\);
 \item \textbf{(R\(_{\mathrm{scale}}\))} scaling receipts: kernel residuals
-\(o(\ell^4)\) on one declared family; uniform collar CMI constants; the
+\(o(\ell^4)\) on one declared family; uniform strong conditional Gibbs
+mixing constants, boundary counts, fixed-collar replacement modulus, and the
+sharp collar rate margin of Theorem~\ref{thm:uniform-scaling-family}; the
 \(C^{1,1}\)/smooth upgrade;
 \item \textbf{(R\(_{\mathrm{phys}}\))} physical-identification receipts:
 \(\mathsf{UC}\), \(\mathsf{VR}\), the absolute conformal scale, stable
@@ -8424,18 +8691,21 @@ collar/endpoint contribution is exactly the carried \(R_{(a,b)}\).
 \begin{lemma}[Diagonal remainder lemma (E0.6)]\label{lem:diagonal-remainder}
 Let \(\ell\) be the small-ball radius and \(\eta_\delta\to0\) the carried
 collar/Markov/recovery error at collar scale \(\delta\) on the cofinal
-refinement branch.  There is a diagonal choice \(\delta=\delta(\ell)\) such
-that \(\eta_{\delta(\ell)}=o(\ell^4)\).  Consequently the interval endpoint,
+refinement branch. Assume one declared family
+\(\delta=\delta(\ell)\) satisfies the quantitative rate receipt
+\(\eta_{\delta(\ell)}=o(\ell^4)\), uniformly on the region and cap family.
+Consequently the interval endpoint,
 collar, and long-wavelength derivative remainders do not contribute to the
 Einstein coefficient in the \(\ell\to0\) bridge limit.
 \end{lemma}
 
 \begin{proof}
-For every \(\ell\) choose the refinement/collar stage so that
-\(\eta_{\delta(\ell)}\le \ell^5\).  The ordinary small-ball derivative
-remainders are of higher order in \(\ell\), and the carried collar
-contribution is then \(O(\ell^5)=o(\ell^4)\).  This is a diagonal limit in the
-OPH regulator family, not an exact finite-cutoff identity.
+The rate premise controls the carried collar contribution uniformly by
+\(o(\ell^4)\). The ordinary small-ball derivative remainders are of higher
+order in \(\ell\), so their sum is \(o(\ell^4)\). Mere pointwise convergence
+\(\eta_\delta\to0\) would permit a different stage for every radius and would
+not prove this statement; Theorem~\ref{thm:uniform-scaling-family} supplies
+one sufficient common-family receipt.
 \end{proof}
 
 \begin{lemma}[Cap-pair timelike coverage (E0.7)]\label{lem:cap-pair-timelike-coverage}

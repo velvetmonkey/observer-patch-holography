@@ -415,15 +415,28 @@ the local Einstein relation. In the ideal case, the geometric readout,
 null-stress bridge, small-ball area identity, and tensor upgrade close cleanly
 enough that local gravity takes the familiar form.
 
-The dark-sector idea starts where that idealization stops. A small amount of
-correlation can remain outside the boundary summary. OPH calls this a modular
-anomaly because it appears in the same modular bookkeeping that turns a
-restricted observer state into a clock and an energy accounting. An anomaly in
-this sense is the leftover term produced by imperfect additivity.
+The recovery analysis has two branches. A central-interface state supplies an
+exact edge-aligned Markov split. A faithful finite-range Gibbs state supplies a
+quantitative route only when it also obeys uniform strong conditional or matrix
+mixing. On that route the collar estimate is
 
-That leftover gravitates. It changes the effective stress-energy seen by an
-inside observer, but it does not shine, scatter light, or behave like ordinary
-gas. For a telescope it is dark. For the geometry it has weight.
+$$
+I(A_\delta:D_\delta|B_\delta)
+\le c|\partial C|_{\mathrm{UV}}e^{-\delta/\xi_\ell},
+$$
+
+and its vanishing requires
+$\delta/\xi_\ell-\log|\partial C|_{\mathrm{UV}}\to+\infty$. Ordinary
+two-point clustering leaves this theorem unproved. Greater collar thickness
+suppresses the estimate, while a larger UV boundary increases its prefactor.
+
+A nonzero collar CMI can therefore serve as a finite diagnostic of imperfect
+recovery. The scalar CMI has no tensor indices and cannot be inserted into
+Einstein’s equation as stress-energy. A gravitational anomaly requires the
+separate reconstruction of a conserved rank-two source from directional
+modular charges, followed by the declared normalization and coupling tests.
+Finite simulator measurements of CMI and the matrix defect are proxies for
+that recovery analysis, without constituting a dark-source receipt.
 
 ### The Acceleration Scale
 
@@ -474,13 +487,14 @@ galaxy's flat rotation speed tracks its visible baryonic mass. In the OPH
 reading, the normalization is tied to the de Sitter horizon through the
 acceleration scale above.
 
-This is the OPH dark-sector route in the language of this chapter. At the
-settled-galaxy level, the missing gravity is read as an infrared residue of
-screen bookkeeping, dark to light but visible to geometry. No new particle
-species has to be added for galaxy rotation curves to feel extra pull. The
-cosmological constant and the galaxy-scale anomaly sit inside one de Sitter
-picture: the horizon fixes the capacity, and the residual modular term shows up
-where accelerations become cosmologically small.
+This is the proposed OPH dark-sector route in the language of this chapter. At
+the settled-galaxy level, the candidate source is an independently reconstructed
+infrared anomaly tensor, dark to light but visible to geometry after the
+coupling receipt passes. The route does not require a new particle species for
+galaxy rotation curves to feel extra pull. The cosmological constant and the
+galaxy-scale anomaly sit inside one de Sitter picture: the horizon fixes the
+capacity, while the source packet determines whether a residual modular term
+appears where accelerations become cosmologically small.
 
 The whole sky matters. Clusters, lensing, the Bullet Cluster, the CMB,
 and structure growth are the places where any dark-sector account has to

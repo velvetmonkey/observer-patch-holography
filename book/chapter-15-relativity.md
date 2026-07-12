@@ -523,6 +523,24 @@ explicitly: bare consensus alone does not supply geometry, modular flow, stress
 readout, bounded-interval control, small-ball area response, or timelike
 coverage. The recovered-core support-visible branch supplies those inputs.
 
+Collar recovery enters that branch by either of two declared routes. The exact
+central-interface route gives an edge-aligned Markov state and exact splice
+identities. The quantitative route assumes a faithful finite-range Gibbs state
+with uniform interaction range and norm bounds, together with uniform strong
+conditional or matrix mixing. On the latter route,
+
+$$
+I(A_\delta:D_\delta|B_\delta)
+\le c|\partial C|_{\mathrm{UV}}e^{-\delta/\xi_\ell}.
+$$
+
+The sufficient refinement rate is
+$\delta/\xi_\ell-\log|\partial C|_{\mathrm{UV}}\to+\infty$, in addition to a
+collar that shrinks macroscopically while spanning more UV cells. Ordinary
+two-point exponential clustering does not establish this conditional estimate.
+Finite CMI and matrix-defect measurements are receipts for particular stages;
+the limit statement depends on one uniform scaling family.
+
 ### Jacobson's Insight (1995, 2016)
 
 The thermodynamic route predates OPH. In 1995, Ted Jacobson showed that
@@ -790,27 +808,34 @@ galaxy clusters and the Bullet Cluster.
 
 ### A Third Route
 
-OPH gives a third route. Extra gravitational pull can come from imperfect
-information recovery rather than from a new particle species.
+OPH proposes imperfect information recovery as a possible origin of extra
+gravitational pull, with no new particle species in the source model.
 
-The underlying logic is simple. In the ideal Markov limit, information on one
-side of a boundary is recoverable from the boundary itself, and the gravity
-branch follows the Einstein relation on the declared geometric branch. Away from that ideal limit, some
-correlation sits out of reach. That leftover correlation has physical weight in
-the modular bookkeeping, so it can appear as an extra gravitational term.
+In the exact central-interface limit, information on one side of a boundary is
+recoverable from the boundary itself. On the conditional Gibbs route, Chapter 7
+bounds the recovery defect by a boundary prefactor times an exponential in
+collar thickness. Both statements control reconstruction quality.
 
-This makes the dark sector a screen problem. Visible matter supplies the
-baryonic pull. The residual recovery defect supplies another gravitational
-contribution, dark to telescopes because it has no ordinary electromagnetic
-handle.
+The scalar CMI $I(A_\delta:D_\delta|B_\delta)$ has no tensor indices and cannot
+serve as a stress tensor or a dark source. An extra gravitational term requires
+directional modular charges that pass the separate tensor-reconstruction,
+conservation, normalization, and universal-coupling tests. The recovery defect
+can act as a finite diagnostic for that source packet. It does not replace the
+packet.
+
+On the proposed dark-sector branch, visible matter supplies the baryonic pull
+and the independently reconstructed anomaly tensor supplies the additional
+gravitational contribution. Its lack of an ordinary electromagnetic handle is
+what would make the contribution dark to telescopes.
 
 ### Why It's Dark
 
-The sector is dark at the level of its couplings. It comes from information
-structure, it gravitates, and it does not couple electromagnetically. Rotation
-curves, lensing, clusters, and cosmology then become different views of the
-same recovery term rather than separate excuses for invisible material. That is
-the organizing claim; paper-grade promotion requires separate source,
+The proposed sector is dark at the level of its couplings. Its source would
+come from the reconstructed modular-charge tensor, it would gravitate through
+the declared coupling receipt, and it would have no electromagnetic coupling.
+Rotation curves, lensing, clusters, and cosmology would then become different
+views of the same source rather than separate excuses for invisible material.
+That is the organizing claim; paper-grade promotion requires separate source,
 abundance-selector, simulator, Boltzmann, and likelihood receipts.
 
 ### The MOND Scale

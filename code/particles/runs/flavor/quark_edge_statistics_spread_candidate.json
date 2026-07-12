@@ -29,10 +29,10 @@
     "closed_sigma_u_total_log_per_side": 5.5905,
     "sigma_d_relative_error": 0.035147482214939754,
     "sigma_d_residual": 0.11615891397215439,
-    "sigma_source_kind": "theorem_grade_mean_surface_readback",
+    "sigma_source_kind": "hard_coded_diagnostic_witness",
     "sigma_u_relative_error": -0.0021610224357702145,
     "sigma_u_residual": -0.012081195927173383,
-    "status": "closed"
+    "status": "diagnostic_witness_not_source_emission"
   },
   "edge_statistics_inputs": {
     "cocycle_pairwise_suppression": {
@@ -45,7 +45,7 @@
     },
     "shared_seed_matches_cocycle": true
   },
-  "generated_utc": "2026-07-12T03:23:11Z",
+  "generated_utc": "2026-07-12T03:56:54Z",
   "input_artifacts": {
     "comparison_spread_map": "oph_family_excitation_spread_map",
     "family_excitation_evaluator": "oph_family_excitation_evaluator",

@@ -1,5 +1,27 @@
 {
   "artifact": "oph_charged_kappa_interval_from_alpha_transport",
+  "blind_prediction_route": {
+    "stage_1_shape": {
+      "current_status": "open_target_anchored_shape_only",
+      "forbidden_inputs": [
+        "m_e",
+        "m_mu",
+        "m_tau",
+        "PDG",
+        "CODATA"
+      ],
+      "required": "source_only_charged_mass_ratios_R_mu_e_and_R_tau_e"
+    },
+    "stage_2_normalization": {
+      "current_status": "open_empirical_transport_only",
+      "mathematical_result": "unique_common_scale_because_d_packet_d_kappa_equals_minus_2_over_pi",
+      "required": "source_emitted_Thomson_RG_packet_with_certified_hadronic_and_higher_order_remainders"
+    },
+    "stage_3_freeze_then_compare": {
+      "current_status": "not_ready",
+      "required": "no_target_leak_DAG_and_frozen_mass_triple_before_PDG_comparison"
+    }
+  },
   "claim_boundary": "Absolute charged-lepton masses carry certified intervals on the empirical closure surface; the continuum kappa freedom is excluded there. No source-only absolute mass is emitted; the trace-lift no-go and its gate remain in force unchanged.",
   "compare_only": {
     "witness_inside_certified_intervals": true,
@@ -45,17 +67,22 @@
     }
   ],
   "constructive_next_artifact": "source_emitted_ward_projected_hadronic_spectral_measure_and_a0_scheme_bridge",
-  "generated_utc": "2026-07-12T03:00:03Z",
+  "generated_utc": "2026-07-12T05:54:29Z",
   "guards": {
+    "blind_normalization_prediction": false,
+    "charged_mass_information_in_solve_path": true,
     "empirical_hadron_closure": true,
     "external_cross_section_data_used": true,
     "measured_alpha_in_solve_path": true,
-    "measured_lepton_masses_in_solve_path": false,
+    "measured_lepton_masses_directly_supplied_to_inversion": false,
+    "measured_lepton_triple_used_to_calibrate_higher_order_remainder": true,
     "new_axiom_introduced": false,
     "promotable_as_oph_source_theorem": false,
     "satisfies_production_constructive_next_artifact": false,
     "source_only": false,
-    "usable_for_public_final_values": true
+    "target_anchored_lepton_ratios_in_solve_path": true,
+    "usable_as_diagnostic_route_finder": true,
+    "usable_for_public_final_values": false
   },
   "inputs": {
     "a0_anchor_inv_alpha": 128.30796547328626,
@@ -126,7 +153,7 @@
     "statement": "The one-parameter countermodel Y_e -> exp(kappa) Y_e of the charged trace-lift theorem does not extend to the declared electromagnetic transport: the lepton vacuum-polarization packet satisfies d(packet)/d(kappa) = -2/pi, so the emitted Thomson endpoint and the fixed point P = phi + sqrt(pi)/A_Th(P) move with kappa. The no-go's antecedent list omits this closure; source-only the system is the stiff curve (P(kappa), kappa), and on the empirical closure surface kappa is identified up to certified interval width."
   },
   "proof_status": "certified_empirical_closure_interval_kappa_identified",
-  "row_class": "oph_plus_empirical_hadron_closure",
+  "row_class": "target_shape_plus_empirical_transport",
   "stage5_scale_consistency": {
     "frozen_internal_packet": 4.309397866452204,
     "implied_kappa_offset": -0.005667373998413564,

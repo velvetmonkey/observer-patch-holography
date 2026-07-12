@@ -143,7 +143,7 @@ def build_artifact() -> dict[str, Any]:
             "target_reconstruction_tables": "audit_only_not_predictions",
         },
         "notes": [
-            "This is a non-definability theorem under the current axioms, not a claim that every conceivable future theory must leave Yukawa values free.",
+            "This is a non-definability theorem under the stated axioms, not a claim that every conceivable future theory must leave Yukawa values free.",
             "No additional axiom or numerical normalization principle is introduced.",
             "A positive numerical theorem would have to refute this counterfamily using a consequence already present in Axioms 1--5; no such consequence is currently stated or emitted.",
         ],

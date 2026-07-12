@@ -76,6 +76,34 @@
       "status": "proved_on_branch"
     },
     {
+      "claim_id": "OPH-GR-D2-COLLAR-RECOVERY",
+      "statement": "For a faithful finite-range Gibbs regulator family with a uniform boundary-anchor strong conditional/matrix log-density mixing envelope, collar tripartitions satisfy I(A_delta:D_delta | B_delta) <= kappa |partial C|_UV exp(-(m-r0)/zeta) <= c |partial C|_UV exp(-delta/xi), with m = delta/ell_UV, xi = zeta ell_UV, and c = kappa exp(r0/zeta); the associated recovery error vanishes when delta/xi - log |partial C|_UV tends to +infinity. Ordinary two-point clustering and delta/ell_UV -> infinity alone are insufficient. The declared central-interface branch remains exactly Markov with zero CMI.",
+      "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+      "tier": "conditional_collar_recoverability_theorem",
+      "assumptions": [
+        "finite_range_collar_gibbs_family",
+        "strong_conditional_gibbs_mixing",
+        "uniform_collar_decay_constants",
+        "sharp_collar_rate_receipt"
+      ],
+      "imported_results": [
+        "strong_subadditivity_of_von_Neumann_entropy",
+        "trace_norm_operator_norm_duality",
+        "Fawzi_Renner_recovery"
+      ],
+      "oph_specific_delta": "The OPH collar continuation now exposes the boundary-size prefactor, all regulator/mixing constants, the sharp boundary-aware double-scaling rate, and a finite receipt schema while firewalling the exact central-interface branch and downstream stress/source identifications.",
+      "novelty_type": "conditional_recoverability_theorem_and_receipt_contract",
+      "evidence": [
+        "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
+        "code/geometry/collar_recoverability_receipts.py",
+        "code/geometry/test_collar_recoverability_receipts.py",
+        "code/geometry/runs/collar_recoverability_analytic_finite_proxy.json"
+      ],
+      "falsifier": "A faithful regulator family satisfying the stated finite-range and uniform matrix-mixing hypotheses violates the displayed boundary-prefactored CMI bound, or the recovery error fails to vanish under the full rate condition.",
+      "scope_if_false": "The conditional nonexact collar-recovery and collar-remainder route reopens; exact central-interface Markovity survives if its separate clause holds, and no scalar CMI result by itself supplies a stress tensor or dark-sector source.",
+      "status": "proved_on_conditional_mixing_branch_with_exact_central_specialization"
+    },
+    {
       "claim_id": "OPH-FINITE-AUDIT-MATSCHEKO",
       "statement": "Matscheko's OPHProofChain audit supplies a machine-checked finite-algebra companion for quotient repair, boundary reconstruction, finite modular flow, lambda constancy, hypercharge and Z6 algebra, scalar-channel bookkeeping, twelve-port surface bookkeeping, selected numerical cage checks, and the QBFT quorum-overlap caveat.",
       "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
@@ -115,6 +143,7 @@
       "assumptions": [
         "support_visible_BW_scaling",
         "cap_normal_H3_chart",
+        "sharp_collar_rate_receipt",
         "null_stress_bridge",
         "fixed_cap_MaxEnt_variation_family",
         "small_ball_bridge",
@@ -127,7 +156,7 @@
         "small_ball_area_variation",
         "quadratic_polarization_tensor_upgrade"
       ],
-      "oph_specific_delta": "OPH supplies support-visible cap modular extraction, finite collar recovery, explicit remainder bookkeeping, observer-overlap direction completion, and a separate capacity closure for the cosmological term.",
+      "oph_specific_delta": "OPH supplies support-visible cap modular extraction, conditional finite collar recovery with a boundary-aware rate receipt (or the exact central-interface specialization), explicit remainder bookkeeping, observer-overlap direction completion, and a separate capacity closure for the cosmological term.",
       "novelty_type": "application_and_extension",
       "evidence": [
         "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex"
@@ -331,11 +360,12 @@
     },
     {
       "claim_id": "OPH-GR-D5A-ABSOLUTE-EINSTEIN",
-      "statement": "One uniform scaling family (region-uniform collar decay constants plus o(ell^4) kernel residuals on a single declared family) replaces the per-radius diagonal choice; variation coverage of all local timelike directions follows from population plus the produced Lorentz orbit; and the vacuum-reference receipt VR fixes the first-variation integration constant, yielding the absolute semiclassical expectation-value equation G_ab + Lambda g_ab = 8 pi G <T_ab> per connected component with structural G and no measured constant; without VR the conclusion is constancy of the residue tensor only, with de Sitter and flat baselines producing identical first-variation data.",
+      "statement": "One uniform scaling family (region-uniform finite-range/strong conditional-mixing constants, boundary counts, fixed-collar modulus, and the sharp collar rate margin, plus o(ell^4) kernel residuals on that same family) replaces the per-radius diagonal choice; variation coverage of all local timelike directions follows from population plus the produced Lorentz orbit; and the vacuum-reference receipt VR fixes the first-variation integration constant, yielding the absolute semiclassical expectation-value equation G_ab + Lambda g_ab = 8 pi G <T_ab> per connected component with structural G and no measured constant; without VR the conclusion is constancy of the residue tensor only, with de Sitter and flat baselines producing identical first-variation data.",
       "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
       "tier": "conditional_scaling_theorem",
       "assumptions": [
         "uniform_collar_decay_constants",
+        "sharp_collar_rate_receipt",
         "kernel_residual_scaling_receipt",
         "event_manifold_receipts_E1_E4",
         "universal_coupling_receipt",
@@ -351,7 +381,7 @@
         "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
         "code/geometry/einstein_closure_receipts.py"
       ],
-      "falsifier": "A receipt family fails the ell^5 remainder bound, coverage fails on a populated region, or an absolute equation is asserted without VR.",
+      "falsifier": "A receipt family fails the full boundary-aware collar rate or downstream o(ell^4) remainder bound, coverage fails on a populated region, or an absolute equation is asserted without VR.",
       "scope_if_false": "The absolute form degrades to per-component constancy; the first-variation identity survives.",
       "status": "proved_on_receipt_branch"
     },
@@ -515,7 +545,7 @@
     },
     {
       "claim_id": "OPH-DM-CONT",
-      "statement": "The OPH dark-sector continuation models dark gravity as transported record-repair collar stress, with a MOND-like settled-galaxy limit and separate cluster/cosmology contracts.",
+      "statement": "The OPH dark-sector continuation models dark gravity as transported record-repair collar stress, with a MOND-like settled-galaxy limit and separate cluster/cosmology contracts; the scalar collar CMI and its recovery error are not this stress source.",
       "owner_paper": "cosmology/oph_dark_matter_paper.tex",
       "tier": "phenomenological_continuation",
       "assumptions": [
@@ -529,7 +559,7 @@
         "LCDM_observational_targets",
         "weak_lensing_and_CMB_benchmarks"
       ],
-      "oph_specific_delta": "The missing gravitating sector is identified with electromagnetically dark observer-repair stress rather than a new luminous charge carrier.",
+      "oph_specific_delta": "The missing gravitating sector is identified with electromagnetically dark observer-repair stress rather than a new luminous charge carrier; collar CMI remains a scalar consistency/recovery diagnostic and is not promoted to the source.",
       "novelty_type": "phenomenological_continuation",
       "evidence": [
         "cosmology/oph_dark_matter_paper.tex"

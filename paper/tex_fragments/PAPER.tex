@@ -234,14 +234,21 @@ strict coherence is central, define
 equivalently \(U_{ij}U_{jk}=z_{ijk}U_{ik}\). The defect is data of the implementer lift; writing only
 \(\mathrm{Ad}(z_{ijk})\) would erase it because conjugation by a central element is the identity.
 
-\textbf{Collar double-scaling hypothesis.} There exists a UV length \(\ell_{\mathrm{UV}}\) such that for any cap \(C\) and collar width \(\delta\), in the refinement limit \(\delta \to 0\) and \(\ell_{\mathrm{UV}} \to 0\) with \(\delta/\ell_{\mathrm{UV}} \to \infty\), the Markov error satisfies
+\textbf{Collar double-scaling hypothesis.} There is one refinement family with
+\(\delta\to0\), \(\ell_{\mathrm{UV}}\to0\), and uniform finite-range and strong
+conditional Gibbs mixing constants such that
 
 \[
-I(A_\delta:D_\delta \mid B_\delta)_\omega \le \varepsilon(\delta/\ell_{\mathrm{UV}}),
-\qquad \varepsilon(x) \to 0 \ \text{as} \ x \to \infty.
+I(A_\delta:D_\delta \mid B_\delta)_\omega
+\le c|\partial C|_{\mathrm{UV}}e^{-\delta/\xi},
+\qquad
+\frac{\delta}{\xi}-\log|\partial C|_{\mathrm{UV}}\longrightarrow+\infty.
 \]
 
-See Section 2.3 for the collar tripartition definitions and the regulated EC proof that yields this limit from the fixed-cutoff realized presentation.
+The second condition controls the complete boundary-prefactored envelope. The weaker ratio
+\(\delta/\ell_{\mathrm{UV}}\to\infty\) does not imply it. Section 2.3 gives the
+finite-range theorem, explicit constants, a sufficient logarithmic schedule, and the finite-receipt
+fields. On the exact central-interface branch the CMI is zero without this mixing premise.
 
 \textbf{Geometric-subnet BW lift.} The continuum Lorentz statement is asked only on the support-visible extracted prime geometric subnet for caps, together with the controlled collar/refinement limit that carries the Markov and recovery remainders explicitly. The finite cap regulators are type-I algebras, but the scaling-limit observer algebra may leave that class, so the theorem is automorphism-level on the emitted geometric cap pair and the special type-I generator form is \(K_C=2\pi B_C+Z_C\) with \(Z_C\) central. The compact paper proves that any cofinal finite cap-normal branch satisfying the support-order, held-out oriented cross-ratio, mixed-modular-matrix, and independently normalized geometric \(2\pi\)-KMS certificate converges to the support-visible BW cap automorphism. It also proves the cap-normal \(H^3\) chart: \(q(\Omega)=(1,\Omega)\), \(n_C=(\cot\alpha,\csc\alpha\,\mathbf c)\), \(n_{gC}=\Lambda_gn_C\), and \(H^3\simeq\mathrm{SO}^+(3,1)/\mathrm{SO}(3)\), with cap half-spaces but no populated-bulk or preferred-observer-point consequence. The compact paper's geometry-producer packet produces that certificate from repair normal forms on a computable-receipt branch (spherical incidence, disk/mesh, cross-ratio, and \(2\pi\)-normalization receipts) and proves that bare confluence underdetermines topology, dimension, framing, and normalization, so the receipts are the irreducible Einstein branch-entry content. Its null-net-standardness and event-manifold packets supply derived positive translations and a conditional Lorentzian event manifold, and its closure packets construct the local conserved stress tensor, the corrected generalized-entropy first law, the uniform small-diamond limit, and the composed branch-entry theorem. Realized-branch nonemptiness is open work in progress (Theorems 4.3c--4.3h).
 
@@ -267,7 +274,7 @@ third-axiom branch unpacked at regulator scale.
 
 where \(R^{+s}\) denotes the \(s\)-neighborhood thickening, \(v_{\mathrm{mod}}\) is a "modular propagation velocity" controlled by \(v_{\mathrm{LR}}\) and local norm bounds, and \(d\) is the distance from \(R\) to \(\partial C\).
 
-\textbf{Heuristic motivation.} The modular Hamiltonian \(K_C = -\log \rho_C\) is quasi-local by Lemma 4.1a-b (modular additivity localizes it to the collar). The derived Lieb-Robinson control then bounds support spreading under \(e^{iK_C t}\). In the double-scaling collar limit (\(\delta/\ell_{\mathrm{UV}} \to \infty\)), the thickening vanishes in macroscopic units. This is heuristic support for the tangent-limit package used later.
+\textbf{Heuristic motivation.} On the reduced-modular-locality branch of Lemma 4.1a-b, modular additivity localizes the nonadditive defect of \(K_C = -\log \rho_C\) to the collar. The associated propagation receipt then bounds support spreading under \(e^{iK_C t}\). In the rate-controlled collar limit of Section 2.3, the thickening vanishes in macroscopic units. This remains heuristic support for the tangent-limit package; a Lieb--Robinson bound for the global Gibbs generator alone does not prove locality of the reduced modular Hamiltonian.
 
 \textbf{Continuum-limit heuristic.} Define the induced region flow
 
@@ -278,8 +285,9 @@ f_t^C(R) := \lim_{\ell_{\mathrm{UV}} \to 0} R^{+v_{\mathrm{mod}}|t|}.
 Then \(\sigma_t^{\omega,C}(\mathcal{A}(R)) = \mathcal{A}(f_t^C(R))\) becomes exact in the continuum limit, with error controlled by
 
 \[
-\eta(\delta) \lesssim 2\sqrt{\ln 2 \cdot c \cdot |\partial C|_{\mathrm{UV}}} \, e^{-\delta/(2\xi)}.
+\eta(\delta) \lesssim 2\sqrt{c|\partial C|_{\mathrm{UV}}}\,e^{-\delta/(2\xi)}
 \]
+when CMI is measured in nats, with the full rate condition imposed on the prefactor.
 \end{quote}
 
 The discussion above is heuristic support for the tangent-limit package used in Theorem 4.2.
@@ -335,11 +343,12 @@ Exact Markov states satisfy \(I(A:C \mid B) = 0\) and admit a recovery map:
 
 \subsubsection{Approximate recovery}\label{22-approximate-recovery}
 
-If \(I(A:C \mid B) \le \varepsilon\) (bits), there exists a CPTP recovery map \(\mathcal{R}\) with
+If \(I(A:C \mid B) \le \varepsilon\) in nats, there exists a CPTP recovery map \(\mathcal{R}\) with
 
 \[
 \| \rho_{ABC} - (\mathrm{id}_A \otimes \mathcal R)(\rho_{AB}) \|_1
-\le 2 \sqrt{\ln 2\, \varepsilon}.
+\le 2\sqrt{1-e^{-\varepsilon}}
+\le 2\sqrt{\varepsilon}.
 \]
 
 \subsubsection{Collar refinement and sufficient mechanisms}\label{23-collar-refinement-and-sufficient-mechanisms}
@@ -849,7 +858,7 @@ I_\omega(A_\delta:D_\delta \mid B_\delta)=0,
 
 and the identification of the HJPW factors with the EC factors is a genuine additional state condition, the \textbf{Markov-split alignment hypothesis (MSA)}. It is not implied by exact Markovity: with four qubits \(A,B_L,B_R,D\) and \(\rho=\Phi_{AB_R}\otimes\Phi_{B_LD}\) (Bell pairs across the cut, one center block), one has \(I(A:D\mid B)=0\) but \(I(A:B_R)=2\ln 2\), so the state is exactly Markov yet not of the displayed EC-aligned form, which would force \(I(A:B_R)=0\). All literal Markov-modular equalities below therefore assume exact Markovity \emph{plus} MSA, or an explicitly stated idealized limit that supplies both; the compact paper states MSA formally and records this counterexample. MSA is checkable state by state: the compact paper proves it equivalent to a splitting of \(\log\rho\) into commuting one-sided terms supported on \(A b_L^\alpha\) and \(b_R^\alpha D\), to the existence of a \(\rho\)-preserving conditional expectation onto either one-sided edge algebra (a Takesaki commuting square over the collar center \cite{takesaki72}), and to blockwise vanishing one-sided mutual information \(I(Ab_L^\alpha:b_R^\alpha D)=0\). On the MaxEnt branch this reduces the derivation of MSA to a sharp condition on the effective Hamiltonian: every cross-cut coupling must act through the central sector label, as it does in lattice-gauge-type regulators where the interface energy is a function of the conserved flux. On that declared \textbf{central-interface branch} the compact paper derives both MSA and exact collar Markovianity as theorems (descent of one-sided invariants and boundary charges through the edge-center quotient), and it adopts the central-interface normal form as an explicit axiom-level branch clause stated with its MaxEnt axiom, so the literal Markov-modular identities hold on the declared branch without a separate state hypothesis. Whether overlap-consistent repair \emph{forces} that clause remains open, and off the declared branch MSA is carried as an explicit hypothesis.
 
-Interpreting collar refinement as the inductive limit of these regulators with \(\delta/\ell_{\mathrm{UV}} \to \infty\), Theorem 2.3 supplies the kinematic edge-center decomposition. Exact Markovity is one idealized route. The following lemma and axiom provide the quantitative decay route used when the manuscript keeps the approximation explicit.
+Interpreting collar refinement along the rate-controlled family stated in Axiom 3, Theorem 2.3 supplies the kinematic edge-center decomposition. Exact Markovity is one idealized route. The following lemma and theorem provide the quantitative decay route used when the manuscript keeps the approximation explicit.
 
 \begin{quote}
 \textbf{Lemma 2.6 (MaxEnt with local constraints implies local Gibbs form).} Under the local MaxEnt branch of Axiom 3, with its homogeneous global-sum constraints \(\langle\sum_x O_a(x)\rangle = C_a\), and the finite-dimensional regulator realization above, the MaxEnt state has the Gibbs form
@@ -857,10 +866,10 @@ Interpreting collar refinement as the inductive limit of these regulators with \
 \[
 \omega = \frac{e^{-H_{\mathrm{eff}}}}{\mathrm{Tr}\,e^{-H_{\mathrm{eff}}}},
 \qquad
-H_{\mathrm{eff}} = \sum_x \sum_a \lambda_a O_a(x) + \text{(global terms)},
+H_{\mathrm{eff}} = \sum_x \sum_a \lambda_a O_a(x) + H_{\mathrm{sec}},
 \]
 
-where the sum runs over UV cells \(x\) and density labels \(a\), with one cell-independent multiplier \(\lambda_a\) per label. The effective Hamiltonian \(H_{\mathrm{eff}}\) is quasi-local with range \(O(\ell_{\mathrm{UV}})\), and the multiplier count matches the constraint count \(N_{\mathrm{con}}\) plus the number of retained global terms on every lattice.
+where the sum runs over UV cells \(x\) and density labels \(a\), with one cell-independent multiplier \(\lambda_a\) per label. For the finite-range collar theorem, \(H_{\mathrm{sec}}\) is either a sum of uniformly bounded finite-range charge densities or is central and fixed on the chosen superselection sector. A genuinely nonlocal noncentral term falls outside the theorem. Under this condition the effective Hamiltonian is finite-range in UV graph units, and the multiplier count matches the constraint count \(N_{\mathrm{con}}\) plus the number of retained sector terms on every lattice.
 
 \textbf{Proof.} On a finite-dimensional algebra, the unique state maximizing \(S(\rho) = -\mathrm{Tr}(\rho \log \rho)\) subject to linear constraints \(\mathrm{Tr}(\rho O_i) = c_i\) is given by Lagrange multipliers:
 
@@ -868,7 +877,7 @@ where the sum runs over UV cells \(x\) and density labels \(a\), with one cell-i
 \rho = \frac{e^{-\sum_i \lambda_i O_i}}{\mathrm{Tr}\,e^{-\sum_i \lambda_i O_i}}.
 \]
 
-Strict concavity of von Neumann entropy ensures uniqueness. Here the constrained operators are the \(N_{\mathrm{con}}\) global sums \(O_a := \sum_x O_a(x)\) plus the finitely many global terms, so the exponent is \(\sum_a \lambda_a \sum_x O_a(x) + \text{(global terms)}\): a sum of local terms with one shared multiplier per density label. Had the constraints instead been imposed per cell, \(\langle O_a(x)\rangle = c_a(x)\), the multipliers would be cell-dependent fields \(\lambda_a(x)\) and the family would grow with the lattice; that enlarged family belongs to the non-equilibrium approximation regime of the clarification above and is not the branch used in the refinement argument. QED.
+Strict concavity of von Neumann entropy ensures uniqueness. Here the constrained operators are the \(N_{\mathrm{con}}\) global sums \(O_a := \sum_x O_a(x)\) plus the retained sector terms, so the exponent has one shared multiplier per density label. MaxEnt gives the Gibbs form; the displayed locality restriction on \(H_{\mathrm{sec}}\) is separate and load-bearing. Had the constraints instead been imposed per cell, \(\langle O_a(x)\rangle = c_a(x)\), the multipliers would be cell-dependent fields \(\lambda_a(x)\) and the family would grow with the lattice; that enlarged family belongs to the non-equilibrium approximation regime of the clarification above and is not the branch used in the refinement argument. QED.
 \end{quote}
 
 \begin{quote}
@@ -893,28 +902,84 @@ so the family reproduces every bounded expectation up to \(\|B\|\sqrt{2\varepsil
 \textbf{Acceptance check.} A finite two-lattice test implementing this package---the constraint/multiplier count against the displayed \(N_{\mathrm{con}}\)-dimensional family on successive lattices, the moment-matching projection, the residual bound, a generic decimation channel with strictly positive closure defect, and the exactly closed transverse-field subfamily where \(R_{\ell\to L}\) acts as the identity---is included with the repository sources (\texttt{code/maxent/}).
 \end{quote}
 
-\textbf{Exponential mixing hypothesis.} There exist constants \(c\) and correlation length \(\xi = O(\ell_{\mathrm{UV}})\) such that
-
+\textbf{Strong conditional mixing premise.} Let \(G_\ell\) be the UV cell graph. Assume local
+dimension at most \(q\), interaction degree at most \(\Delta_0\), interaction diameter at most
+\(r_0\) graph layers, and
 \[
-I_\omega(A_\delta:D_\delta \mid B_\delta) \le
-c\,\lvert\partial C\rvert_{\mathrm{UV}}\,e^{-\delta/\xi},
-\qquad
-\lvert\partial C\rvert_{\mathrm{UV}} \sim \frac{\mathrm{length}(\partial C)}{\ell_{\mathrm{UV}}}.
+\sup_x\sum_{X\ni x}\|\beta\Phi_\ell(X)\|\le J_0
 \]
-
-This is the standard fixed-cutoff clustering/mixing condition used for local Gibbs states. One
-sufficient realization on a chosen fixed-cutoff collar family is a Dobrushin-type uniqueness estimate
-for the corresponding local Gibbs specifications, or a spectral-gap estimate uniform across that
-family. Used here, it is
-a collar-local recoverability condition on the selected branch; it does not imply infinite-volume
-uniqueness and it does not decide whether the separately constructed refinement-limit gauge-sector
-colimit is trivial or nontrivial.
+with constants independent of the cut and refinement stage. Let \(m_\ell\) be the
+resolved collar width in graph layers and set \(\delta=m_\ell\ell\). For the faithful Gibbs state, define
+\[
+\mathbf J_\rho(A:D\mid B)
+:=\log\rho_{ABD}+\log\rho_B-\log\rho_{AB}-\log\rho_{BD}.
+\]
+The strong mixing premise is a boundary-anchor expansion
+\[
+\mathbf J_\rho(A_\delta:D_\delta\mid B_\delta)
+=\sum_{z\in\partial^{\mathrm{UV}}_{r_0}C}E_{z,\ell,\delta},
+\qquad
+\|E_{z,\ell,\delta}\|_\infty
+\le\kappa e^{-(m_\ell-r_0)/\zeta},
+\]
+with \(\kappa,\zeta\) uniform in the cut, boundary condition, and stage. This conditional or
+matrix mixing condition is stronger than ordinary two-point exponential clustering. Local Gibbs
+form, a Lieb--Robinson bound, or a Hamiltonian spectral gap does not imply it for a general
+noncommuting Gibbs state.
 
 \begin{quote}
-\textbf{Theorem 2.5 (Local Gibbs + mixing implies collar refinement).} Under Lemma 2.6 and the exponential mixing hypothesis above, the collar double-scaling hypothesis holds in the limit \(\delta \to 0\), \(\ell_{\mathrm{UV}} \to 0\) with \(\delta/\ell_{\mathrm{UV}} \to \infty\).
+\textbf{Theorem 2.5 (finite-range conditional Gibbs mixing gives collar recovery).}
+Under Lemma 2.6 and the strong conditional mixing premise,
+\[
+\boxed{
+I_\omega(A_\delta:D_\delta\mid B_\delta)
+\le
+\kappa|\partial C|_{\mathrm{UV}}e^{-(m_\ell-r_0)/\zeta}
+\le
+c|\partial C|_{\mathrm{UV}}e^{-\delta/\xi_\ell}}
+\]
+with
+\[
+\xi_\ell=\zeta\ell,
+\qquad
+c=\kappa e^{r_0/\zeta}.
+\]
 
-\textbf{Proof.} The mixing bound above has polynomial growth in \(\lvert\partial C\rvert_{\mathrm{UV}}\) and exponential decay in \(\delta/\ell_{\mathrm{UV}}\). In the double-scaling limit the exponential dominates, so \(I_\omega(A_\delta:D_\delta \mid B_\delta) \to 0\). QED.
+\textbf{Proof.} Embedding the marginal logarithms in the tripartite algebra gives
+\[
+I(A:D\mid B)_\rho
+=\operatorname{Tr}\!\left[\rho_{ABD}\mathbf J_\rho(A:D\mid B)\right].
+\]
+The boundary expansion and trace-norm duality bound this expectation by the sum of the boundary
+term norms. The second form follows from \(\delta=m_\ell\ell\). QED.
 \end{quote}
+
+For one uniform family, the sharp sufficient limit condition is
+\[
+\frac{\delta}{\xi_\ell}-\log|\partial C|_{\mathrm{UV}}\longrightarrow+\infty.
+\]
+If
+\[
+|\partial C|_{\mathrm{UV}}\le a(\ell_0/\ell)^p,
+\qquad
+\delta(\ell)\ge\zeta(p+\eta)\ell\log(\ell_0/\ell),
+\quad \eta>0,
+\]
+then \(\delta\to0\), \(\delta/\ell\to\infty\), and
+\[
+I(A_\delta:D_\delta\mid B_\delta)
+\le ca(\ell/\ell_0)^\eta\longrightarrow0.
+\]
+The ratio \(\delta/\ell\to\infty\) alone is insufficient. For
+\(\ell_n=\ell_0e^{-n^2}\), \(\delta_n=\zeta n\ell_n\), and
+\(|\partial C_n|_{\mathrm{UV}}=e^{n^2}\), that ratio diverges while the upper envelope grows as
+\(e^{n^2-n}\).
+
+A finite receipt records the interaction range and norm bound, treatment of global sector terms,
+boundary-cell count, graph separation, regional CMI in nats, matrix-defect norm, predeclared
+\(\kappa,\zeta\), log-envelope slack, Fawzi--Renner error, held-out cuts, and the rate margin
+\(\delta/(\zeta\ell)-\log|\partial C|_{\mathrm{UV}}\). Fitted constants and local random-triplet
+CMI remain finite proxies. They do not certify a cofinal limit.
 
 This bound is the quantitative hinge for constructive gluing.
 
@@ -1300,7 +1365,8 @@ A second structural point is UV underdetermination. If each patch Hilbert space 
 with
 
 \[
-\delta_k = 2 \sqrt{\ln 2\, \varepsilon_k}.
+\delta_k = 2\sqrt{1-e^{-\varepsilon_k}}
+\le 2\sqrt{\varepsilon_k},
 \]
 
 The iteratively glued state \(\hat{\rho}\) satisfies
@@ -1855,7 +1921,7 @@ Exact continuous data have a unique minimizer. Finite noisy data produce the dis
 
 \textbf{Theorem 4.3f (Local conserved stress tensor from modular charges).} A symmetric bilinear form on \((\mathbb R^4,\eta)\) is determined by its null-null values up to a multiple of \(\eta\), and a directional charge family arises from a tensor iff it satisfies the finite dependent-family linearity relations; nine generic null directions reconstruct the trace-free part with Lipschitz stability. On the event region of Theorem 4.3e with the assembly branch of Theorem 4.3d, the smeared endpoint-derivative charges of the bounded-interval modular kernels satisfy these relations, so they define a semiclassical expectation tensor \(\langle T_{ab}\rangle\): symmetric, local, Poincar\'e-covariant with one common normalization, equal on null projections to the positive Borchers generators on a common core, and weakly conserved (\(\nabla^a\langle T_{ab}\rangle=0\) a.e.) by translation invariance: with ambiguity exactly \(\phi g_{ab}\) plus improvement terms. Countermodel: per-direction positive generators violating one linearity relation admit no rank-two source (irreducible tomography residual, machine-verified); scalar collar CMI can never be promoted to a rank-two source. Universal coupling of this tensor to the geometric branch is the named receipt \(\mathsf{UC}\). (Compact paper, stress packet; receipts in \texttt{code/geometry/}.)
 
-\textbf{Theorem 4.3g (Repaired entropy bridge and absolute Einstein equation).} On the central-interface branch the exact finite first law is \(\delta S=2\pi\delta\langle B_C\rangle+\delta\langle Z_C\rangle\), the central term equals the edge entropy variation on the declared normalization \(z_\alpha=\log d_\alpha\), and the corrected bookkeeping is the exact split \(\delta S=2\pi\delta\langle B_C\rangle+\delta S_{\mathrm{edge}}\) with no dropped term; the earlier step \(\delta S_{\mathrm{bulk}}=2\pi\delta\langle B_C\rangle\) is valid exactly on the fixed-edge-sector class and otherwise carries the explicit central flux \(\sum_\alpha z_\alpha\delta p_\alpha\) (all machine-verified, including the mismatched-normalization countermodel). The changing stress channel is supplied by the exact MaxEnt multiplier identity \(dS/dt=\lambda=2\pi\), giving the Clausius balance \(\delta S_{\mathrm{edge}}=\lambda\delta t-2\pi\delta\langle B_C\rangle\) on the coupled variation class. One uniform scaling family (collar-decay constants plus \(o(\ell^4)\) kernel residuals on a single declared family) replaces the per-radius diagonal choice; coverage of all local timelike directions follows from population plus the produced Lorentz orbit; and the vacuum-reference receipt \(\mathsf{VR}\) fixes the first-variation integration constant, yielding the absolute semiclassical expectation-value equation \(G_{ab}+\Lambda g_{ab}=8\pi G\langle T_{ab}\rangle\) per connected component, with structural \(G=a_{\mathrm{cell}}/(4\bar\ell_{\mathrm{shared}})\) and no measured constant imported. Without \(\mathsf{VR}\): constancy of the residue tensor only: de Sitter and flat baselines satisfy identical first-variation data (machine-verified). (Compact paper, entropy-bridge and small-diamond packets.)
+\textbf{Theorem 4.3g (Repaired entropy bridge and absolute Einstein equation).} On the central-interface branch the exact finite first law is \(\delta S=2\pi\delta\langle B_C\rangle+\delta\langle Z_C\rangle\), the central term equals the edge entropy variation on the declared normalization \(z_\alpha=\log d_\alpha\), and the corrected bookkeeping is the exact split \(\delta S=2\pi\delta\langle B_C\rangle+\delta S_{\mathrm{edge}}\) with no dropped term; the earlier step \(\delta S_{\mathrm{bulk}}=2\pi\delta\langle B_C\rangle\) is valid exactly on the fixed-edge-sector class and otherwise carries the explicit central flux \(\sum_\alpha z_\alpha\delta p_\alpha\) (all machine-verified, including the mismatched-normalization countermodel). The changing stress channel is supplied by the exact MaxEnt multiplier identity \(dS/dt=\lambda=2\pi\), giving the Clausius balance \(\delta S_{\mathrm{edge}}=\lambda\delta t-2\pi\delta\langle B_C\rangle\) on the coupled variation class. One uniform scaling family (strong conditional-mixing constants, boundary counts, fixed-collar replacement modulus, and the sharp collar rate margin, plus \(o(\ell^4)\) kernel residuals on that same family) replaces the per-radius diagonal choice; coverage of all local timelike directions follows from population plus the produced Lorentz orbit; and the vacuum-reference receipt \(\mathsf{VR}\) fixes the first-variation integration constant, yielding the absolute semiclassical expectation-value equation \(G_{ab}+\Lambda g_{ab}=8\pi G\langle T_{ab}\rangle\) per connected component, with structural \(G=a_{\mathrm{cell}}/(4\bar\ell_{\mathrm{shared}})\) and no measured constant imported. Without \(\mathsf{VR}\): constancy of the residue tensor only: de Sitter and flat baselines satisfy identical first-variation data (machine-verified). (Compact paper, entropy-bridge and small-diamond packets.)
 
 \textbf{Theorem 4.3h (Composed Einstein branch-entry theorem and realized status).} The chain from repaired normal forms to the semiclassical Einstein equation is composed into one typed theorem with partitioned inputs: foundational axioms (MaxEnt/recovery, central interface, Axiom-4 leading term), decidable finite receipts (incidence/mesh/cross-ratio/\(2\pi\); cyclicity/intersection/additivity/\(\mathsf{MI}\); \(\mathsf{E1}\)--\(\mathsf{E4}\)), scaling receipts, and physical-identification receipts (\(\mathsf{UC}\), \(\mathsf{VR}\), scale, causality). A no-hidden-geometry proposition shows the input class realizes countermodels for every target, so nothing geometric is smuggled in the input form; the receipt list is minimal (deleting any family readmits its countermodel). \emph{Realized-branch status:} the historical rooted-tree export fails spherical incidence, as a tree must; a genuine cyclic cap-net repair run (seeded conflicts, transactional repair, runtime-verified confluence and schedule independence on a three-stage refinement tower) passes the spherical-incidence, mesh, and refinement-naturality receipts on its own repaired output, with provenance stated exactly as explicit branch selection (the overlap net is chosen spherical, never claimed derived); the free-fermion modular-clock instrumentation (arc entanglement Hamiltonians at \(120\)-digit precision on the cap-boundary collar rings, with the odd-range chiral profile resummation) witnesses the modular cross-ratio and geometric \(2\pi\)-KMS receipts on realized Gaussian MaxEnt states: interior profile residual decreasing to \(1.1\times10^{-4}\) with the wrong-normalization control separated, and modular-transport cross-ratios Cauchy-converging to the M\"obius values (\(2.3\times10^{-3}\) at the finest stage); the null-net instrumentation further witnesses, on the same realized states, nontrivial relative commutants, weak additivity, strictly positive separating moduli, mixed-GNS Cauchy behaviour, the one-particle half-sided-inclusion compression condition (chiral leakage asymmetry \(\geq9.6\) with a null control), and percent-level modular Lie closure against the conformal structure-constant prediction (rate clause open); the realized-event instrumentation runs the event pipeline on records from the actual repair dynamics: screen population, certified separation, the M\"obius chart cocycle, and an intrinsic read-after-write ancestry cone of Lorentzian signature \((1,2)\) with the modular clock timelike to \(0.9995\): while the realized event set measures as the \((1{+}2)\) screen sheet it actually is (countermodel (i) operating as designed), and the bulk-depth instrumentation then builds the \(\mathsf{E3}\) channel with the produced depth dictionary \(\rho=-\log\tan(\alpha/2)\): on the corpus-consistent inverse-system dynamics the realized multi-scale records witness rank four, bulk PCA dimension four, and a seed-stable intrinsic ancestry cone of Lorentzian signature \((1,3)\) with the modular clock timelike to \(0.999\) (narrow-margin and window caveats explicit), while the strong-coupling variant measures \((2,2)\) and is retained as a countermodel; margin convergence, the \(\mathsf{Cyc}\) limit, Lie-closure rate, second-quantized \(\mathsf{MI}\), cap-interior, and physical-identification families pending, so the realized geometric branch is not certified nonempty: derivation complete on the receipt branch; all structural receipt families realized at finite/one-particle level; margin convergence, limit clauses, and physical receipts open. (Compact paper, composed branch-entry theorem; reports in \texttt{code/geometry/runs/}.)
 
@@ -2298,7 +2364,7 @@ But the generator/charge identification itself is fixed inside the null bridge.
 
 \subsubsection{Localized generalized entropy from Markov + MaxEnt}\label{54-localized-generalized-entropy-from-markov--maxent}
 
-Using the collar decomposition and the collar double-scaling hypothesis, supplied either as a stated collar-limit condition or derived via Theorem 2.5 from the local-Gibbs form together with exponential mixing, the state takes the Markov normal form. MaxEnt selection maximizes entropy within each edge sector, producing
+Using the collar decomposition, exact Markovity, and MSA, the declared central-interface branch has the following edge-aligned Markov normal form. On the nonexact branch, Theorem 2.5 supplies a recovered comparison state and a vanishing CMI envelope only under strong conditional mixing; convergence to an exact Markov state is a fixed-collar statement, and alignment with the displayed edge factors remains a separate MSA condition. Under those conditions MaxEnt selection within each edge sector gives
 
 \[
 \rho_C = \bigoplus_{\alpha} p_{\alpha}
@@ -2440,7 +2506,36 @@ K_{(a,b)}^{\mathrm{null}}
 \]
 The remainder \(R_{(a,b)}\) is the carried endpoint/collar term of the same refinement family. In the small-ball limit this is the ball modular kernel used below.
 
-\textbf{Lemma E0.6 (Diagonal remainder control).} If \(\eta_\delta\to0\) is the carried collar/Markov/recovery error at collar scale \(\delta\), then for the small-ball radius \(\ell\) one can choose a diagonal refinement \(\delta=\delta(\ell)\) with \(\eta_{\delta(\ell)}\le \ell^5\). Hence endpoint, collar, and long-wavelength derivative remainders are \(o(\ell^4)\) and do not alter the Einstein coefficient.
+\textbf{Lemma E0.6 (Uniform remainder control).} Let
+\((r,\ell_r,\delta_r)\) be one declared cofinal family on which Theorem 2.5
+holds uniformly over the event region and cap family, and set
+\[
+\varepsilon_r
+=c|\partial C_r|_{\mathrm{UV}}e^{-\delta_r/\xi_r}.
+\]
+Assume that the fixed-collar Markov replacements have one modulus
+\(\delta_r^{\mathrm M}\le C_{\mathrm M}\varepsilon_r^\theta\), with
+\(C_{\mathrm M}<\infty\) and \(\theta>0\), and that for some
+\[
+s>\max\{8,4/\theta\},\qquad \omega_r\longrightarrow+\infty,
+\]
+the same family satisfies
+\[
+\frac{\delta_r}{\xi_r}
+-\log\!\bigl(c|\partial C_r|_{\mathrm{UV}}\bigr)
+\ge s\log(\ell_0/\ell_r)+\omega_r.
+\]
+If the interval-kernel residual is also \(o(\ell_r^4)\) on this family, then
+\[
+2\sqrt{\varepsilon_r}=o(\ell_r^4),\qquad
+\delta_r^{\mathrm M}=o(\ell_r^4),
+\]
+and the endpoint, collar, Markov, and long-wavelength derivative remainders do
+not alter the Einstein coefficient. Indeed,
+\(\varepsilon_r\le(\ell_r/\ell_0)^s e^{-\omega_r}\); the two conclusions
+follow from \(s/2>4\) and \(s\theta>4\). Mere pointwise convergence of a
+collar error does not supply this common-family rate, and no per-radius
+diagonal choice is used.
 
 \textbf{Lemma E0.7 (Cap-pair timelike coverage).} On the cap-normal \(H^3\) branch, every future timelike vector \(v\) has \(r=\sqrt{-\eta(v,v)}\) and \(u=v/r\in H^3\). For any unit \(s\in u^\perp\), the vectors
 \[
@@ -3292,7 +3387,8 @@ then, writing \(\rho\) for the target state and \(\sigma\) for its recovered com
 
 \[
 \|\rho-\sigma\|_1\le \delta_k
-:=2\sqrt{\ln 2 \cdot \varepsilon_k}.
+:=2\sqrt{1-e^{-\varepsilon_k}}
+\le2\sqrt{\varepsilon_k}.
 \]
 
 \textbf{State--observable ledger.} Trace distance gives immediate bounds on expectation-value errors for the declared operator class: bounded operators supported in the recovered region, compared at the time of recovery. Using the standard dual norm inequality:
@@ -3314,11 +3410,11 @@ I_\omega(A_w : D_w \mid B_w)
 Combining these gives an explicit precision dial for bounded local observables:
 
 \[
-\delta_{\mathrm{step}} \lesssim 2\sqrt{\ln 2 \cdot C_{\mathrm{mix}} |\partial C|_{\mathrm{UV}}}
+\delta_{\mathrm{step}} \lesssim 2\sqrt{C_{\mathrm{mix}} |\partial C|_{\mathrm{UV}}}
 \cdot e^{-w/(2\xi)}.
 \]
 
-For an operator normalized by \(\|O\|_\infty\le1\), an independently chosen absolute expectation-error target \(\tau_O\) is guaranteed at one step if \(\delta_{\mathrm{step}}\le\tau_O\); the theorem therefore gives the sufficient CMI condition \(\varepsilon\le(\tau_O/2)^2/\ln2\). The target \(\tau_O\) belongs only to the state--observable ledger and cannot be set by importing a gravitational-wave speed tolerance.
+For an operator normalized by \(\|O\|_\infty\le1\), an independently chosen absolute expectation-error target \(\tau_O\) is guaranteed at one step if \(\delta_{\mathrm{step}}\le\tau_O\); the theorem therefore gives the sufficient CMI condition \(\varepsilon\le(\tau_O/2)^2\). The target \(\tau_O\) belongs only to the state--observable ledger and cannot be set by importing a gravitational-wave speed tolerance.
 
 \textbf{What the dial does not certify: dynamical parameters.} The gravitational-wave propagation speed and any graviton pole or dispersion-mass parameter are not bounded local observables. They are spectral/dispersion properties of the dynamical generator---poles of retarded correlators, or long-time wave-packet phase and group velocities---so the trace-distance inequality supplies neither their norm nor their Lipschitz constant. Two states can be close in trace distance at one time while being vacua of generators with different dispersion relations, and a small equal-time expectation error does not control phase accumulation over the \(\sim 10^8\)-year propagation baseline of GW170817. Consequently, \(\delta \lesssim 10^{-15}\) is \emph{not} a theory-side certificate for the multimessenger bound \(|c_{\mathrm{GW}}/c - 1| \lesssim 10^{-15}\) of Section~\ref{513-precision-gravity-predictions-and-experimental-bounds}, and the recovery error must not be presented as the precision dial for that published bound. The ideal classical relation \(c_{\mathrm{GW}}=c_\star\) and the vanishing pure-Einstein hard parameter \(\mu_{\mathrm{FP,hard}}^2=0\) belong to the additional action-level branch recorded there; neither stability away from that branch nor a quantum graviton pole follows from the trace-distance chain.
 
@@ -3404,16 +3500,26 @@ It therefore provides quantitative error control on recovered states and bounded
 
 This subsection records a D12 continuation benchmark obtained by adding a specific deep-IR response ansatz on top of the modular-anomaly term. It is not a theorem-level closure of dark-matter phenomenology: neither the observational dark-matter identification nor MOND/RAR-like dynamics are derived here.
 
-The modular anomaly term \(T_{ab}^{\mathrm{anom}}\) derived in Section 5.9 supplies one structural ingredient for a possible dark-sector continuation, without introducing new particle species.
+The candidate anomaly-tensor slot \(T_{ab}^{\mathrm{anom}}\) is available only
+after the finite covariant source packet of Section 5.9 supplies source
+localization, CMI-to-modular-source matching when that route is used,
+rank-two reconstruction, conservation, normalization, and universal coupling.
+On that packet it supplies one structural ingredient for a possible
+dark-sector continuation without introducing new particle species. Raw scalar
+collar CMI supplies only a recovery diagnostic.
 
-\textbf{The identification.} The anomalous stress-energy contribution
+\textbf{Conditional source identification.} Once the source packet has
+identified an anomalous local modular energy, its rest-frame normalization is
 
 \[
 \langle T_{00}^{\mathrm{anom}} \rangle
 = \frac{15}{8\pi^2} \cdot \frac{\delta \langle K_C^{\mathrm{(anom)}} \rangle}{\ell^4}
 \]
 
-is "dark" by construction: it arises from information-theoretic/gravitational structure (modular Markov imperfections), rather than Standard Model fields. Its coupling is gravitational, with no electromagnetic coupling. These properties motivate the dark-sector interpretation; observational identification requires separate phenomenology.
+The quantity can be called dark only on a branch whose packet also establishes
+gravitational coupling and absence of an electromagnetic coupling. These
+properties motivate the dark-sector interpretation; neither they nor the
+observational identification follow from the collar-CMI theorem.
 
 \textbf{Connection to the cosmological parameter package.} The framework makes the dimensionless \(\Lambda\)-capacity product a global capacity parameter; with the selected OPH scale certificate it gives the same D6 static-patch display:
 

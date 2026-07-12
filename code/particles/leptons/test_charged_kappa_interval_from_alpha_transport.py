@@ -60,7 +60,13 @@ def test_guards_fail_closed(result):
     assert guards["new_axiom_introduced"] is False
     assert guards["promotable_as_oph_source_theorem"] is False
     assert guards["measured_alpha_in_solve_path"] is True
-    assert guards["measured_lepton_masses_in_solve_path"] is False
+    assert guards["measured_lepton_masses_directly_supplied_to_inversion"] is False
+    assert guards["target_anchored_lepton_ratios_in_solve_path"] is True
+    assert guards["measured_lepton_triple_used_to_calibrate_higher_order_remainder"] is True
+    assert guards["charged_mass_information_in_solve_path"] is True
+    assert guards["blind_normalization_prediction"] is False
+    assert guards["usable_for_public_final_values"] is False
+    assert guards["usable_as_diagnostic_route_finder"] is True
     assert guards["satisfies_production_constructive_next_artifact"] is False
 
 
@@ -78,3 +84,10 @@ def test_source_only_no_go_unchanged(result):
     lemma = result["kappa_symmetry_breaking_lemma"]
     assert lemma["source_only_no_go_status"] == "unchanged"
     assert lemma["packet_derivative_in_kappa"] == pytest.approx(-2.0 / math.pi)
+
+
+def test_blind_route_starts_with_source_only_ratios(result):
+    route = result["blind_prediction_route"]
+    assert route["stage_1_shape"]["current_status"] == "open_target_anchored_shape_only"
+    assert route["stage_2_normalization"]["current_status"] == "open_empirical_transport_only"
+    assert route["stage_3_freeze_then_compare"]["current_status"] == "not_ready"

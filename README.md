@@ -401,7 +401,22 @@ The same style of bookkeeping runs through the rest of the gravity chain.
 The null-net packet proves the standardness and positive-translation
 structure the null bridge consumes, with a worked counterexample showing
 that finite-range Gibbs locality does not imply modular locality. The
-event-manifold packet defines events as coincidence classes of localized
+collar-recovery packet likewise separates exact and conditional routes. The
+declared central-interface branch has zero collar CMI. Off that branch, a
+finite-range Gibbs theorem gives
+\[
+I(A_\delta:D_\delta\mid B_\delta)
+\le c|\partial C|_{\mathrm{UV}}e^{-\delta/\xi}
+\]
+only under uniform strong conditional matrix mixing; ordinary two-point
+clustering is insufficient. The continuum schedule must satisfy
+\(\delta/\xi-\log|\partial C|_{\mathrm{UV}}\to+\infty\).
+The weaker ratio \(\delta/\ell_{\mathrm{UV}}\to\infty\) can lose to the
+growing boundary count. The finite evaluator checks the complete log
+envelope and recovery error, but remains a branch-instantiation proxy until
+the Gibbs and mixing premises are certified on a realized tower. Scalar CMI
+is never treated as a stress tensor or dark-sector source.
+The event-manifold packet defines events as coincidence classes of localized
 records. On its named receipts (dense population, certified separation,
 rank-four response frames, consistent chart overlaps) the event set is a
 genuine four-dimensional Lorentzian manifold of signature (-+++), with the
@@ -414,7 +429,9 @@ composes into a single branch-entry theorem with the Einstein equation as
 its output.
 
 The simulator side carries a receipt evaluator for all of this, and the
-current machine state reads as follows. A genuine cyclic repair run (real
+machine state reads as follows. The collar-CMI artifact is an analytic finite
+proxy with no empirical-evidence or theorem-promotion flag; it does not
+certify strong conditional mixing on the realized repair tower. A genuine cyclic repair run (real
 conflicts, transactional repair, confluence and schedule independence
 verified at runtime on a three-stage tower) passes the sphere, mesh, and
 naturality receipts on its own repaired output; the overlap net of that run

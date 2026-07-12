@@ -417,6 +417,26 @@ supplied. A reconstruction threshold is not a Page time until physical entropy
 and clock data are supplied. Renaming preserves the same bookkeeping; a physical
 claim needs a new bridge.
 
+Collar CMI obeys the same discipline. Exact recovery follows on the declared
+central-interface branch, where the edge split and Markov split agree. The
+quantitative branch assumes a faithful finite-range Gibbs state with uniform
+interaction bounds and uniform strong conditional or matrix mixing. It then
+gives
+
+$$
+I(A_\delta:D_\delta|B_\delta)
+\le c|\partial C|_{\mathrm{UV}}e^{-\delta/\xi_\ell}.
+$$
+
+The double scaling forces CMI to zero when
+$\delta/\xi_\ell-\log|\partial C|_{\mathrm{UV}}\to+\infty$. A diverging
+$\delta/\ell_{\mathrm{UV}}$ without the boundary term is insufficient, and
+ordinary two-point clustering does not supply the matrix-mixing premise.
+Finite CMI, matrix-defect, boundary-count, and rate-margin receipts test finite
+stages of this statement. Uniformity across the declared family carries the
+limit. The scalar CMI certifies recovery quality only; stress-energy and any
+dark source require their own rank-two reconstruction and coupling receipts.
+
 The cosmology story is narrower where the sky becomes finely detailed. The
 de Sitter capacity closure belongs to the global gravity story. Screen patterns
 become CMB curves, growth curves, and dark-sector sky predictions only after

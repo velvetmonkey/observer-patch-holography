@@ -21,6 +21,6 @@ def test_quark_edge_statistics_spread_candidate_is_explicit_and_near_current_pai
     assert payload["candidate_formulas"]["sigma_d_total_log_per_side"] == "S_23 + delta21 / (2 * (1 + rho_ord - x2^2))"
 
     comparison = payload["comparison_to_active_spread_pair"]
-    assert comparison["status"] == "closed"
+    assert comparison["status"] == "diagnostic_witness_not_source_emission"
     assert abs(comparison["sigma_u_residual"]) < 0.05
     assert abs(comparison["sigma_d_residual"]) < 0.2

@@ -113,31 +113,41 @@ H^2+\frac{k}{a^2}=\frac{8\pi G}{3}\rho+\frac{\Lambda}{3},
 
 \subsection{Horizon-Problem Control}
 
-\paragraph{\textbf{Theorem 6.1 (Anisotropy bound from Markov control).}}
-For a tripartition \(A\)-\(B\)-\(D\) with collar width \(\delta\), the Markov error satisfies
+\paragraph{\textbf{Theorem 6.1 (Conditional collar-CMI bound).}}
+For a finite-range Gibbs tripartition \(A\)-\(B\)-\(D\) with collar width \(\delta\), assume the
+uniform strong conditional matrix-mixing premise of Theorem 2.5. Then
 \[
-I(A:D\mid B)\lesssim c\cdot |\partial C|_{\mathrm{UV}}\cdot e^{-\delta/\xi},
+I(A:D\mid B)\le c\cdot |\partial C|_{\mathrm{UV}}\cdot e^{-\delta/\xi},
 \]
-where \(\xi\) is the correlation length.
+with the explicit constants stated there. Ordinary two-point clustering does not supply the
+premise. On the exact central-interface branch, \(I(A:D\mid B)=0\).
 
 \paragraph{\textbf{Corollary 6.2.}}
 For bounded observable \(O\) with \(\|O\|\sim1\),
 \[
-|\Delta\langle O\rangle|\le 2\sqrt{\ln 2\cdot \varepsilon}.
+|\Delta\langle O\rangle|\le 2\sqrt{1-e^{-\varepsilon}}\le2\sqrt{\varepsilon}
 \]
+when \(\varepsilon\) is CMI in nats.
 On the CMB anisotropy target \(\delta T/T\lesssim 10^{-5}\), this gives the familiar
 \(\varepsilon\)-scale bound used in the horizon-problem bookkeeping:
 \[
-\varepsilon\lesssim 3.61\times 10^{-11}\ \text{bits},
+\varepsilon\lesssim 2.5\times 10^{-11}\ \text{nats},
 \qquad
 \frac{\delta}{\xi}\gtrsim
-\ln\!\left(\frac{c\cdot |\partial C|_{\mathrm{UV}}}{\varepsilon_{\max}}\right)\approx 24.
+\ln\!\left(\frac{c\cdot |\partial C|_{\mathrm{UV}}}{\varepsilon_{\max}}\right)
+\approx 24.4+\ln\!\bigl(c|\partial C|_{\mathrm{UV}}\bigr).
 \]
-With \(\xi\approx \sqrt{P}\,\ell_\star\approx 1.28\,\ell_\star\), where \(\ell_\star\) is displayed as the usual Planck length after the selected scale certificate, the corresponding collar
-benchmark is
+The number \(24.4\) is only the unit-prefactor value. The boundary count cannot be dropped. With
+\(\xi\approx \sqrt{P}\,\ell_\star\approx 1.28\,\ell_\star\), where \(\ell_\star\) is displayed as the usual Planck length after the selected scale certificate, the corresponding collar
+condition is
 \[
-\delta_{\mathrm{CMB}}\approx 31\,\ell_\star.
+\delta_{\mathrm{CMB}}
+\gtrsim1.28\,\ell_\star
+\left[24.4+\ln\!\bigl(c|\partial C|_{\mathrm{UV}}\bigr)\right].
 \]
+This is a state-recovery benchmark for a bounded observable, not a derivation of CMB anisotropy.
+On a continuum family the separate rate condition
+\(\delta/\xi-\log|\partial C|_{\mathrm{UV}}\to+\infty\) is required.
 
 \paragraph{\textbf{Theorem 6.3 (Homogeneity as the MaxEnt default).}}
 If MaxEnt constraints are uniform across UV cells with no marked points, the MaxEnt state is
@@ -356,8 +366,10 @@ On the same fixed-cutoff collar carrier, when
 (\mathcal R_{B_\delta\to A_\delta B_\delta}\otimes \mathrm{id}_{D_\delta})(\rho_{B_\delta D_\delta})
 \right\|_1
 \le
-2\sqrt{\ln 2\cdot \varepsilon}.
+2\sqrt{1-e^{-\varepsilon}}
+\le2\sqrt{\varepsilon}.
 \]
+Here \(\varepsilon\) is in nats.
 So the interior collar data are encoded in the exterior collar together with the shared cut data,
 rather than supplied by an independent tensor factor.
 
@@ -403,10 +415,16 @@ Then
 \[
 \langle \Delta K_\delta\rangle_\omega=-I(A:D\mid B)_\omega.
 \]
-This is the precise structural identity underneath the modular-anomaly dark-sector continuation. By itself it does not close a dark-matter theorem.
+This is a scalar recovery identity. It can enter the modular-anomaly
+dark-sector continuation only after a separate matching theorem or hypothesis
+identifies it with an anomalous local modular-energy source. By itself it
+constructs neither a rank-two tensor nor a dark-matter theorem.
 
-The corresponding continuation packages the anomalous contribution into the modified Einstein
-equation
+The continuation therefore reserves an anomalous tensor slot only for a finite
+covariant source packet that supplies source localization,
+CMI-to-modular-source matching when that route is used, rank-two
+reconstruction, conservation, normalization, and universal coupling. Once
+those receipts pass, the modified Einstein equation is
 \[
 G_{ab}+\Lambda g_{ab}
 =
@@ -419,8 +437,10 @@ with rest-frame normalization
 \frac{15}{8\pi^2}\,
 \frac{\delta\langle K_C^{\mathrm{anom}}\rangle}{\ell^4}.
 \]
-On that continuation surface the anomaly gravitates, is dark by construction, is covariantly
-conserved, and is effectively classical because it is organized by central/recoverability data.
+On that receipt-certified continuation surface the tensor gravitates and is
+covariantly conserved. Calling it dark additionally requires the
+no-electromagnetic-coupling receipt. Central or recoverability data alone do
+not establish any of these properties.
 
 If one tentatively identifies the imported D6 static-patch radius \(r_{\mathrm{dS}}\) as the
 unique IR scale available to the continuation, the natural benchmark acceleration is
@@ -441,12 +461,16 @@ g_{\mathrm{obs}}\approx g_b+\sqrt{a_0 g_b},
 but that functional form is not derived from the OPH axioms.
 
 \paragraph{\textbf{Reading rule.}}
-The anomaly term gravitates, is dark by construction, and is covariantly conserved, but the
-synthesis surface keeps the entire dark-sector package on the D12 continuation tier rather than
-promoting any MOND/RAR-style law, galaxy-rotation template, or cluster phenomenology to theorem
-claim tier. The imported D6 static-patch scale fixes only the benchmark normalization. The missing
-inputs are the controlled nonrelativistic limit, derived sign and closure control for the
-effective anomaly contribution, a derived source/response law, proof of the relevant dominant
-galaxy-scale source, lensing and cluster phenomenology, cosmological abundance and
-structure-formation checks, and environment/stability bounds. Those are continuation-level
-branches above the identity written here.
+The scalar modular-additivity identity remains a recovery theorem. The
+anomalous tensor gravitates, is conserved, and is dark only after the source,
+matching, tensor, conservation, coupling, and electromagnetic-decoupling
+receipts above pass. Even then, the synthesis surface keeps the entire
+dark-sector package on the D12 continuation tier rather than promoting any
+MOND/RAR-style law, galaxy-rotation template, or cluster phenomenology to
+theorem claim tier. The imported D6 static-patch scale fixes only the benchmark
+normalization. The missing inputs are the controlled nonrelativistic limit,
+derived sign and closure control for the effective anomaly contribution, a
+derived source/response law, proof of the relevant dominant galaxy-scale
+source, lensing and cluster phenomenology, cosmological abundance and
+structure-formation checks, and environment/stability bounds. Those are
+continuation-level branches above the identity written here.

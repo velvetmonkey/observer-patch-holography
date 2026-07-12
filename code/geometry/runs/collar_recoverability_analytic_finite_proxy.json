@@ -1,0 +1,299 @@
+{
+  "artifact": "oph_collar_recoverability_analytic_finite_proxy",
+  "artifact_class": "analytic_finite_proxy",
+  "assumption_contract": {
+    "finite_range_gibbs": {
+      "finite_local_dimension_and_degree": true,
+      "finite_range": "diam(X) <= r0*ell_uv",
+      "illustrative_finite_proxy_constants": {
+        "beta": 0.75,
+        "coordination_number_bound": 6,
+        "ell_uv": 1.0,
+        "interaction_range_steps": 2.0,
+        "interaction_strength_bound": 1.5,
+        "local_hilbert_dimension": 2,
+        "mixing_length_steps_zeta": 1.25,
+        "mixing_prefactor_kappa": 3.0
+      },
+      "state": "rho = exp(-beta*H)/Z, H = sum_X Phi_X",
+      "uniform_interaction_bound": "sup_x sum_{X containing x} ||Phi_X|| <= J"
+    },
+    "strong_conditional_matrix_mixing": {
+      "entropy_units": "nats",
+      "envelope": "I(A_delta:D_delta|B_delta) <= kappa*|partial C|_UV*exp(-(m-r0)/zeta)",
+      "physical_form": "I <= c*|partial C|_UV*exp(-delta/xi), xi=zeta*ell_uv, c=kappa*exp(r0/zeta)",
+      "status": "assumption_not_inferred_here_from_ordinary_clustering",
+      "uniformity": "same kappa, r0, and zeta over caps and refinement stages"
+    }
+  },
+  "claim_boundary": {
+    "certified_by_this_artifact": "algebraic decay and schedule implications conditional on the stated uniform mixing envelope",
+    "not_certified": [
+      "the strong conditional/matrix-mixing envelope for an OPH state",
+      "derivation of strong conditional mixing from ordinary two-point clustering",
+      "empirical CMI decay",
+      "EC/Markov-split alignment",
+      "BW, Einstein, dark-sector, or other downstream branch entry"
+    ],
+    "safe_use": "analytic finite proxy and falsifiable receipt schema only; no empirical or theorem promotion"
+  },
+  "claim_status": "conditional_envelope_evaluator_not_empirical_evidence_and_not_theorem_promotion",
+  "empirical_evidence": false,
+  "finite_receipt_proxies": [
+    "log boundary cardinality",
+    "collar width in regulator steps m=delta/ell_uv",
+    "physical mixing length xi=zeta*ell_uv",
+    "stable log CMI upper envelope",
+    "full and sharp rate margins",
+    "uniform fitted-or-proved kappa, r0, and zeta with provenance"
+  ],
+  "issue": 307,
+  "mere_width_ratio_counterexample": {
+    "analytic_limit": {
+      "cmi_envelope": "does not tend to zero (its log is n^2-n)",
+      "conclusion": "delta/ell_uv -> infinity alone does not force the declared CMI envelope to vanish when the UV boundary cardinality grows",
+      "delta_over_ell_uv": "+infinity",
+      "sharp_geometric_margin": "-infinity because n-n^2 -> -infinity"
+    },
+    "construction": {
+      "boundary_size_uv_n": "exp(n^2)",
+      "delta_n": "n*ell_uv_n",
+      "ell_uv_n": "exp(-n^2)",
+      "kappa": 1.0,
+      "r0": 0.0,
+      "zeta": 1.0
+    },
+    "finite_proxy_checks": {
+      "delta_over_ell_uv_increases": true,
+      "log_envelope_strictly_increases": true,
+      "sharp_margin_strictly_decreases": true
+    },
+    "stages": [
+      {
+        "delta": 0.03663127777746836,
+        "delta_over_ell_uv": 2.0,
+        "ell_uv": 0.01831563888873418,
+        "log_boundary_size_uv": 4.0,
+        "log_cmi_envelope": 2.0,
+        "n": 2,
+        "sharp_geometric_margin": -2.0
+      },
+      {
+        "delta": 0.0003702294122600387,
+        "delta_over_ell_uv": 3.0,
+        "ell_uv": 0.00012340980408667956,
+        "log_boundary_size_uv": 9.0,
+        "log_cmi_envelope": 6.0,
+        "n": 3,
+        "sharp_geometric_margin": -6.0
+      },
+      {
+        "delta": 4.5014069887703647e-07,
+        "delta_over_ell_uv": 4.0,
+        "ell_uv": 1.1253517471925912e-07,
+        "log_boundary_size_uv": 16.0,
+        "log_cmi_envelope": 12.0,
+        "n": 4,
+        "sharp_geometric_margin": -12.0
+      },
+      {
+        "delta": 6.943971932482011e-11,
+        "delta_over_ell_uv": 5.0,
+        "ell_uv": 1.3887943864964021e-11,
+        "log_boundary_size_uv": 25.0,
+        "log_cmi_envelope": 20.0,
+        "n": 5,
+        "sharp_geometric_margin": -20.0
+      },
+      {
+        "delta": 1.3917136981461418e-15,
+        "delta_over_ell_uv": 6.0,
+        "ell_uv": 2.3195228302435696e-16,
+        "log_boundary_size_uv": 36.0,
+        "log_cmi_envelope": 30.0,
+        "n": 6,
+        "sharp_geometric_margin": -30.0
+      },
+      {
+        "delta": 3.6700199643544244e-21,
+        "delta_over_ell_uv": 7.0,
+        "ell_uv": 5.242885663363464e-22,
+        "log_boundary_size_uv": 49.0,
+        "log_cmi_envelope": 42.0,
+        "n": 7,
+        "sharp_geometric_margin": -42.0
+      },
+      {
+        "delta": 1.2830487124389103e-27,
+        "delta_over_ell_uv": 8.0,
+        "ell_uv": 1.603810890548638e-28,
+        "log_boundary_size_uv": 64.0,
+        "log_cmi_envelope": 56.0,
+        "n": 8,
+        "sharp_geometric_margin": -56.0
+      },
+      {
+        "delta": 5.975709479622661e-35,
+        "delta_over_ell_uv": 9.0,
+        "ell_uv": 6.639677199580735e-36,
+        "log_boundary_size_uv": 81.0,
+        "log_cmi_envelope": 72.0,
+        "n": 9,
+        "sharp_geometric_margin": -72.0
+      },
+      {
+        "delta": 3.720075976020836e-43,
+        "delta_over_ell_uv": 10.0,
+        "ell_uv": 3.720075976020836e-44,
+        "log_boundary_size_uv": 100.0,
+        "log_cmi_envelope": 90.0,
+        "n": 10,
+        "sharp_geometric_margin": -90.0
+      },
+      {
+        "delta": 3.1028470973061487e-52,
+        "delta_over_ell_uv": 11.0,
+        "ell_uv": 2.820770088460135e-53,
+        "log_boundary_size_uv": 121.0,
+        "log_cmi_envelope": 110.0,
+        "n": 11,
+        "sharp_geometric_margin": -110.0
+      },
+      {
+        "delta": 3.4735683739779604e-62,
+        "delta_over_ell_uv": 12.0,
+        "ell_uv": 2.8946403116483003e-63,
+        "log_boundary_size_uv": 144.0,
+        "log_cmi_envelope": 132.0,
+        "n": 12,
+        "sharp_geometric_margin": -132.0
+      }
+    ]
+  },
+  "object_id": "CollarRecoverabilityAnalyticFiniteProxy_Issue307",
+  "promotes_theorem_status": false,
+  "scope": "finite log-domain evaluation of the collar CMI consequence of a declared uniform strong conditional/matrix-mixing envelope",
+  "stable_rate_contract": {
+    "full_rate_margin": "(m-r0)/zeta-log(kappa)-log(|partial C|_UV)",
+    "log_bound": "log(kappa)+log(|partial C|_UV)-(m-r0)/zeta",
+    "meaning": "the declared upper envelope tends to zero iff its full rate margin tends to +infinity",
+    "sharp_fixed_constant_criterion": "delta/xi-log(|partial C|_UV) -> +infinity"
+  },
+  "sufficient_power_law_schedule": {
+    "analytic_limit": {
+      "cmi_envelope": "0",
+      "conditional_on_uniform_mixing_envelope": true,
+      "delta": "0 because ell_uv*log(ell0/ell_uv) -> 0",
+      "delta_over_ell_uv": "+infinity",
+      "ell_uv": "0",
+      "full_rate_margin": "+infinity at least linearly in eta*log(ell0/ell_uv)"
+    },
+    "boundary_envelope": "|partial C|_UV <= C_partial * (ell0/ell_uv)^p",
+    "derived_log_bound": "log I_bound <= log(kappa*C_partial) + r0/zeta - eta*log(ell0/ell_uv)",
+    "finite_proxy_checks": {
+      "full_rate_margins_strictly_increase": true,
+      "log_bounds_strictly_decrease": true,
+      "physical_delta_decreases_on_displayed_tail": true,
+      "width_ratio_increases": true
+    },
+    "schedule_constants": {
+      "boundary_power": 2.0,
+      "boundary_prefactor": 4.0,
+      "ell0": 1.0,
+      "eta": 0.75
+    },
+    "stages": [
+      {
+        "analytic_log_bound_from_schedule": 1.0849066497880004,
+        "boundary_power_law_log_upper_bound": 9.38629436111989,
+        "cmi_upper_bound_nats": 2.9591635672992753,
+        "collar_width_steps_m": 13.75,
+        "correlation_length_xi": 0.022894548610917723,
+        "ell_uv": 0.01831563888873418,
+        "finite_range_floor_active": false,
+        "full_rate_margin": -1.0849066497879996,
+        "interaction_range": 0.03663127777746836,
+        "log_boundary_size_uv": 9.38629436111989,
+        "log_cmi_upper_bound_nats": 1.0849066497879996,
+        "log_refinement_ell0_over_ell_uv": 4.0,
+        "physical_collar_width_delta": 0.251840034720095,
+        "schedule_threshold_delta": 0.251840034720095,
+        "schedule_threshold_steps": 13.75,
+        "sharp_geometric_margin": 1.6137056388801092
+      },
+      {
+        "analytic_log_bound_from_schedule": -1.9150933502119996,
+        "boundary_power_law_log_upper_bound": 17.38629436111989,
+        "cmi_upper_bound_nats": 0.1473280788368217,
+        "collar_width_steps_m": 27.5,
+        "correlation_length_xi": 0.0004193282848781398,
+        "ell_uv": 0.00033546262790251185,
+        "finite_range_floor_active": false,
+        "full_rate_margin": 1.915093350211997,
+        "interaction_range": 0.0006709252558050237,
+        "log_boundary_size_uv": 17.38629436111989,
+        "log_cmi_upper_bound_nats": -1.915093350211997,
+        "log_refinement_ell0_over_ell_uv": 8.0,
+        "physical_collar_width_delta": 0.009225222267319077,
+        "schedule_threshold_delta": 0.009225222267319075,
+        "schedule_threshold_steps": 27.5,
+        "sharp_geometric_margin": 4.613705638880109
+      },
+      {
+        "analytic_log_bound_from_schedule": -4.915093350212,
+        "boundary_power_law_log_upper_bound": 25.38629436111989,
+        "cmi_upper_bound_nats": 0.0073350331335548915,
+        "collar_width_steps_m": 41.25,
+        "correlation_length_xi": 7.680265441660262e-06,
+        "ell_uv": 6.14421235332821e-06,
+        "finite_range_floor_active": false,
+        "full_rate_margin": 4.915093350211997,
+        "interaction_range": 1.228842470665642e-05,
+        "log_boundary_size_uv": 25.38629436111989,
+        "log_cmi_upper_bound_nats": -4.915093350211997,
+        "log_refinement_ell0_over_ell_uv": 12.0,
+        "physical_collar_width_delta": 0.0002534487595747887,
+        "schedule_threshold_delta": 0.0002534487595747887,
+        "schedule_threshold_steps": 41.25,
+        "sharp_geometric_margin": 7.613705638880109
+      },
+      {
+        "analytic_log_bound_from_schedule": -7.915093350212,
+        "boundary_power_law_log_upper_bound": 33.38629436111989,
+        "cmi_upper_bound_nats": 0.00036518979610084207,
+        "collar_width_steps_m": 55.0,
+        "correlation_length_xi": 1.406689683990739e-07,
+        "ell_uv": 1.1253517471925912e-07,
+        "finite_range_floor_active": false,
+        "full_rate_margin": 7.915093350212004,
+        "interaction_range": 2.2507034943851823e-07,
+        "log_boundary_size_uv": 33.38629436111989,
+        "log_cmi_upper_bound_nats": -7.915093350212004,
+        "log_refinement_ell0_over_ell_uv": 16.0,
+        "physical_collar_width_delta": 6.189434609559251e-06,
+        "schedule_threshold_delta": 6.189434609559252e-06,
+        "schedule_threshold_steps": 55.0,
+        "sharp_geometric_margin": 10.613705638880113
+      },
+      {
+        "analytic_log_bound_from_schedule": -10.915093350212,
+        "boundary_power_law_log_upper_bound": 41.38629436111989,
+        "cmi_upper_bound_nats": 1.818172934571892e-05,
+        "collar_width_steps_m": 68.75,
+        "correlation_length_xi": 2.5764420280481974e-09,
+        "ell_uv": 2.061153622438558e-09,
+        "finite_range_floor_active": false,
+        "full_rate_margin": 10.915093350212004,
+        "interaction_range": 4.122307244877116e-09,
+        "log_boundary_size_uv": 41.38629436111989,
+        "log_cmi_upper_bound_nats": -10.915093350212004,
+        "log_refinement_ell0_over_ell_uv": 20.0,
+        "physical_collar_width_delta": 1.4170431154265086e-07,
+        "schedule_threshold_delta": 1.4170431154265086e-07,
+        "schedule_threshold_steps": 68.75,
+        "sharp_geometric_margin": 13.613705638880113
+      }
+    ],
+    "sufficient_schedule": "delta >= zeta*ell_uv*(p+eta)*log(ell0/ell_uv)"
+  }
+}

@@ -155,6 +155,81 @@ to reconstruct relationships between inside and outside. The controlled
 recovery statement is not the same as an exact Markov factorization; exact
 splice formulas require zero CMI or a controlled collar limit.
 
+For a cap $C$, write $A_\delta$ for the part safely inside the cap,
+$B_\delta$ for a collar of thickness $\delta$, and $D_\delta$ for the region
+safely outside. There are two sufficient routes. The declared
+central-interface branch gives an edge-aligned Markov state with
+$I(A_\delta:D_\delta|B_\delta)=0$. This exact route is the basis for
+literal splice identities.
+
+The quantitative theorem concerns a faithful Gibbs state on a UV cell graph.
+Its assumptions include local dimension at most $q$, interaction degree at
+most $\Delta_0$, interaction diameter at most $r_0$ graph layers, and the
+uniform norm bound
+
+$$
+\sup_x\sum_{X\ni x}\|\beta\Phi(X)\|\le J_0.
+$$
+
+It also assumes uniform strong conditional mixing. The conditional matrix
+defect
+
+$$
+\mathbf J_\rho
+=\log\rho_{A_\delta B_\delta D_\delta}+\log\rho_{B_\delta}
+-\log\rho_{A_\delta B_\delta}-\log\rho_{B_\delta D_\delta}
+$$
+
+must decompose into terms anchored near the UV boundary, with
+
+$$
+\mathbf J_\rho=\sum_{z\in\partial^{\mathrm{UV}}_{r_0}C}E_z,
+\qquad
+\|E_z\|_\infty\le
+\kappa\exp\!\left[-\frac{m-r_0}{\zeta}\right],
+\qquad m=\frac{\delta}{\ell_{\mathrm{UV}}}.
+$$
+
+The constants $q$, $\Delta_0$, $r_0$, $J_0$, $\kappa$, and $\zeta$ are
+uniform in the cut, boundary condition, and refinement stage. Under these
+assumptions,
+
+$$
+I(A_\delta:D_\delta|B_\delta)
+\le c|\partial C|_{\mathrm{UV}}e^{-\delta/\xi_\ell},
+\qquad
+\xi_\ell=\zeta\ell_{\mathrm{UV}},
+\qquad
+c=\kappa e^{r_0/\zeta}.
+$$
+
+The boundary count appears because the proof sums one decaying matrix-defect
+bound for each boundary anchor. Increasing the collar thickness suppresses the
+exponential. Refining a fixed macroscopic boundary creates more UV anchors and
+grows the prefactor. Ordinary two-point exponential clustering does not imply
+the conditional matrix estimate for a general noncommuting Gibbs state.
+
+The declared double scaling is
+
+$$
+\ell_{\mathrm{UV}}\to0,\qquad \delta\to0,\qquad
+\frac{\delta}{\ell_{\mathrm{UV}}}\to\infty,\qquad
+\frac{\delta}{\xi_\ell}-\log|\partial C|_{\mathrm{UV}}\to+\infty.
+$$
+
+The last condition is the sharp sufficient rate for the displayed envelope to
+vanish. Collar thickness in UV cells can diverge while an even faster-growing
+boundary defeats the estimate. Finite receipts therefore record the
+interaction bounds, sector treatment, graph separation, boundary count,
+regional CMI in nats, matrix-defect norm, predeclared mixing constants,
+held-out cuts, recovery error, and rate margin. Such receipts are finite
+proxies; the theorem’s limit clause requires one family with uniform constants.
+
+CMI has no tensor indices. The displayed estimate controls recovery and gluing,
+without constructing stress-energy or a dark-sector source. Those claims need
+directional modular charges, rank-two tensor reconstruction, conservation, and
+physical coupling receipts.
+
 OPH uses this formula to explain why a finite, noisy, horizon-limited world
 can have stable history. Information need not be copied into one place.
 It can be recoverable from structured correlations.

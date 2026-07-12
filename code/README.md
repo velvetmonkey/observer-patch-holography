@@ -18,7 +18,11 @@ Primary derivation surfaces:
   entanglement Hamiltonians, resummed velocity profiles), the null-net
   receipt instrumentation (half-sided compression, modular Lie closure),
   the realized-event receipts, and the bulk-depth channel with its
-  Lorentzian (1,3) cone verdict and (2,2) strong-coupling countermodel.
+  Lorentzian (1,3) cone verdict and (2,2) strong-coupling countermodel.  The
+  issue-307 collar-recoverability artifact evaluates the finite consequences
+  of a declared strong conditional/matrix-mixing envelope, including the
+  boundary-aware scaling rate and a counterexample to width-ratio scaling
+  alone; it is an analytic proxy, not empirical evidence for that envelope.
   Machine state: sphere/mesh/naturality receipts pass on a genuine repair
   run under explicit branch selection; boundary-collar modular receipts
   pass; null-net receipts pass at one-particle level; realized records

@@ -21,11 +21,12 @@ The mass ratios are consumed from the centered charged family functional, so
 ``Delta_lep`` is a strictly monotonic function of the single scale kappa and
 the inversion is closed-form.
 
-Row class ``oph_plus_empirical_hadron_closure``: this is never a source-only
+Row class ``target_shape_plus_empirical_transport``: this is never a source-only
 theorem, introduces no axiom, and does not satisfy the production
-``constructive_next_artifact`` of the source lane.  Unlike the endpoint lane,
-the measured alpha_inv_0 sits inside this solve path; the guard block declares
-that loudly.  The source-only no-go of the trace-lift theorem is unchanged.
+``constructive_next_artifact`` of the source lane.  The solve consumes the
+target-anchored charged shape, measured alpha_inv_0, and a higher-order
+remainder calibrated at the measured charged triple.  The guard block declares
+all three leaks.  The source-only no-go of the trace-lift theorem is unchanged.
 """
 
 from __future__ import annotations
@@ -205,16 +206,21 @@ def build(out_path: Path = DEFAULT_OUT) -> dict[str, Any]:
         "artifact": "oph_charged_kappa_interval_from_alpha_transport",
         "issue": 546,
         "generated_utc": _timestamp(),
-        "row_class": "oph_plus_empirical_hadron_closure",
+        "row_class": "target_shape_plus_empirical_transport",
         "guards": {
             "source_only": False,
             "new_axiom_introduced": False,
             "empirical_hadron_closure": True,
             "external_cross_section_data_used": True,
             "measured_alpha_in_solve_path": True,
-            "measured_lepton_masses_in_solve_path": False,
+            "measured_lepton_masses_directly_supplied_to_inversion": False,
+            "target_anchored_lepton_ratios_in_solve_path": True,
+            "measured_lepton_triple_used_to_calibrate_higher_order_remainder": True,
+            "charged_mass_information_in_solve_path": True,
             "promotable_as_oph_source_theorem": False,
-            "usable_for_public_final_values": True,
+            "blind_normalization_prediction": False,
+            "usable_for_public_final_values": False,
+            "usable_as_diagnostic_route_finder": True,
             "satisfies_production_constructive_next_artifact": False,
         },
         "kappa_symmetry_breaking_lemma": {
@@ -307,6 +313,22 @@ def build(out_path: Path = DEFAULT_OUT) -> dict[str, Any]:
         "constructive_next_artifact": (
             "source_emitted_ward_projected_hadronic_spectral_measure_and_a0_scheme_bridge"
         ),
+        "blind_prediction_route": {
+            "stage_1_shape": {
+                "required": "source_only_charged_mass_ratios_R_mu_e_and_R_tau_e",
+                "current_status": "open_target_anchored_shape_only",
+                "forbidden_inputs": ["m_e", "m_mu", "m_tau", "PDG", "CODATA"],
+            },
+            "stage_2_normalization": {
+                "required": "source_emitted_Thomson_RG_packet_with_certified_hadronic_and_higher_order_remainders",
+                "current_status": "open_empirical_transport_only",
+                "mathematical_result": "unique_common_scale_because_d_packet_d_kappa_equals_minus_2_over_pi",
+            },
+            "stage_3_freeze_then_compare": {
+                "required": "no_target_leak_DAG_and_frozen_mass_triple_before_PDG_comparison",
+                "current_status": "not_ready",
+            },
+        },
         "proof_status": "certified_empirical_closure_interval_kappa_identified",
     }
 
