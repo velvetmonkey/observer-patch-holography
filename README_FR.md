@@ -458,14 +458,22 @@ modules séparants strictement positifs, comportement de Cauchy mixte-GNS,
 condition de compression d'inclusion demi-latérale au niveau
 une-particule (asymétrie de fuite chirale avec contrôle nul intégré) et
 clôture de Lie modulaire au niveau du pour-cent contre la prédiction des
-constantes de structure conformes (taux de convergence encore ouvert). La
-clause limite Cyc, les intersections modulaires secondes-quantifiées, les
-données d'intérieur de cap, les reçus d'événements sur enregistrements
-réalisés et les reçus d'identification physique restent en attente. La
-branche géométrique réalisée n'est donc toujours pas certifiée non vide :
-dérivation complète sur la branche des reçus ; familles topologie, maille,
-modulaires de collier de bord et de réseau nul une-particule réalisées ;
-instrumentation événements/physique et clauses limites ouvertes.
+constantes de structure conformes (taux de convergence encore ouvert). L'instrumentation d'événements réalisés exécute le pipeline
+d'événements sur des enregistrements issus de la dynamique de réparation
+réelle : population d'écran, séparation certifiée, cocycle de cartes de
+Moebius, et un cône d'ascendance intrinsèque de signature lorentzienne
+(1,2) avec l'horloge modulaire de genre temps à 0,9995 --- tandis que
+l'ensemble d'événements réalisé se mesure comme la nappe d'écran (1+2)
+qu'il est réellement, de sorte que le canal de profondeur de bulk (E3 rang
+quatre, donc 3+1) porte le négatif honnête et constitue la seule famille
+structurelle restante. La clause limite Cyc, le taux de clôture de Lie,
+les intersections modulaires secondes-quantifiées, les données d'intérieur
+de cap et les reçus d'identification physique restent également en
+attente. La branche géométrique réalisée n'est donc toujours pas certifiée
+non vide : dérivation complète sur la branche des reçus ; familles
+topologie, maille, modulaires de collier de bord, réseau nul une-particule
+et événements d'écran réalisées ; canal de profondeur de bulk, clauses
+limites et reçus physiques ouverts.
 
 Les continuations de spectre d'écran et de CMB sont provisoires sans l'échelle
 géométrique de la branche écran, sa dynamique source, son horloge, son

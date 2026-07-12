@@ -45,6 +45,7 @@ TREE_ARTIFACT = ROOT / "code" / "consensus" / "runs" / "verified_tree_packet_net
 CYCLIC_ARTIFACT = HERE / "runs" / "cyclic_cap_net_run_domain.json"
 MODULAR_ARTIFACT = HERE / "runs" / "modular_clock_instrumentation_report.json"
 NULLNET_ARTIFACT = HERE / "runs" / "null_net_receipt_report.json"
+EVENT_ARTIFACT = HERE / "runs" / "realized_event_receipt_report.json"
 REPORT_PATH = HERE / "runs" / "realized_branch_receipt_report.json"
 
 
@@ -127,6 +128,16 @@ def build_report() -> dict:
             "receipts_witnessed": nn["receipts_witnessed"],
             "receipts_pending": nn["receipts_pending"],
         }
+    events = None
+    if EVENT_ARTIFACT.exists():
+        with open(EVENT_ARTIFACT) as f:
+            ev = json.load(f)
+        events = {
+            "source": "code/geometry/runs/realized_event_receipt_report.json",
+            "scope": ev["scope"],
+            "receipts_witnessed": ev["receipts_witnessed"],
+            "receipts_pending": ev["receipts_pending"],
+        }
 
     evaluations = {
         "verified_tree_packet_net_domain": {
@@ -146,6 +157,8 @@ def build_report() -> dict:
         evaluations["modular_clock_instrumentation"] = modular
     if nullnet is not None:
         evaluations["null_net_receipts"] = nullnet
+    if events is not None:
+        evaluations["realized_event_receipts"] = events
 
     # full nonemptiness needs ALL finite receipt families on one realized
     # tower; the cyclic run witnesses the D1 + incidence + mesh + naturality
@@ -160,20 +173,40 @@ def build_report() -> dict:
                       and all(modular["receipts_witnessed"].values()))
     nullnet_ok = bool(nullnet is not None
                       and all(nullnet["receipts_witnessed"].values()))
+    events_screen_ok = bool(
+        events is not None and all(
+            v for k, v in events["receipts_witnessed"].items()
+            if k != "e3_rank_four_bulk_depth"
+        )
+    )
+    bulk_depth_ok = bool(
+        events is not None
+        and events["receipts_witnessed"].get("e3_rank_four_bulk_depth")
+    )
     if topology and modular_ok and nullnet_ok:
+        event_clause = (
+            "the realized-event instrumentation witnesses screen "
+            "population, certified separation, the Moebius chart cocycle, "
+            "and an intrinsic Lorentzian (1,2) ancestry cone on the "
+            "realized (1+2) screen-event sheet, measured as such --- the "
+            "bulk-depth channel (E3 rank four, hence 3+1) is the honest "
+            "negative; " if events_screen_ok else
+            "realized-event evaluation incomplete; "
+        )
         status = (
             "OPEN: the cyclic cap-net repair run realizes the D1 repair "
             "clauses with the spherical-incidence, mesh, and naturality "
             "receipts (explicit branch selection); the free-fermion "
             "boundary-collar instrumentation witnesses the modular "
-            "cross-ratio and geometric 2pi-KMS receipts; and the null-net "
+            "cross-ratio and geometric 2pi-KMS receipts; the null-net "
             "instrumentation witnesses NTI, weak additivity, separating "
             "faithfulness, mixed-GNS Cauchy, one-particle HSM compression, "
-            "and percent-level modular Lie closure (rate clause open). "
-            "Remaining pending: Cyc limit clause, Lie-closure rate, "
-            "second-quantized MI, E1-E4 event receipts on realized records, "
-            "and the UC/VR/scale physical-identification receipts; #503 "
-            "stays open on the full nonemptiness clause."
+            "and percent-level modular Lie closure (rate clause open); "
+            + event_clause +
+            "remaining pending: bulk-depth record channel, Cyc limit "
+            "clause, Lie-closure rate, second-quantized MI, cap-interior "
+            "data, and the UC/VR/scale physical-identification receipts; "
+            "#503 stays open on the full nonemptiness clause."
         )
     elif topology and modular_ok:
         status = (
@@ -199,6 +232,8 @@ def build_report() -> dict:
         "topology_mesh_families_realized_with_branch_selection": topology,
         "boundary_collar_modular_families_witnessed": modular_ok,
         "null_net_families_witnessed_one_particle": nullnet_ok,
+        "screen_event_families_witnessed": events_screen_ok,
+        "bulk_depth_channel_witnessed": bulk_depth_ok,
         "status": status,
     }
 

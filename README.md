@@ -408,12 +408,19 @@ positive separating moduli, mixed-GNS Cauchy behaviour, the one-particle
 half-sided-inclusion compression condition (chiral leakage asymmetry with a
 built-in null control), and percent-level modular Lie closure against the
 conformal structure-constant prediction (convergence rate still open). The
-Cyc limit clause, second-quantized modular intersections, cap-interior
-data, event receipts on realized records, and the physical-identification
-receipts remain pending. The realized geometric branch is therefore still
-not certified nonempty: derivation complete on the receipt branch;
-topology, mesh, boundary-collar modular, and one-particle null-net
-families realized; event/physical instrumentation and limit clauses open.
+realized-event instrumentation runs the event pipeline on records from the
+actual repair dynamics: screen population, certified separation, the
+Moebius chart cocycle, and an intrinsic ancestry cone of Lorentzian
+signature (1,2) with the modular clock timelike to 0.9995 --- while the
+realized event set measures as the (1+2) screen sheet it actually is, so
+the bulk-depth record channel (E3 rank four, hence 3+1) carries the honest
+negative and is the single remaining structural family. The Cyc limit
+clause, Lie-closure rate, second-quantized modular intersections,
+cap-interior data, and the physical-identification receipts also remain
+pending. The realized geometric branch is therefore still not certified
+nonempty: derivation complete on the receipt branch; topology, mesh,
+boundary-collar modular, one-particle null-net, and screen-event families
+realized; bulk-depth channel, limit clauses, and physical receipts open.
 
 Screen-spectrum and CMB continuations are provisional without the screen
 branch's geometric scale, source dynamics, clock, refinement behavior, and

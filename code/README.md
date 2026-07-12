@@ -29,11 +29,17 @@ Primary derivation surfaces:
   receipts, and the null-net instrumentation
   (`python3 code/geometry/null_net_receipts.py`): NTI, weak additivity,
   separating moduli, mixed-GNS Cauchy, one-particle HSM compression, and
-  percent-level modular Lie closure (rate open). Current verdict: topology,
-  mesh, boundary-collar modular, and one-particle null-net families
-  realized; Cyc limit, second-quantized MI, cap-interior, event, and
-  physical families pending; realized geometric branch not certified
-  nonempty. Run with `python3 -m pytest code/geometry/`.
+  percent-level modular Lie closure (rate open), and the realized-event
+  instrumentation (`python3 code/geometry/realized_event_receipts.py`):
+  E1/E2/E4 plus an intrinsic Lorentzian (1,2) ancestry cone on records
+  from the actual repair dynamics, with the realized (1+2) screen-sheet
+  dimension measured honestly and the bulk-depth channel reported as the
+  remaining structural negative. Current verdict: topology, mesh,
+  boundary-collar modular, one-particle null-net, and screen-event
+  families realized; bulk-depth channel, Cyc limit, Lie-closure rate,
+  second-quantized MI, cap-interior, and physical families pending;
+  realized geometric branch not certified nonempty. Run with
+  `python3 -m pytest code/geometry/`.
 
 Supplemental and benchmark surfaces:
 
