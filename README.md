@@ -398,8 +398,12 @@ I(A_\delta:D_\delta\mid B_\delta)
 
 only under uniform strong conditional matrix mixing; ordinary two-point
 clustering is insufficient. The continuum schedule must satisfy
-$\delta/\xi-\log|\partial C|_{\mathrm{UV}}\to+\infty$.
-The weaker ratio $\delta/\ell_{\mathrm{UV}}\to\infty$ can lose to the
+
+```math
+\delta/\xi-\log|\partial C|_{\mathrm{UV}}\to+\infty .
+```
+
+The weaker ratio $`\delta/\ell_{\mathrm{UV}}\to\infty`$ can lose to the
 growing boundary count. The finite evaluator checks the complete log
 envelope and recovery error, but remains a branch-instantiation proxy until
 the Gibbs and mixing premises are certified on a realized tower. Scalar CMI
