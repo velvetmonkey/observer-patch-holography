@@ -691,7 +691,7 @@
         }
       ]
     },
-    "generated_utc": "2026-07-12T02:31:00Z",
+    "generated_utc": "2026-07-12T13:48:38Z",
     "labels": [
       "f1",
       "f2",
@@ -770,7 +770,7 @@
       "13": 3.422911777662352e-05,
       "23": 0.0021129930994784212
     },
-    "generated_utc": "2026-07-12T03:13:09Z",
+    "generated_utc": "2026-07-12T03:51:20Z",
     "global_scale_family": {
       "kappa_canonical": 1.0,
       "kappa_max_admissible": 6.934955573215182,
@@ -964,7 +964,7 @@
     "conjugation_class_stable": true,
     "rephasing_sensitive_cycles_detected": false
   },
-  "generated_utc": "2026-07-12T03:16:00Z",
+  "generated_utc": "2026-07-12T13:48:38Z",
   "intrinsic_label_order": [
     "f1",
     "f2",
@@ -3426,7 +3426,7 @@
   },
   "quark_edge_statistics_bridge_status": "candidate_only",
   "quark_even_excitation_source_artifact": "oph_family_excitation_spread_map",
-  "quark_even_excitation_source_status": "closed",
+  "quark_even_excitation_source_status": "diagnostic_witness_not_source_emission",
   "quark_odd_response_law": {
     "Delta_Phi_q": [
       [
@@ -3542,7 +3542,7 @@
       "13": 3.422911777662352e-05,
       "23": 0.0021129930994784212
     },
-    "generated_utc": "2026-07-12T03:13:09Z",
+    "generated_utc": "2026-07-12T03:51:20Z",
     "kappa": 1.0,
     "kappa_max_admissible": 6.934955573215182,
     "lift_constants": null,
@@ -3827,16 +3827,16 @@
     "even_excitation_diagonal_gap_shift_candidate": "oph_family_excitation_diagonal_gap_shift_map",
     "even_excitation_gap_map_candidate": "oph_family_excitation_gap_map",
     "even_excitation_input_kind": "ordered_branch_generator_spectral_package",
-    "even_excitation_proof_status": "pure_B_source_readback_open",
+    "even_excitation_proof_status": "diagnostic_witness_not_source_emission",
     "even_excitation_source_artifact": "oph_family_excitation_spread_map",
-    "even_excitation_source_status": "closed",
+    "even_excitation_source_status": "diagnostic_witness_not_source_emission",
     "even_excitation_spread_map_candidate": "oph_family_excitation_spread_map",
     "even_excitation_theorem_candidate": "oph_family_excitation_evaluator",
     "exact_missing_object": "source_readback_u_log_per_side_and_source_readback_d_log_per_side",
     "g_ch": 0.9231656602589082,
     "g_d": 0.12172551081512113,
     "g_u": 0.7797392875757557,
-    "generated_utc": "2026-07-12T03:15:59Z",
+    "generated_utc": "2026-07-12T13:48:38Z",
     "hierarchy_driver_status": "candidate_spread_values_populated",
     "metadata": {
       "note": "Candidate odd quark-sector descent built from an explicit shared charged response seed plus the separate odd-response-law artifact. The local shape map is explicit and coefficient-free on the current single-kappa ray. The reduced even family is fixed as a trace-zero quadratic on the ordered branch coordinate; when a current-family spread pair is available, the centered even-log profiles are read back directly from the exported spread map. If the next diagonal gap-shift family is later populated, the builder can lift those logs by B_ord without reopening the old larger branch. A compact current-family sector-mean split may refine g_u and g_d without changing those rays. No reference-fit exact-readout artifact is consumed here.",
@@ -3866,7 +3866,7 @@
     "shared_norm_status": "closed_current_family_predictive_law",
     "shared_scalarization_law_status": "candidate_only",
     "spread_sigma_d_total_log_per_side": 3.3049,
-    "spread_sigma_source_kind": "theorem_grade_mean_surface_readback",
+    "spread_sigma_source_kind": "hard_coded_diagnostic_witness",
     "spread_sigma_u_total_log_per_side": 5.5905,
     "tau_d_log_per_side": null,
     "tau_u_log_per_side": null,
@@ -3874,7 +3874,7 @@
     "uses_full_projector_algebra": true
   },
   "quark_spread_sigma_d_total_log_per_side": 3.3049,
-  "quark_spread_sigma_source_kind": "theorem_grade_mean_surface_readback",
+  "quark_spread_sigma_source_kind": "hard_coded_diagnostic_witness",
   "quark_spread_sigma_u_total_log_per_side": 5.5905,
   "refinement_stability": {
     "conjugacy_defect_sup": 0.03162277660168382,
