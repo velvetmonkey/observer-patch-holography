@@ -75,7 +75,7 @@
       0.06478785725166156
     ]
   },
-  "generated_utc": "2026-07-12T03:23:14Z",
+  "generated_utc": "2026-07-12T03:51:23Z",
   "notes": [
     "The input masses are taken from the exact current-family readout witness, which is target-anchored and explicitly not public-promotion-allowed.",
     "This package is useful for local theorem search and consistency checks because it computes the exact missing scalar package the public proof is trying to internalize.",
@@ -103,7 +103,7 @@
     "Lambda_ud_B_transport": 0.1345665473856259,
     "Lambda_ud_B_transport_formula": "sigma_u_total_log_per_side * sigma_d_total_log_per_side * Delta_ud_overlap / (2 * (sigma_u_total_log_per_side + sigma_d_total_log_per_side))",
     "sigma_d_total_log_per_side": 3.3049,
-    "sigma_source_kind": "theorem_grade_mean_surface_readback",
+    "sigma_source_kind": "hard_coded_diagnostic_witness",
     "sigma_u_total_log_per_side": 5.5905,
     "tau_d_log_per_side": 0.04071728263657778,
     "tau_d_log_per_side_formula": "sigma_u_total_log_per_side * Delta_ud_overlap / (2 * (sigma_u_total_log_per_side + sigma_d_total_log_per_side))",

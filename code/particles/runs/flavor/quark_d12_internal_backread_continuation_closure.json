@@ -49,9 +49,9 @@
     "main_builder_sigma_pair": {
       "Lambda_ud_B_transport": 0.139490874973425,
       "provider_artifact": "oph_family_excitation_spread_map",
-      "provider_status": "closed",
+      "provider_status": "diagnostic_witness_not_source_emission",
       "sigma_d_total_log_per_side": 3.3049,
-      "sigma_source_kind": "theorem_grade_mean_surface_readback",
+      "sigma_source_kind": "hard_coded_diagnostic_witness",
       "sigma_u_total_log_per_side": 5.5905,
       "tau_d_log_per_side": 0.04220729068154104,
       "tau_ratio_minus_sigma_ratio": 2.220446049250313e-16,
@@ -80,7 +80,7 @@
     "d": 0.005121438948009003,
     "u": 0.002287663517422587
   },
-  "generated_utc": "2026-07-12T03:23:09Z",
+  "generated_utc": "2026-07-12T03:51:23Z",
   "notes": [
     "The numeric closure uses only the emitted reference-free forward light-quark pair and the explicit continuation assumptions listed in this artifact.",
     "No target masses or CKM data are used to fix the mass-side scalar package on this sidecar surface.",

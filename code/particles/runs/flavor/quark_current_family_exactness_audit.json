@@ -626,7 +626,7 @@
     "tau_d_best_fit": 0.08866863932321174,
     "tau_u_best_fit": 0.05140755363848667
   },
-  "generated_utc": "2026-07-12T03:23:07Z",
+  "generated_utc": "2026-07-12T03:51:22Z",
   "mean_split_audit": {
     "current_log_shift_d": -2.0281337286007872,
     "current_log_shift_u": -0.16973941452778685,
@@ -718,8 +718,8 @@
   "source_readback_payload_kind": "pure_B_light_sector_payload_pair",
   "spread_emitter_audit": {
     "sigma_d_total_log_per_side": 3.3049,
-    "sigma_source_kind": "theorem_grade_mean_surface_readback",
+    "sigma_source_kind": "hard_coded_diagnostic_witness",
     "sigma_u_total_log_per_side": 5.5905,
-    "spread_emitter_status": "closed"
+    "spread_emitter_status": "diagnostic_witness_not_source_emission"
   }
 }

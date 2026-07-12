@@ -213,7 +213,7 @@
       "status": "source_side_prediction_missing_only_small_qcd_hadronic_endpoint_correction"
     }
   },
-  "generated_utc": "2026-07-12T03:22:11Z",
+  "generated_utc": "2026-07-12T03:51:10Z",
   "hadron_policy": {
     "empirical_hadron_closure_allowed_for_display": true,
     "empirical_payload_schema": "particles/hadron/empirical_ee_hadronic_spectral_measure.schema.json",
@@ -487,6 +487,35 @@
       "value": 125.1995304097179
     }
   ],
+  "quark_axiom_level_nondefinability": {
+    "MAR_audit": {
+      "Yukawa_completability_preserved": true,
+      "Yukawa_eigenvalues_are_components_of_complexity_vector": false,
+      "complexity_vector": "(chi_cpl,N_nonab,N_c,N_g)",
+      "counterfamily_members_have_equal_MAR_score": true,
+      "counterfamily_members_remain_distinct_MAR_minima": true,
+      "different_Yukawa_invariants_are_physically_equivalent": false,
+      "intrinsic_CKM_CP_capability_preserved": true,
+      "weak_sector_UV_counting_clause_preserved": true
+    },
+    "additional_axioms_used": false,
+    "artifact": "oph_quark_axiom_level_yukawa_moduli_nonidentifiability",
+    "counterfamily": {
+      "CKM_matrix_preserved": true,
+      "CP_capability_preserved": true,
+      "baseline": "Y_q = U_qL diag(exp(mu_q + sigma_q*v_q1), exp(mu_q + sigma_q*v_q2), exp(mu_q + sigma_q*v_q3)) U_qR^dagger, q in {u,d}, sum_i v_qi = 0",
+      "family": "Y_q(lambda_q) = U_qL diag(exp(mu_q + lambda_q*sigma_q*v_q1), exp(mu_q + lambda_q*sigma_q*v_q2), exp(mu_q + lambda_q*sigma_q*v_q3)) U_qR^dagger",
+      "free_action": "(lambda_u,lambda_d).(sigma_u,sigma_d) = (lambda_u*sigma_u,lambda_d*sigma_d)",
+      "left_and_right_frames_preserved": true,
+      "normalized_determinants_preserved": "det(exp(lambda_q*sigma_q*v_q)) = exp(lambda_q*sigma_q*sum_i(v_qi)) = 1",
+      "parameter_space": "(lambda_u,lambda_d) in (R_{>0})^2",
+      "quark_mass_singular_values_changed": true,
+      "quark_spreads_changed": true,
+      "simple_spectrum_preserved": true
+    },
+    "proof_status": "closed_axiom_level_nondefinability_theorem",
+    "public_numeric_quark_rows_allowed": false
+  },
   "quark_scheme_and_yukawa_boundary": {
     "artifact": "oph_quark_running_mass_scheme_convention_obstruction",
     "closure_effect": {
@@ -533,6 +562,12 @@
         "scale": null
       }
     },
+    "external_chart_boundary": {
+      "allowed_role": "After OPH emits an RG-covariant physical trajectory or invariant, MSbar and a reporting scale may be declared as an external comparison chart.",
+      "choosing_MSbar_is_a_physical_axiom": false,
+      "choosing_a_reporting_scale_is_a_physical_axiom": false,
+      "current_blocker": "The physical trajectory/invariant is absent; merely naming a chart cannot supply its boundary data."
+    },
     "issue_acceptance": {
       "381": {
         "acceptance_met_as_sharper_obstruction": true,
@@ -550,6 +585,29 @@
         "theorem_grade_heavy_quark_scheme_transport_artifact_or_sharper_obstruction": true,
         "threshold_matching_and_scheme_nonidentifiability_formalized": true
       }
+    },
+    "physical_rg_dynamics_nondefinability": {
+      "additional_axiom_used": false,
+      "physical_outputs_changed": [
+        "RGI quark mass vector",
+        "Y_u(mu) and Y_d(mu) trajectories",
+        "threshold crossing locations induced by the mass spectrum"
+      ],
+      "same_source_completion_A": "generic admissible normalized Yukawa boundary Y_u,Y_d at mu_source",
+      "same_source_completion_B": "independently rescaled generic admissible Yukawa boundary Y_u'=lambda_u*Y_u, Y_d'=lambda_d*Y_d",
+      "source_RGI_mass_vector_emitted": false,
+      "source_objects_held_fixed": [
+        "Axioms 1--5",
+        "P",
+        "structural Standard-Model sector package",
+        "gauge and anomaly data",
+        "generation count and CP capability",
+        "current target-free D12 homogeneous identities"
+      ],
+      "source_running_v_trajectory_emitted": false,
+      "source_six_flavor_Yukawa_trajectory_emitted": false,
+      "source_threshold_composition_emitted": false,
+      "statement": "The current OPH source signature contains no normalized fermionic/Yukawa effective action, six-flavor matrix RG vector field, running Higgs expectation value, or completed heavy-threshold trajectory. Two completions can therefore agree on every emitted source object while carrying different renormalized Yukawa boundary data and different RGI quark masses. The physical RG trajectory itself, not merely its coordinate chart, is non-definable on the current corpus."
     },
     "proof_status": "closed_structural_finite_renormalization_nonidentifiability_obstruction",
     "row_partition": {
@@ -731,6 +789,7 @@
     "measured_endpoint_calibration": "code/P_derivation/runtime/measured_endpoint_calibration_current.json",
     "p_trunk": "code/P_derivation/runtime/p_closure_trunk_current.json",
     "pipeline_status": "code/particles/runs/status/particle_pipeline_closure_status.json",
+    "quark_axiom_level_yukawa_moduli_nonidentifiability": "code/particles/runs/flavor/quark_axiom_level_yukawa_moduli_nonidentifiability.json",
     "quark_running_mass_scheme_convention_obstruction": "code/particles/runs/flavor/quark_running_mass_scheme_convention_obstruction.json",
     "quark_sigma_source_datum_no_target_leak_required": "code/particles/runs/flavor/quark_sigma_source_datum_no_target_leak_required.json",
     "quark_sigma_source_nonidentifiability_obstruction": "code/particles/runs/flavor/quark_sigma_source_nonidentifiability_obstruction.json",

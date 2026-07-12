@@ -11,7 +11,7 @@
   "g_d_over_g_ch": 0.1318566277486777,
   "g_u_candidate": 0.7797392875757557,
   "g_u_over_g_ch": 0.8446363650020002,
-  "generated_utc": "2026-07-12T03:23:13Z",
+  "generated_utc": "2026-07-12T03:51:23Z",
   "mean_denominator": 2.026389321714338,
   "mean_law_kind": "theorem_grade_two_scalar_affine_readout_closed",
   "metadata": {
@@ -33,7 +33,7 @@
   "skew_denominator": 0.6153378885446816,
   "skew_readback": 0.9285955092923044,
   "skew_readback_formula": "eta_ud / (2 * (1 - x2^2 - x2^2 / (1 + rho_ord)))",
-  "smallest_constructive_missing_object": null,
+  "smallest_constructive_missing_object": "oph_family_excitation_spread_map",
   "source_artifacts": {
     "shared_norm_binding": "quark_shared_absolute_norm_binding",
     "spread_map": "oph_family_excitation_spread_map"

@@ -1,6 +1,6 @@
 # Final End-to-End Particle Predictions
 
-Generated: `2026-07-12T03:22:11Z`
+Generated: `2026-07-12T03:51:10Z`
 
 Scope: `nonhadron_particle_pipeline_with_empirical_hadron_closure_policy`
 Claim label: `final_nonhadron_predictions_with_classical_carriers_and_empirical_hadrons_separated`
@@ -90,6 +90,16 @@ These rows are retained in audit surfaces but are not numeric predictions.
 - Compatible spread fiber: `(R_{>0})^2` (dimension `2`)
 - Independent unselected coordinates: `['sigma_u', 'sigma_d']`
 - Missing gates: `['QUARK_SOURCE_SPREAD_PAIR_ACTION_BREAKING_THEOREM', 'QUARK_SOURCE_SPREAD_SECTOR_ATTACHMENT_AND_REFINEMENT', 'NO_TARGET_LEAK_DAG_QUARK_SOURCE_SPREAD']`
+
+## Quark Axiom-Level Non-Definability
+
+- Artifact: `oph_quark_axiom_level_yukawa_moduli_nonidentifiability`
+- Status: `closed_axiom_level_nondefinability_theorem`
+- Additional axioms used: `False`
+- Counterfamily: `(lambda_u,lambda_d) in (R_{>0})^2`
+- MAR complexity vector: `(chi_cpl,N_nonab,N_c,N_g)`
+- Equal MAR score across counterfamily: `True`
+- Public numeric quark rows allowed: `False`
 
 ## Quark Scheme and Yukawa Boundary
 
