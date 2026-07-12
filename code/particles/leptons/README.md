@@ -37,6 +37,30 @@ determinant attachment, family assignment, and mass-scheme bridge are not
 derived from current OPH axioms. It is therefore an accurate historical
 postdiction, not a promoted prediction.
 
+## Scoped Non-Identifiability And Exact Port Frontier
+
+- `derive_charged_current_oph_moduli_independence.py` binds the relevant
+  structural receipts and proves a carefully scoped result. D9 charged-channel
+  admissibility, fixed D10 `P,v(P)`, and invariant 12/24 data permit the exact
+  family
+  `diag(exp(mu+x), exp(mu+y), exp(mu-x-y))`; they do not select its two centered
+  coordinates or common affine coordinate. Mass-dependent electromagnetic
+  endpoint transport is explicitly outside this scope.
+- `derive_charged_a5_w5_port_frontier.py` proves
+  `R^12 = W1 + W3 + W3' + W5`, constructs
+  `P5=(I+A_antipode)/2-11^T/12`, and verifies
+  `Q^*Q=(8/5)P5`. Only a source-emitted `W5` port record can feed the traceless
+  quadrupole. The current uniform 12-port load and count-only 24-slot
+  orientation data have zero `W5` projection.
+- Three geometric lines require the strict discriminant gate
+  `(tr Q^2)^3/2-3(tr Q^3)^2>0`. Physical charged lines additionally require a
+  source-defined generation-space `A5` action and a normalized, signed
+  intertwiner. Absolute masses still require `log|det Y_e|` and a declared mass
+  scheme.
+
+These are negative/frontier theorems for the current source signature, not a
+claim that every future OPH extension must fail.
+
 ## How To Read The Active Charged-Lepton Files
 
 The live charged scripts use the same compact derivation header:
@@ -116,7 +140,7 @@ The post-promotion lift slot is packaged in carrier form:
   This fixes the smallest supported bridge target for the `P`-driven absolute
   lane. A theorem-grade landing from the D10 descendants of `P` on theorem-
   grade physical `Y_e(P)` or on the charged determinant line forces
-  `A_ch(P) = (1/3) * log(det(Y_e(P)))`, so the bridge target is smaller than a
+  `A_ch(P) = (1/3) * log|det(Y_e(P))|`, so the bridge target is smaller than a
   free-standing affine-scalar theorem.
 
   The same descent package also gives a sharper P-threaded reformulation:
@@ -126,11 +150,13 @@ The post-promotion lift slot is packaged in carrier form:
   a separate bridge-sized theorem.
 
 - `oph_charged_determinant_character_frontier`
-  This records the source-facing charged frontier. The live same-
-  label readback populates the uncentered `q_e = sqrt(g_e d_e)` values,
-  so the source-side determinant character `S_M = sum_e M_e^ch log q_e`
-  is defined on the realized support for a fixed formal source exponent vector.
-  The formal no-go isolates one additive determinant normalization
+  This records the proposed source-facing charged frontier. The present
+  `q_e = sqrt(g_e d_e)` values are template-dependent refinement-arrow defects,
+  not an independently descended nonzero same-object multiplicative character;
+  the identity arrow gives `q=0`, so its logarithm is not finite. Therefore the
+  candidate expression `S_M = sum_e M_e^ch log q_e` does not yet define a
+  physical determinant character on the realized support. The formal no-go
+  isolates one additive determinant normalization
   attaching that source-side character to the physical charged determinant
   line. Equivalently, the exact smaller theorem is the sector-
   isolated trace-lift attachment
@@ -164,7 +190,7 @@ The post-promotion lift slot is packaged in carrier form:
   current local surface. It does not claim a quark-style public selected-class
   charged source descent. It states that on theorem-grade physical charged
   `Y_e(P)`, once theorem-grade `C_hat_e` exists, the determinant line fixes the
-  canonical physical affine scalar `mu_phys(Y_e(P)) = (1/3) * log(det(Y_e(P)))`
+  canonical physical affine scalar `mu_phys(Y_e(P)) = (1/3) * log|det(Y_e(P))|`
   and therefore the canonical uncentered lift, determinant-line, affine-anchor,
   and charged mass formulas.
 
@@ -174,7 +200,7 @@ The post-promotion lift slot is packaged in carrier form:
   canonically fix
   `C_tilde_e(Y_e) = C_hat_e(Y_e) + mu_phys(Y_e) I`
   with
-  `mu_phys(Y_e) = (1/3) * log(det(Y_e))`.
+  `mu_phys(Y_e) = (1/3) * log|det(Y_e)|`.
   The identity-mode equalizer on a fixed physical fiber is then tautological.
 
 - `oph_charged_mass_readout_from_affine_anchor`

@@ -77,7 +77,7 @@ standard description spends roughly thirty tuned inputs, OPH carries two
 computed endpoints and a small integer package. Two numbers do not have room
 to memorize that much independent structure; if the structure appears anyway,
 it was generated, not stored. Section 5 also records the rows on which the
-anti-fitting rule below has already fired against OPH.
+anti-fitting rule below has fired against OPH.
 \textbf{The headline coincidence illustration: multiplying the deliberately
 coincidence-friendly window fractions itemized in Section 5 gives roughly
 \(1\) in \(10^9\)---and the product must be inflated by four orders of
@@ -85,7 +85,9 @@ magnitude, ten-fold on every window, before it stops being remarkable
 (\(\sim10^{-5}\)).} This is not a posterior probability that OPH is correct
 or incorrect. Section 5 states the preregistered compression protocol needed
 to turn the illustration into a formal test, and names the one escape the
-illustration cannot close.
+illustration cannot close. The one numerical residual the trunk leaves open is
+itself measured from three independent directions in Section 2, and the three
+readings agree on known hadronic transport in location, size, and sign.
 
 Once the rules and readout maps are fixed before comparison, the finite branch
 has one output. OPH is wrong if that output leaks targets, admits an equally
@@ -437,23 +439,60 @@ residual would be accounting, and is not done. Source-only closure of this row r
 hadronic spectral measure and same-scheme finite endpoint remainder without
 Thomson-target leakage---a finite-lattice QCD computation outside this compact
 proof; OMEGA is the optical fixed-point compute lane for such payloads [S14].
+
+The missing map is itself measured, from three mutually independent
+directions, and the three readings agree [C1,C2]. First, the empirical
+Thomson-endpoint lane certifies the same-scheme anchor gap as the interval
+\([0.6486,\,0.8548]\) in inverse-\(\alpha\) units at \(M_Z\). Second, the
+standard on-shell decomposition (three-loop leptonic, data-driven five-flavor
+hadronic, top) prices the deficit of a one-loop anchor that carries no
+nonperturbative hadronic running at \(0.6309\), at the lower edge of that
+certified interval: the gap between the OPH anchor \(a_0=128.30797\) and the
+physical \(\alpha^{-1}(M_Z)=128.9389\) has the size and the sign of the known
+hadronic and higher-order running, a running deficit rather than an anchor
+error. Third, a declared-empirical companion compiles the public
+\(e^+e^-\!\to\text{hadrons}\) \(R(s)\) data (PDG-2025 resonance parameters
+plus the five-flavor perturbative tail; no CODATA \(\alpha\) anywhere in the
+compilation) through the declared Ward-projected dispersion kernel and
+returns \(\Delta\alpha^{(5)}_{\rm had}(M_Z^2)=0.02676\pm0.00075\), consistent
+with the independent KNT19 dispersion value \(0.02761(11)\). The companion
+carries the empirical closure surface under its own declared row class and is
+never counted as source-only. A wrong source chain has no reason to stop at
+exactly the point where independently measured physics supplies a correction
+of exactly this location, size, and sign. The source-only completion reduces
+to one named computation, the OPH hadronic spectral measure; a lattice lane
+for it sits in the public code (quenched \(\mathrm{SU}(3)\), clover-Wilson
+fermions, HMC, pion and nucleon spectroscopy receipts), is self-declared
+diagnostic until it emits the vector-current correlator, and can upgrade no
+row class before that object exists [C2].
+
 Until that map is emitted, CODATA/NIST \(\alpha(0)\), hadron masses, and the
 SI \(G\) clock row stay in the calibrated comparison lane [O5,O6],
 \(P_{\rm full}\) names the hadron-completed endpoint, and the compact count
 uses the QCD-free hierarchy witness below, which avoids the hadronic
 correction completely.
 
-The absence of that one map shows up coherently: three of the four
-conditional electroweak envelopes (\(M_W\), \(m_H\), \(m_t\)) sit inside
-their one-sigma bands and \(M_Z\) overlaps its band; the \(M_Z\) excess at
-the endpoint pixel equals the anchor deficit propagated through
-\(\mathrm dM_Z/\mathrm dP\) (the rival coupling-injection mechanism
-overshoots ten-fold when computed, so the localization is forced, not
-assumed). The older charged-lepton transport inversion also uses that
+The absence of that one map shows up coherently across the whole comparison
+surface. A compare-only attribution audit recomputes every named residual in
+one table: the conditional electroweak envelopes put \(M_W\) at
+\(0.31\sigma\), \(m_t\) at \(0.36\sigma\), and \(m_H\) at \(0.70\sigma\)
+inside their bands, \(M_Z\) sits \(2.6\sigma\) high, and the anchor deficit,
+the endpoint gap, the on-shell \(W/Z\) value-law gap, and the charged-lepton
+central offsets complete the list. Each row carries a mechanism hypothesis
+and a falsification test, and the tests that could run have run: injecting
+the anchor gap into the couplings moves \(M_Z\) by tens to hundreds of MeV in
+the wrong direction and is recorded falsified, while the pixel channel
+reproduces the endpoint shift to \(-0.05\) MeV, so the \(M_Z\) localization
+is forced, not assumed. Every \(\alpha\)-lane residual reduces to the same
+two open objects, the source hadronic spectral measure and the anchor scheme
+bridge; the \(M_W\)/\(m_H\)/\(m_t\) envelope widths reduce to the
+selection-axiom source derivation; no row requires a new axiom or a new
+constant. The older charged-lepton transport inversion also uses that
 target-containing empirical-closure surface, so its intervals are comparison
-diagnostics rather than source-emitted masses. These comparison-class surfaces sit
-outside the counted rows; one missing object carries every residual in this
-section [O5,C2].\par}
+diagnostics rather than source-emitted masses. These comparison-class
+surfaces sit outside the counted rows. Residuals of a wrong theory scatter;
+these point at one absent computation from five directions at once
+[O5,C1,C2].\par}
 
 The global constant is computed from the screen-capacity readback equation
 [O1,O4]:
@@ -597,7 +636,7 @@ MaxEnt branch do not derive it. In fact the natural trace base weights the
 one-dimensional real singlet and two-dimensional real charged block as
 \(1{:}2\). Koide balance requires an additional one-bit compensation
 \(S_c-S_0=\ln2\), together with a theorem identifying MaxEnt block weights
-with deterministic charged-Yukawa powers. The \(12/24\) register currently
+with deterministic charged-Yukawa powers. The \(12/24\) register
 supplies neither attachment.
 If charged square-root masses lie on this assumed continuation-carrier direction,
 \(m_i=s_e r_i^2\), then Koide follows exactly:
@@ -668,7 +707,28 @@ and sorted-root attachment have no present source theorem. No charged RG and
 threshold theorem maps this mass coordinate to pole masses. The executable
 formula is frozen in
 \texttt{code/particles/runs/leptons/charged\_stage5\_frozen\_candidate.json};
-later improvements must be recorded as new candidates [O5,O6,A15,A16].\par}
+later improvements must be recorded as new candidates [O5,O6,A15,A16].
+
+\smallskip
+The absolute scale carries a certified interval on the empirical closure
+surface. The charged trace-lift no-go leaves the one-parameter rescaling
+\(Y_e\to e^{\kappa}Y_e\) free in the source chain; that countermodel fails to
+commute with the declared Thomson transport, because the lepton
+vacuum-polarization packet obeys
+\(\mathrm d(\mathrm{packet})/\mathrm d\kappa=-2/\pi\) and drags the fixed
+point \(P\) with it. Inverting the declared transport against the certified
+anchor-gap interval and the empirical hadronic payload (measured
+\(\alpha^{-1}(0)\) is declared inside this solve path, so the row is
+empirical closure and never source-only) identifies
+\(\kappa\in[-0.3455,\,0.3371]\), with central masses \(0.5089\,\mathrm{MeV}\),
+\(105.22\,\mathrm{MeV}\), and \(1.7695\,\mathrm{GeV}\), within \(0.5\%\) of
+the physical triple, and the physical triple inside every certified
+interval. The interval-width budget decomposes term by term into the
+hadronic payload uncertainty and the anchor-gap half width, so the surviving
+scale freedom is carried by the same open hadronic transport as the
+fine-structure residual. The frozen Stage-5 packet matches the physical
+packet at the \(|\kappa|\simeq0.006\) level, so the quarantined determinant
+prescription is consistency-tested rather than free [O5,O6,C2].\par}
 
 \vspace{0.22em}
 {\bfseries\color{pragmaCyanText}The QCD-free hierarchy witness}\par
@@ -771,8 +831,8 @@ endpoint is \(x_\star=\log(N_{\rm CRC}^{\rm EW}/\pi)\); the residual
 vanishes there by construction, and the finite readback-resolution result
 supplies the positive-root limit
 \(\rho_{\rm read}(r,N_{\rm CRC}^{\rm EW})\to(N_{\rm CRC}^{\rm EW}/\pi)^{-1/2}\)
-[O5,C3]. This bridge capacity is bookkeeping, not a counted row---but it lands
-next to the global closure target: the screen depths
+[O5,C3]. This bridge capacity is bookkeeping rather than a counted row. It
+lands next to the global closure target: the screen depths
 \(\log(N_{\rm CRC}^{\rm EW}/\pi)=281.03\) and
 \(\log(N_\star/\pi)\simeq280.97\) agree to \(2.1\times10^{-4}\). On this
 branch the weak hierarchy and the horizon capacity are one magnitude
@@ -1013,6 +1073,15 @@ and a calibrated higher-order remainder. It illustrates scale identifiability
 but is not a source-only charged-mass theorem. &
 [O5,C2]\\
 
+Charged-lepton \(\kappa\)-interval from \(\alpha\) transport &
+Comparison diagnostic &
+The declared Thomson transport removes the trace-lift rescaling freedom on
+the empirical closure surface: \(\kappa\in[-0.3455,0.3371]\), the physical
+triple inside every certified interval, width budget carried by the open
+hadronic object. Measured \(\alpha^{-1}(0)\) is declared inside this solve
+path. &
+[O5,C2]\\
+
 CODATA/NIST \(\alpha(0)\) and \(P_C\) &
 Comparison only &
 The measured endpoint requires the missing QCD/hadronic electromagnetic transport.
@@ -1108,8 +1177,12 @@ numeric rows are withheld under a proved two-modulus non-identifiability
 obstruction, the \(M_Z\) coupling-injection mechanism was computed and
 falsified, and a two-loop source-side closure attempt for the anchor overshot
 its certified target for every declared convention and was recorded
-fail-closed the same day [O5,C2]. A theory being fitted silently does not
-keep public records of its own misses.}\par
+fail-closed the same day [O5,C2]. The flavor lane keeps the same discipline:
+a systematic carrier-readout survey over the full declared kernel grammar
+published its complete table under predeclared shortlist criteria, charged
+the chance-in-band multiplicity, and returned an empty shortlist [C2]. A
+theory being fitted silently does not keep public records of its own
+misses.}\par
 
 \infobox{Too many problems fall out at once}{
 \small
@@ -1188,7 +1261,7 @@ scheme-controlled measurements exclude the stated surfaces, or CERN/FCC finds
 a light visible gauge boson or chiral exotic incompatible with the branch.
 \par\smallskip
 \textbf{Dark-sector cosmology [O7,C4].}
-The honest current row is galactic. On the public SPARC rotation-curve sample,
+The current supported row is galactic. On the public SPARC rotation-curve sample,
 with systematic profiling over mass-to-light, distance, inclination, and gas,
 the OPH unit branch scores \(\chi^2/{\rm pt}=1.017\) against \(1.023\) for the
 same-function empirical reference, with \(11.25\,{\rm km\,s^{-1}}\) velocity
@@ -1205,6 +1278,37 @@ anti-fitting rule; coordinates and audit detail live in the
 \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/OPH_falsifiability.md}{falsifiability map}.
 A future counted neutrino row requires a source-emitted operator, closed
 charged basis, physical mass-label rule, and pre-registered hash.}
+
+\infobox{The remaining ways out}{
+\small
+The document is built so that disagreement has to land somewhere specific. A
+reader who rejects the conclusion has three places to stand, and the record
+prices each one.
+\par\smallskip
+\textbf{Coincidence.} Accept the conjunction at the deliberately generous
+windows above: about \(1\) in \(10^9\), and about \(1\) in \(10^5\) after
+every window is inflated ten-fold in coincidence's favor, before the
+Born/Tsirelson surface, the gravity normalization, SPARC, or \(\Lambda\)
+enter the product. The coincidence reader must also explain why the one open
+residual sits exactly where known hadronic transport predicts a correction
+of exactly the certified size and sign.
+\par\smallskip
+\textbf{Silent fitting.} Hold that the branch was tuned toward the answers.
+The public ledger obstructs this directly: the rejected neutrino candidate,
+the withheld quark rows under a proved non-identifiability obstruction, the
+computed and falsified \(M_Z\) coupling-injection mechanism, the fail-closed
+two-loop anchor attempt, and the empty flavor-survey shortlist are recorded
+misses that tuning would have hidden. Whatever tuning survives is priced by
+the frozen compression protocol at full description length on held-out data.
+\par\smallskip
+\textbf{A broken chain.} Find the error. Every counted row is an executable
+calculation with a stated failure condition, the solver commands and runtime
+reports are public, and one central failure kills the compact claim; the
+contact address above accepts exactly this kind of mail.
+\par\smallskip
+The argument asks for no trust in the authors' judgment. Each of the three
+positions is checkable against the public record, and the compact claim
+stands exactly as long as all three stay blocked.}
 
 \vspace{0.55em}
 \sect{Appendix A. Assigning a number to Newton's constant}
