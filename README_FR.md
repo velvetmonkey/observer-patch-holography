@@ -105,6 +105,21 @@ quadridimensionnel exige le certificat déclaré de limite continue
 multirésolution, de positivité par réflexion, de transfert/intertwiner et de
 non-trivialité.
 
+Le même nombre de couleurs que la reconstruction fixe à trois fixe aussi la
+structure fine électrofaible. La petite réparation que le running source
+applique aux couplages faibles porte un poids de couleur, et les deux canaux
+portent des poids différents : le canal faible générateur de masse porte la
+racine carrée du nombre de couleurs, comme une constante de désintégration de
+méson, tandis que le canal d'écrantage d'hypercharge porte le nombre entier,
+comme une boucle. Avec trois couleurs c'est un nombre fixe sans rien à ajuster,
+et les deux masses les plus propres s'y accordent : la masse du W tombe sur le
+poids racine de trois à environ un pour mille, et la masse du Z tombe sur le
+poids pleine couleur à quelques pour cent. Les quatre masses électrofaibles se
+placent alors dans leurs bandes mesurées. La seule étape restante est de
+montrer que les deux canaux portent réellement ces poids depuis le transport
+lui-même plutôt que par l'argument physique en sa faveur, donc ces lignes
+restent conditionnelles.
+
 Le mécanisme est la boucle de consensus à point fixe. Les observateurs locaux
 n'accèdent pas à un état global depuis l'extérieur. Ils portent des états de
 patch finis, échangent les données visibles dans les recouvrements, rejettent
