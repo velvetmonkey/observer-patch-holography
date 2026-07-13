@@ -54,8 +54,8 @@ conditions. The same fixed-point stack also carries the de Sitter capacity
 relation, separates the source-audit, empirical, and measured fine-structure
 coordinates, and organizes conditional particle and weak-scale branches.  Its
 clean quantitative output is a dimensionless hierarchy and a zero selected-chart
-Higgs naturality defect; it does not yet supply source-only particle pole masses
-or flavor spectra.
+Higgs naturality defect. Source-only particle pole masses and flavor spectra
+are work in progress.
 \end{abstract}
 
 \section{Introduction}
@@ -66,12 +66,11 @@ The computation in this paper uses fixed-point language, but OPH does not define
 bare fixed point. A conventional frame-rendering computation would evolve surrogate universe states
 \(U_t\to U_{t+1}\to\cdots\). OPH instead studies a readback-and-repair operator on
 observer-facing world candidates and asks for stable normal forms \(W\) satisfying
-\(\mathcal T(W)=W\). The companion consensus paper makes the firewall explicit:
-Definition~\texttt{def:oph-simulation} requires recovery-derived endogenous update, nontrivial
-quotient-readable records, overlap repair with schedule-independent normal form, elimination of a
-proper candidate basin in the selected boundary/sector fiber, and implementation/clock closure;
-Theorem~\texttt{thm:oph-simulation} proves those clauses for the selected finite packet under its
-stated branch and record hypotheses and gives a generic fixed-point/variational counterexample
+\(\mathcal T(W)=W\). The companion consensus paper requires recovery-derived endogenous update,
+nontrivial quotient-readable records, overlap repair with schedule-independent normal form,
+elimination of a proper candidate basin in the selected boundary or sector fiber, and implementation
+and clock closure. It proves those clauses for the selected finite packet under its stated branch
+and record hypotheses and gives a generic fixed-point or variational counterexample
 \cite{ophconsensus}. The repair schedule is a theorem device for selecting quotient normal forms;
 it is not a one-to-one clock for cosmic time. In the fundamental description there is no global
 timeline that renders spacetime contents tick by tick; history is the internal readout of the
@@ -485,7 +484,7 @@ The fine-structure value would be forced on this branch once a certified
 unique root is shown, because the same local pixel
 must satisfy the outer entropy-detuning equation and the inner electromagnetic
 endpoint equation with no remaining free local scale.
-The current source-audit artifact, before the low-energy hadronic endpoint
+The source-audit artifact, before the low-energy hadronic endpoint
 transport is supplied, records the candidate
 \[
 \alpha_{\mathrm{root}}^{-1}
@@ -494,7 +493,7 @@ transport is supplied, records the candidate
 It is a branch witness, not a full endpoint proof: the printed
 \(P_{\rm cand}=1.630972095694329\ldots\) and inverse width do not exactly
 satisfy the displayed fixed-point identity, and the full Ward-projected
-\(A_T(P)\) self-map still needs an interval existence-and-uniqueness
+\(A_T(P)\) self-map requires an interval existence-and-uniqueness
 certificate.
 For comparison bookkeeping, adding the finite-screen unified gauge-width contribution evaluated at
 the CODATA-derived comparison pixel, \(\alpha_U(P_C)=0.041124336195630495\), to the source/root
@@ -1118,10 +1117,10 @@ D(\sigma\|\omega_L(\lambda'))=-S(\sigma)+\sum_c\lambda'_c\langle S_c\rangle_\sig
 \(\log Z_L\) is smooth, and its Hessian is the Duhamel (Kubo--Mori) covariance matrix of the \(S_c\) in \(\omega_L(\lambda')\), which is positive definite exactly when the \(S_c\) and \(\mathbf 1\) are linearly independent; this gives strict convexity, hence uniqueness of any minimizer, and the vanishing-gradient condition is the displayed moment matching. Attainment for faithful \(\sigma\) is finite-dimensional exponential-family duality: the moment map \(\lambda'\mapsto(\langle S_c\rangle_{\omega_L(\lambda')})_c\) is a diffeomorphism onto the relative interior of the achievable moment set, which contains the moment vector of every faithful state \cite{wichmann63}. Part (ii) is the quantum Pinsker inequality \(D(\rho\|\tau)\ge\tfrac12\|\rho-\tau\|_1^2\) \cite{hiaiOhyaTsukada81} evaluated at \(\lambda^\ast\). Part (iii) follows because the attained infimum vanishes iff \(D(\sigma\|\omega_L(\lambda^\ast))=0\) iff \(\sigma=\omega_L(\lambda^\ast)\), by strict positivity of relative entropy off the diagonal.
 \end{proof}
 
-A finite two-lattice acceptance check implementing this counting and projection package---the constraint/multiplier count against the displayed \((N_{\mathrm{con}}+N_{\mathrm{glob}})\)-dimensional family, the moment-matching projection, the residual bound, a generic channel with strictly positive closure defect, and an exactly closed subfamily---is included with the repository sources (\texttt{code/maxent/}).
+A finite two-lattice acceptance check implements this counting and projection package. It covers the constraint/multiplier count against the displayed \((N_{\mathrm{con}}+N_{\mathrm{glob}})\)-dimensional family, the moment-matching projection, the residual bound, a generic channel with strictly positive closure defect, and an exactly closed subfamily. The check is included with the repository sources (\texttt{code/maxent/}).
 
 \paragraph{Central-interface collar clause (declared branch input).}\label{par:cicclause}
-For every collar cut \(\Sigma\) used by the literal exact-Markov identities of this manuscript, the retained constraint family of Axiom~\ref{ax:maxent} is declared to be \emph{central-interface} in the sense of Theorem~\ref{thm:msaderivation}: every retained density whose support meets both half-collars of \(\Sigma\) acts through the boundary-charge (flux) functions in \(\pi_L\bigl(Z(C^*(\widehat K_\Sigma))\bigr)\), while all remaining terms are one-sided \(\widehat K_\Sigma\)-invariant operators. This is an explicit axiom-level input of the declared branch, on the same footing as the refinement-closure clause above: it is \emph{not} derived from overlap consistency. Under this clause, Theorem~\ref{thm:msaderivation} derives the Markov-split alignment hypothesis (Definition~\ref{def:ecaligned}) and exact collar Markovianity for the MaxEnt reference states, so the MSA-conditioned identities of this manuscript hold on the declared branch without a separate state hypothesis. Lattice-gauge-type regulators satisfy the clause manifestly, their interface energy being a function of the conserved flux; the Bell-pair state of Remark~\ref{rem:hjpwalignment} violates it and marks the failure boundary. Whether overlap-consistent repair \emph{forces} this clause---that is, excludes non-central cross-cut couplings rather than merely not selecting them---remains an open derivation target (Remark~\ref{rem:msascope}).
+For every collar cut \(\Sigma\) used by the literal exact-Markov identities of this manuscript, the retained constraint family of Axiom~\ref{ax:maxent} is declared to be \emph{central-interface} in the sense of Theorem~\ref{thm:msaderivation}: every retained density whose support meets both half-collars of \(\Sigma\) acts through the boundary-charge (flux) functions in \(\pi_L\bigl(Z(C^*(\widehat K_\Sigma))\bigr)\), while all remaining terms are one-sided \(\widehat K_\Sigma\)-invariant operators. This is an explicit axiom-level input of the declared branch, on the same footing as the refinement-closure clause above. Overlap consistency does not derive it. Under this clause, Theorem~\ref{thm:msaderivation} derives the Markov-split alignment hypothesis (Definition~\ref{def:ecaligned}) and exact collar Markovianity for the MaxEnt reference states, so the MSA-conditioned identities of this manuscript hold on the declared branch without a separate state hypothesis. Lattice-gauge-type regulators satisfy the clause manifestly, their interface energy being a function of the conserved flux; the Bell-pair state of Remark~\ref{rem:hjpwalignment} violates it and marks the failure boundary. Deriving the clause from overlap-consistent repair is work in progress (Remark~\ref{rem:msascope}).
 
 \begin{axiom}[Recoverable Generalized Entropy]\label{ax:entropy}
 A generalized entropy functional exists on caps,
@@ -1200,7 +1199,7 @@ Node & Theorem labels and output & Immediate OPH ingredients & Standard mathemat
 \textbf{D3g} & Conditional record-populated \(H^3\) localization (Corollary~\ref{cor:conditional-record-populated-h3}) & D3f plus record-conditioned modular cap responses, point-local source factorization, compact source domain, quantitative cap frame, bounded error, and residual optimization & hyperbolic cap half-spaces, finite conditioned frames, finite \(\varepsilon\)-nets, and residual inverse-stability estimates & point locality is a branch hypothesis or finite receipt; noisy finite uniqueness requires \(\Delta_{\mathrm{loc}}>0\); species, stress, neutral bulk, and Einstein entry are not implied & conditional theorem \\
 \textbf{D3h} & Lemma~\ref{lem:incidence-invariance}; Theorems~\ref{thm:topology-production}, \ref{thm:conformal-cap-production}, \ref{thm:certificate-production}, \ref{thm:incidence-underdetermination}: quotient-intrinsic geometry producer (incidence complex, produced \(S^2\) topology, conformal/cap structure, certificate production) and the confluence-underdetermination no-go & D1 normal forms plus the spherical incidence, disk/mesh, modular cross-ratio, and \(2\pi\)-normalization receipts & classification of closed combinatorial surfaces;\newline Rad\'o uniqueness;\newline M\"obius cross-ratio rigidity on \(S^2\) & receipts are decidable finite-stage predicates on normal forms; their selection is not implied by confluence (explicit \(T^2\), \(\partial\Delta^4\), wedge, and wrong-\(\beta\) countermodels); \(S^2\) and its conformal class are derived only on the receipt branch & producer theorem plus underdetermination no-go \\
 \textbf{D4} & Propositions~\ref{prop:nullec}, \ref{prop:n3}; Corollaries~\ref{cor:n1}, \ref{cor:n2}; Theorem~\ref{lem:density}, Lemma~\ref{lem:translation}; Theorem~\ref{thm:stress}: null modular bridge to \(T_{kk}\), including exact-or-controlled strip additivity, endpoint-Lipschitz renormalized half-line families, the weak tail generator, the derived half-sided modular inclusion, the explicit positive half-line null-translation generator on its Stone domain with affine half-line modular relations, and the exact half-line generator/charge identification with the local null-stress charge & D2+D3 and Axioms~\ref{ax:screen}--\ref{ax:entropy} & Borchers--Wiesbrock positive-generator theorem for standard half-sided inclusions; Stone's theorem; distributional differentiation on half-lines & the theorem-local null-cut center transfer, the inherited left/right strip-split package used for the spatial-collar-type tensor decomposition, and the exact-or-controlled Markov hypotheses of Proposition~\ref{prop:nullec} and Corollary~\ref{cor:n1}; quasi-local propagation and endpoint-Lipschitz control are supplied internally by Axiom~\ref{ax:maxent} on the local finite-constraint branch; the geometric scaling action on the null half-line blow-up net derives the half-sided modular pair; bounded-interval formulas are discharged by Lemma~\ref{lem:bounded-interval-kernel}; null-net standardness, the derived half-sided inclusion, M\"obius bounded-interval covariance, Markov modular locality with its counterexample boundary, and the four-translation assembly are supplied by Theorems~\ref{thm:null-net-standardness}--\ref{thm:four-translation-assembly}, with the \(\mathsf{Cyc}\), \(\mathsf{NTI}\), weak-additivity, \(\mathsf{MI}\), and kernel-residual receipts explicit & bridge theorem plus D4-standardness packet \\
-\textbf{D4b} & \S\ref{subsec:event-manifold} (Theorems~\ref{thm:event-4-manifold}, \ref{thm:event-causal-structure}, \ref{thm:event-tetrad-metric}, \ref{thm:clock-gluing}; Propositions~\ref{prop:h3-fiber-not-slice}, \ref{prop:event-countermodels}): conditional Lorentzian event manifold --- quotient-intrinsic event classes, conditional four-dimensional atlas with signature \((-{+}{+}{+})\), causal order/time orientation, \(H^3\) strictly as frame fiber, tetrads/metric/connection/curvature readout, glued modular clocks, countermodels & D3f--D3h and D4 outputs plus receipts \(\mathsf{E1}\)--\(\mathsf{E4}\) & bi-Lipschitz atlas arguments;\newline convex-cone/quadric signature classification;\newline Rademacher/Carath\'eodory regularity & \(\mathsf{E1}\)--\(\mathsf{E4}\) with \(\mathsf{E4'}\)/smooth upgrade, \(\mathsf{MI}\)/assembly branch, absolute conformal scale, stable causality, and record-Cauchy receipt remain explicit; countermodels show \(\dim H^3=3\) promotes nothing by itself & conditional construction theorem \\
+\textbf{D4b} & \S\ref{subsec:event-manifold} (Theorems~\ref{thm:event-4-manifold}, \ref{thm:event-causal-structure}, \ref{thm:event-tetrad-metric}, \ref{thm:clock-gluing}; Propositions~\ref{prop:h3-fiber-not-slice}, \ref{prop:event-countermodels}): conditional Lorentzian event manifold: quotient-intrinsic event classes, conditional four-dimensional atlas with signature \((-{+}{+}{+})\), causal order/time orientation, \(H^3\) strictly as frame fiber, tetrads/metric/connection/curvature readout, glued modular clocks, countermodels & D3f--D3h and D4 outputs plus receipts \(\mathsf{E1}\)--\(\mathsf{E4}\) & bi-Lipschitz atlas arguments;\newline convex-cone/quadric signature classification;\newline Rademacher/Carath\'eodory regularity & \(\mathsf{E1}\)--\(\mathsf{E4}\) with \(\mathsf{E4'}\)/smooth upgrade, \(\mathsf{MI}\)/assembly branch, absolute conformal scale, stable causality, and record-Cauchy receipt remain explicit; countermodels show \(\dim H^3=3\) promotes nothing by itself & conditional construction theorem \\
 \textbf{D4c} & Local conserved stress tensor from modular charges: null tomography, constructed \(\langle T_{ab}\rangle\) with symmetry/locality/covariance/common normalization, generator/charge identification, weak Ward identity, ambiguity classification (Theorems~\ref{thm:null-tomography}, \ref{thm:local-stress-construction}; Proposition~\ref{prop:no-local-stress-countermodel}) & D4/D4b outputs plus the \(\mathsf{MI}\)/assembly branch, kernel-residual receipt, and universal-coupling receipt \(\mathsf{UC}\) & null polarization/tomography of symmetric tensors; least-squares stability & \(\phi g_{ab}\) and improvement ambiguities explicit; \(\mathsf{UC}\) is a physical-identification receipt; countermodel: per-direction generators without \(\mathsf{MI}\) linearity admit no rank-two source; scalar CMI is never promoted & conditional construction theorem \\
 \textbf{D4d} & Bulk/edge/central first law with the edge term carried exactly, algebraic type-I boundary statement, and MaxEnt stationarity extended to the coupled changing-stress class via the exact multiplier identity \(dS/dt=\lambda=2\pi\) (Theorems~\ref{thm:bulk-edge-central-first-law}, \ref{thm:maxent-lagrange-stationarity}; Proposition~\ref{prop:entropy-coefficient-countermodel}) & central-interface branch of Axiom~\ref{ax:maxent}, type-I generator form \(K_C=2\pi B_C+Z_C\), edge normalization \(z_\alpha=\log d_\alpha\) & finite first law \(\delta S=\langle K\delta\rho\rangle\); MaxEnt envelope/Legendre identity & the Axiom-4 leading term and edge normalization are named branch axioms; shape/null-cut and metric variations are not covered; countermodels: wrong coefficient or wrong edge weights break stationarity by computable defects & exact finite theorem plus conditional bridge \\
 \textbf{D5} & Theorem~\ref{thm:equilibrium}, Lemma~\ref{lem:smallball}, Theorems~\ref{thm:fixed-volume-small-ball-area}, \ref{thm:einstein}, \ref{cor:einstein}: Jacobson-type Einstein branch via a rest-frame relation plus tensor upgrade & D3+D4 and Axioms~\ref{ax:screen}--\ref{ax:entropy} & fixed-volume area-variation identity for small geodesic balls; local quadratic-polarization argument for the tensor upgrade & Theorem~\ref{thm:equilibrium}, which fixes the admissible fixed-cap MaxEnt variation class and derives generalized-entropy stationarity on the realized cap-label-preserving MaxEnt family; the internal small-ball bridge of Lemma~\ref{lem:smallball}, which uses the geometric cap generator together with the D4 half-line generator/charge identification and Lemma~\ref{lem:bounded-interval-kernel}; Theorem~\ref{thm:fixed-volume-small-ball-area}; locally Lorentzian \(d=4\) scaling regime, supplied conditionally by the D4b event-manifold packet under receipts \(\mathsf{E1}\)--\(\mathsf{E4}\) (\S\ref{subsec:event-manifold}); small-ball constancy assumptions; Lemma~\ref{lem:diagonal-remainder} for \(o(\ell^4)\) control; all local directions/reference states for the tensor upgrade via Lemma~\ref{lem:cap-pair-timelike-coverage}; the uniform scaling family, coverage, and absolute base condition are supplied by Theorems~\ref{thm:uniform-scaling-family}--\ref{thm:absolute-einstein-base-condition} under the \(\mathsf{VR}\)/\(\mathsf{UC}\) receipts, and the full chain is composed in Theorem~\ref{thm:einstein-branch-entry-composed} with realized-branch nonemptiness open (Remark~\ref{rem:realized-branch-status}) & scaling-limit theorem package plus composed branch-entry theorem \\
@@ -1262,7 +1261,7 @@ Items (i)--(iii) are collected from Theorem~\ref{thm:confluence}, Corollaries~\r
 
 Theorem~\ref{thm:master} therefore packages only the recovered relativity-plus-Standard-Model core: D1--D5 together with D7--D9. D6 is not a detached second gravity lane: it is the global closure of the same Einstein branch at the cosmic record-capacity fixed point. The quantitative-closure branch and phenomenological continuations are outside the theorem's scope.
 
-\subsection*{Usually Postulated Elsewhere, Recovered or Continued Here with Explicit Status}
+\subsection*{Comparison with Common Starting Assumptions}
 
 \begingroup
 \footnotesize
@@ -1276,7 +1275,7 @@ Gauge group & model input & construction of the refinement-limit bosonic edge-se
 Hypercharge lattice & matter-assignment input & solved from anomaly cancellation and Yukawa invariance on the realized one-generation chiral matter plus one-Higgs package \\
 Color and generation count & empirical input & color triplet fixed by the D8 minimal coupled carrier; generation count fixed by CKM phase counting, weak-sector asymptotic freedom, and MAR; Witten parity retained as a consistency check \\
 Flavor hierarchy unit & model-dependent small parameter & phenomenological ansatz \(\varepsilon=1/6\) motivated by a uniform \(\mathbb Z_6\) center-label ensemble \\
-Charged-lepton continuation & Koide-style phenomenological fit & exact centered readback plus the closed common-shift no-go above \(\widehat C_e^{\mathrm{cand}}\); the balanced-circulant condition \(|b|/a=1/\sqrt2\) is algebraically equivalent to imposing \(Q=2/3\). Natural trace-MaxEnt weights the real singlet and charged doublet as \(1{:}2\), not \(1{:}1\); Koide balance would require a separately derived one-bit action gap \(S_c-S_0=\ln2\) and a bridge from ensemble weights to deterministic Yukawa powers. Neither that bridge nor any \(\delta=2/9\) phase law is derived from the OPH axioms; all are continuation-only \\
+Charged-lepton continuation & Koide-style phenomenological fit & For the positive Hermitian \(C_3\) carrier, \(Q=[1+2(\rho/a)^2]/3\). On \(\mathcal V_K=\mathbf1\oplus\chi\oplus\bar\chi\) with a two-state orientation record, the connected \(M_6(\mathbb C)\) event \(E_+=P_0\otimes I_2+P_c\otimes q_+\) has two rank-two blocks. Born--L\"uders conditioning gives \(p_0=p_c=1/2\). The tracial-GNS map \(e_0,e_+,e_-\mapsto I,R,R^2\) then gives \(|b|/a=1/\sqrt2\) and \(Q=2/3\) throughout the positive chamber. The physical theorem assumes that Minimal Admissible Realization selects this response packet and that trace-preserving recoverable maps with a left inverse attach its records to a chiral regular-\(C_3\) carrier with GNS vector \(C=(Y_e^\dagger Y_e)^{1/4}\). Construction of this carrier and attachment is work in progress. The \(2/9\) phase and numerical mass ratios are compare-only \\
 Cosmological constant & local vacuum-energy puzzle & dimensionless global screen-capacity relation fixed by \(N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}})\), with \(\Lambda_{\mathrm{CRC}}\ell_\star^2=3\pi/N_{\mathrm{CRC}}\) and the SI display supplied by the selected scale certificate \\
 \bottomrule
 \end{tabular}
@@ -1290,7 +1289,7 @@ of each outward-oriented face.  This gives an exact bundle of local geometric
 equivariant Hermitian circulant.  It does not by itself give one global
 three-dimensional physical generation space: the sixty face-corner flags form
 the regular \(A_5\) torsor, so a quotient-visible charged-family attachment is
-still required.  A retrospectively designed face-incidence continuation on
+work in progress.  A retrospectively designed face-incidence continuation on
 this carrier reproduces frozen rounded charged comparison fields extremely
 closely on one hybrid branch.  A follow-up conditional theorem proves that its
 explicitly declared three-coordinate affine map is contractive and has one
@@ -1301,7 +1300,7 @@ eight stipulated finite registers with rank-one normalized-trace weights, a
 unit clock, and an exhaustive multiplicity-one signed path catalogue uniquely
 reproduce the same scalar affine map inside that declared packet.  Every
 physical CFQ gate is unset: the register dimensions, paths, signs, clock, and
-exhaustion are assumptions rather than outputs of current OPH dynamics.  A
+exhaustion are assumptions rather than outputs of OPH dynamics.  A
 subsequent engineered finite model proves that this packet is nonempty and
 implements noncentral rank-one events with central accepted/rejected record
 pointers in \(\mathcal B(H)\otimes D_2\), together with \(A_5\)-covariant graph charts and
@@ -1328,7 +1327,7 @@ identity
 \]
 are supplied, uniqueness of the positive square root transports the face
 operator to the physical left charged response.  If an exact renormalized
-charged kernel and a CFQ--Dyson intertwiner whose readout is already
+charged kernel and a CFQ--Dyson intertwiner whose readout is
 \(J_LM_FJ_L^\dagger\) are also supplied, regular field changes and the stated
 Nielsen factorization preserve its singularity set.  These are valid transport
 lemmas, not missing source theorems: the first displayed identity is the
@@ -2378,7 +2377,7 @@ and satisfies the Markov-split alignment hypothesis of Definition~\ref{def:ecali
 \rho^{(\alpha)}_{A b_L^\alpha}\otimes \rho^{(\alpha)}_{b_R^\alpha D}.
 \]
 The same formula holds in any limit state that is exact Markov and split-aligned on this fixed collar model.
-Thus the collar-center block decomposition is forced by overlap consistency plus the derived regulator package on the ordinary or central-defect branch; exact Markov factorization over the preselected edge factors is an additional state condition---exact Markovity \emph{together with} split alignment---and neither part is a consequence of the block decomposition alone. Exact Markovity by itself does not imply alignment (Remark~\ref{rem:hjpwalignment}).
+Thus the collar-center block decomposition is forced by overlap consistency plus the derived regulator package on the ordinary or central-defect branch. Exact Markov factorization over the preselected edge factors is an additional state condition comprising exact Markovity and split alignment. Neither part follows from the block decomposition alone. Exact Markovity by itself does not imply alignment (Remark~\ref{rem:hjpwalignment}).
 \end{theorem}
 
 \begin{proof}
@@ -2491,7 +2490,7 @@ Work in the invariant-state realization of Proposition~\ref{prop:regulatedrealiz
 \(\mathcal H_B=(\tilde{\mathcal H}_{B_L}\otimes\tilde{\mathcal H}_{B_R})^{\widehat K_\Sigma}\cong\bigoplus_\alpha\mathcal H_{b_L^\alpha}\otimes\mathcal H_{b_R^\alpha}\). Then:
 \begin{enumerate}[leftmargin=2em]
 \item every \(\widehat K_\Sigma\)-invariant operator \(\tilde x_L\) on \(\mathcal H_A\otimes\tilde{\mathcal H}_{B_L}\) has the form \(\bigoplus_\alpha \mathbf 1_{W_\alpha}\otimes x_L^\alpha\) with \(x_L^\alpha\in\mathcal B(\mathcal H_A\otimes\mathcal H_{b_L^\alpha})\); the operator \(\tilde x_L\otimes\mathbf 1\) preserves the invariant subspace and acts on it as \(\bigoplus_\alpha x_L^\alpha\otimes\mathbf 1_{b_R^\alpha D}\in\mathcal M_L\). The mirror statement holds for right-sided invariants and \(\mathcal M_R\);
-\item every element \(\tilde z\) of the image \(\pi_L\bigl(Z(C^*(\widehat K_\Sigma))\bigr)\) of the center of the group (\(C^*\)-)algebra under the left boundary action---in particular every function of the quadratic Casimir of \(\widehat K_\Sigma\), i.e.\ every function of the flux through \(\Sigma\)---acts on \(W_\alpha\otimes\mathcal H_{b_L^\alpha}\) as \(\chi_\alpha(\tilde z)\,\mathbf 1\) by the central character \(\chi_\alpha\), hence descends on \(\mathcal H_B\) to the central operator \(\bigoplus_\alpha\chi_\alpha(\tilde z)P_\alpha\in\bigoplus_\alpha\mathbb C\,P_\alpha\). For Casimir/flux functions the same central operator is obtained through the right action, because the Casimir eigenvalue agrees on \(W_\alpha\) and its contragredient \(W_\alpha^*\) and the two boundary charges are matched blockwise on the invariant subspace.
+\item every element \(\tilde z\) of the image \(\pi_L\bigl(Z(C^*(\widehat K_\Sigma))\bigr)\) of the center of the group (\(C^*\)-)algebra under the left boundary action, including every function of the quadratic Casimir of \(\widehat K_\Sigma\) and hence every function of the flux through \(\Sigma\), acts on \(W_\alpha\otimes\mathcal H_{b_L^\alpha}\) as \(\chi_\alpha(\tilde z)\,\mathbf 1\) by the central character \(\chi_\alpha\). It therefore descends on \(\mathcal H_B\) to the central operator \(\bigoplus_\alpha\chi_\alpha(\tilde z)P_\alpha\in\bigoplus_\alpha\mathbb C\,P_\alpha\). For Casimir/flux functions the same central operator is obtained through the right action, because the Casimir eigenvalue agrees on \(W_\alpha\) and its contragredient \(W_\alpha^*\) and the two boundary charges are matched blockwise on the invariant subspace.
 \end{enumerate}
 \end{lemma}
 
@@ -2520,7 +2519,7 @@ By Lemma~\ref{lem:onesideddescent}, \(\widetilde H_{AL}\) descends into \(\mathc
 \end{proof}
 
 \begin{remark}[Scope of the derivation]\label{rem:msascope}
-Theorem~\ref{thm:msaderivation} discharges the Markov-split alignment hypothesis, and with it exact collar Markovianity, on the declared central-interface branch: there, every MSA-conditioned identity in this manuscript (blockwise modular cancellation, the exact splice, the null-strip four-term relation on inherited splits, and checkpoint factorization) holds unconditionally for the package's MaxEnt reference states. This manuscript adopts the central-interface normal form as an explicit declared-branch input---the central-interface collar clause stated with Axiom~\ref{ax:maxent}---so the conditional status of the exact-Markov chain is localized in one named axiom-level clause rather than distributed as a floating state hypothesis. What remains open at the level of the axioms is whether overlap-consistent repair \emph{forces} that clause, i.e.\ whether non-central cross-cut couplings are excluded rather than merely not selected; outside the declared branch MSA is carried as an explicit hypothesis, with Remark~\ref{rem:hjpwalignment} marking the failure boundary.
+Theorem~\ref{thm:msaderivation} discharges the Markov-split alignment hypothesis, and with it exact collar Markovianity, on the declared central-interface branch. Every MSA-conditioned identity in this manuscript, including blockwise modular cancellation, the exact splice, the null-strip four-term relation on inherited splits, and checkpoint factorization, holds unconditionally for the package's MaxEnt reference states on that branch. This manuscript adopts the central-interface normal form as an explicit declared-branch input through the central-interface collar clause stated with Axiom~\ref{ax:maxent}. The exact-Markov chain therefore depends on one named axiom-level clause. Deriving that clause from overlap-consistent repair is work in progress. Outside the declared branch MSA is carried as an explicit hypothesis, with Remark~\ref{rem:hjpwalignment} marking the failure boundary.
 \end{remark}
 
 \begin{theorem}[Derived higher-gauge cut datum]\label{thm:hgdatum}
@@ -2942,7 +2941,7 @@ after transporting all localizations to one reference collar by the zero-obstruc
 functor. Different reference collars give canonically unitarily equivalent Hom spaces by
 Theorem~\ref{thm:transport-from-gluing}. The projector \(P_\alpha\) detects a seed in the original
 one-collar algebra; it is not a declaration that every irreducible generated by tensor products is
-already a central block of that finite algebra. If \(X\) is an irreducible summand of a tensor word
+a central block of that finite algebra. If \(X\) is an irreducible summand of a tensor word
 \(T\), its categorical support is an orthogonal idempotent
 \(e_X\in\operatorname{End}_{\widehat K_{\Sigma,r}}(T)\), represented physically, when that
 concatenated-collar realization is retained, in the finite algebra for that particular
@@ -6617,7 +6616,7 @@ than labeled.
 The produced cap flow of Theorem~\ref{thm:bw} is, on the blow-up family, the
 one-parameter dilation of the half-line endpoint with the certified \(2\pi\)
 normalization; this is precisely the computation of Corollary~\ref{cor:n2},
-now with the certificate produced by Theorem~\ref{thm:certificate-production}
+with the certificate produced by Theorem~\ref{thm:certificate-production}
 instead of declared. Monotonicity \(e^{-2\pi t}\geq1\) for \(t\leq0\) gives
 the compression property. Theorem~\ref{thm:null-net-standardness} supplies the
 standard-pair hypotheses. The conclusion package, including the Stone domain
@@ -8368,7 +8367,7 @@ T_{ab}\rangle\)-balance up to one undetermined covariantly constant tensor
 \begin{proof}
 The chain Theorem~\ref{thm:equilibrium} \(\to\) Lemma~\ref{lem:smallball}
 \(\to\) Theorem~\ref{thm:fixed-volume-small-ball-area} \(\to\)
-Theorem~\ref{thm:einstein} runs with every previously assumed input now
+Theorem~\ref{thm:einstein} runs with every required input
 supplied: the locally Lorentzian \(d=4\) regime and the geodesic-ball
 identity are consumed from the event packet on its smooth branch (the
 fixed-volume area expansion is a metric identity requiring only the
@@ -8479,7 +8478,7 @@ Composition and bookkeeping: D1 is Theorem~\ref{thm:confluence} and its
 package; D3h is Theorems~\ref{thm:topology-production}--%
 \ref{thm:certificate-production}; D3b--f are
 Theorem~\ref{thm:bw} with Corollaries~\ref{cor:lorentz},
-\ref{cor:h3-spatial-chart} (now consuming the produced certificate); D4 is
+\ref{cor:h3-spatial-chart} (using the produced certificate); D4 is
 Theorems~\ref{thm:null-net-standardness}--\ref{thm:four-translation-assembly};
 D4b is Theorems~\ref{thm:event-4-manifold}--\ref{thm:clock-gluing}; the
 stress arrow is Theorem~\ref{thm:local-stress-construction}; the entropy
@@ -9430,7 +9429,7 @@ different stated category and an explicit associative fusion quotient; it is not
 
 \begin{remark}[Conditionality of the refinement limit]\label{rem:refinement-receipt-conditionality}
 Without Definition~\ref{def:compact-gauge-refinement-receipt}, the stagewise tensor-generated
-categories and their forgetful functors still exist, but the functors \(U_{rs}\), their compatible
+categories and their forgetful functors exist, but the functors \(U_{rs}\), their compatible
 fibers, the directed colimit, and \(\operatorname{Aut}_\otimes(\mathcal F)\) are not outputs of the
 finite-state consensus refinement maps. All refinement-limit gauge statements below are therefore
 conditional on a cofinal tail carrying that receipt.
@@ -10473,7 +10472,7 @@ conditional source-to-Higgs coarse-graining square has the displayed selected-su
 \]
 with measured weak-scale, Higgs/top, \(W/Z\), gravity, Planck-area, and \(\Lambda\) inputs
 excluded from the declared runtime contract.  That exclusion does not establish prospective
-provenance for the selected formulas. Promotion to a physical Higgs pole still inherits the
+provenance for the selected formulas. Promotion to a physical Higgs pole requires the
 strict source-root, independent physical-scale, QT1--QT5, RG/scheme, D11-rigidity,
 uncertainty, complex-pole, and no-target dependency-DAG gates.
 The adjacent electroweak projection bridge defines
@@ -10962,7 +10961,7 @@ missing derivation of the quotient-path certificate is the central new
 physical theorem.  No
 full source-only \((M_W,M_Z,M_H)\) pole-mass prediction is promoted here.
 The generic implication stack is complete at this point. The remaining work is
-source emission, not another algebraic implication: the current corpus does
+source emission, not another algebraic implication: the corpus does
 not contain the factorized clock packet \(\mathfrak C_{\rm clk}\), the
 independently weighted and rigid D10 carrier \(\mathfrak C_{10}\), the D11
 split-character carrier \(\mathfrak C_{11}\), or the BRST-complete pole-kernel
@@ -11847,9 +11846,9 @@ two-cumulant truncation, orientation independence, the negative covariance signs
 regular-heat-to-\(F\) attachment are therefore additional premises.
 
 Conditional on those premises and the inherited ray, even-response, affine-mean, and charged-scale
-laws, RSCC deterministically emits dimensionless coordinates.  Combining them with the current D10
+laws, RSCC deterministically emits dimensionless coordinates.  Combining them with the D10
 \(v\) display gives a \(0.29436\%\) maximum residual against the same mixed-convention table.  This
-agreement is retrospective: the chosen ledger dimensions closely rationalize the already visible
+agreement is retrospective: the chosen ledger dimensions closely rationalize the visible
 effective coordinates, the \(P\) witness retains internal Stage-5 quark ancestry, and the D10 scale
 comes from a nonmatching candidate branch.  Moreover, deleting every RSCC \(w^2\) correction and
 the whole \(\delta_g\) correction improves the same retrospective maximum residual to
@@ -11869,12 +11868,12 @@ RSCC's two-cumulant truncation.  A genuine repair would require either an export
 array with Lindeberg/mixing and covariance-convergence control, or an exact primitive-path closure.
 
 The proposed Quark Flavor Register Closure (QFRC) supplies the latter only as a
-\emph{conditional certificate schema}.  Given QF1--QF9---which explicitly declare the typed
+\emph{conditional certificate schema}.  Given QF1--QF9, which explicitly declare the typed
 registers, all primitive paths, ranks, multiplicities, signs, winding character, path exhaustion,
-refinement naturality, and a positive-gap selector---normalized trace forces the displayed RSCC
+refinement naturality, and a positive-gap selector, normalized trace forces the displayed RSCC
 rank-over-dimension coefficients, with no continuous projector-amplitude deformation.  This is
 exact conditional rigidity, not derivation of QF1--QF9.  Neutral-register countermodels show why
-the broad structural signature cannot choose the ledger, and the current carrier exports no
+the broad structural signature cannot choose the ledger, and the carrier exports no
 physical QFRC certificate.  The accompanying equivariant-selector, absolute-scale, scheme, and RG
 results likewise sharpen the obstruction or prove well-posedness after their inputs are supplied;
 they do not supply those inputs.  Consequently every F1--F6 receipt remains open and numerical
@@ -11891,9 +11890,9 @@ They are compatible with the Haar-equilibrated rank-one operator, whereas POFT r
 approximately $(1,0.5515,0.2552)$ for $T_0$ and
 $(1,0.5462,0.2745)$ for $T_1$; every maximum singular-ratio distance exceeds $0.5407$.
 The saved carrier also exports neither a complex oriented family amplitude nor an explicit
-coarse-to-fine edge intertwiner.  Thus the current direct $S_3$ edge carrier does not emit POFT's
-$T_0,T_1$.  This result does not exclude a future source-derived complex lift, but defining such a
-lift by the requirement that it reproduce POFT would be circular.
+coarse-to-fine edge intertwiner.  Thus the direct $S_3$ edge carrier does not emit POFT's
+$T_0,T_1$.  A source-derived complex lift would define a different carrier. Defining that lift by
+the requirement that it reproduce POFT would be circular.
 
 The obstruction persists at the axiom level without adding any premise.  MAR orders admissible
 packages by \(C(\mathfrak S)=(\chi_{\mathrm{cpl}},N_{\mathrm{nonab}},N_c,N_g)\); Yukawa
@@ -11908,7 +11907,7 @@ minimum (and admitting zero selects massless/degenerate quarks).  A unique numer
 therefore cannot be obtained from the stated MAR definition.  Any future flavor-closure functional
 must at least be nonconstant on this independent up/down spread-rescaling orbit; a sufficient
 source-carrier, response, scale, and RG contract may enforce that condition, but no such contract
-is physically instantiated by the current repository.  RSCC records one retrospective
+is physically instantiated by the repository.  RSCC records one retrospective
 formula-level specification for parts of that contract; every physical receipt remains open.
 
 \paragraph{Local unification surface and exact-release frontier.}

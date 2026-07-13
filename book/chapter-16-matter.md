@@ -174,8 +174,22 @@ The MaxEnt slogan in older drafts skipped a necessary step. A natural trace
 counts the one-dimensional singlet once and the two-dimensional charged block
 twice. Equal block power, and hence Koide, needs an additional one-bit
 compensation together with a rule that turns ensemble weights into one physical
-Yukawa matrix. OPH dynamics does not derive either rule, and it does not derive
+square-root-mass response. OPH dynamics does not derive either rule, and it does not derive
 the geometric ingredient that would fix the $2/9$ phase.
+
+The missing balance law has a sharper OPH-shaped formulation. Reversible repair
+comes with a write/verify pair, and the icosahedral face geometry carries a
+cyclic three-state fiber. If a physical radial law connected those two objects
+through a norm-preserving readback into the positive square-root-mass
+operator, with no response leaking into uncounted channels, the two conjugate
+components would each have amplitude $1/\sqrt{2}$ relative to the singlet.
+Koide's $2/3$ would follow without using the phase. This is an exact conditional
+theorem, but the condition does the remaining physical work: the corpus proves
+the repair pair and cyclic carrier separately, and symmetry supplies no map
+from a neutral singlet into a labeled charged pair. A radial law can avoid that
+vector obstruction and is enough for Koide alone; the phase and individual
+ratios need a charged source direction. Positivity, the radial response, and
+the conversion to measured masses are work in progress.
 
 The same historical continuation adds a couple of extra prescriptions and
 reproduces the electron, muon, and tau masses to within a few hundredths of a

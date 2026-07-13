@@ -200,24 +200,25 @@ irreversibility lives at the record interface.
 
 \section{Theorem B2: record commits give the Thomson collision functional}
 
-\begin{theorem}[Commit-collision functional]\label{t:collision}
+\begin{theorem}[Scalar-intensity commit-collision functional]\label{t:collision}
 Let commits between photon-class and electron-class records occur with the
 soft-limit matrix element of the recovered $\mathrm U(1)$ vertex (A-QED).
 Then, to first order in perturbations and at low occupancy, the collision
 functional in Theorem~\ref{t:liouville} is the Thomson functional: in the
 electron rest frame,
 \[
-C[f](\hat n)\;=\;a\,n_e\sigma_T\left[
-\frac{3}{16\pi}\int \Dd\Omega'\,(1+(\hat n\cdot\hat n')^2)\,f(\hat n')
-- f(\hat n)\right],
+C[f](q,\hat n)\;=\;a\,n_e\sigma_T\left[
+\frac{3}{16\pi}\int \Dd\Omega'\,(1+(\hat n\cdot\hat n')^2)\,f(q,\hat n')
+- f(q,\hat n)\right],
 \qquad
 \sigma_T=\frac{8\pi}{3}\frac{\alpha^2}{m_e^2},
 \]
 boosted to the frame where baryons move with velocity $v_b$. Moreover the
-write/check reversibility of commits implies detailed balance of the commit
-kernel, so the unique isotropic stationary point of $C$ at fixed photon
-number is the Planck occupancy: the blackbody spectrum is the repair
-equilibrium of the record dynamics.
+write/check reversibility of commits implies detailed balance of the angular
+commit kernel. For every fixed photon energy $q$, isotropic angular
+distributions are stationary under this Thomson operator. This displayed
+scalar-intensity kernel does not by itself derive the Stokes-space Thomson
+matrix needed for polarization.
 \end{theorem}
 
 \begin{proof}[Proof sketch]
@@ -228,14 +229,39 @@ classical Thomson scattering with the stated total cross-section and
 $1+\cos^2$ angular kernel; this step is standard QED evaluated on the branch
 couplings and is not repeated here. Detailed balance: a write/check pair and
 its orientation reverse implement the commit and its inverse with equal
-kernel weight; a symmetric kernel yields an $H$-theorem for the commit
-dynamics, and the stationary condition at fixed number is the Bose
-equilibrium occupancy. Momentum conservation per commit, summed over
+kernel weight; a symmetric kernel damps angular anisotropy at each fixed
+$q$. It does not mix frequencies, so its stationary kernel contains every
+isotropic spectrum $f(q)$ rather than a unique Bose or Planck occupancy.
+Momentum conservation per commit, summed over
 commits, gives equal and opposite momentum transfer densities to the
 electron--baryon fluid, with coefficient fixed by
 $\bar\rho_\gamma/\bar\rho_b$ bookkeeping; this is the Compton drag used in
 \S\ref{s:hierarchy}.
 \end{proof}
+
+\begin{remark}[Polarization provenance]
+The polarization hierarchy used below imports the standard polarized
+Thomson scattering matrix acting on Stokes brightness.  The scalar
+$1+\cos^2\theta$ kernel displayed in Theorem~\ref{t:collision} is its
+intensity projection, not a derivation of the $Q/U$ collision terms.  A
+source-level OPH derivation must construct the polarized commit kernel from
+the recovered vertex and discharge that extra bridge; until then the
+polarization sector and the associated $16/15$ diffusion factor are
+textbook imports rather than consequences of the displayed operator.
+\end{remark}
+
+\begin{remark}[Blackbody provenance]
+The Planck background spectrum is an initial-condition and thermal-history
+import in this note, not a consequence of the displayed Thomson functional.
+Even recoil-inclusive Comptonization conserves photon number and generically
+approaches a Bose--Einstein spectrum with a chemical potential. Selecting
+the zero-chemical-potential Planck spectrum requires the appropriate early
+thermalization history, including photon-number-changing channels such as
+double Compton scattering and bremsstrahlung, or an independently justified
+blackbody initial condition. A future OPH derivation of the blackbody
+spectrum must construct those channels and their rates rather than infer
+spectral uniqueness from angular detailed balance.
+\end{remark}
 
 \begin{remark}[Provenance of the normalization]
 $\alpha=\alpha_{\rm root}$ is source-side. $m_e$ is an import
@@ -302,13 +328,14 @@ Einstein--Boltzmann system.
 \end{theorem}
 
 \begin{proof}
-Mechanical: insert the geodesic characteristics of
+For scalar intensity, insert the geodesic characteristics of
 Theorem~\ref{t:liouville} on the perturbed metric, the collision functional
 of Theorem~\ref{t:collision}, keep first order, and project on Legendre
-multipoles. Every step is the textbook computation (Ma--Bertschinger 1995;
-Dodelson, \emph{Modern Cosmology}); no OPH-specific term survives except the
-two gated channels, which we have displayed at their unique insertion
-points.
+multipoles.  The $G_{\gamma\ell}$ equations additionally use the imported
+polarized Thomson matrix stated above.  The remaining steps are the textbook
+computation (Ma--Bertschinger 1995; Dodelson, \emph{Modern Cosmology}); no
+OPH-specific term survives except the two gated channels, which we have
+displayed at their unique insertion points.
 \end{proof}
 
 \section{Acoustic normal form, damping, and the line of sight}
@@ -356,13 +383,15 @@ multipoles today are
 \[
 \Theta_\ell(k,\tau_0)=\int_0^{\tau_0}\!\Dd\tau\;
 \Big\{
-g\left[\Theta_0+\psi+\tfrac{\Pi}{4}+\tfrac{3}{4k^2}\ddot\Pi\right]
+g\left[\Theta_0+\psi+\tfrac{\Pi}{4}\right]
 j_\ell\big(k(\tau_0-\tau)\big)
 +\Big(\frac{g\,v_b}{k}\Big)^{\!\cdot} j_\ell
++\frac{3}{4k^2}\big(g\Pi\big)^{\!\cdot\cdot}j_\ell
 +e^{-\kappa}\big(\dot\psi+\dot\phi\big)\,j_\ell
 \Big\},
 \]
-($\Pi=F_{\gamma2}+G_{\gamma0}+G_{\gamma2}$), and
+($\Pi=F_{\gamma2}+G_{\gamma0}+G_{\gamma2}$; every unlabelled
+$j_\ell$ has argument $k(\tau_0-\tau)$), and
 \[
 C_\ell^{TT}=4\pi\!\int\!\frac{\Dd k}{k}\,
 \Delta_\zeta^2(k)\,\left|\frac{\Theta_\ell(k,\tau_0)}{\zeta(k)}\right|^2 .
@@ -422,18 +451,18 @@ transport, which would falsify Theorem~\ref{t:liouville} on the implemented
 branch.
 
 \section{What this note does and does not close}
-It closes, conditionally on the cited branch theorems, the \emph{form} of
-the transport: OPH inherits the standard Einstein--Boltzmann system, with
-exactly two gated insertion points for new kernels and three tagged imports.
-Consequently the physical-CMB prediction gate no longer contains
-``derive the Boltzmann equations'' as an open item; it contains
-\textsc{Boltz-R1} and \textsc{Boltz-V1} plus the pre-existing gates
-(\#330, \#522, \#374, \#363). It does not certify initial conditions,
-normalizations, recombination, or likelihoods, and nothing here reads Planck
-data. Under the anti-fitting rule, the acoustic peak structure remains
-attributable to standard plasma physics; OPH's falsifiable exposure stays
-concentrated in the primordial inputs, exactly where issues \#330 and \#522
-put it.
+It records, conditionally on the cited branch theorems, the \emph{scalar
+angular form} of the transport and the locations where the two gated OPH
+kernels would enter.  The polarization hierarchy, blackbody background,
+absolute normalizations, and recombination history remain imported.  Thus
+the physical-CMB prediction gate still contains a source-level polarized
+collision bridge, blackbody/thermalization provenance, \textsc{Boltz-R1},
+and \textsc{Boltz-V1}, in addition to the pre-existing gates (\#330, \#522,
+\#374, \#363). It does not certify initial conditions, normalizations,
+recombination, or likelihoods, and nothing here reads Planck data. Under the
+anti-fitting rule, the acoustic peak structure remains attributable to
+standard plasma physics; OPH's falsifiable exposure stays concentrated in
+the primordial inputs, exactly where issues \#330 and \#522 put it.
 
 \section*{References}
 \begin{itemize}[leftmargin=1.2em]

@@ -289,7 +289,7 @@
     {
       "artifact": "oph_d10_ew_forward_transmutation_certificate",
       "path": "particles/runs/calibration/d10_ew_forward_transmutation_certificate.json",
-      "sha256": "7438519fae3214df9b54da3cdf76e7df54f262e847956db2ec79404ab6390d94",
+      "sha256": "46ebf8bf22fb21997e89e0710c9261185cfa1a857a49e19d15723df643f64298",
       "status": "closed_forward_p_to_t_map"
     },
     {
@@ -307,19 +307,19 @@
     {
       "artifact": "oph_charged_z3_maxent_balance_audit",
       "path": "particles/runs/leptons/charged_z3_maxent_balance_audit.json",
-      "sha256": "64c3fa0d4aed8f74ee82be33efb09017fcece05e24f54bd11f829c3ca34f1817",
+      "sha256": "f3764e663876abab81b0da66d664338bba471c2876ee4b93195aa387306b15c5",
       "status": "CLOSED_CONDITIONAL_THEOREM_CURRENT_OPH_INPUT_OPEN"
     },
     {
       "artifact": "oph_charged_z3_phase_holonomy_no_go",
       "path": "particles/runs/leptons/charged_z3_phase_holonomy_no_go.json",
-      "sha256": "846313ff0f56c155e78729902fda2f4e0f248488c459cd1d3837e9eb591f9e9f",
+      "sha256": "575e62827fb03a77611767d9a1e7d9253e2adad7e3dbec97f550b046eca4fa77",
       "status": "CLOSED_NO_GO_CURRENT_OPH_DATA_LEAVE_PHASE_CONTINUOUS"
     },
     {
       "artifact": "oph_charged_absolute_scale_underdetermination_theorem",
       "path": "particles/runs/leptons/charged_absolute_scale_underdetermination_theorem.json",
-      "sha256": "abcd043058585efe4133cc589b09b73dc93257a829f775e8939901cd0d518071",
+      "sha256": "48135cf1c159a4c45947af6a14ba92c588d2d6e4b42d3e904fc596b903c0f8cc",
       "status": "centered_shape_closed_absolute_scale_no_go_common_shift"
     },
     {

@@ -42,11 +42,16 @@ def build_artifact() -> dict[str, Any]:
         "status": "CLOSED_CONDITIONAL_THEOREM_CURRENT_OPH_INPUT_OPEN",
         "public_koide_promotion_allowed": False,
         "algebraic_theorem": {
-            "carrier": "Phi=a I+b P+conj(b) P^2, P^3=I",
+            "carrier": "Phi=a I+b P+conj(b) P^2, P^3=I, Phi positive semidefinite",
             "singlet_power": "E_0=3 a^2",
             "charged_power": "E_c=6 |b|^2",
             "koide_identity": "Q=(1+E_c/E_0)/3=(1+2|b/a|^2)/3",
             "balance_equivalence": "Q=2/3 iff E_c=E_0 iff |b|/a=1/sqrt(2)",
+            "physical_root_boundary": (
+                "The identity is the physical Koide invariant when Phi is the positive "
+                "square-root-mass operator. Without positivity it is only a signed-eigenvalue "
+                "trace identity because sqrt(m_i)=|lambda_i(Phi)|."
+            ),
         },
         "conditional_maxent_theorem": {
             "premises": [

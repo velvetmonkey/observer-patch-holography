@@ -27,6 +27,17 @@ postdiction, separate from the theorem-grade completion lane:
   identity and records the counterresult: natural trace MaxEnt weights the
   real singlet and charged doublet as `1:2`. Koide balance needs a separately
   derived one-bit compensation and an ensemble-to-Yukawa bridge.
+- `derive_charged_koide_orientation_isometry.py` sharpens that boundary without
+  using a charged-lepton target. A connected `M6` source register with the
+  minimal two-state orientation event has equal rank-two admitted blocks, so
+  Born--Lueders conditioning gives `p0=pc=1/2`. The canonical tracial-GNS
+  square-root vector maps these probabilities to response powers and forces
+  `rho/a=1/sqrt(2)`, hence `Q=2/3` on the positive chamber. This closes the
+  finite probability-to-power normalization. Applying MAR to this response
+  register and constructing the physical chiral regular-`C3`, exact recoverable
+  source-to-mass-response attachment, positivity, refinement, and mass-scheme
+  bridge remain open, so the artifact does not promote Koide as a source-only
+  OPH prediction.
 - `derive_charged_z3_phase_holonomy_no_go.py` certifies that the arithmetic
   identity `2/9` is not a family-holonomy theorem. Hypercharge acts as a common
   generation phase and does not generate the cyclic family shift.

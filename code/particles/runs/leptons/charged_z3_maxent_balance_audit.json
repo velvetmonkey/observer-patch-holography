@@ -1,9 +1,10 @@
 {
   "algebraic_theorem": {
     "balance_equivalence": "Q=2/3 iff E_c=E_0 iff |b|/a=1/sqrt(2)",
-    "carrier": "Phi=a I+b P+conj(b) P^2, P^3=I",
+    "carrier": "Phi=a I+b P+conj(b) P^2, P^3=I, Phi positive semidefinite",
     "charged_power": "E_c=6 |b|^2",
     "koide_identity": "Q=(1+E_c/E_0)/3=(1+2|b/a|^2)/3",
+    "physical_root_boundary": "The identity is the physical Koide invariant when Phi is the positive square-root-mass operator. Without positivity it is only a signed-eigenvalue trace identity because sqrt(m_i)=|lambda_i(Phi)|.",
     "singlet_power": "E_0=3 a^2"
   },
   "artifact": "oph_charged_z3_maxent_balance_audit",

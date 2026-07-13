@@ -73,23 +73,20 @@ Alexander Osika\\SNRGY Studios}
 \end{center}
 
 \begin{abstract}
-Observer Patch Holography (OPH) is the finite observer-overlap framework introduced in \emph{Observers Are All You Need} \cite{oph-synthesis}. In that framework, one OPH screen cell has two readings. From the outside, the cell has a dimensionless area \(P\). From the inside, it appears as the electromagnetic observation scale available to observers in the encoded world. The two readings meet at
+Observer Patch Holography (OPH) assigns one screen cell two readings: an
+outside dimensionless area \(P\) and the electromagnetic observation scale
+seen from within. They meet at
 \[
 P=\varphi+\frac{\sqrt\pi}{\ATh(P)}.
 \]
-The source/root audit gives \(\alphainv_{\mathrm{root}}=136.9948351646\ldots\) before the low-energy hadronic transport closure. Combining that source root with the unified gauge width evaluated at the CODATA-derived comparison pixel gives the mixed-provenance diagnostic
-\[
-A_{\alpha_U}^{\mathrm{fp}}=137.035959500817279952949994585787\ldots.
-\]
-The most precise direct measurement, the 2020 rubidium recoil result, is
-\[
-\alpha^{-1}_{\mathrm{Rb}}=137.035999206(11),
-\]
-so that diagnostic is low by
-\[
-0.000039705182720047050005414213\ldots,
-\]
-about \(2.89743\times10^{-7}\) relative in inverse-alpha units. That remaining gap is the part controlled by low-energy quark and gluon physics. At these energies quarks are confined inside hadrons, so the correction cannot be obtained by simply running a perturbative QCD calculation. It requires a non-perturbative hadronic spectral calculation in the same electromagnetic convention as the OPH source map, which is the open step.
+The source calculation gives \(\alpha^{-1}=136.9948351646\ldots\). A
+mixed-provenance diagnostic, obtained by evaluating the unified gauge width at
+the CODATA-derived comparison pixel, gives
+\(137.0359595008\ldots\), about \(2.90\times10^{-7}\) below the 2020 rubidium
+recoil value in relative inverse-alpha units. The paper traces this difference
+to low-energy quark and gluon transport. Confinement makes a same-scheme,
+non-perturbative hadronic spectral calculation necessary; that source
+calculation is work in progress.
 \end{abstract}
 
 \noindent\textbf{Keywords:} fine-structure constant, Observer-Patch Holography, pixel fixed
@@ -233,7 +230,7 @@ Symbol & Definition & Informal meaning \\
 \(\DEW(P)\) & Electroweak/scheme endpoint remainder & Same-scheme finite remainder needed to connect the source anchor to the endpoint. \\
 \(\Dcalc(P)\) & Calculated charged-fermion transport contribution & The exact kernel on the supplied lepton continuation plus the screened quark continuation; not a pure source prediction. \\
 \(\Dcalib^{\mathrm{fp}}\) & Root-to-CODATA bookkeeping difference & The inverse-alpha amount between the naked root value and the CODATA/NIST central endpoint; it includes the comparison-pixel \(\alpha_U(\Ppub)\) contribution and is not the post-\(\alpha_U\) hadronic gap. \\
-\(\Dhadreq^{\mathrm{fp}}\) & Required hadronic endpoint correction after \(A_{\alpha_U}^{\mathrm{fp}}\) & The inverse-alpha amount by which the current OPH output misses the CODATA/NIST central endpoint. \\
+\(\Dhadreq^{\mathrm{fp}}\) & Required hadronic endpoint correction after \(A_{\alpha_U}^{\mathrm{fp}}\) & The inverse-alpha amount by which the displayed OPH output misses the CODATA/NIST central endpoint. \\
 \(\Rq(P)\) & \(\ATh(P)-[\AZ(P)+\Dcalc(P)]\) & The remaining same-scheme hadronic endpoint contribution. \\
 \(A_{\alpha_U}^{\mathrm{fp}}\) & \(\alpha_{\mathrm{root}}^{-1}+\alpha_U(\Ppub)\) & Mixed-provenance no-hadron comparison diagnostic; the root is source-side and \(\Ppub\) is CODATA-derived. \\
 \(J_{24,Q}(P),\omega_Q(P),\Xi_Q(P)\) & Source-side hadronic spectral objects required for a final endpoint theorem & The Jacobi/Stieltjes spectral payload, normalization, and finite same-scheme remainder that must be emitted without looking at the Thomson target. \\
@@ -543,20 +540,42 @@ additional assumptions
 =\frac{2}{9}.
 \label{eq:epsdelta}
 \end{equation}
-The current OPH corpus does not derive the balanced-circulant condition
-\(|b|/a=1/\sqrt2\), a phase-transport law fixing \(\delta=2/9\), or the
-attachment of the ordered roots to physical charged-family lines.  For a
-general Hermitian circulant the square-root-mass invariant is
+The physical charged-spectrum derivation is work in progress. It requires
+a source-to-mass attachment, a phase-transport law fixing \(\delta=2/9\),
+and an attachment of the ordered roots to physical charged-family lines. For a
+positive-semidefinite square-root-mass carrier
 \[
-Q=\frac{1+2|b/a|^2}{3},
+C=aI+\rho(e^{i\delta}R+e^{-i\delta}R^2),
+\qquad
+Q=\frac{1+2(\rho/a)^2}{3},
 \]
-so \(|b|/a=1/\sqrt2\) is exactly equivalent to imposing the empirical Koide
-value \(Q=2/3\); it is not a consequence of circulant symmetry alone.  Nor
-does the declared MaxEnt law automatically supply it: the natural trace base
-weights the real singlet and charged doublet as \(1{:}2\).  Equal block power
-requires a separately derived action gap \(S_c-S_0=\ln2\) and a bridge from
-ensemble probabilities to deterministic Yukawa powers.  No current \(12/24\)
-receipt supplies that attachment.
+so \(\rho/a=1/\sqrt2\) is exactly equivalent to the empirical Koide value
+\(Q=2/3\). At balance this identity is physical throughout the positive
+chamber \(|\delta|\leq\pi/12\pmod{2\pi/3}\), and it does not select the phase.
+
+The finite balance normalization has a closed GNS construction. On
+\(\mathcal V_K=\mathbf1\oplus\chi\oplus\bar\chi\) with a minimal two-state
+orientation record, take the connected algebra
+\(B(\mathcal V_K\otimes\mathbb C^2)\simeq M_6(\mathbb C)\) and event
+\(E_+=P_0\otimes I_2+P_c\otimes q_+\). Its singlet and oriented charged blocks
+both have rank two. Born--L\"uders conditioning of \(I_6/6\) gives
+\(p_0=p_c=1/2\), or \(S_c-S_0=\ln2\). In the tracial GNS space,
+\(e_0,e_+,e_-\mapsto I,R,R^2\) is unitary, and the canonical square-root
+amplitude gives
+\[
+ a=\sqrt{p_0},\qquad \rho=\sqrt{p_c/2},\qquad
+ \frac{\rho}{a}=\frac1{\sqrt2}.
+\]
+The connected register fixes the normalization left free by the direct-sum
+MaxEnt model. Applying Minimal Admissible Realization (MAR) to this
+response-local register is an explicit hypothesis. Physical promotion requires
+a chiral regular-\(C_3\) carrier
+and faithful trace-preserving recoverable source-to-physical maps that
+intertwine the block records and identify the physical GNS vector with
+\(C=(Y_e^\dagger Y_e)^{1/4}\). Kadison--Schwarz makes such maps
+\(L^2\)-isometric. Construction of the carrier, maps, refinement law,
+positive chamber, and mass-scheme descent is work in progress. No \(12/24\)
+receipt supplies that physical attachment.
 Define three Koide roots
 \begin{equation}
 r_k=1+\sqrt2\cos\!\left(\delta+\frac{2\pi k}{3}\right),
@@ -637,7 +656,7 @@ m_\tau^{\mathrm{S5}}&=1776.579124017\,\mathrm{MeV}.
 \end{equation}
 Against the comparison packet the residuals are approximately \(-228\),
 \(-219\), and \(-197\) ppm, respectively, with maximum absolute mass error
-\(0.02284\%\).  On the current public-pixel probe
+\(0.02284\%\).  On the public-pixel probe
 \(P=1.6309681897\), \(v=246.6174823334856\,\mathrm{GeV}\), the same formula gives
 \((0.510572453797,105.571227599,1775.501839453)\,\mathrm{MeV}\) and maximum
 error \(0.08347\%\).  These numbers therefore document an accurate, but
