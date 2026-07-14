@@ -79,7 +79,7 @@ the step that makes every residual a measurement of the hypothesis.
 capacity without deficit or slack: N = F(N), with F the readback map
 Cap∘Obs∘nf. Carrier: compact paper D6; flagship synthesis sections. Status:
 open. F is not yet constructed (CL-7); the one-capacity requirement already
-yields a live 6.8% contradiction between the electroweak-bridge value and the
+yields a live 6.6% contradiction between the electroweak-bridge value and the
 Λ-estimated value (CL-3).
 
 **C9. Loop closure.** The detuning law, run through the full forward chain

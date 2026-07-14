@@ -94,7 +94,7 @@ $$
 
 within about a tenth of a percent of the measured 80.369 and 91.188 GeV. In
 measurement units the differences are 2.9 standard deviations for the W and
-about 33 for the Z, and the gap is carried as an open closure row. One
+about 35 for the Z, and the gap is carried as an open closure row. One
 loose end is that two candidate rules for the final step disagree by a few MeV,
 and choosing between them is work in progress. The same family carries a few
 more bookkeeping versions of the same pair. They agree with each other to

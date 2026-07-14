@@ -8,19 +8,19 @@ closure rows CL-3, CL-4, and CL-7 (generator G2 in
 
 ## What this directory is
 
-- [`F_READBACK_SPEC.md`](F_READBACK_SPEC.md) — the formal acceptance specification any
+- [`F_READBACK_SPEC.md`](F_READBACK_SPEC.md): the formal acceptance specification any
   candidate F must satisfy before CL-7 can close: domain/codomain, the three factors
   with their paper sources, required properties P1–P5 (well-definedness, monotonicity,
   growth bounds for a contraction interval, count-density coherence with
   `log|Ω^sc_N| − N`, non-triviality), the V-08 blindness requirement, and the
   acceptance-test checklist A1–A7 with the certificate schema.
-- [`toy_readback.py`](toy_readback.py) — an executable toy model (strings over a
+- [`toy_readback.py`](toy_readback.py): an executable toy model (strings over a
   three-letter alphabet; sorting as nf; a marker-cell filter as Obs; a declared log
   normalization as Cap_read) running the full schema end to end: solve `N = F_toy(N)`,
   certify the fixed point with an interval Banach check (`F_toy(I) ⊆ I` and
   `|F_toy'| ≤ L < 1`, evaluated with `mpmath.iv`), and emit
   `runtime/toy_readback_certificate.json`.
-- [`test_toy_readback.py`](test_toy_readback.py) — tests: enumeration matches the
+- [`test_toy_readback.py`](test_toy_readback.py): tests where enumeration matches the
   closed-form sector count, the toy fixed point exists with a certified enclosure, the
   certificate schema keys are present, output is deterministic, and a deliberately
   non-contracting variant is rejected.

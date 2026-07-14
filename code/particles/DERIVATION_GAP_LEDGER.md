@@ -25,7 +25,7 @@ Systematic claim-safe queue after the five-equation P-trunk simplification.
 - Public endpoint alpha_U: `0.041124336195630495`
 - Public endpoint v/E_star: `2.0199803239725553e-17`
 - Public endpoint log10(E_star/v): `16.69465286086613`
-- Source-audit P: `1.63097209569432901817967892561191884270169`
+- Source-audit P: `1.63097209569432901817967892561191884270169` (predates the 2026-07-14 converged rerun; the certified P_fwd is 1.630972095858897..., ledger row CL-6)
 - Source-audit alpha_U: `0.04112424744557487`
 - Source-audit v/E_star: `2.0198114150099223e-17`
 - R_U interval: `[0.041123336195630494, 0.041125336195630496]`

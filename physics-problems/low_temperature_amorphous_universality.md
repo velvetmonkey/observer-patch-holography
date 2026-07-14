@@ -278,7 +278,7 @@ The OPH source-audit pixel candidate used here is
 ```math
 P_{\rm src}
 =
-1.630972095694329\ldots .
+1.630972095694329\ldots\ (recorded value; the 2026-07-14 converged rerun gives 1.630972095858897\ldots, CL-6; the difference is invisible at this note's precision).
 ```
 
 The public comparison endpoint

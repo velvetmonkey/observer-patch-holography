@@ -50,21 +50,21 @@ Sources of the definition:
 `F = Cap_read ∘ Obs ∘ nf`, applied to the universe candidate `U_N` (the OPH universe
 candidate supplied with active boundary capacity `N`: horizon size, accessible records,
 dilution rate, checkpoint continuation, observer-supporting capacity, late-time de Sitter
-boundary — synthesis section, trial-capacity paragraph).
+boundary; synthesis section, trial-capacity paragraph).
 
-1. **nf — quotient normal form.** The quotient normal-form map on the declared
+1. **nf. Quotient normal form.** The quotient normal-form map on the declared
    terminating and confluent repair surface, supplied by the consensus branch
    (`def:self-closure-density`; consensus paper carries the termination/confluence
    package). `nf(U_N)` is the public quotient of the candidate: the record structure
    that survives overlap agreement and repair. Well-definedness of `nf` is exactly
    termination plus confluence of the repair rewriting at the declared cutoff.
-2. **Obs — stable observer-sector selection.** `Obs` selects the stable self-reading
+2. **Obs. Stable observer-sector selection.** `Obs` selects the stable self-reading
    observer sector of the quotient: the subfederation of normal forms that support at
    least one stable observer/checkpoint chain and carry the recovered local package
    (`def:self-closure-density`; the `Ω^sc_N` membership predicate lists the same four
    clauses). `Obs` is a selection, not an optimization: its output is determined by the
    declared stability predicate, with no tunable threshold.
-3. **Cap_read — reconstructed capacity readout.** `Cap_read` returns the capacity the
+3. **Cap_read. Reconstructed capacity readout.** `Cap_read` returns the capacity the
    selected sector reconstructs from inside: from internal geometry, causal
    accessibility, stable records, and self-read closure (synthesis section). Observers
    in `U_N` never see the supplied parameter `N`; `Cap_read` is the inside estimate of
@@ -111,17 +111,17 @@ row. Silent coexistence of two values is excluded by SL-4 (one N; CL-3 reading r
 
 A candidate construction is admissible for certification only if all of P1–P5 hold.
 
-- **P1 — Well-definedness at finite N.** At every finite cutoff `r` and admissible `N`:
+- **P1. Well-definedness at finite N.** At every finite cutoff `r` and admissible `N`:
   the repair surface terminates and is confluent (so `nf` is a function), the stability
   predicate of `Obs` is decidable on the quotient, and `Cap_read` is total on the
   selected sector. `F_r` is then a total function of `N`, and the refinement limit `F`
   exists on `I` (cofinal limit, synthesis section). A construction that is only defined
   on a measure-zero or unstated subset of `I` is not a candidate.
-- **P2 — Monotonicity regime.** On the admissible interval, `F` is differentiable (or
-  interval-Lipschitz) with `0 ≤ F'(N)` — supplied capacity never decreases readable
+- **P2. Monotonicity regime.** On the admissible interval, `F` is differentiable (or
+  interval-Lipschitz) with `0 ≤ F'(N)`; supplied capacity never decreases readable
   capacity. The regime statement is the synthesis-section condition
   `0 ≤ F'(N) ≤ κ < 1` on `I`.
-- **P3 — Boundedness and growth bounds.** Bounds sufficient for a contraction interval
+- **P3. Boundedness and growth bounds.** Bounds sufficient for a contraction interval
   to exist: a bracketing pair `a < b` in `I` with `F(a) ≥ a` and `F(b) ≤ b` together
   with P2 gives `F([a,b]) ⊆ [a,b]`; the derivative ceiling `κ < 1` on `[a,b]` then makes
   `F` a Banach contraction there (L2). A sufficient growth form: if `Cap_read` reads a
@@ -129,10 +129,10 @@ A candidate construction is admissible for certification only if all of P1–P5 
   at most exponentially with rate `ρ` in `N`, then `F' ≤ (normalization)·ρ`, and the
   ceiling is a computable product. Whatever the form, the bound must be emitted with the
   construction, not asserted.
-- **P4 — Count-density coherence.** The obligation of Section 1.3: certified agreement
+- **P4. Count-density coherence.** The obligation of Section 1.3: certified agreement
   of the readback fixed point with the `MAR argmax` of `ℓ(N)`, or a registered
   discrepancy row. The derivative-sign certificate for `H_N` is the accepted carrier.
-- **P5 — Non-triviality.** `F` is not the identity and not a constant pinned to any
+- **P5. Non-triviality.** `F` is not the identity and not a constant pinned to any
   measured value. A map with `F' ≡ 1` on an interval certifies nothing (every point is
   fixed); a constant map wired to the SL-4 estimate is a blindness violation (Section
   3), not a construction.
@@ -147,7 +147,7 @@ The evaluation cone of a candidate F must not contain:
 - the CL-3 electroweak-bridge value `N_EW = π·exp(6π/(P·α_U)) = 3.53e122`;
 - any ledger residual, basin location, or downstream display derived from the above.
 
-The Λ-estimated capacity is the basin the executed output is compared against — stage 1
+The Λ-estimated capacity is the basin the executed output is compared against, stage 1
 of the basin-then-contract protocol (STRANGE_LOOP_PRINCIPLES.md rule 3; CLOSURE_LEDGER.md protocol
 table, N row). It is never an input to the evaluation. Direction of inference is
 permanent (STRANGE_LOOP_PRINCIPLES.md rule 1): a map revised after seeing the basin converts the basin to
@@ -163,21 +163,21 @@ schema mirrors the P-side machinery in
 [`code/P_derivation/`](../P_derivation/) (`fixed_point_certificate.py`,
 `runtime/fine_structure_interval_certificate_current.json`).
 
-- **A1 — Finite executability.** `F_r(N)` executes at declared finite cutoffs and
+- **A1. Finite executability.** `F_r(N)` executes at declared finite cutoffs and
   returns identical output on repeated runs (deterministic; no timestamps or run
   identifiers in artifact content).
-- **A2 — Refinement stability.** Emitted evidence that `F_r → F` on `I`: monotone or
+- **A2. Refinement stability.** Emitted evidence that `F_r → F` on `I`: monotone or
   Cauchy behavior of `F_r(N)` in `r` at declared probe capacities, with stated bounds.
-- **A3 — Self-map enclosure.** Interval-evaluated `F(I') ⊆ I'` for a stated certificate
+- **A3. Self-map enclosure.** Interval-evaluated `F(I') ⊆ I'` for a stated certificate
   interval `I' ⊆ I`, computed with outward rounding.
-- **A4 — Contraction.** Interval-evaluated derivative (or Lipschitz) enclosure on `I'`
+- **A4. Contraction.** Interval-evaluated derivative (or Lipschitz) enclosure on `I'`
   with certified `sup |F'| ≤ L < 1`. A3 + A4 constitute the stage-2 Banach certificate:
   existence and uniqueness of `N_CRC` in `I'` (L2).
-- **A5 — Fixed-point enclosure.** A certified enclosure `[N_lo, N_hi] ∋ N_CRC` with
+- **A5. Fixed-point enclosure.** A certified enclosure `[N_lo, N_hi] ∋ N_CRC` with
   stated width, produced by interval iteration inside `I'`.
-- **A6 — Blindness audit.** V-08 dependency-cone audit record over the evaluation cone
+- **A6. Blindness audit.** V-08 dependency-cone audit record over the evaluation cone
   (Section 3), attached to the certificate, produced before the basin comparison.
-- **A7 — Landing verdict.** The blind output compared once against the SL-4 basin
+- **A7. Landing verdict.** The blind output compared once against the SL-4 basin
   (stage 3). Inside: CL-7 closes, and CL-3/CL-4 become evaluable at the one certified N.
   Outside: the verdict is recorded permanently (STRANGE_LOOP_PRINCIPLES.md rule 7); the row does not
   close by relabeling.

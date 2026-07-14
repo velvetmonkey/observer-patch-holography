@@ -16,7 +16,7 @@ The source-audit branch keeps the public Thomson endpoint out of the upstream
 path and records
 
 ```text
-P_cand = 1.63097209569432901817967892561191884270169
+P_cand = 1.63097209569432901817967892561191884270169 (predates the 2026-07-14 converged rerun; the certified P_fwd is 1.630972095858897..., ledger row CL-6)
 alpha_U(P_cand) = 0.04112424744557487
 v(P_cand)/E_star = 2.0198114150099223e-17
 ```

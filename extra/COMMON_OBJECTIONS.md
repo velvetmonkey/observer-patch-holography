@@ -25,7 +25,7 @@ The theory layer takes zero quantitative inputs: `P` is defined as the solution 
 
 The open test is the loop residual. SLH requires the closure equations to hold exactly. The current source-only forward chain contracts to `alpha^-1 = 136.994835177413` (interval-certified unique fixed point), outside the SL-3 basin by `3.0e-4` in relative units (about `2e6` measurement sigma); the self-consistent map with the gauge-width term has certified fixed point `alpha^-1 = 137.035660136947`, which sits `2.5e-6` away (about `1.6e4` sigma). Both residuals are recorded as rows CL-1 and CL-2 of [CLOSURE_LEDGER.md](../CLOSURE_LEDGER.md), attributed to the missing same-scheme hadronic transport, and the blind completion of that transport against the frozen target is the decisive experiment of the program.
 
-The stage-2 certificate narrows what remains open. Under uniqueness lemma L1 of the consistency stack ([CONSISTENCY_STACK.md](../CONSISTENCY_STACK.md)), interval evaluation of the closure map `g(P) = phi + sqrt(pi)/A_T(P)` on a certified interval — `g(I) ⊆ I` together with a derivative bound below one — gives existence and uniqueness of the fixed point on that interval by the Banach theorem; the certificate is recorded at `code/P_derivation/runtime/p_interval_contraction_certificate_2026-07-14.json`. The fixed point is therefore interval-certified as existing and unique on its interval, and the open question is exclusively the landing — whether the blind source chain arrives inside the SL-3 basin (CL-1) — not the object's existence. The global at-most-one statement on the full physical domain remains an open analytic item (monotonicity of the transport map in `P`).
+The stage-2 certificate narrows what remains open. Under uniqueness lemma L1 of the consistency stack ([CONSISTENCY_STACK.md](../CONSISTENCY_STACK.md)), interval evaluation of the closure map `g(P) = phi + sqrt(pi)/A_T(P)` on a certified interval (`g(I) ⊆ I` together with a derivative bound below one) gives existence and uniqueness of the fixed point on that interval by the Banach theorem; the certificate is recorded at `code/P_derivation/runtime/p_interval_contraction_certificate_2026-07-14.json`. The fixed point is therefore interval-certified as existing and unique on its interval; the object's existence is settled, and the open question is exclusively the landing, whether the blind source chain arrives inside the SL-3 basin (CL-1). The global at-most-one statement on the full physical domain remains an open analytic item (monotonicity of the transport map in `P`).
 
 So the answer to "is `P` circular?" is: the working value is a declared located input, and the content of the declaration is tested by whether the loop closes. A closed loop is evidence; the current open residuals are the measured status of the hypothesis.
 
@@ -42,7 +42,7 @@ So the answer to "is `P` circular?" is: the working value is a declared located 
 
 The claim runs the other way: uniqueness is what makes the hypothesis maximally exposed. Under the uniqueness lemmas of the consistency stack ([CONSISTENCY_STACK.md](../CONSISTENCY_STACK.md), L1–L3), the SLH principle set admits at most one `(P, N)`. There is no vacuum landscape to relocate into: the closure equations must hold exactly, at every precision, and a blind closure computation landing outside its basin falsifies the formulation permanently. SLH requires exact closure (rule 2 of [STRANGE_LOOP_PRINCIPLES.md](../STRANGE_LOOP_PRINCIPLES.md)), and executed tests stay on the falsification surface with their verdicts, revisable only by a new frozen registration (rule 7). A framework with a landscape survives adverse data by relocating; this formulation cannot relocate.
 
-The exposure is armed, not hypothetical. The first decisive computation has a frozen target — `falsification/frozen_targets/hadronic_closure_target_2026-07-14.json`, externally timestamped by OpenTimestamps proofs committed alongside it — with blindness enforced by the dependency-cone audit. "Exactly our universe" is therefore not an unfalsifiable flourish; it is the reason the program can afford to freeze targets before computing payloads, and its standing on any day is whatever the closure ledger says on that day.
+The exposure is armed. The first decisive computation has a frozen target (`falsification/frozen_targets/hadronic_closure_target_2026-07-14.json`, externally timestamped by OpenTimestamps proofs committed alongside it), with blindness enforced by the dependency-cone audit. "Exactly our universe" is therefore not an unfalsifiable flourish; it is the reason the program can afford to freeze targets before computing payloads, and its standing on any day is whatever the closure ledger says on that day.
 
 ---
 
@@ -65,7 +65,7 @@ The exposure is armed, not hypothetical. The first decisive computation has a fr
 
 ### Short answer
 
-The rebuttal is conditional, and the condition is open. **If the controlled Bisognano-Wichmann (BW) certificate holds** — cap-pair extraction, regularized modular transport, support-readable modular covariance, round-cap rigidity, and KMS/BW normalization on the extracted prime geometric cap pair — **then** boosts act as automorphisms of the cap net, the entropy first law is covariant, and the derivation reaches the full tensor Einstein equation. Establishing that certificate in an explicit UV regulator with controlled errors is an open task of the program, not a finished theorem.
+The rebuttal is conditional, and the condition is open. **If the controlled Bisognano-Wichmann (BW) certificate holds** (cap-pair extraction, regularized modular transport, support-readable modular covariance, round-cap rigidity, and KMS/BW normalization on the extracted prime geometric cap pair), **then** boosts act as automorphisms of the cap net, the entropy first law is covariant, and the derivation reaches the full tensor Einstein equation. Establishing that certificate in an explicit UV regulator with controlled errors is an open task of the program, not a finished theorem.
 
 With the conditional stated, the criticism itself would be decisive against a theory that treated the UV cells as little rigid rods inside a pre-given spacetime. OPH has a different setup.
 
@@ -176,7 +176,7 @@ That is exactly the structure needed to keep overlap consistency intact.
 
 ## 4. Why Lorentz invariance follows if the BW certificate holds
 
-The criticism says OPH has not proved Lorentz invariance. The published claim of the framework is conditional: Lorentz kinematics are forced by modular structure under a stated set of assumptions — the BW certificate — and exhibiting an explicit UV regulator that satisfies those assumptions with controlled errors remains open (*Observers Are All You Need*, Part I §4.2-4.3; Part V §2.1-2.2).
+The criticism says OPH has not proved Lorentz invariance. The published claim of the framework is conditional: Lorentz kinematics are forced by modular structure under a stated set of assumptions (the BW certificate), and exhibiting an explicit UV regulator that satisfies those assumptions with controlled errors remains open (*Observers Are All You Need*, Part I §4.2-4.3; Part V §2.1-2.2).
 
 ### 4.1 The theorem-level statement
 
@@ -565,9 +565,9 @@ It is right to distinguish the finite Type I regulator layer from the
 observer-facing scaling-limit theorem surface. It is wrong to present that
 distinction as a fatal contradiction. In the OPH papers, the controlled
 Bisognano-Wichmann theorem and downstream Lorentz / null-modular / Einstein
-branch are conditional statements under declared hypotheses — if the BW
+branch are conditional statements under declared hypotheses: if the BW
 certificate holds, the chain follows, and establishing the certificate is
-open — while the microphysics paper handles fixed-cutoff implementation and
+open. The microphysics paper handles fixed-cutoff implementation and
 nonunique UV realization.
 
 The UEET replacement argument, as stated in the critique, does not solve

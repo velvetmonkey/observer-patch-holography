@@ -37,12 +37,15 @@ compression scorecard ([COMPRESSION_SCORECARD.md](../COMPRESSION_SCORECARD.md)):
 M − K is deeply negative. The program's task is to move rows upward, and this
 document lists every way it can lose while trying.
 
-The exposure documented here is structural, not a posture. Under the
+The exposure documented here is structural. Under the
 uniqueness lemmas of the consistency stack
 ([CONSISTENCY_STACK.md](../CONSISTENCY_STACK.md), L1–L3), the SLH principle set
 admits at most one (P, N): there is no vacuum landscape to relocate into, and
 a blind closure computation landing outside its basin falsifies the
-formulation permanently. Maximal falsifiability is a corollary of uniqueness.
+formulation permanently. The uniqueness certificates cover the declared
+working intervals; the global at-most-one statement rides the open
+monotonicity item ([CONSISTENCY_STACK.md](../CONSISTENCY_STACK.md), L1).
+Maximal falsifiability is a corollary of uniqueness at that certified scope.
 
 This surface lists **33 hard OPH-killing outcomes**: 16 structural, 7
 discriminating physical, and 10 shared with the Standard Model. Each executed
@@ -77,7 +80,7 @@ Useful background:
 | Proton decay | A hypothetical proton breakup. OPH's product-group branch forbids the grand-unified gauge-boson route; so does the Standard Model. |
 | \(P\) | The substrate pixel ratio. Working value located under SL-3 from measured α: 1.630968209403959… A counted input. The forward-model closure point \(P_{\mathrm{fwd}}\) = 1.630972095858897… (interval-certified) is a distinct numeral; their difference is the loop residual (CL-1/CL-2). |
 | \(N\) | The record capacity. Working value located under SL-4 from measured Λ: about \(3.31\times10^{122}\). A counted input. |
-| \(N_{\mathrm{CRC}}^{\mathrm{EW}}\) | The electroweak-bridge capacity, \(3.5323546226929906511\ldots\times10^{122}\). SL-4 admits one N, so the 6.8% gap to the Λ-located value is an open contradiction (CL-3), not a second capacity. |
+| \(N_{\mathrm{CRC}}^{\mathrm{EW}}\) | The electroweak-bridge capacity, \(3.5323546226929906511\ldots\times10^{122}\). SL-4 admits one N, so the 6.6% gap to the Λ-located value is an open contradiction (CL-3) rather than a second capacity. |
 | 24-tick repair lock | One global screen step equals 24 rounds of local repair, \(2(8+3+1)\). The ×2 write/check orientation (12→24) is a discrete structural selection with a recorded menu size, not a parameter-free deduction. |
 | \(G_{\mathrm{OPH}}\) | The SI bridge display for Newton's constant, \(6.674299995910528\ldots\times10^{-11}\,\mathrm{m^3\,kg^{-1}\,s^{-2}}\). It consumes measured bridge quantities and carries the QCD/cesium-clock caveat. The structural claim is the dimensionless gravity theorem. |
 | \(\chi_\nu\) | The coherent scalar susceptibility continuation. Currently a speculative continuation with no testable content; see the appendix. |
@@ -88,18 +91,18 @@ Useful background:
 [CLOSURE_LEDGER.md](../CLOSURE_LEDGER.md) is the canonical record; this section
 mirrors it. SLH requires these equations to hold exactly. Under SL-0 the
 simulating structure and the simulated world are one closed system, so each
-residual is a direct measurement of the principle set — there is no compare-only
+residual is a direct measurement of the principle set; there is no compare-only
 branch for any row, and no row closes by relabeling.
 
 | # | Closure | Required | Current status | Residual (relative) | Residual (measurement σ) |
 |---|---|---|---|---|---|
 | CL-1 | P-loop, source chain: \(P = \varphi + \sqrt{\pi}/A_T(P)\) with source-only transport | exact | forward map contracts to α⁻¹ = 136.994835177413 (interval-certified unique fixed point, width 7.2×10⁻²⁴), outside the SL-3 basin | 3.0×10⁻⁴ | ≈2×10⁶ |
 | CL-2 | P-loop with gauge-width term, self-consistent map | exact | certified unique fixed point α⁻¹ = 137.035660136947 vs 137.035999177(21) | 2.5×10⁻⁶ | ≈1.6×10⁴ |
-| CL-3 | One capacity (SL-4): \(N_{\mathrm{EW}} = \pi\exp(6\pi/(P\alpha_U))\) vs N from Λ | exact | 3.53×10¹²² vs 3.31×10¹²² | 6.8×10⁻² | — (model-dominated, not Λ error) |
+| CL-3 | One capacity (SL-4): \(N_{\mathrm{EW}} = \pi\exp(6\pi/(P\alpha_U))\) vs N from Λ | exact | 3.53×10¹²² vs 3.31×10¹²² | 6.6×10⁻² | n/a (model-dominated, not Λ error) |
 | CL-4 | Hierarchy bridge at the one N: \(\alpha_U\log(N/\pi) = 6\pi/P\) | exact | 11.5546 vs 11.5573 at the Λ-located N | 2.3×10⁻⁴ (log scale) | n/a |
-| CL-5 | Forward electroweak emission at the SL-3 pixel: \((M_W, M_Z)\) | exact | (80.330, 91.119) vs (80.3692(133), 91.1876(21)) | 4.9×10⁻⁴ / 7.5×10⁻⁴ | 2.9σ / ≈33σ |
+| CL-5 | Forward electroweak emission at the SL-3 pixel: \((M_W, M_Z)\) | exact | (80.330, 91.119) vs (80.3692(133), 91.1880(20)) | 4.9×10⁻⁴ / 7.6×10⁻⁴ | 2.9σ / ≈35σ |
 | CL-6 | Printed pair identity: \(\alpha_{\mathrm{root}} = (P_{\mathrm{fwd}} - \varphi)/\sqrt{\pi}\) | exact | closed 2026-07-14: holds to ≥ 35 digits after converged precision-100 reruns; the converged α⁻¹ = 136.994835177413 supersedes the earlier printed tail 136.994835164622 beyond digit 9 | 3.1×10⁻³⁶ (report), 1.2×10⁻³⁸ (trunk) | n/a |
-| CL-7 | Capacity readback map: \(F(N) = N\) | exact | F not yet constructed | — | — |
+| CL-7 | Capacity readback map: \(F(N) = N\) | exact | F not yet constructed | n/a | n/a |
 
 CL-1 and CL-2 are the same open term seen from two points on the chain: the
 Ward-projected hadronic transport. CL-3 supersedes all "two capacities" and
@@ -200,7 +203,7 @@ data exists or is looked at):
    and can neither support nor falsify.
 3. **DESI stance rows.** The fixed-N reading commits to
    \((w_0, w_a) = (-1, 0)\); a stance on the S8/growth row (currently
-   disfavored — frozen anyway); any birefringence refinement carries its
+   disfavored, frozen anyway); any birefringence refinement carries its
    trials count (the existing 0.37501° expression was the 4th of 4 tried).
 4. **Prospective neutrino branch.** A source-derived family kernel, cycle law,
    orientation, and physical charged-lepton basis, hash-locked without
@@ -212,11 +215,12 @@ data exists or is looked at):
 
 Retrospective comparisons that are not predictions and are not counted as
 evidence: fixed-\(\mathbb{Z}_6\) RAR scatter 0.1328335 dex and error-aware BTFR
-slope 3.8456543 ± 0.0858172 (slope 4 at 1.80σ) — the interpolation function is
-the McGaugh–Lelli–Schombert empirical RAR fit and the SPARC samples are not
-held out; analytic scalar tilt \(n_s = 1 - P/48 = 0.9660214956\) at 0.267σ from
-the Planck summary with an 83-bin CAMB diagnostic of Δχ² = +0.83 — two formula
-candidates circulate and the trials count is part of any future registration.
+slope 3.8456543 ± 0.0858172 (slope 4 at 1.80σ), where the interpolation
+function is the McGaugh–Lelli–Schombert empirical RAR fit and the SPARC
+samples are not held out; analytic scalar tilt
+\(n_s = 1 - P/48 = 0.9660214956\) at 0.267σ from the Planck summary with an
+83-bin CAMB diagnostic of Δχ² = +0.83, where two formula candidates circulate
+and the trials count is part of any future registration.
 
 ## 3. Live Tensions
 
@@ -225,14 +229,14 @@ measurement-attribution rule (section 6):
 
 | Tension | Values | Relative deviation | Pull (measurement σ) |
 | --- | --- | --- | --- |
-| One-N gap (CL-3) | \(N_{\mathrm{CRC}}^{\mathrm{EW}} = 3.53\times10^{122}\) vs Λ-located \(3.31\times10^{122}\) | 6.8×10⁻² | model-dominated; Λ error subdominant |
+| One-N gap (CL-3) | \(N_{\mathrm{CRC}}^{\mathrm{EW}} = 3.53\times10^{122}\) vs Λ-located \(3.31\times10^{122}\) | 6.6×10⁻² | model-dominated; Λ error subdominant |
 | Hierarchy bridge (CL-4) | 11.5546 vs 11.5573 at the Λ-located N | 2.3×10⁻⁴ (log scale) | same object as CL-3 |
 | Forward W (CL-5) | 80.330 vs 80.3692(133) GeV | 4.9×10⁻⁴ | 2.9σ |
-| Forward Z (CL-5) | 91.119 vs 91.1876(21) GeV | 7.5×10⁻⁴ | ≈33σ |
-| S8 growth row | out-of-loop row of the dark-sector likelihood surface | — | +2.4σ against the model |
+| Forward Z (CL-5) | 91.119 vs 91.1880(20) GeV | 7.6×10⁻⁴ | ≈35σ |
+| S8 growth row | out-of-loop row of the dark-sector likelihood surface | n/a | +2.4σ against the model |
 | Source-α gap (CL-1) | forward chain contracts to α⁻¹ = 136.994835177413 (certified) vs 137.035999177(21) | 3.0×10⁻⁴ | ≈2×10⁶σ |
 | Gauge-width α gap (CL-2) | certified fixed point 137.035660136947 vs 137.035999177(21) | 2.5×10⁻⁶ | ≈1.6×10⁴σ |
-| Bench bound on \(\chi_\nu\) | coupons at rest bound gravitational ΔS ≲ 10⁻¹⁰ | record-level contrasts are 10⁻²–1; the 1:1 record↔gravity identity is ruled out by 8–10 orders | — (null bound) |
+| Bench bound on \(\chi_\nu\) | coupons at rest bound gravitational ΔS ≲ 10⁻¹⁰ | record-level contrasts are 10⁻²–1; the 1:1 record↔gravity identity is ruled out by 8–10 orders | n/a (null bound) |
 
 Notes:
 
@@ -262,7 +266,7 @@ revised only by a new frozen registration, never by reclassification
 | --- | --- | --- | --- |
 | Neutrino weighted-cycle point | \(\sin^2\theta_{23} = 0.5820560367\), \(\delta_{CP} = -54.419^\circ\) (≡ 305.581°) vs NuFIT 6.1 correlated profiles | Δχ² = 20.12 (with tabulated atmospheric likelihood) and 18.44 (without); both exceed the two-parameter 3σ value 11.83 | **REJECTED.** The candidate was target-informed (exponent law ranked against the measured splitting ratio). The displayed mass tuple (0.01745, 0.01948, 0.05308 eV), sum 0.0900 eV, and Majorana readouts are coordinates on the rejected candidate. |
 | Universal static dark law | fixed-\(\mathbb{Z}_6\) equation applied unchanged to the Milky-Way–Sun system vs the Cassini quadrupole summary | predicted \(Q_2 = 3.6201778\times10^{-26}\,\mathrm{s^{-2}}\), ≈19× the summary 1σ uncertainty above it; pull 19.2232σ (unit endpoint \(3.4021876\times10^{-26}\): 18.0122σ) | **EXCLUDED** as a universal law. The scoped old-settled-galaxy branch survives only with a source-derived applicability or screening rule, which does not yet exist. |
-| IBM Z₅ high-precision run | five-state golden-ratio target \(\varphi^2 = 2.618033988749895\) | measured 2.5498, CI [2.4919, 2.6023]; relative deviation 2.6%; the target sits above the upper bound (≈2.4σ at the interval-implied width) | **The run excludes the target.** This is the one reconciled verdict; it replaces the pair of documents that called the same run confirmation and disproof. Standard QM predicts the ideal programmed target, so the run also carries no OPH-support weight — but the exclusion stands as executed. |
+| IBM Z₅ high-precision run | five-state golden-ratio target \(\varphi^2 = 2.618033988749895\) | measured 2.5498, CI [2.4919, 2.6023]; relative deviation 2.6%; the target sits above the upper bound (≈2.4σ at the interval-implied width) | **The run excludes the target.** This is the one reconciled verdict; it replaces the pair of documents that called the same run confirmation and disproof. Standard QM predicts the ideal programmed target, so the run also carries no OPH-support weight; the exclusion stands as executed. |
 | IBM S₃ six-state ratio test | preregistered ratio 2 | initial runs 1.70–1.93; relative deviation −3.5% to −15% | **FAILED** as preregistered. The reversed-layout reading 2.0348 (n = 1 configuration, found after the failures) is a new hypothesis requiring a fresh frozen run, not a rescue. |
 | Bottom-quark normalization | \(m_b(m_b)\) forward emission vs PDG 4.186(6) GeV | emitted 6.03 GeV; relative deviation +44%; pull ≈3×10²σ | **OVERSHOOT stands.** Carried openly as the one-loop b–τ register-selection and threshold-packet gap. |
 | Quark denominator-tuple lanes | six quark masses from the RSCC tuple grammar | tuple was the minimum of a 219,615-member post-hoc grammar; an ablation fit better | **SELF-REJECTED** by the quarks ledger (status: post-hoc, target-informed). The "all six within 11.5%" positives are void; no surface may cite them. |
@@ -334,11 +338,11 @@ S_{\mathrm{coh}}^{\mathrm{eng}}|)\).
 
 **The lane has no testable content until two artifacts exist:** (1) an
 operational, instrument-independent recipe for producing and measuring the
-coherence contrast \(\Delta S_{\mathrm{coh}}\) on a real substrate — without
+coherence contrast \(\Delta S_{\mathrm{coh}}\) on a real substrate; without
 it, every null is attributable to not reaching the contrast, and
 \(N_{\mathrm{coh}}\) free over 10²⁰–10²⁴ makes the engineering coefficient
 anything; and (2) a reconciliation with equivalence-principle and fifth-force
-bounds — the assignment \(c_U = 0\) to ordinary matter currently exempts the
+bounds, since the assignment \(c_U = 0\) to ordinary matter currently exempts the
 lane from every torsion-balance, Eötvös, and MICROSCOPE constraint by
 construction, and that exemption requires a derivation, not a definition.
 

@@ -153,7 +153,7 @@ and that part is work in progress. For the weak bosons the framework gives the W
 and Z masses close to $80.3$ and $91.1$ GeV, within about a tenth of a percent
 of measurement and with no measured mass fed in, apart from a small unresolved
 choice between two candidate rules. Against the current world averages those
-values pull at 2.9 standard deviations for the W and about 33 for the Z, and
+values pull at 2.9 standard deviations for the W and about 35 for the Z, and
 the gap is carried as an open closure row (CL-5). The low-energy electromagnetic strength can
 be read in several ways: from the first-principles side alone, from a mixed
 calculation, and from a version that closes the gap using measured hadron data.

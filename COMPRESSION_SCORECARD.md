@@ -35,7 +35,7 @@ enumerated closure program, never to tuning, because there is nothing to tune.
 | m_W | 80.330 GeV | 80.3692(133) GeV | 4.9×10⁻⁴ | strict source-audit branch, evaluated at the SL-3 working pixel, a counted input (CL-5) |
 | m_Z | 91.119 GeV | 91.1880(20) GeV | 7.6×10⁻⁴ | strict source-audit branch, evaluated at the SL-3 working pixel, a counted input (CL-5) |
 | Hierarchy relation α_U·log(N/π) = 6π/P | 11.5546 | 11.5573 at the Λ-readout N | 2.3×10⁻⁴ | same object as CL-3/CL-4 |
-| Record capacity N | 3.53×10¹²² (electroweak bridge) | 3.31×10¹²² (Λ readout) | 6.8×10⁻² | one-capacity requirement (CL-3); F construction open (CL-7) |
+| Record capacity N | 3.53×10¹²² (electroweak bridge) | 3.31×10¹²² (Λ readout) | 6.6×10⁻² | one-capacity requirement (CL-3); F construction open (CL-7) |
 | Λ_QCD^(3) | 0.3348 GeV | 0.338(12) GeV | ≈1×10⁻² | conditional on declared threshold inputs, bracket-swept; threshold provenance listed in the particle paper audit ledger |
 | m_N | 0.929 GeV | 0.9389 GeV | 1.1×10⁻² | compare-only: source scale times a published lattice ratio, an external theory input whose calibration ancestry includes measured hadronic scale-setting |
 | m_t (criticality branch) | 172.63 GeV | 172.60(30) GeV | 2×10⁻⁴ | conditional criticality family; CF1/CF2 are the D11 census, which consumed the measured top/Higgs pair; the three-loop implied scale is the registered discriminating test |
