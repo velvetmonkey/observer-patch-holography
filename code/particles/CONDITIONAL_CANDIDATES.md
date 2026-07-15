@@ -51,4 +51,4 @@ pixel) from a run that predates the converged precision-100 reruns; it is not
 a fixed point of any single declared map and stays on record as a display
 packet only. The certified self-consistent gauge-width fixed point is
 `alpha^-1 = 137.035660136946577...`, and the certified source root is
-`alpha^-1 = 136.994835177413...` (CL-2/CL-6 in `../../CLOSURE_LEDGER.md`).
+`alpha^-1 = 136.994835177413...` (CL-2/CL-6 in `../../docs/CLOSURE_LEDGER.md`).

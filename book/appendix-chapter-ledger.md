@@ -836,7 +836,7 @@ screens, algebras, overlaps, entropy, recovery, holography, entanglement,
 codes, modular time, symmetry, de Sitter capacity, particle structure,
 classical matter, and selection. The selection chain the chapter tells as a
 story has its formal statement in
-[CONSISTENCY_STACK.md](../CONSISTENCY_STACK.md), which lists each requirement,
+[CONSISTENCY_STACK.md](../docs/CONSISTENCY_STACK.md), which lists each requirement,
 the freedom it removes, its mathematical carrier, and its current status.
 
 The symbol guide is mostly referential. The Standard Model

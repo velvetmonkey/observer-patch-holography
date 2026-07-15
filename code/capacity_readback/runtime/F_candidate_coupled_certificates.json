@@ -1,0 +1,150 @@
+{
+  "artifact": "oph_capacity_readback_candidate_coupled_2026-07-15",
+  "blindness": {
+    "cone_contains_cl3_bridge_expression": true,
+    "dependency_cone": [
+      "mpmath",
+      "toy_readback interval machinery",
+      "F_candidate_capL centered certificate helpers",
+      "P_derivation interval contraction certificate (P and alpha_U enclosures)"
+    ],
+    "inputs": [
+      "certified forward-closure P enclosure (source-side computed fixed point)",
+      "certified alpha_U(P_fwd) enclosure (same interval certificate)",
+      "declared structure integers 12/24/6/4 and pi",
+      "lambda = 1/2 recorded free averaging weight"
+    ],
+    "reads_measured_lambda": false,
+    "reads_sl4_estimate_as_input": false,
+    "v08_verdict": "fails the spec Section 3 blindness bar as written: the bridge exponent 6*pi/(P*alpha_U) is in the cone by construction (it is the theorem content). This candidate is conditional on CP-1..CP-3 and cannot serve as a blind CL-7 landing test; if the premises discharge, CL-7 closes into CL-3 and the live test is the bridge value against the Lambda-located capacity."
+  },
+  "certificate": {
+    "capacity_coordinate": {
+      "contraction_certificate": {
+        "banach_pass": true,
+        "derivative_enclosure": {
+          "hi": "0.582671582316750859439696464302",
+          "lo": "0.431219680932051727090758160418"
+        },
+        "image": {
+          "hi": "3.73793881095441770438408075006e+122",
+          "lo": "3.32632427588345395807016015653e+122"
+        },
+        "image_form": "centered mean-value: F(m) + F'(I)*(I - m)",
+        "interval": {
+          "hi": "3.88534469776082941434983271342e+122",
+          "lo": "3.17891838907704224810440821373e+122"
+        },
+        "lipschitz_bound_L": "0.582671582316750859439696464302",
+        "lipschitz_pass": true,
+        "monotone_nonnegative_pass": true,
+        "self_map_pass": true
+      },
+      "fixed_point_enclosure": {
+        "hi": "3.532131543418935831227120721623402237107e+122",
+        "lo": "3.532131543418935831227120163546618376916e+122",
+        "relative_width": "1.58e-25"
+      },
+      "map": "F(N) = pi * exp((1-lambda)*log(N/pi) + lambda*x_EW)"
+    },
+    "coupling": {
+      "cp1_balance_condition": "Pi_EW(P,N) = beta_EW*P with Pi_EW = 24*pi/(alpha_U*log(N/pi)); equivalently Gamma_EW = t_tr; equivalently per-port load log(N/pi)/12 = pi/(2*P*alpha_U)",
+      "forced_load": "x_EW(P) = 6*pi/(P*alpha_U(P))",
+      "x_ew_enclosure": {
+        "hi": "281.032552984795966015533961261",
+        "lo": "281.032552984795966015533961145"
+      }
+    },
+    "load_coordinate": {
+      "contraction_certificate": {
+        "banach_pass": true,
+        "derivative_enclosure": {
+          "hi": "0.5",
+          "lo": "0.5"
+        },
+        "image": {
+          "hi": "281.532552984795966015533961261",
+          "lo": "280.532552984795966015533961145"
+        },
+        "image_form": "centered mean-value: F(m) + F'(I)*(I - m)",
+        "interval": {
+          "hi": "282.032552984795966015533961261",
+          "lo": "280.032552984795966015533961145"
+        },
+        "lipschitz_bound_L": "0.5",
+        "lipschitz_pass": true,
+        "monotone_nonnegative_pass": true,
+        "self_map_pass": true
+      },
+      "exact_solution_check": {
+        "algebraic_fixed_point": "y = x_EW(P), independent of lambda",
+        "x_ew_enclosure": {
+          "hi": "281.032552984795966015533961261",
+          "lo": "281.032552984795966015533961145"
+        },
+        "x_ew_inside_certified_box": true
+      },
+      "fixed_point": {
+        "box_self_map_pass": true,
+        "candidate_box": {
+          "hi": "281.032552984795966015533961303",
+          "lo": "281.032552984795966015533961103"
+        },
+        "enclosure": {
+          "hi": "281.032552984795966015533961282",
+          "lo": "281.032552984795966015533961124"
+        },
+        "iterations": 1,
+        "located": true,
+        "width": "1.5819176e-25"
+      },
+      "lambda": "0.5",
+      "map": "C(y) = (1-lambda)*y + lambda*x_EW, y = log(N/pi)"
+    }
+  },
+  "cl7_status": "open_reduced_to_CP-1_CP-2_CP-3",
+  "derivation": "G2_GAP_1_COUPLING_THEOREM.md",
+  "family": "coupled port-inversion readback: F(N) = pi * exp((1-lambda)*log(N/pi) + lambda*6*pi/(P*alpha_U))",
+  "informative_comparison": {
+    "fixed_point_over_sl4": "1.067109228",
+    "log10_offset": "0.0282089",
+    "note": "the offset restates the CL-3 residual (bridge value 6.6 percent above the Lambda-located capacity in N units); it is the single live test if CP-1..CP-3 discharge",
+    "reason": "A6 fails by construction; the spec landing protocol does not apply to a theorem-coupled candidate",
+    "relative_offset": "0.0671092",
+    "sl4_lambda_located_capacity": "3.31e122",
+    "status": "informative_only_not_a_landing_verdict"
+  },
+  "inputs": {
+    "P_certified_enclosure": {
+      "hi": "1.6309720958588973769645139038446714349507911573627096569324070023",
+      "lo": "1.6309720958588973769645139031692398220074613523151957129273490076"
+    },
+    "alpha_U_certified_enclosure": {
+      "hi": "0.041124247441816685140889933889659717292128290616193554171910678971",
+      "lo": "0.041124247441816685140889933889659717292128290416193554171910567414"
+    },
+    "source": "code/P_derivation/runtime/p_interval_contraction_certificate_2026-07-14.json",
+    "structure_integers": [
+      12,
+      24,
+      6,
+      4
+    ]
+  },
+  "interval_backend": {
+    "library": "mpmath.iv",
+    "precision_decimal_digits": 60,
+    "promotion_backend_required": "arb_or_mpfi_directed_outward",
+    "rounding": "mpmath_interval_outward"
+  },
+  "moves_cl7": false,
+  "spec_properties": {
+    "P1_well_definedness": "the coupled map is total and C^1 on the certificate interval; well-definedness of the physical nf/Obs/Cap_read chain at finite cutoff is carried by CP-2/CP-3, unconstructed",
+    "P2_monotone": "F' = (1-lambda)*F(N)/N > 0 on the interval; certified enclosure above",
+    "P3_bounds": "bracketing pair supplied by the certified self-map interval; L = 1/2",
+    "P4_count_density": "open obligation: the count representation of the coupled membership clause is unconstructed; recorded with CP-2/CP-3, no coherence claim",
+    "P5_nontrivial": "F' = 1/2 on the load coordinate; the map is neither the identity nor constant for lambda in (0,1); the lambda = 1 constant reading is the excluded CAP-B branch"
+  },
+  "specification": "F_READBACK_SPEC.md",
+  "status": "conditional_on_CP-1_CP-2_CP-3"
+}

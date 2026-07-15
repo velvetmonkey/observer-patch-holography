@@ -2,10 +2,10 @@
 
 Formal acceptance specification for any candidate construction of the OPH capacity
 readback map F, the object behind consistency requirement C8
-([CONSISTENCY_STACK.md](../../CONSISTENCY_STACK.md)), uniqueness lemma L2, and generator
+([CONSISTENCY_STACK.md](../../docs/CONSISTENCY_STACK.md)), uniqueness lemma L2, and generator
 G2 of the closure-ledger dependency table. G2 is the single object whose construction and
 certified execution moves ledger rows CL-3, CL-4, and CL-7
-([CLOSURE_LEDGER.md](../../CLOSURE_LEDGER.md)). This file states what a candidate F must
+([CLOSURE_LEDGER.md](../../docs/CLOSURE_LEDGER.md)). This file states what a candidate F must
 be and what it must pass. It constructs nothing.
 
 **Status: specification only. No candidate F is constructed. CL-7 is open.**
@@ -142,7 +142,7 @@ A candidate construction is admissible for certification only if all of P1–P5 
 The evaluation cone of a candidate F must not contain:
 
 - measured Λ, measured G, or any quantity computed from them;
-- the SL-4 estimate `N = 3.31e122` ([STRANGE_LOOP_PRINCIPLES.md](../../STRANGE_LOOP_PRINCIPLES.md), Estimated values),
+- the SL-4 estimate `N = 3.31e122` ([STRANGE_LOOP_PRINCIPLES.md](../../docs/STRANGE_LOOP_PRINCIPLES.md), Estimated values),
   including every code alias of it (e.g. `DEFAULT_N_SCR`);
 - the CL-3 electroweak-bridge value `N_EW = π·exp(6π/(P·α_U)) = 3.53e122`;
 - any ledger residual, basin location, or downstream display derived from the above.

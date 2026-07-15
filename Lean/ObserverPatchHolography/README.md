@@ -29,6 +29,17 @@ surface for the OPH consensus layer. Contents:
   information-set boundary, with a bad-boundary counterexample, a non-trivial
   gauge, and a local-repair no-go (`H1`–`H3` route only). A carrier-level
   witness; it does **not** advance the Prop 4.2 target. See `PROOF_INDEX.md`.
+- A sorry-free **Part-A coupling-algebra layer** (13 lemmas, standard axioms
+  only): `Source/ObserverPatchHolography/BridgeEquivalence.lean` (bridge
+  count/tick equivalence, 5 lemmas),
+  `Source/ObserverPatchHolography/CapacityFixedPoint.lean` (capacity
+  fixed-point uniqueness schema, 4 lemmas), and
+  `Source/ObserverPatchHolography/SeedPi.lean` (CAP-P seed statement,
+  4 lemmas). These formalise the ALGEBRAIC layer of the coupling theorem and
+  carry no physical-derivation content; the physical identities I1/I2 are
+  outside the formalised set. Numeric interval enclosures stay in the Python
+  certificates (`code/capacity_readback/`, `code/P_derivation/`); no
+  floating-point numerics enter Lean. See `PROOF_INDEX.md`.
 - A standalone, application-neutral proof package in
   `Proofs/ObservableNormalForms/`.  Its generic endpoint theorem is connected
   to the concrete local-repair interface by

@@ -3,12 +3,12 @@
 ## Standing Of The Hypothesis
 
 OPH is stated under the strange-loop principles (SLH), SL-0 through
-SL-5, canonically recorded in [STRANGE_LOOP_PRINCIPLES.md](../STRANGE_LOOP_PRINCIPLES.md). The principles are declared
+SL-5, canonically recorded in [STRANGE_LOOP_PRINCIPLES.md](../docs/STRANGE_LOOP_PRINCIPLES.md). The principles are declared
 architecture postulates. Evidence bears on the principle set through the closure
 ledger and the compression scorecard, never through restatement.
 
 The two substrate constants are handled in three layers
-([STRANGE_LOOP_PRINCIPLES.md](../STRANGE_LOOP_PRINCIPLES.md)). The theory layer
+([STRANGE_LOOP_PRINCIPLES.md](../docs/STRANGE_LOOP_PRINCIPLES.md)). The theory layer
 takes zero quantitative inputs: P is defined as the solution of
 P = φ + √π/A_T(P), interval-certified to exist and be unique, with exactly one
 fixed point per readout map on the declared physical domain,
@@ -27,7 +27,7 @@ lanes borrow located values:
   input.
 
 Every working borrow is tied to a named generator in
-[CONSISTENCY_STACK.md](../CONSISTENCY_STACK.md) (G1 hadronic transport, G2
+[CONSISTENCY_STACK.md](../docs/CONSISTENCY_STACK.md) (G1 hadronic transport, G2
 capacity readback, G3 electroweak repair); a generator that lands retires its
 borrow. The generator program executed its first full round on 2026-07-14.
 G1: the payload harness is built, and the first-principles internal-mass
@@ -44,14 +44,14 @@ open.
 
 Neither α nor Λ nor G appears on any OPH output list. A measured value used to
 locate a basin is an input at every surface, permanently
-([STRANGE_LOOP_PRINCIPLES.md](../STRANGE_LOOP_PRINCIPLES.md), rule 1). The current evidential standing is the
-compression scorecard ([COMPRESSION_SCORECARD.md](../COMPRESSION_SCORECARD.md)):
+([STRANGE_LOOP_PRINCIPLES.md](../docs/STRANGE_LOOP_PRINCIPLES.md), rule 1). The current evidential standing is the
+compression scorecard ([COMPRESSION_SCORECARD.md](../docs/COMPRESSION_SCORECARD.md)):
 M − K is deeply negative. The program's task is to move rows upward, and this
 document lists every way it can lose while trying.
 
 The exposure documented here is structural. Under the
 uniqueness lemmas of the consistency stack
-([CONSISTENCY_STACK.md](../CONSISTENCY_STACK.md), L1–L3), the SLH principle set
+([CONSISTENCY_STACK.md](../docs/CONSISTENCY_STACK.md), L1–L3), the SLH principle set
 admits at most one (P, N): there is no vacuum landscape to relocate into, and
 a blind closure computation landing outside its basin falsifies the
 formulation permanently. The uniqueness result is global on the declared
@@ -100,7 +100,7 @@ Useful background:
 
 ## 1. Closure Tests
 
-[CLOSURE_LEDGER.md](../CLOSURE_LEDGER.md) is the canonical record; this section
+[CLOSURE_LEDGER.md](../docs/CLOSURE_LEDGER.md) is the canonical record; this section
 mirrors it. SLH requires these equations to hold exactly. Under SL-0 the
 simulating structure and the simulated world are one closed system, so each
 residual is a direct measurement of the principle set; there is no compare-only
@@ -278,7 +278,7 @@ Notes:
 
 Every test ever run stays on this surface with its verdict. A failed row is
 revised only by a new frozen registration, never by reclassification
-([STRANGE_LOOP_PRINCIPLES.md](../STRANGE_LOOP_PRINCIPLES.md), rule 7).
+([STRANGE_LOOP_PRINCIPLES.md](../docs/STRANGE_LOOP_PRINCIPLES.md), rule 7).
 
 | Test | Target and data | Result (relative deviation; pull) | Verdict |
 | --- | --- | --- | --- |
@@ -334,7 +334,7 @@ relative level, while the loop gaps are 2.5×10⁻⁶ (gauge-width chain) and 3�
 (source chain): 10³–10⁶ times larger than the room available on the measurement
 side. The corpus's own hadron-scheme bridge places the missing piece in the
 model's hadronic transport. A measurement-side mechanism claim is admissible
-only as a frozen registered prediction ([STRANGE_LOOP_PRINCIPLES.md](../STRANGE_LOOP_PRINCIPLES.md), rule 5).
+only as a frozen registered prediction ([STRANGE_LOOP_PRINCIPLES.md](../docs/STRANGE_LOOP_PRINCIPLES.md), rule 5).
 
 ## Appendix: Speculative Continuations
 

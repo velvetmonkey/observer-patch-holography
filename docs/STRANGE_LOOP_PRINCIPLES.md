@@ -5,7 +5,8 @@ every OPH surface follows. Papers, book chapters, READMEs, and public pages cite
 rather than restating or strengthening its content. The central thesis, its lineage, and
 the five-pillar mission are stated in [STRANGE_LOOP.md](STRANGE_LOOP.md); the forcing
 chain from the principles to a unique universe is stated in
-[CONSISTENCY_STACK.md](CONSISTENCY_STACK.md). Adopted 2026-07-14.
+[CONSISTENCY_STACK.md](CONSISTENCY_STACK.md); the end-to-end proof strategy and its
+gap register live in [PROOF_SPINE.md](PROOF_SPINE.md). Adopted 2026-07-14.
 
 ## The principles
 
@@ -39,8 +40,9 @@ principle set through the closure ledger, never through restatement.
 
 - **Theory layer.** The pure self-simulation consistency theory. Zero quantitative
   inputs: no measured number appears in any defining equation. P solves
-  P = φ + √π/A_T(P), interval-certified to exist and be unique on its interval. N solves
-  N = F(N) (F specified, construction open, CL-7). Discrete structural selections are
+  P = φ + √π/A_T(P), certified to exist and be the only solution on the declared
+  physical domain. N solves N = F(N) (F specified; conditionally constructed by the
+  coupling theorem G2-GAP-1 modulo premises CP-1 to CP-3; CL-7). Discrete structural selections are
   declared separately with their menu sizes; none is a continuous quantity.
 - **Test layer.** Measured values live here only, as the comparisons the forced outputs
   face. A comparison never feeds back into a defining equation; the dependency-cone audit
@@ -85,6 +87,6 @@ scorecard counts them. The theory layer takes no measured number at all.
 Overdetermination and survival: (a) uniqueness certificates for the fixed points; (b) the
 closure ledger driven to zero under blind completions, beginning with the Ward-projected
 hadronic transport against the frozen target in
-`falsification/frozen_targets/`; (c) a compression scorecard in which independent
+`../falsification/frozen_targets/`; (c) a compression scorecard in which independent
 landed basins outnumber settings. Nothing else establishes it, and no wording substitutes
 for these artifacts.

@@ -1,6 +1,9 @@
 import ObserverPatchHolography.AbstractRewriting
 import ObserverPatchHolography.Primitives
 import ObserverPatchHolography.Rule90
+import ObserverPatchHolography.BridgeEquivalence
+import ObserverPatchHolography.CapacityFixedPoint
+import ObserverPatchHolography.SeedPi
 import ObservableNormalForms
 import ObserverPatchHolography.Bridges.ObservableNormalForms
 
@@ -17,6 +20,12 @@ module declares sorry-bearing signatures for
 the OPH primitives (Records, Repair, Patch, Obs, Φ, gauge equivalence,
 OPH-Confluence, OPH-Completeness) — these structurally depend on the
 companion paper *Reality as a Consensus Protocol*.
+
+The `BridgeEquivalence`, `CapacityFixedPoint`, and `SeedPi` modules carry
+the Part-A coupling-algebra layer: the bridge count/tick equivalence, the
+capacity fixed-point uniqueness schema, and the CAP-P seed statement. They
+formalise the algebraic layer only; the physical identities I1/I2 are
+outside the formalised set.
 
 See `../README.md` and `../PROOF_INDEX.md` for scope and completion tracking.
 -/

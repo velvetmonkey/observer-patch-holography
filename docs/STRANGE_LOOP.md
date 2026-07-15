@@ -5,8 +5,9 @@ the OPH program, its lineage in established physics and mathematics, and the cri
 under which it becomes the accepted description of our universe. Companion to
 [STRANGE_LOOP_PRINCIPLES.md](STRANGE_LOOP_PRINCIPLES.md), [CONSISTENCY_STACK.md](CONSISTENCY_STACK.md) (the
 step-by-step forcing chain C1–C10 with its uniqueness lemmas),
-[CLOSURE_LEDGER.md](CLOSURE_LEDGER.md), and
-[COMPRESSION_SCORECARD.md](COMPRESSION_SCORECARD.md).
+[CLOSURE_LEDGER.md](CLOSURE_LEDGER.md),
+[COMPRESSION_SCORECARD.md](COMPRESSION_SCORECARD.md), and the master spine with the
+complete open-gap register, [PROOF_SPINE.md](PROOF_SPINE.md).
 
 ## The thesis
 
@@ -63,10 +64,10 @@ architecture has a computable fixed point.
 1. **No landscape.** String theory survives adverse data by relocating in a vacuum
    landscape. SLH cannot relocate: SL-2/SL-3/SL-4 admit one P and one N. For P this is a theorem on
    the declared physical domain: exactly one fixed point per readout map
-   (`code/P_derivation/runtime/p_global_uniqueness_certificate_2026-07-14.json`). The
+   (`../code/P_derivation/runtime/p_global_uniqueness_certificate_2026-07-14.json`). The
    closure equations must hold exactly. A single blind closure test landing outside its basin
    falsifies the formulation (ledger rule; frozen target
-   `falsification/frozen_targets/hadronic_closure_target_2026-07-14.json`).
+   `../falsification/frozen_targets/hadronic_closure_target_2026-07-14.json`).
 2. **The inputs are the method.** Reverse engineering reads the loop from measurements:
    basins first, contraction second. The theory never apologizes for reading data; it is
    judged on what the two closure coordinates give back (the scorecard's M − K).
@@ -83,7 +84,7 @@ architecture has a computable fixed point.
 | 1. Principles stated once | SL-0…SL-5 with claim rules | done: [STRANGE_LOOP_PRINCIPLES.md](STRANGE_LOOP_PRINCIPLES.md) |
 | 2. Closure ledger at zero | CL-1…CL-7 closed by blind computations | open: decisive rows: CL-1/CL-2 (hadronic), CL-3 (one N), CL-5 (forward electroweak) |
 | 3. Positive compression | M − K > 0 in the scorecard | open: currently negative; the mission is moving rows |
-| 4. Uniqueness certificates | interval-grade contraction proofs behind "the only P, the only N" | P: exactly one fixed point per map on the declared domain (stage-2 plus global certificates, 2026-07-14); N at stage 1 (declared-structure F candidates constructed and excluded; the surviving reading is the port-load/D10 coupling, G2-GAP-1) |
+| 4. Uniqueness certificates | interval-grade contraction proofs behind "the only P, the only N" | P: exactly one fixed point per map on the declared domain (stage-2 plus global certificates, 2026-07-14); N conditionally constructed (G2-GAP-1 proven modulo CP-1 to CP-3; certified conditional fixed point 3.5321315434×10¹²²; the balance counting theorem CP-1 is the open core) |
 | 5. Independent reproduction | named external parties re-run the mechanical claims from a fresh clone | open |
 
 The mission statement, in one sentence: drive the ledger to zero, the scorecard positive,

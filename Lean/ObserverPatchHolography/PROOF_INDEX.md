@@ -17,6 +17,11 @@ Mapping between Lean 4 theorems in this project and statements in
   2 quotient/NF construction items)
 - Abstract-rewriting skeleton (preliminary): 5 / 5 proofs → 100%
 - OPH primitives (declared, sorry-bearing): 0 / 10 discharged → 0%
+- Part-A coupling algebra (`BridgeEquivalence.lean`, `CapacityFixedPoint.lean`,
+  `SeedPi.lean`): 13 / 13 lemmas, sorry-free → 100%
+  (algebraic layer of the coupling theorem only; no physical-derivation
+  content, the physical identities I1/I2 are outside the formalised set;
+  does **not** bear on the Prop 4.2 / Def 4.1 counts)
 - #304 boundary-fiber carrier witness (`Rule90.lean`, PR #385): 5 / 5 theorems, sorry-free → 100%
   (first non-degenerate `Hfib` discharge on a linear information-set carrier +
   `H1`–`H3` local-repair no-go; a carrier-level witness only. It does **not** bear
@@ -107,6 +112,39 @@ only (`propext`, `Classical.choice`, `Quot.sound`; no `native_decide`).
 | `OPH.rule90_gauge_nontrivial` | `Rule90` | ✅ | Seeds (0,0,0), (1,0,1) observably identical: the gauge contains `ker(Rule90)` (kernel-pair exhibit). |
 | `OPH.rule90_no_frustrationFree_repair` | `Rule90` | ✅ | No `H1`–`H3` local repair exists on this carrier. Scope: transactional/multi-patch repair and relaxed `H2` are **not** ruled out. |
 | `OPH.rule90t_outer_eq` | `Rule90` | ✅ | Helper: every Rule 90 image has equal outer cells. |
+
+## Part-A coupling algebra (algebraic layer)
+
+Formalises the ALGEBRAIC layer of the OPH coupling theorem: the bridge
+count/tick equivalence, the capacity fixed-point uniqueness schema, and the
+CAP-P seed statement. No physical-derivation content is formalised; the
+physical identities I1/I2 (which give the two sides of the bridge their
+physical readings) are outside the formalised set. The numeric interval
+enclosures stay in the Python certificates (`code/capacity_readback/`,
+`code/P_derivation/`); no floating-point numerics enter Lean. All 13 lemmas
+are sorry-free with standard axioms only (`propext`, `Classical.choice`,
+`Quot.sound`). Not a Prop 4.2 / Def 4.1 item.
+
+Modules: `Source/ObserverPatchHolography/BridgeEquivalence.lean`,
+`Source/ObserverPatchHolography/CapacityFixedPoint.lean`,
+`Source/ObserverPatchHolography/SeedPi.lean`. Status marks refer to the
+coupling-algebra statements, not to *Paradise* anchors.
+
+| Lean name | Module | Status | Notes |
+|---|---|---|---|
+| `OPH.BridgeEquivalence.six_eq_mRep_div_betaEW` | `BridgeEquivalence` | ✅ | The literal `6` in the bridge exponent is `m_rep / β_EW` with `m_rep = 24`, `β_EW = 4`. |
+| `OPH.BridgeEquivalence.mRep_eq_six_mul_betaEW` | `BridgeEquivalence` | ✅ | The literal `24` decomposes as `6 · β_EW`. |
+| `OPH.BridgeEquivalence.bridge_equivalence_beta` | `BridgeEquivalence` | ✅ | General-β bridge: for `β > 0`, `P > 0`, `αU > 0`, `N > π`: `N = π·exp((m_rep/β)·π/(P·αU)) ↔ tickProjection αU N = β·P`. |
+| `OPH.BridgeEquivalence.bridge_equivalence` | `BridgeEquivalence` | ✅ | Literal form: `N = π·exp(6π/(P·αU)) ↔ (24π)/(αU·log(N/π)) = 4·P`. |
+| `OPH.BridgeEquivalence.bridge_equivalence_tick` | `BridgeEquivalence` | ✅ | Tick corollary at `β = 4` with `24 = 6·β` carried as an explicit hypothesis. |
+| `OPH.CapacityFixedPoint.averagingMap_isFixedPt_iff` | `CapacityFixedPoint` | ✅ | For `λ ≠ 0`, `x` is a fixed point of `(1−λ)·x + λ·K` iff `x = K`. |
+| `OPH.CapacityFixedPoint.averagingMap_unique_fixedPt` | `CapacityFixedPoint` | ✅ | For `0 < λ ≤ 1` the averaging map has exactly one fixed point, `K`. |
+| `OPH.CapacityFixedPoint.banach_unique_fixedPt` | `CapacityFixedPoint` | ✅ | `ContractingWith` map on a nonempty complete metric space has exactly one fixed point; wraps Mathlib `ContractingWith.fixedPoint`. |
+| `OPH.CapacityFixedPoint.capacity_Icc_unique_fixedPt` | `CapacityFixedPoint` | ✅ | Lipschitz self-map of `Icc a b` with constant `K < 1` has exactly one fixed point in `Icc a b` (interval form used by the capacity certificates). |
+| `OPH.SeedPi.capReadback_log_coords` | `SeedPi` | ✅ | In log coordinates `y = log(N/π)` the CAP-P readback `π·(N/π)^s` is the linear map `y ↦ s·y`. |
+| `OPH.SeedPi.capReadback_log_coords_averaging` | `SeedPi` | ✅ | The log-coordinate readback equals `averagingMap (1−s) 0`, tying CAP-P to the uniqueness schema. |
+| `OPH.SeedPi.capReadback_fixedPt_iff` | `SeedPi` | ✅ | CAP-P seed: for `s ≠ 1`, `N > 0`: `π·(N/π)^s = N ↔ N = π` (map shape from `F_candidate_capP.py`). |
+| `OPH.SeedPi.linear_branch_no_positive_fixedPt` | `SeedPi` | ✅ | Additive CAP-P branches `F(N) = s·N`, `s < 1`, have no positive fixed point. |
 
 ## #304: Generic theorem and concrete bridge
 

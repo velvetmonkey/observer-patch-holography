@@ -31,13 +31,30 @@ externally timestamped. When the loop closes on the measured values, the
 universe on the output side is exactly the one we observe. If it closes
 anywhere else, the theory dies. Both outcomes are on the clock.
 
+**The two-part proof:** The claim splits into two theorems. Part A: a
+self-simulating universe that contains its own simulation admits exactly one
+(P, N), and those values are the fine-structure and capacity readouts of the
+world inside it. The uniqueness half is proven for P, and for N the coupling theorem is
+proven modulo three declared premises, with its tick-projection identity
+discharged, its algebra machine-checked in Lean, and its conditional fixed
+point certified at 3.53×10¹²²; the identification half is the closure
+ledger, with the α window armed and the capacity comparison standing at 6.6
+percent. Part B: given (P, N), the
+observed universe follows. The structural skeleton is theorem-grade on the
+declared branches, the quantitative record stands between exact and 7
+percent, and machine formalization covers the consensus core with the physics
+branches as the open Lean program. Part A closed plus Part B closed is the
+formal proof; the step-by-step spine with the complete open-gap register is
+[PROOF_SPINE.md](docs/PROOF_SPINE.md), and every surface in this repository
+states the exact remaining distance to each step.
+
 **Where the proof stands:** Proven: the pixel closure has exactly one
 solution per readout map on the declared physical domain, by
 interval-arithmetic certificate; the SM coefficient triple and β_EW = 4 are
 consistency-forced, with every alternative structurally excluded by the
 preregistered 2026-07-14 sweep. Reduced to single named objects: the capacity
 closure is one coupling theorem (G2-GAP-1 in
-[CONSISTENCY_STACK.md](CONSISTENCY_STACK.md)) whose truth forces N to the
+[CONSISTENCY_STACK.md](docs/CONSISTENCY_STACK.md)) whose truth forces N to the
 electroweak bridge value; the forward electroweak tension equals a 3×10⁻⁵
 pixel shift with its one-loop revision menu exhausted. Consistent and
 waiting: the first-principles hadronic bracket, computed with no measured
@@ -52,16 +69,16 @@ million; the full analysis with every assumption printed is in the
 [compact proof](extra/compact_proof_of_oph.pdf).
 
 **Principles and evidence:** OPH is stated under the strange-loop principles
-in [STRANGE_LOOP_PRINCIPLES.md](STRANGE_LOOP_PRINCIPLES.md). The central
+in [STRANGE_LOOP_PRINCIPLES.md](docs/STRANGE_LOOP_PRINCIPLES.md). The central
 thesis, its lineage in established physics and mathematics, and the
-five-pillar mission live in [STRANGE_LOOP.md](STRANGE_LOOP.md). The forcing
+five-pillar mission live in [STRANGE_LOOP.md](docs/STRANGE_LOOP.md). The forcing
 chain from the principles to a unique universe, requirement by requirement,
 with the uniqueness lemmas that close it, lives in
-[CONSISTENCY_STACK.md](CONSISTENCY_STACK.md). The working values are P located
+[CONSISTENCY_STACK.md](docs/CONSISTENCY_STACK.md). The working values are P located
 from measured α (SL-3) and N located from measured Λ with the scale bridge
 (SL-4), pending the exact closures. The evidential surfaces of the program are
-the closure ledger ([CLOSURE_LEDGER.md](CLOSURE_LEDGER.md)) and the
-compression scorecard ([COMPRESSION_SCORECARD.md](COMPRESSION_SCORECARD.md)),
+the closure ledger ([CLOSURE_LEDGER.md](docs/CLOSURE_LEDGER.md)) and the
+compression scorecard ([COMPRESSION_SCORECARD.md](docs/COMPRESSION_SCORECARD.md)),
 which leads with the zero-dial statement and the forward record; every surface
 in this repository states claims at the standing those files record.
 
@@ -74,7 +91,7 @@ failure of the fully specified pure-Einstein transverse-traceless carrier
 receipt (or of a separately completed quantum pole receipt), gauge-mediated
 proton decay, a fourth light matter generation, and a charge-lattice outlier.
 Executed tests stay on that surface with their verdicts
-([STRANGE_LOOP_PRINCIPLES.md](STRANGE_LOOP_PRINCIPLES.md) rule 7). The derivation of the physical neutrino mixing
+([STRANGE_LOOP_PRINCIPLES.md](docs/STRANGE_LOOP_PRINCIPLES.md) rule 7). The derivation of the physical neutrino mixing
 matrix and absolute neutrino masses is work in progress.
 
 If you want the existential answer first, jump straight to **Paper 6.
@@ -168,10 +185,10 @@ patterns that can be synchronized. Geometry, particles, laws, and records are
 the large-scale fixed points of that observer-network computation.
 
 OPH carries two estimated settings, one bridge, and declared architecture
-([STRANGE_LOOP_PRINCIPLES.md](STRANGE_LOOP_PRINCIPLES.md)): P estimated from measured α under SL-3, N estimated
+([STRANGE_LOOP_PRINCIPLES.md](docs/STRANGE_LOOP_PRINCIPLES.md)): P estimated from measured α under SL-3, N estimated
 from measured Λ under SL-4, the cesium SI bridge under SL-5, and the declared
 structural selections listed in the scorecard. Standing is measured by the
-compression scorecard ([COMPRESSION_SCORECARD.md](COMPRESSION_SCORECARD.md)).
+compression scorecard ([COMPRESSION_SCORECARD.md](docs/COMPRESSION_SCORECARD.md)).
 The provenance rule inside that frame: no measured target or fitted numerical
 constant may enter a declared source map. The quantum-algebraic axioms and the
 $S^2$ screen remain explicit premises. Quantitatively, the public rows are organized by three
@@ -334,7 +351,7 @@ stated chart, and the strict ledger keeps every such row non-promotable.
 | --- | --- | --- | --- | --- |
 | Gravitational constant | G | unit-bookkeeping identity on the SL-5 scale bridge: the caesium clock rule carries $G_{\mathrm{geom}}=\ell_\star^2$ to the SI display through $G_{\mathrm{SI}}=c^3\ell_\star^2/\hbar$; G is an input | 6.67430(15)e-11 | bridge input, not a prediction; no sigma applies |
 | Speed of light | c | structural Lorentz speed of the recovered spacetime branch; the SI number is a unit convention | 299792458 exact by definition | not a numeric prediction |
-| Fine-structure (inv) | $\alpha^{-1}$ | source-only forward map contracts to 136.994835177413, the interval-certified unique fixed point of the declared map (`code/P_derivation/runtime/p_interval_contraction_certificate_2026-07-14.json`; the earlier printed tail 136.994835164622 was an unconverged run, superseded beyond digit 9, ledger row CL-6). The residual to the SL-3 basin is the open hadronic transport term, closure row CL-1 in [CLOSURE_LEDGER.md](CLOSURE_LEDGER.md) (3.0e-4 relative, about 2e6 measurement sigma). The self-consistent gauge-width map has certified fixed point 137.035660136946577: row CL-2, 2.5e-6 relative, the same missing term; the historically displayed 137.03595950081728 is a mixed-provenance display packet, not a fixed point of any single declared map. The empirical hadron-closure endpoint 136.26365894312011 on [136.15838328342668, 136.36909752396569] uses measured $e^+e^-\to$ hadrons data | 137.035999177(21): the SL-3 test value that locates the working P, on no output list | closure rows, not predictions. The strict source branch needs the Ward-projected transport, blind, against the frozen target in `falsification/frozen_targets/`; the empirical endpoint leaves the same-scheme anchor gap [0.648554111145163, 0.854792066592563] |
+| Fine-structure (inv) | $\alpha^{-1}$ | source-only forward map contracts to 136.994835177413, the interval-certified unique fixed point of the declared map (`code/P_derivation/runtime/p_interval_contraction_certificate_2026-07-14.json`; the earlier printed tail 136.994835164622 was an unconverged run, superseded beyond digit 9, ledger row CL-6). The residual to the SL-3 basin is the open hadronic transport term, closure row CL-1 in [CLOSURE_LEDGER.md](docs/CLOSURE_LEDGER.md) (3.0e-4 relative, about 2e6 measurement sigma). The self-consistent gauge-width map has certified fixed point 137.035660136946577: row CL-2, 2.5e-6 relative, the same missing term; the historically displayed 137.03595950081728 is a mixed-provenance display packet, not a fixed point of any single declared map. The empirical hadron-closure endpoint 136.26365894312011 on [136.15838328342668, 136.36909752396569] uses measured $e^+e^-\to$ hadrons data | 137.035999177(21): the SL-3 test value that locates the working P, on no output list | closure rows, not predictions. The strict source branch needs the Ward-projected transport, blind, against the frozen target in `falsification/frozen_targets/`; the empirical endpoint leaves the same-scheme anchor gap [0.648554111145163, 0.854792066592563] |
 | Massive electroweak and Higgs sector (W, Z, Higgs, top) | $W,Z,H,t$ | conditional derivation from the pixel-fixed couplings with no measured mass entering. Strict source-audit branch (zero-selector law) $(m_W,m_Z)=(80.330,\,91.119)$ GeV; the criticality law fixes the top Yukawa from the gauge sector (a determined electroweak-sector quantity, not a free flavor parameter), giving $m_t=172.63$ GeV ($+0.02\%$) with the Higgs companion $m_H=125.77$ GeV at the frozen boundary-scale candidate $E_\star e^{-\pi}P^{-1/6}$; declared-surface fit $(125.20,\,172.35)$ GeV kept separate; no source-only physical mass emitted | $m_W=80.3692(133)$, $m_Z=91.1880(20)$, $m_H=125.13(11)$, $m_t=172.60(30)$ GeV | the strict source-audit $W/Z$ branch is an exact implication of five finite quotient-transport premises whose carrier certificate and discrete two-law selection principle are unemitted; the Higgs/top pair is a zero-continuous-parameter criticality family whose boundary-scale selection is a theorem modulo two finite carrier facts CF1/CF2 (the log-midpoint variational principle is proved and its quadratic-cost and placement premises reduce to the axioms; CF1/CF2 are the same D11 carrier census the $W/Z$ law needs, and the three-loop implied scale is the registered discriminating test); the declared-surface fit is target-anchored and never predicts; the physical scale, scheme, provenance, uncertainty, and complex-pole gates are open |
 | Charged leptons (electron, muon, tau) | $e,\mu,\tau$ | no source-only physical mass emitted. The declared MCPR response architecture emits the conditional triple $(m_e,m_\mu,m_\tau)=(0.51096,\,105.649,\,1776.78)$ MeV at a coherent $-84$ ppm offset with zero runtime charged reference; the icosahedral face-corner carrier fixes the family structure | $0.5109989$, $105.6584$, $1776.93$ MeV | the MCPR triple is a declared model-input architecture, not a source-only prediction; the source-only completion is the open A5/W5 orbit program |
 | Light-quark spectrum (up, down, strange, charm, bottom) | $u,d,s,c,b$ | no nonzero source-only physical mass emitted: the source equations produce two ordered Yukawa profile rays but leave their spreads free. The top is not in this sector; its Yukawa is fixed by the Higgs criticality law (see the electroweak/Higgs row) | common-scale Yukawa data used only for audit | the five light-quark source equations leave a proven two-modulus non-identifiability; a source-derived flavor-orbit selector is the missing object. This is a proven non-entailment, not an arithmetic gap |
@@ -423,8 +440,8 @@ complete statement of the claim lattice: the strange-loop principles, the
 recovered-physics theorem legs, the fixed-point number rows with their
 closure status, the compression accounting, and the explicit failure tests.
 Its conclusions hold on the declared branch hypotheses, and its evidential
-standing is exactly what [CLOSURE_LEDGER.md](CLOSURE_LEDGER.md) and
-[COMPRESSION_SCORECARD.md](COMPRESSION_SCORECARD.md) record on the day of
+standing is exactly what [CLOSURE_LEDGER.md](docs/CLOSURE_LEDGER.md) and
+[COMPRESSION_SCORECARD.md](docs/COMPRESSION_SCORECARD.md) record on the day of
 reading: no probability-of-correctness number substitutes for those two
 surfaces. The decisive open computation is the blind Ward-projected hadronic
 transport against the externally timestamped frozen target in

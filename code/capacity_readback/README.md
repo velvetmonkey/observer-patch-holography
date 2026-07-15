@@ -3,8 +3,8 @@
 Specification and executable schema for the OPH capacity readback map
 `F = Cap_read ∘ Obs ∘ nf`, the object whose construction and certified execution moves
 closure rows CL-3, CL-4, and CL-7 (generator G2 in
-[CONSISTENCY_STACK.md](../../CONSISTENCY_STACK.md); rows in
-[CLOSURE_LEDGER.md](../../CLOSURE_LEDGER.md)).
+[CONSISTENCY_STACK.md](../../docs/CONSISTENCY_STACK.md); rows in
+[CLOSURE_LEDGER.md](../../docs/CLOSURE_LEDGER.md)).
 
 ## What this directory is
 

@@ -58,10 +58,10 @@ closure surface defined in `../../HADRON.md`.
 
 Canonical naming, used on every surface in this directory: `P` is the SL-3
 working value of the pixel constant, located from the measured fine-structure
-input endpoint (`../../STRANGE_LOOP_PRINCIPLES.md`); `P_fwd` is the forward-model closure
+input endpoint (`../../docs/STRANGE_LOOP_PRINCIPLES.md`); `P_fwd` is the forward-model closure
 point, the pixel value implied by the solver's own contracted output. The gap
 between them is the open hadronic loop residual measured by closure rows
-CL-1/CL-2 in `../../CLOSURE_LEDGER.md`.
+CL-1/CL-2 in `../../docs/CLOSURE_LEDGER.md`.
 
 `P ratio (pixel size)` means the dimensionless screen-cell area
 
@@ -149,7 +149,7 @@ source-payload rule. The short version is:
   forward-model closure point `P_fwd`
 - the difference between the solver output and the SL-3 input endpoint is the
   open hadronic term: the loop residual of closure rows CL-1/CL-2 in
-  `../../CLOSURE_LEDGER.md`, with the frozen target at
+  `../../docs/CLOSURE_LEDGER.md`, with the frozen target at
   `../../../falsification/frozen_targets/hadronic_closure_target_2026-07-14.json`
   (sha256 `7cedad0a7281c74ca0fb1105120c991aeab2f3c45bf86adbbfd560c6324fb985`),
   which the payload computation must not read
@@ -181,7 +181,7 @@ python3 measured_endpoint_calibration.py
 `interval_contraction_certificate.py` emits
 `runtime/p_interval_contraction_certificate_2026-07-14.json`, the stage-2
 contraction certificate of the basin-then-contract protocol for the P
-coordinate (`../../CLOSURE_LEDGER.md`).
+coordinate (`../../docs/CLOSURE_LEDGER.md`).
 
 What is certified:
 
@@ -306,7 +306,7 @@ The JSON keeps audit guard fields for theorem tooling and carries row class
 `oph_plus_empirical_hadron_closure`. Consumer-facing prose leads with the
 source-only value and the closure status: the forward map contracts to
 `alpha^-1 = 136.9948...`, the residual to the SL-3 basin is the open hadronic
-term (rows CL-1/CL-2 in `../../CLOSURE_LEDGER.md`), and the measured endpoint
+term (rows CL-1/CL-2 in `../../docs/CLOSURE_LEDGER.md`), and the measured endpoint
 `137.035999177(21)` is the SL-3 input. The empirical hadron-closure row is a
 labeled closure-status display:
 

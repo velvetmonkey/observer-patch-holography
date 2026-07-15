@@ -383,7 +383,7 @@ count built from the declared combinatorics closes at O(1)-O(10^3) nats. G2 (thi
 map) and the CL-3 connection are one missing theorem, seen from two rows.
 
 **Ledger action: none.** No branch passes A7, so
-[CLOSURE_LEDGER.md](../../CLOSURE_LEDGER.md) row CL-7 is untouched; this document
+[CLOSURE_LEDGER.md](../../docs/CLOSURE_LEDGER.md) row CL-7 is untouched; this document
 and the runtime certificates carry the exclusion record. Promotion of any future
 candidate requires: a count with a structure-derived reference-scale stationary
 point, P4 coherence or a registered discrepancy row, a directed-rounding backend

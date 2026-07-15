@@ -4,16 +4,17 @@ The evidential accounting of the program under
 [STRANGE_LOOP_PRINCIPLES.md](STRANGE_LOOP_PRINCIPLES.md) rule 4. This file carries three
 things: the zero-dial statement, the zero-dial forward record, and the strict
 exact-closure count M − K. This file is the manually maintained seed; CI generation from
-the claim registry is fix item SLP-05. Last updated: 2026-07-14.
+the claim registry is fix item SLP-05. The proof spine is [PROOF_SPINE.md](PROOF_SPINE.md). Last updated: 2026-07-15.
 
 ## Dials: 0
 
 A dial is a quantity an author can adjust to fit data. OPH carries none. P is defined as
 the solution of P = φ + √π/A_T(P), and that solution is interval-certified to exist and
 be unique on its interval
-(`code/P_derivation/runtime/p_interval_contraction_certificate_2026-07-14.json`). N is
+(`../code/P_derivation/runtime/p_interval_contraction_certificate_2026-07-14.json`). N is
 defined as the solution of N = F(N), with F specified in
-`code/capacity_readback/F_READBACK_SPEC.md` and its construction open (CL-7). A theory
+`../code/capacity_readback/F_READBACK_SPEC.md` and conditionally constructed by the
+coupling theorem G2-GAP-1 (proven modulo premises CP-1 to CP-3; CL-7). A theory
 without dials can never be fitted to anything. Every number it emits is a test it can
 fail. This is the structural property the whole program stands on, and it holds today.
 
@@ -35,7 +36,7 @@ enumerated closure program, never to tuning, because there is nothing to tune.
 | m_W | 80.330 GeV | 80.3692(133) GeV | 4.9×10⁻⁴ | strict source-audit branch, evaluated at the SL-3 working pixel, a counted input (CL-5) |
 | m_Z | 91.119 GeV | 91.1880(20) GeV | 7.6×10⁻⁴ | strict source-audit branch, evaluated at the SL-3 working pixel, a counted input (CL-5) |
 | Hierarchy relation α_U·log(N/π) = 6π/P | 11.5546 | 11.5573 at the Λ-readout N | 2.3×10⁻⁴ | same object as CL-3/CL-4 |
-| Record capacity N | 3.53×10¹²² (electroweak bridge) | 3.31×10¹²² (Λ readout) | 6.6×10⁻² | one-capacity requirement (CL-3); F construction open (CL-7) |
+| Record capacity N | 3.53×10¹²² (electroweak bridge) | 3.31×10¹²² (Λ readout) | 6.6×10⁻² | one-capacity requirement (CL-3); coupling theorem conditional on CP-1 to CP-3 (CL-7) |
 | Λ_QCD^(3) | 0.3348 GeV | 0.338(12) GeV | ≈1×10⁻² | conditional on declared threshold inputs, bracket-swept; threshold provenance listed in the particle paper audit ledger |
 | m_N | 0.929 GeV | 0.9389 GeV | 1.1×10⁻² | compare-only: source scale times a published lattice ratio, an external theory input whose calibration ancestry includes measured hadronic scale-setting |
 | m_t (criticality branch) | 172.63 GeV | 172.60(30) GeV | 2×10⁻⁴ | conditional criticality family; CF1/CF2 are the D11 census, which consumed the measured top/Higgs pair; the three-loop implied scale is the registered discriminating test |

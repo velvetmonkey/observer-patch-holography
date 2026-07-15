@@ -136,7 +136,7 @@ display packet only. The certified self-consistent gauge-width fixed point is
 `alpha^-1 = 137.035660136946577...`, and the CL-2 residual against measured
 `137.035999177(21)` is `2.5e-6` relative (about `1.6e4` measurement sigma),
 superseding the recorded `2.895...e-7` shortfall, which described the display
-packet (`../../CLOSURE_LEDGER.md`, rows CL-2 and CL-6).
+packet (`../../docs/CLOSURE_LEDGER.md`, rows CL-2 and CL-6).
 
 ## Hierarchy And Naturality
 

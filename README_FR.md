@@ -35,13 +35,31 @@ horodaté extérieurement. Quand la boucle se ferme sur les valeurs mesurées,
 l'univers du côté sortie est exactement celui que nous observons. Si elle se
 ferme ailleurs, la théorie meurt. Dans les deux cas, l'horloge tourne.
 
+**La preuve en deux parties :** L'affirmation se scinde en deux théorèmes.
+Partie A : un univers auto-simulant qui contient sa propre simulation
+n'admet qu'un seul couple (P, N), et ces valeurs sont les lectures de la
+structure fine et de la capacité du monde intérieur. La moitié unicité est
+prouvée pour P ; pour N, le théorème de couplage est prouvé modulo trois
+prémisses déclarées, son identité de projection de tics est déchargée, son
+algèbre est vérifiée machine en Lean, et son point fixe conditionnel est
+certifié à 3,53×10¹²² ; la moitié identification est le registre de
+fermeture, avec la fenêtre α armée et la comparaison de capacité à 6,6
+pour cent. Partie B : étant donné (P, N), l'univers observé suit. Le
+squelette structurel est de niveau théorème sur les branches déclarées, le
+bilan quantitatif se tient entre l'exact et 7 pour cent, et la
+formalisation machine couvre le noyau de consensus, les branches physiques
+restant le programme Lean ouvert. Partie A fermée plus Partie B fermée,
+c'est la preuve formelle ; la colonne vertébrale pas à pas, avec le
+registre complet des lacunes ouvertes, est
+[PROOF_SPINE.md](docs/PROOF_SPINE.md).
+
 **Où en est la preuve :** Prouvé : la fermeture du pixel a exactement une
 solution par carte de lecture sur le domaine physique déclaré, par certificat
 d'arithmétique d'intervalles ; le triplet de coefficients SM et β_EW = 4 sont
 forcés par cohérence, chaque alternative étant structurellement exclue par le
 balayage préenregistré du 2026-07-14. Réduit à des objets nommés uniques : la
 fermeture de capacité est un seul théorème de couplage (G2-GAP-1 dans
-[CONSISTENCY_STACK.md](CONSISTENCY_STACK.md)) dont la vérité force N vers la
+[CONSISTENCY_STACK.md](docs/CONSISTENCY_STACK.md)) dont la vérité force N vers la
 valeur du pont électrofaible ; la tension électrofaible directe équivaut à un
 déplacement de pixel de 3×10⁻⁵, son menu de révisions à une boucle étant
 épuisé. Cohérent et en attente : l'encadrement hadronique de premiers
@@ -57,17 +75,17 @@ faciale à un sur 140 millions ; l'analyse complète, chaque hypothèse
 imprimée, se trouve dans la [preuve compacte](extra/compact_proof_of_oph.pdf).
 
 **Principes et évidence :** L'OPH est énoncée sous les principes de la boucle
-étrange de [STRANGE_LOOP_PRINCIPLES.md](STRANGE_LOOP_PRINCIPLES.md). La thèse
+étrange de [STRANGE_LOOP_PRINCIPLES.md](docs/STRANGE_LOOP_PRINCIPLES.md). La thèse
 centrale, sa filiation dans la physique et les mathématiques établies et la
-mission en cinq piliers sont énoncées dans [STRANGE_LOOP.md](STRANGE_LOOP.md).
+mission en cinq piliers sont énoncées dans [STRANGE_LOOP.md](docs/STRANGE_LOOP.md).
 La chaîne de forçage des principes vers un univers unique, exigence par
 exigence, avec les lemmes d'unicité qui la ferment, est énoncée dans
-[CONSISTENCY_STACK.md](CONSISTENCY_STACK.md). Les valeurs de travail sont P
+[CONSISTENCY_STACK.md](docs/CONSISTENCY_STACK.md). Les valeurs de travail sont P
 localisé à partir de α mesuré (SL-3) et N localisé à partir de Λ mesuré avec
 le pont d'échelle (SL-4), en attendant les fermetures exactes. Les surfaces
 d'évidence du programme sont le registre de fermeture
-([CLOSURE_LEDGER.md](CLOSURE_LEDGER.md)) et le tableau de compression
-([COMPRESSION_SCORECARD.md](COMPRESSION_SCORECARD.md)), qui s'ouvre sur
+([CLOSURE_LEDGER.md](docs/CLOSURE_LEDGER.md)) et le tableau de compression
+([COMPRESSION_SCORECARD.md](docs/COMPRESSION_SCORECARD.md)), qui s'ouvre sur
 l'énoncé zéro bouton de réglage et le relevé prospectif ; chaque surface de ce
 dépôt énonce ses affirmations au statut que ces deux fichiers consignent.
 
@@ -80,7 +98,7 @@ l'échec du reçu entièrement spécifié pour le porteur transverse-traceless d
 branche d'Einstein pure (ou d'un reçu quantique de pôle complété séparément),
 une désintégration du proton médiée par jauge, une quatrième génération légère
 de matière et une charge hors du réseau permis. Les tests exécutés restent sur
-cette surface avec leurs verdicts (règle 7 de [STRANGE_LOOP_PRINCIPLES.md](STRANGE_LOOP_PRINCIPLES.md)). La
+cette surface avec leurs verdicts (règle 7 de [STRANGE_LOOP_PRINCIPLES.md](docs/STRANGE_LOOP_PRINCIPLES.md)). La
 dérivation de la matrice physique de mélange des neutrinos et de leurs masses
 absolues est un travail en cours.
 
@@ -189,7 +207,7 @@ fixes à grande échelle de ce calcul en réseau d'observateurs.
 
 L'OPH ne porte aucun bouton de réglage : zéro entrée quantitative à la couche
 théorique ; les emprunts de la couche de travail sont comptés dans le tableau
-de compression ([STRANGE_LOOP_PRINCIPLES.md](STRANGE_LOOP_PRINCIPLES.md)).
+de compression ([STRANGE_LOOP_PRINCIPLES.md](docs/STRANGE_LOOP_PRINCIPLES.md)).
 Aucun nombre mesuré n'apparaît dans une équation définissante. Les valeurs de
 travail des voies encore ouvertes sont localisées à partir de la mesure en
 attendant la fermeture exacte : P de travail localisé à partir de α mesuré
@@ -197,7 +215,7 @@ sous SL-3, N de travail localisé à partir de Λ mesuré sous SL-4, avec le pon
 SI au césium sous SL-5 et les sélections structurelles déclarées listées dans
 le tableau de compression. Chaque emprunt est une entrée partout où il figure
 sur un chemin de dépendance. Le statut se mesure au tableau de compression
-([COMPRESSION_SCORECARD.md](COMPRESSION_SCORECARD.md)). La règle de provenance
+([COMPRESSION_SCORECARD.md](docs/COMPRESSION_SCORECARD.md)). La règle de provenance
 à l'intérieur de ce cadre : aucune cible mesurée ni constante numérique ajustée
 ne peut entrer dans une carte source déclarée. Les axiomes
 algébriques-quantiques et l'écran $S^2$ restent des prémisses explicites.
@@ -381,7 +399,7 @@ garde chacune de ces lignes non promouvable.
 | --- | --- | --- | --- | --- |
 | Constante gravitationnelle | G | identité de comptabilité d'unités sur le pont d'échelle SL-5 : la règle d'horloge au césium porte $G_{\mathrm{geom}}=\ell_\star^2$ vers l'affichage SI par $G_{\mathrm{SI}}=c^3\ell_\star^2/\hbar$ ; G est une entrée | 6.67430(15)e-11 | entrée de pont, non une prédiction ; aucun sigma ne s'applique |
 | Vitesse de la lumière | c | vitesse lorentzienne structurelle de la branche d'espace-temps recouvrée ; le nombre SI est une convention d'unités | 299792458 exact par définition | pas une prédiction numérique |
-| Structure fine (inv.) | $\alpha^{-1}$ | la carte directe source seule se contracte sur 136.994835177413, point fixe unique certifié par intervalles de la carte déclarée (`code/P_derivation/runtime/p_interval_contraction_certificate_2026-07-14.json` ; la queue imprimée antérieure 136.994835164622 provenait d'un calcul non convergé et est remplacée au-delà du chiffre 9, ligne CL-6 du registre). Le résidu vers le bassin SL-3 est le terme de transport hadronique ouvert, ligne de fermeture CL-1 de [CLOSURE_LEDGER.md](CLOSURE_LEDGER.md) (3.0e-4 en relatif, environ 2e6 sigma de mesure). La carte auto-cohérente à largeur de jauge a le point fixe certifié 137.035660136946577 : ligne CL-2, 2.5e-6 en relatif, même terme manquant ; la valeur historiquement affichée 137.03595950081728 est un paquet d'affichage de provenance mixte, qui n'est le point fixe d'aucune carte déclarée unique. Le point final de fermeture hadronique empirique 136.26365894312011 sur [136.15838328342668, 136.36909752396569] utilise les données mesurées $e^+e^-\to$ hadrons | 137.035999177(21) : l'entrée SL-3 qui estime P, sur aucune liste de sorties | lignes de fermeture, non des prédictions. La branche source stricte exige le transport projeté par Ward, en aveugle, contre la cible gelée de `falsification/frozen_targets/` ; le point final empirique laisse l'écart d'ancre dans le même schéma [0.648554111145163, 0.854792066592563] |
+| Structure fine (inv.) | $\alpha^{-1}$ | la carte directe source seule se contracte sur 136.994835177413, point fixe unique certifié par intervalles de la carte déclarée (`code/P_derivation/runtime/p_interval_contraction_certificate_2026-07-14.json` ; la queue imprimée antérieure 136.994835164622 provenait d'un calcul non convergé et est remplacée au-delà du chiffre 9, ligne CL-6 du registre). Le résidu vers le bassin SL-3 est le terme de transport hadronique ouvert, ligne de fermeture CL-1 de [CLOSURE_LEDGER.md](docs/CLOSURE_LEDGER.md) (3.0e-4 en relatif, environ 2e6 sigma de mesure). La carte auto-cohérente à largeur de jauge a le point fixe certifié 137.035660136946577 : ligne CL-2, 2.5e-6 en relatif, même terme manquant ; la valeur historiquement affichée 137.03595950081728 est un paquet d'affichage de provenance mixte, qui n'est le point fixe d'aucune carte déclarée unique. Le point final de fermeture hadronique empirique 136.26365894312011 sur [136.15838328342668, 136.36909752396569] utilise les données mesurées $e^+e^-\to$ hadrons | 137.035999177(21) : l'entrée SL-3 qui estime P, sur aucune liste de sorties | lignes de fermeture, non des prédictions. La branche source stricte exige le transport projeté par Ward, en aveugle, contre la cible gelée de `falsification/frozen_targets/` ; le point final empirique laisse l'écart d'ancre dans le même schéma [0.648554111145163, 0.854792066592563] |
 | Secteur électrofaible massif et Higgs (W, Z, Higgs, top) | $W,Z,H,t$ | dérivation conditionnelle à partir des couplages fixés par le pixel, sans qu'aucune masse mesurée n'entre. Branche stricte d'audit-source (loi à sélecteur nul) $(m_W,m_Z)=(80.330,\,91.119)$ GeV ; la loi de criticité fixe le Yukawa du top à partir du secteur de jauge (une quantité électrofaible déterminée, non un paramètre de saveur libre), donnant $m_t=172.63$ GeV ($+0.02\%$) avec le Higgs compagnon $m_H=125.77$ GeV au candidat d'échelle-frontière gelé $E_\star e^{-\pi}P^{-1/6}$ ; ajustement de surface déclarée $(125.20,\,172.35)$ GeV tenu à part ; aucune masse physique fermée côté source n'est émise | $m_W=80.3692(133)$, $m_Z=91.1880(20)$, $m_H=125.13(11)$, $m_t=172.60(30)$ GeV | la branche stricte d'audit-source $W/Z$ est une conséquence exacte de cinq prémisses finies de transport sur le quotient dont le certificat de porteur et le principe de sélection du choix discret entre deux lois ne sont pas émis ; la paire Higgs/top est une famille de criticité sans paramètre continu dont la sélection de l'échelle-frontière est un théorème modulo deux faits de porteur finis CF1/CF2 (le principe variationnel du log-milieu est prouvé et ses prémisses de coût quadratique et de placement se réduisent aux axiomes ; CF1/CF2 sont le même recensement de porteur D11 dont la loi W/Z a besoin, et l'échelle implicite à trois boucles est le test discriminant enregistré) ; l'ajustement de surface déclarée est ancré sur cible et ne prédit jamais ; les portes d'échelle physique, de schéma, de provenance, d'incertitude et de pôle complexe sont ouvertes |
 | Leptons chargés (électron, muon, tau) | $e,\mu,\tau$ | aucune masse physique fermée côté source n'est émise. L'architecture de réponse MCPR déclarée émet le triplet conditionnel $(m_e,m_\mu,m_\tau)=(0.51096,\,105.649,\,1776.78)$ MeV à un décalage cohérent de $-84$ ppm sans référence chargée à l'exécution ; le porteur icosaédrique par faces et sommets fixe la structure de famille | $0.5109989$, $105.6584$, $1776.93$ MeV | le triplet MCPR est une architecture d'entrée de modèle déclarée, non une prédiction côté source ; la complétion côté source est le programme d'orbite A5/W5 ouvert |
 | Spectre des quarks légers (up, down, strange, charm, bottom) | $u,d,s,c,b$ | aucune masse physique non nulle fermée côté source n'est émise : les équations sources produisent deux rayons de profil Yukawa ordonnés mais laissent leurs étalements libres. Le top n'est pas dans ce secteur ; son Yukawa est fixé par la loi de criticité du Higgs (voir la ligne électrofaible/Higgs) | Yukawa à échelle commune employés seulement pour l'audit | les cinq équations sources des quarks légers laissent une non-identifiabilité à deux modules prouvée ; l'objet manquant est un sélecteur d'orbite de saveur dérivé de la source. C'est une non-implication prouvée, pas un manque arithmétique |
@@ -477,8 +495,8 @@ complet le plus court du treillis d'affirmations : les principes de la boucle
 numériques de point fixe avec leur statut de fermeture, la comptabilité de
 compression et les tests d'échec explicites. Ses conclusions valent sous les
 hypothèses de branche déclarées, et son statut d'évidence est exactement ce que
-[CLOSURE_LEDGER.md](CLOSURE_LEDGER.md) et
-[COMPRESSION_SCORECARD.md](COMPRESSION_SCORECARD.md) consignent au jour de
+[CLOSURE_LEDGER.md](docs/CLOSURE_LEDGER.md) et
+[COMPRESSION_SCORECARD.md](docs/COMPRESSION_SCORECARD.md) consignent au jour de
 lecture : aucun nombre de probabilité de justesse ne remplace ces deux
 surfaces. Le calcul ouvert décisif est le transport hadronique projeté par
 Ward, en aveugle, contre la cible gelée horodatée extérieurement dans
