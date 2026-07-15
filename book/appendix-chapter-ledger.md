@@ -827,9 +827,47 @@ asking readers to accept every selection story. It is asking them to notice
 that modern physics repeatedly turns existence questions into constraint and
 filter questions.
 
-## Chapter 18: Synthesis
+## Chapter 18: The Strange Loop
 
-Chapter 18 gathers the machinery into one sentence: reality is the
+Chapter 18 turns the self-reference theme into physics. It starts where
+mathematics first made self-reference precise, with Gödel's self-describing
+sentence, Tarski on truth, Turing on halting, and Hofstadter's strange loops,
+then asks what happens when the self-referential object is the whole universe.
+The reverse-engineering target is the forcing: how the demand that a world read
+itself removes freedom after freedom until only two numbers remain, and how the
+loop then writes one equation for each of them.
+
+The symbols to keep steady are the two closure equations. The local one is
+$P = \varphi + \sqrt\pi/A_T(P)$: the pixel ratio $P$ has to return itself after
+a full pass through the forward chain $A_T$, with $\varphi$ the golden-ratio
+balance and $\sqrt\pi$ the boundary width. The global one is $N = F(N)$: the
+record capacity $N$ has to equal the capacity the inside observers read back
+through the map $F$. The chapter's claim is that these two equations come
+straight from what self-reading requires, once geometry, signature, dimension,
+the gravity law, and the gauge menu are forced. The formal version
+of that subtraction is the selection chain in
+[CONSISTENCY_STACK.md](../docs/CONSISTENCY_STACK.md), and the strange-loop
+principles it rests on are stated once in
+[STRANGE_LOOP.md](../docs/STRANGE_LOOP.md).
+
+The chapter is careful about status. The uniqueness of $P$ on the declared
+domain is a certified result. The capacity fixed point is conditional on stated
+premises. Both equations are open at the last step by a named quantity, the
+low-energy hadronic transport term on the local side and a counting theorem on
+the global side. The no-landscape corollary is the payoff: one loop, one
+$(P, N)$, no vacuum to relocate into, and therefore a theory that a single blind
+number can end.
+
+The human lineage runs through Gödel, Tarski, Turing, Quine, and Hofstadter on
+the mathematics of self-reference, Escher for the picture, Wheeler for the
+participatory universe and it-from-bit, Chew and the later conformal-bootstrap
+community for consistency-fixes-the-theory as a working method, and Tomita and
+Takesaki, Jacobson, Tannaka and Krein, and the holographic-code builders for the
+standard theorems that each turn out to be a small loop.
+
+## Chapter 19: Synthesis
+
+Chapter 19 gathers the machinery into one sentence: reality is the
 consistency of observations across overlapping perspectives. The sentence is
 short because the earlier chapters did the work. It includes finite
 screens, algebras, overlaps, entropy, recovery, holography, entanglement,
@@ -865,9 +903,9 @@ collaborations, instrument builders, data analysts, and skeptical critics.
 Every consistency check in the book has the same moral form as science
 itself: partial perspectives are forced to meet.
 
-## Chapter 19: Metaphysics
+## Chapter 20: Metaphysics
 
-Chapter 19 asks what the physics means for experience, objectivity, and
+Chapter 20 asks what the physics means for experience, objectivity, and
 existence. Its discipline is to keep metaphysics downstream of the technical
 structure. Experience is read as the inside of observer patches, rather than a
 ghostly substance added afterward. Objectivity is the overlap-stable public

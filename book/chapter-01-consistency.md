@@ -414,9 +414,10 @@ they meet. Time belongs to the ordering discipline of the observer network.
 
 You might ask: "If reality is a computation, what is it computing?" It is computing one closed
 structure whose geometry, particles, observers, records, and hardware belong to one
-self-referential loop. The patterns that persist are the patterns that are consistent. Observers
-are patterns that learn to model other patterns. Consciousness is what it feels like to be one of
-those self-modeling patterns.
+self-referential loop. Later chapters call this closed loop the strange loop, and it is
+the backbone of the whole argument rather than a closing ornament. The patterns that persist
+are the patterns that are consistent. Observers are patterns that learn to model other patterns.
+Consciousness is what it feels like to be one of those self-modeling patterns.
 
 This view changes many traditional puzzles. "Why does anything exist at all?" becomes a question about the coherence of a closed self-referential structure. On this reading, the loop needs no external cause because it has no temporal first step waiting to be triggered from outside.
 
@@ -443,8 +444,9 @@ conservation laws, and de Sitter horizons emerge from consistency?
 **Chapter 14-16**: The emergence hint: how do spacetime, particles, and
 classical physics emerge from the screen?
 
-**Chapter 17-19**: The selection hint: why these laws and not others? Are laws
-evolutionary survivors? And what does this mean for existence itself?
+**Chapter 17-20**: The selection and self-reference hint: why these laws and not
+others, whether laws are evolutionary survivors, how a universe that reads itself
+forces its two constants, and what all of this means for existence itself.
 
 The 3D world you see around you, the chairs, the stars, the empty space, is
 secondary to the boundary bookkeeping. The real data is organized on

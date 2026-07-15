@@ -3,7 +3,7 @@
 This directory contains the canonical Markdown source for the OPH book:
 
 - `prologue.md`
-- `chapter-01-*.md` through `chapter-19-*.md`
+- `chapter-01-*.md` through `chapter-20-*.md`
 - `appendix-*.md`
 - `epilogue.md`
 

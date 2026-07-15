@@ -23,6 +23,17 @@ public records. No outside machine renders a global timeline frame by frame.
 History is the inside readout of the settled structure, as experienced by
 observers who live inside it.
 
+That closed reading is the thread the whole book hangs on. The universe is the
+fixed point of its own description. The structure that does the simulating and
+the world that gets simulated are one closed system, and what we call physical
+law is the condition for that system to stay consistent as it reads itself all
+the way around. Later chapters call this the strange loop, and it is the
+organizing claim of the book. The physics is built to sit inside it. Two
+dimensionless numbers run the loop: the local grain of the screen and the total
+record capacity. Each is fixed by an equation the universe has to satisfy to
+read itself, and nobody gets to choose them. The book earns that picture
+slowly, one hint at a time, and states it plainly here at the start.
+
 The equations come later, where the reader has the right handles for them. One
 chapter deals with the local grain of the screen and its electromagnetic
 readout. Another deals with the total horizon capacity, the cosmological
@@ -217,8 +228,7 @@ is compression: how much gravity,
 compact-gauge structure, and the minimally admissible particle world those two
 working values, together with the declared architecture, organize. The running test
 of that claim is the closure ledger, a public table of the equations the
-picture requires to hold exactly and how far each one currently is from
-holding.
+picture requires to hold exactly and how far each one is from holding.
 
 The machinery comes later. Under the hood the book uses the quantum language
 of observables, states, event probabilities, and entropy because a
@@ -283,7 +293,9 @@ from observer consistency to that reconstructed world.
 
 Chapters 1-12 cover the observer-first framework and structural tools.
 Chapters 13-17 carry the main physics arc.
-Chapters 18-19 gather the synthesis and metaphysics.
+Chapter 18 turns the self-reference of the universe into the forcing of its two
+constants.
+Chapters 19-20 gather the synthesis and metaphysics.
 The appendices provide the slower symbol guide, concept glossary, equation
 walkthroughs, and extended historical interludes.
 The epilogue turns the picture outward one final time.

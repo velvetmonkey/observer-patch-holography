@@ -1,8 +1,8 @@
-# Chapter 19: Metaphysics and Qualia
+# Chapter 20: Metaphysics and Qualia
 
 ---
 
-## 19.1 The Zombie That Couldn't Exist
+## 20.1 The Zombie That Couldn't Exist
 
 In 1996, philosopher David Chalmers asked us to imagine a zombie. Chalmers meant a creature physically identical to you in every way, with the same neurons firing, the same behaviors, and the same words coming out of its mouth, and no one inside. No inner experience. No "what it's like" to be it. The lights are on, with no one watching.
 
@@ -14,7 +14,7 @@ OPH gives a different response: the zombie question breaks the observer-first
 setup. It asks for a complete copy of an observer patch with the patch-internal
 side removed, then treats the result as the same physical situation.
 
-## 19.2 The Ether Move, One Last Time
+## 20.2 The Ether Move, One Last Time
 
 Remember the luminiferous ether? Nineteenth-century physicists couldn't imagine light waves without a medium to wave *in*. They built elaborate theories about this cosmic jelly, measured its properties, debated its nature. Then Einstein showed that light doesn't need a medium. The ether wasn't invisible; it was *unnecessary*. The question "what are the properties of the ether?" had no answer because it was asking about something that didn't exist.
 
@@ -32,7 +32,7 @@ Under that reading, the hard problem changes shape. Experience does not have to
 be bolted onto a finished outside description. Every usable description is a
 view from somewhere. Subjectivity is part of the starting equipment.
 
-## 19.3 Why Zombies Can't Walk
+## 20.3 Why Zombies Can't Walk
 
 An observer patch *is* a perspective with an interior. That is what makes it an
 observer. The patch has access to certain algebras of observables, maintains
@@ -45,7 +45,7 @@ Neuroscience keeps its work. OPH removes one metaphysical demand: the idea that
 one first writes a complete perspective-free description and then asks where
 experience fits in. The OPH level is perspectival from the start.
 
-## 19.4 What the Model Puts in Place
+## 20.4 What the Model Puts in Place
 
 Dissolving the hard problem is different from mapping every neural correlate of
 experience. OPH puts the metaphysical placement in order: experience is the
@@ -57,7 +57,7 @@ belong inside the observer framework.
 
 Similarly, the model gives a structural way to discuss which physical systems count as observer patches. A thermostat, a bacterium, and a corporation can all be placed in the same consistency-and-record language, even though they occupy very different levels of organization.
 
-## 19.5 The Measurement Problem Evaporates
+## 20.5 The Measurement Problem Evaporates
 
 Quantum mechanics has its own philosophical zombie: the measurement problem. In standard presentations, the Schrödinger equation evolves quantum states smoothly and deterministically, until someone "measures" them, at which point the wavefunction mysteriously "collapses" to a definite value.
 
@@ -82,7 +82,7 @@ because there is no physically occupied view from nowhere whose wavefunction
 must then be connected to experience. There are perspectives that have to
 synchronize through shared records.
 
-## 19.6 Why These Laws? Why This Universe?
+## 20.6 Why These Laws? Why This Universe?
 
 One question keeps physicists and philosophers up at night: Why does the universe have the specific laws it does? Why these particles, these forces, these constants?
 
@@ -120,7 +120,7 @@ This is a structural selection principle. The universe is compatible with us
 because we are the kind of thing that can exist in a universe that passes the
 consistency filter. The "fine-tuning" is what survival looks like.
 
-## 19.7 The Deepest Question
+## 20.7 The Deepest Question
 
 Why does anything exist at all?
 
@@ -183,7 +183,7 @@ This resolves the apparent paradox of self-causation. Temporal self-cause is
 incoherent because it requires existing before existing. A self-consistent
 structure has no external temporal "before." The loop contains time.
 
-## 19.8 The View from Nowhere
+## 20.8 The View from Nowhere
 
 Thomas Nagel wrote a famous book called *The View from Nowhere*, exploring the tension between objective and subjective perspectives. Science seems to demand a God's-eye view, a description from no particular vantage point. Yet we can never actually achieve such a view. We're always somewhere, looking at things from a particular angle.
 
@@ -199,7 +199,7 @@ surviving network of perspectives. That's why it is so reliable and
 predictive. It has been filtered by the harsh criterion of public
 self-consistency.
 
-## 19.9 The Hacker and the Hacked
+## 20.9 The Hacker and the Hacked
 
 We began this book with a metaphor: physicists as reverse engineers, taking apart reality to understand how it works. We've traced that project through quantum mechanics and relativity, through gauge symmetry and entanglement, through the holographic screen and the emergence of spacetime.
 
@@ -212,7 +212,7 @@ loop closes there.
 
 The weirdness of quantum mechanics, the relativity of simultaneity, the holographic encoding of information, the emergence of spacetime from entanglement: none of these are bugs to be fixed. They're features pointing at the truth. Reality isn't made of objects in a void observed from outside. It's made of perspectives, consistency relations, and the structure that emerges when finite observers must agree.
 
-## 19.10 The Formal Pressure
+## 20.10 The Formal Pressure
 
 The philosophical picture earns its weight only when it keeps making contact
 with physics. The deep contact points are clear: overlap consistency as a
@@ -267,7 +267,7 @@ the physics: overlap conditions, the layered particle story, the dark sector,
 recoverability, and the restoration surface. A metaphysics worthy of physics is
 exposed to physics.
 
-## 19.11 Reverse Engineering Summary
+## 20.11 Reverse Engineering Summary
 
 The metaphysical picture follows the same turn made in the physics chapters.
 Experience is placed inside observer patches. Measurement is the
@@ -275,7 +275,7 @@ synchronization of partial descriptions. Laws are the stable outputs of
 consistency filters. Even the question of existence changes shape once one
 stops asking for an external cause standing outside the whole structure.
 
-## 19.12 God, Meaning, and Participation
+## 20.12 God, Meaning, and Participation
 
 The observer-first picture leaves little room for a personal God standing outside the universe and directing it from beyond. There is no outside vantage point in the framework. The system is self-contained.
 

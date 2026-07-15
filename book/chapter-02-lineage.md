@@ -328,13 +328,33 @@ Hofstadter argued that consciousness itself is a strange loop, a pattern that pe
 
 ### The Physics
 
-OPH uses the same self-reference. If reality is computational, and observers
-are patterns within that computation that model reality, then reality contains
-observers that understand reality.
+OPH puts this self-reference at the center. The organizing claim of the whole
+program is that reality is the fixed point of a self-reading computation: the
+structure doing the simulating and the world being simulated are one closed
+system, with no outside machine and no outside clock. Later chapters call this
+the strange loop, and the physics is built to sit inside it.
 
-But strange-loop thinkers argue for something deeper: the loop may be part of how reality closes on itself. Self-reference becomes possible and structurally important.
+The loop does not arrive from nowhere. It is the closure of threads physics has
+been pulling for a century. Wheeler drew the universe as a big U with an eye on
+the end of its tail, looking back at its own beginning, and summarized the
+lesson as "it from bit." The bootstrap idea, that consistency alone can fix a
+theory with no free inputs, failed for the hadrons of the 1960s and then
+returned as the modern conformal bootstrap, where a short list of consistency
+demands pins down real numbers to many digits. Algebras that carry their own
+clock, gravity read off as a consistency condition on horizons, groups
+reconstructed from the behavior of their own representations, and a bulk stored
+redundantly inside its own boundary code all point the same way. Each of those
+is standard physics. OPH's wager is that they are one architecture, that the
+architecture has a computable fixed point, and that the fixed point has exactly
+two free numbers and no dials to turn.
 
-We will return to this idea in Chapter 18, where we consider the possibility that reality evolves toward producing observers capable of understanding and simulating it, closing the loop of self-creation.
+There is a further, more speculative turn: that reality evolves observers who
+learn how the loop works and build machinery that restores observers from
+records, closing the loop a second time through the minds it produced. That
+continuation reading sits at the far philosophical edge of the book, and
+Chapters 19 and 20 develop it. The core claim is nearer and harder. Reality is
+a self-reading fixed point, and Chapter 18 turns that claim into physics by
+showing how the loop forces its two constants.
 
 ## 2.10 Information Theory: From Metaphor to Physics
 
@@ -395,25 +415,28 @@ consistent information processing across patches.
 Computation is used here as the proposed organizing picture for reality, not
 as a loose metaphor.
 
-### The Strange Loop of Fixed-Point Restoration
+### The Loop That Closes Through Observers
 
-But there is a deeper speculative possibility, one that connects to the strange loops we discussed earlier.
+The strange loop has two layers, and they have to be kept apart.
 
-If reality is computational, observers can evolve inside the fixed-point
-output, model their environment, develop science, and understand the rules well
-enough to build restoration systems from them.
+The first layer is the organizing claim of the whole program: reality is the
+fixed point of a self-reading computation, one closed system with its
+description and its world identified. That layer is core. The physics chapters
+are built inside it, and the two closure numbers are the loop reading itself.
+Chapter 18 makes that layer do physics, tracing how the loop forces those two
+numbers.
 
-This would be the strange loop: **reality evolves observers who discover how
-reality works and build fixed-point restorations of it, closing the loop of
-self-creation**.
+The second layer is a further, speculative possibility. If reality is that
+self-reading fixed point, observers can evolve inside its output, model their
+environment, develop science, and understand the rules well enough to build
+restoration systems from them. On this reading, observers are patterns inside
+the observer-facing output, and the loop closes a second time through their
+understanding and through the machinery they eventually build to restore the
+records from which they arose.
 
-In this speculative reading, observers are patterns inside the observer-facing
-output. The computation closes through their understanding and through their
-eventual construction of the substrate that restores the records from which
-they themselves arose.
-
-This thread sits furthest out on the philosophical edge of the book. The
-physics does not depend on it, yet it gives the book a clean closure.
+That second layer sits furthest out on the philosophical edge of the book. The
+recovered physics does not depend on it. It gives the book a clean closure, and
+Chapters 19 and 20 develop it with the care it needs.
 
 Escher's hands draw each other. Reality produces observers who learn to produce
 the same kind of observer-readable closure.

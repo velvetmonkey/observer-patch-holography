@@ -1,6 +1,6 @@
-# Chapter 18: Synthesis
+# Chapter 19: Synthesis
 
-## 18.1 The Picture That Gives Way
+## 19.1 The Picture That Gives Way
 
 For a long time physics assumed a finished stage. Space was the
 container. Time was the clock hanging above it. Matter moved through both.
@@ -22,7 +22,7 @@ builders, theorists, critics, and data analysts. OPH belongs in that spirit. It
 is the synthesis of accumulated constraints and the completion of the
 observer-consistency line inside that accumulated work.
 
-## 18.2 The Observer-First Turn
+## 19.2 The Observer-First Turn
 
 This book takes the hint seriously. Physics begins with finite observers,
 finite access, and the demand that overlapping descriptions agree.
@@ -35,7 +35,7 @@ views can be woven into one durable account.
 The horizon matters. It is where comparison becomes physical. It is
 where records meet. It is where the bookkeeping has to close.
 
-## 18.3 The Screen and the Shared Record
+## 19.3 The Screen and the Shared Record
 
 The fundamental image is simple enough to keep in your head: a shared screen
 net that can be drawn, in its symmetric chart, as finite quantum data organized
@@ -55,7 +55,7 @@ selection principle. Minimality gives the economy.
 
 ![The book's main ingredients form one spine from finite screens to shared public reality.](../assets/book_diagrams/synthesis-spine.svg){width=78%}
 
-## 18.4 How Spacetime Appears
+## 19.4 How Spacetime Appears
 
 Once the internal flow of a restricted region becomes geometric under the right
 scaling conditions, time stops looking imported from outside. It becomes the
@@ -106,7 +106,7 @@ that checks and repairs them. A distributed implementation counts as one such
 carrier only when its parts behave as a single repair system. This is the
 setting in which the broader OPH bookkeeping can be simulated and checked.
 
-## 18.5 How the Particle World Appears
+## 19.5 How the Particle World Appears
 
 The particle world follows the same logic from another angle. Once the charge
 sectors on a screen can combine, break apart, and carry their opposites, the way
@@ -194,7 +194,7 @@ That is the twist. The Standard Model stops looking like a cabinet full of
 unrelated entries. It looks like the smallest admissible charged world that
 lets the observer records close.
 
-## 18.6 Closure Coordinates And Scale Bridge
+## 19.6 Closure Coordinates And Scale Bridge
 
 The quantitative side of the framework turns on two dimensionless closure
 coordinates and one selected scale bridge that does not take Newton's constant
@@ -491,7 +491,7 @@ now owes a source-derived applicability theorem tied to the self-reading
 observer system--its bounded state, ports, records, feedback, and repair--and
 cannot be rescued by an empirical exception.
 
-## 18.7 Why de Sitter Fits
+## 19.7 Why de Sitter Fits
 
 The large-scale universe is accelerating. In OPH that matters
 immediately, because de Sitter space gives every observer a natural horizon and
@@ -507,7 +507,7 @@ The de Sitter chapter mattered so much because it did not break the thread. It
 revealed the stage on which the observer-first picture reads most
 cleanly.
 
-## 18.8 Old Puzzles Under New Light
+## 19.8 Old Puzzles Under New Light
 
 Several old puzzles change character at once.
 
@@ -526,7 +526,7 @@ Fine-tuning also changes tone. Once laws are read as the patterns that survive
 across many overlapping perspectives, a law is the shape that holds stable
 under the harsh test of public consistency.
 
-## 18.9 The Strange Loop
+## 19.9 The Strange Loop
 
 A more unsettling thought follows. Reality produces
 observers. Observers produce understanding. Understanding can produce a working
@@ -548,7 +548,7 @@ world, then build restoration machinery that can host restored observers. A
 self-describing universe is a concrete observer-world, complete enough to
 understand and repair its own construction.
 
-## 18.10 What the Book Has Been Saying
+## 19.10 What the Book Has Been Saying
 
 By this point the central sentence of the book can be spoken plainly:
 
@@ -565,7 +565,7 @@ The picture feels strange only if one insists on beginning with a finished
 world. Begin with finite access, horizons, records, and overlap, and the
 strange turns stop looking decorative. They start looking inevitable.
 
-## 18.11 Ten Requirements, Two Dials
+## 19.11 Ten Requirements, Two Dials
 
 The whole argument can be retold as one story of subtraction. Start with every
 world that reads itself, and watch each consistency requirement strike out the
@@ -632,7 +632,7 @@ is a matter of interpretation; each is a computation or a construction. The
 first is already frozen as a blind target, externally timestamped, and the
 calculation has to land on it without reading it.
 
-## 18.12 Final Synthesis
+## 19.12 Final Synthesis
 
 Reverse engineering starts with symptoms and works backward to architecture.
 This book started with the symptoms modern physics could not stop producing:

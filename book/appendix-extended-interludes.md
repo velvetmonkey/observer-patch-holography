@@ -571,9 +571,10 @@ assumption that it arrives whole.
 
 In Chapter 16, follow matter as a stability ladder from quantum excitations to
 public records. In Chapter 17, follow selection as a disciplined filter. In
-Chapter 18, follow the synthesis across the whole stack. In Chapter 19, follow
-metaphysics downstream of physics. In the epilogue, follow restoration as an
-engineering problem with explicit interfaces.
+Chapter 18, follow the strange loop from self-referential mathematics to the
+forcing of the two constants. In Chapter 19, follow the synthesis across the
+whole stack. In Chapter 20, follow metaphysics downstream of physics. In the
+epilogue, follow restoration as an engineering problem with explicit interfaces.
 
 The book has done its job when the reader can inspect the architecture of
 reality.

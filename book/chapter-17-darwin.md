@@ -284,8 +284,9 @@ understanding of reality at the computational level.
 Armed with this meme, observers can build computations that preserve and repair
 observer records. A sufficiently rich restored world could contain its own
 observers, who may in turn arrive at the same meme. The meme that explains
-reality is itself a product of reality. Chapter 18 treats that strange-loop
-reading as a philosophical extension of the framework.
+reality is itself a product of reality. Chapter 18 develops the strange loop as
+physics, and Chapter 20 treats this memetic reading as a philosophical extension
+of the framework.
 
 ## 17.8 The Observer as Selector
 
