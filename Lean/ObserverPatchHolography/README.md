@@ -46,6 +46,24 @@ surface for the OPH consensus layer. Contents:
   `Source/ObserverPatchHolography/Bridges/ObservableNormalForms.lean`.  This
   bridge characterizes the remaining #304 premise; it does not prove the
   declared physical boundary map injective.
+- A sorry-free **finite event algebras** library (`Source/EventAlgebra/`,
+  lake target `EventAlgebra`, 64 audited declarations, standard axioms
+  only): events as Hermitian idempotents, states as positive trace-one
+  matrices, Born weights (reality, nonnegativity, normalisation,
+  additivity, complement bound, monotonicity), Lüders conditioning
+  (state preservation, repeatability, idempotence, compatibility,
+  classical restriction, fixed-point characterisation), the conditional
+  expectation onto a commutative center (projector laws, state
+  preservation, trace selfadjointness, Pythagoras, contractivity,
+  uniqueness, compatibility with conditioning on central events), the
+  expectation functional, and the Tsirelson bound `‖S‖ ≤ 2√2` in
+  abstract unital C*-rings with a matrix instantiation. **This bundle is
+  OPH-vocabulary-free by design** (namespace `EventAlgebra`, Mathlib-only
+  imports, no repository vocabulary) — it is the journal-neutral surface
+  for submission; every lemma is tagged **algebra-only** or **consumes a
+  tracial state** in its doc comment. Inventory in `PROOF_INDEX.md`
+  ("Finite event algebras"); Mathlib friction log in
+  `Source/EventAlgebra/MATHLIB_NOTES.md`. Not a Prop 4.2 / Def 4.1 item.
 
 What is **not** yet present and is the target:
 
@@ -91,7 +109,9 @@ tracker.
 
     cd Lean
     lake exe cache get        # fetch pre-built Mathlib oleans
-    lake build                # build both proof libraries
+    lake build                # build all three proof libraries
+                              # (ObservableNormalForms, ObserverPatchHolography,
+                              #  EventAlgebra)
 
 The `Main` console entry point is optional and not part of the proof receipt;
 build it separately with `lake build oph:exe` if needed.

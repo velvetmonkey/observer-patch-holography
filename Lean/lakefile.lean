@@ -18,5 +18,9 @@ lean_lib «ObservableNormalForms» where
 lean_lib «ObserverPatchHolography» where
   srcDir := "ObserverPatchHolography/Source"
 
+@[default_target]
+lean_lib «EventAlgebra» where
+  srcDir := "ObserverPatchHolography/Source"
+
 lean_exe «oph» where
   root := `Main

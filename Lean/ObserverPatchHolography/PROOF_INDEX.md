@@ -26,6 +26,11 @@ Mapping between Lean 4 theorems in this project and statements in
   (first non-degenerate `Hfib` discharge on a linear information-set carrier +
   `H1`–`H3` local-repair no-go; a carrier-level witness only. It does **not** bear
   on the Prop 4.2 / Def 4.1 counts above, which remain 0%)
+- Finite event algebras (`EventAlgebra` library, journal-neutral bundle):
+  64 / 64 audited declarations, sorry-free → 100% (standard axioms only;
+  `chsh_mul_self` needs only `propext` + `Quot.sound`). A self-contained
+  neutral-vocabulary development — it does **not** bear on the
+  Prop 4.2 / Def 4.1 counts. See "Finite event algebras" below.
 
 The headline number is **0% of Proposition 4.2** until the OPH-specific
 structures are in place. The 100% skeleton number is preliminary
@@ -165,6 +170,128 @@ This completes the generic observer-confluence interface but does not close
 the live application obligation.  Closure still requires a declared physical
 boundary map `B` and a proof that any two concrete consistent records with the
 same `B` value are `gaugeEquiv`.
+
+## Finite event algebras (`EventAlgebra` library)
+
+A self-contained, sorry-free development of finite-dimensional quantum
+event algebras over `Matrix (Fin n) (Fin n) ℂ`, built for journal
+submission. **These modules are OPH-vocabulary-free by design**: namespace
+`EventAlgebra`, imports Mathlib only, no observer/patch/screen/record
+vocabulary anywhere, and no imports from the rest of this repository. Every
+lemma's doc comment carries a scope tag — **algebra-only** (pure
+`*`-algebra content) or **consumes a tracial state** (content passing
+through the trace pairing `(ρ, P) ↦ Tr(ρ P)`) — so the split between the
+algebraic layer and the state layer is machine-visible. Modules live in
+`Source/EventAlgebra/` with umbrella `Source/EventAlgebra.lean`; Mathlib
+friction log in `Source/EventAlgebra/MATHLIB_NOTES.md`. All 64 audited
+declarations report `[propext, Classical.choice, Quot.sound]` (the ring
+identity `chsh_mul_self` even avoids `Classical.choice`).
+
+Definitions: `IsEvent` (Hermitian idempotent), `IsState` (PSD, trace one),
+`bornWeight` (`Tr(ρ P)`), `luedersUpdate`, `certainStates`,
+`CenterPartition`, `centerExpectation`, `expectation`.
+
+`Basic.lean` — events and Born weights (25 lemmas):
+
+| Lean name | One-line statement |
+|---|---|
+| `isEvent_zero` | `0` is an event (the impossible event). |
+| `isEvent_one` | `1` is an event (the sure event). |
+| `IsEvent.compl` | `1 − P` is an event. |
+| `IsEvent.orthogonal_symm` | `PQ = 0 → QP = 0` for events (star of the product). |
+| `IsEvent.add` | The sum of orthogonal events is an event. |
+| `IsEvent.mul_of_commute` | The product of commuting events is an event. |
+| `IsEvent.absorb_of_le` | `PQ = P → QP = P` (subevent absorption). |
+| `IsEvent.sub_of_le` | `Q − P` is an event when `P` is a subevent of `Q`. |
+| `IsEvent.posSemidef` | Every event is positive semidefinite (`P = Pᴴ P`). |
+| `IsEvent.one_sub_two_smul_involution` | `1 − 2P` is a selfadjoint involution (dichotomic observable). |
+| `bornWeight_add` | Weight is additive in the event argument. |
+| `bornWeight_sub` | Weight is subtractive in the event argument. |
+| `bornWeight_sum` | Weight commutes with finite sums of events. |
+| `bornWeight_smul` | `bornWeight (c•ρ) P = c · bornWeight ρ P`. |
+| `trace_sandwich` | `Tr(PρP) = Tr(ρP)` for idempotent `P`. |
+| `star_bornWeight` | Reality: the weight is fixed by conjugation (Hermitian `ρ`, `P`). |
+| `bornWeight_eq_re` | The weight equals its own real part. |
+| `bornWeight_nonneg` | `0 ≤ Tr(ρP)` in the partial order of `ℂ` (PSD `ρ`, event `P`). |
+| `bornWeight_re_nonneg` | Real-part form of nonnegativity. |
+| `bornWeight_one` | Normalisation: `Tr(ρ·1) = 1` for a state. |
+| `bornWeight_add_of_orthogonal` | Additivity packaged with the orthogonality hypothesis. |
+| `bornWeight_le_one` | `Tr(ρP) ≤ 1` via the complement event. |
+| `bornWeight_re_le_one` | Real-part form of the upper bound. |
+| `bornWeight_mono` | `PQ = P → Tr(ρP) ≤ Tr(ρQ)` (monotone under subevents). |
+| `bornWeight_ne_zero_iff_re_pos` | Nonzero weight ↔ strictly positive real part. |
+
+`Lueders.lean` — Lüders conditioning (12 lemmas):
+
+| Lean name | One-line statement |
+|---|---|
+| `luedersUpdate_posSemidef` | The update is PSD (zero matrix in the degenerate case). |
+| `trace_luedersUpdate` | The update has trace one when the weight is nonzero. |
+| `luedersUpdate_isState` | The update of a state by a nonzero-weight event is a state. |
+| `bornWeight_luedersUpdate_self` | Repeatability: the conditioned state gives `P` weight `1`. |
+| `luedersUpdate_idem` | Conditioning twice on `P` equals conditioning once. |
+| `luedersUpdate_luedersUpdate_of_commute` | Sequential conditioning on commuting events = conditioning on `PQ`. |
+| `luedersUpdate_comm` | Order exchange for commuting events. |
+| `luedersUpdate_of_commute` | Classical restriction: `ρP = Pρ` ⇒ update is `(Tr ρP)⁻¹ • (ρP)`. |
+| `luedersUpdate_mem_certainStates` | One step of conditioning lands in the certainty set of `P`. |
+| `mul_eq_self_of_bornWeight_one` | A state certain of `P` is supported on `P` (`σP = σ = Pσ`). |
+| `luedersUpdate_eq_self_of_mem_certainStates` | States certain of `P` are fixed points of conditioning. |
+| `luedersUpdate_eq_self_iff` | Fixed points of conditioning = states certain of `P` (given nonzero weight). |
+
+`CenterExpectation.lean` — conditional expectation onto a commutative
+center (16 lemmas). This is the quantum-native counterpart of the
+classical contractive conditional-resampling projector package in
+`Proofs/ObservableNormalForms/ObservableNormalForms/ConditionalResampling.lean`
+(fixes-the-fiber-constants / idempotent / selfadjoint-for-the-weighted-inner-product /
+Pythagoras / squared-`L²` contraction); the statements were re-proved from
+scratch in the matrix event-algebra setting rather than wrapped, so the
+neutral bundle stays self-contained with no imports from that package:
+
+| Lean name | One-line statement |
+|---|---|
+| `CenterPartition.proj_mul_proj` | `Pᵢ Pⱼ = δᵢⱼ Pᵢ` for a partition of unity. |
+| `CenterPartition.proj_commute` | Partition members commute (the center is commutative). |
+| `centerExpectation_mul_proj` | Right absorption: `𝔼(X) Pᵢ = Pᵢ X Pᵢ`. |
+| `proj_mul_centerExpectation` | Left absorption: `Pᵢ 𝔼(X) = Pᵢ X Pᵢ`. |
+| `proj_commute_centerExpectation` | `𝔼(X)` lies in the commutant of the partition. |
+| `centerExpectation_fixes` | `𝔼` fixes the commutant pointwise. |
+| `centerExpectation_idem` | `𝔼 ∘ 𝔼 = 𝔼` (a projector). |
+| `conjTranspose_centerExpectation` | `𝔼` commutes with conjugate transposition. |
+| `centerExpectation_isState` | `𝔼` maps states to states. |
+| `trace_conjTranspose_centerExpectation_mul` | `𝔼` is selfadjoint for the trace inner product. |
+| `trace_centerExpectation_pythagoras` | Pythagoras: `‖X‖² = ‖𝔼X‖² + ‖X − 𝔼X‖²` (trace norms). |
+| `trace_centerExpectation_contraction` | Squared-`L²` contractivity of `𝔼`. |
+| `trace_centerExpectation_mul_central` | Trace compatibility against every central `C`. |
+| `centerExpectation_unique` | `𝔼X` is the unique commutant-valued, trace-compatible element. |
+| `bornWeight_centerExpectation` | Born weights of central events are `𝔼`-invariant. |
+| `centerExpectation_luedersUpdate` | For central `P`: `𝔼 ∘ L_P = L_P ∘ 𝔼` (classical conditioning). |
+
+`StateFromTrace.lean` — the expectation functional (5 lemmas):
+
+| Lean name | One-line statement |
+|---|---|
+| `bornWeight_eq_expectation` | The Born weight is the expectation functional at an event. |
+| `expectation_add` | Additivity in the observable. |
+| `expectation_smul` | Homogeneity in the observable. |
+| `expectation_one` | Normalisation: `Tr(ρ·1) = 1` for a state. |
+| `expectation_nonneg` | Positivity on all PSD observables (spectral-theorem proof). |
+
+`Tsirelson.lean` — the Tsirelson bound, norm form (6 lemmas; abstract
+C*-route shipped, matrix corollary included):
+
+| Lean name | One-line statement |
+|---|---|
+| `chsh_mul_self` | Ring identity `S² = 4·1 − (a₀a₁−a₁a₀)(b₀b₁−b₁b₀)` (no star/order/norm). |
+| `norm_eq_one_of_selfAdjoint_involution` | Selfadjoint involutions have norm one in a unital C*-ring. |
+| `norm_commutator_le_two` | Commutators of norm-one elements have norm ≤ 2. |
+| `tsirelson_bound` | `‖a₀b₀ + a₀b₁ + a₁b₀ − a₁b₁‖ ≤ 2√2` in any nontrivial unital C*-ring. |
+| `tsirelson_bound_of_isCHSHTuple` | The same, consuming Mathlib's `IsCHSHTuple` bundle. |
+| `matrix_tsirelson_bound` | Instantiation at `Matrix (Fin n) (Fin n) ℂ` with the L2 operator norm. |
+
+No attainment/tightness claim is made anywhere in `Tsirelson.lean`; the
+bound is shipped as an inequality only. Mathlib's
+`Mathlib/Algebra/Star/CHSH.lean` provides the complementary *order-form*
+`tsirelson_inequality`; the norm form here reuses its `IsCHSHTuple`.
 
 ## Gap analysis: skeleton → theorem-grade Prop 4.2
 
