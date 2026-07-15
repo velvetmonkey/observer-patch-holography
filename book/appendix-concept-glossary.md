@@ -64,6 +64,17 @@ is the rigorous bridge from an algebra-state pair to geometric motion. OPH leans
 on it where modular flow has to become a physical boost on the controlled
 Lorentz branch.
 
+**Bohr complementarity.** Complementarity is Niels Bohr's principle that a
+quantum system carries pairs of features, such as position and momentum or wave
+and particle behavior, that cannot be sharply displayed in one experiment. The
+measurement setup selects which feature appears. OPH reads it as an early
+statement that observables live in a context rather than in a fixed inventory.
+
+**Boltzmann entropy.** Boltzmann entropy counts the microstates compatible with
+a macrostate, $S=k_B\ln W$. It is the bridge from microscopic multiplicity to
+thermodynamic entropy. OPH uses it wherever record cost and the arrow of time
+trace back to counting.
+
 **Bootstrap.** The bootstrap idea fixes a theory by its own consistency, with no
 fundamental inputs supplied at the start. It failed for the hadrons of the 1960s
 and returned as the modern conformal bootstrap, where crossing symmetry and
@@ -107,11 +118,21 @@ screen-sieve theorem gives the factor $12$ in the projection.
 organize directions, caps, and overlap checks. In the technical papers it is
 also the bridge to null-ray and Lorentz geometry.
 
+**Carnot efficiency.** Carnot's result sets the ceiling on the work an engine
+can draw from a temperature difference, $\eta_{max}=1-T_{cold}/T_{hot}$. It was
+the first hint that thermodynamics imposes hard limits no mechanism can beat. The
+book uses it to introduce entropy as a budget.
+
 **Causal structure.** Causal structure determines which events can influence
 which. Relativity encodes it through light cones. OPH reads causal structure
 as emerging from no-signaling, modular flow, and screen geometry in the
 smooth limit. Spacelike correlations can exist without becoming controllable
 signals.
+
+**CKM matrix.** The Cabibbo-Kobayashi-Maskawa matrix describes how quark flavors
+mix under the weak interaction, and its complex phase is the Standard Model's
+source of charge-parity violation. Counting its physical phases is part of why
+three generations matter. The book uses it in the generation-counting argument.
 
 **Classical limit.** The classical limit is the regime where quantum
 interference becomes inaccessible and stable public records dominate. Large
@@ -249,6 +270,12 @@ with quantum entropy outside or across a surface. It is central in black-hole
 thermodynamics, quantum extremal surfaces, and entanglement-equilibrium
 arguments. OPH uses it to connect cap entropy to emergent gravity.
 
+**GKPW relation.** The Gubser-Klebanov-Polyakov-Witten relation is the working
+dictionary of AdS/CFT: a bulk partition function with a boundary source equals a
+generating functional for boundary correlators. It makes "boundary data computes
+bulk physics" precise. OPH borrows the direction of the statement while dropping
+the single global boundary.
+
 **Gleason's theorem.** Gleason's theorem shows that the only consistent
 probability rule on the projections of a quantum system of dimension three or
 more is the Born trace rule. It removes the freedom to invent a different
@@ -265,6 +292,12 @@ system can carry, with consequences that can be computed.
 balance point of the entropy bookkeeping on the screen. A screen exactly at that
 balance carries no events. The pixel ratio sits a small distance above it, and
 that detuning is where the fine-structure constant enters.
+
+**Hawking radiation.** Hawking radiation is the thermal emission a black-hole
+horizon produces once quantum fields are included, with a temperature fixed by
+the horizon. It turned black holes into thermodynamic objects and opened the
+information problem. OPH treats horizon temperature as a property the observer
+reads, part of the screen picture.
 
 **Hayden-Preskill protocol.** The Hayden-Preskill result studies how quickly
 information dropped into a scrambling system such as a black hole can be
@@ -335,6 +368,11 @@ correlations but preserves no-signaling. OPH treats locality as an emergent
 consistency structure tied to commutation, entanglement monogamy, and causal
 geometry.
 
+**Lorentz factor.** The Lorentz factor $\gamma=1/\sqrt{1-v^2/c^2}$ measures how
+much moving clocks slow and moving lengths contract between inertial observers.
+It is the arithmetic of special relativity. In OPH it appears once Lorentz
+kinematics is recovered from smooth screen geometry.
+
 **Lorentz symmetry.** Lorentz symmetry is the structure of special relativity
 that relates inertial observers moving at constant velocities. It preserves
 the speed of light and light-cone structure. In OPH, Lorentz behavior appears
@@ -352,10 +390,26 @@ compatible with known constraints. Jaynes made this a general principle of
 statistical reasoning. OPH uses MaxEnt to select screen states under stable
 local constraints without adding unnecessary structure.
 
+**Maxwell's demon.** Maxwell's demon is a thought experiment in which a tiny
+sorter seems to lower entropy by watching molecules, appearing to break the
+second law. The resolution charges the demon for its own measurements and memory
+erasure. It is the clean case that information processing carries a physical
+cost.
+
 **Metric.** The metric $g_{\mu\nu}$ defines distances, times, and causal
 relations in spacetime. General relativity treats the metric as dynamical.
 OPH aims to recover smooth metric geometry from screen data, entanglement,
 modular flow, and entropy equilibrium.
+
+**Michelson-Morley experiment.** The Michelson-Morley experiment searched for
+the Earth's motion through a light-carrying ether and found nothing. Its null
+result forced the constancy of the speed of light and set up special relativity.
+The book uses it as the first hint that breaks the absolute-space picture.
+
+**Minkowski spacetime.** Minkowski spacetime is the flat four-dimensional
+geometry that packages special relativity, with time and space joined through
+the light-cone structure. It is the arena Lorentz symmetry acts on. OPH recovers
+Minkowski kinematics on the controlled screen branch instead of assuming it.
 
 **Observer-frame chart.** The controlled Lorentz branch gives a
 three-dimensional chart for future observer frames. The book uses it as the
@@ -381,6 +435,12 @@ algebra-state pair generates its own flow, the modular flow, with a thermal KMS
 character. It is self-reading at the level of theorems: the restricted state
 carries its own clock. OPH's internal time, its Lorentz branch, and its
 thermality all ride this mathematics.
+
+**MOND.** MOND, Milgrom's modified-dynamics proposal, fits galaxy rotation
+curves by changing the force law below a small acceleration scale. OPH's
+dark-response branch reaches a similar deep-infrared scale from the de Sitter
+radius, which is why the book treats galaxy-scale anomalies as an extension
+branch with its own applicability question.
 
 **Monogamy of entanglement.** Monogamy is the rule that entanglement cannot be
 shared freely: if two systems are maximally entangled with each other, neither
@@ -511,6 +571,11 @@ $S(A)=\mathrm{Area}(\gamma_A)/4G_N$. It ties quantum correlation to geometry.
 OPH reads it as the clearest sign that entanglement structure carries spatial
 information.
 
+**Schwarzschild radius.** The Schwarzschild radius is the size of the event
+horizon of a non-rotating black hole of a given mass. Inside it, no signal
+escapes. It is the first exact place where a horizon becomes a boundary of
+causal access, one of the book's recurring screen examples.
+
 **Screen.** The screen is the finite holographic surface carrying the primary
 data in OPH's boundary-first picture. The word is used at three related levels:
 the global screen net, an observer-facing access cut on that net, and the
@@ -535,6 +600,11 @@ physical structures must pass to become part of a stable public world.
 Examples include finite capacity, record stability, recoverability,
 compressibility, and observer support.
 
+**Shannon entropy.** Shannon entropy measures the uncertainty in a message
+source, $H=-\sum_i p_i\log_2 p_i$, in bits when the logarithm is base two. It
+founded information theory. The book uses it to tie records and communication to
+the same entropy accounting that runs through thermodynamics and horizons.
+
 **Sheaf.** A sheaf is a mathematical structure that assigns local data to
 regions and specifies when matching local data glue into a global section.
 OPH uses sheaf logic as a formal cousin of observer-overlap consistency.
@@ -544,6 +614,11 @@ seed or readout, recurrence loop, horizon screen or public archive, and the
 three-dimensional observer-facing bulk role. It is a teaching map, not a proof
 of global bulk topology. Particle identities come from Lorentz and gauge
 structure.
+
+**Stabilizer code.** A stabilizer code is a quantum error-correcting code
+defined by the operators that leave its protected states fixed, the framework
+behind most practical codes. It makes error correction systematic. OPH points to
+it when a bare overlap network is asked to carry real code structure.
 
 **Static patch.** A static patch is the region of de Sitter space accessible
 to one observer inside their cosmological horizon. It is finite and bounded,
@@ -571,6 +646,11 @@ mathematical results showing that a group can be recovered from its
 representations and their tensor structure. OPH uses this idea to motivate
 reading gauge groups from persistent charge-sector bookkeeping.
 
+**Tarski undefinability.** Tarski's theorem shows that a language rich enough to
+describe the world cannot contain its own full truth predicate without
+contradiction. It is a self-reference limit in the same family as Gödel's. OPH
+cites it among the results that make self-reference a precise structural feature.
+
 **Tensor category.** A tensor category is a structured bookkeeping system for
 things that can be combined. In the Standard Model chapter, the things are
 charge sectors. The category records which sectors exist, how they fuse, which
@@ -583,6 +663,11 @@ clock with an internal flow tied to restricted information.
 **Trace.** The trace is a matrix operation that sums diagonal entries. The
 partial trace removes an inaccessible subsystem from a joint quantum state,
 producing the reduced state seen by a local observer.
+
+**Turing halting problem.** The halting problem is Alan Turing's result that no
+single program can decide, for every program and input, whether it eventually
+stops. The proof feeds a machine its own description. It is another named case
+where self-reference produces a hard, computable consequence.
 
 **Type I, II, and III algebras.** Von Neumann algebras come in types. Type I is
 closest to ordinary matrices and finite quantum systems. Type II has a trace
@@ -603,6 +688,11 @@ the vacuum as a warm thermal bath, with a temperature set by the acceleration.
 It shows that even the count of particles is observer-relative. OPH treats it as
 another sign that horizons and temperature belong to the observer rather than to
 an absolute background.
+
+**Von Neumann entropy.** The von Neumann entropy $-\mathrm{Tr}(\rho\ln\rho)$
+measures the mixedness of a quantum state $\rho$, the quantum counterpart of
+Shannon entropy. It underlies entanglement measures and horizon entropy. OPH
+uses it wherever quantum information and gravitational capacity are compared.
 
 **Wedge reconstruction.** Wedge reconstruction is the ability to reconstruct
 bulk operators in an entanglement wedge from the corresponding boundary
