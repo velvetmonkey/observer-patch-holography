@@ -6,7 +6,7 @@ depend on low-energy QCD.
 ## Closure-Program Note (2026-07-14)
 
 The hadronic lane is generator G1 of the closure program
-([CONSISTENCY_STACK.md](docs/CONSISTENCY_STACK.md), ledger dependency table): the
+([CONSISTENCY_STACK.md](CONSISTENCY_STACK.md), ledger dependency table): the
 blind Ward-projected transport computation against the frozen target is the
 object that closes or moves CL-1 and CL-2. The blind target is frozen and
 externally timestamped (OpenTimestamps,

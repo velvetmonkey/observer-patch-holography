@@ -3,12 +3,12 @@
 ## Standing Of The Hypothesis
 
 OPH is stated under the strange-loop principles (SLH), SL-0 through
-SL-5, canonically recorded in [STRANGE_LOOP_PRINCIPLES.md](../docs/STRANGE_LOOP_PRINCIPLES.md). The principles are declared
+SL-5, canonically recorded in [STRANGE_LOOP_PRINCIPLES.md](STRANGE_LOOP_PRINCIPLES.md). The principles are declared
 architecture postulates. Evidence bears on the principle set through the closure
 ledger and the compression scorecard, never through restatement.
 
 The two substrate constants are handled in three layers
-([STRANGE_LOOP_PRINCIPLES.md](../docs/STRANGE_LOOP_PRINCIPLES.md)). The theory layer
+([STRANGE_LOOP_PRINCIPLES.md](STRANGE_LOOP_PRINCIPLES.md)). The theory layer
 takes zero quantitative inputs: P is defined as the solution of
 P = φ + √π/A_T(P), interval-certified to exist and be unique, with exactly one
 fixed point per readout map on the declared physical domain,
@@ -27,7 +27,7 @@ lanes borrow located values:
   input.
 
 Every working borrow is tied to a named generator in
-[CONSISTENCY_STACK.md](../docs/CONSISTENCY_STACK.md) (G1 hadronic transport, G2
+[CONSISTENCY_STACK.md](CONSISTENCY_STACK.md) (G1 hadronic transport, G2
 capacity readback, G3 electroweak repair); a generator that lands retires its
 borrow. The generator program executed its first full round on 2026-07-14.
 G1: the payload harness is built, and the first-principles internal-mass
@@ -44,19 +44,19 @@ open.
 
 Neither α nor Λ nor G appears on any OPH output list. A measured value used to
 locate a basin is an input at every surface, permanently
-([STRANGE_LOOP_PRINCIPLES.md](../docs/STRANGE_LOOP_PRINCIPLES.md), rule 1). The current evidential standing is the
-compression scorecard ([COMPRESSION_SCORECARD.md](../docs/COMPRESSION_SCORECARD.md)):
+([STRANGE_LOOP_PRINCIPLES.md](STRANGE_LOOP_PRINCIPLES.md), rule 1). The current evidential standing is the
+compression scorecard ([COMPRESSION_SCORECARD.md](COMPRESSION_SCORECARD.md)):
 M − K is deeply negative. The program's task is to move rows upward, and this
 document lists every way it can lose while trying.
 
 The exposure documented here is structural. Under the
 uniqueness lemmas of the consistency stack
-([CONSISTENCY_STACK.md](../docs/CONSISTENCY_STACK.md), L1–L3), the SLH principle set
+([CONSISTENCY_STACK.md](CONSISTENCY_STACK.md), L1–L3), the SLH principle set
 admits at most one (P, N): there is no vacuum landscape to relocate into, and
 a blind closure computation landing outside its basin falsifies the
 formulation permanently. The uniqueness result is global on the declared
 physical domain: exactly one fixed point per readout map
-(`code/P_derivation/runtime/p_global_uniqueness_certificate_2026-07-14.json`).
+(`../code/P_derivation/runtime/p_global_uniqueness_certificate_2026-07-14.json`).
 Maximal falsifiability is a corollary of that uniqueness.
 
 This surface lists **33 hard OPH-killing outcomes**: 16 structural, 7
@@ -69,7 +69,7 @@ Useful background:
 
 - [OPH Textbooks](https://learn.floatingpragma.io/)
 - [Reverse Engineering Reality](https://oph-book.floatingpragma.io/)
-- [Compact proof of OPH](compact_proof_of_oph.pdf)
+- [Compact proof of OPH](../extra/compact_proof_of_oph.pdf)
 
 ## Quick Dictionary
 
@@ -100,7 +100,7 @@ Useful background:
 
 ## 1. Closure Tests
 
-[CLOSURE_LEDGER.md](../docs/CLOSURE_LEDGER.md) is the canonical record; this section
+[CLOSURE_LEDGER.md](CLOSURE_LEDGER.md) is the canonical record; this section
 mirrors it. SLH requires these equations to hold exactly. Under SL-0 the
 simulating structure and the simulated world are one closed system, so each
 residual is a direct measurement of the principle set; there is no compare-only
@@ -130,11 +130,11 @@ certified self-consistent gauge-width fixed point is α⁻¹ = 137.035660136947.
 The blind hadronic target is the decisive test of the program, with both
 outcomes pre-declared before any payload construction:
 
-- **Frozen target:** `falsification/frozen_targets/hadronic_closure_target_2026-07-14.json`,
+- **Frozen target:** `../falsification/frozen_targets/hadronic_closure_target_2026-07-14.json`,
   sha256 `7cedad0a7281c74ca0fb1105120c991aeab2f3c45bf86adbbfd560c6324fb985`.
   The target is externally timestamped: OpenTimestamps proofs for the target
   file and its commit record are committed alongside it in
-  `falsification/frozen_targets/`, so the freeze date is verifiable outside
+  `../falsification/frozen_targets/`, so the freeze date is verifiable outside
   the repository.
 - **Required values:** the completed transport must supply
   Δ_source = 0.0414658… α⁻¹ units at the endpoint (equivalently
@@ -167,7 +167,7 @@ assumptions:
 | Charge lattice | The stated assumptions allow a different hypercharge lattice. | The hypercharge lattice (given the MAR clauses as inputs) is one of the two landed scorecard rows. If OPH allows another lattice, the observed charge pattern was not forced. |
 | Generation count | A valid OPH construction has two or four light matter generations. | OPH claims exactly three generations on the realized branch. |
 | Fermions and chirality | Chiral fermions have to be imported from the Standard Model by hand. | OPH says matter structure follows from observer consistency. If the key fermion structure has to be assumed, the reconstruction fails. |
-| P-lane protocol | The stated fixed-point equations admit no interval-grade contraction certificate on the declared interval, admit multiple solutions there, or the source map reads the low-energy target. | Any "one and only P" claim requires the stage-2 certificate. The lane now holds one: `code/P_derivation/runtime/p_interval_contraction_certificate_2026-07-14.json` proves existence and uniqueness of the closure fixed point on its stated interval (direct Banach, mpmath.iv outward rounding, L ≤ 0.0724, edge-sum tails bounded), for both readout maps at the declared cutoffs and conventions. The global at-most-one statement is discharged on the declared physical domain (alpha_inv in [100, 200]): sup|g'| < 1 on all 256 certified pieces, both maps, zero exceptional set (`runtime/p_global_uniqueness_certificate_2026-07-14.json`). A proof of non-uniqueness on the declared domain or a target leak kills the lane rather than merely stalling it. |
+| P-lane protocol | The stated fixed-point equations admit no interval-grade contraction certificate on the declared interval, admit multiple solutions there, or the source map reads the low-energy target. | Any "one and only P" claim requires the stage-2 certificate. The lane now holds one: `../code/P_derivation/runtime/p_interval_contraction_certificate_2026-07-14.json` proves existence and uniqueness of the closure fixed point on its stated interval (direct Banach, mpmath.iv outward rounding, L ≤ 0.0724, edge-sum tails bounded), for both readout maps at the declared cutoffs and conventions. The global at-most-one statement is discharged on the declared physical domain (alpha_inv in [100, 200]): sup|g'| < 1 on all 256 certified pieces, both maps, zero exceptional set (`runtime/p_global_uniqueness_certificate_2026-07-14.json`). A proof of non-uniqueness on the declared domain or a target leak kills the lane rather than merely stalling it. |
 | N-lane readback | The capacity readback map F is constructed and \(F(N)\neq N\) at the Λ-located N, or the same equations allow incompatible capacity branches. | The capacity closure is the second substrate constant. CL-7 is open and reduced to the coupling theorem G2-GAP-1; a constructed F that fails is a falsification, not an open item. |
 | 24-tick repair lock | The observer-visible product-adjoint repair spectrum is not \(2(8+3+1)=24\), or the local repair contraction fails to line up with the global screen step. | The repair lock is the bridge between P and N. Its ×2 orientation is a recorded discrete selection; the spectrum content is not, and a different spectrum breaks the mechanism. |
 | Hierarchy witness | The declared first-principles hierarchy map imports \(G\), \(\Lambda\), \(W\), \(Z\), Higgs, low-energy Thomson, cesium-clock, or hadronic inputs, or it misses \(v/E_\star\) on its declared branch: 2.0199803239725553e-17 at the SL-3 working pixel, 2.0198114078576331e-17 at the certified P_fwd. | This row avoids QCD and clock assumptions, which is why it is the compact proof's answer to the QCD-circularity criticism. It is conditional on the frozen MSSM-like one-loop coefficients \((33/5, 1, -3)\), a recorded structural selection; every α_U descendant, including \(\epsilon_H = 0\), inherits that condition. The 2026-07-14 preregistered sweep structurally excluded the SM triple and isolated β_EW = 4 by three orders of magnitude, so the coefficient selection is consistency-forced. |
@@ -210,7 +210,7 @@ data exists or is looked at):
 2. **Forward W/Z.** After the forward electroweak chain is repaired with
    preregistered revisions, the re-emitted \((M_W, M_Z)\) pair is frozen
    before comparison. The preregistered 96-entry sweep of 2026-07-14
-   (`falsification/preregistered/ew_repair_results_2026-07-14.json`) exhausted
+   (`../falsification/preregistered/ew_repair_results_2026-07-14.json`) exhausted
    the certified-pixel menu at one loop, structurally excluded the SM triple
    (no fixed-point root; the Landau ceiling is disjoint from the fixed-point
    window) and β_EW ∈ {3, 5} (three orders of magnitude off), and left a
@@ -278,7 +278,7 @@ Notes:
 
 Every test ever run stays on this surface with its verdict. A failed row is
 revised only by a new frozen registration, never by reclassification
-([STRANGE_LOOP_PRINCIPLES.md](../docs/STRANGE_LOOP_PRINCIPLES.md), rule 7).
+([STRANGE_LOOP_PRINCIPLES.md](STRANGE_LOOP_PRINCIPLES.md), rule 7).
 
 | Test | Target and data | Result (relative deviation; pull) | Verdict |
 | --- | --- | --- | --- |
@@ -334,7 +334,7 @@ relative level, while the loop gaps are 2.5×10⁻⁶ (gauge-width chain) and 3�
 (source chain): 10³–10⁶ times larger than the room available on the measurement
 side. The corpus's own hadron-scheme bridge places the missing piece in the
 model's hadronic transport. A measurement-side mechanism claim is admissible
-only as a frozen registered prediction ([STRANGE_LOOP_PRINCIPLES.md](../docs/STRANGE_LOOP_PRINCIPLES.md), rule 5).
+only as a frozen registered prediction ([STRANGE_LOOP_PRINCIPLES.md](STRANGE_LOOP_PRINCIPLES.md), rule 5).
 
 ## Appendix: Speculative Continuations
 
@@ -379,7 +379,7 @@ The twelve-port icosahedral coupling target (edge : diagonal : opposite =
 body, not a substrate measurement. Evidence requires public bundles with
 controls; no bundle currently changes any physics row.
 
-![OPH P hardware confirmation schematic](assets/oph_p_hardware_confirmation_animation.svg)
+![OPH P hardware confirmation schematic](../extra/assets/oph_p_hardware_confirmation_animation.svg)
 
 ### Hardware Proof-Of-Work
 

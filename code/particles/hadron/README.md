@@ -17,7 +17,7 @@ So the first promotable outputs on the current branch are isospin-symmetric
 `pi_iso` and `N_iso`, not fully physical `p`, `n`, or `pi^0`.
 
 The public output policy for QCD-limited rows is documented in
-[`../../../HADRON.md`](../../../HADRON.md). That policy separates source-only
+[`../../../docs/HADRON.md`](../../../docs/HADRON.md). That policy separates source-only
 OPH values from OPH plus empirical hadron closure values. The empirical
 fine-structure closure uses measured `e+e- -> hadrons` data as the strongest
 available substitute for a production OPH hadronic spectral payload.

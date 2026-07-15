@@ -174,5 +174,5 @@ packet (`../../docs/CLOSURE_LEDGER.md`, rows CL-2 and CL-6).
 
 - Source-only hadron predictions emitted: `False`
 - Empirical hadron closure allowed for display: `True`
-- Policy artifact: `HADRON.md`
+- Policy artifact: `docs/HADRON.md`
 - Reason: Source-only hadron outputs require a working OPH hadron backend. Empirical hadron closure values stay in a separate output class; the e+e- spectral payload has a source registry and schema.

@@ -663,7 +663,7 @@ def _empirical_ee_gate() -> dict[str, Any]:
         "github_issue": None,
         "title": "Populate the empirical e+e- -> hadrons payload for closure rows",
         "current_boundary": (
-            "The empirical output class is declared in HADRON.md. The source registry and schema "
+            "The empirical output class is declared in docs/HADRON.md. The source registry and schema "
             "exist, while the integrated e+e- spectral dataset and dispersion artifact are absent."
         ),
         "next_action": (
@@ -671,7 +671,7 @@ def _empirical_ee_gate() -> dict[str, Any]:
             "or an equivalent documented compilation, then feed the empirical Thomson endpoint builder."
         ),
         "target_surfaces": [
-            "HADRON.md",
+            "docs/HADRON.md",
             "code/particles/hadron/empirical_ee_hadrons_sources.yaml",
             "code/particles/hadron/empirical_ee_hadronic_spectral_measure.schema.json",
             "code/P_derivation",

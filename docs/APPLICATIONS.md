@@ -12,7 +12,7 @@ Four use cases follow. All four are low-cost implementation tracks under
 active development. The links point to public material in this repository or
 public OPH pages. The OMEGA hardware visualization is at
 [omega.floatingpragma.io](https://omega.floatingpragma.io/). The local compute loop diagram is
-[assets/omega/omega-compute-loop.svg](assets/omega/omega-compute-loop.svg).
+[assets/omega/omega-compute-loop.svg](../assets/omega/omega-compute-loop.svg).
 
 ## 1. Cheap Desktop Fusion Energy
 
@@ -38,11 +38,11 @@ fixed point of the patch, and the measured heat is accepted only when the
 boundary records agree.
 
 References: the finite repair and consensus machinery is in
-[Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf).
+[Reality as a Consensus Protocol](../paper/reality_as_consensus_protocol.pdf).
 The finite patch-carrier, record, and hardware-evidence framework is in
-[Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf).
+[Federated Echosahedral Screen Microphysics](../paper/screen_microphysics_and_observer_synchronization.pdf).
 The broad observer-patch reconstruction is in
-[Observers Are All You Need](paper/observers_are_all_you_need.pdf).
+[Observers Are All You Need](../paper/observers_are_all_you_need.pdf).
 
 ## 2. Desktop Room-Temperature Quantum Supercomputers
 
@@ -54,7 +54,7 @@ planted constraints, and exact-check tasks, the hardware proposes candidates
 and the host verifies them.
 
 The public SHA-256d paper gives the most aggressive target:
-[Photonic Fixed-Point Consensus for SHA-256d Proof of Work](extra/Photonic_fixed-point_consensus_for_SHA-256d_proof_of_work.pdf).
+[Photonic Fixed-Point Consensus for SHA-256d Proof of Work](../extra/Photonic_fixed-point_consensus_for_SHA-256d_proof_of_work.pdf).
 The paper's own sensitivity table sets the scale: the hypothetical
 wave-overlap sampler regime corresponds to about 21 times one high-end ASIC,
 roughly 1.6 years per solo block at current difficulty, and the measured
@@ -74,11 +74,11 @@ exactly, so wrong answers are cheap to reject. The win comes from changing the
 candidate stream before brute-force search begins.
 
 References: fixed-point repair on finite overlap graphs is in
-[Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf).
+[Reality as a Consensus Protocol](../paper/reality_as_consensus_protocol.pdf).
 Finite hardware patch carriers and verifier-bundle rules are in
-[Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf).
+[Federated Echosahedral Screen Microphysics](../paper/screen_microphysics_and_observer_synchronization.pdf).
 The SHA-256d scorebook is
-[Photonic Fixed-Point Consensus for SHA-256d Proof of Work](extra/Photonic_fixed-point_consensus_for_SHA-256d_proof_of_work.pdf).
+[Photonic Fixed-Point Consensus for SHA-256d Proof of Work](../extra/Photonic_fixed-point_consensus_for_SHA-256d_proof_of_work.pdf).
 
 ## 3. AGI From Cost-Effective OMEGA Components
 
@@ -86,7 +86,7 @@ The third use case is an AGI stack built from software agents plus OMEGA patch
 modules. In OPH, cognition is patch-net fixed-point search. A thought is a
 path through local patches. A decision, memory, perception, or insight is the
 normal form reached after mismatch repair. The direct paper is
-[Thinking as Patch-Net Fixed-Point Search](extra/thinking_as_patch_net_fixed_point_search.pdf).
+[Thinking as Patch-Net Fixed-Point Search](../extra/thinking_as_patch_net_fixed_point_search.pdf).
 
 The software part handles language, memory, tools, and planning. OMEGA modules
 act as proposal engines, critics, memory anchors, and self-read surfaces. The
@@ -103,13 +103,13 @@ the result back into memory. This is the same loop as the physics: boundary
 test, mismatch, repair, stable record.
 
 References: the patch-net cognition model is
-[Thinking as Patch-Net Fixed-Point Search](extra/thinking_as_patch_net_fixed_point_search.pdf).
+[Thinking as Patch-Net Fixed-Point Search](../extra/thinking_as_patch_net_fixed_point_search.pdf).
 The observer and record framework is in
-[Observers Are All You Need](paper/observers_are_all_you_need.pdf).
+[Observers Are All You Need](../paper/observers_are_all_you_need.pdf).
 The finite consensus theorem package is in
-[Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf).
+[Reality as a Consensus Protocol](../paper/reality_as_consensus_protocol.pdf).
 The observer checkpoint and central-record machinery is in
-[Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf).
+[Federated Echosahedral Screen Microphysics](../paper/screen_microphysics_and_observer_synchronization.pdf).
 
 ## 4. Hoverbikes And Hoverboards
 
@@ -150,18 +150,18 @@ ordinary actuator force. Useful states have to show up across independent
 records at the same time.
 
 The implementation surface is
-[Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf),
+[Federated Echosahedral Screen Microphysics](../paper/screen_microphysics_and_observer_synchronization.pdf),
 where physical patch carriers, records, synchronization, and hardware evidence
 rules are part of the same stack.
 
 References: the OPH dark branch is described in
-[OPH Dark Matter Paper](cosmology/oph_dark_matter_paper.pdf). The observer-overlap route to Lorentzian geometry and
+[OPH Dark Matter Paper](../cosmology/oph_dark_matter_paper.pdf). The observer-overlap route to Lorentzian geometry and
 Einstein/Jacobson dynamics is in
-[Recovering Relativity and the Standard Model from Observer Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf).
+[Recovering Relativity and the Standard Model from Observer Overlap Consistency](../paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf).
 The federated carrier model is in
-[Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf).
+[Federated Echosahedral Screen Microphysics](../paper/screen_microphysics_and_observer_synchronization.pdf).
 The global reconstruction context is in
-[Observers Are All You Need](paper/observers_are_all_you_need.pdf).
+[Observers Are All You Need](../paper/observers_are_all_you_need.pdf).
 
 ## Common Pattern
 
@@ -185,7 +185,7 @@ patch-consensus machinery on energy, compute, intelligence, and lift.
 ## License And Patent Policy
 
 This applications surface is part of the OPH public repository. See the main
-[LICENSE](LICENSE) and [OPH Open Use And Anti-Patent Covenant](PATENTS.md).
+[LICENSE](../LICENSE) and [OPH Open Use And Anti-Patent Covenant](../PATENTS.md).
 OPH-derived applications, devices, hardware designs, software, simulations,
 methods, and implementation patterns may be studied, tested, implemented,
 modified, deployed, manufactured, and shared, but may not be used to create
