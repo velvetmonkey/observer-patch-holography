@@ -87,8 +87,13 @@ def test_four_pixel_branches_and_four_mass_surfaces_stay_distinct() -> None:
     assert branches["source_audit_P_cand"]["P"] == (
         "1.63097209569432901817967892561191884270169"
     )
+    # Frozen against the trunk artifact regenerated in commit 7e94eb43
+    # ("Incorporate audit feedback"): solver precision 100 with 120 outer
+    # iterations, fixed-point residual 8.7e-41 (the prior 30-digit value
+    # carried an under-converged residual of 3.8e-8).
     assert branches["compressed_p_trunk_candidate"]["P"] == (
-        "1.63097210492078846050203640439"
+        "1.630972172289734415925897501373482673022655099072161516985001733211"
+        "109918232723345616738572172898702297689609012"
     )
     assert all(not row["eligible_for_source_only_mass_prediction"] for row in branches.values())
     assert report["branch_consistency"]["single_end_to_end_branch_selected"] is False
