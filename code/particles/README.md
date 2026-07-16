@@ -161,7 +161,7 @@ source-only prediction.
 | `alpha^-1` (no-hadron near endpoint) | `137.0359595008...` | `137.035999177` | deterministic pixel-root evaluation; source spectral endpoint and same-scheme hadronic remainder are work in progress |
 | `v / E_star` | `2.0199803239725553e-17` | dimensionless | public-endpoint hierarchy packet; the physical normalization of `E_star` is work in progress |
 
-Supersession note (2026-07-14): the recorded `alpha^-1` no-hadron
+Supersession note: the recorded `alpha^-1` no-hadron
 near-endpoint value `137.0359595008...` is a mixed-provenance display packet
 (the inner value evaluated at `P_fwd` plus `alpha_U` evaluated at the SL-3
 pixel) from a run that predates the converged precision-100 reruns; it is not
@@ -260,9 +260,9 @@ It is a summary receipt of the existing certificates, not an SI Lambda or
 primitive-carrier promotion.
 Full SI gravity remains gated by the no-G clock stack.
 
-## Historical CL-5 Electroweak Prescription Sweep (2026-07-14)
+## Historical CL-5 Electroweak Prescription Sweep
 
-Status correction, 2026-07-16: this discrete menu scanned chart prescriptions
+Status correction: this discrete menu scanned chart prescriptions
 against stale Breit--Wigner coordinates. It did not define a common physical
 observable, did not exhaust renormalization conventions, and did not propagate
 theory uncertainty. The words "landing" and "pull" below describe only the

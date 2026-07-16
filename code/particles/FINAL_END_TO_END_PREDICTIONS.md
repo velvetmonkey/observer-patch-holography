@@ -124,7 +124,7 @@ These rows are retained in audit surfaces but are not numeric predictions.
 - Source-only physical Thomson endpoint emitted: `False`
 - Empirical payload policy: `schema_and_source_registry_present_without_integrated_dataset`
 
-Supersession note (2026-07-14): the rows above record the run artifact
+Supersession note: the rows above record the run artifact
 `runs/status/final_end_to_end_predictions.json`, which predates the converged
 precision-100 reruns. CL-6 is closed by those reruns: the certified source
 root is `alpha^-1 = 136.994835177413...` with

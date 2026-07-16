@@ -4,7 +4,7 @@ This directory carries the frozen electroweak-hierarchy proof bundle supplied
 for the OPH hierarchy audit. It is separate from the rounded `1.63094`
 calibration carrier used by the older D10 particle-code path.
 
-Status correction (2026-07-16): the bundle certifies internal algebra on a
+Status correction: the bundle certifies internal algebra on a
 selected bridge branch. Its `N_CRC^EW` value is conditional on the physical
 readback map F and premises CP-1 to CP-3. It neither closes the physical cosmic
 capacity nor makes the 6.6 percent central-value comparison with the
@@ -22,7 +22,7 @@ The source-audit branch keeps the public Thomson endpoint out of the upstream
 path and records
 
 ```text
-P_cand = 1.63097209569432901817967892561191884270169 (predates the 2026-07-14 converged rerun; the certified P_fwd is 1.630972095858897..., ledger row CL-6)
+P_cand = 1.63097209569432901817967892561191884270169 (predates the converged rerun; the certified P_fwd is 1.630972095858897..., ledger row CL-6)
 alpha_U(P_cand) = 0.04112424744557487
 v(P_cand)/E_star = 2.0198114150099223e-17
 ```

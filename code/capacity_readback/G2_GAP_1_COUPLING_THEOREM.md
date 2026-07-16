@@ -4,7 +4,7 @@ Resolution document for gap item G2-GAP-1 of
 [F_CONSTRUCTION_2026-07-14.md](F_CONSTRUCTION_2026-07-14.md): the coupling of the
 twelve-port screen load `X = log(N/pi)` to the D10 observation step, and the resulting
 identification of the D6 capacity readback fixed point with the electroweak bridge
-capacity. Written 2026-07-15 against [F_READBACK_SPEC.md](F_READBACK_SPEC.md).
+capacity. Stated against [F_READBACK_SPEC.md](F_READBACK_SPEC.md).
 
 **Status: conditional theorem. Proven modulo three declared premises CP-1, CP-2, CP-3
 (Section 5). CL-7 stays open, reduced from one unquantified gap (G2-GAP-1) to this
@@ -151,7 +151,7 @@ The corpus consumes this condition as the declared resonance target; the
 tick-projection certificate scope note states that a deeper geometric derivation of the
 product target belongs to a separate strengthening theorem. It is carried here as
 CP-1. Structural evidence, recorded and distinct from a derivation: in the
-preregistered 2026-07-14 sweep, all Standard Model gauge triples fail structurally (no
+preregistered sweep, all Standard Model gauge triples fail structurally (no
 pixel-residual root exists on any window, 20 diagnosed chains), and `beta_EW = 3`
 chains close more than three orders of magnitude below the weak scale, while
 `beta_EW = 4` chains reproduce the weak-scale pair.
@@ -172,7 +172,7 @@ to below `5e-60`.
 port-load inversion, `F(N) = pi * exp(X_read(N))`. Licensed components: the nat units
 on both sides (spec Section 1.1) and the seed identity (S3). Premise component: the
 selection of the inversion family among `Cap_read` candidates (branch axis BR-6).
-Exclusion support: the 2026-07-14 run certifies the CAP-L and CAP-K families excluded
+Exclusion support: the recorded run certifies the CAP-L and CAP-K families excluded
 at reference scale under every declared branch choice, leaving CAP-P as the only
 executable family whose coupled extension reaches the bridge scale. Exclusion narrows
 the menu; a derivation of the form is the discharge obligation.
@@ -199,7 +199,7 @@ bridge capacity. Interval certificates: [F_candidate_coupled.py](F_candidate_cou
 artifact `runtime/F_candidate_coupled_certificates.json`.
 
 **S12 (record). Certified enclosure.** At the certified `P_fwd` enclosure and the
-certified `alpha_U(P_fwd)` enclosure (both from the 2026-07-14 P interval contraction
+certified `alpha_U(P_fwd)` enclosure (both from the P interval contraction
 certificate, `iv_dps = 60`):
 
 ```
@@ -219,7 +219,7 @@ New premises declared by this theorem:
 | id | assertion | what would discharge it |
 |---|---|---|
 | CP-1 | Balance condition `Pi_EW(P, N_CRC) = beta_EW*P`: readback self-consistency holds where the projected transmutation depth equals one global repair tick per electroweak channel per pixel-area unit (equivalently `Gamma_EW = t_tr`; equivalently `X/12 = pi/(2*P*alpha_U)`) | a geometric counting theorem for the product target `beta_EW*P` from declared screen structure, the strengthening theorem named in the tick-projection certificate scope note |
-| CP-2 | `Cap_read` on the coupled branch is the port-load inversion `F(N) = pi*exp(X_read(N))` (seed and units proven, family selection premised) | a uniqueness theorem for the inversion form among `Cap_read` families, for instance by extending the 2026-07-14 exclusion run with a P4-coherence forcing argument |
+| CP-2 | `Cap_read` on the coupled branch is the port-load inversion `F(N) = pi*exp(X_read(N))` (seed and units proven, family selection premised) | a uniqueness theorem for the inversion form among `Cap_read` families, for instance by extending the recorded exclusion run with a P4-coherence forcing argument |
 | CP-3 | The re-emitted load is the `lambda`-average of the screen-side and D10-side loads, `lambda in (0,1)` (dispensable for the fixed-point location, load-bearing for the constructive contraction) | a derivation of the averaging carrier, for instance from the write/check orientation split; any declared contraction toward balance suffices |
 
 Inherited named hypotheses of cited theorems (declared in their sources, carried, no

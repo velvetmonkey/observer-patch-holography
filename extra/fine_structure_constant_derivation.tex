@@ -114,10 +114,15 @@ spectral transport. OPH adds the pixel self-reference: the outside area coordina
 \(P\) must agree with the inside electromagnetic observation scale read by
 observers on the same branch.
 
-The source map gets close from OPH source data alone. The remaining
+The pixel map carries zero continuous dials, and each declared map has a
+machine-certified unique fixed point: the source map contracts to
+\(136.994835177413\ldots\) (\(3.0\times10^{-4}\) relative from the measured
+endpoint) and the self-consistent gauge-width map to
+\(137.035660136947\) (\(2.5\times10^{-6}\) relative; the declared map is
+certified, the physical transport step is open). The remaining
 gap has an explicit address: the hadronic transport needed in the same
 electromagnetic convention as the source map. This split is the contribution: a fixed-point
-equation for the pixel branch, a visible address for the missing low-energy
+equation for the pixel branch with no adjustable form, a visible address for the missing low-energy
 QCD step, and a clear boundary between source theorem, empirical endpoint
 closure, and measured comparison.
 
@@ -148,7 +153,7 @@ declared law makes each residual a measurement of the principle set.
 There is a long history of attempts to understand \(\alpha\) from deeper structure. Jentschura and Nandori give a useful survey of first-principles attempts, including beta-function, symmetry, cutoff, and string-inspired ideas \cite{jentschura-nandori}. Golden-ratio constructions appear in historical geometric proposals \cite{heyrovska-narayan} and in semi-empirical work on electroweak and flavor mixing \cite{ciborowski}. Octonionic and exceptional-algebra approaches also produce values near \(1/137\) \cite{singh}. ArXiv papers use symbolic regression and quantum-information criteria to look for structure in Standard Model constants and electroweak parameters \cite{chekanov-kjellerstrand,liu-low-yin}. The OPH calculation belongs to this broad search for structure, with one added requirement: the number must arise from a fixed-point map whose input and output are the same local screen cell.
 
 \begin{quote}\small
-\textbf{Source/root audit.} The executable source map contracts to the undressed source/root inverse coupling \(\alphainv_{\mathrm{root}}=136.994835177413\ldots\), the interval-certified unique fixed point of the declared map (interval certificate of 2026-07-14, shipped with the code release \cite{oph-code}; enclosure width \(7.2\times10^{-24}\), \(L\le0.0724\)). The earlier printed tail \(136.9948351646\ldots\) came from an unconverged run and is superseded beyond digit~9 (ledger row CL-6, closed). The self-consistent map that adds the finite-screen unified gauge width \(\alpha_U(P)\) inside the loop has the certified fixed point \(137.035660136946577\ldots\); this is the current closure status of the loop (ledger row CL-2, \(2.5\times10^{-6}\) relative, about \(1.6\times10^{4}\) measurement sigma). The historically displayed combination \(A_{\alpha_U}^{\mathrm{fp}}=137.0359595008\ldots\) mixes the source root with \(\alpha_U(\Ppub)\) evaluated at the SL-3 pixel (the CODATA-derived comparison pixel); it is a mixed-provenance display packet, not a fixed point of any single declared map, and stays on record as a display packet only. Neither certified fixed point is a source-only prediction or a derivation of \(\alpha\), because measured \(\alpha\) is the input that fixed the pixel under SL-3.
+\textbf{Source/root audit.} The executable source map contracts to the undressed source/root inverse coupling \(\alphainv_{\mathrm{root}}=136.994835177413\ldots\), the interval-certified unique fixed point of the declared map (interval certificate shipped with the code release \cite{oph-code}; enclosure width \(7.2\times10^{-24}\), \(L\le0.0724\)). The earlier printed tail \(136.9948351646\ldots\) came from an unconverged run and is superseded beyond digit~9 (ledger row CL-6, closed). The self-consistent map that adds the finite-screen unified gauge width \(\alpha_U(P)\) inside the loop has the certified fixed point \(137.035660136946577\ldots\); this is the current closure status of the loop (ledger row CL-2, \(2.5\times10^{-6}\) relative, about \(1.6\times10^{4}\) measurement sigma). The historically displayed combination \(A_{\alpha_U}^{\mathrm{fp}}=137.0359595008\ldots\) mixes the source root with \(\alpha_U(\Ppub)\) evaluated at the SL-3 pixel (the CODATA-derived comparison pixel); it is a mixed-provenance display packet, not a fixed point of any single declared map, and stays on record as a display packet only. Neither certified fixed point is a source-only prediction or a derivation of \(\alpha\), because measured \(\alpha\) is the input that fixed the pixel under SL-3.
 
 \textbf{CODATA/NIST measured endpoint.} CODATA/NIST reports \(\alphainv(0)=137.035999177(21)\). The difference from \(A_{\alpha_U}^{\mathrm{fp}}\) is CODATA-minus-diagnostic bookkeeping; it is not the output of a same-scheme hadronic spectral calculation.
 \end{quote}
@@ -173,7 +178,7 @@ or numerically,
 \]
 The first two values are the interval-certified fixed points of the declared
 source map and of the declared self-consistent gauge-width map
-(interval contraction certificate of 2026-07-14, shipped with the code release \cite{oph-code}).
+(interval contraction certificate shipped with the code release \cite{oph-code}).
 The root value \(\alpha_{\mathrm{root}}^{-1}\) is the naked source/root inverse
 coupling: the electromagnetic width emitted when one screen cell closes as a
 geometric self-consistency object before the low-energy charged vacuum is
@@ -850,7 +855,7 @@ P_{\mathrm{root}}
 \label{eq:alpharoot}
 \end{align}
 These are the converged values: the fixed point is interval-certified as
-existing and unique on its interval (interval certificate of 2026-07-14,
+existing and unique on its interval (interval certificate,
 shipped with the code release \cite{oph-code};
 enclosure widths \(6.8\times10^{-28}\) in \(P\) and \(7.2\times10^{-24}\) in
 \(\alpha^{-1}\), Lipschitz bound \(L\le0.0724\)). Earlier releases printed
@@ -971,7 +976,7 @@ A_{\mathrm{calc}}(P_{\mathrm{root}})
 \end{equation}
 A converged precision-100 rerun supersedes this printed tail beyond digit~9;
 the certified value is \(\alphainv_{\mathrm{root}}=136.994835177413\ldots\)
-(ledger row CL-6, closed 2026-07-14; the printed-pair identity is pinned by a
+(ledger row CL-6, closed; the printed-pair identity is pinned by a
 CI test in the code release \cite{oph-code}). The remaining
 arithmetic in this section keeps the printed tail so that the quoted display
 packet stays internally consistent as a historical record.
@@ -1309,7 +1314,7 @@ or equivalently the source-emitted spectral density \(\rho_Q(s;P)\) plus the sam
 remainder. The required dependency graph must have no path from the measured Thomson endpoint into
 \(J_{24,Q}\), \(\omega_Q\), \(\Xi_Q\), or \(\rho_Q\). The historical v2 endpoint target
 and its OpenTimestamps files remain an auditable timestamp record, but they do not define an
-active blind test.  The 2026-07-16 V1 execution embedded target constants, was directed by a
+active blind test.  The V1 execution embedded target constants, was directed by a
 session with target access, used a different \(P\) from the target, confused the closure residual
 with the required total payload, and supplied a sampled min/max envelope rather than a certified
 interval.  A corrected contract must freeze one coordinate schema, require a source-emitted
@@ -1355,7 +1360,7 @@ states the interval form of assumptions
 certifies \(G(I)\subseteq I\) together with a derivative bound
 \(|G'|\le L<1\), the Banach fixed-point theorem gives both existence and
 uniqueness of the fixed point in \(I\). L1 is discharged on an explicit
-interval. The interval contraction certificate of 2026-07-14, shipped with
+interval. The interval contraction certificate shipped with
 the code release \cite{oph-code},
 proves \(G(I)\subseteq\operatorname{int}(I)\) and \(L\le0.0724\) for both
 readout modes by a direct Banach argument in mean-value (centered) form, with
@@ -1371,7 +1376,7 @@ SL-3 basin, rows CL-1 and CL-2). The global at-most-one statement is
 discharged on the declared physical domain (\(\alpha^{-1}\in[100,200]\)):
 \(\sup|g'|<1\) on all 256 certified pieces, both readout maps, zero
 exceptional set
-(domain-global uniqueness certificate of 2026-07-14, in the same release), so
+(domain-global uniqueness certificate in the same release), so
 each map has exactly one fixed point on the domain.
 
 The release gate for promoting this row from empirical endpoint comparison to source-only theorem is
@@ -1476,13 +1481,13 @@ Hadronic/scheme residual & \(\Rq=\ATh-A_{\mathrm{calc}}\) & Isolated endpoint co
 CODATA/NIST endpoint & \(\ATh=137.035999177(21)\) & Measured endpoint comparison value. \\
 Two-\(P\) provenance & \(P_{\mathrm{root}}\) versus \(\Ppub\) & Source-branch root and measured-endpoint comparison pixel are distinct; \(\Ppub\) inherits CODATA/NIST by definition. \\
 Raw PDG diagnostic & Eq.~\eqref{eq:pdgdiag} & Comparison diagnostic in a different endpoint convention. \\
-Interval theorem & Banach/contraction certificate for full \(G\) & Discharged for the declared numerical map (2026-07-14 certificate, both readout modes); still required for the full source map with the hadronic term. \\
+Interval theorem & Banach/contraction certificate for full \(G\) & Discharged for the declared numerical map (shipped certificate, both readout modes); still required for the full source map with the hadronic term. \\
 \bottomrule
 \end{longtable}
 
 \section{Conclusion}
 
-The fine-structure constant is the coupling that makes one OPH screen cell internally consistent. The outside reading says that the cell is displaced from the golden-ratio balance by \((P-\varphi)/\sqrt\pi\). The inside reading sends the same \(P\) through the source map, gauge closure, electroweak anchor, and Ward-projected electromagnetic transport, producing \(1/\ATh(P)\). The physical cell is the fixed point where those two readings agree.
+The fine-structure constant is the coupling that makes one OPH screen cell internally consistent. The outside reading says that the cell is displaced from the golden-ratio balance by \((P-\varphi)/\sqrt\pi\). The inside reading sends the same \(P\) through the source map, gauge closure, electroweak anchor, and Ward-projected electromagnetic transport, producing \(1/\ATh(P)\). The physical cell is the fixed point where those two readings agree. The construction carries zero continuous dials, each declared map has a machine-certified unique fixed point on the declared domain, and the open hadronic step sits inside a standing falsification program with frozen, externally timestamped targets, so every residual quoted below is a measurement of the principle set rather than a fit.
 
 The pure source calculation computes the root witness
 \[
@@ -1491,7 +1496,7 @@ The pure source calculation computes the root witness
 \decnum{136.994835177412937295289429464436902857561206151035393184502},
 \]
 the interval-certified unique fixed point of the declared source map
-(enclosure width \(7.2\times10^{-24}\), certificate of 2026-07-14).
+(enclosure width \(7.2\times10^{-24}\), shipped interval certificate).
 The CODATA/NIST measured endpoint value is
 \[
 \alphainv(0)=137.035999177(21),

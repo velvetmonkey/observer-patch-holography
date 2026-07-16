@@ -43,7 +43,7 @@ Higgs/top ratio shares the declared-surface split pair.
 | --- | ---: | --- | --- | --- |
 | `v_over_E_star` | `2.0199803239725553e-17` | `closed_form_hierarchy_law_on_public_endpoint_packet` | `e_star_physical_normalization, clock_scale_certificate, frozen_running_threshold_convention` | `code/particles/hierarchy/computations/hierarchy_numeric_witness.json` |
 
-Supersession note (2026-07-16): the removed
+Supersession note: the removed
 `alpha_inv_no_hadron_near_endpoint` value was a mixed-provenance display packet
 (the inner value evaluated at `P_fwd` plus `alpha_U` evaluated at the SL-3
 pixel) from a run that predates the converged precision-100 reruns; it is not

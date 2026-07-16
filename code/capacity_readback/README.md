@@ -24,8 +24,8 @@ closure rows CL-3, CL-4, and CL-7 (generator G2 in
   closed-form sector count, the toy fixed point exists with a certified enclosure, the
   certificate schema keys are present, output is deterministic, and a deliberately
   non-contracting variant is rejected.
-- [`F_CONSTRUCTION_2026-07-14.md`](F_CONSTRUCTION_2026-07-14.md): construction run of
-  2026-07-14: candidate counts `|Omega^sc_N|` derived from the declared structure only
+- [`F_CONSTRUCTION_2026-07-14.md`](F_CONSTRUCTION_2026-07-14.md): the recorded
+  construction run: candidate counts `|Omega^sc_N|` derived from the declared structure only
   (equal-area cells `4N/P`, Z6 reserve `P/24` in poisson and presence readings, the
   twelve-port load `log(N/pi)/12`, oriented 24-slot register, A5/C3 face-corner
   factors), carried as a full branch lattice with menu sizes and certified per branch.
@@ -37,7 +37,7 @@ closure rows CL-3, CL-4, and CL-7 (generator G2 in
   comparison; certificates in `runtime/F_candidate_*_certificates.json` and
   `runtime/F_construction_comparison_2026-07-14.json`.
 
-## Construction run 2026-07-14: outcome class (b), CL-7 stays open
+## Construction run: outcome class (b), CL-7 stays open
 
 190 branch rows executed blind (P only as the certified forward enclosure; no
 measured Lambda, no SL-4 estimate, no CL-3 bridge value). 102 rows carry certified

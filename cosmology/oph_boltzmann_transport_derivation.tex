@@ -39,7 +39,7 @@
 \title{Boltzmann Transport from Observer-Patch Consistency:\\
 a Theorem-Conditional Reduction}
 \author{OPH cosmology program}
-\date{Release \texttt{\OPHPaperReleaseID}\ --- \OPHPaperReleaseDate}
+\date{Release \texttt{\OPHPaperReleaseID}, \OPHPaperReleaseDate}
 
 \begin{document}
 \maketitle
@@ -82,10 +82,10 @@ The observer-facing normal form carries a Lorentzian metric $g_{ab}$
 satisfying $G_{ab}+\Lambda g_{ab}=8\pi G_{\rm geom}\langle T_{ab}\rangle$,
 with $G_{\rm geom}=\ell_\star^2$ from the edge-entropy/area-law theorem and
 $\Lambda\ell_\star^2=3\pi/N_\star$ from capacity closure. $N_\star$ is the
-SL-4 estimate read from measured $\Lambda$ with the scale bridge
-(\texttt{../docs/STRANGE\_LOOP\_PRINCIPLES.md}); $\Lambda$ is an input to this assumption, not an
+SL-4 estimate read from measured $\Lambda$ with the scale bridge of the
+strange-loop principle register; $\Lambda$ is an input to this assumption, not an
 OPH output. Promotion of $N_\star$ beyond the SL-4 estimate runs through
-generator G2 of \texttt{../docs/CONSISTENCY\_STACK.md}: constructing the readback
+generator G2 of the project consistency stack: constructing the readback
 map $F$ and its contraction certificate. Provenance:
 branch theorem (paper stack A22/A5); not re-proved here.
 \end{assumption}
@@ -186,8 +186,8 @@ coarse-grained flow inherits unit Jacobian. The refinement limit of a
 sequence of unit-Jacobian flows converging to the geodesic flow preserves the
 Liouville measure.
 
-\emph{Open receipt.} The convergence step --- that the finite patch flow's
-coarse-graining converges to the geodesic flow with vanishing dispersion ---
+\emph{Open receipt.} The convergence step, that the finite patch flow's
+coarse-graining converges to the geodesic flow with vanishing dispersion,
 is exactly the kind of statement the abstract Lean layer proves in its
 setting (approximate schedule independence, refinement naturality) but has
 not been instantiated for the photon sector. We name it \textsc{Boltz-R1}
@@ -280,7 +280,7 @@ import-tagged by Assumption~\ref{a:rec} (\textsc{Boltz-X1}).
 Two and only two places exist where OPH kernels can modify this functional
 at linear order:
 (i) a number-changing repair-exchange channel $\Gamma_{\rm rec}(k,a)$ adds a
-monopole source and a spectral-distortion term --- it enters $C[f]$
+monopole source and a spectral-distortion term; it enters $C[f]$
 additively and is gated by the \#374 receipts (active fiber, physical clock,
 common-parent response);
 (ii) a collar-packet stress $\rho_A,B_A(k,a)$ enters only the gravitational
@@ -364,8 +364,8 @@ r_s(\tau_\ast)=\int_0^{\tau_\ast}\!c_s\,\Dd\tau,
 \]
 so extrema sit at $k_n\,r_s(\tau_\ast)=n\pi$: compressions (odd $n$) are
 baryon-enhanced, rarefactions (even $n$) suppressed, and the dark-matter
-driving of the potentials boosts the third peak --- every feature of the
-measured TT curve, produced by this system and not by any OPH-specific term.
+driving of the potentials boosts the third peak: every feature of the
+measured TT curve is produced by this system and by no OPH-specific term.
 \end{proposition}
 
 \begin{proposition}[Silk damping]\label{p:damping}

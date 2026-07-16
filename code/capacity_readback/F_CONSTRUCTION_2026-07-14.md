@@ -87,7 +87,7 @@ hypothesis (remark after `thm:icosahedral-screen-sieve`).
   the same reserve trace: `epsilon` is a conditional trace of the Z6 projection, a
   presence probability, and the receipt-consistent survival is `1 - P/24`
   (`extra/chi_nu_collar_survival_presence_correction.md`; Lean module
-  `CollarGatePresence.lean`; the corpus carries both readings as of 2026-07-14).
+  `CollarGatePresence.lean`; the corpus carries both readings).
 - **BR-1c (none):** reserve slots hold repair records that remain countable states;
   no exclusion from the count.
 

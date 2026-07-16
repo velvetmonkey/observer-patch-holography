@@ -25,7 +25,7 @@ Systematic claim-safe queue after the five-equation P-trunk simplification.
 - Public endpoint alpha_U: `0.041124336195630495`
 - Public endpoint v/E_star: `2.0199803239725553e-17`
 - Public endpoint log10(E_star/v): `16.69465286086613`
-- Source-audit P: `1.63097209569432901817967892561191884270169` (predates the 2026-07-14 converged rerun; the certified P_fwd is 1.630972095858897..., ledger row CL-6)
+- Source-audit P: `1.63097209569432901817967892561191884270169` (predates the converged rerun; the certified P_fwd is 1.630972095858897..., ledger row CL-6)
 - Source-audit alpha_U: `0.04112424744557487`
 - Source-audit v/E_star: `2.0198114150099223e-17`
 - R_U interval: `[0.041123336195630494, 0.041125336195630496]`
@@ -65,7 +65,7 @@ Claim gates are grouped into coupled closure packets rather than a one-blocker-a
 - `strong-cp-closure-bundle`: `open_physical_invariant_gap`. No promotion. The selected-class quark wrapper carries only target-anchored mixed-scheme mass textures. The source spread pair is non-identifiable and the physical dimensionless Yukawa normalization is absent. The available corpus does not emit the determinant-line phase contribution, the bare theta_QCD term, or a theorem forcing the physical strong-CP phase to vanish.
 - `qcd-thomson-backend-bundle`: `source_backend_boundary_empirical_policy_emitted`. Constructive result with two surfaces. The source-only primitive remains production_ward_projected_hadronic_spectral_measure_export and requires a real OPH hadron backend. The empirical surface uses a separate e+e- payload class and cannot promote the source-only theorem.
 - `top-codomain-bridge-bundle`: `closed_corpus_limited_codomain_no_go`. No-go result. Q007TP4 remains a target-audit coordinate. The auxiliary direct-top row Q007TP is compare-only because the available corpus emits no source-side extraction-response kernel into that codomain.
-- `particle-root-integration-gate`: `keep_candidate_with_constructive_next_artifacts`. No promotion. The first wave emits constructive next artifacts, so the compressed P trunk remains candidate/audit metadata until those artifacts are populated and certified.
+- `particle-root-integration-gate`: `keep_candidate_with_constructive_next_artifacts`. No promotion. The bundle run emits constructive next artifacts, so the compressed P trunk remains candidate/audit metadata until those artifacts are populated and certified.
 
 ## Claim Gates
 

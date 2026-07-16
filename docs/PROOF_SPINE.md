@@ -7,7 +7,30 @@ companions carry the detail: [STRANGE_LOOP_PRINCIPLES.md](STRANGE_LOOP_PRINCIPLE
 [CONSISTENCY_STACK.md](CONSISTENCY_STACK.md) (forcing chain C1 to C10, lemmas, generator
 table), [CLOSURE_LEDGER.md](CLOSURE_LEDGER.md) (the equations and their residuals),
 [COMPRESSION_SCORECARD.md](COMPRESSION_SCORECARD.md) (dials, forward record, strict
-accounting). Last updated 2026-07-16.
+accounting).
+
+## Where the spine is strong
+
+Four load-bearing assets anchor the spine. First, interval certificates: each
+declared P map has exactly one fixed point on its stated domain, and the
+conditional capacity fixed point is certified to relative width 1.6×10⁻²⁵; a
+hostile third-party audit reproduced this arithmetic and found
+no false theorem in the recovered mathematical core across its 42 findings.
+Second, machine checking: 111 sorry-free Lean theorems cover the consensus
+core and the capacity-coupling algebra. Third, fail-closed execution: the two
+implementation defects the audit exposed (the hadronic target-coordinate
+algebra and the finite-clock eligibility predicate) are repaired,
+with gates that make every downstream consumer fail closed and
+adversarial regressions that keep them failing closed. Fourth, a standing
+falsification program with frozen, externally timestamped targets and a
+permanent executed record. Fifth, proximity: the gauge-width map lands
+2.5×10⁻⁶ relative from the measured α⁻¹ with the transport term open; the
+chart W coordinate sits 0.5 propagated experimental standard deviations from
+the PDG 2026 complex pole as a convention diagnostic, with the readout
+contract open; and the conditional capacity bridge sits about 2.5
+one-dimensional Planck standard deviations from the Λ-located capacity,
+conditional on the named premises. The statuses below are binding and move
+only by dated artifact.
 
 ## The claim, in two parts
 
@@ -29,14 +52,14 @@ that combination is claimed as proof anywhere in the corpus.
 | Step | Content | Status |
 |---|---|---|
 | A1 | Principles SL-0 to SL-5 stated once, with claim rules and the three-layer separation (theory, test, working) | done: STRANGE_LOOP_PRINCIPLES.md |
-| A2 | The two closure equations defined: P = φ + √π/A_T(P); N = F(N) | formal equations stated; the physical A_T transport and F remain incomplete |
+| A2 | The two closure equations defined: P = φ + √π/A_T(P); N = F(N) | formal equations stated; the physical A_T transport and F are incomplete |
 | A3 | Uniqueness of P | PROVEN only for each declared incomplete arithmetic map on its stated domain; this does not certify the missing physical Thomson map |
 | A4 | Readback seed N₀ = π | PROVEN: D6 radius identity plus the CAP-P certificate |
 | A5 | Tick-projection identity I1: Π_EW = 24π/(α_U·X) | PROVEN: discharged from the D10 transmutation step, the repair-tick theorem, and m_rep = 24 (G2-GAP-1 step S6) |
 | A6 | Balance condition I2: Π_EW = β_EW·P | OPEN: premise CP-1, the one genuinely physical gap in Part A's mathematics (GAP-A2) |
 | A7 | Readback form and dynamics | OPEN: premises CP-2 (inversion form; GAP-A3) and CP-3 (averaging carrier, dispensable for the fixed-point location; GAP-A4) |
 | A8 | Conditional capacity theorem: under CP-1 to CP-3, N is forced to π·exp(6π/(P·α_U)), certified 3.5321315434×10¹²² at relative width 1.6×10⁻²⁵ | done as conditional theorem: G2-GAP-1, with its algebraic layer machine-checked in Lean |
-| A9 | Identification with the measured α: source transport and endpoint map | OPEN: the 2026-07-16 V1 grid was exploratory and not target-blind; it used inconsistent P coordinates, mislabeled the required payload coordinate, and supplied no certified interval (GAP-A1) |
+| A9 | Identification with the measured α: source transport and endpoint map | OPEN: the V1 grid was exploratory and not target-blind; it used inconsistent P coordinates, mislabeled the required payload coordinate, and supplied no certified interval (GAP-A1) |
 | A10 | Identification with the measured Λ: the capacity comparison | CONDITIONAL 6.6% CENTRAL-VALUE MISMATCH: not a contradiction or significance test before F and CP-1 to CP-3 close and the joint cosmological posterior is propagated (GAP-A5) |
 
 ## Part B, step by step
@@ -47,7 +70,7 @@ that combination is claimed as proof anywhere in the corpus.
 | B2 | Kinematics: Conf⁺(S²) ≅ SO⁺(3,1), 3+1 events, H³ observer space | theorem on the declared branch; realized-branch nonemptiness open (GAP-B1) |
 | B3 | Gravity: Einstein equation from entropy stationarity, one global ambiguity +Λg | theorem on the declared five-axiom branch |
 | B4 | Gauge structure and matter: compact group by reconstruction; SM quotient SU(3)×SU(2)×U(1)/Z₆, hypercharge lattice, N_c = 3, N_g = 3, one Higgs | theorem conditional on the compact-gauge receipt and declared MAR clause inputs (GAP-B9) |
-| B5 | Electroweak chart and hierarchy: forward W/Z chart coordinates, v/E★ transmutation law | W/Z physical comparison not evaluable because the common-observable scheme map is incomplete; hierarchy relation remains conditional on its declared branch (GAP-A6) |
+| B5 | Electroweak chart and hierarchy: forward W/Z chart coordinates, v/E★ transmutation law | W/Z physical comparison not evaluable because the common-observable scheme map is incomplete; hierarchy relation is conditional on its declared branch (GAP-A6) |
 | B6 | Strong sector: Λ_QCD by transmutation, nucleon mass via external lattice ratio | record at about 1×10⁻²; conditional tags in the scorecard |
 | B7 | Cosmology: capacity Λ, dark sector as repair bookkeeping, screen tilt | record rows conditional; promotion gates open (GAP-B7) |
 | B8 | Mass sector completion: flavor spreads, charged leptons, neutrinos | open (GAP-B3, GAP-B5, GAP-B4) |
@@ -61,23 +84,29 @@ that is not on this list; anything removed from this list carries a dated verdic
 Part A gaps:
 
 - **GAP-A1 (CL-1/CL-2, generator G1).** The source-emitted Ward-projected
-  transport and same-scheme endpoint map. The historical v2 contract and V1
-  execution cannot discharge this gap: V1 embedded target constants, its directing
-  session knew the target, its emitter and target used different P values, its pass
-  coordinate confused the residual with the total payload, and its sampled min/max
-  envelope was not an interval certificate. Corrective v3 is an inactive
-  post-target-access erratum scaffold, not an activatable contract. Discharged
-  by: issue a detached successor whose complete method is frozen before
-  genuinely withheld data or built by an audited clean-room operator; emit the
-  source function over the same P coordinate; certify quadrature, theory error,
-  and interval bounds; freeze a three-way decision policy; then score once.
+  transport and same-scheme endpoint map. This gap is a frontier of the entire
+  field: closure asks for 4×10⁻⁹ relative precision on the hadronic moment,
+  beyond every method on Earth, and a source-only payload additionally forbids
+  measured hadronic input even for scale setting (see "Why The Hadronic Test
+  Is Hard" in [OPH_FALSIFICATION_PROGRAM.md](OPH_FALSIFICATION_PROGRAM.md)).
+  Existing grid work is exploratory. The historical v2 contract and V1
+  execution cannot discharge the gap; their defect inventory (non-blind
+  source, mismatched P coordinates, residual/total confusion, non-certified
+  envelope) is recorded in the reading rules of
+  [CLOSURE_LEDGER.md](CLOSURE_LEDGER.md). Corrective v3 is an inactive
+  post-target-access erratum scaffold, never an activatable contract.
+  Discharged by: issue a detached successor whose complete method is frozen
+  before genuinely withheld data or built by an audited clean-room operator;
+  emit the source function over the same P coordinate; certify quadrature,
+  theory error, and interval bounds; freeze a three-way decision policy; then
+  score once.
 - **GAP-A2 (CP-1).** The balance condition Π_EW = β_EW·P. Counting-theorem shape: one
   global repair tick per electroweak channel per pixel-area unit. Discharged by: a
   geometric counting theorem from declared screen structure. This is the highest-value
   open mathematics in the program.
 - **GAP-A3 (CP-2).** Uniqueness of the port-load inversion form of Cap_read among
   readback families. Discharged by: a P4-coherence forcing argument extending the
-  2026-07-14 exclusion run.
+  recorded exclusion run.
 - **GAP-A4 (CP-3).** The averaging re-emission carrier. Dispensable for the fixed-point
   location; load-bearing only for the constructive contraction rate. Discharged by: a
   one-page lemma from the write/check orientation split, or any declared contraction
@@ -88,9 +117,12 @@ Part A gaps:
 - **GAP-A6 (CL-5, generator G3).** Define the physical W/Z readout and complete its
   renormalized-vev, tadpole, threshold, running-input, finite-order, complex-pole, and
   uncertainty map. The 96-entry menu scanned chart prescriptions against stale
-  mass-dependent-width Breit--Wigner coordinates and exhausted only that menu. The July
+  mass-dependent-width Breit--Wigner coordinates and exhausted only that menu. The
   two-loop packet was an MSSM-one-loop plus SM-two-loop hybrid. Neither packet yields a
-  physical pull or an exhaustive exclusion.
+  physical pull or an exhaustive exclusion. Under the complex-pole convention with
+  PDG 2026 masses and widths, the chart W coordinate sits 0.5 propagated
+  experimental standard deviations from the converted pole as a convention
+  diagnostic carrying no pull.
 - **GAP-A7.** Uniqueness beyond the declared domain (α⁻¹ outside [100, 200]). Analytic
   refinement; no physical role at current standing.
 - **GAP-A8.** P4 count-density coherence for the coupled readback (the argmax
@@ -103,8 +135,8 @@ Part B gaps:
 - **GAP-B2.** Quantum pole receipts: the photon, gluon, and graviton zeros are classical
   action statements; the quantum pole constructions are open gates.
 - **GAP-B3.** The flavor-orbit selector: the proven two-modulus non-identifiability names
-  the missing object; twelve preregistered declared-structure candidates evaluated and
-  excluded 2026-07-14.
+  the missing object; twelve preregistered declared-structure candidates stand
+  evaluated and excluded.
 - **GAP-B4.** The neutrino sector: no mixing matrix or absolute mass row is emitted; the
   weighted-cycle candidate is rejected by NuFIT 6.1 (permanent verdict).
 - **GAP-B5.** Charged-lepton source completion: the MCPR triple is declared architecture;
@@ -118,16 +150,16 @@ Part B gaps:
 - **GAP-B8.** Lean formalization of the physics branches (the consensus core and the
   coupling algebra are done: 98 plus 13 sorry-free theorems).
 - **GAP-B9.** The MAR clause inputs and compact-gauge receipt behind the SM quotient
-  remain declared inputs; deriving them from the principles would move the gauge sector
+  stand as declared inputs; deriving them from the principles would move the gauge sector
   from conditional to forced.
 - **GAP-B10.** Independent reproduction: named external parties re-running the mechanical
   claims from a fresh clone (pillar 5).
 
 Cross-cutting:
 
-- **GAP-X1.** Discrete structural selections not yet consistency-forced (the scorecard
-  lists each with its menu size; the SM coefficient triple and β_EW = 4 graduated to
-  forced on 2026-07-14; the remainder stand as counted selections).
+- **GAP-X1.** Discrete structural selections without a consistency-forcing derivation (the scorecard
+  lists each with its menu size; the SM coefficient triple and β_EW = 4 are
+  graduated to forced; the remainder stand as counted selections).
 - **GAP-X2.** CI regeneration of the ledger and scorecard from the claim registry
   (SLP-02, SLP-05), and builder-script patches so generated surfaces keep their
   supersession notes.

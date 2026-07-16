@@ -56,7 +56,10 @@ repair move that must descend to the quotient seen by neighboring observers.
 
 That turns consensus into the implementation layer of the theory. The paper proves when finite
 patch repair terminates, when the terminal public state is schedule-independent, how boundary data
-control uniqueness, and how cycle holonomy records the exact obstruction to global agreement. It
+control uniqueness, and how cycle holonomy records the exact obstruction to global agreement. The
+consensus core is the most heavily verified layer of the program: it sits inside the formalized
+subset of 111 sorry-free Lean theorems, and a hostile forty-two-finding adversarial audit
+identified no false theorem in the recovered core these results feed. The paper
 also explains why a bare overlap graph is only a finite constraint code. Stronger language such as
 quantum error correction, min-cut distance, BFT liveness, or hardware speedup needs its own
 certificate.
@@ -991,9 +994,9 @@ legitimately determine different normal forms.
 \end{remark}
 
 In the terminology of the project consistency stack, the quotient
-normal-form theorems of this section---Theorem~\ref{thm:quotient-repair-normal-form},
+normal-form theorems of this section (Theorem~\ref{thm:quotient-repair-normal-form},
 Theorem~\ref{thm:confluence}, and the boundary-conditioned uniqueness statement of
-Theorem~\ref{thm:boundary-conditioned-uniqueness} below---are the instantiation of stack row C2
+Theorem~\ref{thm:boundary-conditioned-uniqueness} below) are the instantiation of stack row C2
 (overlap consensus): the public world is the quotient normal form that survives agreement on
 overlaps. The row is falsifiable at this theorem level, and two failure shapes would break it: an
 OPH-admissible overlap presentation on which no quotient normal form exists under the declared

@@ -358,7 +358,7 @@ v(P_source_audit)/E_star = 2.0198114150099223e-17
 ```
 
 The bundle records an earlier unconverged forward run. Converged precision-100
-reruns supersede that printed tail beyond digit ~10 (CL-6, closed 2026-07-14):
+reruns supersede that printed tail beyond digit ~10 (CL-6, closed):
 the certified forward values are `P_fwd = 1.630972095858897...`,
 `alpha_U(P_fwd) = 0.041124247441816685...`, and
 `v(P_fwd)/E_star = 2.0198114078576331e-17`. The `P_C` branch is unchanged.
@@ -393,8 +393,8 @@ The default display row adds the ledger closure packet
 constant currently hard-coded in `derive_p.py`. This is
 the OPH plus empirical hadron closure surface, not a source-only hadron theorem.
 That packet constant predates the converged precision-100 reruns; the converged
-forward gap is `0.041163999587062704...` inverse-alpha units (CL-6, closed
-2026-07-14).
+forward gap is `0.041163999587062704...` inverse-alpha units (CL-6,
+closed).
 Increase `--max-iterations` when increasing `--precision` and treating extra
 digits as audit-relevant.
 

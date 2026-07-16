@@ -69,9 +69,9 @@ The statistical error is dominated by the large-t tail, where the t^2
 kernel weights the noisiest region of the correlator; this is the standard
 TMR long-distance problem and scales with the ensemble as described below.
 
-## 2026-07-16 update: statistics run, corrected contraction, Z_V, hybrid bracket
+## Statistics run, corrected contraction, Z_V, hybrid bracket
 
-Same-day extension for the hybrid IR bracket diagnostic
+Extension for the hybrid IR bracket diagnostic
 (`run_hybrid_ir_bracket_diagnostic.py`, artifact
 `code/particles/runs/hadron/hybrid_ir_bracket_diagnostic_2026-07-16.json`,
 envelope spec declared and hashed before evaluation, plus one recorded
@@ -117,7 +117,7 @@ amendment fixed from the free-field anchor).
   wall-clock budget (declared truncation to 10 configurations, process
   died at configuration 8 before the cache was written); the larger
   geometry plus a smeared vector source (earlier plateau, stable m_V
-  matching) is the declared next step for a hybrid interval narrower than
+  matching) is the open item for a hybrid interval narrower than
   the dichotomy it replaces.
 
 ## Ensemble scale for 10% and 1% on the IR contribution

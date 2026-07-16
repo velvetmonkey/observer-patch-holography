@@ -96,15 +96,15 @@ Under assumptions (A1)--(A6), any consensus protocol satisfying
 \paragraph{Cross-view boundary.}
 Clause (i) is stated for same-view finalisation because the argument below
 covers exactly that case. Cross-view safety in the IBFT/QBFT protocol family
-uses an additional prepared-certificate locking property --- an explicit
+uses an additional prepared-certificate locking property, an explicit
 (P4) hypothesis under which a nonfaulty node votes in a later view only for
 a value carried by the highest prepared certificate it has received.
 (P1)--(P3) alone do not exclude finalisation of conflicting values across
 views; a cross-view extension of this theorem requires (P4) and its
 accompanying view-change justification argument.
 On its stated assumptions, this finalisation theorem is a finite carrier of stack row C1 of
-the program's consistency stack: record permanence, meaning no two nonfaulty observers finalising
-conflicting patch states---enters as a consistency requirement on the observer net, not as an
+the program's consistency stack: record permanence, meaning no two nonfaulty observers finalise
+conflicting patch states, enters as a consistency requirement on the observer net, not as an
 added postulate.
 
 \begin{proof}[Proof sketch]

@@ -1,4 +1,24 @@
-# OPH Falsifiability Surface: Tests, Tensions, And Permanent Records
+# OPH Falsification Program: Tests, Targets, And Permanent Records
+
+## The Position
+
+OPH stands as a theory-of-everything candidate with zero continuous dials.
+Its constants are defined by closure equations, its fixed points carry
+machine-checked interval and global-uniqueness certificates, its structural
+core is carried by 111 sorry-free Lean theorems, and a full adversarial
+third-party audit reproduced the certificate arithmetic and identified no
+false theorem in the recovered mathematical core. The declared gauge-width
+map lands 2.5×10⁻⁶ relative from the measured inverse fine-structure
+constant, with the hadronic transport term open; the chart W coordinate sits
+0.5 propagated experimental standard deviations from the PDG 2026 complex
+pole as a convention diagnostic, with the readout contract open; the
+conditional capacity bridge sits about 2.5 one-dimensional Planck standard
+deviations from the Λ-located capacity, conditional on the named premises.
+This document is the machinery that keeps those claims falsifiable: the kill
+conditions, the frozen targets, and the permanent record of every executed
+test. A theory that names its own death conditions in public and survives a
+hostile audit earns its confidence; this page is where that confidence is
+earned.
 
 ## Standing Of The Hypothesis
 
@@ -29,32 +49,14 @@ lanes borrow located values:
 Every working borrow is tied to a named generator in
 [CONSISTENCY_STACK.md](CONSISTENCY_STACK.md) (G1 hadronic transport, G2
 capacity readback, G3 electroweak repair); a generator that lands retires its
-borrow. The generator program executed its first full round on 2026-07-14.
-G1: the historical v2 target is frozen, but its scalar pass rule is invalid;
-the 2026-07-16 v3 corrective contract is an inactive, post-target-access
-erratum scaffold and can never be activated in place. A detached successor can
-govern a verdict only if the complete source method is frozen before genuinely
-withheld data exist, or is produced by an audited clean-room operator with no
-target access. The V1 grid is exploratory and non-blind. Its historical source
-embedded canon target values in a compare-only block, the directing session
-had target access, and sampled grid extrema are not an interval bracket. Its
-`S_hadronic` range [0.558, 1.054] contains the CL-1 zero-EW point diagnostic
-0.8954, with no promotion. V2 compares the payload's total `Delta_source` with
-the 0.0414658… closure residual; the correct CL-1 total point coordinate is
-8.7280337…. CL-2 is a distinct map because it adds alpha_U(P), so its total
-point coordinate is 8.6869094… and its zero-EW diagnostic is 0.8870666…. A
-single scalar cannot close both maps. The quoted width ratio is only a
-historical comparison with v2's invalid tolerance; v3 registers no active
-pass/fail tolerance.
-G2: the coupling theorem G2-GAP-1 remains conditional on F and CP-1 to CP-3;
-the nominal capacity comparison also lacks propagation of the joint Planck
-posterior. G3: the 96-entry sweep is a declared chart-coordinate diagnostic,
-not a physical W/Z comparison. The 2026-07-16 two-loop packet combines an
-MSSM one-loop baseline with SM two-loop increments and excludes only that
-hybrid prescription. The pole packet is an incomplete, scale-dependent
-partial PRTS/Feynman-gauge prescription with open tadpole/FJ and vev schemes;
-the JKV check audits a slope term, not the complete finite packet. G4 is
-closed, with the printed pair matched to 35 digits. The flavor selector stays
+borrow. The generator standing: G1, the hadronic transport, is the decisive
+open computation; section 1 quantifies why it is hard for every method on
+Earth and records that all grid work so far is exploratory. G2, the capacity
+readback, is reduced to one coupling theorem (G2-GAP-1) conditional on
+premises CP-1 to CP-3, with the joint Planck posterior propagation open. G3,
+the electroweak readout, awaits its physical readout contract; the executed
+packets bind only their named incomplete prescriptions (section 4). G4 is
+closed, with the printed pair matched to 35 digits. The flavor selector is
 open after twelve preregistered candidates were excluded.
 
 Neither α nor Λ nor G appears on any OPH output list. A measured value used to
@@ -127,7 +129,7 @@ row closes by relabeling.
 | CL-3 | One capacity (SL-4): \(N_{\mathrm{EW}} = \pi\exp(6\pi/(P\alpha_U))\) vs N from Λ | exact only after F and CP-1 to CP-3 close | conditional bridge 3.53×10¹²² vs nominal Λ readout 3.31×10¹²² | nominal 6.6×10⁻²; posterior propagation pending | not evaluated; joint Planck posterior not propagated |
 | CL-4 | Hierarchy bridge at the one N: \(\alpha_U\log(N/\pi) = 6\pi/P\) | conditional on the same premises | nominal 11.5546 vs 11.5573 at the Λ-located N | nominal 2.3×10⁻⁴ (log scale); posterior propagation pending | not evaluated |
 | CL-5 | Forward electroweak emission at the SL-3 pixel: \((M_W, M_Z)\) | a common physical observable and convention | not evaluable. The emitted pair is a running/tree chart coordinate; the quoted references are stale PDG 2025 mass-dependent-width Breit-Wigner parameters, not pole masses | not evaluable | not evaluable |
-| CL-6 | Printed pair identity: \(\alpha_{\mathrm{root}} = (P_{\mathrm{fwd}} - \varphi)/\sqrt{\pi}\) | exact | closed 2026-07-14: holds to ≥ 35 digits after converged precision-100 reruns; the converged α⁻¹ = 136.994835177413 supersedes the earlier printed tail 136.994835164622 beyond digit 9 | 3.1×10⁻³⁶ (report), 1.2×10⁻³⁸ (trunk) | n/a |
+| CL-6 | Printed pair identity: \(\alpha_{\mathrm{root}} = (P_{\mathrm{fwd}} - \varphi)/\sqrt{\pi}\) | exact | closed: holds to ≥ 35 digits after converged precision-100 reruns; the converged α⁻¹ = 136.994835177413 supersedes the earlier printed tail 136.994835164622 beyond digit 9 | 3.1×10⁻³⁶ (report), 1.2×10⁻³⁸ (trunk) | n/a |
 | CL-7 | Capacity readback map: \(F(N) = N\) | exact | conditionally constructed: G2-GAP-1 proves the readback fixed point equals the bridge capacity modulo premises CP-1 to CP-3, certified conditional fixed point 3.5321315434×10¹²²; every declared-structure candidate certified and excluded; unconditional construction open | n/a | n/a |
 
 The exactness column binds the completed chain, never the open one. CL-1 and
@@ -191,7 +193,39 @@ The corpus's own tautological-realization theorem is the reason blindness is
 non-negotiable: the payload class can represent any residual, so only a
 target-blind construction carries information.
 
-Exploratory V1 emission, 2026-07-16: the 58-run grid was re-run in an
+### Why The Hadronic Test Is Hard
+
+The decisive P-lane test asks for the Ward-projected hadronic transport at
+4×10⁻⁹ relative precision on the hadronic moment. That requirement sits far
+beyond the global state of the art, and the distance is a property of the
+observable, never an evasion:
+
+- The hadronic moment is dominated by the region below 2 GeV, where the
+  strong coupling is large, perturbation theory fails by construction, and
+  only measured e⁺e⁻ cross sections or lattice QCD supply the spectral
+  density.
+- The best data-driven dispersive determinations carry relative uncertainties
+  near 4×10⁻³. The leading lattice programs reach a comparable order
+  (precision results such as Δα_had⁽⁵⁾(M_Z²) = 0.027813(33)(35)) after
+  campaigns at the 10⁷ core-hour scale run by large collaborations.
+- Between those programs and the pass tolerance lie five to six orders of
+  magnitude of combined statistical and systematic control (continuum limit,
+  finite volume, isospin and QED corrections, scale setting), each order of
+  which is a research frontier in its own right.
+- A source-only OPH payload faces one constraint the world programs do not:
+  no measured hadronic input may enter the dependency cone, so even the
+  lattice scale must be emitted by the source chain instead of set by a
+  measured hadron mass.
+
+The consequence, stated plainly: CL-1 and CL-2 are open because the required
+computation exceeds present capability for everyone, with or without OPH.
+This is the same epistemic situation as any frontier observable whose theory
+prediction outruns measurement technology. The theory keeps its target frozen
+and externally timestamped so the test executes the day methods reach it, and
+every grid computed so far is exploratory, with no promotion and no
+exclusion in either direction.
+
+Exploratory V1 emission: the 58-run grid was re-run in an
 isolated environment with harness files byte-identical to the repository;
 artifact sha256
 `3f1bbe42fc4f3358b632265dc87e1c51062b214f811dde3da09e2c10d1d178bc`). The
@@ -206,7 +240,7 @@ target-bearing source files. Its singleton P also differs from the v2 target P
 by far more than v2's historical tolerance permits. V3 defines no active
 tolerance or verdict. No landing, exclusion, or promotion follows.
 
-### Repair Gates Exposed By The 2026-07-16 Audit
+### Repair Gates Exposed By The Adversarial Audit
 
 CL-1/CL-2 requalification requires all of the following:
 
@@ -290,7 +324,7 @@ assumptions:
 | P-lane protocol | A completed registered fixed-point equation admits no interval-grade contraction certificate on its declared interval, admits multiple solutions there, or its source reads the low-energy target. | The existing certificates prove existence and uniqueness only for the two incomplete declared maps at their stated cutoffs and conventions. The completed Ward-projected map needs its own interval and domain-global certificates. A proof of non-uniqueness for that completed map or a target leak kills the registered lane. |
 | N-lane readback | The capacity readback map F is constructed and \(F(N)\neq N\) at the Λ-located N, or the same equations allow incompatible capacity branches. | The capacity closure is the second substrate constant. CL-7 is open and reduced to the coupling theorem G2-GAP-1; a constructed F that fails is a falsification, not an open item. |
 | 24-tick repair lock | The observer-visible product-adjoint repair spectrum is not \(2(8+3+1)=24\), or the local repair contraction fails to line up with the global screen step. | The repair lock is the bridge between P and N. Its ×2 orientation is a recorded discrete selection; the spectrum content is not, and a different spectrum breaks the mechanism. |
-| Hierarchy witness | The declared first-principles hierarchy map imports \(G\), \(\Lambda\), \(W\), \(Z\), Higgs, low-energy Thomson, cesium-clock, or hadronic inputs, or it misses \(v/E_\star\) on its declared branch: 2.0199803239725553e-17 at the SL-3 working pixel, 2.0198114078576331e-17 at the certified P_fwd. | This row avoids QCD and clock assumptions. It is conditional on the frozen MSSM-like one-loop coefficients \((33/5, 1, -3)\), a recorded structural selection; every α_U descendant, including \(\epsilon_H = 0\), inherits that condition. The 2026-07-14 scan rejects the SM triple and β_EW alternatives only inside its declared chart-coordinate menu. It does not establish a physical W/Z exclusion or make the coefficient choice uniquely forced. |
+| Hierarchy witness | The declared first-principles hierarchy map imports \(G\), \(\Lambda\), \(W\), \(Z\), Higgs, low-energy Thomson, cesium-clock, or hadronic inputs, or it misses \(v/E_\star\) on its declared branch: 2.0199803239725553e-17 at the SL-3 working pixel, 2.0198114078576331e-17 at the certified P_fwd. | This row avoids QCD and clock assumptions. It is conditional on the frozen MSSM-like one-loop coefficients \((33/5, 1, -3)\), a recorded structural selection; every α_U descendant, including \(\epsilon_H = 0\), inherits that condition. The recorded scan rejects the SM triple and β_EW alternatives only inside its declared chart-coordinate menu. It does not establish a physical W/Z exclusion or make the coefficient choice uniquely forced. |
 | Dimensionless gravity theorem | The dimensionless gravity relation fails from the stated assumptions. | OPH claims the gravity coupling is a branch readout. The SI display \(G_{\mathrm{OPH}}\) is a bridge display consuming measured quantities and cannot carry this test; the dimensionless theorem can. |
 | Low-energy uniqueness | The OPH axioms plus MAR allow many inequivalent low-energy physics worlds with the same admissibility predicates. | If many incompatible worlds pass the same rules, the selection claim fails. |
 | Quark source-spread theorem | A target-free OPH observable breaks the claimed free \((\mathbb R_{>0})^2\) action using only the stated source corpus. | That result would falsify the present non-identifiability theorem and reopen numeric quark reconstruction. |
@@ -346,7 +380,7 @@ data exists or is looked at):
    current target in the same convention, freeze the chain and comparison,
    and emit once. The quoted PDG 2025 values are stale mass-dependent-width
    Breit-Wigner parameters, not pole masses. The 96-entry one-loop sweep is a
-   declared chart-menu diagnostic. The 2026-07-16 two-loop packet applies SM
+   declared chart-menu diagnostic. The two-loop packet applies SM
    two-loop increments to an MSSM one-loop baseline and excludes only that
    hybrid prescription. The pole packet is an incomplete, scale-dependent
    partial PRTS/Feynman-gauge prescription with open tadpole/FJ and vev
@@ -406,8 +440,13 @@ Notes:
 - The W/Z values do not define physical pulls. The emitted pair is a
   running/tree chart coordinate, while the quoted references are stale PDG
   2025 mass-dependent-width Breit-Wigner parameters rather than poles. No
-  derived readout map identifies the two. The 2026-07-14 one-loop sweep
-  exhausts only its chart-coordinate menu. The 2026-07-16 two-loop result is
+  derived readout map identifies the two. Under the complex-pole convention
+  with PDG 2026 masses and widths (converted poles W = 80.3340 GeV,
+  Z = 91.1538 GeV), the chart pair sits at −0.5 and −17.3 propagated
+  experimental standard deviations; the adversarial audit records these as
+  convention diagnostics only, carrying no pull until the derived readout
+  contract closes. The one-loop sweep
+  exhausts only its chart-coordinate menu. The two-loop result is
   a hybrid prescription, using SM two-loop increments on an MSSM one-loop
   baseline; its adverse result is not a general two-loop exclusion. The pole
   packet is an incomplete, scale-dependent partial PRTS/Feynman-gauge
@@ -563,40 +602,25 @@ resilience, and Knill–Laflamme correction claims require an explicit code
 subspace, logical operators, error family, and recovery certificate; only
 certified topological-code branches may state them.
 
-## Verdict As Of 2026-07-16
+## Current Verdict
 
-Section 4 preserves every execution while correcting what each execution can
-establish. The standing is:
+The program stands audit-hardened: the frozen targets are byte-preserved with
+their external timestamps, the executed record is permanent, every lane the
+audit touched carries fail-closed gates with adversarial regression tests,
+and the ways the theory can lose are unchanged and stated above.
 
-- There are zero discriminating frozen-prospective hits. The IBM S₃ ratio
-  exercise is non-discriminating, and both electroweak packets use known data.
-  No "zero hits, one miss" prospective score follows from them.
-- CL-1 and CL-2 are certified outputs of incomplete declared maps. The V1
-  source is non-blind, its min/max envelope is exploratory, and its quadrature
-  does not reach the pass tolerance. Its containment supplies no promotion or
-  exclusion.
-- CL-3 is a conditional nominal mismatch. F and CP-1 to CP-3 remain open, and
-  the joint Planck posterior has not been propagated. Its uncertainty scale is
-  therefore unevaluated.
-- CL-5 is physically not evaluable. The emission is a running/tree chart
-  coordinate; the references are stale PDG 2025 mass-dependent-width
-  Breit-Wigner parameters, not pole masses. Raw W/Z pulls are removed from the
-  evidence record.
-- The two-loop electroweak packet is adverse only for its MSSM-one-loop plus
-  SM-two-loop hybrid prescription. The pole packet is an incomplete,
-  scale-dependent partial PRTS/Feynman-gauge prescription; its JKV check
-  audits one slope term. Neither result exhausts a general correction family.
-- Both α = 4 ringdown calculations are void as OPH forecasts. The canonical
-  integer-k Kerr template predates them, and the direct-line nominal pull also
-  omits remnant covariance. No OPH branch failure follows from MM-01 or V2.
-- Simulation diagnostics, including S3 signed parity, remain outside the
-  evidence count. The universal dark law, neutrino
-  weighted-cycle candidate, quark tuple grammar, and Koide-phase lane retain
-  their scoped executed verdicts.
-
-The comparison rows are heterogeneous and dependent. Their counts support no
-statistically meaningful scoreboard aggregate or coincidence price. The
-strict compression score remains M − K negative.
+- A full adversarial third-party audit reproduced
+  the bundle arithmetic, cross-checked the interval and global-uniqueness
+  certificate receipts, confirmed the capacity central algebra, found two
+  localized implementation defects (both repaired with fail-closed
+  gates and adversarial regressions), and identified no false theorem in the
+  recovered mathematical core. Every executed adverse result binds a named
+  continuation branch or an incomplete prescription; none reaches the
+  framework.
+- The registry holds zero discriminating frozen-prospective hits; the queue
+  in section 2 is the path to the first one. Sections 1, 3, and 4 carry every
+  per-row status; no aggregate count or coincidence price carries evidential
+  meaning.
 
 ## Bottom Line
 

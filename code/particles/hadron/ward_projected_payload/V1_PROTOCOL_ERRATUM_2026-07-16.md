@@ -85,7 +85,7 @@ The source process and comparison process are separate:
 3. Seal both the file hash and its embedded
    `content_sha256` before comparison.
 4. Transfer the sealed artifact to a separate scorer environment.
-5. Run `score_bracket.py` with the sealed artifact and corrective v3. Today it
+5. Run `score_bracket.py` with the sealed artifact and corrective v3. It
    returns `NOT_EVALUABLE` with a nonzero status because v3 is inactive. Even
    under a future activated contract, the current singleton grid fails the
    certification gate.

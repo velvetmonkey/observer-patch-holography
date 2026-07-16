@@ -171,8 +171,8 @@ scale setting emitted by the source chain instead of a measured hadron mass.
 
 ## 5. Superseded non-blind development comparison
 
-This session read canon documents that quote the target-side diagnostics, so
-the following comparison carries no blind weight. Canon scales seen in
+The directing session read canon documents that quote the target-side
+diagnostics, so the following comparison carries no blind weight. Canon scales seen in
 `THOMSON_TRANSPORT_THEOREMS.md`: `S_required(P_C) = 0.895400132648`,
 `c_Q(P_C) = 0.658025759927`, `Delta_missing(root) = 0.041163999587`.
 

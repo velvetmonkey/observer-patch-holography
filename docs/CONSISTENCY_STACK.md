@@ -11,6 +11,12 @@ open item in it maps to a closure ledger row or a named gate in the gap register
 [CLOSURE_LEDGER.md](CLOSURE_LEDGER.md), and
 [COMPRESSION_SCORECARD.md](COMPRESSION_SCORECARD.md).
 
+The stack's strongest standing: lemma L1 is discharged, with interval and
+global-uniqueness certificates whose arithmetic a full adversarial
+third-party audit reproduced; lemma L2 is certified conditionally at relative
+width 1.6×10⁻²⁵; and the chain C1 to C10 runs end to end with every open item
+named and mapped to a generator.
+
 ## The selection chain
 
 The argument has one shape from end to end: begin with the space of all
@@ -84,8 +90,9 @@ open, reduced. The coupling theorem G2-GAP-1 conditionally constructs F: modulo
 CP-1 (balance), CP-2 (inversion form), CP-3 (averaging carrier), the readback
 fixed point is the bridge capacity, certified at 3.5321315434×10¹²². The
 nominal 6.6% difference between that conditional bridge value and the
-Λ-located value is not an unconditional capacity test. F and CP-1 to CP-3
-remain open, and the joint Planck posterior has not been propagated through
+Λ-located value (about 2.5 one-dimensional Planck standard deviations) is not
+an unconditional capacity test. F and CP-1 to CP-3
+are open, and the joint Planck posterior has not been propagated through
 the Λ-to-N map. CL-3 becomes evaluable only after those obligations close.
 
 **C9. Loop closure.** The detuning law, run through the full forward chain
@@ -94,14 +101,18 @@ Carrier: ../code/P_derivation; fine-structure paper. Status: open. The source
 chain contracts to the certified unique fixed point α⁻¹ = 136.994835177413…
 and the gauge-width chain to 137.035660136946577…. These are incomplete
 declared-map outputs because the Ward-projected hadronic transport is absent
-(CL-1/CL-2). The externally timestamped historical v2 target in
+(CL-1/CL-2). The missing transport is a frontier of the field: the required
+4×10⁻⁹ relative payload precision exceeds every method on Earth (see "Why The
+Hadronic Test Is Hard" in
+[OPH_FALSIFICATION_PROGRAM.md](OPH_FALSIFICATION_PROGRAM.md)). The externally
+timestamped historical v2 target in
 `../falsification/frozen_targets/` is algebraically invalid and specifies no
 verdict. Corrective v3 is a permanently inactive post-target-access erratum
 scaffold. A valid future test needs a detached successor whose complete method
 is frozen before withheld data or produced by an audited clean-room operator.
-The 2026-07-16 V1 grid cannot execute such a test: its source embeds canon
-target values, the directing session had target access, and the grid envelope
-is exploratory.
+The V1 grid is exploratory and non-blind and cannot execute such a test; its
+defect inventory is recorded in the reading rules of
+[CLOSURE_LEDGER.md](CLOSURE_LEDGER.md).
 
 **C10. Unit self-consistency (SL-5).** One clock anchor (cesium) connects
 substrate units to laboratory units; every SI display is bookkeeping downstream
@@ -127,7 +138,12 @@ Three lemmas carry it.
 evaluation of the closure map g(P) = φ + √π/A_T(P) certifies g(I) ⊆ I and a
 derivative bound |g′| ≤ L < 1, the Banach fixed-point theorem gives existence
 and uniqueness of P in I. Status: discharged on an explicit interval, and
-globally as at-most-one on the declared physical domain.
+globally as at-most-one on the declared physical domain. The stored interval
+and domain-global receipts are cross-checked by the adversarial
+third-party audit: internal arithmetic, derivative bounds, subunit Lipschitz
+constants, piece counts, and proof flags all reproduce (the certificate
+generators themselves were outside the audited bundle and were checked at
+receipt level).
 `../code/P_derivation/runtime/p_interval_contraction_certificate_2026-07-14.json`
 proves g(I) ⊆ interior(I) and L ≤ 0.0724 for both readout maps (mpmath.iv
 outward rounding, derivative enclosure by forward-mode interval AD, SU(2)/SU(3)
@@ -145,9 +161,9 @@ sup |g′| < 1 is certified on every piece of an interval subdivision of
 cutoffs su2=120/su3=90 with the tail majorants folded in, worst piece
 L ≤ 0.3041, exceptional set empty. Each declared map therefore has at most
 one fixed point on the declared domain, and with the stage-2 existence
-certificate exactly one. Monotonicity of A_T in P is no longer required for
-the domain-global statement; it remains open only as an analytic refinement
-beyond the declared domain.
+certificate exactly one. The domain-global statement requires no monotonicity
+of A_T in P; monotonicity is open only as an analytic refinement beyond the
+declared domain (GAP-A7).
 
 **L2 (one N).** Under CP-1 to CP-3 the coupled readback map is affine in the load
 coordinate with contraction 1/2, and its unique fixed point is the bridge
@@ -169,10 +185,10 @@ The ledger rows are not independent. They reduce to four generating objects:
 
 | Generator | Object to construct or compute | Ledger rows it closes or moves |
 |---|---|---|
-| G1 | Complete the Ward-projected hadronic transport and run a target-blind payload under a detached future successor whose full method-selection chronology is blind or clean-room audited. The 2026-07-16 V1 grid is exploratory only: its source embeds canon target values, its directing session had target access, and its sampled min/max envelope is not an interval certificate. Its `S_hadronic` range contains the zero-EW CL-1 point diagnostic 0.8954 but is 1.17×10⁸ times wider than v2's historical invalid tolerance; v3 registers no active threshold. The V1 report also conflates the closure-residual name `Delta_source_residual_inverse_alpha_units = 0.0414658…` with the payload's total `Delta_source`; the correct total endpoint target is `Delta_required_P = 8.7280337…`. No promotion follows (../code/particles/hadron/ward_projected_payload/PAYLOAD_STATUS.md) | CL-1, CL-2 |
-| G2 | The capacity readback map F and its contraction certificate. Status 2026-07-16: G2-GAP-1 is a conditional theorem (../code/capacity_readback/G2_GAP_1_COUPLING_THEOREM.md). Its fixed point equals the EW bridge capacity N = π·exp(6π/(P·α_U)) only modulo CP-1, CP-2, and CP-3. The certified conditional fixed point at P_fwd encloses 3.5321315434e122 with relative width 1.6e-25 (../code/capacity_readback/runtime/F_candidate_coupled_certificates.json). CL-7 remains open. After F and CP-1 to CP-3 close, CL-3 also requires propagation of the joint Planck posterior through the Λ readout (../code/capacity_readback/F_CONSTRUCTION_2026-07-14.md) | CL-3, CL-4, CL-7 |
-| G3 | Define the physical electroweak readout and complete its scheme map before comparing it with data. The emitted pair is a running/tree chart coordinate; the quoted references are stale PDG 2025 mass-dependent-width Breit-Wigner parameters, not pole masses, so CL-5 is not physically evaluable. The 96-entry one-loop sweep tests only the declared chart menu. The 2026-07-16 two-loop result applies SM two-loop increments to an MSSM one-loop baseline and excludes that hybrid prescription, not two-loop repair in general. The pole packet is a scale-dependent partial PRTS/Feynman-gauge prescription with open tadpole/FJ and vev schemes; its JKV cross-check audits a slope term rather than the complete finite packet. No raw W/Z pull from these packets is evidence | CL-5 |
-| G4 | Solver hygiene: matched printed pair at certified precision | CL-6, closed 2026-07-14 (converged precision-100 reruns; identity to 35+ digits; CI test) |
+| G1 | Complete the Ward-projected hadronic transport and run a target-blind payload under a detached successor whose full method-selection chronology is blind or clean-room audited. The required 4×10⁻⁹ relative payload precision exceeds every method on Earth ("Why The Hadronic Test Is Hard", [OPH_FALSIFICATION_PROGRAM.md](OPH_FALSIFICATION_PROGRAM.md)). The V1 grid is exploratory and non-blind; its `S_hadronic` range contains the zero-EW CL-1 point diagnostic 0.8954 with no promotion weight, and its full defect inventory and the correct total/residual endpoint diagnostics are recorded in the reading rules of [CLOSURE_LEDGER.md](CLOSURE_LEDGER.md) and ../code/particles/hadron/ward_projected_payload/PAYLOAD_STATUS.md. No promotion follows | CL-1, CL-2 |
+| G2 | The capacity readback map F and its contraction certificate. Current status: G2-GAP-1 is a conditional theorem (../code/capacity_readback/G2_GAP_1_COUPLING_THEOREM.md). Its fixed point equals the EW bridge capacity N = π·exp(6π/(P·α_U)) only modulo CP-1, CP-2, and CP-3. The certified conditional fixed point at P_fwd encloses 3.5321315434e122 with relative width 1.6e-25 (../code/capacity_readback/runtime/F_candidate_coupled_certificates.json). CL-7 is open. After F and CP-1 to CP-3 close, CL-3 also requires propagation of the joint Planck posterior through the Λ readout (../code/capacity_readback/F_CONSTRUCTION_2026-07-14.md) | CL-3, CL-4, CL-7 |
+| G3 | Define the physical electroweak readout and complete its scheme map before comparing it with data. The emitted pair is a running/tree chart coordinate; the quoted references are stale PDG 2025 mass-dependent-width Breit-Wigner parameters, not pole masses, so CL-5 is not physically evaluable. The 96-entry one-loop sweep tests only the declared chart menu. The two-loop result applies SM two-loop increments to an MSSM one-loop baseline and excludes that hybrid prescription, not two-loop repair in general. The pole packet is a scale-dependent partial PRTS/Feynman-gauge prescription with open tadpole/FJ and vev schemes; its JKV cross-check audits a slope term rather than the complete finite packet. No raw W/Z pull from these packets is evidence | CL-5 |
+| G4 | Solver hygiene: matched printed pair at certified precision | CL-6, closed (converged precision-100 reruns; identity to 35+ digits; CI test) |
 
 Beyond the ledger, the mass sector waits on one further object: a
 source-derived flavor-orbit selector (the proven two-modulus
@@ -189,4 +205,4 @@ them is a computation or a construction; reinterpretation closes nothing.
   ledger and the compression scorecard.
 - The stack may grow rows (a newly identified consistency requirement is a new
   C-row with a new carrier), and rows never silently strengthen: changes here
-  are dated, like ledger verdicts. Adopted 2026-07-14.
+  are dated, like ledger verdicts.

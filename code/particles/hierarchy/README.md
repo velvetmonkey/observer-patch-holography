@@ -6,7 +6,7 @@ Generated: `2026-06-13T00:00:00Z`
 
 This bundle packages the proof-obligation artifacts for the OPH electroweak hierarchy lane:
 
-Status correction (2026-07-16): all capacity "closure" language in this
+Status correction: all capacity "closure" language in this
 historical bundle is internal to the selected bridge packet. Physical cosmic
 capacity remains conditional on F and CP-1 to CP-3, and comparison with the
 Lambda-located value additionally requires the joint cosmological posterior.

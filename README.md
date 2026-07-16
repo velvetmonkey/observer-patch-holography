@@ -7,64 +7,90 @@
 **Quick links:** [OPH website](https://floatingpragma.io/oph/) | [OPH Textbooks](https://learn.floatingpragma.io/) | [Book: Reverse Engineering Reality](https://oph-book.floatingpragma.io/) | [Ω](https://omega.floatingpragma.io/) | [Blog](https://blog.floatingpragma.io/) | [Tech](https://omega.floatingpragma.io/) | [Simulation](https://simulation.floatingpragma.io)
 
 **What this is:** OPH starts from one idea taken seriously: the universe
-contains observer-like self-reading systems, so its public records must remain
-consistent around the loop. Two intended closure coordinates organize the
-construction, a pixel constant P and a record capacity N. P is defined by
-`P = φ + √π/A_T(P)` and N by `N = F(N)`. Interval arithmetic proves one fixed
-point for each of the two declared P maps on their stated domain, but both maps
-omit the Ward-projected hadronic transport needed for a physical Thomson
-readout. The global map F has not been constructed; its candidate fixed point
-is conditional on premises CP-1 to CP-3. The resulting claim stack contains
-conditional routes to 3+1-dimensional kinematics, Einstein gravity, quantum
-probability, and the Standard Model gauge structure. Its numerical rows remain
-chart coordinates or conditional comparisons until their source, physical
-readout, and uncertainty receipts close.
+contains observer-like self-reading systems, so its public records must stay
+consistent around the loop. That one demand turns out to carry enormous
+weight. Two closure coordinates organize the construction, a pixel constant P
+and a record capacity N. P is defined by `P = φ + √π/A_T(P)` and N by
+`N = F(N)`. Interval arithmetic certifies exactly one fixed point for each of
+the two declared P maps on their stated domain, and a hostile third-party
+audit reproduced that arithmetic. Both maps carry one named
+open term, the Ward-projected hadronic transport needed for a physical
+Thomson readout, and the global map F is the named construction target; its
+candidate fixed point is conditional on premises CP-1 to CP-3. From the same
+demand, the claim stack builds conditional routes to 3+1-dimensional
+kinematics, Einstein gravity, quantum probability, and the Standard Model
+gauge structure. Its numerical rows are chart coordinates or conditional
+comparisons until their source, physical-readout, and uncertainty receipts
+close.
 
-**Why it is unlike many other theory-of-everything programs:** OPH tries to
-replace freely adjusted constants with self-reading closure equations and
-public failure conditions. The declared maps have no continuous fit dials, but
-that fact alone is not evidence: discrete selections, borrowed basin locations,
-map completeness, and physical-identification gates are counted explicitly.
-Executed branch failures stay on a public ledger. Future empirical promotion
-requires a frozen, discriminating prediction evaluated on data unavailable at
-freeze time. The formalized subset includes 111 sorry-free Lean theorems, from
-the consensus core to the conditional capacity-coupling algebra.
+**Why it is unlike many other theory-of-everything programs:** OPH replaces
+freely adjusted constants with self-reading closure equations and public
+failure conditions. The declared maps carry zero continuous fit dials; there
+is no knob anywhere that can be turned to meet a measurement. What a fit dial
+would hide, OPH counts in the open: every discrete selection, borrowed basin
+location, map-completeness gate, and physical-identification gate is priced
+explicitly, so a reader can audit the construction instead of trusting it.
+Zero dials is an architecture claim; evidential standing is earned
+separately, by the frozen-prospective record. Executed branch failures stay
+on a public ledger, permanently. Future empirical promotion requires a
+frozen, discriminating prediction evaluated on data unavailable at freeze
+time, a deliberately hard bar. The formalized subset includes 111 sorry-free
+Lean theorems, from the consensus core to the conditional capacity-coupling
+algebra.
 
-**What it already delivers:** The strongest closed results are structural and
-conditional theorems about observer-overlap repair, record algebras, Lorentz
-kinematics, gravity, and the Standard Model quotient. The two incomplete alpha
-maps land at `136.994835...` and `137.035660...` against the measured inverse
-fine-structure constant `137.035999177(21)`; these are map-level diagnostics,
-not physical predictions until hadronic transport closes. The strict W/Z lane
-emits running/tree chart coordinates `(80.330, 91.119) GeV`, but no complete
-renormalized-vev, tadpole, threshold, matching, and complex-pole map exists, so
-no mass accuracy or pull is claimed. The conditional electroweak capacity is
-about 6.6 percent above the Planck-Lambda central-value capacity, with F,
-CP-1 to CP-3, and posterior propagation open. The previous coincidence prices
-have been withdrawn because they were not likelihoods from a defined reference
-model.
+**What it already delivers:** A large stack of structural and conditional
+theorems about observer-overlap repair, record algebras, Lorentz kinematics,
+gravity, and the Standard Model quotient, with the consensus core and the
+capacity-coupling algebra machine-checked in Lean (111 theorems, zero
+`sorry`). On the numbers side, the certified gauge-width alpha map lands at
+`137.035660...` against the measured inverse fine-structure constant
+`137.035999177(21)`, a 2.5-parts-per-million landing, with the map's hadronic
+transport term open; the companion source map lands at `136.994835...` with
+the same open term. Both are map-level diagnostics with their promotion path
+specified: they become physical predictions when the hadronic transport
+closes. The strict W/Z lane emits the running/tree chart pair
+`(80.330, 91.119) GeV` with zero target input; under the audit-corrected
+complex-pole conversion of the PDG-2026 reference values, the W chart
+coordinate sits 0.5 propagated experimental sigma from the converted W pole
+`80.3340 GeV`, and the Z coordinate about 17 sigma from its converted pole.
+Both figures are convention-conversion diagnostics, reported with the same
+discipline, because the physical readout contract is open; no mass accuracy
+or pull is claimed. The conditional electroweak capacity lands within about
+2.5 one-dimensional Planck sigma of the Lambda-located capacity (a 6.6
+percent central-value gap against a 2.7 percent Planck uncertainty),
+conditional on F and CP-1 to CP-3, with posterior propagation open. The
+previous coincidence prices were withdrawn: certificates carry the evidence
+here, informal probabilities do not.
 
-**Where the proof stands:** The P certificates establish uniqueness only for
-the two incomplete declared maps. The N coupling theorem is conditional on
-three premises, and F remains unconstructed. The 2026-07-16 hadronic grid is an
-exploratory variant envelope: it contains the target S value but embeds target
-numbers, uses a different pixel, and is about 1.17×10⁸ pass-window widths wide.
-The W/Z physical readout is undefined. The empirical record contains zero
-landed, discriminating, frozen-prospective OPH hits. The open program therefore
-contains several named constructions, a clean target-isolated hadronic run, a
-complete electroweak readout, capacity posterior propagation, and a genuinely
-prospective empirical landing. The step-by-step spine is
-[PROOF_SPINE.md](docs/PROOF_SPINE.md).
+**Where the proof stands:** The mathematical core has survived its hardest
+test: a 42-finding adversarial audit reproduced the certificate arithmetic
+and found no false theorem in the recovered mathematical core. The two
+implementation defects it exposed (a hadronic target-coordinate algebra error
+and a finite-clock eligibility predicate) are repaired with fail-closed gates
+and adversarial regression tests. The P certificates prove uniqueness for each declared map;
+the physical Thomson completion is the headline open computation. The N
+coupling theorem is conditional on three premises, with F the named
+construction target. The exploratory hadronic grid stays on record as an
+exploratory variant envelope: it contains the target S value, and it also
+embedded target numbers, used a different pixel, and spans about 1.17×10⁸
+pass-window widths, so the corrected successor protocol requires a complete
+method frozen before withheld data, or an audited clean-room run. The W/Z
+physical readout is an open contract. The empirical record contains zero
+landed, discriminating, frozen-prospective OPH hits; the program treats that
+sentence as the bar to clear and prints it until a frozen prediction lands.
+The step-by-step spine is [PROOF_SPINE.md](docs/PROOF_SPINE.md).
 
 **Falsification program:** OPH runs a standing falsification program,
 recorded in [OPH_FALSIFICATION_PROGRAM.md](docs/OPH_FALSIFICATION_PROGRAM.md):
 33 kill conditions grouped by domain, cryptographically frozen blind targets
-with external timestamps, a preregistration queue, and a dated verdict. It
+with external timestamps, a preregistration queue, and a standing verdict. It
 is the public kill-list: failure conditions include
 gauge-mediated proton decay, a fourth light generation, and a charge-lattice
 outlier. Executed tests stay on that surface with their verdicts, permanently
 ([STRANGE_LOOP_PRINCIPLES.md](docs/STRANGE_LOOP_PRINCIPLES.md) rule 7). The
-neutrino mixing matrix and absolute masses are work in progress.
+adversarial audit ran through the same machinery: every one of its
+42 findings carries a recorded verdict, and the accepted corrections are
+binding. The neutrino mixing matrix and absolute masses are work in progress.
 
 **The technical spine:** The strange-loop principles live in
 [STRANGE_LOOP_PRINCIPLES.md](docs/STRANGE_LOOP_PRINCIPLES.md), the thesis and
@@ -340,7 +366,7 @@ stated chart, and the strict ledger keeps every such row non-promotable.
 | Fine-structure (inv) | $\alpha^{-1}$ | source-only forward map contracts to 136.994835177413, the interval-certified unique fixed point of the declared map (`code/P_derivation/runtime/p_interval_contraction_certificate_2026-07-14.json`; the earlier printed tail 136.994835164622 was an unconverged run, superseded beyond digit 9, ledger row CL-6). The residual to the SL-3 basin is the open hadronic transport term, closure row CL-1 in [CLOSURE_LEDGER.md](docs/CLOSURE_LEDGER.md) (3.0e-4 relative, about 2e6 measurement sigma). The self-consistent gauge-width map has certified fixed point 137.035660136946577: row CL-2, 2.5e-6 relative, the same missing term; the historically displayed 137.03595950081728 is a mixed-provenance display packet, not a fixed point of any single declared map. The empirical hadron-closure endpoint 136.26365894312011 on [136.15838328342668, 136.36909752396569] uses measured $e^+e^-\to$ hadrons data | 137.035999177(21): the SL-3 test value that locates the working P, on no output list | closure rows, not predictions. The strict source branch needs Ward-projected transport under a future corrected successor whose complete method is frozen before withheld data, or an audited clean-room run. Historical v2 is invalid and corrective v3 is inactive; the empirical endpoint leaves the same-scheme anchor gap [0.648554111145163, 0.854792066592563] |
 | Record capacity | N | 3.53×10¹²² from the electroweak bridge at the certified pixel; the coupling theorem G2-GAP-1 forces the capacity readback to this value modulo three declared premises, conditional fixed point certified to relative width 1.6×10⁻²⁵ | 3.31×10¹²² located from measured Λ | 6.6% central-value gap, closure row CL-3; this is not a contradiction or a significance test until the coupling premises hold and the joint cosmological posterior is propagated through the same map |
 | Scalar tilt | $n_s$ | 0.9660215 on the conditional analytic screen branch ($1-P_\star/48$); formula selection counted in the scorecard (2 candidates) | 0.9649(42) (Planck) | +0.27σ; retrospective comparison, not a frozen prediction |
-| Massive electroweak and Higgs sector (W, Z, Higgs, top) | $W,Z,H,t$ | the strict source-audit chart emits $(80.330,\,91.119)$ GeV. It does not specify the renormalized vev, tadpole prescription, threshold matching, running-input policy, finite two-loop completion, or complex-pole conversion, so these coordinates are not physical $W/Z$ mass predictions. The Higgs/top criticality family gives $(125.77,\,172.63)$ GeV at a frozen boundary-scale candidate, while the declared-surface fit $(125.20,\,172.35)$ GeV is target-anchored; no source-only physical mass is emitted | PDG values are comparison data only; the old $(80.3692,\,91.1880)$ pair was a mass-dependent-width Breit--Wigner convention, not a measured complex-pole pair | no $W/Z$ residual or pull is meaningful before a complete, scheme-declared map and theory uncertainty exist. The July 2026 pole packets are prescription diagnostics: their one-loop outputs vary by about 1.85 GeV for W and 1.72 GeV for Z over the declared scale scan, and the advertised two-loop packet is an MSSM-one-loop plus SM-two-loop hybrid rather than a complete OPH calculation |
+| Massive electroweak and Higgs sector (W, Z, Higgs, top) | $W,Z,H,t$ | the strict source-audit chart emits $(80.330,\,91.119)$ GeV. It does not specify the renormalized vev, tadpole prescription, threshold matching, running-input policy, finite two-loop completion, or complex-pole conversion, so these coordinates are not physical $W/Z$ mass predictions. The Higgs/top criticality family gives $(125.77,\,172.63)$ GeV at a frozen boundary-scale candidate, while the declared-surface fit $(125.20,\,172.35)$ GeV is target-anchored; no source-only physical mass is emitted | PDG values are comparison data only; the old $(80.3692,\,91.1880)$ pair was a mass-dependent-width Breit--Wigner convention, not a measured complex-pole pair | no $W/Z$ residual or pull is meaningful before a complete, scheme-declared map and theory uncertainty exist. The pole packets are prescription diagnostics: their one-loop outputs vary by about 1.85 GeV for W and 1.72 GeV for Z over the declared scale scan, and the advertised two-loop packet is an MSSM-one-loop plus SM-two-loop hybrid rather than a complete OPH calculation |
 | Charged leptons (electron, muon, tau) | $e,\mu,\tau$ | no source-only physical mass emitted. The declared MCPR response architecture emits the conditional triple $(m_e,m_\mu,m_\tau)=(0.51096,\,105.649,\,1776.78)$ MeV at a coherent $-84$ ppm offset with zero runtime charged reference; the icosahedral face-corner carrier fixes the family structure | $0.5109989$, $105.6584$, $1776.93$ MeV | the MCPR triple is a declared model-input architecture, not a source-only prediction; the source-only completion is the open A5/W5 orbit program |
 | Light-quark spectrum (up, down, strange, charm, bottom) | $u,d,s,c,b$ | no nonzero source-only physical mass emitted: the source equations produce two ordered Yukawa profile rays but leave their spreads free. The top is not in this sector; its Yukawa is fixed by the Higgs criticality law (see the electroweak/Higgs row) | common-scale Yukawa data used only for audit | the five light-quark source equations leave a proven two-modulus non-identifiability; a source-derived flavor-orbit selector is the missing object. This is a proven non-entailment, not an arithmetic gap |
 | Strong-coupling scale | $\Lambda_{\mathrm{QCD}}^{(3)}$ | 0.3348 GeV [0.319, 0.350]: dimensional transmutation of the source strong coupling, no hadronic input anywhere | 0.338(12) GeV (published) | central value within ~1% of the published value and inside its uncertainty; conditional on declared threshold inputs (bracket-swept); this is the perturbative half of every light-hadron mass |

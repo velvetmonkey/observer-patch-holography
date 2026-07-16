@@ -6,7 +6,9 @@ rather than restating or strengthening its content. The central thesis, its line
 the five-pillar mission are stated in [STRANGE_LOOP.md](STRANGE_LOOP.md); the forcing
 chain from the principles to a unique universe is stated in
 [CONSISTENCY_STACK.md](CONSISTENCY_STACK.md); the end-to-end proof strategy and its
-gap register live in [PROOF_SPINE.md](PROOF_SPINE.md). Adopted 2026-07-14.
+gap register live in [PROOF_SPINE.md](PROOF_SPINE.md). The principle set governs a
+program with zero continuous dials, machine-certified interval and global-uniqueness
+fixed points per declared map, and 111 sorry-free Lean theorems.
 
 ## The principles
 
@@ -42,13 +44,13 @@ principle set through the closure ledger, never through restatement.
   inputs are intended in a completed source map. Each declared incomplete P map has one
   certified arithmetic fixed point on its stated domain; the physical Thomson map is
   not complete. N solves N = F(N) only conditionally: G2-GAP-1 supplies a candidate
-  fixed point modulo premises CP-1 to CP-3, while F remains an open physical construction.
+  fixed point modulo premises CP-1 to CP-3, with F an open physical construction.
   Discrete structural selections are
   declared separately with their menu sizes; none is a continuous quantity.
 - **Test layer.** Measured values live here only, as comparisons that complete source
   outputs may face. A comparison must not feed back into a defining equation. The
-  historical hadronic target was timestamped, but V1 did not satisfy this target-blind
-  requirement; a corrected contract remains to be executed.
+  historical hadronic target is externally timestamped; V1 did not satisfy this
+  target-blind requirement, and a corrected detached contract is the open execution path.
 - **Working layer.** Lanes whose closure terms are open borrow located values while they
   wait: the working pixel P = 1.630968209403959… located from CODATA
   α⁻¹ = 137.035999177(21) (basin half-width in P: √π·σ_α/α² ≈ 2.0×10⁻¹²), the working

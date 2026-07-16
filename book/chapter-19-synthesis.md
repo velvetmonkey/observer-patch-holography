@@ -633,7 +633,7 @@ renormalized vacuum, tadpole, threshold, matching, and complex-pole prescription
 the partial one-loop packet and hybrid two-loop packet do not exhaust the
 physical choices. The particle sector needs a rule that tells the quark
 generations apart after a first slate of twelve candidates was excluded. A
-fifth item, the matched printed pair, closed in July 2026 when converged
+fifth item, the matched printed pair, is closed: converged
 reruns carried the identity past thirty-five digits. None of the open items
 is a matter of interpretation; each is a computation or a construction.
 

@@ -74,8 +74,8 @@ v(P_source_audit)/E_star = 2.0198114150099223e-17
 ```
 
 The bundle records an earlier unconverged forward run. Converged precision-100
-reruns supersede that source-audit branch beyond digit ~10 (CL-6, closed
-2026-07-14): the certified forward values are
+reruns supersede that source-audit branch beyond digit ~10 (CL-6, closed):
+the certified forward values are
 P_fwd = 1.630972095858897..., alpha_U(P_fwd) = 0.041124247441816685..., and
 v(P_fwd)/E_star = 2.0198114078576331e-17. The public endpoint branch is
 unchanged.
@@ -237,8 +237,8 @@ P = phi + alpha * sqrt(pi)
 ```
 
 It also does not indicate a failure of numerical convergence. The converged
-precision-100 report carries a fixed-point residual below 10^-37 (CL-6, closed
-2026-07-14).
+precision-100 report carries a fixed-point residual below 10^-37 (CL-6,
+closed).
 
 The finite-code payload to populate is the low-energy transport/readout term
 `Delta_Th(P)`.

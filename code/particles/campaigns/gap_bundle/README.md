@@ -3,7 +3,7 @@
 This is the code-repo-owned launch surface for the remaining particle blockers.
 The work is bundled, not one issue at a time.
 
-First wave:
+Bundle packets:
 
 - `particles.gapbundle.electroweak-root`
 - `particles.gapbundle.spectrum-source`

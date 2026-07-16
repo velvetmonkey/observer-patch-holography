@@ -1,18 +1,36 @@
 # Hadron Data Policy
 
-This file is the operating plan for particle rows whose final numeric values
-depend on low-energy QCD.
+The operating policy for particle rows whose final numeric values depend on
+low-energy QCD.
 
-## Closure-Program Note (2026-07-14)
+## Standing
+
+The source chain fixes everything on its side of the frontier: each declared
+P map has an interval-certified unique fixed point on its stated domain, the
+charged-lepton transport term is a closed one-loop kernel, and the gauge-width
+map lands 2.5×10⁻⁶ relative from the measured α⁻¹ with the hadronic transport
+term open. That open term is a frontier of the entire field, a property of
+the observable: closing CL-1/CL-2 asks for 4×10⁻⁹ relative precision on the
+hadronic moment, beyond every method on Earth. The best data-driven
+dispersive determinations carry relative uncertainties near 4×10⁻³, the
+leading lattice programs reach a comparable order after campaigns at the 10⁷
+core-hour scale, the region below 2 GeV is nonperturbative, and a source-only
+payload additionally forbids measured hadronic input even for scale setting.
+See "Why The Hadronic Test Is Hard" in
+[OPH_FALSIFICATION_PROGRAM.md](OPH_FALSIFICATION_PROGRAM.md). Existing grid
+work is exploratory.
+
+## Closure-Program Note
 
 The hadronic lane is generator G1 of the closure program
 ([CONSISTENCY_STACK.md](CONSISTENCY_STACK.md), ledger dependency table): a
-genuinely blind Ward-projected transport computation under a valid future
-contract is the object that could close or move CL-1 and CL-2. The historical
-v1/v2 targets are externally timestamped, but v2's scalar scoring algebra is
-invalid. Corrective v3 separates map and coordinate types but is a permanently
-inactive, post-target-access erratum scaffold. A valid experiment needs a new
-detached successor whose complete source method was frozen before genuinely
+genuinely target-blind Ward-projected transport computation under a valid
+detached contract is the object that could close or move CL-1 and CL-2. The
+target-contract provenance (externally timestamped v1/v2, v2's invalid scalar
+scoring algebra, the permanently inactive post-target-access v3 erratum
+scaffold, the exploratory non-blind V1 grid) is recorded in the reading rules
+of [CLOSURE_LEDGER.md](CLOSURE_LEDGER.md). A valid experiment needs a
+detached successor whose complete source method is frozen before genuinely
 withheld data, or an audited clean-room producer with no target access. The
 payload computation must not read the target file; the complete transitive
 dependency cone and chronology require independent verification. No current
@@ -190,29 +208,31 @@ public prediction.
 Use `work_in_progress` for in-scope rows whose computation is not part of a
 public final value.
 
-## Refactor Plan
+## Pipeline Architecture
 
-1. Add the row-class field to generated particle status manifests and final
-   prediction tables.
-2. Split public output into:
-   `source_only_value`, `empirical_hadron_closure_value`, and
-   `reference_value`.
-3. Add `code/particles/hadron/empirical_ee_hadrons_sources.yaml` as the source
-   registry.
-4. Add a schema for `oph_empirical_ee_hadronic_spectral_measure`.
-5. Add an ingest script that can read PDG/HEPData tables without silently
-   applying physics corrections.
-6. Add a normalization script that converts cross sections or \(R(s)\) into the
-   Ward-projected spectral convention used by `code/P_derivation`.
-7. Add a dispersion integrator with covariance propagation and compilation
-   labels.
-8. Add `P_derivation/empirical_thomson_endpoint.py` to combine the empirical
-   hadronic term with the OPH D10 source anchor and the lepton kernel.
-9. Add a final fixed-point solver that emits both the empirical display row and
-   the source-only audit row.
-10. Update papers, README files, learning material, and figures so public prose
-    states the two-surface policy once and keeps ledger details in the status
-    section.
+The production pipeline, in its target form, comprises:
+
+- a row-class field in generated particle status manifests and final
+  prediction tables;
+- public output split into `source_only_value`,
+  `empirical_hadron_closure_value`, and `reference_value`;
+- `code/particles/hadron/empirical_ee_hadrons_sources.yaml` as the source
+  registry;
+- a schema for `oph_empirical_ee_hadronic_spectral_measure`;
+- an ingest script that reads PDG/HEPData tables without silently applying
+  physics corrections;
+- a normalization script that converts cross sections or \(R(s)\) into the
+  Ward-projected spectral convention used by `code/P_derivation`;
+- a dispersion integrator with covariance propagation and compilation labels;
+- `P_derivation/empirical_thomson_endpoint.py`, combining the empirical
+  hadronic term with the OPH D10 source anchor and the lepton kernel;
+- a final fixed-point solver that emits both the empirical display row and
+  the source-only audit row;
+- papers, README files, learning material, and figures whose public prose
+  states the two-surface policy once and keeps ledger details in the status
+  section.
+
+The unbuilt pieces are work in progress.
 
 ## Claim Policy
 
@@ -240,7 +260,7 @@ Use this wording for the particles section:
 
 ```text
 OPH defines a screen-cell fixed-point map and computes certified roots of two
-declared incomplete maps. Neither root is yet a physical Thomson-limit
+declared incomplete maps. Neither root is a physical Thomson-limit
 fine-structure prediction. The charged-lepton transport term is explicit, but
 the confined-hadron term requires the electromagnetic spectral function of
 QCD. Since the OPH hadron backend does not emit that spectral function

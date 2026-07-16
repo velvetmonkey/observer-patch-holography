@@ -2,6 +2,14 @@
 
 This note collects rebuttals to common objections to the OPH framework, with longer technical responses where needed.
 
+The objections below meet a certified core: 111 sorry-free Lean theorems,
+machine-certified interval and global-uniqueness fixed points for each
+declared map, and a full adversarial third-party audit that reproduced the
+certificate arithmetic and identified no false theorem in the recovered
+mathematical core. Each rebuttal states its conditionals explicitly; the
+binding statuses live in [CLOSURE_LEDGER.md](CLOSURE_LEDGER.md) and
+[PROOF_SPINE.md](PROOF_SPINE.md).
+
 ## Contents
 
 - [Objection 1: Is P circular?](#objection-1-p-circularity)
@@ -30,10 +38,13 @@ from CODATA are `3.0e-4` and `2.5e-6` in relative units. The familiar `2e6` and
 `1.6e4` figures divide by experimental uncertainty only; they are diagnostics, not
 physical pulls, because the same-scheme hadronic and finite remainder plus a theory
 uncertainty model are missing. Rows CL-1 and CL-2 of
-[CLOSURE_LEDGER.md](CLOSURE_LEDGER.md) therefore remain incomplete-map rows. A future
+[CLOSURE_LEDGER.md](CLOSURE_LEDGER.md) are therefore incomplete-map rows. The missing
+hadronic term is a frontier for every method on Earth: the payload asks for 4×10⁻⁹
+relative precision on the hadronic moment (see "Why The Hadronic Test Is Hard" in
+[OPH_FALSIFICATION_PROGRAM.md](OPH_FALSIFICATION_PROGRAM.md)). A future
 target-blind completion under a corrected contract is the decisive endpoint test.
 
-The stage-2 certificate narrows what remains open. Under uniqueness lemma L1 of the consistency stack ([CONSISTENCY_STACK.md](CONSISTENCY_STACK.md)), interval evaluation of the closure map `g(P) = phi + sqrt(pi)/A_T(P)` on a certified interval (`g(I) ⊆ I` together with a derivative bound below one) gives existence and uniqueness of the fixed point on that interval by the Banach theorem; the certificate is recorded at `code/P_derivation/runtime/p_interval_contraction_certificate_2026-07-14.json`. The global certificate at `code/P_derivation/runtime/p_global_uniqueness_certificate_2026-07-14.json` similarly proves one fixed point for each declared arithmetic map on the stated domain. These certificates do not certify the unimplemented physical Thomson transport. The open work is therefore both map completion and the landing test for that completed map.
+The stage-2 certificate narrows the open surface. Under uniqueness lemma L1 of the consistency stack ([CONSISTENCY_STACK.md](CONSISTENCY_STACK.md)), interval evaluation of the closure map `g(P) = phi + sqrt(pi)/A_T(P)` on a certified interval (`g(I) ⊆ I` together with a derivative bound below one) gives existence and uniqueness of the fixed point on that interval by the Banach theorem; the certificate is recorded at `code/P_derivation/runtime/p_interval_contraction_certificate_2026-07-14.json`. The global certificate at `code/P_derivation/runtime/p_global_uniqueness_certificate_2026-07-14.json` similarly proves one fixed point for each declared arithmetic map on the stated domain. These certificates do not certify the unimplemented physical Thomson transport. The open work is therefore both map completion and the landing test for that completed map.
 
 So the answer to "is `P` circular?" is: the working value is a declared located input,
 and the declaration becomes testable only when a complete target-blind source map is
@@ -53,16 +64,16 @@ diagnostics, not a closed-loop measurement.
 
 The intended claim runs the other way: a unique, complete closure map would expose the
 hypothesis to a sharp landing test. The repository has global uniqueness certificates
-for each declared incomplete pixel map, but not yet for the completed physical Thomson
-map. The capacity statement is conditional on F and CP-1 to CP-3. Thus the corpus does
-not yet prove that the full SLH principle set admits at most one physical `(P, N)`.
+for each declared incomplete pixel map; the completed physical Thomson map is the open
+object. The capacity statement is conditional on F and CP-1 to CP-3. The corpus
+therefore does not prove that the full SLH principle set admits at most one physical
+`(P, N)`; that statement is the open no-landscape corollary (L3 in
+[CONSISTENCY_STACK.md](CONSISTENCY_STACK.md)).
 
-The exposure is not yet armed. The historical v2 target is timestamped, but the V1
-execution was not target-blind: target constants were embedded in its source, the
-directing session knew the target, the emitter and target used different P values, the
-pass coordinate confused the residual with the total payload, and the grid min/max was
-not an interval certificate. A corrected contract must be activated and executed before
-this lane can test the "exactly our universe" claim.
+Arming the exposure is open work. The historical v2 target is externally timestamped,
+but the V1 execution was not target-blind; its defect inventory is recorded in the
+reading rules of [CLOSURE_LEDGER.md](CLOSURE_LEDGER.md). A corrected contract must be
+activated and executed before this lane can test the "exactly our universe" claim.
 
 ---
 
@@ -196,7 +207,7 @@ That is exactly the structure needed to keep overlap consistency intact.
 
 ## 4. Why Lorentz invariance follows if the BW certificate holds
 
-The criticism says OPH has not proved Lorentz invariance. The published claim of the framework is conditional: Lorentz kinematics are forced by modular structure under a stated set of assumptions (the BW certificate), and exhibiting an explicit UV regulator that satisfies those assumptions with controlled errors remains open (*Observers Are All You Need*, Part I §4.2-4.3; Part V §2.1-2.2).
+The criticism says OPH has not proved Lorentz invariance. The published claim of the framework is conditional: Lorentz kinematics are forced by modular structure under a stated set of assumptions (the BW certificate), and exhibiting an explicit UV regulator that satisfies those assumptions with controlled errors is open (*Observers Are All You Need*, Part I §4.2-4.3; Part V §2.1-2.2).
 
 ### 4.1 The theorem-level statement
 
@@ -290,7 +301,7 @@ and the cap first law pairs `K_C` with the bulk entropy:
 
 with the generalized-entropy bookkeeping `delta S_gen(C) = delta S_bulk(C) + delta <L_C>`.
 
-(Correction: an earlier version of this note wrote `delta S_C = delta <K_C>` for the same `K_C`; the `delta S_gen`-consistent statement above matches ENTANGLEMENT_GEOMETRY_PROBLEM_OPH.md.)
+(The `delta S_gen`-consistent statement above matches ENTANGLEMENT_GEOMETRY_PROBLEM_OPH.md.)
 
 After the `BW_{S^2}` step this becomes
 
@@ -403,7 +414,7 @@ The most precise version of the criticism is:
 
 > "Show in an explicit UV regulator that the refinement limit really flows to the geometric Bisognano-Wichmann modular regime on the sphere with controlled errors."
 
-That is a serious and legitimate demand, and it is open: no such regulator computation exists yet in the corpus. Everything in this rebuttal is conditional on that certificate.
+That is a serious and legitimate demand, and it is open: the corpus contains no such regulator computation. Everything in this rebuttal is conditional on that certificate.
 
 But that is **not** the same as saying:
 
@@ -629,14 +640,14 @@ overlap/gluing data
 The first four steps classify the fixed-stage data. The refinement receipt
 supplies the coherent block embeddings, surjective compact-group pullbacks,
 tensor realizations, and compatible forgetful fibers needed for the colimit;
-without it the refinement-limit category and compact group remain conditional.
+without it the refinement-limit category and compact group are conditional.
 With it, reconstruction can return a trivial
 compact group, or any compact group carried by the persistent tensor-category
 and fiber-functor data. The Standard Model quotient enters only in the final
 step, where MAR is applied to the explicit nonempty one-Higgs chiral matter
 package.
 
-### What was repaired
+### The theorem-level bookkeeping
 
 The compact and main papers state this as theorem-level bookkeeping. The
 SM endpoint is branch-conditional: MAR minima exist because the admissible
