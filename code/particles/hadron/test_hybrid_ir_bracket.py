@@ -182,8 +182,11 @@ def test_hybrid_rows_zero_free_identity_and_bounds(evaluation_point):
     naive = out["quark_delta_alpha_inv_naive"]
     zero = ph.emit_delta_source(sm.make_pqcd("lane_central", 4.0, "zero", 3), ep)
     free = ph.emit_delta_source(sm.make_pqcd("lane_central", 4.0, "free", 3), ep)
-    s_zero = zero["diagnostics"]["s_effective"]
-    s_free = free["diagnostics"]["s_effective"]
+    # Commit 138c9204 split the producer diagnostic "s_effective" into
+    # "s_hadronic" (delta_had / naive) and "s_qew_effective"; the hybrid
+    # rows carry the hadronic-only ratio, so "s_hadronic" is the aligned key.
+    s_zero = zero["diagnostics"]["s_hadronic"]
+    s_free = free["diagnostics"]["s_hadronic"]
     assert abs(row["s_eff_at_s_ir_lo"] - s_zero) < 1e-12
     assert abs(row["s_eff_at_s_ir_hi"] - s_free) < 1e-12
     assert naive == pytest.approx(ph.quark_naive_transport(ep))
