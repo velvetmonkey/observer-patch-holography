@@ -65,8 +65,8 @@ GeV/MeV displays use the unclosed clock candidate; the clock audit classifies th
   - Tier: T2; the public branch P consumes the measured Thomson endpoint
   - explanation: Target-free continuation on the calibration pixel; the pixel itself sits on the endpoint branch, so this row carries endpoint ancestry and validates the formula stack rather than adding an independent prediction.
   - row_class: conditional_on_P_and_repair_selection
-  - MW_GeV: 80.37700001539531
-  - MZ_GeV: 91.18797807794321
+  - MW_chart_GeV: 80.37700001539531
+  - MZ_chart_GeV: 91.18797807794321
   - Artifact: `runs/calibration/conditional_ew_predictions_current.json`
   - Blocking objects: same gates as the strict branch plus the declared surface
 

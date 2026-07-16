@@ -6,6 +6,17 @@ closure rows CL-3, CL-4, and CL-7 (generator G2 in
 [CONSISTENCY_STACK.md](../../docs/CONSISTENCY_STACK.md); rows in
 [CLOSURE_LEDGER.md](../../docs/CLOSURE_LEDGER.md)).
 
+Standing of the lane in one paragraph: the equation that would force the
+measured capacity is not known. The conditional bridge
+`N = pi*exp(6*pi/(P*alpha_U))` is the only closed form on the table; it lands
+6.6 percent above the Λ-located value, its balance premise CP-1 is a declared
+input, and the corrected-balance candidates
+([CP1_CORRECTED_BALANCE_CANDIDATES_2026-07-17.md](CP1_CORRECTED_BALANCE_CANDIDATES_2026-07-17.md))
+are underived. The working capacity `N_Λ = 3π/(Λ·l_P²) ≈ 3.313e122` is a basin
+location under SL-4, an input everywhere it appears. The propagated Planck
+posterior for the comparison lives in
+[planck_posterior/](planck_posterior/PROPAGATION_RECORD.md).
+
 ## What this directory is
 
 - [`F_READBACK_SPEC.md`](F_READBACK_SPEC.md): the formal acceptance specification any

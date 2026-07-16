@@ -107,7 +107,7 @@
             "BRST-complete pole kernels",
             "operational clock"
           ],
-          "explanation": "Tree/chart coordinates within 0.06 to 0.08 percent of measurement with no target input; the residual is the unmodeled pole packet plus the witness-level P root.",
+          "explanation": "Running/tree chart coordinates. No physical residual or pull is defined because the renormalized-vev, tadpole, threshold, matching, uncertainty, and complex-pole map is incomplete.",
           "lane": "strict source-audit branch, zero-selector law",
           "row_class": "conditional_on_P_and_discrete_repair_law_choice",
           "tier": "T2 (T3 once the discrete law selection is a theorem)"
@@ -129,8 +129,8 @@
           "tier": "T2 (T3 once the discrete law selection is a theorem)"
         },
         {
-          "MW_GeV": 80.37700001539531,
-          "MZ_GeV": 91.18797807794321,
+          "MW_chart_GeV": 80.37700001539531,
+          "MZ_chart_GeV": 91.18797807794321,
           "artifact": "runs/calibration/conditional_ew_predictions_current.json",
           "blocking_objects": [
             "same gates as the strict branch plus the declared surface"
@@ -417,7 +417,7 @@
       ]
     }
   ],
-  "generated_utc": "2026-07-13T06:08:51Z",
+  "generated_utc": "2026-07-16T22:37:46Z",
   "global_blocking_objects": {
     "X1_strict_no_target_P_alpha_root": "source-audit branch witness; full endpoint proof requires the hadronic spectral transport, the scheme bridge, and the interval fixed-point proof",
     "X2_operational_clock_chain": [

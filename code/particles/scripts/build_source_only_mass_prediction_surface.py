@@ -186,8 +186,11 @@ def _boson_rows(wzh: dict, ew: dict) -> dict[str, Any]:
                     "stack rather than adding an independent prediction."
                 ),
                 "row_class": ew["row_class"],
-                "MW_GeV": bench["MW_pole_gev"],
-                "MZ_GeV": bench["MZ_pole_gev"],
+                # CL-5 demotion (commit 138c9204): the conditional EW artifact
+                # carries mass-dependent-width Breit-Wigner chart coordinates,
+                # not certified complex poles; the key names track that.
+                "MW_chart_GeV": bench["MW_chart_gev"],
+                "MZ_chart_GeV": bench["MZ_chart_gev"],
                 "artifact": "runs/calibration/conditional_ew_predictions_current.json",
                 "blocking_objects": [
                     "same gates as the strict branch plus the declared surface"
