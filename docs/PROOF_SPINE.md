@@ -60,7 +60,7 @@ that combination is claimed as proof anywhere in the corpus.
 | A7 | Readback form and dynamics | OPEN: premises CP-2 (inversion form; GAP-A3) and CP-3 (averaging carrier, dispensable for the fixed-point location; GAP-A4) |
 | A8 | Conditional capacity theorem: under CP-1 to CP-3, N is forced to π·exp(6π/(P·α_U)), certified 3.5321315434×10¹²² at relative width 1.6×10⁻²⁵ | done as conditional theorem: G2-GAP-1, with its algebraic layer machine-checked in Lean |
 | A9 | Identification with the measured α: source transport and endpoint map | OPEN: the V1 grid was exploratory and not target-blind; it used inconsistent P coordinates, mislabeled the required payload coordinate, and supplied no certified interval (GAP-A1) |
-| A10 | Identification with the measured Λ: the capacity comparison | CONDITIONAL 6.6% CENTRAL-VALUE MISMATCH: not a contradiction or significance test before F and CP-1 to CP-3 close and the joint cosmological posterior is propagated (GAP-A5) |
+| A10 | Identification with the measured Λ: the capacity comparison | CONDITIONAL 6.6% CENTRAL-VALUE MISMATCH: propagated joint posterior places it at 2.4 to 2.5 one-dimensional sigma under the consumed likelihood combination (code/capacity_readback/planck_posterior/); not a contradiction or significance test before F and CP-1 to CP-3 close and the combination is frozen (GAP-A5) |
 
 ## Part B, step by step
 
@@ -112,8 +112,13 @@ Part A gaps:
   one-page lemma from the write/check orientation split, or any declared contraction
   toward balance.
 - **GAP-A5 (CL-3/CL-4).** The 6.6% central-value mismatch between the conditional
-  bridge capacity and the Λ-located value. It becomes evaluable only after F and CP-1
-  to CP-3 close and the joint cosmological posterior is propagated through the same map.
+  bridge capacity and the Λ-located value. The joint cosmological posterior propagated
+  through the map places it at 2.4 to 2.5 one-dimensional sigma under the consumed
+  likelihood combination and 3.8 to 3.9 under Planck+BAO
+  (`code/capacity_readback/planck_posterior/`). It becomes evaluable only after F and
+  CP-1 to CP-3 close and the likelihood combination is frozen; the corrected-balance
+  candidate set for the residual is
+  `code/capacity_readback/CP1_CORRECTED_BALANCE_CANDIDATES_2026-07-17.md`.
 - **GAP-A6 (CL-5, generator G3).** Define the physical W/Z readout and complete its
   renormalized-vev, tadpole, threshold, running-input, finite-order, complex-pole, and
   uncertainty map. The 96-entry menu scanned chart prescriptions against stale
