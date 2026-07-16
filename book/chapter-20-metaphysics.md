@@ -99,10 +99,11 @@ set by the golden ratio. From inside the encoded world the same small
 displacement is the weakest electromagnetic interaction strength available to
 observers.
 
-A calculation that starts purely from the model's own ingredients lands close to
-the measured value without reproducing it exactly. Closing the gap needs the
-contribution of the strongly interacting particles, which is supplied from
-laboratory data rather than derived from within the model. A fully
+The declared fixed-point map has a certified root close to the measured value,
+but it omits the scheme-consistent hadronic transport needed to reach the
+laboratory Thomson coupling. The root is an incomplete-map diagnostic. An
+exercise using laboratory hadron data has target-exposure and coordinate
+problems, so it does not close the map or count as a blind result. A physical
 first-principles version of this number is work in progress.
 
 The philosophical point survives regardless. A famous "free constant" is tied to
@@ -219,8 +220,9 @@ with physics. The deep contact points are clear: overlap consistency as a
 complete sheaf-style gluing condition, quantum structure as the algebraic
 language of consistency, spacetime dimensionality as a selected output,
 dynamics as synchronization pressure, the pixel area as the local ruler
-surface, and the cosmic record-capacity fixed point as the global self-reading
-closure. These are pressure points where metaphysics and
+surface, and the cosmic record-capacity equation as the proposed global
+self-reading closure. Its readback map and three connecting premises are open.
+These are pressure points where metaphysics and
 physics meet.
 
 A sheaf condition is the mathematical version of a simple demand: local

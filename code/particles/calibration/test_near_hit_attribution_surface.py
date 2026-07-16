@@ -30,14 +30,19 @@ def test_surface_is_compare_only(result):
     assert guards["new_axiom_introduced"] is False
 
 
-def test_ew_pole_rows_carry_measured_sigma(result):
-    poles = {r["quantity"]: r for r in result["rows"] if r["quantity"].endswith("_pole_gev") or r["quantity"] in ("mH_gev",)}
-    assert {"MW_pole_gev", "MZ_pole_gev", "mt_pole_gev"} <= set(
+def test_wz_chart_rows_fail_closed(result):
+    assert {"MW_chart_gev", "MZ_chart_gev", "mt_pole_gev"} <= set(
         r["quantity"] for r in result["rows"]
     )
-    for row in poles.values():
-        assert row["measured_sigma"] > 0.0
-        assert abs(row["delta"]) < 10 * row["measured_sigma"]
+    charts = [
+        row for row in result["rows"] if row["quantity"] in {"MW_chart_gev", "MZ_chart_gev"}
+    ]
+    for row in charts:
+        assert row["physical_comparison_status"] == "NOT_EVALUABLE"
+        assert row["physical_delta"] is None
+        assert row["physical_pull"] is None
+        assert "delta_over_sigma" not in row
+        assert row["legacy_reference_experimental_sigma"] > 0.0
 
 
 def test_alpha_rows_present_with_expected_signs(result):
@@ -59,14 +64,15 @@ def test_lepton_rows_are_near_hits(result):
         assert lo < row["measured"] < hi
 
 
-def test_mz_falsification_test_executed(result):
-    mz = next(r for r in result["rows"] if r["quantity"] == "MZ_pole_gev")
-    executed = mz["missing_correction_hypothesis"]["falsification_test_executed"]
+def test_mz_legacy_coordinate_diagnostic_has_no_physical_verdict(result):
+    mz = next(r for r in result["rows"] if r["quantity"] == "MZ_chart_gev")
+    executed = mz["missing_correction_hypothesis"]["legacy_coordinate_diagnostic"]
+    assert executed["physical_comparison_status"] == "NOT_EVALUABLE"
     naive = executed["naive_coupling_injection"]
-    assert naive["verdict"] == "falsified"
+    assert naive["verdict"] == "LEGACY_DIAGNOSTIC_ONLY"
     assert all(delta < -50.0 for delta in naive["delta_mz_mev_over_gap_interval"])
     p_channel = executed["p_channel"]
-    assert p_channel["verdict"] == "confirmed"
+    assert p_channel["verdict"] == "LEGACY_DIAGNOSTIC_ONLY"
     assert abs(p_channel["p_residual_after_correction"]) < 1e-6
     assert abs(p_channel["mz_residual_after_correction_mev"]) < 1.0
 

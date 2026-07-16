@@ -226,9 +226,16 @@ constant, through a scale bridge, locates the overall screen size. Both
 working values are inputs, and the scorecard counts them. The program's claim
 is compression: how much gravity,
 compact-gauge structure, and the minimally admissible particle world those two
-working values, together with the declared architecture, organize. The running test
-of that claim is the closure ledger, a public table of the equations the
-picture requires to hold exactly and how far each one is from holding.
+working values, together with the declared architecture, organize. The audit
+instrument for that claim is the closure ledger, a public table of the equations
+the picture requires to hold exactly and how far each one is from holding.
+
+Neither closure has a completed physical readout. The local map omits the
+scheme-consistent hadronic transport to the Thomson coupling, and the global
+capacity readback map has not been constructed. The evidential ledger therefore
+contains zero landed results that are both discriminating and frozen before
+their target data. Structural results, known-data checks, and hardware
+demonstrations of standard quantum mechanics occupy different categories.
 
 The machinery comes later. Under the hood the book uses the quantum language
 of observables, states, event probabilities, and entropy because a

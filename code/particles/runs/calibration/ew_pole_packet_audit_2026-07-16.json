@@ -1,0 +1,107 @@
+{
+  "artifact": "oph_ew_pole_packet_kill_condition_audit",
+  "date": "2026-07-16",
+  "generated_utc": "2026-07-16T06:59:49Z",
+  "ledger_row": "CL-5",
+  "audited_run": "ew_pole_packet_2026-07-16.json",
+  "audited_run_spec_sha256": "094e986dd52df383c7d8abcadecb68b563c67743ee2cc2d67ab0a8bfc4a9beb0",
+  "audited_verdict": {
+    "primary_cell": "tier=B_pole_fixed_point|mt=mt_pole_stage5|law=zero_selector",
+    "status": "evaluated",
+    "direction": "away_from_measurement",
+    "landing": false,
+    "statement": "toward supports the missing-correction reading of CL-5; away kills the pole-packet branch as declared; the rule was fixed in the spec before computation"
+  },
+  "reference_lineage_1": "A. Denner, Fortschr. Phys. 41 (1993) 307, arXiv:0709.1075 (transcription source; finite-part anchor M_W = 80.23 GeV, sect. 8)",
+  "reference_lineage_2": "F. Jegerlehner, M.Yu. Kalmykov, O. Veretin, Nucl. Phys. B641 (2002) 285, hep-ph/0105304 (independent FJ-scheme one-loop mass counterterms, eqs. (Z_11_h)-(one-loop))",
+  "engine_certification": {
+    "sigma_aa_at_zero": {
+      "value": -0.0,
+      "ok": true
+    },
+    "delta_r_mu_independent": {
+      "delta_r_at_mz": 0.04430080619570577,
+      "delta_r_at_10mz": 0.04430080619570574,
+      "difference": 2.7755575615628914e-17,
+      "ok": true
+    },
+    "veltman_rho_mt2_term": {
+      "got": 0.14193122722700438,
+      "expected": 0.14193122722700466,
+      "ok": true
+    },
+    "denner_mw_anchor": {
+      "mw_solved_resummed_GeV": 80.22884180298944,
+      "mw_solved_linear_GeV": 80.26197838063713,
+      "delta_r_at_solution": 0.04345201285737463,
+      "delta_r_linear": 0.04332448626194353,
+      "mw_quoted_GeV": 80.23,
+      "ok": true
+    },
+    "b0_closed_form_vs_quadrature": {
+      "worst_abs_diff": 3.4657338030541496e-06,
+      "ok": true
+    },
+    "all_ok": true
+  },
+  "jkv_divergence_structure": [
+    {
+      "mH_GeV": 125.1,
+      "slope_W_over_pref": -3.8809121923385757,
+      "slope_Z_over_pref": -2.277560714966991,
+      "jkv_Z_W_11_full": -8.781727728554074,
+      "jkv_Z_Z_11_full": -7.178376251182489,
+      "scheme_difference_W": -4.900815536215498,
+      "scheme_difference_Z": -4.900815536215498,
+      "universality_spread": 0.0,
+      "ok": true
+    },
+    {
+      "mH_GeV": 300.0,
+      "slope_W_over_pref": -3.880912192338603,
+      "slope_Z_over_pref": -2.2775607149669943,
+      "jkv_Z_W_11_full": -15.533372599450857,
+      "jkv_Z_Z_11_full": -13.930021122079271,
+      "scheme_difference_W": -11.652460407112255,
+      "scheme_difference_Z": -11.652460407112276,
+      "universality_spread": 2.1316282072803006e-14,
+      "ok": true
+    },
+    {
+      "mH_GeV": 500.0,
+      "slope_W_over_pref": -3.880912192338573,
+      "slope_Z_over_pref": -2.2775607149669908,
+      "jkv_Z_W_11_full": -33.836490098168746,
+      "jkv_Z_Z_11_full": -32.23313862079716,
+      "scheme_difference_W": -29.95557790583017,
+      "scheme_difference_Z": -29.95557790583017,
+      "universality_spread": 0.0,
+      "ok": true
+    }
+  ],
+  "tadpole_universality": {
+    "required_sigma_over_m2": {
+      "W": -0.0009746229418150509,
+      "Z": -0.0015124685691918494
+    },
+    "computed_sigma_over_m2": {
+      "W": 0.013921009146702615,
+      "Z": 0.024860510515634034
+    },
+    "wz_split_required": -0.0005378456273767984,
+    "wz_split_computed": 0.01093950136893142,
+    "statement": "the tadpole (FJ) alternative shifts Sigma/M^2 by a V-universal amount, so it cannot change the W/Z split; the computed split disagrees with the required split in sign and by more than an order of magnitude, so the adverse verdict is vev-convention independent",
+    "split_sign_disagrees": true,
+    "split_ratio": -20.339481836611707
+  },
+  "checks": {
+    "baseline_reproduction": "enforced fail-closed inside derive_ew_pole_packet.py; the run artifact exists, so the seven baseline checks and three Stage-5 mass checks passed at rtol 1e-9",
+    "engine_certification_all_ok": true,
+    "denner_finite_anchor_mw_GeV": 80.22884180298944,
+    "denner_finite_anchor_ok": true,
+    "jkv_divergence_universality_ok": true,
+    "tadpole_axis_cannot_reverse": true
+  },
+  "audit_pass": true,
+  "conclusion": "the transcription, sign conventions, and scheme mapping are certified by two independent lineages; the adverse verdict of the preregistered run stands, and the one declared-open scheme gate (GATE-PP-01, tadpole convention) is structurally unable to reverse it"
+}

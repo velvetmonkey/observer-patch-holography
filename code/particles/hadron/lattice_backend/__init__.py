@@ -12,6 +12,12 @@ from .core import average_plaquette, cold_start, sweep, wilson_gauge_action
 from .dirac import WilsonClover, cg_normal, point_propagator
 from .hmc import TwoFlavorHMC
 from .spectroscopy import effective_mass, nucleon_correlators, pion_correlator
+from .vector_correlator import (
+    fold_correlator,
+    jackknife_moment,
+    tmr_moment,
+    vector_correlator,
+)
 
 __all__ = [
     "average_plaquette",
@@ -25,4 +31,8 @@ __all__ = [
     "effective_mass",
     "nucleon_correlators",
     "pion_correlator",
+    "vector_correlator",
+    "fold_correlator",
+    "tmr_moment",
+    "jackknife_moment",
 ]

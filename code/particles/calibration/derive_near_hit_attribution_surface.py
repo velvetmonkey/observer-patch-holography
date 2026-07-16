@@ -1,13 +1,10 @@
 #!/usr/bin/env python3
-"""Collect the pipeline's near-hit emissions and attribute each residual.
+"""Audit candidate residual attributions without promoting chart comparisons.
 
-Every row pairs a quantity the current pipeline emits close to its measured
-value with a named hypothesis for the missing correction — why the measured
-value still differs — and a falsification test for that hypothesis.  The
-surface is compare-only: it promotes nothing, adds no axiom, and changes no
-solve path.  Its purpose is to make the residual pattern machine-readable:
-the dominant hypotheses all reduce to the same two open objects, the source
-hadronic spectral transport (#425) and the a0 scheme bridge (#545).
+The surface is compare-only: it promotes nothing, adds no axiom, and changes
+no solve path.  W/Z values are running/tree chart coordinates, not pole
+masses.  Their legacy standardized differences are retained only as arithmetic
+diagnostics and receive a NOT_EVALUABLE physical-comparison status.
 """
 
 from __future__ import annotations
@@ -52,16 +49,23 @@ def _artifact_ref(path: Path) -> str:
         return str(path)
 
 
-def _mz_falsification_test(
+def _chart_value(row: dict[str, Any], chart_key: str, legacy_key: str) -> float:
+    """Read the corrected chart key, accepting a frozen pre-erratum artifact."""
+    if chart_key in row:
+        return float(row[chart_key])
+    return float(row[legacy_key])
+
+
+def _mz_legacy_coordinate_diagnostic(
     conditional: dict[str, Any], endpoint: dict[str, Any]
 ) -> dict[str, Any]:
-    """Executed falsification test for the MZ_pole attribution (2026-07-12).
+    """Reproduce the historical MZ chart arithmetic without a physical verdict.
 
     Branch 1 (naive coupling injection): shift the couplings by the certified
     anchor gap and re-run the closed forward W/Z map.  Branch 2 (P channel):
     move the Thomson endpoint to the measured alpha_inv(0) and propagate the
-    induced pixel shift through dMZ/dP.  Both branches are recomputed live
-    from the on-disk artifacts at build time.
+    induced pixel shift through dMZ/dP.  Neither branch is a falsification test
+    because the chart-to-pole map is incomplete.
     """
 
     from derive_d10_repair_tuple_selection_theorem import (
@@ -83,32 +87,40 @@ def _mz_falsification_test(
         shifted = dict(basis)
         shifted["alphaY_mz"] = 1.0 / (1.0 / basis["alphaY_mz"] + gap)
         wz = forward_wz(shifted, cand["tau2_exact"], cand["delta_n_exact"])
-        injected[name] = (wz["MZ_pole_gev"] - baseline["MZ_pole_gev"]) * 1e3
+        injected[name] = (wz["MZ_chart_gev"] - baseline["MZ_chart_gev"]) * 1e3
 
     a_th = float(endpoint["endpoint"]["alpha_inv_central"])
     p_empirical = float(endpoint["endpoint"]["P_central"])
     codata = float(endpoint["compare_only"]["codata_alpha_inv"])
     p_calibration = float(conditional["inputs"]["P_calibration"])
     p_lo = float(conditional["inputs"]["P_empirical_interval"][0])
-    mz_cal = conditional["rows_at_calibration_P"]["running_tree_value_law"]["MZ_pole_gev"]
-    mz_lo = conditional["rows_at_empirical_P"]["empirical_closure_P_lo"][
+    mz_cal_row = conditional["rows_at_calibration_P"]["running_tree_value_law"]
+    mz_lo_row = conditional["rows_at_empirical_P"]["empirical_closure_P_lo"][
         "running_tree_value_law"
-    ]["MZ_pole_gev"]
+    ]
+    mz_cal = _chart_value(mz_cal_row, "MZ_chart_gev", "MZ_pole_gev")
+    mz_lo = _chart_value(mz_lo_row, "MZ_chart_gev", "MZ_pole_gev")
     dmz_dp = (mz_lo - mz_cal) / (p_lo - p_calibration)
     dp_da = -math.sqrt(math.pi) / a_th**2
     p_corrected = p_empirical + dp_da * (codata - a_th)
 
     return {
         "executed_utc": "2026-07-12",
+        "physical_comparison_status": "NOT_EVALUABLE",
+        "reason": (
+            "the computation propagates internal chart coordinates; no complete "
+            "scheme map identifies them with a measured W/Z pole observable"
+        ),
         "naive_coupling_injection": {
             "scheme": "anchor gap added to alphaY^-1 (hypercharge line)",
             "delta_mz_mev_over_gap_interval": [injected["gap_lo"], injected["gap_hi"]],
             "proportional_scheme_delta_mz_mev": "approximately -230 to -302, and moves MW by a comparable amount",
-            "verdict": "falsified",
+            "verdict": "LEGACY_DIAGNOSTIC_ONLY",
             "reading": (
                 "the one-loop couplings at calibration P already give MZ to +0.4 MeV; "
                 "injecting on-shell hadronic running into them is scheme-inconsistent "
-                "and overshoots the excess by an order of magnitude"
+                "and moves the chart coordinate by the displayed amount; this does "
+                "not establish a physical excess or exclusion"
             ),
         },
         "p_channel": {
@@ -119,46 +131,45 @@ def _mz_falsification_test(
             "p_calibration": p_calibration,
             "p_residual_after_correction": p_corrected - p_calibration,
             "mz_residual_after_correction_mev": (p_corrected - p_calibration) * dmz_dp * 1e3,
-            "verdict": "confirmed",
+            "verdict": "LEGACY_DIAGNOSTIC_ONLY",
             "reading": (
                 "moving the Thomson endpoint to the measured alpha_inv(0) shifts the "
                 "empirical pixel onto the calibration pixel to within 4.2e-07, i.e. "
-                "-0.05 MeV in MZ; the entire MZ excess is the frozen-anchor deficit "
-                "propagating through the endpoint P interval"
+                "-0.05 MeV in the internal MZ chart.  Without the missing physical "
+                "readout map, this does not identify the cause of a measured mass "
+                "residual"
             ),
         },
     }
 
 
-def _ew_pole_rows(
+def _ew_rows(
     conditional: dict[str, Any], endpoint: dict[str, Any]
 ) -> list[dict[str, Any]]:
     comparison = conditional["comparison_compare_only"]
     hypotheses = {
-        "MZ_pole_gev": {
+        "MZ_chart_gev": {
             "mechanism": (
-                "the empirical-closure P interval inherits the frozen-anchor deficit "
-                "through the Thomson endpoint fixed point, and MZ_pole tracks P with "
-                "dMZ/dP of about 123 GeV per unit P; the anchor deficit enters through "
-                "the pixel channel, not through the couplings, whose direct correction "
-                "is falsified below"
+                "no physical missing-correction attribution is licensed.  The value "
+                "is a running/tree chart coordinate and the chart-to-pole map is open"
             ),
             "falsification_test": (
-                "executed 2026-07-12, see falsification_test_executed: the coupling-"
-                "injection branch is falsified; the P-channel branch is confirmed to "
-                "-0.05 MeV"
+                "derive and freeze a common-observable map with vev and tadpole scheme, "
+                "thresholds, finite-order completion, complex-pole conversion, and "
+                "theory uncertainty before evaluating a mass residual"
             ),
-            "falsification_test_executed": _mz_falsification_test(conditional, endpoint),
+            "legacy_coordinate_diagnostic": _mz_legacy_coordinate_diagnostic(
+                conditional, endpoint
+            ),
         },
-        "MW_pole_gev": {
+        "MW_chart_gev": {
             "mechanism": (
-                "at calibration P the color-balanced candidate reproduces MW to "
-                "+0.0 MeV and the running-tree candidate sits +7.8 MeV; the MW "
-                "residual is repair-selection freedom, not a hadronic deficit"
+                "no physical missing-correction attribution is licensed.  The value "
+                "is a running/tree chart coordinate and the chart-to-pole map is open"
             ),
             "falsification_test": (
-                "derive the selection axioms from source (#521); the surviving "
-                "candidate fixes which MW value is the prediction"
+                "derive and freeze the same common-observable map required for the "
+                "MZ chart before evaluating any residual"
             ),
         },
         "mH_gev": {
@@ -184,9 +195,44 @@ def _ew_pole_rows(
     }
     rows = []
     for key, hyp in hypotheses.items():
-        row = comparison[key]
-        rows.append(
-            {
+        legacy_key = key.replace("_chart_", "_pole_")
+        row = comparison.get(key, comparison.get(legacy_key))
+        if row is None:
+            raise KeyError(f"missing conditional comparison row for {key}")
+        if key in {"MW_chart_gev", "MZ_chart_gev"}:
+            legacy_ref = row.get("legacy_reference_coordinate", row.get("measured"))
+            legacy_sigma = row.get(
+                "legacy_reference_experimental_sigma", row.get("measured_sigma")
+            )
+            legacy_delta = row.get(
+                "legacy_experimental_error_only_delta", row.get("delta")
+            )
+            legacy_standardized = row.get(
+                "legacy_experimental_error_only_standardized_difference",
+                row.get("delta_over_sigma"),
+            )
+            rows.append({
+                "quantity": key,
+                "oph_value": row["conditional_central"],
+                "oph_envelope": row["conditional_envelope"],
+                "physical_comparison_status": "NOT_EVALUABLE",
+                "physical_delta": None,
+                "physical_pull": None,
+                "legacy_reference_coordinate": legacy_ref,
+                "legacy_reference_experimental_sigma": legacy_sigma,
+                "legacy_experimental_error_only_delta": legacy_delta,
+                "legacy_experimental_error_only_standardized_difference": (
+                    legacy_standardized
+                ),
+                "row_class": "running_tree_chart_coordinate_compare_only",
+                "missing_correction_hypothesis": {
+                    **hyp,
+                    "reduces_to": "complete W/Z common-observable scheme map",
+                },
+                "artifact_ref": _artifact_ref(CONDITIONAL_EW_JSON),
+            })
+        else:
+            rows.append({
                 "quantity": key,
                 "oph_value": row["conditional_central"],
                 "oph_envelope": row["conditional_envelope"],
@@ -196,16 +242,14 @@ def _ew_pole_rows(
                 "delta": row["delta"],
                 "delta_over_sigma": row["delta_over_sigma"],
                 "inside_one_sigma": row["envelope_inside_one_sigma_band"],
+                "physical_comparison_status": "COMPARE_ONLY",
                 "row_class": "conditional_on_P_and_repair_selection",
                 "missing_correction_hypothesis": {
                     **hyp,
-                    "reduces_to": HADRONIC_REDUCTION + " via the endpoint P channel"
-                    if key == "MZ_pole_gev"
-                    else "selection-axiom source derivation (#521)",
+                    "reduces_to": "selection-axiom source derivation (#521)",
                 },
                 "artifact_ref": _artifact_ref(CONDITIONAL_EW_JSON),
-            }
-        )
+            })
     return rows
 
 
@@ -334,7 +378,7 @@ def build(out_path: Path = DEFAULT_OUT) -> dict[str, Any]:
     kappa_lane = _load_json(KAPPA_LANE_JSON)
 
     rows = (
-        _ew_pole_rows(conditional, endpoint)
+        _ew_rows(conditional, endpoint)
         + _alpha_rows(bridge, endpoint, value_law)
         + _lepton_rows(kappa_lane)
     )
@@ -352,17 +396,15 @@ def build(out_path: Path = DEFAULT_OUT) -> dict[str, Any]:
         "rows": rows,
         "synthesis": {
             "statement": (
-                "One missing object dominates the residual pattern: the "
-                "nonperturbative hadronic vacuum-polarization transport. It appears "
-                "as the anchor deficit at MZ, the Thomson endpoint gap, the on-shell "
-                "value-law gap, the MZ_pole excess (through the endpoint P channel, "
-                "confirmed by the executed falsification test to -0.05 MeV), and the "
-                "charged-lepton kappa interval width. The MW/mH/mt rows reduce to "
-                "the selection-axiom derivation (#521). No row requires a new axiom; every row "
-                "names an already-declared open object."
+                "The displayed residuals do not establish one dominant missing "
+                "physical correction.  W/Z rows are not evaluable until their "
+                "common-observable scheme map exists.  The alpha and lepton rows "
+                "retain their declared hadronic/same-scheme hypotheses, while H/top "
+                "retain their separate selection-axiom dependency."
             ),
             "dominant_reduction": HADRONIC_REDUCTION,
             "secondary_reduction": "selection-axiom source derivation (#521)",
+            "wz_reduction": "complete W/Z common-observable scheme map",
             "coherence_check": (
                 "the standard reference deficit 0.631 sits at the lower edge of the "
                 "certified anchor-gap interval, and the lepton-lane residual at the "

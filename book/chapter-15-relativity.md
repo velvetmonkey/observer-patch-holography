@@ -622,7 +622,8 @@ On the stated scaling branch, this is the semiclassical Einstein equation,
 obtained by combining the thermodynamic argument, geometry readout, the
 null-stress bridge, bounded-interval kernel, and the timelike
 scalar-to-tensor upgrade. The local argument leaves the metric term open; the
-capacity branch fixes it.
+proposed capacity branch would fix it only after its readback map and three
+connecting premises are derived.
 
 The word "branch" is important. Bare finite consensus by itself does not
 contain a metric, a stress tensor, an area law, or an Einstein equation. Those
@@ -734,18 +735,17 @@ radius-squared ratio near $1.05\times10^{122}$ and an entropy capacity near
 $3.31\times10^{122}$.
 
 The "problem" exists only if you compute vacuum energy using QFT and assume
-that calculation is fundamental. OPH fixes the dimensionless global-capacity
+that calculation is fundamental. OPH proposes a dimensionless global-capacity
 relation. The numerical SI value of Lambda also needs the selected scale that
 connects the screen units to laboratory units, rather than a local QFT
 vacuum-energy sum. QFT vacuum fluctuations are emergent phenomena, not
 fundamental contributions to the stress tensor.
 
-The observed small value of Lambda is therefore not a cancellation between
-large local vacuum-energy terms. In OPH it belongs to the global
-capacity-closure branch. The dimensionless closure fixes the de Sitter
-capacity relation; the SI value also depends on the selected scale. The
-fixed-point map must come directly from the finite observer grammar rather than
-from tuning a QFT vacuum-energy sum.
+In the OPH proposal the observed small value of Lambda belongs to the global
+capacity-closure branch rather than to a demonstrated cancellation between large
+local vacuum-energy terms. The measured value and selected scale locate the
+working de Sitter capacity. Deriving it as an output requires a fixed-point map
+from the finite observer grammar and three open connecting premises.
 
 ### Black Hole Information: Screen Encoding and Recoverability
 

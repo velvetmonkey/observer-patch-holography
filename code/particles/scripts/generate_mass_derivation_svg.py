@@ -1221,7 +1221,7 @@ def build_svg(results: Dict[str, Any], exact_by_id: Dict[str, Dict[str, Any]]) -
             "x": MARGIN_X + axiom_w + input_gap + p_w + input_gap,
             "w": other_w,
             "title": "Global Fixed Point: N_CRC",
-            "body": [f"N_CRC = {PUBLIC_CAPACITY_DISPLAY}. Cosmic record-capacity closure fixes the Lambda readout; legacy neutrino side settings remain separate from the rejected weighted-cycle comparison lane. loops = {inputs['loops']}; hadron_profile = {inputs['hadron_profile']}."],
+            "body": [f"N_CRC = {PUBLIC_CAPACITY_DISPLAY} is the conditional EW bridge coordinate. Physical capacity and the Lambda comparison remain open until F and CP-1 to CP-3 close and the joint posterior is propagated. Legacy neutrino side settings remain separate from the rejected weighted-cycle comparison lane. loops = {inputs['loops']}; hadron_profile = {inputs['hadron_profile']}."],
             "fill": COLORS["input_fill"],
             "stroke": COLORS["input_stroke"],
         },
@@ -1254,7 +1254,7 @@ def build_svg(results: Dict[str, Any], exact_by_id: Dict[str, Dict[str, Any]]) -
     scaffold_y = current_y
     scaffold_w = WIDTH - 2 * MARGIN_X
     scaffold_body = [
-        "Start with the OPH axioms plus the two fixed-point closures P and N_CRC; no extra capacity input is introduced.",
+        "Start with the declared P maps and the conditional N_CRC bridge. The physical Thomson map, F, and CP-1 to CP-3 remain open; no unconditional capacity closure is claimed.",
         "Then read each lane from top to bottom: implemented theorem content, named frontier objects, prediction surface, and the particle rows shown on the public table.",
         f"The badge reports {closedish} of {total_rows} tracked rows above continuation / simulation status. The quark count preserves a legacy machine status; the reader-facing lane records the common-scale reciprocal-ray rejection.",
         "The broader geometric-premise boundary sits above the particle lanes. Three cap-pair extraction witnesses are explicit. The open geometric clause concerns a common floor for the finitely many modular-transport marginals, followed by ordered null cut-pair rigidity.",

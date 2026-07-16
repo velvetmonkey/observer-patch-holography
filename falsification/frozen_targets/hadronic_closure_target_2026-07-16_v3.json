@@ -1,0 +1,144 @@
+{
+  "artifact": "oph_hadronic_closure_corrective_target_contract",
+  "id": "hadronic_closure_target_2026-07-16_v3",
+  "corrected_utc_date": "2026-07-16",
+  "registration_status": "corrective_contract_not_yet_externally_timestamped_not_scorable",
+  "frozen_utc": null,
+  "promotion_or_falsification_allowed": false,
+  "supersedes_for_future_evaluation": "hadronic_closure_target_2026-07-14_v2",
+  "historical_v2_sha256": "8dcefe93f124e21295b8e7cd85f2524ab17c65ad003c4fdac6205213d03ac6b2",
+  "historical_record_policy": "The v2 bytes and receipts remain immutable. V2 preserves chronology but its scalar pass rule is algebraically invalid and cannot govern a promotion verdict.",
+  "supersession_reasons": [
+    "V2 compares the emitted total Delta_source coordinate with a residual coordinate.",
+    "V2 assigns one point and one S target to CL-1 and CL-2 even though CL-2 adds alpha_U(P).",
+    "V2 treats the open electroweak and same-scheme remainder as zero inside a purported hadronic-only target.",
+    "A singleton payload evaluated at the incomplete-map P fixed point cannot certify either completed self-consistent map."
+  ],
+  "activation_requirements": {
+    "governs_payloads_started_after": null,
+    "external_timestamp_required": true,
+    "first_eligible_payload_commit_definition_required": true,
+    "canonical_artifact_digest_required": true,
+    "note": "Populate these fields and issue a new immutable version before any future blind payload starts. This corrective file cannot be used retroactively against V1."
+  },
+  "measurement_coordinate": {
+    "A_target_inverse_alpha": "137.035999177",
+    "u_A_inverse_alpha": "2.1e-8",
+    "P_of_A_formula": "P(A)=phi+sqrt(pi)/A",
+    "P_target_point_diagnostic": "1.630968209403959324879279847782648941",
+    "a0_at_P_target_point": "128.307965473286248209961108733006439771",
+    "alpha_U_at_P_target_point": "0.041124336195630482177628528951016484",
+    "Delta_lepton_at_P_target_point": "4.309397866452204027131743897534489402",
+    "Delta_quark_naive_at_P_target_point": "4.934817045643980414036610777175",
+    "Delta_source_implemented_at_P_target_point": "8.686567842708528400985442543022286831"
+  },
+  "coordinate_definitions": {
+    "Delta_source_total": "Delta_lepton + Delta_hadronic + Delta_EW",
+    "Delta_source_residual_vs_implemented": "Delta_source_total_target - Delta_source_implemented",
+    "S_QEW_effective": "(Delta_hadronic + Delta_EW) / Delta_quark_naive",
+    "S_hadronic": "Delta_hadronic / Delta_quark_naive",
+    "type_rule": "A Delta_source_total payload may be compared only with a Delta_source_total target. A residual may be compared only after subtracting the same declared implemented baseline on both sides."
+  },
+  "shared_payload_contract": {
+    "required_object": "A target-blind function or certified interval enclosure Delta_source_total(P), not a scalar at one P.",
+    "required_domain": "The registered P basin traversed by both completed fixed-point solvers.",
+    "required_components": [
+      "Delta_lepton(P)",
+      "Delta_hadronic(P)",
+      "Delta_EW(P)"
+    ],
+    "required_metadata": [
+      "scheme_id",
+      "current_definition_id",
+      "source_family_id",
+      "numerical_error_interval",
+      "theory_error_interval",
+      "derivative_or_lipschitz_bound_over_P_domain"
+    ],
+    "Delta_EW_zero_status": "declared_zero_branch_unproven",
+    "singleton_P_payload_eligible": false,
+    "sampled_grid_extrema_interval_certificate": false
+  },
+  "map_targets": {
+    "CL-1": {
+      "target_id": "CL1_full_thomson_source_map_v3",
+      "closure_rows": [
+        "CL-1"
+      ],
+      "map_formula": "G1(alpha)=1/(a0(P(alpha))+Delta_source_total(P(alpha)))",
+      "point_diagnostics_only": {
+        "Delta_source_total_target": "8.728033703713751790038891266993560229",
+        "Delta_source_residual_vs_implemented": "0.041465861005223389053448723971273398",
+        "S_QEW_effective_target": "0.895400132647658797805800284922791290",
+        "S_hadronic_target": null,
+        "S_hadronic_null_reason": "S_QEW_effective may be called hadronic only after a source theorem and scheme lock prove Delta_EW=0."
+      },
+      "pass_rule": "Solve and interval-certify G1 with the emitted Delta_source_total(P). Pass CL-1 only if the resulting completed-map inverse-alpha interval overlaps the predeclared measurement interval after numerical and theory uncertainties are included."
+    },
+    "CL-2": {
+      "target_id": "CL2_full_thomson_plus_gauge_width_map_v3",
+      "closure_rows": [
+        "CL-2"
+      ],
+      "map_formula": "G2(alpha)=1/(a0(P(alpha))+Delta_source_total(P(alpha))+alpha_U(P(alpha)))",
+      "point_diagnostics_only": {
+        "Delta_source_total_target": "8.686909367518121307861262738042543745",
+        "Delta_source_residual_vs_implemented": "0.000341524809592906875820195020256914",
+        "S_QEW_effective_target": "0.887066624877207326814491046324857810",
+        "S_hadronic_target": null,
+        "S_hadronic_null_reason": "S_QEW_effective may be called hadronic only after a source theorem and scheme lock prove Delta_EW=0."
+      },
+      "pass_rule": "Solve and interval-certify G2 with the emitted Delta_source_total(P). Pass CL-2 only if the resulting completed-map inverse-alpha interval overlaps the predeclared measurement interval after numerical and theory uncertainties are included."
+    }
+  },
+  "cross_map_invariants": {
+    "Delta_source_total_CL1_minus_CL2_equals_alpha_U": true,
+    "S_QEW_CL1_minus_CL2_equals_alpha_U_over_Delta_quark_naive": true,
+    "S_target_separation": "0.008333507770451470991309238597933480",
+    "separation_in_v2_S_half_tolerances_diagnostic": "1944050.018095372085",
+    "CL2_endpoint_if_CL1_point_target_is_reused": "137.077123513195630482177628528951016484",
+    "one_scalar_closes_both_maps": false
+  },
+  "primary_scoring_rule": {
+    "comparison_program_only_reads_target": true,
+    "producer_reads_target_or_CODATA": false,
+    "producer_and_comparator_separate": true,
+    "map_verdicts_independent": true,
+    "missing_scheme_or_error_field_result": "NOT_EVALUABLE",
+    "open_Delta_EW_gate_result": "NOT_EVALUABLE",
+    "point_diagnostics_can_decide_verdict": false,
+    "failure_scope": "A failed, otherwise complete map falsifies only its named registered formulation. Framework-level scope requires every premise and readout gate used by that formulation to be closed before execution."
+  },
+  "blindness_and_provenance_requirements": {
+    "forbidden_producer_inputs": [
+      "this v3 target and successors",
+      "CODATA alpha values",
+      "SL-3 measurement-located P",
+      "falsification verdict files",
+      "target-derived tolerances or branch choices"
+    ],
+    "required_receipts": [
+      "target-free producer dependency DAG and forbidden-input scan",
+      "source commit and tree hash",
+      "generator argv and environment lock",
+      "Python and numeric-library versions",
+      "precision and cutoff settings",
+      "SHA-256 for every executable dependency",
+      "canonical JSON digest",
+      "valid external timestamp preceding the first eligible payload commit"
+    ],
+    "working_tree_hashes_for_audit_only_rehash_at_activation": {
+      "paper_math.py": "bda031185dca55e54f4c6c0c020e9fac2e2ba5db5193998135f294898af620b8",
+      "interval_contraction_certificate.py": "036f428a80c3ecd13f541666a09e4af8eda87578aebd6fb67d2a79b1c79c90eb",
+      "payload_harness.py": "cda18d8932f9c6d8ab4abebf48cf53aad2e0ece1386b2522619ee88c0ccbce85",
+      "run_bracket.py": "d8ccb1e89e5fbb3280c57591586b33455c25ff7268d1b4f641f97c647a7189f6"
+    }
+  },
+  "declared_outcomes": {
+    "CL-1_pass": "Only CL-1 closes for the registered CL-1 map and uncertainty contract.",
+    "CL-1_fail": "Only the complete registered CL-1 formulation is falsified.",
+    "CL-2_pass": "Only CL-2 closes for the registered CL-2 map and uncertainty contract.",
+    "CL-2_fail": "Only the complete registered CL-2 formulation is falsified.",
+    "both_maps": "No scalar shortcut exists. Each completed map receives its own independently certified verdict."
+  }
+}

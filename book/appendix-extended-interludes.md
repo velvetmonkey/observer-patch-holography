@@ -343,8 +343,10 @@ found that distant supernovae were dimmer than expected in a decelerating
 universe. The simplest fit is a positive cosmological constant or dark energy
 component. In de Sitter language, a positive $\Lambda$ gives a horizon radius
 $r_{dS}=\sqrt{3/\Lambda}$ and a finite entropy capacity. For OPH that capacity
-is the observed-branch readout of the cosmic record-closure fixed point selected
-by terminal observer normal forms.
+is a working value located from the measured cosmological constant through the
+selected scale bridge. Identifying it as an output of the cosmic record closure
+requires an unconstructed readback map and three open premises about the
+terminal observer records.
 
 The dark-sector branch is deliberately careful. The modular anomaly idea ties
 residual mismatch in modular-geometric bookkeeping to an effective gravitating

@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Ward-projected hadronic transport payload harness (generator G1).
 
-LABEL (mandatory): development bracket, non-blind environment; the protocol
-pass requires an isolated re-run.
+This module emits source-side quantities only. It contains no comparison
+target, comparison tolerance, or scoring rule. Scoring belongs to the separate
+``score_bracket.py`` process after the emitted artifact has been sealed.
 
 Declared contract implemented here, per
 ``code/P_derivation/THOMSON_TRANSPORT_THEOREMS.md`` and
@@ -26,12 +27,17 @@ Declared contract implemented here, per
   CODATA/NIST value, no measured hadronic data, and no PDG hadron data enter
   any computation in this module.
 
-- Screening coordinate: x = N_c * alpha_3(m_Z;P)/pi. The chain's implemented
+- Screening coordinates: x = N_c * alpha_3(m_Z;P)/pi. The chain's implemented
   screen is S_impl = 1 - x. The declared residual form is
   S = 1 - x + c_Q x^2. This module reports, for every payload,
 
-      S_eff  = Delta_had / Delta_quark_naive_one_loop,
-      c_Q    = (S_eff - (1 - x)) / x^2.
+      S_had  = Delta_had / Delta_quark_naive_one_loop,
+      S_QEW  = (Delta_had + Delta_EW) / Delta_quark_naive_one_loop,
+      c_Q    = (S_QEW - (1 - x)) / x^2.
+
+  These coordinates remain distinct. In the present branch they have the same
+  numerical value only because Delta_EW is set to zero under an explicitly
+  open, unproved branch.
 
 Spectral modules feed the harness through ``emit_delta_source``. A module is
 any object with attributes ``module_id`` (str), ``declared_branch`` (dict),
@@ -65,9 +71,9 @@ P_DERIVATION = HERE.parents[2] / "P_derivation"
 if str(P_DERIVATION) not in sys.path:
     sys.path.insert(0, str(P_DERIVATION))
 
-NON_BLIND_LABEL = (
-    "development bracket, non-blind environment; the protocol pass requires "
-    "an isolated re-run"
+PAYLOAD_SCHEMA_VERSION = 3
+SOURCE_ONLY_LABEL = (
+    "source-only unscored emission; target access prohibited; external scorer required"
 )
 
 # Internal fixed-point root of the implemented Stage-5 chain, mode
@@ -82,7 +88,13 @@ DEFAULT_PRECISION = 40
 DEFAULT_SU2_CUTOFF = 60
 DEFAULT_SU3_CUTOFF = 45
 
-QUARK_CHARGES_SQ = {"u": 4.0 / 9.0, "d": 1.0 / 9.0, "s": 1.0 / 9.0, "c": 4.0 / 9.0, "b": 1.0 / 9.0}
+QUARK_CHARGES_SQ = {
+    "u": 4.0 / 9.0,
+    "d": 1.0 / 9.0,
+    "s": 1.0 / 9.0,
+    "c": 4.0 / 9.0,
+    "b": 1.0 / 9.0,
+}
 QUARK_ORDER = ("u", "d", "s", "c", "b")
 N_C = 3
 
@@ -132,6 +144,7 @@ def _gl_integrate(f: Callable[[float], float], lo: float, hi: float, n: int) -> 
 @dataclass(frozen=True)
 class EvaluationPoint:
     p: str
+    p_provenance: str
     precision: int
     su2_cutoff: int
     su3_cutoff: int
@@ -149,11 +162,7 @@ class EvaluationPoint:
     def to_json(self) -> dict[str, Any]:
         return {
             "p": self.p,
-            "p_provenance": (
-                "internal fixed-point root of the implemented Stage-5 chain "
-                "(mode thomson_structured_running); rebuilt D10 point via "
-                "paper_math.PaperMathContext.build_d10_from_p"
-            ),
+            "p_provenance": self.p_provenance,
             "precision": self.precision,
             "su2_cutoff": self.su2_cutoff,
             "su3_cutoff": self.su3_cutoff,
@@ -170,18 +179,31 @@ class EvaluationPoint:
 
 def build_evaluation_point(
     p_value: str = P_STAR_INTERNAL,
+    p_provenance: str | None = None,
     precision: int = DEFAULT_PRECISION,
     su2_cutoff: int = DEFAULT_SU2_CUTOFF,
     su3_cutoff: int = DEFAULT_SU3_CUTOFF,
 ) -> EvaluationPoint:
     from paper_math import PaperMathContext  # Stage-5 internal chain
 
-    ctx = PaperMathContext(precision=precision, su2_cutoff=su2_cutoff, su3_cutoff=su3_cutoff)
+    if p_provenance is None:
+        if Decimal(p_value) != Decimal(P_STAR_INTERNAL):
+            raise ValueError("a non-default P requires explicit source-side provenance")
+        p_provenance = (
+            "internal fixed-point root of the implemented Stage-5 chain "
+            "(mode thomson_structured_running); rebuilt D10 point via "
+            "paper_math.PaperMathContext.build_d10_from_p"
+        )
+
+    ctx = PaperMathContext(
+        precision=precision, su2_cutoff=su2_cutoff, su3_cutoff=su3_cutoff
+    )
     d10 = ctx.build_d10_from_p(Decimal(p_value))
     quarks = {k: float(v) for k, v in ctx.diagonal_quark_masses(d10.v).items()}
     leptons = {k: float(v) for k, v in ctx.charged_lepton_masses(d10.v).items()}
     return EvaluationPoint(
         p=p_value,
+        p_provenance=p_provenance,
         precision=precision,
         su2_cutoff=su2_cutoff,
         su3_cutoff=su3_cutoff,
@@ -315,7 +337,9 @@ def lepton_transport(ep: EvaluationPoint) -> float:
     return total
 
 
-def quark_naive_transport(ep: EvaluationPoint, masses: dict[str, float] | None = None) -> float:
+def quark_naive_transport(
+    ep: EvaluationPoint, masses: dict[str, float] | None = None
+) -> float:
     masses = masses if masses is not None else ep.quark_masses
     total = 0.0
     for name in QUARK_ORDER:
@@ -374,21 +398,25 @@ def emit_delta_source(
         else:
             raise ValueError(f"unknown segment type: {kind}")
         delta_had += value
-        segment_report.append({"type": kind, "label": seg.get("label", ""), "value": value})
+        segment_report.append(
+            {"type": kind, "label": seg.get("label", ""), "value": value}
+        )
 
     delta_lep = lepton_transport(ep)
     naive = quark_naive_transport(ep)
     x = ep.x_screen
-    s_eff = delta_had / naive
-    c_q_implied = (s_eff - (1.0 - x)) / (x * x)
+    s_hadronic = delta_had / naive
     delta_ew = 0.0
     delta_source_total = delta_lep + delta_had + delta_ew
+    s_qew_effective = (delta_had + delta_ew) / naive
+    c_q_implied = (s_qew_effective - (1.0 - x)) / (x * x)
     quark_screened_impl = implemented_screen(ep) * naive
     r_q_residual = delta_had + delta_ew - quark_screened_impl
 
     payload = {
         "artifact": "oph_ward_projected_payload_harness_delta_source",
-        "label": NON_BLIND_LABEL,
+        "schema_version": PAYLOAD_SCHEMA_VERSION,
+        "label": SOURCE_ONLY_LABEL,
         "source_family_id": "d10_running_tree",
         "current": "U1_Q",
         "scheme": {
@@ -411,15 +439,45 @@ def emit_delta_source(
                 "status": "theorem_4_open_zero_identity_not_established",
             },
         },
-        "delta_source_alpha_inv": delta_source_total,
+        "coordinate_schema": {
+            "delta_source_total_alpha_inv": {
+                "kind": "total",
+                "units": "inverse_alpha",
+                "definition": "delta_lep + delta_had + delta_EW",
+            },
+            "delta_source_residual_vs_implemented_alpha_inv": {
+                "kind": "residual",
+                "units": "inverse_alpha",
+                "definition": (
+                    "delta_source_total - "
+                    "(delta_lep + implemented_screen * delta_quark_naive)"
+                ),
+                "scoring_role": "diagnostic_only",
+            },
+            "s_qew_effective": {
+                "kind": "screening_ratio_qew",
+                "units": "dimensionless",
+                "definition": ("(delta_had + delta_EW) / delta_quark_naive_one_loop"),
+                "scoring_role": "diagnostic_only",
+                "status": "conditional_on_unproven_delta_EW_zero_branch",
+            },
+            "s_hadronic": {
+                "kind": "screening_ratio_hadronic",
+                "units": "dimensionless",
+                "definition": "delta_had / delta_quark_naive_one_loop",
+                "scoring_role": "diagnostic_only",
+            },
+        },
+        "delta_source_total_alpha_inv": delta_source_total,
         "diagnostics": {
             "quark_delta_alpha_inv_naive_one_loop": naive,
             "quark_delta_alpha_inv_screened_impl": quark_screened_impl,
             "implemented_screen_1_minus_x": implemented_screen(ep),
             "x_screen": x,
-            "s_effective": s_eff,
+            "s_qew_effective": s_qew_effective,
+            "s_hadronic": s_hadronic,
             "c_q_implied": c_q_implied,
-            "r_q_residual_vs_implemented_screen": r_q_residual,
+            "delta_source_residual_vs_implemented_alpha_inv": r_q_residual,
             "positivity_ok": positivity_ok,
         },
         "integration": {
@@ -427,7 +485,9 @@ def emit_delta_source(
             "splits_per_decade": splits_per_decade,
             "segments": segment_report,
         },
+        "scoring_status": "unscored_source_emission",
         "promotion_allowed": False,
+        "promotion_reason": "source emission alone carries no comparison verdict",
         "external_inputs_used": False,
     }
     digest_source = dict(payload)

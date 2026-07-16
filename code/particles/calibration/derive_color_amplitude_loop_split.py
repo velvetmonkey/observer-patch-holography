@@ -30,11 +30,11 @@ The factor 1/2 in both is the half-weight current normalization shared by
 the two legs; it cancels in every relative statement and is the one common
 convention.
 
-Confrontation with data (the falsifiable content). The forward map with a
-free charged coefficient c is profiled against the cleanest tree observable
-m_W (no Jacobian core, no running-scheme dependence) and the neutral
-observable m_Z. If the color structure is right, m_W selects c = sqrt(N_c)/2
-and m_Z selects d = N_c/2 with no free parameter.
+Historical chart diagnostic. The forward map with a free charged coefficient
+was profiled against stale W/Z Breit--Wigner coordinates. The emitted values
+are running/tree chart coordinates with no complete map to those references.
+The profile is retained for arithmetic provenance only: it cannot select or
+exclude a physical coefficient.
 
 Status. This module records a retrospective comparison of the color-balanced
 quadratic candidate with the stored W/Z rows and with other constant-c
@@ -72,9 +72,9 @@ from derive_d10_repair_tuple_selection_theorem import (  # noqa: E402
 N_C = 3
 
 # cleanest compare-only reference masses (compare-only; never in a solve path)
-MEASURED = {
-    "MW_pole_gev": (80.3692, 0.0133),
-    "MZ_pole_gev": (91.1876, 0.0021),
+COMPARE_ONLY_REFERENCES = {
+    "MW_chart_gev": (80.3692, 0.0133),
+    "MZ_chart_gev": (91.1876, 0.0021),
     "mH_gev": (125.13, 0.11),
     "mt_pole_gev": (172.1, 0.6),
 }
@@ -87,15 +87,15 @@ def obs(basis: dict, surface: dict, c: float, d: float) -> dict:
     wz = forward_wz(basis, tau2, dn)
     ht = forward_ht(basis, tau2, dn, surface)
     return {
-        "MW_pole_gev": wz["MW_pole_gev"],
-        "MZ_pole_gev": wz["MZ_pole_gev"],
+        "MW_chart_gev": wz["MW_chart_gev"],
+        "MZ_chart_gev": wz["MZ_chart_gev"],
         "mH_gev": ht["mH_gev"],
         "mt_pole_gev": ht["mt_pole_gev"],
     }
 
 
 def profile_min(basis, surface, key, d_fixed, c_grid):
-    ref, sig = MEASURED[key]
+    ref, sig = COMPARE_ONLY_REFERENCES[key]
     best_c, best_chi = None, None
     for c in c_grid:
         val = obs(basis, surface, c, d_fixed)[key]
@@ -115,12 +115,12 @@ def build() -> dict:
     c_grid = [i * 0.0005 for i in range(6001)]     # 0 .. 3
     d_grid = [i * 0.0005 for i in range(6001)]
 
-    mw_best_c, mw_best_chi = profile_min(basis, surface, "MW_pole_gev", d_pred, c_grid)
+    mw_best_c, mw_best_chi = profile_min(basis, surface, "MW_chart_gev", d_pred, c_grid)
     # d-profile on MZ (neutral-sensitive) at c = c_pred
-    ref, sig = MEASURED["MZ_pole_gev"]
+    ref, sig = COMPARE_ONLY_REFERENCES["MZ_chart_gev"]
     mz_best_d, mz_best_chi = None, None
     for d in d_grid:
-        val = obs(basis, surface, c_pred, d)["MZ_pole_gev"]
+        val = obs(basis, surface, c_pred, d)["MZ_chart_gev"]
         chi = ((val - ref) / sig) ** 2
         if mz_best_chi is None or chi < mz_best_chi:
             mz_best_d, mz_best_chi = d, chi
@@ -128,8 +128,10 @@ def build() -> dict:
     # MW+MZ joint 1-sigma band on c (at d = d_pred)
     def chi2_mwmz(c):
         o = obs(basis, surface, c, d_pred)
-        return sum(((o[k] - MEASURED[k][0]) / MEASURED[k][1]) ** 2
-                   for k in ("MW_pole_gev", "MZ_pole_gev"))
+        return sum(
+            ((o[k] - COMPARE_ONLY_REFERENCES[k][0]) / COMPARE_ONLY_REFERENCES[k][1]) ** 2
+            for k in ("MW_chart_gev", "MZ_chart_gev")
+        )
     joint = [(c, chi2_mwmz(c)) for c in c_grid]
     c_star, chi_star = min(joint, key=lambda t: t[1])
     band = [c for c, x in joint if x <= chi_star + 1.0]
@@ -142,19 +144,36 @@ def build() -> dict:
         "leading_constant_proxy c=1/(4 beta)": 1.0 / (4.0 * beta),
     }
     competitor_rows = {
-        name: {"c": c, "inside_MWMZ_1sigma": band_lo <= c <= band_hi}
+        name: {
+            "c": c,
+            "inside_legacy_reference_error_profile": band_lo <= c <= band_hi,
+        }
         for name, c in competitors.items()
     }
 
     pred = obs(basis, surface, c_pred, d_pred)
     comparison = {}
-    for k, (ref_v, sig_v) in MEASURED.items():
-        comparison[k] = {
+    for k, (ref_v, sig_v) in COMPARE_ONLY_REFERENCES.items():
+        row = {
             "predicted": pred[k],
-            "measured": ref_v,
-            "sigma": sig_v,
-            "delta_over_sigma": (pred[k] - ref_v) / sig_v,
+            "reference": ref_v,
+            "reference_experimental_sigma": sig_v,
         }
+        if k in {"MW_chart_gev", "MZ_chart_gev"}:
+            row.update({
+                "physical_comparison_status": "NOT_EVALUABLE",
+                "physical_delta": None,
+                "physical_pull": None,
+                "legacy_experimental_error_only_standardized_difference": (
+                    pred[k] - ref_v
+                ) / sig_v,
+            })
+        else:
+            row.update({
+                "physical_comparison_status": "COMPARE_ONLY",
+                "delta_over_sigma": (pred[k] - ref_v) / sig_v,
+            })
+        comparison[k] = row
 
     return {
         "artifact": "oph_color_amplitude_loop_split",
@@ -166,6 +185,7 @@ def build() -> dict:
             "source_only_theorem_emitted": False,
             "public_promotion_allowed": False,
             "complete_archived_value_law_tested_as_constant_c_competitor": False,
+            "wz_physical_comparison_status": "NOT_EVALUABLE",
         },
         "N_c": N_C,
         "dr_mechanism": {
@@ -189,15 +209,15 @@ def build() -> dict:
             "MZ_best_d": mz_best_d,
             "MZ_best_d_chi2": mz_best_chi,
             "MZ_prediction_d": d_pred,
-            "MWMZ_c_1sigma_band": [band_lo, band_hi],
+            "legacy_MWMZ_reference_error_profile_band": [band_lo, band_hi],
             "competitors": competitor_rows,
         },
         "comparison_compare_only": comparison,
         "verdict": {
-            "loop_symmetric_law": "excluded (outside MW+MZ 1-sigma)",
-            "leading_constant_proxy": "outside the displayed MW+MZ 1-sigma band, but this does not test or exclude the complete archived value law",
+            "loop_symmetric_law": "not physically evaluated; outside only the legacy reference-error profile",
+            "leading_constant_proxy": "outside the legacy reference-error profile; no physical exclusion follows",
             "complete_archived_value_law": "not a constant-c competitor and not excluded by this comparison",
-            "color_amplitude_loop_law": "retrospective conditional candidate close to the stored comparison rows",
+            "color_amplitude_loop_law": "retrospective chart candidate; W/Z physical comparison not evaluable",
             "remaining_rigorous_step": "prove from the explicit collar-transport "
                                        "operators that the charged repair channel "
                                        "factors through a single intertwiner "
@@ -226,7 +246,11 @@ def main() -> int:
     print(f"MW+MZ 1-sigma band on c = [{ds['MWMZ_c_1sigma_band'][0]:.3f}, "
           f"{ds['MWMZ_c_1sigma_band'][1]:.3f}]")
     for name, row in ds["competitors"].items():
-        print(f"  {name:36s} c={row['c']:.4f}  inside_band={row['inside_MWMZ_1sigma']}")
+        print(
+            f"  {name:36s} c={row['c']:.4f}  "
+            "inside_legacy_profile="
+            f"{row['inside_legacy_reference_error_profile']}"
+        )
     print(f"status: {report['verdict']['status']}")
     print(f"wrote {OUT_PATH}")
     return 0

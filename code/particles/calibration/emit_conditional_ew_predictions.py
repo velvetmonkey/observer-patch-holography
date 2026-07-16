@@ -45,12 +45,22 @@ P_CALIBRATION = 1.630968209403959          # public endpoint (hierarchy lane)
 P_EMPIRICAL_INTERVAL = (1.631031463127, 1.631051577591)  # Thomson endpoint artifact
 D_ALPHA_U_D_P = -10.9905                   # hierarchy certificate derivative (midpoint)
 
-MEASURED = {
+COMPARE_ONLY_REFERENCES = {
     "mH_gev": (125.13, 0.11, "PDG 2025"),
     "mt_pole_gev": (172.1, 0.6, "PDG 2025 direct-average context row"),
-    "MW_pole_gev": (80.3692, 0.0133, "PDG 2025 world average"),
-    "MZ_pole_gev": (91.1876, 0.0021, "PDG 2025"),
+    "MW_chart_gev": (
+        80.3692,
+        0.0133,
+        "stale PDG 2025 mass-dependent-width Breit--Wigner coordinate",
+    ),
+    "MZ_chart_gev": (
+        91.1876,
+        0.0021,
+        "stale PDG 2025 mass-dependent-width Breit--Wigner coordinate",
+    ),
 }
+
+WZ_CHART_OBSERVABLES = {"MW_chart_gev", "MZ_chart_gev"}
 
 
 def eta_shift(basis: dict, delta_p: float) -> float:
@@ -64,8 +74,8 @@ def rows_for_basis(basis: dict, surface: dict) -> dict:
         wz = forward_wz(basis, cand["tau2_exact"], cand["delta_n_exact"])
         ht = forward_ht(basis, cand["tau2_exact"], cand["delta_n_exact"], surface)
         out[cand["id"]] = {
-            "MW_pole_gev": wz["MW_pole_gev"],
-            "MZ_pole_gev": wz["MZ_pole_gev"],
+            "MW_chart_gev": wz["MW_chart_gev"],
+            "MZ_chart_gev": wz["MZ_chart_gev"],
             "sin2w_eff": wz["sin2w_eff"],
             "mH_gev": ht["mH_gev"],
             "mt_pole_gev": ht["mt_pole_gev"],
@@ -93,7 +103,7 @@ def build() -> dict:
         p_rows[label] = rows_for_basis(shifted, surface)
 
     # per-observable envelope over selection and P
-    observables = ("mH_gev", "mt_pole_gev", "MW_pole_gev", "MZ_pole_gev")
+    observables = ("mH_gev", "mt_pole_gev", "MW_chart_gev", "MZ_chart_gev")
     envelope, comparison = {}, {}
     for obs in observables:
         values = [base_rows[c][obs] for c in base_rows]
@@ -102,19 +112,52 @@ def build() -> dict:
         lo, hi = min(values), max(values)
         envelope[obs] = [lo, hi]
         central = 0.5 * (lo + hi)
-        ref, sigma, src = MEASURED[obs]
+        ref, sigma, src = COMPARE_ONLY_REFERENCES[obs]
         band_lo, band_hi = ref - sigma, ref + sigma
-        comparison[obs] = {
+        common = {
             "conditional_central": central,
             "conditional_envelope": [lo, hi],
-            "measured": ref,
-            "measured_sigma": sigma,
-            "measured_source": src,
-            "delta": central - ref,
-            "delta_over_sigma": (central - ref) / sigma,
-            "envelope_overlaps_one_sigma_band": not (hi < band_lo or lo > band_hi),
-            "envelope_inside_one_sigma_band": band_lo <= lo and hi <= band_hi,
         }
+        if obs in WZ_CHART_OBSERVABLES:
+            comparison[obs] = {
+                **common,
+                "physical_comparison_status": "NOT_EVALUABLE",
+                "reason": (
+                    "the emitted value is a running/tree chart coordinate; no "
+                    "complete renormalized-vev, tadpole, threshold, finite-order, "
+                    "uncertainty, and complex-pole map places it in the reference "
+                    "coordinate"
+                ),
+                "legacy_reference_coordinate": ref,
+                "legacy_reference_experimental_sigma": sigma,
+                "legacy_reference_source": src,
+                "legacy_experimental_error_only_delta": central - ref,
+                "legacy_experimental_error_only_standardized_difference": (
+                    central - ref
+                ) / sigma,
+                "legacy_envelope_overlaps_reference_one_sigma_band": not (
+                    hi < band_lo or lo > band_hi
+                ),
+                "legacy_envelope_inside_reference_one_sigma_band": (
+                    band_lo <= lo and hi <= band_hi
+                ),
+                "physical_delta": None,
+                "physical_pull": None,
+            }
+        else:
+            comparison[obs] = {
+                **common,
+                "physical_comparison_status": "COMPARE_ONLY",
+                "measured": ref,
+                "measured_sigma": sigma,
+                "measured_source": src,
+                "delta": central - ref,
+                "delta_over_sigma": (central - ref) / sigma,
+                "envelope_overlaps_one_sigma_band": not (
+                    hi < band_lo or lo > band_hi
+                ),
+                "envelope_inside_one_sigma_band": band_lo <= lo and hi <= band_hi,
+            }
 
     return {
         "artifact": "oph_conditional_ew_predictions",
@@ -127,6 +170,7 @@ def build() -> dict:
                 "current_corpus_underdetermination_of_forward_d10_repair_law",
                 "d10.same-scheme-anchor-bridge (issue #545)",
                 "source derivation of the selection axioms (issue #521)",
+                "complete W/Z common-observable scheme map and theory uncertainty",
             ],
         },
         "inputs": {
@@ -152,13 +196,19 @@ def main() -> int:
     with open(OUT_PATH, "w", encoding="utf-8") as f:
         json.dump(report, f, indent=1)
         f.write("\n")
-    print("conditional envelope (selection x P), compare-only deltas:")
+    print("conditional envelope (selection x P):")
     for obs, row in report["comparison_compare_only"].items():
         lo, hi = row["conditional_envelope"]
-        print(f"  {obs:14s} [{lo:.4f}, {hi:.4f}]  measured {row['measured']} "
-              f"+- {row['measured_sigma']}  delta/sigma {row['delta_over_sigma']:+.2f}  "
-              f"overlap_1s={row['envelope_overlaps_one_sigma_band']} "
-              f"inside_1s={row['envelope_inside_one_sigma_band']}")
+        if row["physical_comparison_status"] == "NOT_EVALUABLE":
+            print(
+                f"  {obs:14s} [{lo:.4f}, {hi:.4f}]  "
+                "physical comparison NOT_EVALUABLE"
+            )
+        else:
+            print(f"  {obs:14s} [{lo:.4f}, {hi:.4f}]  measured {row['measured']} "
+                  f"+- {row['measured_sigma']}  delta/sigma {row['delta_over_sigma']:+.2f}  "
+                  f"overlap_1s={row['envelope_overlaps_one_sigma_band']} "
+                  f"inside_1s={row['envelope_inside_one_sigma_band']}")
     print(f"wrote {OUT_PATH}")
     return 0
 

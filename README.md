@@ -7,70 +7,60 @@
 **Quick links:** [OPH website](https://floatingpragma.io/oph/) | [OPH Textbooks](https://learn.floatingpragma.io/) | [Book: Reverse Engineering Reality](https://oph-book.floatingpragma.io/) | [Ω](https://omega.floatingpragma.io/) | [Blog](https://blog.floatingpragma.io/) | [Tech](https://omega.floatingpragma.io/) | [Simulation](https://simulation.floatingpragma.io)
 
 **What this is:** OPH starts from one idea taken seriously: the universe
-contains its own simulation, so it must be consistent with itself all the way
-around the loop. That single demand does an astonishing amount of work. Two
-numbers run the whole machine, a pixel constant P and a record capacity N, and
-nobody gets to choose them. Each is defined as the solution of an equation the
-universe must satisfy to read itself: P solves P = φ + √π/A_T(P), and N solves
-N = F(N), the capacity at which the simulation can represent itself inside
-itself. The solution for P is proven to exist and to be the only one on the
-whole physical domain, by computer-verified interval arithmetic. Feed the two
-numbers into the machinery and out come 3+1 dimensional spacetime, Einstein
-gravity, quantum probability, the Standard Model gauge structure with its
-three colors, three generations, and one Higgs, and numerical values that
-track the measured world to between a tenth of a percent and seven percent.
-Measured values enter only as the tests these forced outputs face. There is
-nothing anywhere to tune. A theory with no dials can never be talked into
-agreement with data. It agrees or it dies.
+contains observer-like self-reading systems, so its public records must remain
+consistent around the loop. Two intended closure coordinates organize the
+construction, a pixel constant P and a record capacity N. P is defined by
+`P = φ + √π/A_T(P)` and N by `N = F(N)`. Interval arithmetic proves one fixed
+point for each of the two declared P maps on their stated domain, but both maps
+omit the Ward-projected hadronic transport needed for a physical Thomson
+readout. The global map F has not been constructed; its candidate fixed point
+is conditional on premises CP-1 to CP-3. The resulting claim stack contains
+conditional routes to 3+1-dimensional kinematics, Einstein gravity, quantum
+probability, and the Standard Model gauge structure. Its numerical rows remain
+chart coordinates or conditional comparisons until their source, physical
+readout, and uncertainty receipts close.
 
-**Why it is unlike any other theory of everything:** The Standard Model plus
-general relativity runs on about 26 unexplained numbers. String theory removed
-the dials and got back a landscape of 10⁵⁰⁰ possible universes with no way to
-pick ours. OPH carries zero dials and admits exactly one universe, and that
-combination changes what evidence means. Every decimal the theory emits is a
-test it can fail. Every executed failure stays on a public ledger with a
-permanent verdict. The decisive computations are frozen as pass/fail targets,
-cryptographically timestamped, before anyone computes the answers. That
-practice comes from experimental science and has no counterpart in the
-theory-of-everything literature. And the mathematics underneath is checked by
-machine: 111 Lean theorems hold sorry-free, from the consensus core to the
-capacity coupling algebra.
+**Why it is unlike many other theory-of-everything programs:** OPH tries to
+replace freely adjusted constants with self-reading closure equations and
+public failure conditions. The declared maps have no continuous fit dials, but
+that fact alone is not evidence: discrete selections, borrowed basin locations,
+map completeness, and physical-identification gates are counted explicitly.
+Executed branch failures stay on a public ledger. Future empirical promotion
+requires a frozen, discriminating prediction evaluated on data unavailable at
+freeze time. The formalized subset includes 111 sorry-free Lean theorems, from
+the consensus core to the conditional capacity-coupling algebra.
 
-**What it already delivers:** With nothing to tune, the forced chain
-reproduces the fine structure constant to 3 parts in 10,000, the W and Z
-masses to 5 and 8 parts in 10,000, the electroweak hierarchy relation to 2
-parts in 10,000, the record capacity behind the cosmological constant to 7
-percent, and the strong scale to about 1 percent. The hard problems come out
-structural instead of mysterious: quantum measurement is the record algebra of
-observer consensus, the cosmological constant is a finite memory readout with
-no 10¹²⁰ fine-tuning anywhere in the theory, the electroweak hierarchy is a
-one-line transmutation law with no supersymmetric machinery, the dark sector
-is repair bookkeeping, and time is the order of records with no external clock
-to postulate. How likely is all of that by accident? Priced under assumptions
-twisted in favor of luck at every fork: one in thirty thousand. Priced at face
-value: one in 140 million. The full analysis, every assumption printed, is in
-the [compact proof](extra/compact_proof_of_oph.pdf).
+**What it already delivers:** The strongest closed results are structural and
+conditional theorems about observer-overlap repair, record algebras, Lorentz
+kinematics, gravity, and the Standard Model quotient. The two incomplete alpha
+maps land at `136.994835...` and `137.035660...` against the measured inverse
+fine-structure constant `137.035999177(21)`; these are map-level diagnostics,
+not physical predictions until hadronic transport closes. The strict W/Z lane
+emits running/tree chart coordinates `(80.330, 91.119) GeV`, but no complete
+renormalized-vev, tadpole, threshold, matching, and complex-pole map exists, so
+no mass accuracy or pull is claimed. The conditional electroweak capacity is
+about 6.6 percent above the Planck-Lambda central-value capacity, with F,
+CP-1 to CP-3, and posterior propagation open. The previous coincidence prices
+have been withdrawn because they were not likelihoods from a defined reference
+model.
 
-**Where the proof stands:** The claim splits into two theorems. Part A: a
-self-simulating universe admits exactly one (P, N), and those values are the
-fine-structure and capacity readouts of the world inside it. The uniqueness
-half is proven for P; for N the coupling theorem is proven modulo three
-declared premises, with its algebra machine-checked and its conditional fixed
-point certified at 3.53×10¹²²; the identification half is the closure ledger,
-with the α window armed and the capacity comparison standing at 6.6 percent.
-Part B: given (P, N), the observed universe follows. The structural skeleton
-is theorem-grade on the declared branches and the quantitative record stands
-between exact and 7 percent. What remains, in total: one counting theorem, one
-hadronic computation whose pass/fail line is already frozen at a width of 2.1
-parts in 10⁸ (the first-principles bracket already contains the required
-value; reaching the window needs precision beyond every current method), and
-one electroweak repair whose one-loop menu is exhausted. The theory cannot be
-adjusted while it waits. The step-by-step spine with the complete open-gap
-register is [PROOF_SPINE.md](docs/PROOF_SPINE.md).
+**Where the proof stands:** The P certificates establish uniqueness only for
+the two incomplete declared maps. The N coupling theorem is conditional on
+three premises, and F remains unconstructed. The 2026-07-16 hadronic grid is an
+exploratory variant envelope: it contains the target S value but embeds target
+numbers, uses a different pixel, and is about 1.17×10⁸ pass-window widths wide.
+The W/Z physical readout is undefined. The empirical record contains zero
+landed, discriminating, frozen-prospective OPH hits. The open program therefore
+contains several named constructions, a clean target-isolated hadronic run, a
+complete electroweak readout, capacity posterior propagation, and a genuinely
+prospective empirical landing. The step-by-step spine is
+[PROOF_SPINE.md](docs/PROOF_SPINE.md).
 
-**Falsifiability:** The [OPH falsifiability map](docs/OPH_falsifiability.md)
-is the public kill-list: failure conditions grouped by domain, a
-risky-prediction status table, and sharp numerical tests, including
+**Falsification program:** OPH runs a standing falsification program,
+recorded in [OPH_FALSIFICATION_PROGRAM.md](docs/OPH_FALSIFICATION_PROGRAM.md):
+33 kill conditions grouped by domain, cryptographically frozen blind targets
+with external timestamps, a preregistration queue, and a dated verdict. It
+is the public kill-list: failure conditions include
 gauge-mediated proton decay, a fourth light generation, and a charge-lattice
 outlier. Executed tests stay on that surface with their verdicts, permanently
 ([STRANGE_LOOP_PRINCIPLES.md](docs/STRANGE_LOOP_PRINCIPLES.md) rule 7). The
@@ -348,9 +338,9 @@ stated chart, and the strict ledger keeps every such row non-promotable.
 | Gravitational constant | G | unit-bookkeeping identity on the SL-5 scale bridge: the caesium clock rule carries $G_{\mathrm{geom}}=\ell_\star^2$ to the SI display through $G_{\mathrm{SI}}=c^3\ell_\star^2/\hbar$; G is an input | 6.67430(15)e-11 | bridge input, not a prediction; no sigma applies |
 | Speed of light | c | structural Lorentz speed of the recovered spacetime branch; the SI number is a unit convention | 299792458 exact by definition | not a numeric prediction |
 | Fine-structure (inv) | $\alpha^{-1}$ | source-only forward map contracts to 136.994835177413, the interval-certified unique fixed point of the declared map (`code/P_derivation/runtime/p_interval_contraction_certificate_2026-07-14.json`; the earlier printed tail 136.994835164622 was an unconverged run, superseded beyond digit 9, ledger row CL-6). The residual to the SL-3 basin is the open hadronic transport term, closure row CL-1 in [CLOSURE_LEDGER.md](docs/CLOSURE_LEDGER.md) (3.0e-4 relative, about 2e6 measurement sigma). The self-consistent gauge-width map has certified fixed point 137.035660136946577: row CL-2, 2.5e-6 relative, the same missing term; the historically displayed 137.03595950081728 is a mixed-provenance display packet, not a fixed point of any single declared map. The empirical hadron-closure endpoint 136.26365894312011 on [136.15838328342668, 136.36909752396569] uses measured $e^+e^-\to$ hadrons data | 137.035999177(21): the SL-3 test value that locates the working P, on no output list | closure rows, not predictions. The strict source branch needs the Ward-projected transport, blind, against the frozen target in `falsification/frozen_targets/`; the empirical endpoint leaves the same-scheme anchor gap [0.648554111145163, 0.854792066592563] |
-| Record capacity | N | 3.53×10¹²² from the electroweak bridge at the certified pixel; the coupling theorem G2-GAP-1 forces the capacity readback to this value modulo three declared premises, conditional fixed point certified to relative width 1.6×10⁻²⁵ | 3.31×10¹²² located from measured Λ | 6.6% gap, closure row CL-3; this becomes the live capacity test the moment the coupling premises discharge |
+| Record capacity | N | 3.53×10¹²² from the electroweak bridge at the certified pixel; the coupling theorem G2-GAP-1 forces the capacity readback to this value modulo three declared premises, conditional fixed point certified to relative width 1.6×10⁻²⁵ | 3.31×10¹²² located from measured Λ | 6.6% central-value gap, closure row CL-3; this is not a contradiction or a significance test until the coupling premises hold and the joint cosmological posterior is propagated through the same map |
 | Scalar tilt | $n_s$ | 0.9660215 on the conditional analytic screen branch ($1-P_\star/48$); formula selection counted in the scorecard (2 candidates) | 0.9649(42) (Planck) | +0.27σ; retrospective comparison, not a frozen prediction |
-| Massive electroweak and Higgs sector (W, Z, Higgs, top) | $W,Z,H,t$ | conditional derivation from the pixel-fixed couplings with no measured mass entering. Strict source-audit branch (zero-selector law) $(m_W,m_Z)=(80.330,\,91.119)$ GeV; the criticality law fixes the top Yukawa from the gauge sector (a determined electroweak-sector quantity, not a free flavor parameter), giving $m_t=172.63$ GeV ($+0.02\%$) with the Higgs companion $m_H=125.77$ GeV at the frozen boundary-scale candidate $E_\star e^{-\pi}P^{-1/6}$; declared-surface fit $(125.20,\,172.35)$ GeV kept separate; no source-only physical mass emitted | $m_W=80.3692(133)$, $m_Z=91.1880(20)$, $m_H=125.13(11)$, $m_t=172.60(30)$ GeV | the strict source-audit $W/Z$ branch is an exact implication of five finite quotient-transport premises whose carrier certificate and discrete two-law selection principle are unemitted; the Higgs/top pair is a zero-continuous-parameter criticality family whose boundary-scale selection is a theorem modulo two finite carrier facts CF1/CF2 (the log-midpoint variational principle is proved and its quadratic-cost and placement premises reduce to the axioms; CF1/CF2 are the same D11 carrier census the $W/Z$ law needs, and the three-loop implied scale is the registered discriminating test); the declared-surface fit is target-anchored and never predicts; the physical scale, scheme, provenance, uncertainty, and complex-pole gates are open |
+| Massive electroweak and Higgs sector (W, Z, Higgs, top) | $W,Z,H,t$ | the strict source-audit chart emits $(80.330,\,91.119)$ GeV. It does not specify the renormalized vev, tadpole prescription, threshold matching, running-input policy, finite two-loop completion, or complex-pole conversion, so these coordinates are not physical $W/Z$ mass predictions. The Higgs/top criticality family gives $(125.77,\,172.63)$ GeV at a frozen boundary-scale candidate, while the declared-surface fit $(125.20,\,172.35)$ GeV is target-anchored; no source-only physical mass is emitted | PDG values are comparison data only; the old $(80.3692,\,91.1880)$ pair was a mass-dependent-width Breit--Wigner convention, not a measured complex-pole pair | no $W/Z$ residual or pull is meaningful before a complete, scheme-declared map and theory uncertainty exist. The July 2026 pole packets are prescription diagnostics: their one-loop outputs vary by about 1.85 GeV for W and 1.72 GeV for Z over the declared scale scan, and the advertised two-loop packet is an MSSM-one-loop plus SM-two-loop hybrid rather than a complete OPH calculation |
 | Charged leptons (electron, muon, tau) | $e,\mu,\tau$ | no source-only physical mass emitted. The declared MCPR response architecture emits the conditional triple $(m_e,m_\mu,m_\tau)=(0.51096,\,105.649,\,1776.78)$ MeV at a coherent $-84$ ppm offset with zero runtime charged reference; the icosahedral face-corner carrier fixes the family structure | $0.5109989$, $105.6584$, $1776.93$ MeV | the MCPR triple is a declared model-input architecture, not a source-only prediction; the source-only completion is the open A5/W5 orbit program |
 | Light-quark spectrum (up, down, strange, charm, bottom) | $u,d,s,c,b$ | no nonzero source-only physical mass emitted: the source equations produce two ordered Yukawa profile rays but leave their spreads free. The top is not in this sector; its Yukawa is fixed by the Higgs criticality law (see the electroweak/Higgs row) | common-scale Yukawa data used only for audit | the five light-quark source equations leave a proven two-modulus non-identifiability; a source-derived flavor-orbit selector is the missing object. This is a proven non-entailment, not an arithmetic gap |
 | Strong-coupling scale | $\Lambda_{\mathrm{QCD}}^{(3)}$ | 0.3348 GeV [0.319, 0.350]: dimensional transmutation of the source strong coupling, no hadronic input anywhere | 0.338(12) GeV (published) | central value within ~1% of the published value and inside its uncertainty; conditional on declared threshold inputs (bracket-swept); this is the perturbative half of every light-hadron mass |
@@ -375,7 +365,7 @@ papers that carry the core theorem surface.
 
 - **Paper 2. [Recovering Relativity and the Standard Model from Observer Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)**: compact technical core for the recovered OPH branch. It states the observer-overlap route to Lorentz structure, the Einstein-like gravity branch on the five-axiom recovered core, the formal algebra core that upgrades rest-frame data to the tensor equation and fixes the metric residue to one $\Lambda$ on connected conserved branches, receipt-conditional compact-gauge reconstruction, the selected Standard Model quotient and matter package with a formal hypercharge and $Z_6$ algebra core, the Borel-Weil local carrier for the one-Higgs slot, Maxwell after an independently supplied electromagnetic action, the separate classical-carrier/quantum-particle gate, and the conditional Yang-Mills mass-gap route under its continuum, reflection-positivity, transfer/intertwiner, and nontriviality assumptions.
 - **Paper 1. [Observers Are All You Need](paper/observers_are_all_you_need.pdf)**: broad synthesis and best first read for the full program. It explains finite observer patches, overlap consistency, records, repair moves, the recovered effective universe, the scale story, and the public claim boundaries without replacing the compact paper's theorem ledger.
-- **Paper 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)**: particle-sector derivation and audit surface. It carries the $P_\star$-driven reconstruction, conditional action-level carrier modes with open quantum-particle gates, the Borel-Weil one-Higgs carrier bridge, electroweak/Higgs/top, quark, charged-lepton, neutrino, and hadron lanes, quantitative checks, and conditional record-worldline stitching. The electroweak headline is the strict source-audit $W/Z$ branch $(80.330,\,91.119)$ GeV and the double-criticality Higgs/top family $(125.77,\,172.63)$ GeV at the frozen boundary-scale candidate; its audit ledger keeps the selected-carrier chart, conditional five-premise value law, and target-anchored declared-surface fit separate, and none supplies a physical complex-pole theorem. The fine-structure audit distinguishes the source/root witness, mixed-provenance no-hadron diagnostic, empirical $e^+e^-\to$ hadrons endpoint, and measured endpoint. The generic quark interface has six common-scale dimensionless Yukawa coordinates, and the reciprocal-ray candidate fails its exact identity at every tested scale. Historic mixed-convention residuals and the completed simulator runs are diagnostics; the simulator measures no quark/Higgs operator, while direct-carrier assays remain Haar-rank-one and miss the required transport shapes. The charged-lepton lane records the exact icosahedral face-corner carrier theorem, the conditional CFQ weight theorem, an engineered finite digital self-reading patch, and a conditional nature/pole transport theorem. The latter assumes the physical Yukawa response and singularity readout it transports; its zero-self-energy kernel does not supply the interacting charged kernel. Physical charged-sector selection, target-free ancestry, cofinal physical refinement, and infrared-complete pole attachment remain open. The isotropic neutrino ansatz is excluded, and the weighted-cycle comparison candidate fails the NuFIT 6.1 correlated profile. No nonzero source-only physical particle mass, physical neutrino mixing matrix, or absolute neutrino mass row is emitted.
+- **Paper 3. [Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)**: particle-sector derivation and audit surface. It carries the $P_\star$-driven reconstruction, conditional action-level carrier modes with open quantum-particle gates, the Borel-Weil one-Higgs carrier bridge, electroweak/Higgs/top, quark, charged-lepton, neutrino, and hadron lanes, quantitative checks, and conditional record-worldline stitching. The electroweak chart reports $(80.330,\,91.119)$ GeV, but its map to physical complex poles is incomplete, so the coordinates carry no mass residual or pull. The double-criticality Higgs/top family reports $(125.77,\,172.63)$ GeV at a frozen boundary-scale candidate. Its audit ledger keeps the selected-carrier chart, conditional five-premise value law, and target-anchored declared-surface fit separate; none supplies a physical complex-pole theorem. The fine-structure audit distinguishes the source/root witness, mixed-provenance no-hadron diagnostic, empirical $e^+e^-\to$ hadrons endpoint, and measured endpoint. The generic quark interface has six common-scale dimensionless Yukawa coordinates, and the reciprocal-ray candidate fails its exact identity at every tested scale. Historic mixed-convention residuals and the completed simulator runs are diagnostics; the simulator measures no quark/Higgs operator, while direct-carrier assays remain Haar-rank-one and miss the required transport shapes. The charged-lepton lane records the exact icosahedral face-corner carrier theorem, the conditional CFQ weight theorem, an engineered finite digital self-reading patch, and a conditional nature/pole transport theorem. The latter assumes the physical Yukawa response and singularity readout it transports; its zero-self-energy kernel does not supply the interacting charged kernel. Physical charged-sector selection, target-free ancestry, cofinal physical refinement, and infrared-complete pole attachment remain open. The isotropic neutrino ansatz is excluded, and the weighted-cycle comparison candidate fails the NuFIT 6.1 correlated profile. No nonzero source-only physical particle mass, physical neutrino mixing matrix, or absolute neutrino mass row is emitted.
 - **Paper 4. [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf)**: finite patch-net consensus mechanics. It proves how local observers compare overlap records, apply repair moves, handle defects, and converge to quotient normal forms when the fixed-cutoff assumptions hold. The consensus result stops at quotient normal forms; Lorentzian and Einstein geometry enter through the separate geometric branch in the compact paper. The repair operator is stated on the physical quotient, repaired readouts are invariant under hidden implementation choices, a finite layered carrier witnesses boundary reconstruction, and a finite binary audit fixture gives sharp positive/negative repair and boundary-reconstruction tests. The neutral mathematical companion proves the generic cross-source criterion, but same-boundary physical uniqueness requires the declared boundary map to identify the consistent quotient; same-source confluence and liveness are separate obligations.
 - **Paper 5. [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf)**: finite carrier and observer-record surface. It gives the echosahedral multi-port patch-carrier architecture, twelve-port screen-sieve theorem, the $A_5/C_3$ face-corner bundle with its explicit physical-carrier boundary, and the engineered fixed-cutoff CFQ central-record model with its dynamical-selection boundary, alongside edge-center scalar-slot completeness, the finite scalar channel bridge, the quotient-edge $Z_6$ reserve, public hardware-evidence rules, records, recovery moves, checkpoint restoration, and observer synchronization.
 - **Paper 6. [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf)**: speculative meaning-layer synthesis outside the recovered physics theorem package. It reads the same OPH machinery as a theory of observer continuation, paradise and hell as continuation environments, resurrection as record-preserving continuation, justice as harm-and-repair bookkeeping, and a strange loop in which observers reverse engineer and build continuation machinery.
@@ -386,8 +376,8 @@ These support or test the core stack. The most important items get more detail;
 lower-level notes are linked with shorter summaries.
 
 - **[Observation-Determined Normal Forms](extra/observable_normal_forms.pdf)**: standalone, substrate-neutral mathematics for constraint and rewrite systems. It separates same-source confluence, cross-source identification from protected observations, normalization and liveness, and local repairability. It adds residual and inverse-observation stability moduli, refinement and inverse-limit bounds, the finite weighted conditional-expectation projector with a noncircular matrix receipt, and a dedicated Lean artifact for the formalized theorem subset.
-- **[Observer Patch Holography as a Strange-Loop Self-Simulation: The Claim Lattice and Its Closure Status](extra/compact_proof_of_oph.pdf)**: the compact argument for OPH. It states the strange-loop principles once, walks the recovered-physics theorem legs, presents every number row with its closure status and pull, and names the artifacts that would establish the hypothesis: uniqueness certificates, a closure ledger at zero under blind completions, and a positive compression scorecard.
-- **[OPH Falsifiability Map](docs/OPH_falsifiability.md)**: public kill-list for OPH. It names hard failure modes, including failure of a fully specified classical carrier receipt or of a separately completed quantum pole receipt, gauge-mediated proton decay, extra light matter generations, charge-lattice outliers, and the already-excluded universal Solar-System extension of the static dark-response equation. A neutrino or cosmology result can falsify an OPH claim only when it excludes a prediction fixed independently of the test data.
+- **[Observer Patch Holography as a Strange-Loop Self-Simulation: The Claim Lattice and Its Closure Status](extra/compact_proof_of_oph.pdf)**: the compact argument for OPH. It states the strange-loop principles once, walks the recovered-physics theorem legs, and presents each number row with its closure status. It reports a pull only when the theoretical and measurement coordinates are commensurate and the required uncertainty model exists. It also names the artifacts that would establish the hypothesis: uniqueness certificates, a closure ledger at zero under blind completions, and a positive compression scorecard.
+- **[OPH Falsification Program](docs/OPH_FALSIFICATION_PROGRAM.md)**: public kill-list for OPH. It names hard failure modes, including failure of a fully specified classical carrier receipt or of a separately completed quantum pole receipt, gauge-mediated proton decay, extra light matter generations, charge-lattice outliers, and the already-excluded universal Solar-System extension of the static dark-response equation. A neutrino or cosmology result can falsify an OPH claim only when it excludes a prediction fixed independently of the test data.
 - **[The Fine-Structure Constant as an OPH Pixel Fixed Point](extra/fine_structure_constant_derivation.pdf)**: source fixed-point calculation for the fine-structure row. It separates the OPH source value, the low-energy empirical endpoint boundary, the provenance distinction between the source root and the CODATA comparison pixel, and the remaining QCD/hadronic correction.
 - **[Explaining the Yang-Mills Mass Gap with Observer-Patch Repair Dynamics](extra/yang_mills_gap_clay_problem.pdf)**: finite OPH repair-gap mechanism. The Clay-facing statement is a conditional identity: the repair gap equals the four-dimensional Yang-Mills mass gap only if the declared multiresolution continuum, reflection-positivity, transfer/intertwiner, and nontriviality certificates hold, and none of those certificates is supplied.
 - **[Observer-Patch Holography as a String-Vacuum Selector](extra/observer_patch_holography_as_string_vacuum_selector.pdf)**: string theory as an effective OPH edge language and vacuum-selection sieve. The Bouchard–Donagi result supplies a visible massless-cohomology candidate; certificates not emitted here include the critical edge, raw cohomology reproduction, safety-layer realization, heavy spectrum, low-energy decoupling, thresholds, and moduli locking.

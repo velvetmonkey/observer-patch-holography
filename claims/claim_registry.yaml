@@ -420,28 +420,30 @@
     },
     {
       "claim_id": "OPH-GR-D6-CAPACITY",
-      "statement": "The local Einstein branch closes globally at the cosmic record-capacity fixed point, giving the dimensionless cosmological relation on the observed de Sitter branch.",
+      "statement": "Conditional on a constructed readback map F, premises CP-1 to CP-3, and the observed-branch capacity identification, the local Einstein branch gives the dimensionless cosmological relation at the record-capacity fixed point.",
       "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
-      "tier": "global_fixed_point_closure",
+      "tier": "conditional_global_fixed_point_closure",
       "assumptions": [
         "Einstein_branch_D5",
         "cosmic_record_capacity_map",
         "unique_stable_capacity_fixed_point",
-        "selected_scale_certificate_for_SI_display"
+        "selected_scale_certificate_for_SI_display",
+        "capacity_coupling_premises_CP1_to_CP3",
+        "joint_cosmological_posterior_propagation_for_comparison"
       ],
       "imported_results": [
         "Gibbons_Hawking_de_Sitter_entropy",
         "standard_static_patch_relations"
       ],
-      "oph_specific_delta": "The capacity is selected by readback closure rather than by a local vacuum-energy estimate.",
-      "novelty_type": "quantitative_closure",
+      "oph_specific_delta": "The conditional capacity candidate is selected by the declared readback closure rather than by a local vacuum-energy estimate.",
+      "novelty_type": "conditional_quantitative_closure",
       "evidence": [
         "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
         "extra/compact_proof_of_oph.tex"
       ],
-      "falsifier": "The readback map has no unique stable fixed point, has multiple admissible fixed points, or the observed branch violates the capacity relation.",
+      "falsifier": "After F and CP-1 to CP-3 close and the joint posterior is propagated, the readback map has no unique stable fixed point, has multiple admissible fixed points, or the observed branch violates the capacity relation.",
       "scope_if_false": "The cosmological-capacity closure falls; the local Einstein branch may survive with an undetermined cosmological term.",
-      "status": "proved_on_branch"
+      "status": "conditional_theorem_physical_capacity_open"
     },
     {
       "claim_id": "OPH-GAUGE-D7-D9",
@@ -473,9 +475,9 @@
     },
     {
       "claim_id": "OPH-Q-PN-CLOSURE",
-      "statement": "The quantitative surface uses two dimensionless fixed-point closure coordinates, the local pixel P_star and the global capacity N_CRC, plus a selected no-G scale certificate.",
+      "statement": "The quantitative surface declares two dimensionless closure coordinates. Each existing P map has an arithmetic fixed-point certificate but lacks the complete physical Thomson map; N_CRC is conditional on F and CP-1 to CP-3.",
       "owner_paper": "extra/compact_proof_of_oph.tex",
-      "tier": "quantitative_closure",
+      "tier": "conditional_quantitative_closure_program",
       "assumptions": [
         "declared_pixel_map",
         "declared_capacity_map",
@@ -494,23 +496,24 @@
       ],
       "falsifier": "The fixed-point maps are nonunique, target-leaking, branch-switching after result exposure, or incompatible with held-out measurements.",
       "scope_if_false": "The quantitative prediction lane falls; structural recovered-core claims survive only if they do not import the failed quantitative coordinate.",
-      "status": "proved_on_branch"
+      "status": "declared_maps_with_physical_closure_open"
     },
     {
       "claim_id": "OPH-HIER-EW",
-      "statement": "On the selected exact electroweak bridge branch, the local/global capacity resonance emits the weak scale and gives Higgs naturality defect zero.",
+      "statement": "On the selected electroweak bridge branch and conditional on CP-1 to CP-3, the internal local/global capacity identity emits a hierarchy coordinate and gives Higgs naturality defect zero; it does not establish the physical cosmic capacity.",
       "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
-      "tier": "quantitative_branch_theorem",
+      "tier": "conditional_quantitative_branch_theorem",
       "assumptions": [
         "selected_public_endpoint_branch",
         "R_EW_capacity_certificate",
         "m_rep_24_certificate",
-        "source_endpoint_separation"
+        "source_endpoint_separation",
+        "capacity_coupling_premises_CP1_to_CP3"
       ],
       "imported_results": [
         "standard_electroweak_display_conventions"
       ],
-      "oph_specific_delta": "The hierarchy exponent is supplied by the 24-slot oriented repair register and the exact capacity bridge rather than by a fitted weak-scale input.",
+      "oph_specific_delta": "The hierarchy exponent is supplied by the 24-slot oriented repair register and the conditional capacity bridge rather than by a fitted weak-scale input.",
       "novelty_type": "quantitative_derivation",
       "evidence": [
         "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
@@ -518,7 +521,7 @@
       ],
       "falsifier": "The capacity bridge residual cannot be certified, the 24-slot register proof fails, or the hidden target enters upstream.",
       "scope_if_false": "The hierarchy solution falls; the recovered gauge quotient and cosmological capacity branch are separate unless they import the failed bridge.",
-      "status": "proved_on_branch"
+      "status": "conditional_on_capacity_coupling_premises"
     },
     {
       "claim_id": "OPH-ALPHA-PIXEL",

@@ -12,8 +12,8 @@
     },
     "compact_proof_of_oph": {
       "pdf_path": "extra/compact_proof_of_oph.pdf",
-      "sha256": "9b3d294f63fc9d334e7a39a332445d88467a2bbf402a250342b750b5ac312d0a",
-      "size_bytes": 366518
+      "sha256": "4b8019d4f2b291aff25d598ef82206daf99c5fef9c71024a90d69651c2d45b67",
+      "size_bytes": 357866
     },
     "fine_structure_constant_derivation": {
       "pdf_path": "extra/fine_structure_constant_derivation.pdf",
@@ -51,7 +51,7 @@
       "size_bytes": 149727
     }
   },
-  "generated_at": "2026-07-15T10:40:27.564374Z",
+  "generated_at": "2026-07-16T07:13:05.321790Z",
   "papers": {
     "deriving_the_particle_zoo_from_observer_consistency": {
       "pdf_path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",

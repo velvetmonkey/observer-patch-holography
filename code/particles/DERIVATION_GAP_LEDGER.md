@@ -36,13 +36,14 @@ Systematic claim-safe queue after the five-equation P-trunk simplification.
 - Local/global resonance status: `closed_full_local_global_hierarchy_resonance`
 - Full theorem-grade resonance promoted: `True`
 - Remaining promotion gates: `[]`
-- Exact EW bridge capacity: `3.5323546226929906511187512962330547600462096590942035604238177731136802717148740820434110040644403858228611984E+122`
+- Conditional EW bridge capacity (modulo F and CP-1 to CP-3): `3.5323546226929906511187512962330547600462096590942035604238177731136802717148740820434110040644403858228611984E+122`
 - Bridge residual: `0.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000`
 - Fixed-point residual in log capacity: `0.00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000`
 - Source v/E_cell: `2.5797040595276223506583341903922018695490035369903290256096683452314630559578761079150341073645683725521032233E-17`
 - Higgs naturality defect: `epsilon_H=0`
 - Higgs naturality interval: `[0, 0]`
 - Boundary: This certificate closes the selected local P -> alpha_U -> v/E_star hierarchy lane, the local/global resonance bridge, and the Higgs naturality defect epsilon_H=0. Separate non-promoted gates are the public Thomson endpoint transport, theorem-grade W/Z promotion, charged-lepton absolute masses, source-only hadron masses, Strong CP, and the full no-G clock stack for SI gravity.
+- Physical capacity comparison remains open until F and CP-1 to CP-3 close and the joint cosmological posterior is propagated.
 
 ## Bundle Claim Gates
 

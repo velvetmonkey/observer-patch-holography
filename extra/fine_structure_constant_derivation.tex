@@ -1307,11 +1307,14 @@ J_{24,Q}(P)^{-1}
 \end{equation}
 or equivalently the source-emitted spectral density \(\rho_Q(s;P)\) plus the same-scheme finite
 remainder. The required dependency graph must have no path from the measured Thomson endpoint into
-\(J_{24,Q}\), \(\omega_Q\), \(\Xi_Q\), or \(\rho_Q\). The endpoint target for
-that blind completion is frozen and externally timestamped: the target file
-and its OpenTimestamps proofs are committed together in the public
-repository, so the freeze date is verifiable
-outside the repository.
+\(J_{24,Q}\), \(\omega_Q\), \(\Xi_Q\), or \(\rho_Q\). The historical v2 endpoint target
+and its OpenTimestamps files remain an auditable timestamp record, but they do not define an
+active blind test.  The 2026-07-16 V1 execution embedded target constants, was directed by a
+session with target access, used a different \(P\) from the target, confused the closure residual
+with the required total payload, and supplied a sampled min/max envelope rather than a certified
+interval.  A corrected contract must freeze one coordinate schema, require a source-emitted
+function over the same \(P\), certify quadrature and interval bounds, and score the emitted
+artifact separately.  No promotion follows from v2 or V1.
 
 \section{Step 21: The Conditional Pure Source Theorem}
 

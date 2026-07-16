@@ -40,12 +40,13 @@ are rejected or adjusted until the overlap-visible records agree.
 
 The prologue also introduces the local pixel ratio $P$. In the detailed OPH
 program, $P$ is the small dimensionless ratio that sets the effective local
-grain of the screen description. It is the local fixed point at which the outside screen geometry and the inside
-electromagnetic readout are required to match. The theory defines $P$ by that
+grain of the screen description. It is the local fixed point at which the
+outside screen geometry and the inside electromagnetic readout are required to
+match. The theory defines $P$ by that
 matching equation and feeds it no measured number. The working value used by
 the chains is located from the measured fine-structure constant under the
 constant-identification axiom, and the requirement that the two readings match
-exactly is the open closure test. Later chapters ask how far
+exactly through a complete physical map is the open closure test. Later chapters ask how far
 that same fixed point can travel through the weak sector, the electromagnetic
 coupling, the Higgs-top surface, quark structure, neutrinos, and the
 gravity-facing side of the framework.
@@ -614,13 +615,15 @@ The factor of $\pi$ appears because the horizon area is $4\pi r_{dS}^2$ and
 the entropy formula divides by $4\ell_P^2$.
 
 The chapter's capacity numbers are enormous but finite, around
-$10^{122}$ to $10^{123}$ depending on convention. At the cosmic record fixed
-point OPH reads dimensionless cosmological-constant products as global capacity
-data: they fix the screen capacity on which finite observer-patch physics is
-organized, while the SI curvature scale also uses the selected OPH scale certificate. The
-input-free global closure is
+$10^{122}$ to $10^{123}$ depending on convention. In the cosmic record proposal,
+OPH reads dimensionless cosmological-constant products as global
+capacity data. The measured cosmological constant and selected scale bridge
+locate the working screen capacity, while the SI curvature scale also uses the
+selected OPH scale certificate. The input-free global closure target is
 $N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}})$, with
-$\log|\Omega^{\mathrm{sc}}_N|-N$ as its finite-count representation.
+$\log|\Omega^{\mathrm{sc}}_N|-N$ as its proposed finite-count representation.
+The readback map and three premises needed to identify its fixed point with the
+de Sitter capacity are open.
 
 The modular-anomaly branch introduces an effective dark component. The
 benchmark acceleration
@@ -777,7 +780,7 @@ The hierarchy/naturality relation has its own support level. The weak hierarchy 
 by the selected local/global bridge between the pixel scale and the screen
 capacity, with twelve screen ports, a 24-slot oriented repair register, zero
 bridge residual, and zero Higgs naturality defect. That strengthens the particle
-prediction record without upgrading the weak-boson benchmark pair, charged
+structure record without upgrading the weak-boson running-chart pair, charged
 lepton absolute masses, first-principles hadrons, Strong CP, or the SI gravity
 clock stack.
 
@@ -837,22 +840,24 @@ itself removes freedom after freedom until only two numbers remain, and how the
 loop then writes one equation for each of them.
 
 The symbols to keep steady are the two closure equations. The local one is
-$P = \varphi + \sqrt\pi/A_T(P)$: the pixel ratio $P$ has to return itself after
-a full pass through the forward chain $A_T$, with $\varphi$ the golden-ratio
-balance and $\sqrt\pi$ the boundary width. The global one is $N = F(N)$: the
-record capacity $N$ has to equal the capacity the inside observers read back
-through the map $F$. The chapter's claim is that these two equations come
-straight from what self-reading requires, once geometry, signature, dimension,
-the gravity law, and the gauge menu are forced. Chapter 18 tells that
-subtraction as a story, and Chapter 19 folds the same chain into the synthesis.
+$P = \varphi + \sqrt\pi/A_T(P)$: the pixel ratio $P$ must return itself after
+a full pass through the forward map $A_T$, with $\varphi$ the golden-ratio
+balance and $\sqrt\pi$ the boundary width. The declared map is incomplete. The
+global target is $N = F(N)$: the record capacity $N$ must equal the capacity the
+inside observers read back through $F$, whose source-derived construction is
+absent. Self-reading motivates both targets. It does not supply either missing
+physical map. Chapter 18 tells that subtraction as a story, and Chapter 19
+folds the same chain into the synthesis.
 
 The chapter is careful about status. The uniqueness of $P$ on the declared
-domain is a certified result. The capacity fixed point is conditional on stated
-premises. Both equations are open at the last step by a named quantity, the
-low-energy hadronic transport term on the local side and a counting theorem on
-the global side. The no-landscape corollary is the payoff: one loop, one
-$(P, N)$, no vacuum to relocate into, and therefore a theory that a single blind
-number can end.
+domain is a certified result for the declared incomplete map. The missing
+hadronic transport prevents promotion to a physical Thomson prediction. The
+capacity map has not been constructed, and its fixed point is conditional on
+three premises. The first hadronic bracket exercise is exploratory rather than
+blind because its target numerics were exposed, its registered and verdict
+coordinates differ, and its comparison pixel moved. The no-landscape corollary
+therefore remains conditional on completing both maps and proving unique
+physical fixed points.
 
 The human lineage runs through Gödel, Tarski, Turing, Quine, and Hofstadter on
 the mathematics of self-reference, Escher for the picture, Wheeler for the
@@ -875,7 +880,8 @@ with every open gap named.
 
 The symbol guide is mostly referential. The Standard Model
 quotient by $\mathbb Z_6$ says that a shared discrete center is identified
-across the gauge factors. The pixel ratio $P$ is the local fixed point. The
+across the gauge factors. The pixel ratio $P$ is the root of the declared local
+map; physical endpoint status requires the missing hadronic transport. The
 fine-structure constant $\alpha$ measures electromagnetic coupling, and
 $\alpha^{-1}$ is its inverse. The process $e^+e^-\to\mathrm{hadrons}$ is an
 electron-positron annihilation channel whose data constrain hadronic
@@ -990,12 +996,14 @@ converts time and space units. In natural units physicists often set $c=1$.
 gravity and appears in Einstein's equation and gravitational entropy.
 
 **$\Lambda$** is the cosmological constant. In the de Sitter chapters it sets
-the horizon radius and therefore the global screen capacity at the cosmic
-record-capacity fixed point \(N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}})\).
+the horizon radius and locates a working global screen capacity through the
+selected scale bridge. The cosmic record equation
+\(N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}})\) is the open closure target for deriving
+that capacity rather than borrowing it from measurement.
 
-**$P$** is the OPH local pixel ratio. It is a dimensionless fixed-point value
-linking the local screen grain to the electromagnetic readout side of the
-program.
+**$P$** is the OPH local pixel ratio. It is a dimensionless root of the declared
+fixed-point map linking the local screen grain to the electromagnetic readout
+side of the program. The physical Thomson endpoint remains open.
 
 **$\alpha$** is the fine-structure constant, the dimensionless strength of
 electromagnetism at a specified scale. Its inverse $\alpha^{-1}$ is commonly

@@ -1,0 +1,192 @@
+{
+  "artifact": "oph_ew_two_loop_repair_preregistered_spec",
+  "date": "2026-07-16",
+  "ledger_row": "CL-5",
+  "status": "preregistered_before_any_two_loop_lane_computation",
+  "registration": {
+    "registered_by": "docs/OPH_FALSIFICATION_PROGRAM.md, forward W/Z note: the pulls are one-loop values; the preregistered 2026-07-14 sweep exhausted the one-loop menu, and the two-loop repair is the registered next computation",
+    "predecessor_artifacts": [
+      "falsification/preregistered/ew_repair_menu_2026-07-14.json",
+      "falsification/preregistered/ew_repair_results_2026-07-14.json"
+    ],
+    "predecessor_artifacts_frozen": "the 2026-07-14 menu and results files are read-only inputs; this computation edits neither them nor any one-loop lane module"
+  },
+  "baseline_one_loop_chain": {
+    "chain_key": "mssm|beta4|P_sl3|law=zero_selector|z=z_tree",
+    "pixel_P": "1.63097209569432901817967892561191884270169",
+    "pixel_id": "P_sl3",
+    "n_c": 3,
+    "beta_EW": 4,
+    "gauge_one_loop_triple_B_MSSM": [
+      6.6,
+      1.0,
+      -3.0
+    ],
+    "chain_modules": [
+      "code/particles/calibration/legacy_d10/particle_masses_paper_d10_d11.py (build_paper_d10, run_alphas_from_unification, v_from_transmutation, pixel_residual, unification_scale_gev)",
+      "code/particles/calibration/derive_wzh_residual_elimination_boundary.py (strict_branch_two_law_evaluation)"
+    ],
+    "recomputed_and_matched_against_frozen_results": {
+      "alpha_U": 0.041124247445574885,
+      "mu_U_GeV": 2.47361202791459e+16,
+      "mz_run_fixed_point_GeV": 91.58832782780715,
+      "alpha1_mz": 0.01688566757238332,
+      "alpha2_mz": 0.033777814112390996,
+      "alpha3_mz": 0.11833586196478196,
+      "MW_zero_selector_GeV": 80.33006377190935,
+      "MZ_zero_selector_GeV": 91.1191186338915
+    },
+    "one_loop_truncation_sites": {
+      "transport": "run_alphas_from_unification applies the one-loop MSSM triple from mu_U down; it enters (a) the mZ fixed point, (b) the pixel-residual alpha_U selector, (c) the readout couplings alpha2(mz_run) and alphaY(mz_run)",
+      "transmutation": "v/E_star = exp(-2 pi / (beta_EW alpha_U)) / sqrt(P) carries no declared two-loop form",
+      "matching": "the readout is the tree two-law evaluation; z_stage3 delta_rho = 3/(32 pi^2) is the single declared scheme switch"
+    }
+  },
+  "targets_GeV": {
+    "MW": [
+      80.3692,
+      0.0133
+    ],
+    "MZ": [
+      91.188,
+      0.002
+    ]
+  },
+  "display_adapter": {
+    "epsilon_Cs_source": "code/particles/hierarchy/certificates/R_gamma_noG_DAG_certificate.json candidate_values_from_sources.epsilon_Cs",
+    "E_star_display_GeV_formula": "6.62607015e-34 * 9192631770.0 / epsilon_Cs / 1.602176634e-10",
+    "E_star_display_GeV": 1.2208901289579266e+19,
+    "unchanged": true
+  },
+  "engine": {
+    "module": "code/particles/calibration/sm_two_loop_rge_engine.py",
+    "certification": "validate() executed 2026-07-16 before this spec was written: endpoint_ok all true against the Buttazzo et al. 1307.3536 three-loop M_Pl endpoint, lambda zero crossing in (1e9, 1e12) GeV, one-loop reference set matched to 1e-15; all_ok true",
+    "normalization_note": "the engine state variable g1 is GUT-normalized, g1 = sqrt(5/3) * g_Y; Buttazzo et al. eq. 60 quotes g_Y(Mt) = 0.35830 and needs the sqrt(5/3) factor before entering the state vector; the lane alpha1 is already GUT-normalized so alpha1_engine = alpha1_lane and alphaY = 0.6 * alpha1",
+    "content_limit": "the engine carries Standard Model field content only; no MSSM two-loop coefficients exist in any certified module of this repository"
+  },
+  "revision_declaration": {
+    "summary": "the one-loop transport of the gauge couplings between mz_run and mu_U is corrected by the certified two-loop increment of the SM engine; every other chain object is unchanged",
+    "couplings_running_at_two_loops": [
+      "g1 (GUT-normalized hypercharge)",
+      "g2 (SU(2)_L)",
+      "g3 (SU(3)_c)",
+      "yt (top Yukawa, feed per declared branch)",
+      "lam (Higgs quartic, feed per declared branch)"
+    ],
+    "matching_relations_changed": "none; the tree two-law readout, the transmutation law, the pixel-residual selector formula, the eta_source reduction eta = alpha_U * (1 - 2 sin2thetaW0) with sin2 = alphaY/(alphaY+alpha2), and the clock display adapter are all retained exactly",
+    "increment_construction": {
+      "reason_for_upward_runs": "an SM-content trajectory holding unification at alpha_U has no real alpha3 below about 8.5e6 GeV (structural failure recorded in the frozen 2026-07-14 sweep), so the increment is computed on upward runs from the mz_run boundary",
+      "boundary": "at mu = mz_run (the one-loop fixed point of the candidate chain): g_i = sqrt(4 pi alpha_i_lane(mz_run)) with alpha1 GUT-normalized, plus (yt, lam) per branch",
+      "runs": "two integrations of the engine from ln(mz_run) to ln(mu_U) with identical boundary, identical RK4 step count, loops=1 and loops=2",
+      "increment": "Delta_i = invalpha_i_2loop(mu_U) - invalpha_i_1loop(mu_U) for i in {1,2,3}",
+      "application": "unification at mu_U at the chain alpha_U is preserved, so the low end absorbs the increment with opposite sign: invalpha_i_repaired(mz_run) = invalpha_i_lane(mz_run) - Delta_i",
+      "one_loop_reference_note": "at one loop the gauge beta functions carry no Yukawa or quartic term, so the loops=1 reference run is insensitive to the (yt, lam) boundary; the difference isolates the two-loop terms"
+    },
+    "evaluation_scale": "repaired couplings are evaluated at the one-loop fixed point mz_run of the same candidate chain; a two-loop re-solve of the fixed point itself is second order in the correction and is gated open",
+    "zero_tunable_elements": "this revision contains zero tunable elements; every scale, boundary, step count, window, and branch below is fixed in this document before any two-loop lane number exists, and every declared branch is emitted"
+  },
+  "discrete_branch_menu": {
+    "yukawa_feed": [
+      {
+        "id": "ytcs",
+        "role": "primary",
+        "rule": "the lane D11 boundary: yt(mu_U) sits on the critical surface critical_surface_yukawa(gY(mu_U), g2(mu_U)) evaluated on the same two-loop trajectory endpoint, and lam(mu_U) = 0; (yt, lam)(mz_run) are obtained by damped Newton shooting on the loops=2 run, and the converged boundary is reused verbatim in the loops=1 reference run"
+      },
+      {
+        "id": "yt0",
+        "role": "diagnostic",
+        "rule": "yt(mz_run) = 0 and lam(mz_run) = 0 in both runs; pure gauge two-loop increment"
+      }
+    ],
+    "tier": [
+      {
+        "id": "tier_B_full_resolve",
+        "role": "primary",
+        "rule": "alpha_U is re-solved so that the pixel residual vanishes on the repaired couplings: for candidate alpha_U the one-loop chain gives mz_run and the boundary, the increment gives repaired alpha2 and alpha3 at mz_run, and pixel_residual(alpha2_rep, alpha3_rep, P) = 0 selects alpha_U; v/E_star is then recomputed from the selected alpha_U; this is the full two-loop forward emission"
+      },
+      {
+        "id": "tier_A_readout_shift",
+        "role": "diagnostic decomposition",
+        "rule": "alpha_U, mu_U, mz_run, and v/E_star are held at the frozen baseline; only the readout couplings alpha2 and alphaY at mz_run receive the increment; this isolates the certified two-loop shift on the couplings entering the W/Z readout"
+      }
+    ],
+    "value_law": [
+      "zero_selector",
+      "nonzero_carrier"
+    ],
+    "z_scheme": [
+      "z_tree",
+      "z_stage3 (divide MZ by sqrt(1 + 3/(32 pi^2)))"
+    ],
+    "primary_display_cell": "tier_B_full_resolve | ytcs | zero_selector | z_tree (same law and scheme as the baseline chain key)",
+    "cells_emitted": "all 16 combinations; none is selected after results exist"
+  },
+  "numerical_settings_fixed_before_computation": {
+    "integrator": "fixed-step RK4, run() of the engine, n_steps = 8000 per integration (the engine certification step count)",
+    "newton_shooting": {
+      "variables": "(yt, lam) at mz_run",
+      "residuals": "(yt(mu_U) - critical_surface_yukawa(gY(mu_U), g2(mu_U)), lam(mu_U))",
+      "jacobian": "forward finite differences, relative step 1e-6 with absolute floor 1e-8",
+      "initial_guess": [
+        0.95,
+        0.13
+      ],
+      "max_iterations": 40,
+      "convergence": "residual max-norm below 1e-10",
+      "failure_rule": "fail closed; the ytcs branch is gated and reported unconverged, never substituted"
+    },
+    "alpha_U_root_finding": {
+      "window": [
+        0.02,
+        0.08
+      ],
+      "bracket_scan": "41 equally spaced points, mirroring solve_alpha_u_from_p of the lane",
+      "bisection_iterations": 90,
+      "memoization": "residual values are cached per alpha_U bit pattern; cached evaluation is exact re-reading, never approximation",
+      "failure_rule": "fail closed; if no sign change exists in the window the tier_B branch is gated with the scan recorded, mirroring the frozen sweep failure protocol"
+    },
+    "precision": "float64 throughout the transport; the two-law evaluator uses its own exact Fraction internals unchanged; no module-level mpmath state is touched"
+  },
+  "outputs": {
+    "artifact_path": "code/particles/runs/calibration/ew_two_loop_repair_2026-07-16.json",
+    "per_cell_fields": [
+      "MW_GeV",
+      "MZ_GeV",
+      "MW_offset_GeV",
+      "MZ_offset_GeV",
+      "MW_pull_sigma",
+      "MZ_pull_sigma",
+      "shift_from_baseline_MW_GeV",
+      "shift_from_baseline_MZ_GeV",
+      "landing"
+    ],
+    "diagnostics_fields": [
+      "Delta_invalpha_increments",
+      "repaired_couplings_at_mz_run",
+      "alpha_U_two_loop (tier_B)",
+      "v_over_E_star_two_loop (tier_B)",
+      "newton_convergence_record"
+    ],
+    "landing_criterion": "MW inside 80.3692 +- 0.0133 GeV AND MZ inside 91.1880 +- 0.0020 GeV simultaneously, identical to the frozen menu",
+    "direction_verdict_rule": "evaluated on the primary display cell only: toward_measurement if both |MW_offset| and |MZ_offset| shrink relative to the baseline cell, away_from_measurement if both grow, mixed otherwise; toward supports the missing-correction reading of CL-5, away kills this repair branch"
+  },
+  "fail_closed_gates_declared_open": [
+    "GATE-2L-01 mssm_two_loop_coefficients_unavailable: the increment carries SM field content over the whole [mz_run, mu_U] range; no certified MSSM two-loop engine exists in the repository",
+    "GATE-2L-02 transmutation_exponent_one_loop_form: beta_EW alpha_U in the transmutation law has no declared two-loop completion; retained as declared",
+    "GATE-2L-03 tree_readout_matching: no two-loop pole-mass or delta_rho matching beyond the declared z_stage3 switch is computed",
+    "GATE-2L-04 fixed_point_scale_one_loop: the mZ fixed-point scale is the one-loop solution; the two-loop re-solve of the evaluation scale is second order and uncomputed",
+    "GATE-2L-05 no_threshold_insertions: the lane declares no intermediate thresholds and none are introduced"
+  ],
+  "rules_of_record": [
+    "zero new parameters",
+    "no scale, threshold, or branch choice is made after any result exists; the menu above is closed and every cell is emitted",
+    "the one-loop lane modules and the frozen 2026-07-14 artifacts are never edited",
+    "a landing or a direction verdict on the primary cell counts the discrete selections declared here and closes nothing by itself"
+  ],
+  "spec_sha256": {
+    "algorithm": "sha256",
+    "scope": "computed over the canonical serialization of this document with the spec_sha256 field removed",
+    "canonicalization": "json.dumps(document_without_this_field, sort_keys=True, separators=(',', ':')) encoded utf-8",
+    "hexdigest": "5a91bbaba2e630cd2044f1b962142f6afbe487ab45b06c3cb93dcc0ae9cc0bf7"
+  }
+}

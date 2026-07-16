@@ -188,9 +188,10 @@ The electron is a vibration pattern that persists. The muon is a pattern that pe
 The "particle zoo" is a census of vibrational survivors.
 
 Within OPH, that census is uneven. The photon, gluons, and graviton carrier
-roles come out cleanly. The weak sector predicts the W and Z masses to within
-about a tenth of a percent of the measured values, with no measured mass fed
-in, apart from a small unresolved choice between two candidate rules. The Higgs
+roles come out cleanly. The weak sector produces running chart coordinates near
+$80.3$ and $91.1$ GeV without a complete map to the measured W and Z complex
+poles. The missing renormalized vacuum, tadpole, threshold, and matching choices
+make a percentage or pull comparison undefined. The Higgs
 and top masses come out together from a condition that puts the forces at a
 critical balance, landing close to their measured values. Turning these into
 full particle-physics proofs is work in progress.
@@ -213,9 +214,10 @@ The neutrino proposal is a candidate checked against measured oscillation data,
 and it fails that check. The neutrino mixing pattern, the ordering of the
 masses, and their absolute scale are unresolved. Composite particles such as
 protons and neutrons demand the hard strong-force calculation. Using measured
-collision data as input, the method lands near 136.3 for a quantity whose
-measured value is about 137.04, so a fully first-principles version of the
-strong-force closure is open. Reconstructing a single particle track across a
+collision data as input, an incomplete transport map returns a value near 136.3
+for a quantity whose measured value is about 137.04. The result is a diagnostic
+of that declared map, not a physical prediction or a blind closure.
+Reconstructing a single particle track across a
 boundary between two coordinate patches is a further layer, and it works only
 when every consistency check leaves no rival track.
 

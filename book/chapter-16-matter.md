@@ -85,48 +85,50 @@ turning them into massive particles is work in progress. Every nonzero mass
 quoted below is either a conditional result or a value checked after the fact,
 and it is labeled that way.
 
-When OPH computes the W and Z masses, no measured mass is fed in at any step.
-The cleanest such calculation gives
+The electroweak construction produces two running, tree-level chart coordinates
+without feeding in a measured W or Z mass:
 
 $$
-(M_W,M_Z)=(80.330,\ 91.119)\,\mathrm{GeV},
+(m_W^{\mathrm{chart}},m_Z^{\mathrm{chart}})
+=(80.330,\ 91.119)\,\mathrm{GeV}.
 $$
 
-within about a tenth of a percent of the measured 80.369 and 91.188 GeV. In
-measurement units the differences are 2.9 standard deviations for the W and
-about 35 for the Z, and the gap is carried as an open closure row. One
-loose end is that two candidate rules for the final step disagree by a few MeV,
-and choosing between them is work in progress. The same family carries a few
-more bookkeeping versions of the same pair. They agree with each other to
-within a few MeV and serve as internal cross-checks.
+These coordinates cannot be scored against measured pole parameters. Such a
+comparison requires a renormalized vacuum expectation value, a tadpole
+prescription, threshold and matching terms, and a convention for the unstable
+particles’ complex poles. None of the implemented maps supplies that complete
+chain. Their agreement within a few MeV is an internal chart check, not a
+physical accuracy claim.
 
-$M_W$ and $M_Z$ are the masses of the charged and neutral weak-force carriers. A
+$m_W^{\mathrm{chart}}$ and $m_Z^{\mathrm{chart}}$ label the displayed coordinates
+for the charged and neutral weak-force carriers. A
 GeV is a billion electronvolts, used as a mass unit through $E=mc^2$. None of
-these versions is a full physical calculation of the two masses. Getting there
-is work in progress, and it needs several further ingredients that OPH does not
-have in hand.
+these versions is a full physical calculation of the two pole masses. The July
+one-loop packet and hybrid two-loop packet test only their own incomplete
+prescriptions; they do not establish a unique one-to-two-percent OPH defect.
 
 The same machinery reaches for the fine-structure constant, the number near 137
-that sets the strength of electromagnetism. The calculation lands close to the
-measured value, within a small fraction of a percent. A version that instead
-folds in real experimental data on how electrons and positrons turn into
-hadrons gives a range that does not contain the measured value, so that route is
-incomplete. It leans on measured hadronic input rather than a pure OPH
-calculation of the same effect, and supplying that piece from first principles
-is work in progress, with the test arranged in advance: the required correction
-is frozen as a registered target the calculation must land on without reading
-it.
+that sets the strength of electromagnetism. Its declared fixed-point map has a
+certified root near the measured value, but the map omits the complete hadronic
+transport to the Thomson endpoint. The root is an incomplete-map diagnostic.
+It carries no physical landing claim.
+
+An exploratory bracket exercise folds in measured electron-positron annihilation
+data. It is not blind: the source exposed the target numerics, its registered
+coordinate and verdict coordinate differ, and it uses a different comparison
+pixel. The broad interval contains the target, which neither closes the missing
+transport nor excludes it.
 
 Here $\alpha$ is the electromagnetic fine-structure constant, and its
 long-distance value is the familiar number close to 137. The version that leans
 on hadronic data includes the low-energy contribution from hadrons in the same
 electromagnetic accounting.
 
-The calculation starts from the golden-ratio balance of the screen, runs the
-electromagnetic strength up through unification and electroweak mixing, and
-reads off its low-energy value. The version that matches experiment and the
-version built from the pure theory audit use slightly different internal
-settings, and keeping the two apart matters.
+The proposed calculation starts from the golden-ratio balance of the screen,
+runs the electromagnetic strength up through unification and electroweak mixing, and
+attempts to read off its low-energy value. The physical transport is incomplete,
+and variants evaluated at different pixels or with measured hadronic input must
+remain separate coordinates.
 
 The same weak-sector calculation fixes the ratio between the Higgs scale and a
 deeper reference energy, though it cannot pin the Higgs scale in absolute units
@@ -136,12 +138,10 @@ information capacity. The factor of twelve in its exponent traces back to a
 clean geometric fact: a triangulated sphere must carry exactly twelve fivefold
 defects, and they sit at the corners of an icosahedron.
 
-The electroweak numbers and the low-energy electromagnetic strength come from
-one construction. The pure-theory side and the parts that lean on measured
-hadronic data are tracked separately. Both of the numbers behind this section
-sit at named steps in the book's chain of consistency requirements: the small
-detuning that lets records exist, and the capacity the world reads back for
-itself.
+The electroweak chart and the electromagnetic fixed-point diagnostic come from
+one proposed construction. The pure-theory side and the parts that lean on
+measured hadronic data are tracked separately. Neither supplies a physical
+electroweak pole prediction or a closed Thomson-limit prediction.
 
 The Higgs and top masses come out together, and OPH ties them to the forces it
 has in hand rather than to any measured mass. The idea is a criticality

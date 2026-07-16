@@ -1,12 +1,10 @@
 #!/usr/bin/env python3
-"""Strict first-principles bracket for the Ward-projected payload (G1).
-
-LABEL (mandatory): development bracket, non-blind environment; the protocol
-pass requires an isolated re-run.
+"""Emit a source-only Ward-projected diagnostic bracket (G1).
 
 Runs the declared variant grid through the payload harness and reports the
-resulting interval for S_eff, c_Q, Delta_had, Delta_source, and the residual
-R_Q against the implemented 1-x screen. The grid is declared, not tuned:
+resulting sampled-module envelopes for S_had, conditional S_QEW, c_Q,
+Delta_had, Delta_source_total, and the residual against the implemented 1-x
+screen. The grid is declared, not tuned:
 
 - parton_free: 1 run.
 - pqcd: Lambda3 in {lane_lo, lane_central, lane_hi} x k in {2, 4, 8}
@@ -14,10 +12,12 @@ R_Q against the implemented 1-x screen. The grid is declared, not tuned:
 - constituent: kappa = 1, Lambda3 in {lane_lo, lane_central, lane_hi}: 3 runs.
 
 The chain's implemented screen S = 1 - x is reported as a reference row and
-does not enter the bracket. No CODATA/NIST value, measured hadronic cross
-section, PDG hadron datum, or empirical endpoint interval enters any number
-emitted here. The comparison block against the canon S_required scale is a
-non-blind development comparison and is labeled as such.
+does not enter the bracket. This process contains and reads no comparison
+target, comparison tolerance, measurement-located P, or scoring rule. It uses
+only the source-derived internal Stage-5 root. Its output is a diagnostic
+sampled-grid envelope, not a certified interval and not the P-domain function
+required by the corrective target contract. Seal the output before passing it
+to ``score_bracket.py`` in a separate process.
 """
 
 from __future__ import annotations
@@ -26,6 +26,7 @@ import argparse
 import hashlib
 import json
 import time
+from decimal import Decimal
 from pathlib import Path
 from typing import Any
 
@@ -33,23 +34,8 @@ import payload_harness as ph
 import spectral_modules as sm
 
 HERE = Path(__file__).resolve().parent
-DEFAULT_OUT = HERE / "runtime" / "ward_projected_payload_bracket_current.json"
-
-PASS_TOLERANCE_ALPHA_INV = 2.1e-8  # ledger-scale pass tolerance in Delta_source units
-
-# Canon values seen in non-blind canon documents (THOMSON_TRANSPORT_THEOREMS.md).
-# They are compare-only development targets, never inputs.
-CANON_NON_BLIND = {
-    "S_required_at_P_C": 0.895400132647658797805800283181670641,
-    "c_Q_at_P_C": 0.658025759927155435638230170232360050,
-    "Delta_required_at_root": 8.727731131834786107447994009818221065,
-    "Delta_impl_at_root": 8.686567119456435565397988595605414327,
-    "Delta_missing_at_root": 0.041163999587062704710570535563112120,
-    "note": (
-        "development bracket, non-blind environment; the protocol pass "
-        "requires an isolated re-run"
-    ),
-}
+DEFAULT_OUT = HERE / "runtime" / "ward_projected_payload_source_bracket_current.json"
+ARTIFACT_SCHEMA_VERSION = 3
 
 
 def declared_grid(fast: bool = False) -> list[Any]:
@@ -74,6 +60,12 @@ def build_bracket(
     gauss_n: int = 48,
     splits_per_decade: int = 4,
 ) -> dict[str, Any]:
+    if Decimal(ep.p) != Decimal(ph.P_STAR_INTERNAL):
+        raise ValueError(
+            "run_bracket is restricted to the source-derived internal P; "
+            "measurement-located or target-supplied P is prohibited"
+        )
+
     start = time.perf_counter()
     rows: list[dict[str, Any]] = []
     for module in declared_grid(fast=fast):
@@ -86,11 +78,12 @@ def build_bracket(
                 "module_id": module.module_id,
                 "declared_branch": module.declared_branch,
                 "delta_had_alpha_inv": payload["components_alpha_inv"]["delta_had"],
-                "delta_source_alpha_inv": payload["delta_source_alpha_inv"],
-                "s_effective": diag["s_effective"],
+                "delta_source_total_alpha_inv": payload["delta_source_total_alpha_inv"],
+                "s_qew_effective": diag["s_qew_effective"],
+                "s_hadronic": diag["s_hadronic"],
                 "c_q_implied": diag["c_q_implied"],
-                "r_q_residual_vs_implemented_screen": diag[
-                    "r_q_residual_vs_implemented_screen"
+                "delta_source_residual_vs_implemented_alpha_inv": diag[
+                    "delta_source_residual_vs_implemented_alpha_inv"
                 ],
                 "positivity_ok": diag["positivity_ok"],
                 "content_sha256": payload["content_sha256"],
@@ -99,35 +92,24 @@ def build_bracket(
 
     def interval(field: str) -> dict[str, float]:
         values = [row[field] for row in rows]
-        return {"lo": min(values), "hi": max(values), "width": max(values) - min(values)}
-
-    delta_source_interval = interval("delta_source_alpha_inv")
-    s_interval = interval("s_effective")
+        return {
+            "lo": min(values),
+            "hi": max(values),
+            "width": max(values) - min(values),
+        }
 
     x = ep.x_screen
     naive = ph.quark_naive_transport(ep)
     lepton = ph.lepton_transport(ep)
     screened_impl = ph.implemented_screen(ep) * naive
 
-    canon_s = CANON_NON_BLIND["S_required_at_P_C"]
-    wall = {
-        "pass_tolerance_alpha_inv": PASS_TOLERANCE_ALPHA_INV,
-        "bracket_width_alpha_inv": delta_source_interval["width"],
-        "width_over_tolerance": delta_source_interval["width"] / PASS_TOLERANCE_ALPHA_INV,
-        "required_relative_precision_on_delta_had": PASS_TOLERANCE_ALPHA_INV
-        / max(row["delta_had_alpha_inv"] for row in rows),
-        "statement": (
-            "The first-principles bracket is wider than the pass tolerance by "
-            "the factor width_over_tolerance. See PAYLOAD_STATUS.md for the "
-            "precision-wall statement with literature scales."
-        ),
-    }
-
     payload = {
-        "artifact": "oph_ward_projected_payload_first_principles_bracket",
-        "label": ph.NON_BLIND_LABEL,
+        "artifact": "oph_ward_projected_payload_source_bracket",
+        "schema_version": ARTIFACT_SCHEMA_VERSION,
+        "label": ph.SOURCE_ONLY_LABEL,
         "source_family_id": "d10_running_tree",
         "current": "U1_Q",
+        "current_definition_id": "ward_projected_U1_Q_once_subtracted",
         "scheme": {
             "same_subtraction_as_a0": True,
             "scheme_id": "d10_ward_projected_once_subtracted_at_mZ2",
@@ -135,6 +117,50 @@ def build_bracket(
             "kernel": "mZ^2/(3*pi*s*(s+mZ^2))",
         },
         "evaluation_point": ep.to_json(),
+        "p_domain": {
+            "kind": "singleton_source_diagnostic",
+            "lo": ep.p,
+            "hi": ep.p,
+            "units": "dimensionless",
+            "eligible_as_registered_domain": False,
+        },
+        "payload_object": "sampled_module_grid_envelope_at_singleton_source_P",
+        "coordinate_schema": {
+            "delta_source_total_alpha_inv": {
+                "kind": "total",
+                "units": "inverse_alpha",
+                "definition": "delta_lep + delta_had + delta_EW",
+                "artifact_path": "bracket.delta_source_total_alpha_inv",
+                "scoring_role": "map_input_only",
+            },
+            "delta_source_residual_vs_implemented_alpha_inv": {
+                "kind": "residual",
+                "units": "inverse_alpha",
+                "definition": (
+                    "delta_source_total - "
+                    "(delta_lep + implemented_screen * delta_quark_naive)"
+                ),
+                "artifact_path": (
+                    "bracket.delta_source_residual_vs_implemented_alpha_inv"
+                ),
+                "scoring_role": "diagnostic_only",
+            },
+            "s_qew_effective": {
+                "kind": "screening_ratio_qew",
+                "units": "dimensionless",
+                "definition": ("(delta_had + delta_EW) / delta_quark_naive_one_loop"),
+                "artifact_path": "bracket.s_qew_effective",
+                "scoring_role": "diagnostic_only",
+                "status": "conditional_on_unproven_delta_EW_zero_branch",
+            },
+            "s_hadronic": {
+                "kind": "screening_ratio_hadronic",
+                "units": "dimensionless",
+                "definition": "delta_had / delta_quark_naive_one_loop",
+                "artifact_path": "bracket.s_hadronic",
+                "scoring_role": "diagnostic_only",
+            },
+        },
         "grid": {
             "fast_mode": fast,
             "declared": (
@@ -145,6 +171,10 @@ def build_bracket(
             "runs": len(rows),
             "gauss_n": gauss_n,
             "splits_per_decade": splits_per_decade,
+            "envelope_semantics": (
+                "sampled module-variant extrema only; not numerical or theory "
+                "error bounds and not an interval certificate"
+            ),
         },
         "chain_reference": {
             "lepton_delta_alpha_inv": lepton,
@@ -157,28 +187,42 @@ def build_bracket(
         "rows": rows,
         "bracket": {
             "delta_had_alpha_inv": interval("delta_had_alpha_inv"),
-            "delta_source_alpha_inv": delta_source_interval,
-            "s_effective": s_interval,
+            "delta_source_total_alpha_inv": interval("delta_source_total_alpha_inv"),
+            "delta_source_residual_vs_implemented_alpha_inv": interval(
+                "delta_source_residual_vs_implemented_alpha_inv"
+            ),
+            "s_qew_effective": interval("s_qew_effective"),
+            "s_hadronic": interval("s_hadronic"),
             "c_q_implied": interval("c_q_implied"),
-            "r_q_residual_vs_implemented_screen": interval(
-                "r_q_residual_vs_implemented_screen"
-            ),
         },
-        "precision_wall": wall,
-        "non_blind_development_comparison": {
-            **CANON_NON_BLIND,
-            "canon_S_required_inside_s_effective_bracket": bool(
-                s_interval["lo"] <= canon_s <= s_interval["hi"]
-            ),
+        "certification": {
+            "status": "uncertified_sampled_grid_envelope",
+            "numerical_error_interval": None,
+            "theory_error_interval": None,
+            "derivative_or_lipschitz_bound_over_P_domain": None,
+            "delta_EW_gate": "open_declared_zero_branch_unproven",
+            "sampled_grid_extrema_interval_certificate": False,
         },
-        "delta_EW_branch": "declared_zero_branch_unproven (Theorem 4 open)",
+        "scoring_status": "NOT_EVALUABLE_SOURCE_DIAGNOSTIC",
+        "scoring_process": (
+            "score_bracket.py must run after artifact sealing; the canonical "
+            "corrective target currently fails closed before scoring"
+        ),
         "promotion_allowed": False,
-        "external_inputs_used_in_computation": False,
+        "promotion_reason": (
+            "singleton sampled-grid envelope is not a certified P-domain payload"
+        ),
+        "target_or_measurement_inputs_used_in_computation": False,
         "wall_time_seconds": round(time.perf_counter() - start, 3),
     }
     digest_source = {k: v for k, v in payload.items() if k != "wall_time_seconds"}
     payload["content_sha256"] = hashlib.sha256(
-        json.dumps(digest_source, sort_keys=True, separators=(",", ":")).encode("utf-8")
+        json.dumps(
+            digest_source,
+            sort_keys=True,
+            separators=(",", ":"),
+            allow_nan=False,
+        ).encode("utf-8")
     ).hexdigest()
     return payload
 
@@ -194,17 +238,19 @@ def main() -> int:
     payload = build_bracket(ep, fast=args.fast)
     out = Path(args.output)
     out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    out.write_text(
+        json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+    )
     print(
         json.dumps(
             {
                 "runs": payload["grid"]["runs"],
-                "delta_source_bracket": payload["bracket"]["delta_source_alpha_inv"],
-                "s_effective_bracket": payload["bracket"]["s_effective"],
-                "width_over_tolerance": payload["precision_wall"]["width_over_tolerance"],
-                "canon_S_inside": payload["non_blind_development_comparison"][
-                    "canon_S_required_inside_s_effective_bracket"
+                "delta_source_total_bracket": payload["bracket"][
+                    "delta_source_total_alpha_inv"
                 ],
+                "s_qew_effective_bracket": payload["bracket"]["s_qew_effective"],
+                "scoring_status": payload["scoring_status"],
+                "content_sha256": payload["content_sha256"],
                 "wall_time_seconds": payload["wall_time_seconds"],
                 "output": str(out),
             },

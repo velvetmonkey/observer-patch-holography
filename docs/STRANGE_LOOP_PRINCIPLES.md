@@ -39,14 +39,16 @@ principle set through the closure ledger, never through restatement.
 ## The three layers
 
 - **Theory layer.** The pure self-simulation consistency theory. Zero quantitative
-  inputs: no measured number appears in any defining equation. P solves
-  P = φ + √π/A_T(P), certified to exist and be the only solution on the declared
-  physical domain. N solves N = F(N) (F specified; conditionally constructed by the
-  coupling theorem G2-GAP-1 modulo premises CP-1 to CP-3; CL-7). Discrete structural selections are
+  inputs are intended in a completed source map. Each declared incomplete P map has one
+  certified arithmetic fixed point on its stated domain; the physical Thomson map is
+  not complete. N solves N = F(N) only conditionally: G2-GAP-1 supplies a candidate
+  fixed point modulo premises CP-1 to CP-3, while F remains an open physical construction.
+  Discrete structural selections are
   declared separately with their menu sizes; none is a continuous quantity.
-- **Test layer.** Measured values live here only, as the comparisons the forced outputs
-  face. A comparison never feeds back into a defining equation; the dependency-cone audit
-  and the frozen blind targets enforce this in public.
+- **Test layer.** Measured values live here only, as comparisons that complete source
+  outputs may face. A comparison must not feed back into a defining equation. The
+  historical hadronic target was timestamped, but V1 did not satisfy this target-blind
+  requirement; a corrected contract remains to be executed.
 - **Working layer.** Lanes whose closure terms are open borrow located values while they
   wait: the working pixel P = 1.630968209403959… located from CODATA
   α⁻¹ = 137.035999177(21) (basin half-width in P: √π·σ_α/α² ≈ 2.0×10⁻¹²), the working
@@ -61,10 +63,11 @@ scorecard counts them. The theory layer takes no measured number at all.
 
 1. **Direction of inference.** A measured value used to locate a basin is an input at
    every surface, permanently. Retrodictions are basin locations; they are never hits.
-2. **Exact closure.** SLH requires the closure equations to hold exactly. Every closure
-   residual is a measurement of the principle set and appears in
-   [CLOSURE_LEDGER.md](CLOSURE_LEDGER.md) with its size in relative units and in
-   measurement sigma. No closure row is compare-only.
+2. **Exact closure.** SLH requires a completed closure equation to hold exactly. Every
+   row appears in [CLOSURE_LEDGER.md](CLOSURE_LEDGER.md) with its coordinate type and
+   status. Incomplete-map, chart-only, conditional, and compare-only rows are not
+   physical pulls; measurement sigma is reported only for commensurate observables with
+   a valid uncertainty model.
 3. **Basin-then-contract.** A fixed-point value is CORRECT and ONLY where a four-stage
    record exists: measured basin, interval-grade contraction certificate, landing verdict,
    and (where the certified width beats the measurement) registered sharpened digits.
@@ -72,9 +75,9 @@ scorecard counts them. The theory layer takes no measured number at all.
    forward chain from one lands inside a basin that did not tune the map, verified by the
    dependency-cone audit. Map revisions made after seeing a basin convert that basin to an
    input. Discrete structural selections count as inputs with their menu sizes.
-5. **Attribution.** Closure residuals are attributed to the model. Independent α
-   determinations (electron g−2 with QED; Rb/Cs photon-recoil interferometry) agree at the
-   few-×10⁻¹⁰ relative level; the current loop gaps are 10³–10⁶ times larger. A
+5. **Attribution.** A physical residual is attributed only after the source and reference
+   occupy the same observable and scheme and theory uncertainty is propagated. A named
+   missing term in an incomplete map is a hypothesis, not an established cause. A
    measurement-side mechanism claim is admissible only as a frozen registered prediction.
 6. **Ceiling.** No surface states a claim more strongly than the book states it; where the
    book and the claim registry disagree, the registry tier governs.
@@ -85,8 +88,8 @@ scorecard counts them. The theory layer takes no measured number at all.
 ## What would establish SLH
 
 Overdetermination and survival: (a) uniqueness certificates for the fixed points; (b) the
-closure ledger driven to zero under blind completions, beginning with the Ward-projected
-hadronic transport against the frozen target in
-`../falsification/frozen_targets/`; (c) a compression scorecard in which independent
+closure ledger driven to zero under target-blind completions, beginning with a corrected
+Ward-projected hadronic transport contract that supersedes the historical v2/V1 attempt;
+(c) a compression scorecard in which independent
 landed basins outnumber settings. Nothing else establishes it, and no wording substitutes
 for these artifacts.

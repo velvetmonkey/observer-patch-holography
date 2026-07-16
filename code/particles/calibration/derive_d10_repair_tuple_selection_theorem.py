@@ -89,7 +89,13 @@ def candidate_b_tuple(basis: dict) -> dict:
 
 
 def forward_wz(basis: dict, tau2: float, dn: float) -> dict:
-    """Closed forward map of the value-law artifact."""
+    """Emit the running/tree W/Z chart coordinates.
+
+    No renormalized-vev, tadpole, threshold, finite-order, or complex-pole
+    attachment is supplied here.  These values must therefore not be named
+    pole masses or compared with experimental pole/Breit--Wigner coordinates
+    as though they were the same observable.
+    """
     a2, a_y = basis["alpha2_mz"], basis["alphaY_mz"]
     eta, v = basis["eta_source"], basis["v_report_gev"]
     a2p = a2 * (1.0 + tau2)
@@ -98,10 +104,11 @@ def forward_wz(basis: dict, tau2: float, dn: float) -> dict:
     d_perp = (a2 + a_y) * dn
     a_yp = a_y_star + d_par + d_perp
     return {
-        "MW_pole_gev": v * math.sqrt(math.pi * a2p),
-        "MZ_pole_gev": v * math.sqrt(math.pi * (a2p + a_yp)),
+        "MW_chart_gev": v * math.sqrt(math.pi * a2p),
+        "MZ_chart_gev": v * math.sqrt(math.pi * (a2p + a_yp)),
         "sin2w_eff": a_yp / (a2p + a_yp),
         "alpha_em_eff_inv": (a2p + a_yp) / (a2p * a_yp),
+        "wz_physical_comparison_status": "NOT_EVALUABLE",
     }
 
 
@@ -140,7 +147,7 @@ def build() -> dict:
 
     a, b = rows["running_tree_value_law"], rows["color_balanced_quadratic_descent"]
     spread = {key: abs(a[key] - b[key])
-              for key in ("MW_pole_gev", "MZ_pole_gev", "sin2w_eff",
+              for key in ("MW_chart_gev", "MZ_chart_gev", "sin2w_eff",
                           "mt_pole_gev", "mH_gev")}
 
     return {
@@ -191,16 +198,15 @@ def build() -> dict:
         "candidates": rows,
         "selection_spread": spread,
         "discrimination": {
-            "statement": "the candidate spread is below current experimental "
-                         "resolution in every observable (m_W spread ~8 MeV "
-                         "vs sigma 13 MeV; m_Z spread ~0.03 MeV; m_H spread "
-                         "~16 MeV vs sigma 110 MeV; m_t spread ~30 MeV vs "
-                         "sigma 600 MeV), so the selection cannot be decided "
-                         "empirically today and must be decided by the source "
-                         "descent theorem",
-            "compare_only_references": {
-                "MW_pole_gev": [80.3692, 0.0133],
-                "MZ_pole_gev": [91.1876, 0.0021],
+            "statement": "the W/Z candidate spread is an internal chart "
+                         "difference, not a comparison with experimental "
+                         "resolution.  A physical discrimination requires a "
+                         "complete common-observable scheme map.  The H/top "
+                         "rows retain their separate compare-only status.",
+            "wz_physical_comparison_status": "NOT_EVALUABLE",
+            "legacy_experimental_error_only_references": {
+                "MW_chart_gev": [80.3692, 0.0133],
+                "MZ_chart_gev": [91.1876, 0.0021],
                 "mH_gev": [125.13, 0.11],
                 "mt_pole_gev": [172.1, 0.6],
             },
@@ -216,7 +222,8 @@ def main() -> int:
         f.write("\n")
     for cid, row in report["candidates"].items():
         print(f"{cid}:")
-        print(f"  MW={row['MW_pole_gev']:.5f}  MZ={row['MZ_pole_gev']:.5f}  "
+        print(f"  MW_chart={row['MW_chart_gev']:.5f}  "
+              f"MZ_chart={row['MZ_chart_gev']:.5f}  "
               f"sin2w={row['sin2w_eff']:.6f}")
         print(f"  mH={row['mH_gev']:.5f}  mt={row['mt_pole_gev']:.5f}")
     print("spread:", {k: round(v, 6) for k, v in report["selection_spread"].items()})

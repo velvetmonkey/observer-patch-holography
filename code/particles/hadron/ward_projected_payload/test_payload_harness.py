@@ -1,9 +1,5 @@
 #!/usr/bin/env python3
-"""Tests for the Ward-projected payload harness (generator G1).
-
-LABEL: development bracket, non-blind environment; the protocol pass requires
-an isolated re-run.
-"""
+"""Tests for the source-only Ward-projected payload harness (generator G1)."""
 
 from __future__ import annotations
 
@@ -19,8 +15,8 @@ HERE = Path(__file__).resolve().parent
 if str(HERE) not in sys.path:
     sys.path.insert(0, str(HERE))
 
-import payload_harness as ph
-import spectral_modules as sm
+import payload_harness as ph  # noqa: E402
+import spectral_modules as sm  # noqa: E402
 
 
 @pytest.fixture(scope="module")
@@ -38,7 +34,16 @@ def test_harness_determinism(ep: ph.EvaluationPoint) -> None:
     second = ph.emit_delta_source(module, ep)
     assert first["content_sha256"] == second["content_sha256"]
     assert _canonical(first) == _canonical(second)
-    assert first["label"] == ph.NON_BLIND_LABEL
+    assert first["label"] == ph.SOURCE_ONLY_LABEL
+    assert first["schema_version"] == ph.PAYLOAD_SCHEMA_VERSION
+    assert "delta_source_total_alpha_inv" in first
+    assert "delta_source_alpha_inv" not in first
+    assert (
+        first["coordinate_schema"]["delta_source_residual_vs_implemented_alpha_inv"][
+            "kind"
+        ]
+        == "residual"
+    )
 
 
 def test_synthetic_atom_round_trip(ep: ph.EvaluationPoint) -> None:
@@ -63,7 +68,9 @@ def test_parton_moment_matches_paper_math_kernel(ep: ph.EvaluationPoint) -> None
 
     ctx = PaperMathContext(precision=30, su2_cutoff=10, su3_cutoff=8)
     for name, q2, nc in (("c", 4.0 / 9.0, 3), ("b", 1.0 / 9.0, 3), ("e", 1.0, 1)):
-        mass = ep.quark_masses[name] if name in ep.quark_masses else ep.lepton_masses[name]
+        mass = (
+            ep.quark_masses[name] if name in ep.quark_masses else ep.lepton_masses[name]
+        )
         reference = float(
             ctx.fermion_transport_kernel_exact(
                 Decimal(ep.mz_run), Decimal(mass), Decimal(str(q2)), Decimal(nc)
@@ -96,7 +103,11 @@ def test_chain_baseline_reproduced(ep: ph.EvaluationPoint) -> None:
     assert ph.quark_naive_transport(ep) == pytest.approx(4.934816164436291, rel=1e-12)
     assert ph.implemented_screen(ep) == pytest.approx(0.886997575746281, rel=1e-12)
     free = ph.emit_delta_source(sm.make_parton_free(), ep)
-    assert free["diagnostics"]["s_effective"] == pytest.approx(1.0, rel=1e-14)
+    assert free["diagnostics"]["s_hadronic"] == pytest.approx(1.0, rel=1e-14)
+    assert free["diagnostics"]["s_qew_effective"] == pytest.approx(1.0, rel=1e-14)
+    assert free["components_alpha_inv"]["delta_EW"]["status"] == (
+        "theorem_4_open_zero_identity_not_established"
+    )
 
 
 def test_bracket_reproducibility(ep: ph.EvaluationPoint) -> None:
@@ -105,7 +116,16 @@ def test_bracket_reproducibility(ep: ph.EvaluationPoint) -> None:
     first = run_bracket.build_bracket(ep, fast=True)
     second = run_bracket.build_bracket(ep, fast=True)
     assert first["content_sha256"] == second["content_sha256"]
-    bracket = first["bracket"]["delta_source_alpha_inv"]
+    bracket = first["bracket"]["delta_source_total_alpha_inv"]
     assert bracket["lo"] < bracket["hi"]
-    assert first["label"] == ph.NON_BLIND_LABEL
-    assert first["precision_wall"]["width_over_tolerance"] > 1.0e6
+    assert first["label"] == ph.SOURCE_ONLY_LABEL
+    assert first["schema_version"] == 3
+    assert first["scoring_status"] == "NOT_EVALUABLE_SOURCE_DIAGNOSTIC"
+    assert first["promotion_allowed"] is False
+    assert first["p_domain"]["eligible_as_registered_domain"] is False
+    assert first["certification"]["status"] == "uncertified_sampled_grid_envelope"
+    assert first["certification"]["delta_EW_gate"] == (
+        "open_declared_zero_branch_unproven"
+    )
+    assert "precision_wall" not in first
+    assert "non_blind_development_comparison" not in first

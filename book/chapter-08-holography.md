@@ -510,20 +510,22 @@ neighboring ones.
 The cosmological constant appears through a **global capacity relation**, the
 total number of degrees of freedom on the screen. The local null-modular
 derivation leaves the metric term open, and the global screen-capacity closure
-fixes that term.
+is proposed to fix that term.
 
-The closure can be said without asking the reader to parse every symbol at
-once. Supply a possible total capacity. Let the settled observer-supported
-world read back how much active horizon capacity it contains. The physical
-capacity is the point where the supplied capacity and the read-back capacity
-agree. The compact notation for that fixed point is
+The closure target can be said without asking the reader to parse every symbol
+at once. Supply a possible total capacity. Let the settled observer-supported
+world read back how much active horizon capacity it contains. A physical
+capacity would be a point where supplied capacity and read-back capacity agree.
+The compact notation for that target is
 $N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}})$.
 
 The count expression $\log|\Omega^{\mathrm{sc}}_N|-N$ is the finite-count
-version of the same target after dividing by the full screen Hilbert-space
-size. On the observed branch, the fixed point is the de Sitter entropy
-capacity. It fixes dimensionless products such as
-$\Lambda\ell_\star^2$; the numerical SI value of $\Lambda$ also requires the
+ansatz for the same target after dividing by the full screen Hilbert-space
+size. The readback map and the three premises that would identify its fixed
+point with the de Sitter entropy capacity have not been derived. The measured
+$\Lambda$, together with the selected OPH scale bridge, instead locates the
+working capacity and dimensionless products such as
+$\Lambda\ell_\star^2$; the numerical SI value of $\Lambda$ also uses the
 selected OPH scale bridge. From the scale-bridged Lambda, the bare
 de Sitter horizon ratio is about $1.05\times10^{122}$ and the screen-entropy
 capacity is about $3.31\times10^{122}$ natural units, or
@@ -533,7 +535,7 @@ area is its "resolution."
 This avoids the boundary-at-infinity problem by changing the primitive object.
 OPH builds local patch descriptions that must agree on overlaps. The bulk
 emerges from that agreement, with the dimensionless Lambda-capacity relation as
-the global readout of the cosmic record-closure fixed point.
+the proposed global readout target.
 
 ## 8.14 Reverse Engineering Summary
 

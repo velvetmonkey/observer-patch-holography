@@ -21,7 +21,6 @@ from typing import Any
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 D11_SPLIT_PAIR_JSON = ROOT / "particles" / "runs" / "calibration" / "d11_live_exact_split_pair_theorem.json"
 D10_VALUE_LAW_JSON = ROOT / "particles" / "runs" / "calibration" / "d10_ew_target_free_repair_value_law.json"
-FINAL_PREDICTIONS_JSON = ROOT / "particles" / "runs" / "status" / "final_end_to_end_predictions.json"
 HIERARCHY_WITNESS_JSON = ROOT / "particles" / "hierarchy" / "computations" / "hierarchy_numeric_witness.json"
 DEFAULT_MD_OUT = ROOT / "particles" / "CONDITIONAL_CANDIDATES.md"
 DEFAULT_JSON_OUT = ROOT / "particles" / "conditional_candidates.json"
@@ -169,27 +168,10 @@ def build_scale_free_chart_ratios() -> list[dict[str, Any]]:
 def build_dimensionless_candidates() -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
 
-    final_predictions = _load_json(FINAL_PREDICTIONS_JSON)
-    fine_structure = _require(final_predictions, "fine_structure", _rel(FINAL_PREDICTIONS_JSON))
-    near_endpoint = _require(
-        fine_structure, "source_side_no_hadron_near_endpoint", "fine_structure"
-    )
-    rows.append(
-        {
-            "observable": "alpha_inv_no_hadron_near_endpoint",
-            "value": _require(near_endpoint, "alpha_inv", "source_side_no_hadron_near_endpoint"),
-            "unit": "dimensionless",
-            "claim_label": "conditional_source_side_no_hadron_near_endpoint",
-            "chart": "deterministic_pixel_root_plus_unified_width_term",
-            "open_gates": [
-                "source_spectral_endpoint",
-                "same_scheme_hadronic_remainder",
-                "full_interval_source_certificate",
-            ],
-            "source_artifact": _rel(FINAL_PREDICTIONS_JSON),
-            "promotable": False,
-        }
-    )
+    # The historical 137.0359595008... packet is deliberately absent here. It
+    # mixed the source-root coordinate with alpha_U evaluated at another P and
+    # is not a fixed point of a single declared map. It remains in the frozen
+    # audit artifact, but is not a live conditional candidate.
 
     witness = _load_json(HIERARCHY_WITNESS_JSON)
     endpoint_branch = _require(witness, "public_endpoint_branch", _rel(HIERARCHY_WITNESS_JSON))

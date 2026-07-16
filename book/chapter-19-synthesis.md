@@ -150,15 +150,18 @@ electromagnetic, color, and gravitational carrier roles pick up their classical
 wave modes once their action and phase conditions are met, but showing that
 these carriers behave as genuine quantum particles takes a stronger argument,
 and that part is work in progress. For the weak bosons the framework gives the W
-and Z masses close to $80.3$ and $91.1$ GeV, within about a tenth of a percent
-of measurement and with no measured mass fed in, apart from a small unresolved
-choice between two candidate rules. Against the current world averages those
-values pull at 2.9 standard deviations for the W and about 35 for the Z, and
-the gap is carried as an open closure row (CL-5). The low-energy electromagnetic strength can
+and Z running-chart coordinates close to $80.3$ and $91.1$ GeV without feeding
+in a measured W or Z mass. A physical comparison is undefined until the theory
+supplies a renormalized vacuum expectation value, tadpole prescription,
+threshold and matching terms, and a complex-pole convention. The partial
+one-loop and hybrid two-loop packets exclude only their own prescriptions, so
+they establish neither experimental pulls nor a unique percent-level defect.
+The low-energy electromagnetic strength can
 be read in several ways: from the first-principles side alone, from a mixed
-calculation, and from a version that closes the gap using measured hadron data.
-That last version imports external data, so a version computed purely from OPH
-first principles is open work. The Higgs and top masses come out together from a
+calculation, and from a version that uses measured hadron data.
+The declared first-principles maps omit the complete hadronic transport, and the
+first bracket exercise is exploratory rather than blind. The Higgs and top
+masses come out together from a
 criticality condition on the forces, close to $125.8$ and $172.6$ GeV; feeding
 the measured top mass into the same relation returns about $125.7$ GeV for the
 Higgs.
@@ -196,20 +199,20 @@ lets the observer records close.
 
 ## 19.6 Closure Coordinates And Scale Bridge
 
-The quantitative side of the framework turns on two dimensionless closure
-coordinates and one selected scale bridge that does not take Newton's constant
-as input. These quantities are fixed by closure conditions. They are part of
-the branch data, not adjustable knobs.
+The quantitative side of the framework is organized around two dimensionless
+closure coordinates and one selected scale bridge that does not take Newton’s
+constant as input. The closure equations define the targets. While the physical
+maps remain incomplete, measured constants locate working branch values rather
+than derived outputs.
 
-This is where reverse engineering enters legitimately. The observed universe
-can give a rough value or a branch interval because, in the OPH reading, those
-coordinates belong to a completed mathematical structure. The job of
-the theory is then to show that the readback map has a unique fixed
-point in that basin. Observation supplies the starting neighborhood; the
-fixed-point theorem supplies the value.
+Observation can supply a rough value or branch interval. The theory then owes a
+source-derived readback map, a physical fixed point in that basin, and a
+uniqueness proof for the completed map. The declared local map has a certified
+root but incomplete electromagnetic transport. The global map has not been
+constructed.
 
-There is a sharp limit to what the two dimensionless closures can do. They fix
-dimensionless geometry:
+There is a sharp limit to what completed dimensionless closures would do. They
+would fix dimensionless geometry:
 
 $$
 \Lambda_\star\ell_\star^2=\frac{3\pi}{N_{\mathrm{CRC}}},
@@ -222,8 +225,9 @@ Equivalently, if $\mathcal B_\ell=\Lambda_\star N_{\mathrm{CRC}}$, then
 $\mathcal B_\ell\ell_\star^2=3\pi$ and
 $\mathcal B_\ell a_{\mathrm{cell}}=3\pi P_\star$. A global rescaling of all
 lengths leaves $P_\star$ and $N_{\mathrm{CRC}}$ unchanged while changing
-$\mathcal B_\ell$ in SI units. The two closures supply the dimensionless
-geometry. The selected scale bridge supplies the SI display.
+$\mathcal B_\ell$ in SI units. The two equations specify the dimensionless
+closure targets. Completed physical maps would supply the geometry, and the
+selected scale bridge would supply the SI display.
 
 Here "no-G" means that Newton's constant is not inserted as an input. The scale
 is selected from clock and curvature data first, and Newton's constant is
@@ -241,24 +245,19 @@ This is the scale branch used for the Newton normalization. It supplies
 $\ell_\star^2=3\pi/B_\star$ before the Planck-area display is read in SI
 units.
 
-The first is global. The cosmic record fixed point \(N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}})\)
-selects the total screen capacity, about $3.31\times10^{122}$ natural entropy
-units, or about $4.77\times10^{122}$ bits on the observed branch. This rounded
-number is a branch-scale display. The Newton normalization uses the fixed-point
-capacity together with the selected no-G scale bridge. The fixed point is the single
-capacity at which the outside horizon capacity and the inside
-observer-accessible public record agree. That gives the size of the accessible computation and fixes the
-dimensionless de Sitter capacity relation; the SI horizon scale uses the
-selected scale bridge.
+The first target is global. The cosmic record equation
+\(N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}})\) asks for a capacity at which the outside
+horizon and the inside observer-accessible public record agree. The value about
+$3.31\times10^{122}$ natural entropy units, or about
+$4.77\times10^{122}$ bits, is located from the measured cosmological constant
+through the selected scale bridge. It is a working input, not an output of a
+constructed readback map.
 
-The same global scale can be written as a fixed-point problem: supply capacity
-$N$, let the closed observer record read back its active horizon capacity, and
-take the unique point where supplied capacity and readback capacity agree.
-Informally, this is the screen size where the universe reads back its own
-boundary without deficit or slack. On the observed branch, that fixed point is
-the de Sitter entropy capacity. The density
-$\log|\Omega^{\mathrm{sc}}_N|-N$ is the finite-count representation of the same
-closure.
+The map $F$ and the count $\log|\Omega^{\mathrm{sc}}_N|-N$ specify the desired
+closure. A source-derived construction of $F$ is absent, and three premises
+needed to identify its fixed point with the de Sitter entropy capacity remain
+open. Uniqueness and the Newton normalization are therefore conditional on those
+premises and on the selected scale bridge.
 
 In formula form:
 
@@ -288,9 +287,9 @@ $\ell_\star^2$ makes $P$ dimensionless: it is a pure ratio between the cell
 area and the emitted scale area.
 
 The local ruler can be read from two sides of the same world. Feed a trial
-pixel value through the electroweak chain and the theory returns an inner
-electromagnetic observation scale. Closure asks for the pixel value where the
-outer geometric reading and the inner observational reading agree.
+pixel value through the declared electroweak chain and the incomplete map
+returns an inner electromagnetic diagnostic. Closure asks for a physical map
+whose geometric and observational readings agree.
 
 The computation has a definite order. The golden-ratio balance gives the
 reference value $\phi$. The boundary Gaussian normalization gives the
@@ -299,10 +298,11 @@ running gauge couplings, and the electroweak anchor. The unbroken
 electromagnetic channel is then transported to the long-distance Thomson
 endpoint.
 
-The golden ratio supplies the reference balance. The inner electromagnetic
-readout is produced from the trial pixel value. The fixed point is the value of
-$P$ for which the geometric pixel and the electromagnetic readout name the same
-local scale.
+The golden ratio supplies the reference balance. The declared map produces an
+inner electromagnetic diagnostic from the trial pixel value. Its fixed point is
+the value of $P$ for which that diagnostic and the geometric pixel name the same
+local scale. The physical identification remains open until the transport map is
+complete.
 
 There are two ways to use the inner electromagnetic reading. One includes the
 measured long-distance value; the other leaves it out from the start. The two
@@ -327,8 +327,8 @@ irreducible curvature ports. Reversible write/check orientation turns those
 ports into a 24-slot oriented repair register. The weak hierarchy uses this
 24-fold normalization to read a local piece of the global screen depth. This is
 the book-level picture behind the local/global hierarchy link: particle physics
-samples the local screen readout of the same closure that fixes the whole
-horizon record.
+samples the local screen readout of the proposed closure for the whole horizon
+record.
 
 The 24 slots have a simple group-theory origin. The visible product branch has
 eight color channels, three weak channels, and one hypercharge channel.
@@ -339,10 +339,12 @@ support; its X/Y mixed gauge channels are absent from the OPH product branch.
 
 The compact bridge gives an electroweak capacity near
 $3.53\times10^{122}$ on the public endpoint branch, while the capacity
-located from the measured cosmological constant is $3.31\times10^{122}$. The
-capacity axiom admits a single capacity, so the 6.8 percent gap between the
-two readings is an open closure row (CL-3 in the closure ledger), carried as a
-live tension rather than resolved by naming the two values differently. The
+located from the measured cosmological constant is $3.31\times10^{122}$. Using
+the unrounded central values, $3.5324\times10^{122}$ and
+$3.3126\times10^{122}$, gives a $6.6$ percent mismatch. This is a conditional
+central-value comparison. The readback map and the three premises that connect
+the electroweak bridge to the de Sitter capacity are open, and the cosmological
+posterior has not been propagated. The
 screen-sieve theorem reads the weak-scale exponent as an icosahedral sampling
 law on the finite spherical screen: the refinement-stable screen has twelve
 unit fivefold defects, exposed as central ports on the \(A_5\) vertex orbit.
@@ -352,16 +354,16 @@ screen exposes twelve special ports, organized like the vertices of an
 icosahedron. The weak-scale exponent reads that twelve-port geometry in the
 local/global bridge.
 
-At the formal level, the bridge value is also a fixed point in log-capacity
-coordinates. The physical point stands as stated above: one capacity is
-required, and the gap between the bridge reading and the $\Lambda$-located
-reading remains open.
+At the formal level, the bridge value is a candidate fixed point in log-capacity
+coordinates. The one-capacity axiom supplies the test only after the readback
+map and its premises are derived. The displayed mismatch is neither a physical
+contradiction nor a closed prediction.
 
-The readback side has a matching finite statement. At a finite cutoff, the
-closed observer record selects one public capacity atom, so the delivery
-resolution is a single value. There is no menu of incompatible scales. In the
-refinement limit, that single atom becomes the horizon-to-cell factor used by
-the repair tick.
+The proposed readback side has a matching finite target. At a finite cutoff, a
+closed observer record would have to select one public capacity atom. Showing
+that the declared observer dynamics performs this selection, and that the
+refinement limit yields the required horizon-to-cell factor, belongs to the open
+construction of $F$.
 
 The cleanest book-level phrasing is this: the fine-structure constant is the
 nonzero detuning of a holographic screen cell. From the outside, the cell is
@@ -380,22 +382,23 @@ then fixes the cell/edge identity, while that ratio cancels out of Newton's
 constant. In the book-level picture, fine structure reads the pixel's
 electromagnetic detuning; Newton's constant reads the emitted scale bridge.
 
-The long-distance fine-structure readout gives a pixel ratio of about $1.63$ and
-an inverse fine-structure constant of $137.035999177(21)$. The notation $(21)$
-means uncertainty in the last quoted digits. That number is the zero-momentum
-electromagnetic strength familiar from precision physics.
+The measured long-distance fine-structure constant locates a working pixel ratio
+of about $1.63$ under the constant-identification assumption. Its inverse is
+$137.035999177(21)$, where $(21)$ means uncertainty in the last quoted digits.
+That measured number is the zero-momentum electromagnetic strength familiar from
+precision physics; the OPH map does not emit it from first principles.
 
-The first-principles calculation tells a narrower story. The bare source value
-lands near $137.0$. Combining it with the screen's unified gauge width,
-evaluated at a comparison pixel taken from measured constants, gives a mixed
-reading close to $137.036$.
+The declared source map tells a narrower story. Its bare root is near $137.0$.
+Combining it with the screen’s unified gauge width, evaluated at a comparison
+pixel taken from measured constants, gives a mixed diagnostic near $137.036$.
+Both maps omit the complete scheme-consistent hadronic transport to the Thomson
+endpoint.
 
-The version that uses external hadron data is a separate coordinate. Supplying
-the measured electron-positron annihilation contribution gives a value near
-$136.3$, which sits a little below the measured Thomson value. That gap sets how
-large a correction the first-principles anchor would need to supply. The
-calculation tests whether the framework closes against measured hadron data and
-leaves the purely first-principles version open.
+The exercise that uses external hadron data is a separate coordinate. Its broad
+interval contains the intended target, but the source exposed the target
+numerics, the registered pass coordinate and verdict coordinate differ, and the
+comparison uses a different pixel. It is an exploratory consistency check. The
+exercise neither supplies the missing physical map nor earns blind-test status.
 
 The phrase $e^+e^-\to\mathrm{hadrons}$ names electron-positron annihilation
 into strongly interacting composite particles. Those data account for the
@@ -436,9 +439,13 @@ that this internal readback reconstruct the same boundary capacity.
 
 The evidence logic is likewise simple. A prediction counts only when its
 calculation does not borrow the measured target or a calibrated proxy for it.
-Under that rule the compression scorecard currently credits the structural
-zeros and the conditional hypercharge lattice; every other row is pending,
-either awaiting a contraction certificate or standing as an open closure row.
+Under that rule the ledger contains zero landed results that are both
+discriminating and frozen before their target data. The structural zeros and
+conditional hypercharge lattice are mathematical results, not prospective
+empirical hits. The electroweak packets are known-data prescription checks. The
+127-qubit IBM hardware exercise reproduces a standard quantum-mechanical target.
+Its evidential status is a non-discriminating benchmark, with no OPH-specific
+confirmation.
 The deeper point is compression: the same
 two closure coordinates organize the observer problem, gravity and gauge
 reconstruction, the hierarchy bridge, dark energy, the dark-sector budget, the
@@ -499,9 +506,9 @@ therefore a natural screen.
 
 Different observers carry different horizons, but those horizons overlap
 enormously. The consistency conditions are severe. The total state space is
-finite. On that same implemented branch, the cosmological constant stops
-looking like an awkward vacuum-energy leftover and instead looks like a global
-capacity statement about the screen.
+finite. The OPH proposal reads the cosmological constant as a global capacity
+statement about the screen. Turning that reading into an output depends on the
+open capacity map and its three connecting premises.
 
 The de Sitter chapter mattered so much because it did not break the thread. It
 revealed the stage on which the observer-first picture reads most
@@ -596,41 +603,39 @@ of the gravity law and leaves exactly one global number behind.
 A screen at perfect balance carries no events. Records need a small detuning,
 and the declared detuning law leaves exactly one local number.
 
-Self-simulation then turns on those two survivors. The fine-structure constant
-measured inside the world and the pixel readout of the substrate are one
-quantity; the record capacity is one number shared by substrate and world.
+Self-simulation proposes two closures on those survivors. One identifies the
+fine-structure constant measured inside the world with the pixel readout of the
+substrate. The other identifies the record capacity read inside with the screen
+capacity supplied outside.
 
-Two equations land on the two survivors, so neither is a dial anyone can
-turn. The world has to read back its own capacity without deficit or slack.
-And the detuning law, run through the full forward chain, has to return the
-pixel it started from. While those equations stay open, the working chains
-borrow values located from measurement, and the scorecard counts each borrow.
+Two equations specify those targets. Neither has a completed physical map. The
+world would have to read back its own capacity without deficit or slack, and the
+detuning law would have to return the pixel it started from after complete
+hadronic transport. The working chains borrow values located from measurement,
+and the scorecard counts each borrow.
 One clock, the cesium transition, ties substrate units to laboratory units,
 so no unit convention can carry physics.
 
 That is the ceiling of the book in one count: ten requirements, each removing
 a freedom; two constants remaining; two equations on those constants; a unique
-universe if the equations close. Neither equation is closed today. The
-capacity readback stands as a live 6.8 percent tension, and the forward chain
-still lands outside its basin by the missing hadronic piece.
+universe if the equations close. Neither equation is physically closed. The
+capacity comparison has a $6.6$ percent conditional central mismatch, with the
+readback map, three connecting premises, and cosmological posterior propagation
+open. The electromagnetic roots belong to incomplete maps rather than a defined
+physical basin.
 
-What stands between here and a closed case is finite and named: three
-computations and one selector. The hadronic transport term, where the first
-calculation built from pure theory already brackets the required value, and
-what remains is a precision wall: closing the window needs the hadronic piece
-to about four parts in a billion, finer than any method in existence can
-reach today. The capacity readback map, which has narrowed to a single
-theorem: every candidate built from the declared structure has been tried and
-ruled out, and one remaining coupling statement now decides the question. The
-repaired forward electroweak chain, whose entire menu of one-loop revisions
-has been run and used up, leaving one surviving candidate that waits for its
-own frozen test. And a rule that tells the quark generations apart, still
-missing after a first slate of twelve candidates was tried and excluded. A
+What stands between here and a closed case is finite and named. The local closure
+needs a complete, scheme-consistent hadronic transport and a new blind target
+whose coordinate and comparison pixel are fixed without target exposure. The
+global closure needs a constructed capacity readback map and all three premises
+that connect it to the displayed capacities. The W and Z chart needs a complete
+renormalized vacuum, tadpole, threshold, matching, and complex-pole prescription;
+the partial one-loop packet and hybrid two-loop packet do not exhaust the
+physical choices. The particle sector needs a rule that tells the quark
+generations apart after a first slate of twelve candidates was excluded. A
 fifth item, the matched printed pair, closed in July 2026 when converged
 reruns carried the identity past thirty-five digits. None of the open items
-is a matter of interpretation; each is a computation or a construction. The
-first is already frozen as a blind target, externally timestamped, and the
-calculation has to land on it without reading it.
+is a matter of interpretation; each is a computation or a construction.
 
 ## 19.12 Final Synthesis
 
@@ -677,18 +682,19 @@ how they attach to physics, and what fixes the mass values are conjectural. A
 further theorem carries the construction to a physical mass and singularity
 operator only after assuming the physical Yukawa identity and the exact readout,
 which organizes the outstanding work without closing it. The weak sector gives
-the W and Z masses near $80.3$ and $91.1$ GeV, with several matching bookkeeping
-charts behind it and a small unresolved choice between two candidate rules for
-the final step. The finite certificate and the quantum-particle argument that a
-full particle theorem would need are absent. The Higgs and top come out together
-from a criticality condition on the forces, near $125.8$ and $172.6$ GeV. The
+running W and Z chart coordinates near $80.3$ and $91.1$ GeV. The physical pole
+map is absent, and the implemented radiative packets exclude only their own
+partial or hybrid prescriptions. The finite certificate and the quantum-particle
+argument that a full particle theorem would need are absent. The Higgs and top
+come out together from a criticality condition on the forces, near $125.8$ and
+$172.6$ GeV. The
 withheld quark rows, direct top comparison, hadrons, and the strong-CP question
 each touch a different layer of the particle problem.
 
 The general theorems sharpen this boundary. No further random or universe-scale
 simulation is logically required: exact finite enumeration, certified interval
 arithmetic, deterministic renormalization-group integration, and analytic pole
-enclosures suffice once their source inputs exist. But the current assumptions
+enclosures suffice once their source inputs exist. But the declared assumptions
 can be deformed continuously without touching any measured target, which changes
 the weak transport, the Higgs-top split, the absolute scale, and the underlying
 kernels. So those assumptions do not by themselves pick out a nonzero particle

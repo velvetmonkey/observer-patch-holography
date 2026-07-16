@@ -147,8 +147,8 @@ horizon. Everything the book has built points at those two survivors.
 
 ## 18.5 The Two Equations the Loop Writes for Itself
 
-Here the loop closes on its two survivors, and this is where the self-reference
-stops being a metaphor and starts fixing numbers.
+Here the loop writes closure equations on its two survivors, and the
+self-reference acquires quantitative targets.
 
 The local number comes from one cell of the screen, and that cell has two
 readings. From outside the
@@ -180,36 +180,35 @@ $$
 P = \varphi + \frac{\sqrt{\pi}}{A_T(P)} .
 $$
 
-That is a self-consistency equation in one unknown. The universe reads its own
-electromagnetic strength and must find the reading unchanged. Nobody chooses $P$.
-The loop does, by insisting that its two readings of one cell agree.
+That is the proposed self-consistency equation in one unknown. The declared
+map has a certified unique root on its stated interval, but it lacks the complete
+hadronic transport to the Thomson endpoint. The certificate proves a property
+of the incomplete map. It does not turn that map into a physical electromagnetic
+prediction.
 
-The global number works the same way one scale up. Supply the universe with a
-total capacity $N$. Let the closed observer record inside it read back the
-capacity of its own horizon. The readback is a definite function of what you
-supplied, and the fixed point is the single capacity where the amount supplied
-and the amount read back agree:
+The proposed global number works the same way one scale up. Supply the universe
+with a total capacity $N$ and ask a closed observer record to read back the
+capacity of its own horizon. OPH names the required map $F$:
 
 $$
 N = F(N) .
 $$
 
-Here $F$ is the horizon capacity read back by observers inside a universe given
-capacity $N$. Informally, $N$ is the screen size at which the world reads back
-its own boundary with no deficit and no slack. That fixed point sets the total
-size of the accessible computation, and through the scale bridge it fixes the
-cosmological constant, the dimensionless de Sitter capacity relation the earlier
-chapters wrote as
+Here $F$ would return the horizon capacity read back by observers inside a
+universe given capacity $N$. No source-derived construction of that map has been
+completed. Three premises are required to identify its fixed point with the
+electroweak and de Sitter capacities, including an open counting statement.
+Through the scale bridge, a completed fixed point would fix the dimensionless de
+Sitter capacity relation written in the earlier chapters as
 
 $$
 \Lambda_{\mathrm{CRC}} = \frac{3\pi}{G_{\mathrm{geom}}\,N_{\mathrm{CRC}}} .
 $$
 
-Two equations, two unknowns, and the equations come straight from what
-self-reading means once the structural freedoms are gone. A world that reads
-itself has to read back its own capacity, and its
-detuning law, run through the full chain, has to return the pixel it started
-from. The constants of OPH are the values that let the loop close.
+These are two closure targets for two unknowns. Self-reading motivates their
+form, but motivation does not supply the missing electromagnetic transport or
+construct the capacity readback map. The constants become outputs only if those
+maps are derived and their fixed points close.
 
 ## 18.6 One Universe, No Place to Hide
 
@@ -222,32 +221,27 @@ ours out. When data disagrees, a landscape theory can relocate. There is always
 another vacuum to move to. That flexibility is exactly what makes a landscape
 hard to kill and hard to trust.
 
-A self-reading loop has nowhere to relocate to. The detuning admits one balance
-point. The capacity equation admits one screen size. For the pixel this is a
-proved theorem: on the declared physical domain, the readback map has at most one
-fixed point, checked by interval arithmetic that brackets the answer between
-certified bounds instead of trusting a floating-point run. The capacity side is
-further out, with its fixed point built only under three stated premises, and the
-hardest of those, a counting statement, is the sharpest open problem in the
-program. Even so, the shape of the claim is fixed. If the two
-equations close, and their fixed points are unique, the whole construction admits
-exactly one universe.
+A self-reading loop aims to leave nowhere to relocate. On the local side,
+interval arithmetic proves that the declared incomplete map has at most one fixed
+point on its stated domain. The physical map may change when the omitted
+transport and scheme choices are supplied. On the capacity side, uniqueness is
+conditional on three unproved premises and on a readback map that has not been
+constructed. If both physical maps are derived, both equations close, and their
+fixed points are unique, the construction would admit exactly one universe.
 
-That turns the usual relationship between theory and data inside out. Most
-theories fear a wrong number because it means patching the theory. A theory with
-no dials and one universe wants the wrong number, because a wrong number is the
-only thing that can kill it, and a theory you cannot kill was never telling you
-anything. Every constant the loop is supposed to emit is a loaded test. A single
-blind computation that lands outside the value the world measures ends the
-formulation. There is no landscape to slide into, no parameter to re-fit
-overnight.
+A completed no-dial, one-universe theory would turn the usual relationship
+between theory and data inside out. Every constant emitted by a complete
+physical map would be a loaded test. A genuinely blind computation that lands
+outside the value the world measures would end the formulation, with no
+landscape or parameter adjustment available to absorb the failure.
 
-This is why the program freezes its decisive numbers before computing them,
-stamps them with an external timestamp, and only then runs the calculation that
-has to hit them. The practice comes from experimental science, where you record
-the prediction before you look. It has no real counterpart in the
-theory-of-everything literature, and it is only affordable because the loop
-forbids itself a landscape.
+A decisive test must freeze its target before the calculation sees it, bind the
+physical coordinate and comparison point unambiguously, and preserve an external
+timestamp. The first hadronic target package fails that standard. Its materials
+exposed the target numerics, its pass rule named a residual while the verdict
+used a total correction, and its comparison pixel differed from the target
+pixel. A replacement target needs a fresh version rather than a silent edit of
+the frozen record.
 
 ## 18.7 The Open Equations
 
@@ -256,51 +250,47 @@ in plain terms, with nothing rounded up.
 
 Neither of the two equations is closed.
 
-On the local side, the forward chain built purely from the theory's own
-ingredients contracts to a definite, certified value near $137.0$ for the bare
-pixel, and to a value near $137.036$ once the screen's own gauge width is folded
-in. Both sit close to the measured electromagnetic strength, and both miss it by
-the same small amount. The missing piece has a name and an address. It is the
-contribution of the strongly interacting particles to the electromagnetic
-current at low energy, computed in the same scheme as the rest of the chain. A
-version that closes the gap using measured hadron data imports that data, which
-makes it a check rather than a first-principles output. The first-principles
-version brackets the required value. Landing inside the frozen window needs that
-hadronic term to a precision finer than any method in existence can reach. The
-equation is armed and open.
+On the local side, the declared maps contract to inverse-coupling values near
+$136.995$ and $137.03566$. Those are certified outputs of incomplete maps. The
+scheme-consistent contribution of strongly interacting particles to the
+low-energy electromagnetic current is absent. An exploratory exercise using
+measured hadron data produced a wide bracket that contains its intended target,
+but target exposure, coordinate mismatch, and a different comparison pixel
+remove any blind-test status. A wide rigorous interval could falsify a target by
+excluding it; extreme endpoint precision is required only to confirm a narrow
+landing.
 
-On the global side, the capacity read back from the electroweak bridge and the
-capacity located from the measured cosmological constant differ by about seven
-percent. The capacity equation admits one number, so that gap is carried as a
-live tension. It becomes the decisive capacity test on discharge of the three
-premises behind the readback map, and the hardest premise reduces to a single
-counting statement.
+On the global side, the conditional electroweak bridge gives about
+$3.5324\times10^{122}$, while the central capacity located from the measured
+cosmological constant is about $3.3126\times10^{122}$. The central mismatch is
+about $6.6$ percent. It is not a contradiction because the readback map and its
+three premises are open, and the cosmological-parameter posterior has not been
+propagated through the comparison.
 
-What stands between the loop and a closed case is finite and named. A hadronic
-transport computation, where the first-principles bracket contains the answer and
-the precision is the wall. A capacity readback map that reduces to one counting
-theorem. A repaired electroweak chain whose one-loop menu is exhausted, leaving
-one surviving candidate that waits for its own frozen test. And a rule that tells
-the quark generations apart, which is work in progress. None of these is a matter
-of interpretation. Each is a computation or a construction, and reinterpretation
-closes none of them.
+What stands between the loop and a closed case is finite and named. The local
+side needs a complete, scheme-consistent hadronic transport and a genuinely
+blind target package. The global side needs the capacity readback map and all
+three premises that identify its fixed point. The W and Z chart needs a complete
+renormalized vacuum, tadpole, threshold, matching, and complex-pole prescription;
+the July one-loop and hybrid two-loop packets exclude only their own partial
+branches. The particle sector also needs a source-derived rule that distinguishes
+the quark generations.
 
-That is where the strange loop stands as physics. The structural subtraction
-lands on two numbers. The two equations the loop writes for those numbers are
-stated exactly, one has a proven unique solution, and both are open at the last
-step by a named quantity that no wording can supply. The universe reading itself
-is a claim with computable content and a public scoreboard, and the scoreboard is
-not at zero.
+The two equations are stated exactly, and the declared local map has a proven
+unique root. Neither equation has a completed physical readout. The evidential
+ledger contains no landed result that is both discriminating and frozen before
+its target data. Structural derivations, known-data checks, and
+non-discriminating hardware benchmarks remain useful, but none is such a hit.
 
 ## 18.8 Where the Loop Leads
 
 The strange loop is the strongest and most exposed framing the program has. It
-converts the structure of the argument into the argument. The measured constants
-are the loop reading itself through the observers it produced. The open residuals
-are the live test surface of the one candidate for a final theory that refuses
-itself a landscape. And the observers doing the physics, working out the
-architecture of the world from inside it, are the mechanism by which the loop
-becomes explicit. Escher's hands, holding instruments.
+converts the structure of the argument into the argument. It proposes the
+measured constants as the loop’s readings through the observers it produced.
+That proposal earns physical status only when the local and global maps are
+completed and close without borrowed targets. The observers doing the physics,
+working out the architecture of the world from inside it, are the mechanism by
+which the loop becomes explicit. Escher’s hands, holding instruments.
 
 The next chapter gathers the whole construction into one synthesis, from the
 finite screen to the shared public world, and reads the two-number closure as the

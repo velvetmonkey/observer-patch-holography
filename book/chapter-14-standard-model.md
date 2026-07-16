@@ -226,9 +226,31 @@ Renormalization works for some theories (called "renormalizable") but not others
 
 A strange consequence of renormalization: coupling constants change with energy.
 
-The fine-structure constant measures the strength of electromagnetism, and it too drifts with energy. OPH tries to compute it from the screen structure instead of reading it off an experiment. That attempt is partly successful and openly incomplete. The cleanest first-principles reading lands close to the value nature uses, near $137$, and it does not reproduce the precise number a laboratory measures. Closing the last small gap calls for strong-force input that the framework has to derive from its own foundations, and supplying that input is work in progress. For the moment the theory reaches for the constant without capturing it, and the test is arranged: the required hadronic correction is frozen as a registered target, and the strong-force calculation must land on it without reading it.
+The fine-structure constant measures the strength of electromagnetism, and it
+too drifts with energy. The declared OPH fixed-point map has a certified
+numerical root near $137$, but the map does not contain a complete,
+scheme-consistent transport to the long-distance Thomson coupling. In
+particular, the hadronic part of that transport is missing. The root is
+therefore an incomplete-map diagnostic, not a physical prediction of the
+laboratory constant.
 
-That low-energy number lives in the same family as the W and Z bosons. Once the electroweak structure is fixed, electromagnetism is the unbroken piece left after the weak and hypercharge parts mix together. OPH computes the W and Z masses from that same structure without feeding in any measured mass, and its cleanest reading lands near $80.3$ and $91.1$ GeV, within about a tenth of a percent of the observed pair. Measured against the experimental uncertainties, the W value pulls at 2.9 standard deviations and the Z at roughly 33, and the gap is carried as an open closure row. One small ambiguity affects the final step: two candidate rules disagree at the level of a few MeV, and choosing between them is work in progress.
+The first hadronic bracket exercise does not repair that omission. Its source
+material exposed the target numerics, the registered pass coordinate named a
+residual while the verdict compared a total correction, and the bracket was
+evaluated at a different comparison pixel. Its broad interval contains the
+target, which makes it an exploratory consistency exercise rather than a blind
+or promotion-grade result.
+
+That low-energy number lives in the same family as the W and Z bosons. Once the
+electroweak structure is fixed, electromagnetism is the unbroken piece left
+after the weak and hypercharge parts mix together. OPH’s values near $80.3$ and
+$91.1$ GeV are coordinates of a running, tree-level chart. They are not
+commensurate with measured W and Z pole parameters until the calculation
+supplies a renormalized vacuum expectation value, a tadpole prescription,
+threshold and matching terms, and a complex-pole convention. The partial
+one-loop and hybrid two-loop checks exclude only the prescriptions they
+implemented. They establish neither physical pulls nor a unique percent-level
+defect in OPH.
 
 The strong force coupling runs the opposite way. At low energies, it's strong (hence the name). At high energies, it weakens. This is "asymptotic freedom," discovered by Gross, Wilczek, and Politzer in 1973.
 
@@ -881,20 +903,22 @@ labels of mass, spin, and helicity. The realized gauge quotient, hypercharge
 lattice, and generation-color counting supply the particle-side structure. Together
 they decide which charged excitations can exist and how they transform.
 
-Then comes the fixed-point closure. The same patch of screen is read two ways.
+Then comes the proposed fixed-point closure. The same patch of screen is read
+two ways.
 From the outside it is a tiny departure from perfect golden-ratio balance. From
 the inside it is the electromagnetic measurement step available to observers
-living in the encoded world. Matching those two readings reproduces the measured
-fine-structure constant near $137.036$.
+living in the encoded world. The declared forward map has a certified root near
+$137$, but it omits the complete hadronic transport and therefore does not
+produce the measured Thomson coupling.
 
-Getting there is a chain of translations. Golden-ratio balance fixes the screen
-side. The width of the boundary sets the small electromagnetic detuning. The
-translation then carries that value down through the high-energy unification of
-forces to the electromagnetism we measure at low energy. A separate run of the
-same machinery borrows the measured strong-force contribution, lands a little
-lower, and tests whether the strong-force interface behaves without computing
-that piece from scratch. These runs answer different questions and do not
-substitute for one another.
+The proposed chain contains several translations. Golden-ratio balance fixes
+the screen side. The width of the boundary sets the small electromagnetic
+detuning. The translation then carries that value down through the high-energy unification of
+forces toward the electromagnetism measured at low energy. A separate run borrows
+measured hadronic data, but its wide bracket, visible target numerics, mismatched
+verdict coordinate, and different comparison pixel prevent it from serving as a
+blind closure. These calculations diagnose an incomplete interface; they do not
+substitute for the missing physical map.
 
 The fine-structure constant belongs here beside the weak sector. It is the local
 electromagnetic strength of the patch of screen that supports an observer. From
@@ -910,9 +934,10 @@ For that reason, a laboratory does not measure the bare first-principles number
 as the fine-structure constant. A real low-energy measurement sees the
 electromagnetic coupling after it has been dressed by the cloud of virtual
 particles around a charge, including the hard-to-compute contribution from
-confined quarks. The gap between the framework's cleanest first-principles
-reading and the measured value names exactly that missing strong-force piece,
-and quantifying the gap does not compute the piece.
+confined quarks. The difference between the framework’s incomplete-map root and
+the measured value helps locate the missing strong-force interface, but the
+omitted terms and scheme choices prevent that difference from identifying a
+unique physical correction. Quantifying it does not compute the correction.
 
 The deeper picture is simple. The screen wants to sit exactly at the golden-ratio
 balance point, its point of perfect self-similar rest. A universe with observers
@@ -1104,9 +1129,9 @@ once the matching quantum argument is supplied.
 
 **The particle structure.** Section 14.14 lays this out. The framework fixes the
 carrier roles and gives their classical wave modes. It organizes the
-fine-structure fixed point, the exact chart for the W and Z carriers, and a
-conditional relation between the Higgs and top masses. The mass predictions are
-less settled. The charged leptons have a clean geometric skeleton with the
+declared fine-structure fixed-point map, the running chart for the W and Z
+carriers, and a conditional relation between the Higgs and top masses. The mass
+predictions are less settled. The charged leptons have a clean geometric skeleton with the
 physical mass-setting piece open. A proposed shortcut for the quark masses fails
 its own consistency test by about twenty percent, so its old close-looking
 numbers count as coincidences rather than predictions. The general quark case
@@ -1155,12 +1180,12 @@ which exposes exactly twelve sampling points arranged with the symmetry of an
 icosahedron. The precise value belongs to the repair rhythm of the theory, and
 the rounded version is the number usually quoted for the de Sitter horizon.
 
-For the W, Z, and Higgs, the structural relations are worked out and the
+For the W, Z, and Higgs, structural relations are worked out and the
 physical inputs that would turn them into actual mass predictions are missing.
-The framework can show that these gaps cannot be papered over by tuning to the
-measured masses: you can slide the numbers around while keeping the structure
-intact, which means matching the data would prove nothing. Supplying the genuine
-missing pieces is work in progress.
+For the W and Z this includes the renormalized vacuum convention, tadpole terms,
+threshold matching, and the complex-pole map. Partial radiative prescriptions
+can move the chart, but none of the implemented versions defines the unique
+observable comparison. Supplying the missing pieces is work in progress.
 
 **Charge quantization.** All color-singlet particles have integer electric charge. No fractional charges like $\pm 1/3$ can exist outside hadrons. This follows from the global structure of the gauge group.
 
@@ -1196,7 +1221,7 @@ energy.
 
 What the book delivers is concrete on the structural side and openly unfinished
 on the mass side. It points to a specific gauge group, charge pattern, color
-count, and generation count. It reaches classical carrier modes, an exact chart
+count, and generation count. It reaches classical carrier modes, a running chart
 for the W and Z carriers, and a conditional relation between the Higgs and top.
 The mass predictions are absent. The quark-mass shortcut fails its own
 consistency test. The general quark case leaves six numbers free that nothing in

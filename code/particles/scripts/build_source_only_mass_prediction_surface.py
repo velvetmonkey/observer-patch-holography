@@ -143,9 +143,10 @@ def _boson_rows(wzh: dict, ew: dict) -> dict[str, Any]:
                 "lane": "strict source-audit branch, zero-selector law",
                 "tier": "T2 (T3 once the discrete law selection is a theorem)",
                 "explanation": (
-                    "Tree/chart coordinates within 0.06 to 0.08 percent of "
-                    "measurement with no target input; the residual is the "
-                    "unmodeled pole packet plus the witness-level P root."
+                    "Running/tree chart coordinates. No physical residual or "
+                    "pull is defined because the renormalized-vev, tadpole, "
+                    "threshold, matching, uncertainty, and complex-pole map "
+                    "is incomplete."
                 ),
                 "row_class": wzh["row_class"],
                 "MW_over_E_star": two_law["zero_selector_law"]["MW_over_E_star"],

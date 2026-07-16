@@ -128,7 +128,7 @@ def _fine_structure_surface(measured_endpoint: dict[str, Any]) -> dict[str, Any]
     relative_shortfall = missing_hadronic_correction / measured_alpha_inv
     near_endpoint = {
         "row_class": "source_side_no_hadron_near_endpoint",
-        "status": "source_side_prediction_missing_only_small_qcd_hadronic_endpoint_correction",
+        "status": "historical_mixed_provenance_display_packet_not_fixed_point",
         "formula": "alpha_root^-1 + alpha_U(P_star)",
         "alpha_root_inv": source_candidate["alpha_inv"],
         "alpha_U": alpha_u,
@@ -139,7 +139,12 @@ def _fine_structure_surface(measured_endpoint: dict[str, Any]) -> dict[str, Any]
         "relative_shortfall": str(relative_shortfall),
         "percent_shortfall": str(relative_shortfall * Decimal(100)),
         "one_part_in": str(measured_alpha_inv / missing_hadronic_correction),
-        "minimal_missing_payload": "oph_qcd_ward_projected_hadronic_spectral_measure",
+        "open_physical_map_requirements": [
+            "source Ward-projected hadronic spectral measure",
+            "same-scheme finite remainder",
+            "one-coordinate fixed-point evaluation",
+            "interval certificate and theory uncertainty",
+        ],
         "promotable_as_exact_source_theorem": False,
     }
     root_audit = {
@@ -154,7 +159,11 @@ def _fine_structure_surface(measured_endpoint: dict[str, Any]) -> dict[str, Any]
     }
     return {
         "source_side_no_hadron_near_endpoint": near_endpoint,
-        "source_only_oph": near_endpoint,
+        "source_only_oph": {
+            "row_class": "source_only_physical_thomson_endpoint",
+            "status": "not_emitted",
+            "promotable_as_exact_source_theorem": False,
+        },
         "root_only_audit": root_audit,
         "oph_plus_empirical_hadron_closure": {
             "row_class": "oph_plus_empirical_hadron_closure",
@@ -247,6 +256,11 @@ def _hierarchy_surface() -> dict[str, Any]:
                 "source-only hadron masses",
                 "strong CP",
                 "SI G without the full no-G clock stack",
+            ],
+            "capacity_conditions": [
+                "construct the physical readback map F",
+                "discharge CP-1, CP-2, and CP-3",
+                "propagate the joint cosmological posterior before comparison",
             ],
         },
         "pixel_screen_resonance": {
@@ -646,7 +660,7 @@ def render_markdown(payload: dict[str, Any]) -> str:
             "",
             "## Fine Structure",
             "",
-            "| Output class | alpha^-1(0) | P | Missing hadronic correction | Claim label |",
+            "| Output class | alpha^-1 coordinate | P | Legacy difference to endpoint | Claim label |",
             "| --- | ---: | ---: | ---: | --- |",
         ]
     )
@@ -672,11 +686,13 @@ def render_markdown(payload: dict[str, Any]) -> str:
     lines.extend(
         [
             "",
-            f"- Source-side no-hadron near-endpoint formula: `{source_no_hadron['formula']}`",
-            f"- Relative shortfall before the QCD/hadronic endpoint correction: "
+            f"- Historical mixed-provenance display formula: `{source_no_hadron['formula']}`",
+            f"- Legacy relative coordinate difference to the endpoint: "
             f"`{source_no_hadron['relative_shortfall']}` "
             f"(`{source_no_hadron['percent_shortfall']}` percent)",
-            f"- Small missing payload: `{source_no_hadron['minimal_missing_payload']}`",
+            f"- Open physical-map requirements: "
+            f"`{source_no_hadron['open_physical_map_requirements']}`",
+            "- Source-only physical Thomson endpoint emitted: `False`",
             f"- Empirical payload policy: `{fine['empirical_payload_policy']['dispersion_payload_status']}`",
             "",
             "## Hierarchy And Naturality",
@@ -684,7 +700,8 @@ def render_markdown(payload: dict[str, Any]) -> str:
             f"- Resonance label: `{_display_status(hierarchy_status['resonance_status'])}`",
             f"- Full theorem-grade resonance promoted: `{hierarchy_status['full_theorem_grade_resonance_promoted']}`",
             f"- Remaining promotion gates: `{hierarchy_status['remaining_promotion_gates']}`",
-            f"- Exact EW bridge capacity: `{hierarchy_bridge['N_CRC_EW']}`",
+            f"- Conditional EW bridge capacity (modulo F and CP-1 to CP-3): "
+            f"`{hierarchy_bridge['N_CRC_EW']}`",
             f"- Bridge residual: `{hierarchy_bridge['bridge_residual']}`",
             f"- Source `v/E_cell`: `{hierarchy_bridge['v_over_E_cell_source']}`",
             f"- Factor origins: `ports={hierarchy_factors['screen_ports']}`, "
@@ -692,6 +709,8 @@ def render_markdown(payload: dict[str, Any]) -> str:
             f"`exponent={hierarchy_factors['specialized_exponent']}`",
             f"- Higgs naturality defect: `epsilon_H={hierarchy_factors['higgs_naturality_defect']}`",
             f"- Boundary: {hierarchy['claim_boundary']['improves']}",
+            f"- Physical capacity conditions: "
+            f"{'; '.join(hierarchy['claim_boundary']['capacity_conditions'])}",
             f"- Not promoted by this bridge: {', '.join(hierarchy['claim_boundary']['does_not_promote'])}",
             "",
             "## Pixel-Screen Resonance",

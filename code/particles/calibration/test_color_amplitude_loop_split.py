@@ -21,27 +21,30 @@ def test_guards_no_source_theorem_claimed() -> None:
     assert report["guards"]["complete_archived_value_law_tested_as_constant_c_competitor"] is False
 
 
-def test_mW_selects_sqrt_Nc_over_2() -> None:
+def test_legacy_mw_profile_arithmetic_is_retained_without_selection_claim() -> None:
     report = build()
     ds = report["data_selection"]
-    # the clean W-mass optimum sits on sqrt(3)/2 to better than 0.5 percent
+    assert report["guards"]["wz_physical_comparison_status"] == "NOT_EVALUABLE"
     assert abs(ds["MW_best_c"] - math.sqrt(3) / 2) < 0.005
 
 
-def test_mZ_selects_Nc_over_2() -> None:
+def test_legacy_mz_profile_arithmetic_is_retained_without_selection_claim() -> None:
     report = build()
     ds = report["data_selection"]
     assert abs(ds["MZ_best_d"] - 1.5) < 0.06
 
 
-def test_competitors_excluded_prediction_inside() -> None:
+def test_legacy_profile_does_not_emit_physical_exclusions() -> None:
     report = build()
     comps = report["data_selection"]["competitors"]
-    assert comps["color_amplitude_loop  c=sqrt(Nc)/2"]["inside_MWMZ_1sigma"] is True
-    assert comps["loop_symmetric        c=Nc/2"]["inside_MWMZ_1sigma"] is False
-    assert comps["loop_symmetric        c=Nc"]["inside_MWMZ_1sigma"] is False
-    assert comps["leading_constant_proxy c=1/(4 beta)"]["inside_MWMZ_1sigma"] is False
-    assert "not excluded" in report["verdict"]["complete_archived_value_law"]
+    assert comps["color_amplitude_loop  c=sqrt(Nc)/2"]["inside_legacy_reference_error_profile"] is True
+    assert comps["loop_symmetric        c=Nc/2"]["inside_legacy_reference_error_profile"] is False
+    assert "not physically evaluated" in report["verdict"]["loop_symmetric_law"]
+    for key in ("MW_chart_gev", "MZ_chart_gev"):
+        row = report["comparison_compare_only"][key]
+        assert row["physical_comparison_status"] == "NOT_EVALUABLE"
+        assert row["physical_pull"] is None
+        assert "delta_over_sigma" not in row
 
 
 def test_channel_identification_remains_open() -> None:

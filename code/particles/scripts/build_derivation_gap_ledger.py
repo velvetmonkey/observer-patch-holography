@@ -909,13 +909,16 @@ def render_markdown(ledger: dict[str, Any]) -> str:
                 f"- Local/global resonance status: `{hierarchy['local_global_resonance_status']}`",
                 f"- Full theorem-grade resonance promoted: `{hierarchy['full_theorem_grade_resonance_promoted']}`",
                 f"- Remaining promotion gates: `{hierarchy['remaining_promotion_gates']}`",
-                f"- Exact EW bridge capacity: `{hierarchy['N_CRC_EW']}`",
+                f"- Conditional EW bridge capacity (modulo F and CP-1 to CP-3): "
+                f"`{hierarchy['N_CRC_EW']}`",
                 f"- Bridge residual: `{hierarchy['bridge_residual']}`",
                 f"- Fixed-point residual in log capacity: `{hierarchy['fixed_point_residual_x']}`",
                 f"- Source v/E_cell: `{hierarchy['v_over_E_cell_source']}`",
                 f"- Higgs naturality defect: `epsilon_H={hierarchy['epsilon_H']}`",
                 f"- Higgs naturality interval: `[{epsilon_interval[0]}, {epsilon_interval[1]}]`",
                 f"- Boundary: {hierarchy['boundary']}",
+                "- Physical capacity comparison remains open until F and CP-1 to "
+                "CP-3 close and the joint cosmological posterior is propagated.",
             ]
         )
     lines.extend(

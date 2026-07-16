@@ -42,7 +42,7 @@ GeV/MeV displays use the unclosed clock candidate; the clock audit classifies th
 
 - Lane: strict source-audit branch, zero-selector law
   - Tier: T2 (T3 once the discrete law selection is a theorem)
-  - explanation: Tree/chart coordinates within 0.06 to 0.08 percent of measurement with no target input; the residual is the unmodeled pole packet plus the witness-level P root.
+  - explanation: Running/tree chart coordinates. No physical residual or pull is defined because the renormalized-vev, tadpole, threshold, matching, uncertainty, and complex-pole map is incomplete.
   - row_class: conditional_on_P_and_discrete_repair_law_choice
   - MW_over_E_star: 6.579630866577059e-18
   - MZ_over_E_star: 7.463334863036661e-18

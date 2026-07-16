@@ -1,7 +1,12 @@
 # Ward-Projected Hadronic Transport Payload (Generator G1): Status
 
-LABEL: development bracket, non-blind environment; the protocol pass requires
-an isolated re-run.
+Protocol correction: `V1_PROTOCOL_ERRATUM_2026-07-16.md` supersedes the old
+emit-and-compare procedure. Historical V1 is exploratory and cannot be
+promoted. Its target file and runtime artifact remain immutable. The repaired
+`run_bracket.py` is source-only; `score_bracket.py` validates the sealed source
+artifact and corrective target in a separate process. The current result is
+always `NOT_EVALUABLE`: v3 is inactive, the source bracket is an uncertified
+singleton diagnostic, and `Delta_EW` is open.
 
 ## 1. Declared contract implemented
 
@@ -15,10 +20,13 @@ Per `code/P_derivation/THOMSON_TRANSPORT_THEOREMS.md` (Theorems 3, 5, 6) and
 - Scheme: same subtraction as `a0(P) = alpha_em^-1(m_Z^2;P)`, family
   `d10_running_tree`, R-ratio normalization (massless parton density
   `N_c Q^2`).
-- Screening coordinate: `x = N_c alpha_3(m_Z;P)/pi`; the declared residual
+- Screening coordinates: `x = N_c alpha_3(m_Z;P)/pi`; the declared residual
   form is `S = 1 - x + c_Q x^2`; the harness reports
-  `S_eff = Delta_had / Delta_quark_naive` and
-  `c_Q = (S_eff - (1 - x)) / x^2` for every payload.
+  `S_hadronic = Delta_had / Delta_quark_naive`, conditional
+  `S_QEW_effective = (Delta_had + Delta_EW) / Delta_quark_naive`, and
+  `c_Q = (S_QEW_effective - (1 - x)) / x^2` for every payload. The two S
+  coordinates are not identified merely because the open branch currently
+  assigns `Delta_EW = 0`.
 - Evaluation point: the internal fixed-point root of the implemented chain,
   `P* = 1.63097209585889737696451390350695563...`, D10 point rebuilt with
   `paper_math.PaperMathContext` (precision 40, su2 cutoff 60, su3 cutoff 45).
@@ -27,9 +35,9 @@ Per `code/P_derivation/THOMSON_TRANSPORT_THEOREMS.md` (Theorems 3, 5, 6) and
 - `Delta_EW`: declared zero branch, unproven (Theorem 4 open). It enters
   every payload as an explicit `declared_zero_branch_unproven` field.
 
-No CODATA/NIST alpha, no measured hadronic cross section, no PDG hadron
-datum, and no empirical endpoint interval enters any computation. Canon
-values quoted in Section 5 are compare-only and are labeled non-blind.
+No CODATA/NIST alpha, measured hadronic cross section, PDG hadron datum, or
+empirical endpoint interval enters the source computation. Section 5 records
+the superseded historical comparison and supplies no evidential weight.
 
 ## 2. Internal inputs used
 
@@ -65,7 +73,7 @@ clock candidate cancels.
 Declared grid (58 runs, `run_bracket.py`, stated in advance, not tuned):
 
 - `parton_free`: free-quark one-loop dispersion, Stage-5 masses. Reproduces
-  the chain's naive quark sum exactly (`S_eff = 1`).
+  the chain's naive quark sum exactly (`S_hadronic = 1`).
 - `pqcd`: parton density times the massless MS-bar R-ratio series
   `1 + a + c2 a^2 + c3 a^3` (`a = alpha_s(s)/pi`) above the declared IR
   cutoff `s0 = (k Lambda3)^2`; grid: Lambda3 {lane_lo, lane_central,
@@ -79,9 +87,10 @@ Chain reference at `P*` (implemented screen `1 - x`):
 `Delta_quark_screened_impl = 4.377169974609`,
 `Delta_impl_total = 8.686567119425`.
 
-Key rows (Delta values in inverse-alpha units):
+Key historical rows (Delta values in inverse-alpha units; `Delta_source total`
+means `Delta_lep + Delta_had + Delta_EW`):
 
-| variant                        | S_eff    | Delta_had | Delta_source |
+| variant                        | S_hadronic | Delta_had | Delta_source total |
 |--------------------------------|----------|-----------|--------------|
 | parton_free                    | 1.000000 | 4.934816  | 9.244213     |
 | pqcd o3 k=4 free (central)     | 1.038029 | 5.122481  | 9.431878     |
@@ -93,19 +102,28 @@ Key rows (Delta values in inverse-alpha units):
 Development bracket over the full grid:
 
 - `Delta_had`: [2.752536, 5.203008]
-- `Delta_source`: [7.061933, 9.512406], width 2.450472
-- `S_eff`: [0.557779, 1.054347], width 0.496568
+- `Delta_source total`: [7.061933, 9.512406], width 2.450472
+- `S_hadronic`: [0.557779, 1.054347], width 0.496568
 - implied `c_Q`: [-25.78, +13.11]
 - residual `R_Q` vs the implemented screen: [-1.624634, +0.825838]
 
-Artifact: `runtime/ward_projected_payload_bracket_current.json`
+Historical artifact: `runtime/ward_projected_payload_bracket_current.json`
 (deterministic, content-hashed; full-grid wall time 0.36 s plus 3.8 s for
-the D10 evaluation-point rebuild).
+the D10 evaluation-point rebuild). It is retained byte-for-byte and is not an
+artifact of the repaired schema. New emissions default to
+`runtime/ward_projected_payload_source_bracket_current.json`; protocol runs
+should write to a sealed path outside the source checkout.
 
-## 4. The wall, quantified
+## 4. Historical v2 precision diagnostic, not a scoring contract
 
-- Pass tolerance: 2.1e-8 in `Delta_source` inverse-alpha units (ledger
-  scale). Required relative precision on `Delta_had`: 4.0e-09.
+V2's scalar pass rule is algebraically invalid: it compares a source total
+with a residual, assigns one target to two different completed maps, and
+treats the open `Delta_EW` remainder as zero. The following figures are
+preserved only as historical scale diagnostics. They define no valid pass or
+falsification threshold.
+
+- Historical v2 tolerance field: 2.1e-8 in `Delta_source` inverse-alpha units.
+  Its implied relative scale on `Delta_had` was 4.0e-09.
 - Development bracket width: 2.450472 inverse-alpha units. Ratio to
   tolerance: 1.17e+08.
 
@@ -117,7 +135,7 @@ Comparison against the standard literature:
   `0.02761(11)` (Keshavarzi-Nomura-Teubner 2019). In inverse-alpha units the
   hadronic transport is about 3.8 with uncertainty 0.010 to 0.015, a
   relative precision of 2.5e-3 to 4e-3. That sits a factor of roughly 5e5 to
-  7e5 above the required width, and the method consumes measured hadronic
+  7e5 above that historical scale, and the method consumes measured hadronic
   cross sections, which the source-only lane forbids.
 - Lattice QCD(+QED) first-principles hadronic vacuum polarization: BMW 2020
   (Borsanyi et al., Nature 593, 51) gives `a_mu^LO-HVP = 707.5(5.5)e-10`
@@ -125,7 +143,7 @@ Comparison against the standard literature:
   reach roughly 0.4% to 1%. Direct lattice computations of the running to
   `mZ^2` via the Adler function (Ce et al. 2022) carry about 0.5% to 1% on
   the hadronic transport. That sits a factor of roughly 1e6 to 2e6 above the
-  required width. Published lattice scale setting consumes one measured
+  historical scale. Published lattice scale setting consumes one measured
   dimensionful hadronic input, so even this route is only
   hadron-input-free after replacing scale setting with a source-emitted
   scale.
@@ -141,24 +159,24 @@ Comparison against the standard literature:
   moment. The spread across the declared IR-cutoff and support branches
   (this bracket) is the quantitative image of that failure.
 
-Statement, per the stopping condition for this generator: no current method
-reaches the required width of 2.1e-8 inverse-alpha units (4e-9 relative on
+Statement about the historical v2 scale: no current method reaches a width of
+2.1e-8 inverse-alpha units (4e-9 relative on
 the hadronic transport) without measured hadronic input. No current method
 reaches it with measured hadronic input either; the best existing
 determinations of the hadronic transport sit five to six orders of magnitude
-short of the pass tolerance. A first-principles determination at the
-required width would need a lattice QCD+QED program with total error budgets
+above that historical scale. A first-principles determination at that width
+would need a lattice QCD+QED program with total error budgets
 roughly six orders of magnitude beyond the current state of the art, with
 scale setting emitted by the source chain instead of a measured hadron mass.
 
-## 5. Non-blind development comparison
+## 5. Superseded non-blind development comparison
 
 This session read canon documents that quote the target-side diagnostics, so
 the following comparison carries no blind weight. Canon scales seen in
 `THOMSON_TRANSPORT_THEOREMS.md`: `S_required(P_C) = 0.895400132648`,
 `c_Q(P_C) = 0.658025759927`, `Delta_missing(root) = 0.041163999587`.
 
-- `S_required` lies inside the development `S_eff` bracket
+- The historical `S_required` lies inside the development `S_hadronic` bracket
   [0.557779, 1.054347]. The bracket width in `S` units (0.4966) exceeds the
   tolerance in `S` units (4.3e-9) by the same 1.2e8 factor.
 - Containment carries no promotion weight. Theorem 6 of the canon file
@@ -166,21 +184,26 @@ the following comparison carries no blind weight. Canon scales seen in
   spectral moment; a bracket that contains the required scale is consistent
   with that no-go and does nothing to close it.
 
-## 6. Blind-run protocol (required for any protocol pass)
+## 6. Repaired emission and scoring protocol
 
-1. Isolated environment: fresh checkout containing only
-   `code/P_derivation/paper_math.py`, this directory, and the Lambda lane
-   artifact. No canon markdown, no `falsification/`, no ledgers, no network.
-2. Re-derive the evaluation point inside the run:
-   `PaperMathContext.solve_closure(mode="thomson_structured_running")` at
-   declared precision; do not read `runtime/full_p_alpha_report_current.json`.
-3. Run `run_bracket.py` with the declared grid unchanged. Any grid edit,
-   node-count edit, or cutoff edit voids the run.
-4. Emit-then-compare per the frozen v2 target rules: write the bracket JSON,
-   record its `content_sha256`, and only then hand it to the separate
-   comparison operator. No post-emission edits.
-5. The emitting process never reads the target file or any document quoting
-   `S_required`, `c_Q`, `P_C`, or the endpoint interval.
+1. Build an isolated emitter environment containing only source code and
+   allowed source-side inputs. Exclude `falsification/`, score artifacts,
+   target-bearing prose, and the network.
+2. Run `run_bracket.py` at its source-derived internal Stage-5 P. It exposes no
+   P override and rejects measurement-located or target-supplied P values.
+3. Write the sampled singleton diagnostic to a sealed output path. Any grid,
+   node-count, or cutoff change creates a new protocol. Do not describe its
+   variant extrema as numerical, theory, or interval-certified error bounds.
+4. Record the file hash and embedded `content_sha256` before transfer. Make no
+   post-emission edit.
+5. In a separate environment, run `score_bracket.py` on the sealed artifact
+   and `hadronic_closure_target_2026-07-16_v3.json`. The scorer fails closed on
+   target activation, hash, schema, coordinate-kind, P-domain, provenance,
+   certification, or `Delta_EW` gate failures.
+6. Expect `NOT_EVALUABLE`. V3 permits no real score until a successor is
+   externally activated before payload work and an eligible target-blind
+   P-domain object exists. CL-1 and CL-2 must then be solved and certified
+   independently; no scalar containment shortcut is valid.
 
 ## 7. Files
 
@@ -188,8 +211,13 @@ the following comparison carries no blind weight. Canon scales seen in
   moments, deterministic quadrature, `emit_delta_source`.
 - `spectral_modules.py`: alpha_s engine, R-ratio series, declared variant
   modules, synthetic test module.
-- `run_bracket.py`: declared grid, bracket, wall quantification, artifact.
-- `test_payload_harness.py`: determinism, synthetic round-trip, closed-form
-  agreement with `paper_math`, chain-baseline reproduction, bracket
-  reproducibility (6 tests).
-- `runtime/ward_projected_payload_bracket_current.json`: current bracket.
+- `run_bracket.py`: target-free declared grid and source-bracket emission.
+- `score_bracket.py`: separate fail-closed target validator and future scorer
+  gate; it currently issues no closure verdict.
+- `test_payload_harness.py`: source harness and bracket tests.
+- `test_score_bracket.py`: source-contamination, immutable-hash, schema,
+  coordinate, evaluation-point, and historical V1 rejection tests.
+- `runtime/ward_projected_payload_bracket_current.json`: immutable historical
+  V1 artifact.
+- `V1_PROTOCOL_ERRATUM_2026-07-16.md`: corrected protocol and permanent
+  non-promotion ruling.

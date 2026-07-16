@@ -61,18 +61,19 @@ architecture has a computable fixed point.
 
 ## What makes SLH the most falsifiable theory-of-everything candidate
 
-1. **No landscape.** String theory survives adverse data by relocating in a vacuum
-   landscape. SLH cannot relocate: SL-2/SL-3/SL-4 admit one P and one N. For P this is a theorem on
-   the declared physical domain: exactly one fixed point per readout map
+1. **No-landscape objective.** SLH is designed to admit one P and one N rather than a
+   tunable family. For P, each declared incomplete arithmetic map has exactly one fixed
+   point on its stated domain
    (`../code/P_derivation/runtime/p_global_uniqueness_certificate_2026-07-14.json`). The
-   closure equations must hold exactly. A single blind closure test landing outside its basin
-   falsifies the formulation (ledger rule; frozen target
-   `../falsification/frozen_targets/hadronic_closure_target_2026-07-14.json`).
+   completed physical endpoint map remains open. For N, the fixed-point value is a
+   conditional theorem modulo F and CP-1 to CP-3. A corrected target-blind closure test
+   landing outside its registered basin would falsify the tested formulation.
 2. **The inputs are the method.** Reverse engineering reads the loop from measurements:
    basins first, contraction second. The theory never apologizes for reading data; it is
    judged on what the two closure coordinates give back (the scorecard's M − K).
-3. **Every residual is a measurement of the hypothesis.** Under SL-0 there is no
-   compare-only branch. The current ledger (CL-1…CL-7) is the experiment, running.
+3. **Typed residuals.** The ledger distinguishes physical residuals from incomplete-map,
+   chart-only, conditional, and compare-only diagnostics. Only a commensurate observable
+   with a complete uncertainty model can carry a physical pull.
 4. **Sharpening predicts.** Wherever a contraction certificate narrows a fixed point below
    measurement precision, the loop predicts the next generation of metrology (protocol
    stage 4). The theory that consumed α can end up predicting α's next digits.
@@ -88,7 +89,7 @@ architecture has a computable fixed point.
 | 5. Independent reproduction | named external parties re-run the mechanical claims from a fresh clone | open |
 
 The mission statement, in one sentence: drive the ledger to zero, the scorecard positive,
-and the certificates to stage 4, under blindness enforced by the dependency-cone audit. A strange loop that closes under
+and the certificates to stage 4, under a corrected target-blind dependency contract. A strange loop that closes under
 those conditions is a measurement, and a strange loop that fails them was never the loop
 our universe runs.
 

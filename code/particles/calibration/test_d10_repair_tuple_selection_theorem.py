@@ -31,8 +31,9 @@ def test_candidate_a_reproduces_value_law_artifact() -> None:
     assert abs(cand["delta_n_exact"] - law["repair_chart"]["delta_n_tree_exact"]) < 1e-12
     wz = forward_wz(basis, cand["tau2_exact"], cand["delta_n_exact"])
     quintet = law["coherent_emitted_quintet"]
-    assert abs(wz["MW_pole_gev"] - quintet["MW_pole"]) < 1e-6
-    assert abs(wz["MZ_pole_gev"] - quintet["MZ_pole"]) < 1e-6
+    assert abs(wz["MW_chart_gev"] - quintet["MW_pole"]) < 1e-6
+    assert abs(wz["MZ_chart_gev"] - quintet["MZ_pole"]) < 1e-6
+    assert wz["wz_physical_comparison_status"] == "NOT_EVALUABLE"
 
 
 def test_candidate_a_reproduces_d11_split_artifact() -> None:
@@ -55,8 +56,8 @@ def test_candidate_b_reproduces_minimal_conditional_artifact() -> None:
     cand = candidate_b_tuple(basis)
     wz = forward_wz(basis, cand["tau2_exact"], cand["delta_n_exact"])
     quintet = minimal["n_c_3_specialization"]["coherent_quintet"]
-    assert abs(wz["MW_pole_gev"] - quintet["MW_pole_gev"]) < 1e-6
-    assert abs(wz["MZ_pole_gev"] - quintet["MZ_pole_gev"]) < 1e-6
+    assert abs(wz["MW_chart_gev"] - quintet["MW_pole_gev"]) < 1e-6
+    assert abs(wz["MZ_chart_gev"] - quintet["MZ_pole_gev"]) < 1e-6
 
 
 def test_selection_theorem_report_structure() -> None:
@@ -64,8 +65,8 @@ def test_selection_theorem_report_structure() -> None:
     assert report["promotion_allowed"] is False
     assert "A2_charged_contraction" in report["selection_axioms"]
     spread = report["selection_spread"]
-    # the candidate spread sits below current experimental resolution
-    assert spread["MW_pole_gev"] < 0.0133
+    # W/Z values are internal chart spreads, not physical resolution tests.
+    assert spread["MW_chart_gev"] < 0.0133
     assert spread["mH_gev"] < 0.11
     assert spread["mt_pole_gev"] < 0.6
 
@@ -75,7 +76,14 @@ def test_conditional_predictions_guards_and_envelope() -> None:
     assert report["row_class"] == "conditional_on_P_and_repair_selection"
     assert report["guards"]["public_promotion_allowed"] is False
     cmp_rows = report["comparison_compare_only"]
-    for obs in ("mH_gev", "mt_pole_gev", "MW_pole_gev", "MZ_pole_gev"):
+    for obs in ("mH_gev", "mt_pole_gev", "MW_chart_gev", "MZ_chart_gev"):
         lo, hi = cmp_rows[obs]["conditional_envelope"]
         assert lo < hi
+    for obs in ("mH_gev", "mt_pole_gev"):
         assert cmp_rows[obs]["envelope_overlaps_one_sigma_band"]
+        assert cmp_rows[obs]["physical_comparison_status"] == "COMPARE_ONLY"
+    for obs in ("MW_chart_gev", "MZ_chart_gev"):
+        assert cmp_rows[obs]["physical_comparison_status"] == "NOT_EVALUABLE"
+        assert cmp_rows[obs]["physical_delta"] is None
+        assert cmp_rows[obs]["physical_pull"] is None
+        assert "delta_over_sigma" not in cmp_rows[obs]

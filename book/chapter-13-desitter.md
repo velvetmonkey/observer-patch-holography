@@ -228,36 +228,36 @@ global scale the local construction cannot erase.
 
 The symbol $\Lambda$ is the cosmological constant, the part of Einstein's
 equation that acts like a uniform large-scale tendency for space to accelerate.
-It belongs to the global capacity branch at the cosmic record fixed point.
+It belongs to the proposed global capacity branch.
 
-On the cosmological-capacity branch the dimensionless Lambda-capacity relation
-is fixed by a **global** self-reading constraint: the outside total horizon
-capacity must equal the inside observer-accessible public record. With the
-selected OPH scale bridge, the fixed point is displayed as
+On that branch the dimensionless Lambda-capacity relation is posed as a
+**global** self-reading constraint: the outside total horizon capacity must
+equal the inside observer-accessible public record. With the selected OPH scale
+bridge, the target is displayed as
 
 $$N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}}),\qquad
 \Lambda_{\mathrm{CRC}}=\frac{3\pi}{G N_{\mathrm{CRC}}}.$$
 
-With that fixed point and scale bridge, the observed $\Lambda$ is the way
-the world announces its total screen capacity in SI units. The direction of
-inference runs from measurement to working value: the measured $\Lambda$,
-through the scale bridge, locates the working capacity $N_{\mathrm{CRC}}$,
+The direction of inference runs from measurement to working value. Through the
+scale bridge, the measured $\Lambda$ locates the working capacity
+$N_{\mathrm{CRC}}$,
 and that located value enters the program as an input, never as one of its
 outputs. The
 dimensionless capacity relation is the global size parameter carried by every
-consistent patch.
+consistent patch if the readback closure is derived.
 
-The global closure is sharp. Let $F(N)$ be the active horizon capacity read
-back by stable observers inside the OPH universe supplied with capacity $N$.
-The cosmic record-closure capacity is
+The global closure has a sharp target. Let $F(N)$ denote the active horizon
+capacity read back by stable observers inside an OPH universe supplied with
+capacity $N$. A source-derived construction of $F$ is absent. The required
+cosmic record-closure equation is
 
 $$
 N_{\mathrm{CRC}}=F(N_{\mathrm{CRC}}).
 $$
 
-The finite-count representation uses the terminal observer normal forms that
-close on themselves at capacity $N$, normalized by the full screen Hilbert
-space size:
+The proposed finite-count representation uses terminal observer normal forms
+that close on themselves at capacity $N$, normalized by the full screen
+Hilbert-space size:
 
 $$
 \Pi(N)=|\Omega^{\mathrm{sc}}_N|e^{-N},
@@ -272,20 +272,19 @@ records there are. The exponential factor $e^{-N}$ removes the trivial growth
 from increasing the raw screen capacity. The selected capacity $N_\star$ is the
 admissible value where this balance is largest.
 
-The same idea can be written as a fixed-point map. Define
-$\ell(N)=\log|\Omega^{\mathrm{sc}}_N|-N$. The OPH-derived map
+The same proposal can be written as a fixed-point map. Define
+$\ell(N)=\log|\Omega^{\mathrm{sc}}_N|-N$. The declared formal map
 $T_\eta(N)=N+\eta\ell'(N)$ moves $N$ in the direction indicated by the slope of
-that balance function. Under the stated derivative-sign condition it has a
-unique stable fixed point. Informally, this is the single screen size where
-the universe reads back its own boundary without deficit or slack: below it,
-stable self-reading records do not have enough active capacity; above it, added
-capacity is slack, redundancy, or de Sitter dilution. On the observed branch
-this fixed point is the de Sitter entropy capacity.
+that balance function. Under the stated derivative-sign condition this formal
+map has a unique stable fixed point. OPH has not derived the required count or
+shown that this formal map is the physical observer readback. Identifying its
+fixed point with the de Sitter entropy capacity requires three open premises,
+including the counting statement.
 
-The image is the important part. The small positive Lambda is read as the size
-label of a finite self-reading horizon. It is the number every observer patch
-inherits when the universe can reconstruct its own boundary from inside. In
-the book's chain of consistency requirements this is the capacity self-reading
+The image is the important part. The small positive Lambda is proposed as the
+size label of a finite self-reading horizon. It is the number every observer
+patch would inherit if the universe reconstructs its own boundary from inside.
+In the book’s chain of consistency requirements this is the capacity self-reading
 step: a world that reads itself has to read back its own size, without deficit
 or slack.
 
@@ -304,7 +303,7 @@ constant once the selected scale bridge is used for the SI display.
 
 The philosophical stance of OPH, no objective camera angle and only perspectives that must agree on overlaps, maps naturally onto de Sitter static-patch intuition. Each timelike observer has a horizon and a patch. There is no operational access to a single global description.
 
-On that same implemented branch, Lambda is the global quantity that
+On that same proposed branch, Lambda is the global quantity that
 **can** be shared across overlaps. It is a capacity constraint that all
 consistent overlapping descriptions inherit. Different observers see
 different patches, and they all see the same Lambda encoded in the finite

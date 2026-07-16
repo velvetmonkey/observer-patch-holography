@@ -141,18 +141,18 @@ holds on its stated chart and inherits the open gates recorded in
 [CONDITIONAL_CANDIDATES.md](CONDITIONAL_CANDIDATES.md); none is a promoted
 source-only prediction.
 
-| Observable | Conditional value | Measured / reference | Condition |
+| Observable | Conditional value | Comparison coordinate | Condition |
 | --- | ---: | --- | --- |
-| `M_W` | `80.37700001539531 GeV` | `80.3692 +- 0.0133 GeV` | D10 target-free value law; exact implication of the QT1--QT5 quotient-path certificate, which the repository does not emit |
-| `M_Z` | `91.18797807794321 GeV` | `91.1880 +- 0.0020 GeV` | same value-law chart and QT1--QT5 gate |
-| `M_W / M_Z` | `0.8814429457652062` | `0.8813572` | scale-free coordinate of the same quintet |
-| `sin^2 theta_W_eff` | `0.22305833336075578` | `0.22321 (on-shell, from the pinned pole masses)` | same quintet; effective chart scheme, compare with care |
+| `M_W` | `80.37700001539531 GeV` | stale PDG 2025 mass-dependent-width Breit--Wigner coordinate `80.3692 +- 0.0133 GeV` | D10 chart value, conditional on the unemitted QT1--QT5 certificate; no map to the comparison convention and no physical residual or pull |
+| `M_Z` | `91.18797807794321 GeV` | stale PDG 2025 mass-dependent-width Breit--Wigner coordinate `91.1880 +- 0.0020 GeV` | same incomplete value-law chart; no map to the comparison convention and no physical residual or pull |
+| `M_W / M_Z` | `0.8814429457652062` | ratio formed from the stale Breit--Wigner coordinates, `0.8813572` | scale-free coordinate of the same quintet, but not a scheme-independent pole observable |
+| `sin^2 theta_W_eff` | `0.22305833336075578` | `0.22321` in a distinct on-shell comparison convention | same incomplete quintet; no common scheme map, so no residual or pull |
 | `m_H` | `125.1995304097179 GeV` | `125.13 +- 0.11 GeV` | target-anchored fit: the synchronization scale minimizes an objective containing the measured pair; validation of the formula stack, never a prediction |
 | `m_t` | `172.3523553288312 GeV` | `172.1 +- 0.6 GeV` | companion coordinate of the same target-anchored fit |
 | `m_t` (criticality, adopted branch) | `172.629 GeV` | `172.60 +- 0.27 GeV` | double-criticality boundary at the log-midpoint anchor `E_star exp(-pi) P^(-1/6)`, two loops; boundary-scale selection is a theorem modulo two carrier facts CF1/CF2 |
 | `m_H` (criticality, adopted branch) | `125.771 GeV` | `125.13 +- 0.11 GeV` | same branch and gates; tree readout inside the declared matching band |
 | `m_H` at measured `m_t` (relation test) | `125.72 GeV` | `125.13 +- 0.11 GeV` | fit-free curve of the criticality family; tests the m_t to m_H relation independently of the boundary-scale selection |
-| `M_W`, `M_Z` (strict source-audit branch) | `80.3301, 91.1191 GeV` | `80.3692, 91.1880 GeV` | zero-selector law on the target-free branch; discrete two-law ambiguity 9.3 and 5.1 MeV; pole packet open |
+| `M_W`, `M_Z` (strict source-audit branch) | `80.3301, 91.1191 GeV` | stale Breit--Wigner coordinates `80.3692, 91.1880 GeV` | zero-selector chart on the source branch; the renormalized-vev, tadpole, threshold, running, finite-order, uncertainty, and complex-pole maps are open, so this row is not a physical mass comparison |
 | `m_e, m_mu, m_tau` (MCPR conditional) | `0.510956, 105.649, 1776.78 MeV` | `0.51100, 105.658, 1776.93 MeV` | declared MCPR response architecture (84 ppm coherent offset); source-only completion is the A5/W5 orbit program |
 | `m_b, m_s, m_d` (Clebsch lane) | `6.03 GeV, 140 MeV, 6.1 MeV` | `4.18 GeV, 93.5 MeV, 4.7 MeV` | conditional on MCPR leptons and the register Clebsch pattern (1, 1/3, 3); ratios and the Cabibbo angle land at the ten-percent scale, normalization carries the named third-generation tension |
 | `theta_C` (Gatto-Sartori-Tonin) | `0.2086` | `0.2250` | same Clebsch lane; `sqrt(m_d/m_s)` |
@@ -169,7 +169,8 @@ a fixed point of any single declared map and stays on record as a display
 packet only. The certified self-consistent gauge-width fixed point is
 `alpha^-1 = 137.035660136946577...` (CL-2 residual `2.5e-6` relative, about
 `1.6e4` measurement sigma), and the certified source root is
-`alpha^-1 = 136.994835177413...` (CL-6, closed; see
+`alpha^-1 = 136.994835177413...` (CL-6 closes only the arithmetic root of
+that declared incomplete map; see
 `../../docs/CLOSURE_LEDGER.md`).
 
 The per-family surface with tier labels, explanations, and blocking objects is
@@ -259,7 +260,15 @@ It is a summary receipt of the existing certificates, not an SI Lambda or
 primitive-carrier promotion.
 Full SI gravity remains gated by the no-G clock stack.
 
-## CL-5 Preregistered Electroweak Repair Sweep (2026-07-14)
+## Historical CL-5 Electroweak Prescription Sweep (2026-07-14)
+
+Status correction, 2026-07-16: this discrete menu scanned chart prescriptions
+against stale Breit--Wigner coordinates. It did not define a common physical
+observable, did not exhaust renormalization conventions, and did not propagate
+theory uncertainty. The words "landing" and "pull" below describe only the
+historically declared numerical bands; they are not physical mass coverage or
+statistical significance. CL-5 is not evaluable until a complete scheme map and
+a target in the same convention are frozen.
 
 The forward W/Z repair program for closure ledger row CL-5 ran as a frozen
 discrete menu. The menu was written before any entry was computed
@@ -272,12 +281,13 @@ Axes: gauge one-loop triple {MSSM (33/5, 1, -3), SM (41/10, -19/6, -7)},
 `beta_EW` in {3, 4, 5}, evaluation pixel {SL-3 certificate, certified
 `P_fwd`, public endpoint `P_C`, rounded legacy carrier 1.63094}, the two-way
 value-law branch, and the Stage-3 `delta_rho` Z surrogate; 96 entries total,
-landing band `80.3692 +- 0.0133` and `91.1880 +- 0.0020` simultaneously.
-Outcome: one landing, the nonzero-carrier value law at the rounded legacy
-carrier `P = 1.63094` with pulls `(+0.59 sigma, -0.01 sigma)`; that entry
-carries two counted discrete selections and is a preregistered revision
-awaiting independent confirmation; it does not close CL-5. Every entry at the
-certified pixels misses (best `(-2.4 sigma, -28 sigma)` at `P_C`). The SM
+historical numerical bands `80.3692 +- 0.0133` and `91.1880 +- 0.0020`
+simultaneously. One row falls in those bands: the nonzero-carrier value law at
+the rounded legacy carrier `P = 1.63094`. Its historically printed standardized
+differences were `(+0.59, -0.01)` using experimental errors only. Those numbers
+are not physical pulls, and the row neither confirms the prescription nor
+closes CL-5. Every entry at the certified pixels falls outside the same
+historical bands. The SM
 triple admits no pixel-residual root at all: the `alpha_3` one-loop Landau
 ceiling requires `alpha_U < 0.02701` while an electroweak-scale fixed point
 only exists above it, so the pixel sum overflows on every scanned `alpha_U`.

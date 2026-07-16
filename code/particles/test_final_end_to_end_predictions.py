@@ -29,8 +29,11 @@ def test_final_end_to_end_predictions_include_particle_five_gates_and_values() -
     assert fine["source_side_no_hadron_near_endpoint"]["missing_hadronic_correction_alpha_inv"].startswith(
         "0.000039676182720047"
     )
+    assert fine["source_side_no_hadron_near_endpoint"]["status"] == (
+        "historical_mixed_provenance_display_packet_not_fixed_point"
+    )
     assert fine["root_only_audit"]["alpha_inv"].startswith("136.994835")
-    assert payload["fine_structure"]["source_only_oph"] == fine["source_side_no_hadron_near_endpoint"]
+    assert payload["fine_structure"]["source_only_oph"]["status"] == "not_emitted"
     assert payload["fine_structure"]["oph_plus_empirical_hadron_closure"]["row_class"] == (
         "oph_plus_empirical_hadron_closure"
     )
@@ -43,6 +46,9 @@ def test_final_end_to_end_predictions_include_particle_five_gates_and_values() -
     assert hierarchy["status"]["remaining_promotion_gates"] == []
     assert hierarchy["factor_origins"]["higgs_naturality_defect"] == "0"
     assert hierarchy["local_global_bridge"]["bridge_residual"].strip("0.") == ""
+    assert "discharge CP-1, CP-2, and CP-3" in hierarchy["claim_boundary"][
+        "capacity_conditions"
+    ]
     pixel_screen = hierarchy["pixel_screen_resonance"]
     assert pixel_screen["accepted"] is True
     assert pixel_screen["tile_identity"]["cell_count_formula"] == (

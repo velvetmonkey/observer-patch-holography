@@ -112,15 +112,16 @@ These rows are retained in audit surfaces but are not numeric predictions.
 
 ## Fine Structure
 
-| Output class | alpha^-1(0) | P | Missing hadronic correction | Claim label |
+| Output class | alpha^-1 coordinate | P | Legacy difference to endpoint | Claim label |
 | --- | ---: | ---: | ---: | --- |
-| `source_side_no_hadron_near_endpoint` | `137.035959500817279952949994585787193262029` | `1.63097209569432901817967892561191884270169` | `0.000039676182720047050005414212806737971` | `source_side_prediction_missing_only_small_qcd_hadronic_endpoint_correction` |
+| `source_side_no_hadron_near_endpoint` | `137.035959500817279952949994585787193262029` | `1.63097209569432901817967892561191884270169` | `0.000039676182720047050005414212806737971` | `historical_mixed_provenance_display_packet_not_fixed_point` |
 | `oph_plus_empirical_hadron_closure` | `137.035999177` | `1.6309682094039593248792798477826489413359828516279250606661507533907793398933432` | `0` | `oph_plus_empirical_hadron_closure_endpoint` |
 | `root_only_audit` | `136.994835164621649457949994585787193262029` | `1.63097209569432901817967892561191884270169` | `0.041164012378350542050005414212806737971` | `root_only_audit_before_alpha_U_addition` |
 
-- Source-side no-hadron near-endpoint formula: `alpha_root^-1 + alpha_U(P_star)`
-- Relative shortfall before the QCD/hadronic endpoint correction: `2.89531093715017514615674912690376427684548585659122318204396420518829023665287125109688724E-7` (`0.0000289531093715017514615674912690376427684548585659122318204396420518829023665287125109688724` percent)
-- Small missing payload: `oph_qcd_ward_projected_hadronic_spectral_measure`
+- Historical mixed-provenance display formula: `alpha_root^-1 + alpha_U(P_star)`
+- Legacy relative coordinate difference to the endpoint: `2.89531093715017514615674912690376427684548585659122318204396420518829023665287125109688724E-7` (`0.0000289531093715017514615674912690376427684548585659122318204396420518829023665287125109688724` percent)
+- Open physical-map requirements: `source Ward-projected hadronic spectral measure; same-scheme finite remainder; one-coordinate fixed-point evaluation; interval certificate and theory uncertainty`
+- Source-only physical Thomson endpoint emitted: `False`
 - Empirical payload policy: `schema_and_source_registry_present_without_integrated_dataset`
 
 Supersession note (2026-07-14): the rows above record the run artifact
@@ -143,12 +144,13 @@ packet (`../../docs/CLOSURE_LEDGER.md`, rows CL-2 and CL-6).
 - Resonance label: `closed_full_local_global_hierarchy_resonance`
 - Full theorem-grade resonance promoted: `True`
 - Remaining promotion gates: `[]`
-- Exact EW bridge capacity: `3.5323546226929906511187512962330547600462096590942035604238177731136802717148740820434110040644403858228611984E+122`
+- Conditional EW bridge capacity (modulo F and CP-1 to CP-3): `3.5323546226929906511187512962330547600462096590942035604238177731136802717148740820434110040644403858228611984E+122`
 - Bridge residual: `0.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000`
 - Source `v/E_cell`: `2.5797040595276223506583341903922018695490035369903290256096683452314630559578761079150341073645683725521032233E-17`
 - Factor origins: `ports=12`, `m_rep=24`, `exponent=-1/48`
 - Higgs naturality defect: `epsilon_H=0`
 - Boundary: The hierarchy and Higgs naturality rows are promoted as selected-branch source-side results with zero bridge residual and epsilon_H=0.
+- Physical capacity conditions: construct the physical readback map F; discharge CP-1, CP-2, and CP-3; propagate the joint cosmological posterior before comparison.
 - Not promoted by this bridge: public Thomson endpoint without the missing hadronic spectral payload, electroweak massive-boson mass rows, charged-lepton absolute masses, source-only hadron masses, strong CP, SI G without the full no-G clock stack
 
 ## Pixel-Screen Resonance

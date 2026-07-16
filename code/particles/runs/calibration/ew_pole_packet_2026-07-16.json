@@ -1,0 +1,466 @@
+{
+  "artifact": "oph_ew_pole_packet_results",
+  "date": "2026-07-16",
+  "generated_utc": "2026-07-16T06:50:40Z",
+  "ledger_row": "CL-5",
+  "spec": "ew_pole_packet_spec_2026-07-16.json",
+  "spec_sha256": "094e986dd52df383c7d8abcadecb68b563c67743ee2cc2d67ab0a8bfc4a9beb0",
+  "engine_certification": {
+    "sigma_aa_at_zero": {
+      "value": -0.0,
+      "ok": true
+    },
+    "delta_r_mu_independent": {
+      "delta_r_at_mz": 0.04430080619570577,
+      "delta_r_at_10mz": 0.04430080619570574,
+      "difference": 2.7755575615628914e-17,
+      "ok": true
+    },
+    "veltman_rho_mt2_term": {
+      "got": 0.14193122722700438,
+      "expected": 0.14193122722700466,
+      "ok": true
+    },
+    "denner_mw_anchor": {
+      "mw_solved_resummed_GeV": 80.22884180298944,
+      "mw_solved_linear_GeV": 80.26197838063713,
+      "delta_r_at_solution": 0.04345201285737463,
+      "delta_r_linear": 0.04332448626194353,
+      "mw_quoted_GeV": 80.23,
+      "ok": true
+    },
+    "b0_closed_form_vs_quadrature": {
+      "worst_abs_diff": 3.4657338030541496e-06,
+      "ok": true
+    },
+    "all_ok": true
+  },
+  "targets_GeV": {
+    "MW": [
+      80.3692,
+      0.0133
+    ],
+    "MZ": [
+      91.188,
+      0.002
+    ]
+  },
+  "display_adapter": {
+    "epsilon_Cs": "3.113930513416012823901050434132426029496608693041876e-33",
+    "E_star_display_GeV": 1.2208901289579266e+19
+  },
+  "baseline_one_loop": {
+    "alpha_U": 0.041124247445574885,
+    "mu_U_GeV": 2.47361202791459e+16,
+    "mz_run_fixed_point_GeV": 91.58832782780715,
+    "alpha1_mz": 0.01688566757238332,
+    "alpha2_mz": 0.033777814112390996,
+    "alpha3_mz": 0.11833586196478196,
+    "v_over_E_star": 2.0198114150099513e-17,
+    "cells": {
+      "zero_selector": {
+        "MW_GeV": 80.33006377190935,
+        "MZ_GeV": 91.1191186338915
+      },
+      "nonzero_carrier": {
+        "MW_GeV": 80.3207789191444,
+        "MZ_GeV": 91.12418852956225
+      }
+    }
+  },
+  "stage5_internal_masses_GeV": {
+    "mt_pole_stage5": 164.13057624202088,
+    "mt_msbar_stage5": 154.77925772233598,
+    "mH_stage5": 115.10126842614258
+  },
+  "diagnostics": {
+    "tier_A|mt_pole_stage5": {
+      "zero_selector": {
+        "gated": false,
+        "MW_GeV": 79.76896639138687,
+        "MZ_GeV": 89.9793563800946,
+        "tree_pair_GeV": [
+          80.33006377190935,
+          91.1191186338915
+        ],
+        "sigma_over_m2_W": 0.013921009146702615,
+        "sigma_over_m2_Z": 0.024860510515634034
+      },
+      "nonzero_carrier": {
+        "gated": false,
+        "MW_GeV": 79.75994273607374,
+        "MZ_GeV": 89.9844562304948,
+        "tree_pair_GeV": [
+          80.3207789191444,
+          91.12418852956225
+        ],
+        "sigma_over_m2_W": 0.013916154301046228,
+        "sigma_over_m2_Z": 0.024858486825455155
+      }
+    },
+    "tier_A|mt_msbar_stage5": {
+      "zero_selector": {
+        "gated": false,
+        "MW_GeV": 79.87600931762121,
+        "MZ_GeV": 90.15484586334402,
+        "tree_pair_GeV": [
+          80.33006377190935,
+          91.1191186338915
+        ],
+        "sigma_over_m2_W": 0.011272771198430924,
+        "sigma_over_m2_Z": 0.021053112711677265
+      },
+      "nonzero_carrier": {
+        "gated": false,
+        "MW_GeV": 79.86697667743799,
+        "MZ_GeV": 90.15995751985767,
+        "tree_pair_GeV": [
+          80.3207789191444,
+          91.12418852956225
+        ],
+        "sigma_over_m2_W": 0.011267825963893778,
+        "sigma_over_m2_Z": 0.021051040734723827
+      }
+    },
+    "tier_B|mt_pole_stage5": {
+      "alpha_U_scan": [
+        {
+          "alpha_U": 0.02,
+          "status": "RuntimeError: Could not bracket the MZ pole fixed point."
+        },
+        {
+          "alpha_U": 0.021500000000000002,
+          "status": "RuntimeError: Could not bracket the MZ pole fixed point."
+        },
+        {
+          "alpha_U": 0.023,
+          "status": "RuntimeError: Could not bracket the MZ pole fixed point."
+        },
+        {
+          "alpha_U": 0.0245,
+          "status": "RuntimeError: Could not bracket the MZ pole fixed point."
+        },
+        {
+          "alpha_U": 0.026000000000000002,
+          "status": "RuntimeError: Could not bracket the MZ pole fixed point."
+        },
+        {
+          "alpha_U": 0.0275,
+          "status": "RuntimeError: Could not bracket the MZ pole fixed point."
+        },
+        {
+          "alpha_U": 0.029,
+          "status": "RuntimeError: Could not bracket the MZ pole fixed point."
+        },
+        {
+          "alpha_U": 0.0305,
+          "status": "RuntimeError: Could not bracket the MZ pole fixed point."
+        },
+        {
+          "alpha_U": 0.032,
+          "status": "RuntimeError: MZ pole fixed point: invalid midpoint inside bracket"
+        },
+        {
+          "alpha_U": 0.0335,
+          "status": "RuntimeError: Could not bracket the MZ pole fixed point."
+        },
+        {
+          "alpha_U": 0.035,
+          "status": "RuntimeError: Could not bracket the MZ pole fixed point."
+        },
+        {
+          "alpha_U": 0.036500000000000005,
+          "status": "RuntimeError: Could not bracket the MZ pole fixed point."
+        },
+        {
+          "alpha_U": 0.038000000000000006,
+          "status": "RuntimeError: Could not bracket the MZ pole fixed point."
+        },
+        {
+          "alpha_U": 0.0395,
+          "status": "RuntimeError: Could not bracket the MZ pole fixed point."
+        },
+        {
+          "alpha_U": 0.041,
+          "pixel_residual": 0.0013258164294205343
+        },
+        {
+          "alpha_U": 0.042499999999999996,
+          "pixel_residual": -0.01472208065083025
+        }
+      ],
+      "gated": false,
+      "alpha_U_pole": 0.04112143062778836,
+      "alpha_U_shift_from_baseline": -2.8168177865217636e-06,
+      "pixel_residual_at_root": 5.551115123125783e-17,
+      "mz_run_pole_fixed_point_GeV": 90.1754077483175,
+      "mz_run_shift_from_baseline_GeV": -1.412920079489652,
+      "v_over_E_star_pole": 2.014533586879793e-17,
+      "v_over_E_star_shift_relative": -0.002613030152684881,
+      "couplings_at_mz_run": {
+        "alpha1": 0.01688053780874632,
+        "alpha2": 0.03377309118696768,
+        "alpha3": 0.11841654143657152
+      },
+      "basis": {
+        "sin2_theta": 0.23070607053177056,
+        "eta_source": 0.022147503278224658
+      },
+      "laws": {
+        "zero_selector": {
+          "gated": false,
+          "MW_GeV": 79.5328415422733,
+          "MZ_GeV": 89.71231662712083,
+          "tree_pair_GeV": [
+            80.1145573648019,
+            90.8729890517791
+          ],
+          "sigma_over_m2_W": 0.014469377543846492,
+          "sigma_over_m2_Z": 0.025381801797880615
+        },
+        "nonzero_carrier": {
+          "gated": false,
+          "MW_GeV": 79.52384585468351,
+          "MZ_GeV": 89.71740755277878,
+          "tree_pair_GeV": [
+            80.10529768304106,
+            90.87804449386695
+          ],
+          "sigma_over_m2_W": 0.014464500694845079,
+          "sigma_over_m2_Z": 0.025379627979874805
+        }
+      }
+    },
+    "tier_B|mt_msbar_stage5": {
+      "alpha_U_scan": [
+        {
+          "alpha_U": 0.02,
+          "status": "RuntimeError: Could not bracket the MZ pole fixed point."
+        },
+        {
+          "alpha_U": 0.021500000000000002,
+          "status": "RuntimeError: Could not bracket the MZ pole fixed point."
+        },
+        {
+          "alpha_U": 0.023,
+          "status": "RuntimeError: Could not bracket the MZ pole fixed point."
+        },
+        {
+          "alpha_U": 0.0245,
+          "status": "RuntimeError: Could not bracket the MZ pole fixed point."
+        },
+        {
+          "alpha_U": 0.026000000000000002,
+          "status": "RuntimeError: Could not bracket the MZ pole fixed point."
+        },
+        {
+          "alpha_U": 0.0275,
+          "status": "RuntimeError: Could not bracket the MZ pole fixed point."
+        },
+        {
+          "alpha_U": 0.029,
+          "status": "RuntimeError: Could not bracket the MZ pole fixed point."
+        },
+        {
+          "alpha_U": 0.0305,
+          "status": "RuntimeError: Could not bracket the MZ pole fixed point."
+        },
+        {
+          "alpha_U": 0.032,
+          "status": "RuntimeError: MZ pole fixed point: invalid midpoint inside bracket"
+        },
+        {
+          "alpha_U": 0.0335,
+          "status": "RuntimeError: Could not bracket the MZ pole fixed point."
+        },
+        {
+          "alpha_U": 0.035,
+          "status": "RuntimeError: Could not bracket the MZ pole fixed point."
+        },
+        {
+          "alpha_U": 0.036500000000000005,
+          "status": "RuntimeError: Could not bracket the MZ pole fixed point."
+        },
+        {
+          "alpha_U": 0.038000000000000006,
+          "status": "RuntimeError: Could not bracket the MZ pole fixed point."
+        },
+        {
+          "alpha_U": 0.0395,
+          "status": "RuntimeError: Could not bracket the MZ pole fixed point."
+        },
+        {
+          "alpha_U": 0.041,
+          "pixel_residual": 0.001332826264698328
+        },
+        {
+          "alpha_U": 0.042499999999999996,
+          "pixel_residual": -0.014722508737894935
+        }
+      ],
+      "gated": false,
+      "alpha_U_pole": 0.041121873986680324,
+      "alpha_U_shift_from_baseline": -2.373458894561198e-06,
+      "pixel_residual_at_root": 5.551115123125783e-17,
+      "mz_run_pole_fixed_point_GeV": 90.39672010538777,
+      "mz_run_shift_from_baseline_GeV": -1.191607722419377,
+      "v_over_E_star_pole": 2.0153634340804368e-17,
+      "v_over_E_star_shift_relative": -0.0022021763499601166,
+      "couplings_at_mz_run": {
+        "alpha1": 0.016881346264381872,
+        "alpha2": 0.03377383524829555,
+        "alpha3": 0.11840380773002847
+      },
+      "basis": {
+        "sin2_theta": 0.23071066033613347,
+        "eta_source": 0.02214736458322775
+      },
+      "laws": {
+        "zero_selector": {
+          "gated": false,
+          "MW_GeV": 79.67933035056187,
+          "MZ_GeV": 89.93250504236343,
+          "tree_pair_GeV": [
+            80.14844183765199,
+            90.91168860995441
+          ],
+          "sigma_over_m2_W": 0.011671808305264519,
+          "sigma_over_m2_Z": 0.021425414721452114
+        },
+        "nonzero_carrier": {
+          "gated": false,
+          "MW_GeV": 79.6703209941053,
+          "MZ_GeV": 89.93760930630701,
+          "tree_pair_GeV": [
+            80.13917819852688,
+            90.91674632448476
+          ],
+          "sigma_over_m2_W": 0.011666844651664317,
+          "sigma_over_m2_Z": 0.021423216302557415
+        }
+      }
+    }
+  },
+  "cells": [
+    {
+      "id": "tier=A_readout_shift|mt=mt_pole_stage5|law=zero_selector",
+      "MW_GeV": 79.76896639138687,
+      "MZ_GeV": 89.9793563800946,
+      "MW_offset_GeV": -0.6002336086131379,
+      "MZ_offset_GeV": -1.208643619905402,
+      "MW_pull_sigma": -45.13034651226601,
+      "MZ_pull_sigma": -604.321809952701,
+      "landing": false,
+      "shift_from_baseline_MW_GeV": -0.561097380522483,
+      "shift_from_baseline_MZ_GeV": -1.1397622537969028
+    },
+    {
+      "id": "tier=A_readout_shift|mt=mt_pole_stage5|law=nonzero_carrier",
+      "MW_GeV": 79.75994273607374,
+      "MZ_GeV": 89.9844562304948,
+      "MW_offset_GeV": -0.609257263926267,
+      "MZ_offset_GeV": -1.2035437695052025,
+      "MW_pull_sigma": -45.808816836561434,
+      "MZ_pull_sigma": -601.7718847526012,
+      "landing": false,
+      "shift_from_baseline_MW_GeV": -0.5608361830706627,
+      "shift_from_baseline_MZ_GeV": -1.1397322990674468
+    },
+    {
+      "id": "tier=A_readout_shift|mt=mt_msbar_stage5|law=zero_selector",
+      "MW_GeV": 79.87600931762121,
+      "MZ_GeV": 90.15484586334402,
+      "MW_offset_GeV": -0.4931906823787955,
+      "MZ_offset_GeV": -1.0331541366559804,
+      "MW_pull_sigma": -37.0820061938944,
+      "MZ_pull_sigma": -516.5770683279902,
+      "landing": false,
+      "shift_from_baseline_MW_GeV": -0.4540544542881406,
+      "shift_from_baseline_MZ_GeV": -0.9642727705474812
+    },
+    {
+      "id": "tier=A_readout_shift|mt=mt_msbar_stage5|law=nonzero_carrier",
+      "MW_GeV": 79.86697667743799,
+      "MZ_GeV": 90.15995751985767,
+      "MW_offset_GeV": -0.502223322562017,
+      "MZ_offset_GeV": -1.0280424801423322,
+      "MW_pull_sigma": -37.7611520723321,
+      "MZ_pull_sigma": -514.0212400711661,
+      "landing": false,
+      "shift_from_baseline_MW_GeV": -0.4538022417064127,
+      "shift_from_baseline_MZ_GeV": -0.9642310097045765
+    },
+    {
+      "id": "tier=B_pole_fixed_point|mt=mt_pole_stage5|law=zero_selector",
+      "MW_GeV": 79.5328415422733,
+      "MZ_GeV": 89.71231662712083,
+      "MW_offset_GeV": -0.8363584577267034,
+      "MZ_offset_GeV": -1.4756833728791747,
+      "MW_pull_sigma": -62.88409456591755,
+      "MZ_pull_sigma": -737.8416864395873,
+      "landing": false,
+      "shift_from_baseline_MW_GeV": -0.7972222296360485,
+      "shift_from_baseline_MZ_GeV": -1.4068020067706755
+    },
+    {
+      "id": "tier=B_pole_fixed_point|mt=mt_pole_stage5|law=nonzero_carrier",
+      "MW_GeV": 79.52384585468351,
+      "MZ_GeV": 89.71740755277878,
+      "MW_offset_GeV": -0.8453541453164917,
+      "MZ_offset_GeV": -1.4705924472212217,
+      "MW_pull_sigma": -63.560462053871554,
+      "MZ_pull_sigma": -735.2962236106108,
+      "landing": false,
+      "shift_from_baseline_MW_GeV": -0.7969330644608874,
+      "shift_from_baseline_MZ_GeV": -1.406780976783466
+    },
+    {
+      "id": "tier=B_pole_fixed_point|mt=mt_msbar_stage5|law=zero_selector",
+      "MW_GeV": 79.67933035056187,
+      "MZ_GeV": 89.93250504236343,
+      "MW_offset_GeV": -0.6898696494381369,
+      "MZ_offset_GeV": -1.2554949576365715,
+      "MW_pull_sigma": -51.869898453995255,
+      "MZ_pull_sigma": -627.7474788182857,
+      "landing": false,
+      "shift_from_baseline_MW_GeV": -0.650733421347482,
+      "shift_from_baseline_MZ_GeV": -1.1866135915280722
+    },
+    {
+      "id": "tier=B_pole_fixed_point|mt=mt_msbar_stage5|law=nonzero_carrier",
+      "MW_GeV": 79.6703209941053,
+      "MZ_GeV": 89.93760930630701,
+      "MW_offset_GeV": -0.6988790058947103,
+      "MZ_offset_GeV": -1.2503906936929923,
+      "MW_pull_sigma": -52.54729367629401,
+      "MZ_pull_sigma": -625.1953468464961,
+      "landing": false,
+      "shift_from_baseline_MW_GeV": -0.650457925039106,
+      "shift_from_baseline_MZ_GeV": -1.1865792232552366
+    }
+  ],
+  "gates_declared_open": [
+    "GATE-PP-01 tadpole_fj_branch_uncertified: the Fleischer-Jegerlehner vev-convention alternative is declared, uncomputed, and gated; the packet is defined in the reference's tadpole-renormalized scheme (hat T = 0), which matches the chain's use of v as the actual vacuum value; the FJ alternative differs by mt^4/MH^2-enhanced terms",
+    "GATE-PP-02 higher_order_pole_terms: O(alpha alpha_s) and two-loop electroweak pole terms uncomputed",
+    "GATE-PP-03 z_stage3_superseded: the stage-3 divisor is retired inside this lane to prevent rho double-counting",
+    "GATE-PP-04 stage5_loop_masses_frozen: internal (mt, mH) frozen at baseline values inside the tier B re-solve; their alpha_U dependence enters the packet at two-loop order",
+    "GATE-PP-05 transmutation_vev_scheme_open: v carries no declared loop-order completion; read as the scheme parameter at mz_run",
+    "GATE-PP-06 pole_point_iteration: self-energies evaluated at the tree mass point; iteration to the pole is second order",
+    "GATE-PP-07 w_fixed_point_absent: the chain declares a Z fixed point only; M_W receives its pole shift at the readout and enters no scale condition"
+  ],
+  "gates_triggered": [],
+  "summary": {
+    "cells_emitted": 8,
+    "cells_declared": 8,
+    "landings": [],
+    "landing_count": 0,
+    "verdict": {
+      "primary_cell": "tier=B_pole_fixed_point|mt=mt_pole_stage5|law=zero_selector",
+      "status": "evaluated",
+      "direction": "away_from_measurement",
+      "landing": false,
+      "statement": "toward supports the missing-correction reading of CL-5; away kills the pole-packet branch as declared; the rule was fixed in the spec before computation"
+    }
+  },
+  "wall_time_seconds": 1.3469960689544678
+}

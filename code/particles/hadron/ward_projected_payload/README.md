@@ -1,7 +1,9 @@
 # Ward-Projected Hadronic Transport Payload Harness (Generator G1)
 
-LABEL: development bracket, non-blind environment; the protocol pass requires
-an isolated re-run.
+The emitter is source-only and unscored. Target validation occurs in a
+separate process after the source artifact has been sealed. No real payload is
+currently scoreable: the corrective v3 target is not activated, the present
+emission is a singleton sampled-grid diagnostic, and `Delta_EW` remains open.
 
 This directory implements the payload harness for the Ward-projected
 `U(1)_Q` Thomson transport lane: a deterministic chain from a
@@ -9,7 +11,8 @@ spectral-measure module to `Delta_source` in inverse-alpha units, evaluated
 at the internal fixed-point root of the Stage-5 chain in the same
 subtraction scheme as `a0(P)`. The creation of this directory is the
 declared payload-work start under the frozen v2 target's
-`payload_work_start_definition`.
+`payload_work_start_definition`. That chronology is historical only; it does
+not make V1 eligible for promotion.
 
 Everything computable from first principles on this machine is computed:
 the free-parton one-loop transport with internal Stage-5 masses, the
@@ -27,11 +30,17 @@ numbers.
 # one payload
 python3 payload_harness.py --module parton_free
 
-# full declared bracket grid -> runtime/ward_projected_payload_bracket_current.json
-python3 run_bracket.py
+# source-only declared grid at the source-derived internal P
+python3 run_bracket.py --output /sealed/source-bracket.json
+
+# separate fail-closed comparison attempt, after sealing the emission
+# (currently exits 2 with NOT_EVALUABLE)
+python3 score_bracket.py \
+  /sealed/source-bracket.json \
+  ../../../../falsification/frozen_targets/hadronic_closure_target_2026-07-16_v3.json
 
 # tests
-python3 -m pytest test_payload_harness.py -q
+python3 -m pytest test_payload_harness.py test_score_bracket.py -q
 ```
 
 ## Boundaries
@@ -41,12 +50,28 @@ python3 -m pytest test_payload_harness.py -q
 - Excluded from all computations: CODATA/NIST alpha, measured hadronic cross
   sections, PDG hadron data, the empirical endpoint interval, and everything
   under `falsification/`.
-- Canon target diagnostics (`S_required`, `c_Q`, `Delta_missing`) appear
-  only in compare-only blocks labeled as non-blind development comparisons.
-- `promotion_allowed = false` on every artifact. The corpus no-go
+- `run_bracket.py` contains no target value, tolerance, comparison rule, or P
+  override. It uses the source-derived internal P and emits distinct total,
+  residual, `S_QEW`, and `S_hadronic` coordinate kinds.
+- The emitted bracket is explicitly an uncertified sampled-module envelope at
+  one P. It is not a function over the P basin and is not an uncertainty
+  interval.
+- `score_bracket.py` is the only process that reads a target. It rejects an
+  inactive target, unknown schemas, coordinate-kind errors, hash failures,
+  P-domain mismatches, missing provenance, an open `Delta_EW` gate, and an
+  uncertified artifact. It implements no scalar containment shortcut.
+- Corrective target
+  `falsification/frozen_targets/hadronic_closure_target_2026-07-16_v3.json`
+  separates CL-1 and CL-2 and is deliberately marked not scorable pending a
+  new external timestamp and activation record.
+- `promotion_allowed = false` on every source-bracket artifact. The corpus no-go
   (Theorem 6, `THOMSON_TRANSPORT_THEOREMS.md`) applies: this bracket does
   not determine the spectral moment and cannot be promoted to an endpoint
   derivation.
+- Historical `runtime/ward_projected_payload_bracket_current.json` is retained
+  byte-for-byte. It came from the contaminated legacy emitter and cannot be
+  promoted or rescored into a promoted result.
 
-See `PAYLOAD_STATUS.md` for the implemented contract, the development
-bracket, the precision-wall statement, and the blind-run protocol.
+See `V1_PROTOCOL_ERRATUM_2026-07-16.md` for the corrected process boundary and
+the permanent historical V1 disposition. `PAYLOAD_STATUS.md` preserves the
+technical status and labels its old comparison as historical.

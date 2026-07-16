@@ -70,11 +70,12 @@ Status: principle (declared law), with its closure tested in C9.
 fine-structure constant and the substrate pixel readout are one quantity, and
 the record capacity is one number shared by substrate and world. A simulated
 physicist's measurement of α *is* a substrate readout. The identity gives the
-closure equations their test: the values C8 and C9 force must equal the values
-the world measures, exactly. Removed freedom: the theory keeps no authority
+closure equations their test: the values completed C8 and C9 maps force must
+equal the corresponding physical observables the world measures. Removed freedom: the theory keeps no authority
 over which universe it describes; the measured world is the arbiter. Carrier:
 STRANGE_LOOP_PRINCIPLES.md, three-layer statement. Status: principle; this is
-the step that makes every residual a measurement of the hypothesis.
+the step that turns a completed common-observable residual into a measurement
+of the hypothesis. Incomplete maps and mismatched observables do not qualify.
 
 **C8. Capacity self-reading.** The universe must read back its own boundary
 capacity without deficit or slack: N = F(N), with F the readback map
@@ -82,18 +83,21 @@ Cap∘Obs∘nf. Carrier: compact paper D6; flagship synthesis sections. Status:
 open, reduced. The coupling theorem G2-GAP-1 conditionally constructs F: modulo
 CP-1 (balance), CP-2 (inversion form), CP-3 (averaging carrier), the readback
 fixed point is the bridge capacity, certified at 3.5321315434×10¹²². The
-one-capacity requirement yields a live 6.6% comparison between the bridge value
-and the Λ-located value (CL-3), which becomes the decisive capacity test on
-discharge of the premises.
+nominal 6.6% difference between that conditional bridge value and the
+Λ-located value is not an unconditional capacity test. F and CP-1 to CP-3
+remain open, and the joint Planck posterior has not been propagated through
+the Λ-to-N map. CL-3 becomes evaluable only after those obligations close.
 
 **C9. Loop closure.** The detuning law, run through the full forward chain
 A_T(P), must return the pixel it started from: P = φ + √π/A_T(P), exactly.
 Carrier: ../code/P_derivation; fine-structure paper. Status: open. The source
 chain contracts to the certified unique fixed point α⁻¹ = 136.994835177413…
-and the gauge-width chain to 137.035660136946577…, both outside the SL-3 basin
-by the missing hadronic transport term (CL-1/CL-2); the blind completion
-against the externally timestamped frozen target in
-`../falsification/frozen_targets/` is the decisive armed experiment.
+and the gauge-width chain to 137.035660136946577…. These are incomplete
+declared-map outputs because the Ward-projected hadronic transport is absent
+(CL-1/CL-2). The externally timestamped target in
+`../falsification/frozen_targets/` specifies the future target-blind test. The
+2026-07-16 V1 grid does not execute it: the source embeds canon target values,
+the directing session had target access, and the grid envelope is exploratory.
 
 **C10. Unit self-consistency (SL-5).** One clock anchor (cesium) connects
 substrate units to laboratory units; every SI display is bookkeeping downstream
@@ -107,8 +111,8 @@ counts. C7 identifies the two parameters with measured readouts. C8–C9 are two
 equations on the two-parameter family. If both equations hold and their fixed
 points are unique, the stack admits exactly one universe. Whether that universe
 is ours is decided by one reading: the closure ledger at zero. "Consistency alone generates exactly our universe" is a
-theorem-shaped claim whose proof obligation is an experiment, and the
-experiment is armed.
+theorem-shaped claim whose proof obligation is an experiment. Its target is
+frozen, but no qualifying target-blind payload has been executed.
 
 ## Uniqueness lemmas
 
@@ -126,10 +130,10 @@ outward rounding, derivative enclosure by forward-mode interval AD, SU(2)/SU(3)
 edge-sum tails bounded by geometric majorants so the enclosure covers the
 infinite-cutoff sums). Certified unique fixed points: source map
 α⁻¹ = 136.994835177413… (enclosure width 7.2×10⁻²⁴); gauge-width map
-α⁻¹ = 137.035660136946577…. Stage 2 of the basin-then-contract protocol is
-reached for P; the stage-3 landing verdict is unchanged (outside the SL-3
-basin, CL-1/CL-2). The global at-most-one statement is discharged on the
-declared physical domain by
+α⁻¹ = 137.035660136946577…. Stage 2 is reached for these two incomplete
+declared maps. Stage 3 is not evaluable until Ward-projected transport
+completes the map (CL-1/CL-2). The global at-most-one statement for each
+incomplete declared map is discharged on the declared physical domain by
 `../code/P_derivation/runtime/p_global_uniqueness_certificate_2026-07-14.json`:
 sup |g′| < 1 is certified on every piece of an interval subdivision of
 α ∈ [0.005, 0.01] (α⁻¹ ∈ [100, 200], the declared solver scan window of
@@ -147,13 +151,13 @@ capacity (G2-GAP-1, certified enclosure at relative width 1.6×10⁻²⁵). The 
 is conditional on the three premises; discharging CP-1, the counting theorem, is
 the highest-value open mathematics in the program.
 
-**L3 (no-landscape corollary).** Under L1 + L2, the SLH principle set admits at
-most one (P, N). There is no vacuum landscape to relocate into: a blind closure
-computation landing outside its basin falsifies the formulation, permanently
-(STRANGE_LOOP_PRINCIPLES.md rules 2 and 7). Maximal falsifiability is here a corollary of
-uniqueness. This is the sharpest structural contrast
-with landscape frameworks, and it is the reason the program can afford to
-freeze targets before computing payloads.
+**L3 (no-landscape corollary).** Under L1 for a completed registered P map and
+L2 after CP-1 to CP-3 are discharged, the SLH principle set admits at most one
+(P, N). A target-blind completion landing outside its registered basin then
+falsifies that formulation (STRANGE_LOOP_PRINCIPLES.md rules 2 and 7). The
+present certificates do not discharge this corollary: L1 applies to two
+incomplete P maps, and L2 is conditional. The no-landscape conclusion is a
+proof obligation, not an evidential result.
 
 ## Dependency structure of the closure ledger
 
@@ -161,9 +165,9 @@ The ledger rows are not independent. They reduce to four generating objects:
 
 | Generator | Object to construct or compute | Ledger rows it closes or moves |
 |---|---|---|
-| G1 | Ward-projected hadronic transport, blind, vs the frozen target. Status 2026-07-14: payload harness built; the first-principles internal-mass bracket S_eff in [0.558, 1.054] contains the required 0.8954; closing the window needs 4×10⁻⁹ relative precision on the hadronic moment, beyond every current method with or without measured data (../code/particles/hadron/ward_projected_payload/PAYLOAD_STATUS.md) | CL-1, CL-2 |
-| G2 | The capacity readback map F and its contraction certificate. Status 2026-07-15: the coupling theorem G2-GAP-1 is written as a conditional theorem (../code/capacity_readback/G2_GAP_1_COUPLING_THEOREM.md): the readback fixed point equals the EW bridge capacity N = π·exp(6π/(P·α_U)), proven modulo three declared premises, CP-1 the balance condition Π_EW = β_EW·P, CP-2 the port-load inversion form of Cap_read, CP-3 the averaging re-emission (dispensable for the fixed-point location); the tick projection Π_EW = 24π/(α_U·X) and the bridge algebra are discharged from D10 transmutation plus the repair-tick and m_rep = 24 theorems; certified fixed point at P_fwd encloses 3.5321315434e122 with relative width 1.6e-25 (../code/capacity_readback/runtime/F_candidate_coupled_certificates.json); CL-7 stays open, reduced to CP-1..CP-3, and closes into CL-3 on discharge (2026-07-14 exclusion run: ../code/capacity_readback/F_CONSTRUCTION_2026-07-14.md) | CL-3, CL-4, CL-7 |
-| G3 | Repaired forward electroweak chain from the strange-loop principles. Status 2026-07-14: preregistered 96-entry sweep executed; the certified-pixel menu is exhausted at one loop; the SM triple admits no fixed point (Landau ceiling disjoint from the fixed-point window) and β_EW in {3, 5} land three orders of magnitude off, so those selections are consistency-forced; the single landing at the rounded legacy carrier is a counted two-fold selection awaiting its own frozen test (../falsification/preregistered/ew_repair_results_2026-07-14.json) | CL-5 |
+| G1 | Complete the Ward-projected hadronic transport and run a target-blind payload against the frozen target. The 2026-07-16 V1 grid is exploratory only: its source embeds canon target values, its directing session had target access, and its sampled min/max envelope is not an interval certificate. It contains `S_required = 0.8954` but is 1.17×10⁸ times wider than the point-payload tolerance. The V1 report also conflates the closure-residual name `Delta_source_residual_inverse_alpha_units = 0.0414658…` with the payload's total `Delta_source`; the correct total endpoint target is `Delta_required_P = 8.7280337…`. No promotion follows (../code/particles/hadron/ward_projected_payload/PAYLOAD_STATUS.md) | CL-1, CL-2 |
+| G2 | The capacity readback map F and its contraction certificate. Status 2026-07-16: G2-GAP-1 is a conditional theorem (../code/capacity_readback/G2_GAP_1_COUPLING_THEOREM.md). Its fixed point equals the EW bridge capacity N = π·exp(6π/(P·α_U)) only modulo CP-1, CP-2, and CP-3. The certified conditional fixed point at P_fwd encloses 3.5321315434e122 with relative width 1.6e-25 (../code/capacity_readback/runtime/F_candidate_coupled_certificates.json). CL-7 remains open. After F and CP-1 to CP-3 close, CL-3 also requires propagation of the joint Planck posterior through the Λ readout (../code/capacity_readback/F_CONSTRUCTION_2026-07-14.md) | CL-3, CL-4, CL-7 |
+| G3 | Define the physical electroweak readout and complete its scheme map before comparing it with data. The emitted pair is a running/tree chart coordinate; the quoted references are stale PDG 2025 mass-dependent-width Breit-Wigner parameters, not pole masses, so CL-5 is not physically evaluable. The 96-entry one-loop sweep tests only the declared chart menu. The 2026-07-16 two-loop result applies SM two-loop increments to an MSSM one-loop baseline and excludes that hybrid prescription, not two-loop repair in general. The pole packet is a scale-dependent partial PRTS/Feynman-gauge prescription with open tadpole/FJ and vev schemes; its JKV cross-check audits a slope term rather than the complete finite packet. No raw W/Z pull from these packets is evidence | CL-5 |
 | G4 | Solver hygiene: matched printed pair at certified precision | CL-6, closed 2026-07-14 (converged precision-100 reruns; identity to 35+ digits; CI test) |
 
 Beyond the ledger, the mass sector waits on one further object: a

@@ -80,6 +80,14 @@ carrier, the selected repair candidate, the freeze-once inverse adapter, and
 the conditional D11 surface. No W, Z, or Higgs complex-pole prediction is
 promoted while the scale, QT1--QT5, RG, rigidity, source-DAG, pole, and
 uncertainty gates remain open.
+The executable guard
+[`ew_physical_readout_gate.py`](ew_physical_readout_gate.py) enforces this
+boundary for the July 2026 pole and two-loop packets. It requires a complete
+renormalized-vev, tadpole, field-content, threshold, running, finite-part,
+complex-pole, target-release, and covariance contract plus an observable
+identity receipt. Any missing field or declared-open gate produces
+`NOT_EVALUABLE`; the packet cells remain internal prescription diagnostics and
+cannot emit a physical pull.
 The dedicated conditional receipt
 [`d10_ew_quotient_transport_receipt.json`](../runs/calibration/d10_ew_quotient_transport_receipt.json)
 reuses the canonical target-free-input value-law evaluator, verifies its fibre
@@ -130,6 +138,7 @@ python3 particles/calibration/derive_d10_ew_transport_kernel.py
 python3 particles/calibration/test_d10_ew_transport_kernel_artifact.py
 python3 particles/calibration/derive_d10_ew_quotient_transport_receipt.py
 python3 particles/calibration/derive_boson_source_prediction_closure_audit.py
+python3 -m pytest -q particles/calibration/test_ew_physical_readout_gate.py
 ```
 
 That guard checks the solver mechanics and the presence of the current D10
