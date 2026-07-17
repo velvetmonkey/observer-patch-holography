@@ -351,4 +351,479 @@ theorem XXC_notMem_fluxC : XXC ∉ FluxC := by
   rw [h1] at h0
   exact one_ne_zero h0
 
+/-! ## S2 — density matrices and the Gibbs states of the retained family
+
+The retained family `{uuC, XXC}` commutes (`uuC_comm_XXC`), so its joint
+spectral decomposition is carried by the four projections
+`specProjP (s,t) = ¼ (1 + ε_s uuC)(1 + ε_t XXC)` — pure algebra from
+`uuC² = XXC² = 1`; no eigenbasis, no `√2`, no entry computations. -/
+
+open scoped ComplexOrder
+
+/-- A state on the collar algebra: positive semidefinite, trace one. -/
+structure DensityMatrix where
+  /-- The underlying matrix. -/
+  ρ : CollarC
+  /-- Positivity. -/
+  posSemidef : ρ.PosSemidef
+  /-- Normalization. -/
+  trace_one : ρ.trace = 1
+
+/-- Real scalars act on the collar algebra through their complex cast. -/
+theorem ofReal_smul_collarC (r : ℝ) (M : CollarC) :
+    ((r : ℝ) : ℂ) • M = r • M := by
+  ext i j
+  simp [Matrix.smul_apply, Complex.real_smul]
+
+/-- Products of nonnegative complex numbers are nonnegative (the two
+    factors are real, by `Complex.nonneg_iff`). -/
+theorem complex_mul_nonneg {a b : ℂ} (ha : 0 ≤ a) (hb : 0 ≤ b) : 0 ≤ a * b := by
+  rw [Complex.nonneg_iff] at ha hb ⊢
+  refine ⟨?_, ?_⟩
+  · rw [Complex.mul_re, ← ha.2, ← hb.2]
+    simpa using mul_nonneg ha.1 hb.1
+  · rw [Complex.mul_im, ← ha.2, ← hb.2]
+    simp
+
+/-- Positive semidefiniteness is preserved by nonnegative real scalars
+    (stated for the complex cast of the scalar, which is how the spectral
+    coefficients appear). -/
+theorem posSemidef_ofReal_smul {r : ℝ} (hr : 0 ≤ r) {M : CollarC}
+    (hM : M.PosSemidef) : (((r : ℝ) : ℂ) • M).PosSemidef := by
+  refine ⟨?_, fun x => ?_⟩
+  · show _ᴴ = _
+    rw [Matrix.conjTranspose_smul, hM.1.eq]
+    congr 1
+    rw [Complex.star_def, Complex.conj_ofReal]
+  · have h := hM.2 x
+    have key : (x.sum fun i xi => x.sum fun j xj =>
+          star xi * (((r : ℝ) : ℂ) • M) i j * xj)
+        = ((r : ℝ) : ℂ)
+          * x.sum fun i xi => x.sum fun j xj => star xi * M i j * xj := by
+      rw [Finsupp.mul_sum]
+      refine Finsupp.sum_congr fun i _ => ?_
+      rw [Finsupp.mul_sum]
+      refine Finsupp.sum_congr fun j _ => ?_
+      rw [Matrix.smul_apply, smul_eq_mul]
+      ring
+    rw [key]
+    exact complex_mul_nonneg (Complex.zero_le_real.mpr hr) h
+
+/-- Sign labels for the two-point spectra of `uuC` and `XXC`. -/
+noncomputable def sgnR : Fin 2 → ℝ := ![1, -1]
+
+@[simp] theorem sgnR_zero : sgnR 0 = 1 := rfl
+
+@[simp] theorem sgnR_one : sgnR 1 = -1 := rfl
+
+theorem sgnR_sq (s : Fin 2) : sgnR s * sgnR s = 1 := by
+  fin_cases s <;> norm_num [sgnR]
+
+theorem sgnR_mul_ne {s s' : Fin 2} (h : s ≠ s') : sgnR s * sgnR s' = -1 := by
+  fin_cases s <;> fin_cases s' <;> simp_all [sgnR]
+
+/-- The `uuC` half-projections. -/
+noncomputable def quP (s : Fin 2) : CollarC :=
+  (2 : ℂ)⁻¹ • (1 + ((sgnR s : ℝ) : ℂ) • uuC)
+
+/-- The `XXC` half-projections. -/
+noncomputable def qxP (t : Fin 2) : CollarC :=
+  (2 : ℂ)⁻¹ • (1 + ((sgnR t : ℝ) : ℂ) • XXC)
+
+/-- The joint spectral projections of the commuting pair `{uuC, XXC}`. -/
+noncomputable def specProjP (p : Fin 2 × Fin 2) : CollarC := quP p.1 * qxP p.2
+
+/-- Casts of the sign squares. -/
+theorem sgnC_sq (s : Fin 2) : ((sgnR s : ℝ) : ℂ) * ((sgnR s : ℝ) : ℂ) = 1 := by
+  rw [← Complex.ofReal_mul, sgnR_sq, Complex.ofReal_one]
+
+theorem sgnC_mul_ne {s s' : Fin 2} (h : s ≠ s') :
+    ((sgnR s : ℝ) : ℂ) * ((sgnR s' : ℝ) : ℂ) = -1 := by
+  rw [← Complex.ofReal_mul, sgnR_mul_ne h]
+  norm_num
+
+theorem quP_mul (s s' : Fin 2) :
+    quP s * quP s' = if s = s' then quP s else 0 := by
+  rcases eq_or_ne s s' with rfl | h
+  · rw [if_pos rfl, quP, Matrix.smul_mul, Matrix.mul_smul, smul_smul]
+    rw [add_mul, one_mul, mul_add, mul_one, smul_mul_smul_comm, uuC_sq,
+      sgnC_sq, one_smul]
+    rw [show ((1 : CollarC) + ((sgnR s : ℝ) : ℂ) • uuC)
+          + (((sgnR s : ℝ) : ℂ) • uuC + 1)
+        = (2 : ℂ) • (1 + ((sgnR s : ℝ) : ℂ) • uuC) by
+      rw [two_smul]
+      abel]
+    rw [smul_smul]
+    norm_num
+  · rw [if_neg h, quP, quP, Matrix.smul_mul, Matrix.mul_smul, smul_smul]
+    rw [add_mul, one_mul, mul_add, mul_one, smul_mul_smul_comm, uuC_sq,
+      sgnC_mul_ne h]
+    rw [show ((1 : CollarC) + ((sgnR s' : ℝ) : ℂ) • uuC)
+          + (((sgnR s : ℝ) : ℂ) • uuC + (-1 : ℂ) • 1) = ((((sgnR s : ℝ) : ℂ))
+            + (((sgnR s' : ℝ) : ℂ))) • uuC by
+      rw [neg_smul, one_smul, add_smul]
+      abel]
+    rw [show (((sgnR s : ℝ) : ℂ)) + (((sgnR s' : ℝ) : ℂ)) = 0 by
+      rw [← Complex.ofReal_add,
+        show sgnR s + sgnR s' = 0 by
+          fin_cases s <;> fin_cases s' <;> simp_all [sgnR],
+        Complex.ofReal_zero]]
+    rw [zero_smul, smul_zero]
+
+theorem qxP_mul (t t' : Fin 2) :
+    qxP t * qxP t' = if t = t' then qxP t else 0 := by
+  rcases eq_or_ne t t' with rfl | h
+  · rw [if_pos rfl, qxP, Matrix.smul_mul, Matrix.mul_smul, smul_smul]
+    rw [add_mul, one_mul, mul_add, mul_one, smul_mul_smul_comm, XXC_sq,
+      sgnC_sq, one_smul]
+    rw [show ((1 : CollarC) + ((sgnR t : ℝ) : ℂ) • XXC)
+          + (((sgnR t : ℝ) : ℂ) • XXC + 1)
+        = (2 : ℂ) • (1 + ((sgnR t : ℝ) : ℂ) • XXC) by
+      rw [two_smul]
+      abel]
+    rw [smul_smul]
+    norm_num
+  · rw [if_neg h, qxP, qxP, Matrix.smul_mul, Matrix.mul_smul, smul_smul]
+    rw [add_mul, one_mul, mul_add, mul_one, smul_mul_smul_comm, XXC_sq,
+      sgnC_mul_ne h]
+    rw [show ((1 : CollarC) + ((sgnR t' : ℝ) : ℂ) • XXC)
+          + (((sgnR t : ℝ) : ℂ) • XXC + (-1 : ℂ) • 1) = ((((sgnR t : ℝ) : ℂ))
+            + (((sgnR t' : ℝ) : ℂ))) • XXC by
+      rw [neg_smul, one_smul, add_smul]
+      abel]
+    rw [show (((sgnR t : ℝ) : ℂ)) + (((sgnR t' : ℝ) : ℂ)) = 0 by
+      rw [← Complex.ofReal_add,
+        show sgnR t + sgnR t' = 0 by
+          fin_cases t <;> fin_cases t' <;> simp_all [sgnR],
+        Complex.ofReal_zero]]
+    rw [zero_smul, smul_zero]
+
+theorem quP_comm_qxP (s t : Fin 2) : Commute (quP s) (qxP t) := by
+  have huu : Commute uuC XXC := uuC_comm_XXC
+  have h : Commute ((1 : CollarC) + ((sgnR s : ℝ) : ℂ) • uuC)
+      ((1 : CollarC) + ((sgnR t : ℝ) : ℂ) • XXC) := by
+    apply Commute.add_left
+    · apply Commute.add_right
+      · exact Commute.one_left _
+      · exact (Commute.one_left _).smul_right _
+    · apply Commute.add_right
+      · exact (Commute.one_right _).smul_left _
+      · exact (huu.smul_left _).smul_right _
+  exact (h.smul_left _).smul_right _
+
+theorem specProjP_mul (p q : Fin 2 × Fin 2) :
+    specProjP p * specProjP q = if p = q then specProjP p else 0 := by
+  have key : specProjP p * specProjP q
+      = (quP p.1 * quP q.1) * (qxP p.2 * qxP q.2) := by
+    rw [specProjP, specProjP]
+    rw [mul_assoc (quP p.1) (qxP p.2) (quP q.1 * qxP q.2)]
+    rw [← mul_assoc (qxP p.2) (quP q.1) (qxP q.2)]
+    rw [← (quP_comm_qxP q.1 p.2).eq]
+    rw [mul_assoc (quP q.1) (qxP p.2) (qxP q.2)]
+    rw [← mul_assoc (quP p.1) (quP q.1) (qxP p.2 * qxP q.2)]
+  rw [key, quP_mul, qxP_mul]
+  rcases eq_or_ne p q with rfl | h
+  · rw [if_pos rfl, if_pos rfl, if_pos rfl, specProjP]
+  · rw [if_neg h]
+    have h' : p.1 ≠ q.1 ∨ p.2 ≠ q.2 := by
+      rcases eq_or_ne p.1 q.1 with h1 | h1
+      · exact Or.inr fun h2 => h (Prod.ext h1 h2)
+      · exact Or.inl h1
+    rcases h' with h1 | h2
+    · rw [if_neg h1, zero_mul]
+    · rw [if_neg h2, mul_zero]
+
+theorem specProjP_idem (p : Fin 2 × Fin 2) :
+    specProjP p * specProjP p = specProjP p := by
+  rw [specProjP_mul, if_pos rfl]
+
+theorem sum_quP : ∑ s : Fin 2, quP s = 1 := by
+  rw [Fin.sum_univ_two]
+  simp only [quP, sgnR_zero, sgnR_one, Complex.ofReal_one, Complex.ofReal_neg,
+    one_smul, neg_smul]
+  rw [← smul_add,
+    show ((1 : CollarC) + uuC) + (1 + -uuC) = (2 : ℂ) • 1 by
+      rw [two_smul]
+      abel,
+    smul_smul]
+  norm_num
+
+theorem sum_qxP : ∑ t : Fin 2, qxP t = 1 := by
+  rw [Fin.sum_univ_two]
+  simp only [qxP, sgnR_zero, sgnR_one, Complex.ofReal_one, Complex.ofReal_neg,
+    one_smul, neg_smul]
+  rw [← smul_add,
+    show ((1 : CollarC) + XXC) + (1 + -XXC) = (2 : ℂ) • 1 by
+      rw [two_smul]
+      abel,
+    smul_smul]
+  norm_num
+
+theorem sum_specProjP : ∑ p : Fin 2 × Fin 2, specProjP p = 1 := by
+  rw [Fintype.sum_prod_type]
+  simp only [specProjP]
+  have inner : ∀ s : Fin 2, ∑ t : Fin 2, quP s * qxP t = quP s := by
+    intro s
+    rw [← Finset.mul_sum, sum_qxP, mul_one]
+  simp_rw [inner]
+  exact sum_quP
+
+theorem quP_isHermitian (s : Fin 2) : (quP s).IsHermitian := by
+  show _ᴴ = _
+  rw [quP, Matrix.conjTranspose_smul, Matrix.conjTranspose_add,
+    Matrix.conjTranspose_one, Matrix.conjTranspose_smul, uuC_isHermitian.eq]
+  congr 1
+  · norm_num [Complex.star_def]
+  · congr 1
+    rw [Complex.star_def, Complex.conj_ofReal]
+
+theorem qxP_isHermitian (t : Fin 2) : (qxP t).IsHermitian := by
+  show _ᴴ = _
+  rw [qxP, Matrix.conjTranspose_smul, Matrix.conjTranspose_add,
+    Matrix.conjTranspose_one, Matrix.conjTranspose_smul, XXC_isHermitian.eq]
+  congr 1
+  · norm_num [Complex.star_def]
+  · congr 1
+    rw [Complex.star_def, Complex.conj_ofReal]
+
+theorem specProjP_isHermitian (p : Fin 2 × Fin 2) :
+    (specProjP p).IsHermitian := by
+  show _ᴴ = _
+  rw [specProjP, Matrix.conjTranspose_mul, (quP_isHermitian p.1).eq,
+    (qxP_isHermitian p.2).eq, ← (quP_comm_qxP p.1 p.2).eq]
+
+theorem specProjP_posSemidef (p : Fin 2 × Fin 2) : (specProjP p).PosSemidef := by
+  have h : specProjP p = (specProjP p)ᴴ * specProjP p := by
+    rw [(specProjP_isHermitian p).eq, specProjP_idem]
+  rw [h]
+  exact Matrix.posSemidef_conjTranspose_mul_self _
+
+theorem trace_one_collarC : (1 : CollarC).trace = 4 := by
+  rw [Matrix.trace_one]
+  norm_num
+
+theorem specProjP_trace (p : Fin 2 × Fin 2) : (specProjP p).trace = 1 := by
+  rw [specProjP, quP, qxP, smul_mul_smul_comm]
+  rw [add_mul, one_mul, mul_add, mul_one, smul_mul_smul_comm]
+  simp only [Matrix.trace_smul, Matrix.trace_add, trace_one_collarC,
+    uuC_trace, XXC_trace, uuC_mul_XXC_trace, smul_eq_mul]
+  norm_num
+
+theorem uuC_mul_quP (s : Fin 2) :
+    uuC * quP s = ((sgnR s : ℝ) : ℂ) • quP s := by
+  rw [quP, Matrix.mul_smul, mul_add, mul_one, Matrix.mul_smul, uuC_sq]
+  conv_rhs => rw [smul_smul, mul_comm, ← smul_smul]
+  congr 1
+  rw [smul_add, smul_smul, sgnC_sq, one_smul, add_comm]
+
+theorem XXC_mul_qxP (t : Fin 2) :
+    XXC * qxP t = ((sgnR t : ℝ) : ℂ) • qxP t := by
+  rw [qxP, Matrix.mul_smul, mul_add, mul_one, Matrix.mul_smul, XXC_sq]
+  conv_rhs => rw [smul_smul, mul_comm, ← smul_smul]
+  congr 1
+  rw [smul_add, smul_smul, sgnC_sq, one_smul, add_comm]
+
+/-! ### The retained family, its Hamiltonians, and the spectral data -/
+
+/-- The retained non-central family of the T0 witness: the boundary
+    charge and the invariant-but-non-central coupling. -/
+noncomputable def SFam : Fin 2 → CollarC := ![uuC, XXC]
+
+@[simp] theorem SFam_zero : SFam 0 = uuC := rfl
+
+@[simp] theorem SFam_one : SFam 1 = XXC := rfl
+
+/-- The joint eigenvalue of `λ₀ uuC + λ₁ XXC` on the `(s,t)` sector. -/
+noncomputable def eigval (lam : Fin 2 → ℝ) (p : Fin 2 × Fin 2) : ℝ :=
+  lam 0 * sgnR p.1 + lam 1 * sgnR p.2
+
+theorem sum_sgn_smul_quP :
+    ∑ s : Fin 2, ((sgnR s : ℝ) : ℂ) • quP s = uuC := by
+  rw [Fin.sum_univ_two]
+  simp only [quP, sgnR_zero, sgnR_one, Complex.ofReal_one, Complex.ofReal_neg,
+    one_smul, neg_smul]
+  rw [← smul_neg, ← smul_add,
+    show ((1 : CollarC) + uuC) + -(1 + -uuC) = (2 : ℂ) • uuC by
+      rw [two_smul]
+      abel,
+    smul_smul]
+  norm_num
+
+theorem sum_sgn_smul_qxP :
+    ∑ t : Fin 2, ((sgnR t : ℝ) : ℂ) • qxP t = XXC := by
+  rw [Fin.sum_univ_two]
+  simp only [qxP, sgnR_zero, sgnR_one, Complex.ofReal_one, Complex.ofReal_neg,
+    one_smul, neg_smul]
+  rw [← smul_neg, ← smul_add,
+    show ((1 : CollarC) + XXC) + -(1 + -XXC) = (2 : ℂ) • XXC by
+      rw [two_smul]
+      abel,
+    smul_smul]
+  norm_num
+
+/-- Spectral decomposition of the Hamiltonian of the retained family. -/
+theorem Ham_eq (lam : Fin 2 → ℝ) :
+    ∑ a : Fin 2, ((lam a : ℝ) : ℂ) • SFam a
+      = ∑ p : Fin 2 × Fin 2, ((eigval lam p : ℝ) : ℂ) • specProjP p := by
+  have expand : ∀ p : Fin 2 × Fin 2, ((eigval lam p : ℝ) : ℂ) • specProjP p
+      = ((lam 0 * sgnR p.1 : ℝ) : ℂ) • specProjP p
+        + ((lam 1 * sgnR p.2 : ℝ) : ℂ) • specProjP p := by
+    intro p
+    rw [← add_smul, ← Complex.ofReal_add, eigval]
+  rw [Finset.sum_congr rfl fun p _ => expand p, Finset.sum_add_distrib]
+  have h1 : ∑ p : Fin 2 × Fin 2, ((lam 0 * sgnR p.1 : ℝ) : ℂ) • specProjP p
+      = ((lam 0 : ℝ) : ℂ) • uuC := by
+    rw [Fintype.sum_prod_type]
+    simp only [specProjP]
+    have inner : ∀ s : Fin 2,
+        ∑ t : Fin 2, ((lam 0 * sgnR s : ℝ) : ℂ) • (quP s * qxP t)
+          = ((lam 0 * sgnR s : ℝ) : ℂ) • quP s := by
+      intro s
+      rw [← Finset.smul_sum, ← Finset.mul_sum, sum_qxP, mul_one]
+    simp_rw [inner]
+    have split : ∀ s : Fin 2, ((lam 0 * sgnR s : ℝ) : ℂ) • quP s
+        = ((lam 0 : ℝ) : ℂ) • (((sgnR s : ℝ) : ℂ) • quP s) := by
+      intro s
+      rw [smul_smul, ← Complex.ofReal_mul]
+    simp_rw [split]
+    rw [← Finset.smul_sum, sum_sgn_smul_quP]
+  have h2 : ∑ p : Fin 2 × Fin 2, ((lam 1 * sgnR p.2 : ℝ) : ℂ) • specProjP p
+      = ((lam 1 : ℝ) : ℂ) • XXC := by
+    rw [Fintype.sum_prod_type]
+    simp only [specProjP]
+    rw [Finset.sum_comm]
+    have inner : ∀ t : Fin 2,
+        ∑ s : Fin 2, ((lam 1 * sgnR t : ℝ) : ℂ) • (quP s * qxP t)
+          = ((lam 1 * sgnR t : ℝ) : ℂ) • qxP t := by
+      intro t
+      rw [← Finset.smul_sum, ← Finset.sum_mul, sum_quP, one_mul]
+    simp_rw [inner]
+    have split : ∀ t : Fin 2, ((lam 1 * sgnR t : ℝ) : ℂ) • qxP t
+        = ((lam 1 : ℝ) : ℂ) • (((sgnR t : ℝ) : ℂ) • qxP t) := by
+      intro t
+      rw [smul_smul, ← Complex.ofReal_mul]
+    simp_rw [split]
+    rw [← Finset.smul_sum, sum_sgn_smul_qxP]
+  rw [h1, h2, Fin.sum_univ_two, SFam_zero, SFam_one]
+
+/-- Spectral decomposition of the negated Hamiltonian. -/
+theorem neg_Ham_eq (lam : Fin 2 → ℝ) :
+    -(∑ a : Fin 2, ((lam a : ℝ) : ℂ) • SFam a)
+      = ∑ p : Fin 2 × Fin 2, ((-(eigval lam p) : ℝ) : ℂ) • specProjP p := by
+  rw [Ham_eq, ← Finset.sum_neg_distrib]
+  refine Finset.sum_congr rfl fun p _ => ?_
+  rw [Complex.ofReal_neg, neg_smul]
+
+/-! ### The exponential of the Hamiltonian, spectrally -/
+
+open NormedSpace in
+/-- `exp` of a linear combination of the joint spectral projections is the
+    corresponding combination of scalar exponentials: the tsum argument,
+    using only orthogonality and completeness of the projection family. -/
+theorem exp_sum_smul_specProjP (c : Fin 2 × Fin 2 → ℂ) :
+    exp (∑ p : Fin 2 × Fin 2, c p • specProjP p)
+      = ∑ p : Fin 2 × Fin 2, Complex.exp (c p) • specProjP p := by
+  have hpow : ∀ n : ℕ,
+      (∑ p : Fin 2 × Fin 2, c p • specProjP p) ^ n
+        = ∑ p : Fin 2 × Fin 2, (c p) ^ n • specProjP p := by
+    intro n
+    induction n with
+    | zero => simpa using sum_specProjP.symm
+    | succ n ih =>
+      rw [pow_succ, ih, Finset.sum_mul]
+      refine Finset.sum_congr rfl fun p _ => ?_
+      rw [Finset.mul_sum]
+      rw [Finset.sum_eq_single p
+        (fun q _ hq => by
+          rw [smul_mul_smul_comm, specProjP_mul, if_neg (Ne.symm hq), smul_zero])
+        (fun h => absurd (Finset.mem_univ p) h)]
+      rw [smul_mul_smul_comm, specProjP_mul, if_pos rfl, ← pow_succ]
+  rw [exp_eq_tsum ℂ]
+  simp only [hpow]
+  have hsummand : ∀ n : ℕ,
+      ((n.factorial : ℂ)⁻¹ • ∑ p : Fin 2 × Fin 2, (c p) ^ n • specProjP p)
+        = ∑ p : Fin 2 × Fin 2,
+            ((n.factorial : ℂ)⁻¹ * (c p) ^ n) • specProjP p := by
+    intro n
+    rw [Finset.smul_sum]
+    refine Finset.sum_congr rfl fun p _ => ?_
+    rw [smul_smul]
+  simp only [hsummand]
+  have hscalar : ∀ p : Fin 2 × Fin 2,
+      Summable (fun n : ℕ => (n.factorial : ℂ)⁻¹ * (c p) ^ n) := by
+    intro p
+    have h := expSeries_div_summable (𝔸 := ℂ) (c p)
+    refine h.congr fun n => ?_
+    rw [div_eq_mul_inv, mul_comm]
+  rw [Summable.tsum_finsetSum
+    (fun p _ => (hscalar p).smul_const (specProjP p))]
+  refine Finset.sum_congr rfl fun p _ => ?_
+  rw [(hscalar p).tsum_smul_const]
+  congr 1
+  have h := congrFun (exp_eq_tsum (𝕂 := ℂ) (𝔸 := ℂ)) (c p)
+  rw [← Complex.exp_eq_exp_ℂ] at h
+  rw [h]
+  refine tsum_congr fun n => ?_
+  rw [smul_eq_mul]
+
+/-! ### The Gibbs states of the retained family -/
+
+open NormedSpace in
+/-- The (normalized) Gibbs state of a two-density family at multipliers
+    `lam`, via `NormedSpace.exp`.  Total definition; its state properties
+    are proved for the commuting witness family `SFam`. -/
+noncomputable def gibbsM (S : Fin 2 → CollarC) (lam : Fin 2 → ℝ) : CollarC :=
+  ((exp (-(∑ a : Fin 2, ((lam a : ℝ) : ℂ) • S a))).trace)⁻¹
+    • exp (-(∑ a : Fin 2, ((lam a : ℝ) : ℂ) • S a))
+
+/-- The partition function of the witness family. -/
+noncomputable def partitionZ (lam : Fin 2 → ℝ) : ℝ :=
+  ∑ p : Fin 2 × Fin 2, Real.exp (-(eigval lam p))
+
+theorem partitionZ_pos (lam : Fin 2 → ℝ) : 0 < partitionZ lam :=
+  Finset.sum_pos (fun p _ => Real.exp_pos _) Finset.univ_nonempty
+
+theorem partitionZ_ne_zero (lam : Fin 2 → ℝ) : partitionZ lam ≠ 0 :=
+  ne_of_gt (partitionZ_pos lam)
+
+open NormedSpace in
+/-- Spectral form of the Boltzmann factor of the witness family. -/
+theorem exp_neg_Ham (lam : Fin 2 → ℝ) :
+    exp (-(∑ a : Fin 2, ((lam a : ℝ) : ℂ) • SFam a))
+      = ∑ p : Fin 2 × Fin 2,
+          ((Real.exp (-(eigval lam p)) : ℝ) : ℂ) • specProjP p := by
+  rw [neg_Ham_eq, exp_sum_smul_specProjP]
+  refine Finset.sum_congr rfl fun _ _ => ?_
+  rw [Complex.ofReal_exp]
+
+open NormedSpace in
+theorem exp_neg_Ham_trace (lam : Fin 2 → ℝ) :
+    (exp (-(∑ a : Fin 2, ((lam a : ℝ) : ℂ) • SFam a))).trace
+      = ((partitionZ lam : ℝ) : ℂ) := by
+  rw [exp_neg_Ham, Matrix.trace_sum]
+  simp_rw [Matrix.trace_smul, specProjP_trace, smul_eq_mul, mul_one]
+  rw [partitionZ, Complex.ofReal_sum]
+
+open NormedSpace in
+theorem exp_neg_Ham_posSemidef (lam : Fin 2 → ℝ) :
+    (exp (-(∑ a : Fin 2, ((lam a : ℝ) : ℂ) • SFam a))).PosSemidef := by
+  rw [exp_neg_Ham]
+  refine Finset.sum_induction _ _ (fun A B hA hB => hA.add hB)
+    Matrix.PosSemidef.zero fun p _ => ?_
+  exact posSemidef_ofReal_smul (Real.exp_pos _).le (specProjP_posSemidef p)
+
+/-- The Gibbs state of the witness family is a density matrix. -/
+noncomputable def gibbsDM (lam : Fin 2 → ℝ) : DensityMatrix where
+  ρ := gibbsM SFam lam
+  posSemidef := by
+    rw [gibbsM, exp_neg_Ham_trace, ← Complex.ofReal_inv]
+    exact posSemidef_ofReal_smul (inv_nonneg.mpr (partitionZ_pos lam).le)
+      (exp_neg_Ham_posSemidef lam)
+  trace_one := by
+    rw [gibbsM, Matrix.trace_smul, exp_neg_Ham_trace, smul_eq_mul,
+      inv_mul_cancel₀ (Complex.ofReal_ne_zero.mpr (partitionZ_ne_zero lam))]
+
+@[simp] theorem gibbsDM_rho (lam : Fin 2 → ℝ) :
+    (gibbsDM lam).ρ = gibbsM SFam lam := rfl
+
 end OPH
