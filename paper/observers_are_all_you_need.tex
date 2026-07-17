@@ -743,6 +743,55 @@ The twelve-port result selects an exposed interface architecture. The internal d
 primitive observer algebra belongs to a separate carrier theorem, possibly with MAR acting on the
 port, record, and repair structure.
 
+The twelve ports carry more structure than a count. Their real vertex module is
+multiplicity-free under \(A_5\),
+\[
+  P_{12}\cong_{A_5}\mathbf 1\oplus\mathbf 3\oplus\mathbf 3'\oplus\mathbf 5,
+  \qquad
+  \chi_{P_{12}}=(12,0,0,2,2),
+\]
+matching the canonical adjacency ranks from
+\(\det(xI-A)=(x-5)(x+1)^5(x^2-5)^3\). The Standard-Model gauge algebra has the
+\emph{same} restricted module under opposite-triplet icosahedral embeddings,
+since \(\operatorname{ad}\mathfrak{su}(3)\cong\operatorname{End}_0(\mathbf3')
+\cong\mathbf3'\oplus\mathbf5\), with \(\mathbf3\) the \(\mathfrak{su}(2)\)
+adjoint and \(\mathbf1\) the abelian factor. Module equality by itself would
+leave \(\dim\operatorname{Hom}_{A_5}(\Lambda^2P_{12},P_{12})=14\) candidate
+brackets, which was the standing objection to reading anything into the
+coincidence \(12=8+3+1\). Compactness closes it: a compact Lie algebra is
+reductive with characteristic summands, and the center torus carries an
+automorphism-preserved integral lattice, so its \(A_5\)-module is rational and
+must contain the Galois-conjugate pair \(\mathbf3,\mathbf3'\) with equal
+multiplicity. Enumeration leaves exactly three algebras,
+\(\mathfrak u(1)^{12}\), \(\mathfrak{su}(2)^2\oplus\mathfrak u(1)^6\), and
+\(\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak u(1)\); in the first
+two the rank-five band is central, so one noncentral rank-five commutator
+selects the Standard-Model algebra uniquely. If the action is \emph{inner}, as
+matrix-algebra rechartings by unitaries make natural, the receipt is not needed
+at all: inner automorphisms fix the center pointwise, forcing
+\(\dim\mathfrak z\le1\), while a centerless twelve-dimensional compact algebra
+would be \(\mathfrak{su}(2)^4\) with \(A_5\) fixed-space dimension a multiple
+of three, contradicting \(\dim\mathfrak g^{A_5}=1\); hence \(\dim\mathfrak z=1\)
+and \(11=8+3\) closes the type uniquely. The icosahedral placement is likewise
+not invoked: the icosahedron is a sharp spherical configuration, so by
+Cohn--Kumar universal optimality it uniquely minimizes every strictly
+completely monotonic pair cost of squared chordal distance. The same geometry makes
+\(\mathbf3\) or \(\mathbf3'\) the dimension-minimal irreducible extension of a
+nontrivial oriented face-\(C_3\) phase, so a family fiber carried by that
+extension has \(N_g=3\) and exactly one CKM phase.
+
+This route is logically independent of the MAR matter package: it emits the
+gauge Lie algebra from the screen alone, with no matter witness, no anomaly
+clause, and no measured number. It does not emit the \(\mathbb Z_6\) quotient,
+the hypercharge lattice, or the chiral content, which stay on the MAR route,
+and it predicts no new measurement. It is receipt-conditional on
+A5-COMMON-ACTION (one group-level \(A_5\) action shared by ports and gauge
+reconstruction), W5-NONCENTRAL (one source-derived repair commutator with
+rank-five input), and, for the family corollary, A5-FAMILY-ATTACHMENT. The
+character identity, the trichotomy, the corollary, and the face multiplicities
+are exact and independently reproduced; see the closure certificate in
+\texttt{code/a5\_closure} and Ref.~\cite{ophcompact}.
+
 The compact proof packages this quantitative surface as a source-certified
 compression test. A row counts in the accidental-hit estimate only when its
 declared source map has no dependency path from the measured target or a

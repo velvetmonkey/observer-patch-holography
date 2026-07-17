@@ -11931,6 +11931,197 @@ Standard Model branches.
 
 The framework uses the global quotient and anomaly structure instead of a simple-group embedding. Once the realized matter content is fixed, the subgroup acting trivially on all states is exactly $\mathbb Z_6$, and the anomaly equations force the sixth-integer hypercharge lattice. Integer electric charge for color singlets is then a property of the realized quotient structure. A simple unified gauge group is not required.
 
+\subsection{Why is the gauge algebra \texorpdfstring{$8+3+1$}{8+3+1}? An icosahedral closure theorem}
+
+The reconstruction above reaches \(G_{\rm SM}\) through MAR acting on a
+declared matter package, and the MAR clause inputs are recorded as declared
+inputs (GAP-B9). A second route reaches the same Lie algebra from the screen
+alone, using no matter witness, no anomaly clause, and no measured number. It
+is therefore not exposed to the objection that the matter package is assumed.
+
+The screen sieve places twelve central ports on the icosahedral vertex orbit
+\(A_5/C_5\). Their real vertex module is multiplicity-free,
+\[
+  P_{12}\cong_{A_5}\mathbf 1\oplus\mathbf 3\oplus\mathbf 3'\oplus\mathbf 5,
+  \qquad
+  \chi_{P_{12}}=(12,0,0,2,2),
+\]
+in agreement with the canonical adjacency ranks obtained from
+\(\det(xI-A)=(x-5)(x+1)^5(x^2-5)^3\). Embedding \(A_5\) in \(SU(3)\) through
+one real triplet gives
+\(\operatorname{ad}\mathfrak{su}(3)\cong\operatorname{End}_0(\mathbf3')
+\cong\mathbf3'\oplus\mathbf5\); taking the opposite triplet \(\mathbf3\) for
+the \(\mathfrak{su}(2)\) adjoint and \(\mathbf1\) for \(\mathfrak u(1)\) yields
+the exact identity
+\[
+  P_{12}\cong_{A_5}
+  \bigl(\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak u(1)\bigr)
+  \!\downarrow\!A_5 .
+\]
+
+Module equality alone is insufficient: it leaves
+\(\dim\operatorname{Hom}_{A_5}(\Lambda^2P_{12},P_{12})=14\) equivariant
+antisymmetric products, so symmetry by itself does not select a Lie bracket.
+Compactness supplies the missing constraint.
+
+\begin{lemma}[Rational center]
+Let \(G\) be compact and connected with \(A_5\) acting by group automorphisms.
+The identity component of the center is a torus \(Z(G)^0\), and
+\(\Lambda=\ker(\exp:\mathfrak z\to Z(G)^0)\) is an integral lattice preserved
+by every group automorphism. Hence the \(A_5\)-representation on \(\mathfrak z\)
+is defined over \(\mathbb Q\).
+\end{lemma}
+
+Because \(\mathbf3\) and \(\mathbf3'\) are Galois conjugate over
+\(\mathbb Q(\sqrt5)\), a rational submodule contains them with equal
+multiplicity; each occurs once in \(P_{12}\), so a central submodule contains
+neither or both.
+
+\begin{theorem}[Compact-Lie trichotomy]
+Let \(\mathfrak g\) be the Lie algebra of a compact connected group carrying a
+group-level \(A_5\) action with \(\mathfrak g\cong_{A_5}P_{12}\). Then exactly
+one of
+\[
+  \mathfrak g\cong
+  \mathfrak u(1)^{12},
+  \qquad
+  \mathfrak{su}(2)^{2}\oplus\mathfrak u(1)^{6},
+  \qquad
+  \mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak u(1)
+\]
+holds.
+\end{theorem}
+
+\begin{proof}
+A compact Lie algebra is reductive, \(\mathfrak g=\mathfrak z\oplus[\mathfrak
+g,\mathfrak g]\), and both summands are characteristic, hence \(A_5\)-stable.
+By the lemma \(\mathfrak z\) is rational, so it is built from \(\mathbf1\),
+\(\mathbf5\), and the pair \(\mathbf3\oplus\mathbf3'\). Enumerating the eight
+cases: \(\dim\mathfrak z=5\), \(7\), and \(11\) leave semisimple dimensions
+\(7\), \(5\), and \(1\), and no compact semisimple Lie algebra has those
+dimensions. \(\mathfrak z=0\) leaves dimension \(12\), whose only type is
+\(A_1^4\); any homomorphism \(A_5\to S_4\) is trivial since \(A_5\) is simple
+of order \(60\), so the four ideals are individually stable and their
+three-dimensional adjoints cannot supply \(\mathbf5\). \(\mathfrak
+z=\mathbf3\oplus\mathbf3'\) leaves \(A_1^2\), which must carry
+\(\mathbf1\oplus\mathbf5\); \(\mathbf5\) is irreducible and cannot split into
+three-dimensional pieces. The remaining three cases are the displayed
+outcomes: \(\mathfrak z=\mathbf1\) with \(A_2\oplus A_1\), \(\mathfrak
+z=\mathbf1\oplus\mathbf5\) with \(A_1^2\) carrying
+\(\mathbf3\oplus\mathbf3'\), and \(\mathfrak z=P_{12}\) abelian.
+\end{proof}
+
+\begin{corollary}[Noncentral quintet forces the Standard Model]
+If the canonical rank-five adjacency band \(W_5\subset P_{12}\) is not central,
+i.e.\ \([x,y]\neq0\) for some \(x\in W_5\), \(y\in P_{12}\), then
+\[
+  \mathfrak g\cong\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak u(1).
+\]
+\end{corollary}
+
+\begin{proof}
+In \(\mathfrak u(1)^{12}\) every band is central. In
+\(\mathfrak{su}(2)^2\oplus\mathfrak u(1)^6\) the center is exactly
+\(\mathbf1\oplus\mathbf5\), so \(W_5\) is central. Only the third outcome
+remains.
+\end{proof}
+
+Strengthening the hypothesis from a group-level to an \emph{inner} action
+removes the noncentrality receipt altogether.
+
+\begin{corollary}[Inner-action closure]
+Let \(\mathfrak g\) be a compact real Lie algebra of dimension twelve with
+\(\mathfrak g\cong_{A_5}P_{12}\), and suppose the \(A_5\) action is by inner
+automorphisms. Then
+\[
+  \mathfrak g\cong\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak u(1),
+\]
+with the eight-dimensional ideal restricting as \(\mathbf3\oplus\mathbf5\) and
+the three-dimensional ideal as \(\mathbf3'\), or conversely under
+\(\operatorname{Out}(A_5)\).
+\end{corollary}
+
+\begin{proof}
+Inner automorphisms fix the center pointwise, so
+\(\mathfrak z\subseteq\mathfrak g^{A_5}\). Since \(P_{12}\) contains exactly one
+trivial irreducible, \(\dim\mathfrak z\le1\). Suppose \(\mathfrak z=0\); then
+\(\mathfrak g\) is compact semisimple of dimension twelve, and the only
+partition of twelve into compact simple dimensions \(\{3,8,10\}\) is
+\(3+3+3+3\), so \(\mathfrak g\cong\mathfrak{su}(2)^4\). An inner action cannot
+permute simple ideals, so each is preserved; on one \(\mathfrak{su}(2)\) the
+\(A_5\)-image is trivial (fixed space of dimension three) or icosahedral (fixed
+space zero), because \(A_5\) is simple. Hence \(\dim\mathfrak g^{A_5}\) is a
+multiple of three, contradicting \(\dim\mathfrak g^{A_5}=1\). Therefore
+\(\dim\mathfrak z=1\) and the semisimple part has dimension eleven, whose only
+partition into compact simple dimensions is \(11=8+3\). Multiplicity-freeness
+of \(P_{12}\) fixes the ideal allocation up to
+\(\mathbf3\leftrightarrow\mathbf3'\).
+\end{proof}
+
+The inner hypothesis is structural in this setting rather than opportunistic:
+the finite overlap charts are matrix algebras, and overlap-preserving
+rechartings are implemented by unitaries, whose action on observables is
+conjugation. The obligation therefore reduces to one receipt,
+\textsc{port-current-inner}: construct a nonzero refinement-compatible map from
+port fluctuations to current generators and prove that the geometric \(A_5\)
+action is conjugation on its image.
+
+\paragraph{Selection of the icosahedron.} The placement is a variational
+consequence rather than an invoked symmetry. If the twelve unit defects
+interact through any cost \(E_f=\sum_{i\neq j}f(\|p_i-p_j\|^2)\) with \(f\)
+strictly completely monotonic, then the regular icosahedron is the unique
+minimizer up to \(O(3)\). It has exactly three distinct inner products
+\(\{-1,\pm1/\sqrt5\}\) and is a spherical \(5\)-design, hence sharp with
+\(m=3\) and strength \(2m-1=5\), so the Cohn--Kumar universal-optimality
+theorem applies. The remaining obligation is \textsc{RP-A5}: emit such a kernel
+from the collar mismatch/recovery cost without inserting the target geometry.
+
+\paragraph{Angular multiplet signature.} Restricting \(\mathcal H_\ell\) to
+\(A_5\) gives exactly
+\(\ell=2:\mathbf5\); \(\ell=3:\mathbf3'\oplus\mathbf4\);
+\(\ell=4:\mathbf4\oplus\mathbf5\);
+\(\ell=5:\mathbf3\oplus\mathbf3'\oplus\mathbf5\);
+\(\ell=6:\mathbf1\oplus\mathbf3\oplus\mathbf4\oplus\mathbf5\).
+By Schur's lemma an \(A_5\)-invariant self-adjoint perturbation is scalar on
+each block, so the degeneracy pattern is forced while block eigenvalues remain
+dynamical. Two consequences are sign-committed: \(\ell=2\) is irreducible, so an
+\(A_5\)-locked quadrupole covariance is isotropic and no icosahedral branch
+admits an anisotropic or aligned quadrupole; and the first nonconstant
+invariant appears only at \(\ell=6\), whose frame must agree with the
+\(\ell=3\) block frame. Amplitudes, frequencies, and the source-to-observable
+transfer are not supplied by representation theory and must be derived and
+frozen before comparison.
+
+The oriented face orbit \(A_5/C_3\) carries a companion statement. For an
+irreducible \(V\), the multiplicity of a nontrivial face phase \(\omega\) is
+\(m_\omega(V)=(\dim V-\chi_V(3A))/3\), giving \((0,1,1,1,2)\) on
+\((\mathbf1,\mathbf3,\mathbf3',\mathbf4,\mathbf5)\). Since \(A_5\) has no
+two-dimensional irreducible and its one-dimensional irreducible carries
+\(m_\omega=0\), the dimension-minimal irreducible extension of a nontrivial
+face phase is \(\mathbf3\) or \(\mathbf3'\). If the quotient-visible family
+fiber is that extension, then \(N_g=3\), with exactly
+\((N_g-1)(N_g-2)/2=1\) rephasing-invariant CKM phase. This replaces the
+CP-capability clause of Axiom~\ref{ax:mar} by a finite representation receipt
+on this route.
+
+\paragraph{Claim boundary.} The theorem is receipt-conditional and its
+boundary is exact. It emits the gauge \emph{Lie algebra} without the realized
+matter package; it does \emph{not} emit the global \(\mathbb Z_6\) quotient,
+the hypercharge lattice, or the chiral content, which remain on the MAR route
+above. It predicts no new measurement and is therefore not a forward test.
+Three receipts are open: \textsc{A5-common-action}, that the port action and
+the compact-gauge reconstruction implement one group-level \(A_5\) action on
+the physical quotient rather than merely isomorphic representations;
+\textsc{W5-noncentral}, one source-derived quotient-visible repair composition
+whose projected commutator has nonzero \(W_5\) input; and, for the family
+corollary, \textsc{A5-family-attachment}. A dimensional identification of the
+missing irreducible \(\mathbf4\) with the Higgs doublet is rejected: the real
+\(\mathbf4\) has \(\operatorname{End}_{A_5}(\mathbf4)=\mathbb R\), so no
+\(A_5\)-equivariant complex structure exists for a commuting hypercharge
+\(U(1)\). The character identity, trichotomy, corollary, and face
+multiplicities are exact and independently reproduced by the closure
+certificate in \texttt{code/a5\_closure}.
+
 \section{Discussion}
 
 The framework is strongest where the outputs are discrete or structurally rigid:

@@ -548,6 +548,156 @@ adjoint generators. The same branch supplies the electroweak integer
 \]
 
 \vspace{0.14em}
+{\bfseries\color{pragmaCyanText}The icosahedral closure theorem: the gauge algebra without the matter package}\par
+
+The branch above reaches \(G_{\rm SM}\) through MAR acting on a declared matter
+package. A second, independent route reaches the same Lie algebra from the
+screen alone, using no matter witness, no anomaly clause, and no measured
+number. It upgrades the factor \(12\) from a counted coincidence to a
+classification theorem [C19].
+
+The icosahedral placement is itself a variational consequence, not an invoked
+symmetry. Let the twelve unit defects interact through any pair cost
+\(E_f=\sum_{i\neq j}f(\|p_i-p_j\|^2)\) with \(f\) strictly completely
+monotonic. The regular icosahedron has exactly three distinct inner products
+\(\{-1,\pm1/\sqrt5\}\) and is a spherical \(5\)-design, hence a \emph{sharp}
+configuration with \(m=3\) and strength \(2m-1=5\); both facts are certified
+exactly [C19]. By the Cohn--Kumar universal-optimality theorem [S8], sharp
+configurations minimize every completely monotonic potential of squared
+distance, and strict monotonicity makes the icosahedral minimum unique up to
+\(O(3)\). The surviving obligation is one source receipt, \textsc{RP-A5}:
+emit such a kernel from the finite collar mismatch/recovery cost without
+inserting the target geometry.
+
+The screen sieve puts twelve central ports on the icosahedral vertex orbit
+\(A_5/C_5\). The real vertex module of the icosahedron is multiplicity-free,
+\[
+  P_{12}\cong_{A_5}\mathbf 1\oplus\mathbf 3\oplus\mathbf 3'\oplus\mathbf 5,
+  \qquad
+  \chi_{P_{12}}=(12,0,0,2,2),
+\]
+and the canonical adjacency spectrum
+\(\det(xI-A)=(x-5)(x+1)^5(x^2-5)^3\) supplies the same ranks \(1,3,3,5\). The
+Standard-Model gauge algebra carries that identical module under
+opposite-triplet icosahedral embeddings:
+\(\operatorname{ad}\mathfrak{su}(3)\cong\operatorname{End}_0(\mathbf 3')
+\cong\mathbf 3'\oplus\mathbf 5\), with \(\mathbf 3\) the \(\mathfrak{su}(2)\)
+adjoint and \(\mathbf 1\) the abelian factor.
+
+Module equality alone would leave a fourteen-dimensional space of equivariant
+antisymmetric products, \(\dim\operatorname{Hom}_{A_5}(\Lambda^2P_{12},P_{12})=14\),
+and this was the standing objection to the identity. Compactness removes it.
+A compact Lie algebra is reductive, \(\mathfrak g=\mathfrak z\oplus[\mathfrak
+g,\mathfrak g]\), and both summands are characteristic, hence \(A_5\)-stable.
+The identity component of the center is a torus whose exponential kernel is an
+integral lattice preserved by every group automorphism, so the \(A_5\)-action
+on \(\mathfrak z\) is defined over \(\mathbb Q\); since \(\mathbf 3\) and
+\(\mathbf 3'\) are Galois conjugate over \(\mathbb Q(\sqrt5)\), a rational
+submodule contains them with equal multiplicity. Enumerating the rational
+centers against the compact semisimple dimensions leaves exactly three
+algebras,
+\[
+  \mathfrak g\cong
+  \mathfrak u(1)^{12},
+  \qquad
+  \mathfrak{su}(2)^{2}\oplus\mathfrak u(1)^{6},
+  \qquad
+  \mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak u(1),
+\]
+the five other center choices dying on dimension (no compact semisimple algebra
+has dimension \(1\), \(5\), or \(7\)) or on module mismatch (an \(A_1^{4}\) or
+\(A_1^{2}\) adjoint cannot supply \(\mathbf 5\), and any homomorphism
+\(A_5\to S_4\) is trivial because \(A_5\) is simple of order \(60\)). In the
+first two survivors the canonical rank-five band \(W_5\) lies inside the
+center. Therefore a single noncentrality receipt closes the classification:
+\[
+  \boxed{\;[W_5,P_{12}]\neq0
+  \;\Longrightarrow\;
+  \mathfrak g\cong\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak u(1).\;}
+\]
+Strengthening the hypothesis from a group-level action to an \emph{inner} one
+removes even that receipt. Inner automorphisms fix the center pointwise, so
+\(\mathfrak z\subseteq\mathfrak g^{A_5}\); since \(P_{12}\) contains exactly
+one trivial irreducible, \(\dim\mathfrak z\le1\). If \(\mathfrak z=0\) then
+\(\mathfrak g\) is compact semisimple of dimension twelve, hence
+\(\mathfrak{su}(2)^4\), and an inner action cannot permute simple ideals; each
+\(\mathfrak{su}(2)\) then contributes fixed-space dimension \(3\) (trivial
+\(A_5\)-image) or \(0\) (icosahedral image), so \(\dim\mathfrak g^{A_5}\) is a
+multiple of three and cannot equal one. Hence \(\dim\mathfrak z=1\), the
+semisimple part has dimension eleven, and \(11=8+3\) is its only partition
+into compact simple dimensions. Therefore
+\[
+  \boxed{\;\text{inner }A_5\text{ action}
+  \;\Longrightarrow\;
+  \mathfrak g\cong\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak u(1)
+  \ \text{uniquely.}\;}
+\]
+The inner hypothesis is structural rather than opportunistic: the finite OPH
+overlap charts are matrix algebras and overlap-preserving rechartings are
+implemented by unitaries, whose action on observables is conjugation. The
+obligation then reduces to a single receipt, \textsc{port-current-inner}:
+construct a nonzero refinement-compatible map from port fluctuations to
+current generators and prove the geometric \(A_5\) action is conjugation on
+its image.
+
+The oriented face orbit \(A_5/C_3\) carries a second exact statement. For an
+irreducible \(V\) the multiplicity of a nontrivial face phase \(\omega\) is
+\(m_\omega(V)=(\dim V-\chi_V(3A))/3\), giving \((0,1,1,1,2)\) on
+\((\mathbf1,\mathbf3,\mathbf3',\mathbf4,\mathbf5)\). Since \(A_5\) has no
+two-dimensional irreducible and its one-dimensional irreducible carries
+\(m_\omega=0\), the dimension-minimal irreducible extension of a nontrivial
+face phase is \(\mathbf 3\) or \(\mathbf 3'\). If the quotient-visible family
+fiber is that extension, then \(N_g=3\) with exactly
+\((N_g-1)(N_g-2)/2=1\) rephasing-invariant CKM phase.
+
+\vspace{0.14em}
+{\bfseries\color{pragmaCyanText}A parameter-free spectroscopy signature}\par
+
+The same character table fixes how any spherical angular multiplet may split
+when only icosahedral symmetry survives. Restricting \(\mathcal H_\ell\) to
+\(A_5\) gives, exactly [C19],
+\[
+\begin{aligned}
+  \ell=2&:\ \mathbf5, &
+  \ell=3&:\ \mathbf3'\oplus\mathbf4, &
+  \ell=4&:\ \mathbf4\oplus\mathbf5,\\
+  \ell=5&:\ \mathbf3\oplus\mathbf3'\oplus\mathbf5, &
+  \ell=6&:\ \mathbf1\oplus\mathbf3\oplus\mathbf4\oplus\mathbf5. &&
+\end{aligned}
+\]
+By Schur's lemma an \(A_5\)-invariant self-adjoint perturbation is scalar on
+each block, so the \emph{degeneracy pattern} is forced even though the block
+eigenvalues stay dynamical. Two consequences are sign-committed and
+target-free: \(\ell=2\) is irreducible, so an \(A_5\)-locked quadrupole
+covariance must be \emph{isotropic} and no icosahedral branch can produce an
+anisotropic or aligned quadrupole; and the first nonconstant invariant appears
+only at \(\ell=6\), with the \(\ell=3\) block frame and the \(\ell=6\) invariant
+frame required to agree. This is a preregistrable multiplicity test rather than
+a free anomaly search, and unlike every decimal lane in this document it has no
+continuous dial: the allowed multiplicities are \(3+4\), \(4+5\), \(3+3'+5\),
+\(1+3+4+5\), or nothing. Venues, in order of control, are an icosahedral cavity,
+the CMB screen frame, and low-spin ringdown residuals. Amplitudes, frequencies,
+and the source-to-observable transfer are \emph{not} supplied by the
+representation theory and must be derived before any comparison; the signature
+is registered here as a theorem-gated prospective test, not as present evidence.
+
+\infobox{The strongest structural result in the stack}{
+One finite observer screen emits the complete Standard-Model gauge Lie algebra.
+The chain is exact and target-free: a triangulated \(S^2\) forces twelve defect
+units; universal optimality forces the icosahedron; its vertex module is
+\(\mathbf1\oplus\mathbf3\oplus\mathbf3'\oplus\mathbf5\); and an inner \(A_5\)
+action forces \(\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak u(1)\)
+uniquely. No matter package, no anomaly clause, no measured number, no dial. It
+is therefore independent of the MAR clause inputs that carry the branch above,
+and the objection that the matter witness is assumed does not reach it. The
+whole construction now rests on two source receipts, \textsc{RP-A5} and
+\textsc{port-current-inner}, both finite and machine-checkable. Scope: the
+\(\mathbb Z_6\) quotient, hypercharge lattice, chiral content, couplings, and
+poles stay on the MAR route [O4]; the gauge closure is explanatory and predicts
+no measurement, while the angular-multiplet sequence is its observational
+descendant. All arithmetic is independently reproduced [C19].}
+
+\vspace{0.14em}
 {\bfseries\color{pragmaCyanText}The QCD-free hierarchy witness}\par
 
 The source-audit hierarchy witness reuses the pixel candidate and the
@@ -723,6 +873,22 @@ invariance give
 the hypercharge lattice, \(N_c=N_g=3\), and one Higgs doublet. &
 Realized-branch theorem & 4\\
 
+Why the gauge algebra is \(8+3+1\) &
+Independent of the matter package: the twelve icosahedral ports carry
+\(P_{12}=\mathbf1\oplus\mathbf3\oplus\mathbf3'\oplus\mathbf5\), the same
+\(A_5\) module as the Standard-Model adjoint. Compactness plus center
+integrality leaves exactly three algebras, and one noncentral rank-five
+commutator selects
+\(\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak u(1)\). &
+Receipt-conditional theorem; A5-COMMON-ACTION and W5-NONCENTRAL open & 4\\
+
+Why there are three generations &
+The dimension-minimal irreducible \(A_5\) extension of a nontrivial oriented
+face-\(C_3\) phase is \(\mathbf3\) or \(\mathbf3'\); if the family fiber is
+that extension, \(N_g=3\) with one CKM phase. Replaces the CP-capability
+clause by a finite representation receipt. &
+Receipt-conditional theorem; A5-FAMILY-ATTACHMENT open & 4\\
+
 Electroweak breaking and charge quantization &
 The Borel--Weil Higgs carrier
 \(H^0(\mathbb{CP}^1,\mathcal O(1))\cong\mathbb C^2\) has stabilizer
@@ -850,6 +1016,27 @@ continuation, with the core reconstruction untouched [C14].\\
 Repair-order countermodel & Two accepted repair orders reaching different
 normal forms under the stated local-diamond and completeness hypotheses kill
 the consensus mechanism.\\
+Icosahedral closure trichotomy & A fourth compact Lie algebra satisfying the
+stated assumptions, or a physical port/current carrier that is not the
+multiplicity-free module
+\(\mathbf1\oplus\mathbf3\oplus\mathbf3'\oplus\mathbf5\), kills the closure
+theorem. If the rank-five band is central in every source-derived repair
+product, W5-NONCENTRAL fails and the branch degenerates to
+\(\mathfrak u(1)^{12}\) or \(\mathfrak{su}(2)^2\oplus\mathfrak u(1)^6\),
+neither of which is our world.\\
+Icosahedral angular multiplets & A resolved cosmological anisotropic or aligned
+quadrupole, or residual angular blocks incompatible with
+\(3{+}4\), \(4{+}5\), \(3{+}3'{+}5\), \(1{+}3{+}4{+}5\), or an \(\ell=3\)
+block frame inconsistent with the \(\ell=6\) invariant frame, kills the
+icosahedral screen branch once the source-to-observable transfer is derived
+and frozen.\\
+Icosahedral selection kernel & A source-derived OPH repair kernel inside the
+strictly completely monotonic class whose unique twelve-defect minimum is not
+icosahedral kills \textsc{RP-A5} and with it the screen branch.\\
+Icosahedral family attachment & A dimension-one or dimension-two irreducible
+linear \(A_5\) carrier with the required face phase, or a demonstration that
+the physical generation carrier does not extend the nontrivial face-\(C_3\)
+phase, kills the \(N_g=3\) corollary on this route.\\
 Closure uniqueness & A second solution of the \(P\) or \(N\) closure, or a
 demonstrated target leak in a declared source map, kills the compression
 claim. A second \(P\) fixed point anywhere on the declared physical domain is
@@ -901,6 +1088,9 @@ Cosmological parameters.'' \href{https://arxiv.org/abs/1807.06209}{Astron. Astro
 \refentry{[S6]}{Lelli, F., S. S. McGaugh, and J. M. Schombert (2019).
 ``The Small Scatter of the Baryonic Tully--Fisher Relation.''
 \href{https://arxiv.org/abs/1901.05966}{Mon. Not. R. Astron. Soc. 484, 3267--3278}.}
+\refentry{[S8]}{Cohn, H., and A. Kumar (2007). ``Universally optimal
+distribution of points on spheres.''
+\href{https://arxiv.org/abs/math/0607446}{J. Amer. Math. Soc. 20, 99--148}.}
 \refentry{[S7]}{McGaugh, S. S., F. Lelli, and J. M. Schombert (2016).
 ``The Radial Acceleration Relation in Rotationally Supported Galaxies.''
 \href{https://arxiv.org/abs/1609.05917}{Phys. Rev. Lett. 117, 201101}.}
@@ -934,6 +1124,7 @@ All OPH series papers below use release \texttt{\OPHPaperReleaseID}.
 \refentry{[C16]}{FloatingPragma (2026). \href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/code/capacity_readback}{Capacity readback map \(F\): formal specification, coupling theorem, and certificate schema}.}
 \refentry{[C17]}{FloatingPragma (2026). \href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/docs}{OPH claim registry: strange-loop principles, closure ledger, consistency stack, proof spine}.}
 \refentry{[C18]}{FloatingPragma (2026). \href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/falsification/frozen_targets}{Frozen blind targets with external timestamp proofs}.}
+\refentry{[C19]}{FloatingPragma (2026). \href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/code/a5_closure}{Icosahedral closure certificates: sharpness/universal-optimality data, vertex-module identity, compact-Lie trichotomy, inner-action closure, rank-five corollary, face-phase multiplicities, angular-harmonic decompositions, and the conditional horizon log-coefficient audit}.}
 \end{multicols}
 }
 

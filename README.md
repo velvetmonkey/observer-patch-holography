@@ -240,6 +240,37 @@ icosahedron. It supplies the icosahedral skeleton behind the echosahedral patch
 carrier language: a finite, highly symmetric way to organize ports, overlaps,
 and local comparison data without treating the carrier as a smooth ball.
 
+$A_5$ also carries the strongest structural result in the stack, and it is the
+closest thing OPH has to a smoking gun: **one finite observer screen emits the
+complete Standard-Model gauge Lie algebra, with no matter package, no anomaly
+clause, no measured number, and no dial.** A triangulated $S^2$ forces twelve
+defect units; the icosahedral placement is *forced, not invoked*, because the
+icosahedron is a sharp configuration (three inner products $\{-1,\pm1/\sqrt5\}$,
+a spherical 5-design) and by Cohn–Kumar universal optimality uniquely minimizes
+every strictly completely monotonic pair cost; its vertex module is
+multiplicity-free, $P_{12}\cong\mathbf1\oplus\mathbf3\oplus\mathbf3'\oplus\mathbf5$
+— exactly the Standard-Model gauge adjoint under opposite-triplet embeddings;
+and an **inner** $A_5$ action (natural here, since finite overlap charts are
+matrix algebras whose rechartings act by conjugation) forces
+$\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak u(1)$ **uniquely** —
+because inner automorphisms fix the center pointwise, so $\dim Z(\mathfrak g)\le1$,
+while a centerless twelve-dimensional compact algebra would be
+$\mathfrak{su}(2)^4$ whose $A_5$ fixed-space dimension is a multiple of three,
+leaving $12=1+11=1+8+3$ as the only survivor. **Why this bites:** the Standard
+Model *takes* $8+3+1$ as input and explains nothing about it; string theory
+relocates the question into a landscape; loop quantum gravity puts it out of
+scope. No rival computes the gauge algebra at all. OPH computes it from a screen
+built for an unrelated reason — observer agreement — and the same geometry
+independently makes $\mathbf3$ or $\mathbf3'$ the dimension-minimal extension of
+the oriented face-$C_3$ phase, giving $N_g=3$ with one CKM phase, plus a
+dial-free spectroscopy signature ($\ell=2$ is irreducible, so an $A_5$-locked
+quadrupole must be **isotropic**). The scope is stated once and honestly: this
+route emits the gauge Lie algebra, not the $\mathbb Z_6$ quotient, hypercharge
+lattice, or chiral content, which stay on the MAR route; it rests on two finite
+source receipts, `RP-A5` and `PORT-CURRENT-INNER`; and the spectroscopy is gated
+on a derived source-to-observable transfer. See
+[code/a5_closure](code/a5_closure/) for the certificates and full claim boundary.
+
 The same geometry gives a useful sphere ladder for readers. $S^0$ is the first
 seed or readout distinction. $S^1$ is recurrence, the loop in which a record
 can return to itself. $S^2$ is the horizon screen and public archive. The final
