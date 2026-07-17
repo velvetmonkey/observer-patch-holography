@@ -746,7 +746,7 @@ theorem exp_sum_smul_specProjP (c : Fin 2 × Fin 2 → ℂ) :
             ((n.factorial : ℂ)⁻¹ * (c p) ^ n) • specProjP p := by
     intro n
     rw [Finset.smul_sum]
-    refine Finset.sum_congr rfl fun p _ => ?_
+    refine Finset.sum_congr rfl fun _ _ => ?_
     rw [smul_smul]
   simp only [hsummand]
   have hscalar : ∀ p : Fin 2 × Fin 2,
@@ -781,7 +781,7 @@ noncomputable def partitionZ (lam : Fin 2 → ℝ) : ℝ :=
   ∑ p : Fin 2 × Fin 2, Real.exp (-(eigval lam p))
 
 theorem partitionZ_pos (lam : Fin 2 → ℝ) : 0 < partitionZ lam :=
-  Finset.sum_pos (fun p _ => Real.exp_pos _) Finset.univ_nonempty
+  Finset.sum_pos (fun _ _ => Real.exp_pos _) Finset.univ_nonempty
 
 theorem partitionZ_ne_zero (lam : Fin 2 → ℝ) : partitionZ lam ≠ 0 :=
   ne_of_gt (partitionZ_pos lam)
@@ -825,5 +825,218 @@ noncomputable def gibbsDM (lam : Fin 2 → ℝ) : DensityMatrix where
 
 @[simp] theorem gibbsDM_rho (lam : Fin 2 → ℝ) :
     (gibbsDM lam).ρ = gibbsM SFam lam := rfl
+
+/-! ## S3 — matrix log, Umegaki relative entropy, and the family Klein
+inequality
+
+The matrix logarithm is `CFC.log = cfc Real.log` — the continuous
+functional calculus instance on matrices is norm-free (topological), and
+the `NormedRing` structure needed by the `CFC.log`/`NormedSpace.exp`
+interplay is supplied by file-local `l∞`-operator-norm instances (the
+resulting values are norm-independent).
+
+The Klein inequality proved here is the *family* Klein inequality:
+relative entropy is nonnegative between Gibbs states of the retained
+family.  The commuting family reduces it to the classical
+finite-probability Gibbs inequality (`Real.log_le_sub_one_of_pos`) — no
+Kubo–Mori/Duhamel machinery, exactly as the scoping report predicted.
+The fully general Klein inequality (arbitrary density-matrix pairs) is
+NOT needed for T0 and is not claimed. -/
+
+section StateSide
+
+attribute [local instance] Matrix.linftyOpNormedAddCommGroup
+  Matrix.linftyOpNormedRing Matrix.linftyOpNormedAlgebra
+
+/-- The matrix logarithm on the collar algebra, via the continuous
+    functional calculus (Mathlib has no `Matrix.log`). -/
+noncomputable def matLog (M : CollarC) : CollarC := CFC.log M
+
+/-- Umegaki relative entropy on raw matrices (total definition; its
+    entropy meaning is carried by the density-matrix arguments used in
+    the theorems). -/
+noncomputable def relEntropyM (A B : CollarC) : ℝ :=
+  ((A * (matLog A - matLog B)).trace).re
+
+/-- Umegaki relative entropy of two states. -/
+noncomputable def relEntropy (ρ σ : DensityMatrix) : ℝ :=
+  relEntropyM ρ.ρ σ.ρ
+
+/-- Relative entropy of any matrix with itself vanishes — the minimizer
+    witness for the identity-channel closure defect. -/
+theorem relEntropyM_self (A : CollarC) : relEntropyM A A = 0 := by
+  rw [relEntropyM, sub_self, mul_zero, Matrix.trace_zero]
+  simp
+
+theorem relEntropy_self (ρ : DensityMatrix) : relEntropy ρ ρ = 0 :=
+  relEntropyM_self ρ.ρ
+
+/-! ### The log of a Gibbs state -/
+
+/-- The self-adjoint exponent of the Gibbs state:
+    `-(λ·S) - log Z • 1`. -/
+noncomputable def gibbsExponent (lam : Fin 2 → ℝ) : CollarC :=
+  -(∑ a : Fin 2, ((lam a : ℝ) : ℂ) • SFam a)
+    - ((Real.log (partitionZ lam) : ℝ) : ℂ) • 1
+
+/-- The scalar spectral data of the exponent. -/
+noncomputable def gLog (lam : Fin 2 → ℝ) (p : Fin 2 × Fin 2) : ℝ :=
+  -(eigval lam p) - Real.log (partitionZ lam)
+
+theorem smul_one_eq_sum_specProjP (c : ℂ) :
+    c • (1 : CollarC) = ∑ p : Fin 2 × Fin 2, c • specProjP p := by
+  rw [← Finset.smul_sum, sum_specProjP]
+
+theorem gibbsExponent_spectral (lam : Fin 2 → ℝ) :
+    gibbsExponent lam
+      = ∑ p : Fin 2 × Fin 2, ((gLog lam p : ℝ) : ℂ) • specProjP p := by
+  rw [gibbsExponent, neg_Ham_eq, smul_one_eq_sum_specProjP,
+    ← Finset.sum_sub_distrib]
+  refine Finset.sum_congr rfl fun p _ => ?_
+  rw [← sub_smul, ← Complex.ofReal_sub, gLog]
+
+theorem gibbsExponent_isSelfAdjoint (lam : Fin 2 → ℝ) :
+    IsSelfAdjoint (gibbsExponent lam) := by
+  rw [gibbsExponent_spectral]
+  show _ᴴ = _
+  rw [Matrix.conjTranspose_sum]
+  refine Finset.sum_congr rfl fun p _ => ?_
+  rw [Matrix.conjTranspose_smul, (specProjP_isHermitian p).eq,
+    Complex.star_def, Complex.conj_ofReal]
+
+open NormedSpace in
+/-- The Gibbs state is the exponential of its self-adjoint exponent. -/
+theorem gibbsM_eq_exp_gibbsExponent (lam : Fin 2 → ℝ) :
+    gibbsM SFam lam = exp (gibbsExponent lam) := by
+  rw [gibbsExponent_spectral, exp_sum_smul_specProjP,
+    gibbsM, exp_neg_Ham_trace, exp_neg_Ham, Finset.smul_sum]
+  refine Finset.sum_congr rfl fun p _ => ?_
+  rw [smul_smul]
+  congr 1
+  rw [← Complex.ofReal_exp, gLog, Real.exp_sub,
+    Real.exp_log (partitionZ_pos lam), Complex.ofReal_div, inv_mul_eq_div]
+
+/-- **Log of a Gibbs state**: `log ω(λ) = -λ·S - log Z • 1` — the
+    manuscript's local-Gibbs form, on machine. -/
+theorem matLog_gibbsM (lam : Fin 2 → ℝ) :
+    matLog (gibbsM SFam lam) = gibbsExponent lam := by
+  rw [gibbsM_eq_exp_gibbsExponent, matLog]
+  exact CFC.log_exp _ (gibbsExponent_isSelfAdjoint lam)
+
+/-! ### The relative entropy between Gibbs states of the family -/
+
+/-- The spectral probability weights of the Gibbs state. -/
+noncomputable def gibbsProb (lam : Fin 2 → ℝ) (p : Fin 2 × Fin 2) : ℝ :=
+  Real.exp (-(eigval lam p)) / partitionZ lam
+
+theorem gibbsProb_pos (lam : Fin 2 → ℝ) (p : Fin 2 × Fin 2) :
+    0 < gibbsProb lam p :=
+  div_pos (Real.exp_pos _) (partitionZ_pos lam)
+
+theorem sum_gibbsProb (lam : Fin 2 → ℝ) :
+    ∑ p : Fin 2 × Fin 2, gibbsProb lam p = 1 := by
+  rw [show (∑ p : Fin 2 × Fin 2, gibbsProb lam p)
+      = (∑ p : Fin 2 × Fin 2, Real.exp (-(eigval lam p))) / partitionZ lam from
+    (Finset.sum_div _ _ _).symm]
+  rw [← partitionZ, div_self (partitionZ_ne_zero lam)]
+
+/-- The spectral scalars of the exponent are the logs of the weights. -/
+theorem gLog_eq_log_gibbsProb (lam : Fin 2 → ℝ) (p : Fin 2 × Fin 2) :
+    gLog lam p = Real.log (gibbsProb lam p) := by
+  rw [gibbsProb, Real.log_div (Real.exp_ne_zero _) (partitionZ_ne_zero lam),
+    Real.log_exp, gLog]
+
+/-- Spectral form of the Gibbs state itself. -/
+theorem gibbsM_spectral (lam : Fin 2 → ℝ) :
+    gibbsM SFam lam
+      = ∑ p : Fin 2 × Fin 2, ((gibbsProb lam p : ℝ) : ℂ) • specProjP p := by
+  rw [gibbsM, exp_neg_Ham_trace, exp_neg_Ham, Finset.smul_sum]
+  refine Finset.sum_congr rfl fun p _ => ?_
+  rw [smul_smul]
+  congr 1
+  rw [gibbsProb, Complex.ofReal_div, inv_mul_eq_div]
+
+/-- Products of spectral combinations multiply their scalars. -/
+theorem sum_smul_specProjP_mul (c d : Fin 2 × Fin 2 → ℂ) :
+    (∑ p : Fin 2 × Fin 2, c p • specProjP p)
+        * (∑ p : Fin 2 × Fin 2, d p • specProjP p)
+      = ∑ p : Fin 2 × Fin 2, (c p * d p) • specProjP p := by
+  rw [Finset.sum_mul]
+  refine Finset.sum_congr rfl fun p _ => ?_
+  rw [Finset.mul_sum]
+  rw [Finset.sum_eq_single p
+    (fun q _ hq => by
+      rw [smul_mul_smul_comm, specProjP_mul, if_neg (Ne.symm hq), smul_zero])
+    (fun h => absurd (Finset.mem_univ p) h)]
+  rw [smul_mul_smul_comm, specProjP_mul, if_pos rfl]
+
+/-- The relative entropy between two Gibbs states of the retained family
+    is the classical Kullback–Leibler divergence of their spectral
+    weights. -/
+theorem relEntropyM_gibbs_eq (lam lam' : Fin 2 → ℝ) :
+    relEntropyM (gibbsM SFam lam) (gibbsM SFam lam')
+      = ∑ p : Fin 2 × Fin 2,
+          gibbsProb lam p
+            * (Real.log (gibbsProb lam p) - Real.log (gibbsProb lam' p)) := by
+  rw [relEntropyM, matLog_gibbsM, matLog_gibbsM,
+    gibbsExponent_spectral, gibbsExponent_spectral,
+    ← Finset.sum_sub_distrib]
+  have hsub : ∀ p : Fin 2 × Fin 2,
+      ((gLog lam p : ℝ) : ℂ) • specProjP p - ((gLog lam' p : ℝ) : ℂ) • specProjP p
+        = (((gLog lam p - gLog lam' p : ℝ) : ℂ)) • specProjP p := by
+    intro p
+    rw [← sub_smul, ← Complex.ofReal_sub]
+  simp_rw [hsub]
+  rw [gibbsM_spectral, sum_smul_specProjP_mul, Matrix.trace_sum]
+  simp_rw [Matrix.trace_smul, specProjP_trace, smul_eq_mul, mul_one,
+    ← Complex.ofReal_mul]
+  rw [← Complex.ofReal_sum, Complex.ofReal_re]
+  refine Finset.sum_congr rfl fun p _ => ?_
+  rw [gLog_eq_log_gibbsProb, gLog_eq_log_gibbsProb]
+
+/-! ### The classical finite Gibbs inequality (Klein, commuting case) -/
+
+/-- Classical finite-probability Klein/Gibbs inequality: the discrete
+    KL divergence of two positive weight systems with equal mass is
+    nonnegative.  Proof: `log x ≤ x - 1`. -/
+theorem finset_klDiv_nonneg {ι : Type*} [Fintype ι] (p q : ι → ℝ)
+    (hp : ∀ i, 0 < p i) (hq : ∀ i, 0 < q i)
+    (hpq : ∑ i, p i = ∑ i, q i) :
+    0 ≤ ∑ i, p i * (Real.log (p i) - Real.log (q i)) := by
+  have key : ∀ i : ι, p i * (Real.log (q i) - Real.log (p i)) ≤ q i - p i := by
+    intro i
+    have hlog : Real.log (q i / p i) ≤ q i / p i - 1 :=
+      Real.log_le_sub_one_of_pos (div_pos (hq i) (hp i))
+    have hrw : Real.log (q i / p i) = Real.log (q i) - Real.log (p i) :=
+      Real.log_div (ne_of_gt (hq i)) (ne_of_gt (hp i))
+    rw [hrw] at hlog
+    have := mul_le_mul_of_nonneg_left hlog (hp i).le
+    calc p i * (Real.log (q i) - Real.log (p i))
+        ≤ p i * (q i / p i - 1) := this
+      _ = q i - p i := by
+          rw [mul_sub, mul_one, mul_comm (p i), div_mul_cancel₀ _ (ne_of_gt (hp i))]
+  have hsum : ∑ i, p i * (Real.log (q i) - Real.log (p i))
+      ≤ ∑ i, (q i - p i) :=
+    Finset.sum_le_sum fun i _ => key i
+  rw [Finset.sum_sub_distrib, ← hpq, sub_self] at hsum
+  have flip : ∑ i, p i * (Real.log (p i) - Real.log (q i))
+      = -∑ i, p i * (Real.log (q i) - Real.log (p i)) := by
+    rw [← Finset.sum_neg_distrib]
+    refine Finset.sum_congr rfl fun i _ => ?_
+    ring
+  rw [flip]
+  linarith
+
+/-- **Family Klein inequality**: relative entropy is nonnegative between
+    Gibbs states of the retained family.  The commuting family reduces it
+    to the classical Gibbs inequality; no operator convexity, no
+    Kubo–Mori. -/
+theorem relEntropyM_gibbs_nonneg (lam lam' : Fin 2 → ℝ) :
+    0 ≤ relEntropyM (gibbsM SFam lam) (gibbsM SFam lam') := by
+  rw [relEntropyM_gibbs_eq]
+  exact finset_klDiv_nonneg _ _ (gibbsProb_pos lam) (gibbsProb_pos lam')
+    (by rw [sum_gibbsProb, sum_gibbsProb])
+
+end StateSide
 
 end OPH
