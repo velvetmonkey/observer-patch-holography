@@ -310,4 +310,103 @@ theorem XXC_ne_zero : XXC ≠ 0 := by
 theorem EfluxChannel_deselects_XXC :
     EfluxChannel.Φ XXC = 0 ∧ idChannel.Φ XXC = XXC ∧ XXC ≠ 0 :=
   ⟨Eflux_kills_XX, rfl, XXC_ne_zero⟩
+
+/-! ## T1-S4 — the reversal receipt and the payload -/
+
+/-- The ℂ-span of `{1, uuC}` is a subring — `uuC² = 1` closes
+    multiplication.  (Over ℤ this same closure was the wall the
+    retraction could not cross; over ℂ it is the home of `Eflux`.) -/
+def fluxSpanC : Subring CollarC where
+  carrier := {m | ∃ a b : ℂ, m = a • 1 + b • uuC}
+  zero_mem' := ⟨0, 0, by simp⟩
+  one_mem' := ⟨1, 0, by simp⟩
+  add_mem' := by
+    rintro x y ⟨a1, b1, rfl⟩ ⟨a2, b2, rfl⟩
+    exact ⟨a1 + a2, b1 + b2, by module⟩
+  neg_mem' := by
+    rintro x ⟨a1, b1, rfl⟩
+    exact ⟨-a1, -b1, by module⟩
+  mul_mem' := by
+    rintro x y ⟨a1, b1, rfl⟩ ⟨a2, b2, rfl⟩
+    refine ⟨a1 * a2 + b1 * b2, a1 * b2 + b1 * a2, ?_⟩
+    rw [add_mul, mul_add, mul_add, smul_mul_smul_comm, smul_mul_smul_comm,
+      smul_mul_smul_comm, smul_mul_smul_comm, uuC_sq]
+    simp only [one_mul, mul_one]
+    module
+
+/-- The flux expectation fixes the flux sector pointwise: every element
+    of `Z(K)` is an actual fixed point, not merely a member of the
+    range. -/
+theorem EfluxL_fixes_fluxC : ∀ m ∈ FluxC, EfluxL m = m := by
+  rintro m ⟨hK, -⟩
+  have hle : Subring.closure {uuC} ≤ fluxSpanC := by
+    rw [Subring.closure_le]
+    intro g hg
+    rw [Set.mem_singleton_iff] at hg
+    subst hg
+    exact ⟨0, 1, by simp⟩
+  obtain ⟨a, b, rfl⟩ := hle hK
+  rw [map_add, map_smul, map_smul, Eflux_unital, Eflux_fixes_uu]
+
+/-- **The reversal receipt**: over ℂ the excluding map exists — an
+    admissible channel that fixes the flux sector pointwise, is unital,
+    and annihilates the coupling.  The witness is the concrete
+    `EfluxChannel`, not an unrelated existential.  This is the ℂ-negation
+    of the ℤ-obstruction `no_integral_flux_retraction`. -/
+theorem flux_expectation_exists_over_C :
+    ∃ E : AdmissibleChannel,
+      (∀ m ∈ FluxC, E.Φ m = m) ∧ E.Φ 1 = 1 ∧ E.Φ XXC = 0 :=
+  ⟨EfluxChannel, EfluxL_fixes_fluxC, Eflux_unital, Eflux_kills_XX⟩
+
+/-- **T1 payload — possession of the excluding map still does not
+    force.**  Coarse-graining the realized MaxEnt branch of the
+    non-central family `{uuC, XXC}` by the genuine flux expectation
+    leaves the closure defect exactly zero at every point of the branch:
+    the coarse-grained state IS the central family member at
+    `lam' = ![lam 0, 0]` (the transport identity), so the I-projection
+    infimum is attained at zero.  Together with
+    `EfluxChannel_deselects_XXC` this is deselection, not exclusion —
+    the excluding map re-characterizes the boundary of #544; it does not
+    close it. -/
+theorem Eflux_does_not_force (lam : Fin 2 → ℝ) :
+    closureDefect ![uuC, XXC] EfluxChannel lam = 0 := by
+  have hSF : (![uuC, XXC] : Fin 2 → CollarC) = SFam := rfl
+  rw [hSF]
+  have hbdd : BddBelow (Set.range fun lam' =>
+      relEntropyM (EfluxChannel.Φ (gibbsM SFam lam)) (gibbsM SFam lam')) := by
+    refine ⟨0, ?_⟩
+    rintro x ⟨lam', rfl⟩
+    simp only [EfluxChannel_apply]
+    rw [Eflux_transport]
+    exact relEntropyM_gibbs_nonneg _ lam'
+  refine le_antisymm ?_ ?_
+  · have h := closureDefect_le_relEntropy_apply hbdd ![lam 0, 0]
+    simp only [EfluxChannel_apply] at h
+    rwa [Eflux_transport, relEntropyM_self] at h
+  · refine le_ciInf fun lam' => ?_
+    simp only [EfluxChannel_apply]
+    rw [Eflux_transport]
+    exact relEntropyM_gibbs_nonneg _ lam'
+
+/-! ## Axiom audit
+
+Expected footprint for every entry: `[propext, Classical.choice,
+Quot.sound]`.  No `sorry`, no `native_decide`, no extra axioms. -/
+
+#print axioms Eflux_specProjP
+#print axioms gibbsProb_marginal
+#print axioms Eflux_transport
+#print axioms Eflux_unital
+#print axioms Eflux_fixes_uu
+#print axioms Eflux_kills_XX
+#print axioms Eflux_kills_uu_mul_XX
+#print axioms Eflux_maps_pPlus
+#print axioms EfluxL_pos
+#print axioms EfluxL_trace
+#print axioms EfluxChannel
+#print axioms EfluxChannel_deselects_XXC
+#print axioms EfluxL_fixes_fluxC
+#print axioms flux_expectation_exists_over_C
+#print axioms Eflux_does_not_force
+
 end OPH
