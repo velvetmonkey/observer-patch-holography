@@ -36,6 +36,7 @@ machinery, no `Matrix.exp`, no Kubo–Mori.
 namespace OPH
 
 open Matrix
+open scoped ComplexOrder
 
 /-! ## T1-S1 — the flux conditional expectation and the transport identity -/
 
@@ -182,4 +183,131 @@ theorem Eflux_transport (lam : Fin 2 → ℝ) :
       sum_specProjP_fibre]
   rw [hL, hR, gibbsProb_marginal]
 
+/-! ## T1-S2 — the action table of the flux expectation
+
+The five lemmas of the scoping report plus the sixth (the `uuC·XXC`
+cross-term, which the Gibbs exponential carries): the expectation is
+unital, fixes the charge, maps the ℤ-impossible sector projector to
+itself, and annihilates both the coupling and the charge–coupling
+cross-term. -/
+
+theorem Eflux_unital : EfluxL 1 = 1 := by
+  rw [EfluxL_apply, mul_one, trace_one_collarC, uuC_trace]
+  norm_num
+
+theorem Eflux_fixes_uu : EfluxL uuC = uuC := by
+  rw [EfluxL_apply, uuC_trace, uuC_sq, trace_one_collarC]
+  norm_num
+
+theorem Eflux_kills_XX : EfluxL XXC = 0 := by
+  rw [EfluxL_apply, XXC_trace, uuC_mul_XXC_trace]
+  norm_num
+
+/-- The sixth lemma (not in the report's five): the charge–coupling
+    cross-term is also annihilated — `uuC·(uuC·XXC) = XXC` is traceless,
+    so the Gibbs exponential's cross-term cannot strand any payload. -/
+theorem Eflux_kills_uu_mul_XX : EfluxL (uuC * XXC) = 0 := by
+  rw [EfluxL_apply, uuC_mul_XXC_trace, ← mul_assoc, uuC_sq, one_mul,
+    XXC_trace]
+  norm_num
+
+/-- The ℤ-impossible value, now legal: the flux expectation fixes the
+    sector projector — a linear consequence of unitality and charge
+    fixing, not an entrywise computation. -/
+theorem Eflux_maps_pPlus : EfluxL pPlusC = pPlusC := by
+  rw [pPlusC, map_smul, map_add, Eflux_unital, Eflux_fixes_uu]
+
+/-! ## T1-S3 — positivity, trace preservation, and the channel
+
+Positivity via the spectral form `E(m) = ∑ₛ (tr(quPₛ·m)/2) • quPₛ`:
+each coefficient is the trace of a projector-compression of `m`, hence
+nonnegative.  Positivity + trace preservation suffice for admissibility;
+complete positivity is true but not required (no Choi theatre). -/
+
+theorem quP_idem (s : Fin 2) : quP s * quP s = quP s := by
+  rw [quP_mul, if_pos rfl]
+
+theorem quP_posSemidef (s : Fin 2) : (quP s).PosSemidef := by
+  have h : quP s = (quP s)ᴴ * quP s := by
+    rw [(quP_isHermitian s).eq, quP_idem]
+  rw [h]
+  exact Matrix.posSemidef_conjTranspose_mul_self _
+
+/-- The spectral form of the flux expectation on the `uuC`
+    half-projections. -/
+theorem EfluxL_spectral (m : CollarC) :
+    EfluxL m = ∑ s : Fin 2, ((quP s * m).trace / 2) • quP s := by
+  have htr : ∀ s : Fin 2, (quP s * m).trace
+      = (2 : ℂ)⁻¹ * m.trace
+        + ((2 : ℂ)⁻¹ * ((sgnR s : ℝ) : ℂ)) * (uuC * m).trace := by
+    intro s
+    rw [quP, Matrix.smul_mul, add_mul, one_mul, Matrix.smul_mul,
+      Matrix.trace_smul, Matrix.trace_add, Matrix.trace_smul]
+    simp only [smul_eq_mul]
+    ring
+  rw [Fin.sum_univ_two, htr 0, htr 1, EfluxL_apply, quP, quP]
+  simp only [sgnR_zero, sgnR_one, Complex.ofReal_one, Complex.ofReal_neg]
+  match_scalars <;> ring
+
+/-- Compression of a state by a `uuC` half-projection has nonnegative
+    trace. -/
+theorem trace_quP_mul_nonneg {m : CollarC} (hm : m.PosSemidef) (s : Fin 2) :
+    0 ≤ (quP s * m).trace := by
+  have key : (quP s * m).trace = (quP s * m * quP s).trace := by
+    rw [Matrix.trace_mul_cycle (quP s) m (quP s), quP_idem]
+  have hconj : (quP s * m * quP s).PosSemidef := by
+    have h := hm.conjTranspose_mul_mul_same (B := quP s)
+    rwa [(quP_isHermitian s).eq] at h
+  rw [key]
+  exact hconj.trace_nonneg
+
+/-- Nonnegative complex scalars preserve positive semidefiniteness. -/
+theorem posSemidef_smul_of_nonneg {c : ℂ} (hc : 0 ≤ c) {M : CollarC}
+    (hM : M.PosSemidef) : (c • M).PosSemidef := by
+  rw [Complex.nonneg_iff] at hc
+  have hcr : c = ((c.re : ℝ) : ℂ) := Complex.ext (by simp) (by simp [hc.2])
+  rw [hcr]
+  exact posSemidef_ofReal_smul hc.1 hM
+
+theorem EfluxL_pos {m : CollarC} (hm : m.PosSemidef) :
+    (EfluxL m).PosSemidef := by
+  have h2 : (0 : ℂ) ≤ (2 : ℂ)⁻¹ := by
+    rw [Complex.nonneg_iff]
+    norm_num
+  rw [EfluxL_spectral, Fin.sum_univ_two]
+  refine Matrix.PosSemidef.add ?_ ?_ <;>
+  · refine posSemidef_smul_of_nonneg ?_ (quP_posSemidef _)
+    rw [div_eq_mul_inv]
+    exact complex_mul_nonneg (trace_quP_mul_nonneg hm _) h2
+
+theorem EfluxL_trace (m : CollarC) : (EfluxL m).trace = m.trace := by
+  rw [EfluxL_apply, Matrix.trace_add, Matrix.trace_smul, Matrix.trace_smul,
+    trace_one_collarC, uuC_trace, smul_eq_mul, smul_eq_mul]
+  ring
+
+/-- **The flux expectation is an admissible channel** — linear, positive,
+    trace-preserving; exactly the paper's named requirements, nothing
+    smuggled. -/
+noncomputable def EfluxChannel : AdmissibleChannel where
+  Φ := EfluxL
+  pos := fun _ hm => EfluxL_pos hm
+  tracePreserving := EfluxL_trace
+
+@[simp] theorem EfluxChannel_apply (m : CollarC) :
+    EfluxChannel.Φ m = EfluxL m := rfl
+
+theorem XXC_ne_zero : XXC ≠ 0 := by
+  intro h
+  have h1 : XXC (0, 1) (1, 0) = (1 : ℂ) := by
+    have hx : XX (0, 1) (1, 0) = 1 := by decide
+    simp [XXC, hx]
+  rw [h] at h1
+  simp at h1
+
+/-- **Deselection, not exclusion** (false-receipt guard): the flux
+    expectation genuinely kills the coupling that the identity channel
+    keeps fixed — the T1 payload below cannot be read as T0 in a wig. -/
+theorem EfluxChannel_deselects_XXC :
+    EfluxChannel.Φ XXC = 0 ∧ idChannel.Φ XXC = XXC ∧ XXC ≠ 0 :=
+  ⟨Eflux_kills_XX, rfl, XXC_ne_zero⟩
 end OPH
