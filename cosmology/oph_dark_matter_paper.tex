@@ -917,18 +917,32 @@ declared old-settled-galaxy scope, pending a source-derived applicability
 theorem.
 
 \paragraph{Conditional theorem 2, activation law.}
-Assume codimension-one collar/cut support, independent increments on disjoint
-collar intervals, rare local repair events, refinement stability, and the
-settled scalar flux-recovery closure \eqref{eq:fluxrecovery}.  Then the
+Assume codimension-one collar/cut support, a refinement-stable collar
+opportunity model in the sense of
+Definition~\ref{def:collar-opportunity-model} on the settled-galaxy cut, and
+the settled scalar flux-recovery closure \eqref{eq:fluxrecovery}.  Then the
 settled one-dimensional galaxy response is \eqref{eq:ophrar}.
 
 \paragraph{Proof.}
 Codimension-one support gives a mean count proportional to \(\sqrt{x}\).
-The scalar coefficient is \(\lambdac\).  Independent increments and rare-event
-refinement give the Poisson law \eqref{eq:poissonlaw}.  The active probability is
-the complement of the zero-count event, which is \eqref{eq:activation}.
-Solving \(g_b=p(x)g_{\mathrm{obs}}\) in one-dimensional symmetry gives
-\eqref{eq:ophrar}. \(\square\)
+The scalar coefficient is \(\lambdac\).  Theorem~\ref{thm:collar-poisson}
+and Corollary~\ref{cor:collar-poisson-process} give the Poisson law
+\eqref{eq:poissonlaw} with mean \(\mu(x)=\lambdac\sqrt{x}\).  The active
+probability is the complement of the zero-count event, which is
+\eqref{eq:activation}.  Solving \(g_b=p(x)g_{\mathrm{obs}}\) in
+one-dimensional symmetry gives \eqref{eq:ophrar}. \(\square\)
+
+The counting step is unconditional on the declared model class:
+Theorem~\ref{thm:collar-poisson} is a theorem, not an assumption.  The
+conditional content of conditional theorem 2 is physical: that settled-galaxy
+repair opportunities realize a refinement-stable collar opportunity model on
+codimension-one cut support, and that the flux-recovery closure
+\eqref{eq:fluxrecovery} holds.  The simulator static-galaxy proxy and the
+SPARC comparison scripts consume the activation law \eqref{eq:activation};
+under Definition~\ref{def:collar-opportunity-model} the counting step
+contributes no freedom to those comparisons beyond the single coefficient
+\(\lambdac\), so a held-out SPARC test constrains \(\lambdac\) and the
+physical premises, never the Poisson shape separately.
 
 \subsection{Conservative Potential Equation}
 
