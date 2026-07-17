@@ -1039,4 +1039,133 @@ theorem relEntropyM_gibbs_nonneg (lam lam' : Fin 2 → ℝ) :
 
 end StateSide
 
+/-! ## S4 — admissible channels, the closure defect, and the T0 theorem
+
+`AdmissibleChannel` is **witness-free** (anti-smuggling, report §3 trap
+i): linearity, positivity, trace preservation — the requirements
+`rem:msascope` names for the admissible coarse-graining class — and
+nothing else.  It never mentions `uuC`, `XXC`, the flux sector, or the
+collar clause. -/
+
+open scoped ComplexOrder
+
+/-- An admissible coarse-graining channel in the sense of the paper's
+    named requirements: linear, positive, trace-preserving. -/
+structure AdmissibleChannel where
+  /-- The underlying linear map. -/
+  Φ : CollarC →ₗ[ℂ] CollarC
+  /-- Positivity. -/
+  pos : ∀ m : CollarC, m.PosSemidef → (Φ m).PosSemidef
+  /-- Trace preservation. -/
+  tracePreserving : ∀ m : CollarC, (Φ m).trace = m.trace
+
+/-- Admissible channels map states to states. -/
+noncomputable def AdmissibleChannel.applyD (C : AdmissibleChannel)
+    (ρ : DensityMatrix) : DensityMatrix where
+  ρ := C.Φ ρ.ρ
+  posSemidef := C.pos _ ρ.posSemidef
+  trace_one := by rw [C.tracePreserving, ρ.trace_one]
+
+/-- The identity channel is admissible under the paper's current
+    requirements — this is the "choose any channels" free-choice
+    stipulation of `ax:maxent`'s internal refinement notion, at the state
+    level. -/
+noncomputable def idChannel : AdmissibleChannel where
+  Φ := LinearMap.id
+  pos := fun _ h => h
+  tracePreserving := fun _ => rfl
+
+@[simp] theorem idChannel_apply (m : CollarC) : idChannel.Φ m = m := rfl
+
+/-- The closure defect of `def:closure-defect` (same-scale form): the
+    infimum of relative entropy from the coarse-grained realized state to
+    the exponential family of the retained list. -/
+noncomputable def closureDefect (S : Fin 2 → CollarC) (C : AdmissibleChannel)
+    (lam : Fin 2 → ℝ) : ℝ :=
+  ⨅ lam' : Fin 2 → ℝ, relEntropyM (C.Φ (gibbsM S lam)) (gibbsM S lam')
+
+/-- The defect is bounded by the relative entropy to any family member
+    (the I-projection is an infimum).  The boundedness hypothesis is the
+    honest guard against `Real.iInf` junk values; for the witness family
+    it is discharged by the family Klein inequality. -/
+theorem closureDefect_le_relEntropy_apply {S : Fin 2 → CollarC}
+    {C : AdmissibleChannel} {lam : Fin 2 → ℝ}
+    (hbdd : BddBelow (Set.range fun lam' =>
+      relEntropyM (C.Φ (gibbsM S lam)) (gibbsM S lam')))
+    (lam' : Fin 2 → ℝ) :
+    closureDefect S C lam
+      ≤ relEntropyM (C.Φ (gibbsM S lam)) (gibbsM S lam') :=
+  ciInf_le hbdd lam'
+
+/-- **Identity-channel discharge**: on the non-central witness family,
+    the closure defect of the identity channel vanishes identically along
+    the whole realized branch — with the genuine state-side objects, not
+    their algebraic shadows.  Lower bound: family Klein inequality; upper
+    bound: `relEntropyM_self` at the minimizer `lam' = lam`. -/
+theorem identityChannel_closureDefect_eq_zero (lam : Fin 2 → ℝ) :
+    closureDefect SFam idChannel lam = 0 := by
+  have hbdd : BddBelow (Set.range fun lam' =>
+      relEntropyM (idChannel.Φ (gibbsM SFam lam)) (gibbsM SFam lam')) := by
+    refine ⟨0, ?_⟩
+    rintro x ⟨lam', rfl⟩
+    simp only [idChannel_apply]
+    exact relEntropyM_gibbs_nonneg lam lam'
+  refine le_antisymm ?_ ?_
+  · have h := closureDefect_le_relEntropy_apply hbdd lam
+    simp only [idChannel_apply] at h
+    rwa [relEntropyM_self] at h
+  · refine le_ciInf fun lam' => ?_
+    simp only [idChannel_apply]
+    exact relEntropyM_gibbs_nonneg lam lam'
+
+/-- **T0 — the state-side identity-channel no-go.**
+
+Under the paper's current admissible-channel requirements (positivity,
+trace preservation, free channel choice), there is a retained family of
+gauge-invariant densities containing a genuinely cross-cut, non-central
+coupling, together with an admissible channel under which the family's
+realized MaxEnt branch is refinement-stable with closure defect exactly
+zero at every point of the branch.
+
+So the current axioms cannot *force* the central-interface collar clause:
+the non-central family `{uuC, XXC}` admits a refinement-stable realized
+MaxEnt branch.  This sharpens #544 — forcing requires strengthening the
+admissible class at the axiom level (T2; out of scope here) — and it does
+NOT close it. -/
+theorem stateSide_currentAxioms_cannot_force :
+    ∃ S : Fin 2 → CollarC,
+      (∀ a, GaugeInvariantC (S a)) ∧
+      (∃ a, CrossCutC (S a) ∧ S a ∉ FluxC) ∧
+      ∃ C : AdmissibleChannel, ∀ lam : Fin 2 → ℝ,
+        closureDefect S C lam = 0 := by
+  refine ⟨SFam, ?_, ⟨1, ?_, ?_⟩, idChannel,
+    identityChannel_closureDefect_eq_zero⟩
+  · intro a
+    fin_cases a
+    · exact uuC_invariant
+    · exact XXC_invariant
+  · exact XXC_crossCut
+  · exact XXC_notMem_fluxC
+
+/-! ## Axiom audit
+
+Expected footprint for every entry: `[propext, Classical.choice,
+Quot.sound]`.  No `sorry`, no `native_decide`, no extra axioms. -/
+
+#print axioms uuC_sq
+#print axioms XXC_crossCut
+#print axioms XXC_notMem_fluxC
+#print axioms pPlusC_idem
+#print axioms specProjP_mul
+#print axioms sum_specProjP
+#print axioms exp_sum_smul_specProjP
+#print axioms gibbsDM
+#print axioms matLog_gibbsM
+#print axioms relEntropyM_self
+#print axioms relEntropyM_gibbs_eq
+#print axioms finset_klDiv_nonneg
+#print axioms relEntropyM_gibbs_nonneg
+#print axioms identityChannel_closureDefect_eq_zero
+#print axioms stateSide_currentAxioms_cannot_force
+
 end OPH
