@@ -15,6 +15,7 @@ a significance test.
 | `DAG_U.json` | supplied / passes declared graph check | Excludes forbidden measured-data paths on the declared graph. |
 | `R_U_interval_certificate.json` | supplied witness | Endpoint signs and derivative interval enclosure are included. |
 | `R_U_krawczyk_certificate.json` | supplied witness | Krawczyk image lies inside `I_U` under the derivative interval. |
+| `R_U_outward_rounded_interval_log.json` | supplied outward-rounded log | Directed-rounding IEEE-754 binary64 re-evaluation of the full `R_U` formula stack: per-node interval images with bit-exact hex bounds, derivative enclosure, Krawczyk inclusion strictly inside `int(I_U)`, and the witness interval. In-module exp/log with explicit remainder bounds remove the libm assumption. `validators/verify_ru_outward_rounded_log.py` reproduces every bound from directed rounding alone, enforces the structural-input allowlist, and scans the verify path for measured-constant markers. The high-precision root and Krawczyk image lie inside the outward-rounded witness. The residual external gate is a proof-assistant replay. |
 | `hierarchy_numeric_witness.json` | supplied | Public and source-audit branch computations. |
 | `R_HT_declared_surface_certificate.json` | partial | Formula/output ledger supplied; raw interval input box missing. |
 | `RG_Higgs_naturality_defect_certificate.json` | closed exact selected branch | Defines `epsilon_H` and points to the issue-332 certificate, which supplies `epsilon_H=0` and `epsilon_H in [0,0]` on the selected exact source-to-Higgs branch. |

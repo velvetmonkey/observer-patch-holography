@@ -1,6 +1,6 @@
 {
   "bundle_id": "oph-hierarchy-proof-artifacts-r1473-2026-06-13",
-  "generated_utc": "2026-07-16T22:33:08Z",
+  "generated_utc": "2026-07-17T03:47:56Z",
   "purpose": "Machine-readable artifacts for the OPH electroweak hierarchy proof obligation audit.",
   "source_release_context": "OPH hierarchy source context with issue #332, #335, #337, #338, #342, #343, and #344 hierarchy closure artifacts, plus the icosahedral screen-sieve theorem.",
   "claim_boundary": {
@@ -35,13 +35,13 @@
   "files": [
     {
       "path": "README.md",
-      "sha256": "0a9d78ec71047d130d6e8b01bd4ddd049725501c1bec1ba063b0355da2f875e9",
-      "bytes": 8112
+      "sha256": "9f9ab170298455c014ccd65cfb37ca6fe06e45805a80d1269458c5103318f9a7",
+      "bytes": 9784
     },
     {
       "path": "STATUS.md",
-      "sha256": "8ffc149920afdc6f42fc4797d9297b3a917aaff18ef93adbbbee27a9c84fa482",
-      "bytes": 8567
+      "sha256": "5b73e02503a6072650780bd1b37e0c20d1a89c4b1c847d4e4d12fcf28ec9bc9a",
+      "bytes": 9287
     },
     {
       "path": "INTEGRATION.md",
@@ -150,13 +150,13 @@
     },
     {
       "path": "test_hierarchy_bundle.py",
-      "sha256": "20c5a45d2f798d83c32bc6e7ffdaeb573e92cdd33519893895e2e25323d86c33",
-      "bytes": 37710
+      "sha256": "b58e851c62c7042287574369f9b8733a50eb0b7510b089513b82627cbc3a2e30",
+      "bytes": 39020
     },
     {
       "path": "validators/validate_bundle.py",
-      "sha256": "73fe89bb6c33fbd6126d653e2635c45478d7eb2daf73e30dd752cf0ebb6aecf0",
-      "bytes": 2121
+      "sha256": "8b0ac10843f44cc539dbe15446ac530f5e6afa1612244e2d0bb95e95e2816142",
+      "bytes": 2264
     },
     {
       "path": "validators/validate_dag.py",
@@ -287,6 +287,31 @@
       "path": "verify_pixel_screen_resonance_summary.py",
       "sha256": "570a0bb2b6e7478da68219df5535f2bfff118f64b491150d56f6ea411c9e7196",
       "bytes": 8504
+    },
+    {
+      "path": "certificates/R_U_outward_rounded_interval_log.json",
+      "sha256": "dc922ac14a1c42f98268ae3cff29224a0ee5e5850b69c9e6aa47d76c967a91f9",
+      "bytes": 97744
+    },
+    {
+      "path": "tools/outward_interval.py",
+      "sha256": "6f0d580ddd1a92c394b5e8f611b28a3dba7f1a0a1fea2a2b3d0754100827915d",
+      "bytes": 10854
+    },
+    {
+      "path": "tools/ru_formula_stack.py",
+      "sha256": "3ee538e34fa5726c073a2746b523375d66a668b5ea678d52be9d3d242bec0684",
+      "bytes": 13521
+    },
+    {
+      "path": "computations/generate_ru_outward_rounded_log.py",
+      "sha256": "c149a398385dfe9413d8730b72966d7dd83c5bac86a1193c191c6c48be7c0b7e",
+      "bytes": 6502
+    },
+    {
+      "path": "validators/verify_ru_outward_rounded_log.py",
+      "sha256": "f70ef8e05217953c6948f685dbc988ac23fef7ea62c3ee2b3ea43ddb62d389a3",
+      "bytes": 7222
     }
   ]
 }

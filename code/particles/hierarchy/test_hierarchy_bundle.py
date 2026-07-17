@@ -26,7 +26,7 @@ def test_hierarchy_bundle_validators_pass() -> None:
     result = _run("validators/validate_bundle.py")
     payload = json.loads(result.stdout)
 
-    assert len(payload) == 12
+    assert len(payload) == 13
     assert all(entry["returncode"] == 0 for entry in payload)
     validator_outputs = [json.loads(entry["stdout"]) for entry in payload]
     assert all(output["pass"] is True for output in validator_outputs)
@@ -47,6 +47,35 @@ def test_ru_krawczyk_certificate_is_unique_root_witness() -> None:
     assert cert["status"] == "krawczyk_inclusion_witness_supplied"
     assert cert["center_c"] == "0.041124336195630495"
     assert cert["inclusion"]["K_I_subset_interior_I_U"] is True
+
+
+def test_ru_outward_rounded_log_reproduces_witness_from_directed_rounding() -> None:
+    result = _run(
+        "validators/verify_ru_outward_rounded_log.py",
+        "certificates/R_U_outward_rounded_interval_log.json",
+    )
+    payload = json.loads(result.stdout)
+
+    assert payload["pass"] is True
+    checks = payload["checks"]
+    assert checks["backend_declaration_matches_module"] is True
+    assert checks["declared_input_keys_match_allowlist"] is True
+    assert checks["computed_block_bit_exact"] is True
+    assert checks["endpoint_signs_strict"] is True
+    assert checks["derivative_enclosure_strictly_negative"] is True
+    assert checks["krawczyk_image_strictly_inside_interior"] is True
+    assert checks["high_precision_root_in_outward_witness"] is True
+    assert checks["no_measured_endpoint_constants"] is True
+
+    log = json.loads(
+        (ROOT / "certificates/R_U_outward_rounded_interval_log.json").read_text()
+    )
+    assert log["status"] == "outward_rounded_interval_log_supplied"
+    assert log["backend"]["number_format"] == "IEEE-754 binary64"
+    declared = log["declared_inputs"]["declared"]
+    assert declared["P_fwd_decimal"] == "1.630968209403959324879279847782648941"
+    assert declared["N2"] == 128 and declared["N3"] == 64
+    assert log["checks"]["pass"] is True
 
 
 def test_hierarchy_numeric_witness_keeps_public_and_source_audit_branches_separate() -> None:

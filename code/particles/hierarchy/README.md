@@ -26,8 +26,13 @@ P_\star^{-1/2}\exp\left[-\frac{2\pi}{4\alpha_U(P_\star)}\right].
 - `certificates/DAG_U.json`
 - `certificates/R_U_interval_certificate.json`
 - `certificates/R_U_krawczyk_certificate.json`
+- `certificates/R_U_outward_rounded_interval_log.json`
 - `computations/hierarchy_numeric_witness.json`
 - `computations/hierarchy_recompute.py`
+- `computations/generate_ru_outward_rounded_log.py`
+- `tools/outward_interval.py`
+- `tools/ru_formula_stack.py`
+- `validators/verify_ru_outward_rounded_log.py`
 - `certificates/R_HT_declared_surface_certificate.json`
 - `certificates/RG_Higgs_naturality_defect_certificate.json`
 - `certificates/R_WZ_boundary_certificate.json`
@@ -109,7 +114,22 @@ Closed inside this bundle:
 14. The issue-#335 close-out certificate: the prerequisite records are
    accounted for and the full local/global `N_CRC` hierarchy-resonance theorem
    closes on the selected branch.
-15. The pixel-screen resonance summary receipt: the selected `(P_*,N_CRC^EW)`
+15. The issue-#331 outward-rounded interval log for the `R_U` witness:
+   `certificates/R_U_outward_rounded_interval_log.json` re-evaluates the full
+   `R_U` formula stack in directed-rounding IEEE-754 binary64 interval
+   arithmetic (`tools/outward_interval.py`, one-ulp outward step after every
+   correctly rounded primitive, in-module exp/log with explicit series
+   remainder bounds, no libm exp/log assumption). The log records the
+   interval image of every named formula-DAG node at both `I_U` endpoints,
+   at the center, and over the full interval with the derivative enclosure,
+   plus the Krawczyk inclusion `K(I_U)` strictly inside `int(I_U)` and the
+   witness interval. `validators/verify_ru_outward_rounded_log.py`
+   reproduces every serialized bound bit-exactly from the declared
+   structural inputs (`P_fwd`, cutoffs, one-loop coefficients, seed) without
+   importing measured endpoint constants, and checks that the
+   high-precision root and Krawczyk image lie inside the outward-rounded
+   witness.
+16. The pixel-screen resonance summary receipt: the selected `(P_*,N_CRC^EW)`
    branch emits `K_cell=4*N_CRC^EW/P_*`, checks
    `K_cell*(P_*/4)=N_CRC^EW`, and records the dimensionless de Sitter
    coordinate pair `Lambda_CRC*l_star^2=3*pi/N_CRC^EW` and
@@ -120,7 +140,12 @@ Closed inside this bundle:
 External/source gates outside this bundle:
 
 1. Source-only public Thomson endpoint transport `A_T(P)`.
-2. Formal outward-rounded interval log from a certified interval stack.
+2. Proof-assistant formalization of the `R_U` interval witness. The
+   directed-rounding outward interval log itself is supplied inside this
+   bundle at `certificates/R_U_outward_rounded_interval_log.json` with
+   verifier `validators/verify_ru_outward_rounded_log.py`, under the stated
+   IEEE-754 assumption set; the remaining external step is a mechanized
+   proof-assistant replay of that log.
 3. Raw D10/D11 interval box for Higgs/top internals.
 4. Full `R_gamma` stack for SI gravity/clock hierarchy.
 5. An independently source-closed physical `E_star`; this bundle fixes
@@ -142,6 +167,8 @@ From this directory:
 ```bash
 python3 validators/validate_bundle.py
 python3 computations/hierarchy_recompute.py
+python3 computations/generate_ru_outward_rounded_log.py
+python3 validators/verify_ru_outward_rounded_log.py
 python3 verify_issue_332_rg_naturality.py --check --output issue_332_rg_naturality_certificate.json
 python3 verify_issue_335_local_global_resonance.py --check --output certificates/R_local_global_hierarchy_resonance_closeout_335.json
 python3 verify_issue_337_electroweak_projection.py --check --output certificates/R_EW_tick_projection_certificate.json

@@ -117,7 +117,9 @@
 \setcounter{tocdepth}{2}
 \setcounter{secnumdepth}{3}
 \setlength{\LTleft}{0pt}
-\setlength{\LTright}{0pt}
+% Stretchable right margin lets longtable rows sit at natural width instead of
+% forcing rigid full-width rows, which emitted badness-10000 alignment warnings.
+\setlength{\LTright}{0pt plus 1fill}
 \setlength{\tabcolsep}{1.2pt}
 \setlength{\emergencystretch}{3em}
 \renewcommand{\arraystretch}{1.05}
@@ -140,7 +142,7 @@
 \newtheorem{remark}[theorem]{Remark}
 
 \title{Observers Are All You Need}
-\author{Bernhard Mueller\textsuperscript{1}\thanks{Corresponding authors: Bernhard Mueller,
+\author{Bernhard Mueller\textsuperscript{1}\thanks{\protect\raggedright Corresponding authors: Bernhard Mueller,
 \href{mailto:bernhard@floatingpragma.ai}{\texttt{bernhard@floatingpragma.ai}};
 Alexander Osika, \href{mailto:alex@snrgystudios.com}{\texttt{alex@snrgystudios.com}}.}
 \and Alexander Osika\textsuperscript{2} \and Mario Poneder \and Kai Xue \and Ben Cassie \and Peter Nguyen
