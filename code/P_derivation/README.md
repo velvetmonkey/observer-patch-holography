@@ -265,6 +265,40 @@ python3 global_uniqueness_certificate.py --mp-dps 40 --iv-dps 40 \
 python3 -m pytest test_global_uniqueness_certificate.py -q
 ```
 
+### Maximal-domain uniqueness extension (GAP-A7)
+
+`global_uniqueness_extension_certificate.py` emits
+`runtime/p_global_uniqueness_extension_certificate_2026-07-17.json`, the
+maximal-domain supplement that closes proof-spine gap GAP-A7. The declared
+maps read alpha only through `P = phi + alpha*sqrt(pi)`, and every point of
+the maximal analytic domain carries a window-consistent triple
+`(alpha_U, L = ln(mu_U/m_Z), P)` inside the declared solver windows
+(`alpha_U in [0.02, 0.08]`, `L in [0, 50]`). An envelope lemma from the
+window bounds and the `m_Z`-closure identity certifies
+`1/alpha_3(m_Z) >= 4`, positive quark screening, a global `P` range, and a
+positive inverse-alpha readout floor on the whole domain. An adaptive
+interval sweep of the full pixel window (constraint propagation on the
+closure equations; 78 pieces at the production parameters; exceptional set
+empty) certifies for every piece one of: the `m_Z` window is infeasible, the
+closure-forced alpha value is disjoint from the certified readout enclosure
+for both readout maps, or the alpha value lies inside the declared physical
+interval. Every fixed point of either map on the maximal analytic domain
+therefore lies inside `alpha in [0.005, 0.01]`; the exterior fixed-point set
+is empty, and the composition with the stage-2 existence certificate and the
+at-most-one certificate gives exactly one fixed point per map on the maximal
+domain. The sweep quantifies over every window-consistent inner-root
+selection, so the exterior exclusion covers the declared scan-and-bisect
+selection. The certificate also records the certified outer alpha bound of
+the domain and point-located domain edges under the declared grid semantics
+(right edge inside `(0.4125, 0.4137)`, left edge inside
+`(-0.5594, -0.5578)`).
+
+```bash
+python3 global_uniqueness_extension_certificate.py --mp-dps 40 --iv-dps 40 \
+    --su2-cutoff 120 --su3-cutoff 90
+python3 -m pytest test_global_uniqueness_extension_certificate.py -q
+```
+
 The printed-pair identity of closure row CL-6 is enforced by
 `test_printed_pair_identity.py`: the runtime trunk and full-report artifacts
 are regenerated at solver precision 100 with enough outer iterations that

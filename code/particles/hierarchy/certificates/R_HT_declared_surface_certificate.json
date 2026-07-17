@@ -1,6 +1,6 @@
 {
   "artifact": "R_HT_declared_surface_certificate",
-  "status": "declared_surface_output_recorded_interval_inputs_missing",
+  "status": "declared_surface_output_recorded_with_raw_interval_input_box",
   "outputs": {
     "m_H_GeV": "125.1995304097179",
     "m_t_D11_GeV": "172.3523553288312"
@@ -24,5 +24,20 @@
     "delta_y_t": "pi_y * y_t_core(mu_t)",
     "delta_lambda": "-16/9 * pi_lambda * lambda_core(mu_t)"
   },
-  "needed_next_artifact": "I_HT interval box and F_HT# output enclosure."
+  "interval_certification": {
+    "raw_interval_input_box_log": "certificates/R_HT_interval_input_box_log.json",
+    "generator": "computations/generate_ht_interval_box_log.py",
+    "verifier": "validators/verify_ht_interval_box.py",
+    "backend": "tools/outward_interval.py directed-rounding IEEE-754 binary64",
+    "formula_stack": "tools/ht_formula_stack.py",
+    "supplied": [
+      "raw interval input box for all eleven inputs with centers, boxes, units or dimensionless normalization, and per-input provenance tags",
+      "per-node outward-rounded interval extension of every declared formula node",
+      "Jacobian interval enclosure of pi_y, pi_lambda, m_H_GeV, m_t_D11_GeV in all eleven inputs over the full box",
+      "diagonal chart-block non-singularity certificate with determinant bounded away from zero",
+      "output inclusion of the recorded m_H_GeV and m_t_D11_GeV decimals by exact rational comparison",
+      "uniqueness scope: single-valued declared-surface arithmetic with injective diagonal readout, with no criticality-system existence or uniqueness claim"
+    ],
+    "input_character": "All eleven inputs are declared branch inputs: the candidate D10 tuple descends from the MSbar gauge couplings at the Z scale on the legacy D10 calibration branch, and the D11 core/Jacobian constants belong to a declared surface whose historical selection used target inspection. No measured particle mass value appears numerically in the input box; source derivation of the inputs stays an open upstream gate."
+  }
 }

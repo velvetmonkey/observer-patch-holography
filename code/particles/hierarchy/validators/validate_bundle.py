@@ -5,6 +5,7 @@ checks = [
     [sys.executable, str(root/"validators/validate_dag.py"), str(root/"certificates/DAG_U.json")],
     [sys.executable, str(root/"validators/validate_ru_interval_certificate.py"), str(root/"certificates/R_U_krawczyk_certificate.json")],
     [sys.executable, str(root/"validators/verify_ru_outward_rounded_log.py"), str(root/"certificates/R_U_outward_rounded_interval_log.json")],
+    [sys.executable, str(root/"validators/verify_ht_interval_box.py"), str(root/"certificates/R_HT_interval_input_box_log.json")],
     [sys.executable, str(root/"validators/validate_global_repair_tick_certificate.py"), str(root/"certificates/R_N_global_repair_tick_certificate.json")],
     [sys.executable, str(root/"validators/validate_issue_337_electroweak_projection.py"), str(root/"certificates/R_EW_tick_projection_certificate.json")],
     [sys.executable, str(root/"validators/validate_screen_sieve_certificate.py"), str(root/"certificates/R_screen_sieve_icosahedral_certificate.json")],

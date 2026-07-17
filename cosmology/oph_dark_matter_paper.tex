@@ -33,6 +33,7 @@
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{target}[theorem]{Target}
 \newtheorem{definition}[theorem]{Definition}
+\newtheorem{corollary}[theorem]{Corollary}
 
 \title{Observer-Patch Holography and the Dark Matter Phenomenon}
 \author{Bernhard Mueller \and David Matscheko}
@@ -52,16 +53,17 @@ patches. Imperfect agreement leaves a record-repair remainder on overlap
 collars. On the declared continuation packet, a localized modular-energy
 remainder with rank-two reconstruction, conservation, normalization, and
 coupling receipts contributes to the gravitational stress seen by the
-effective geometry. Raw scalar collar CMI remains a recovery diagnostic and
-is not that stress.
+effective geometry. Raw scalar collar conditional mutual information (CMI)
+remains a recovery diagnostic and is not that stress.
 
 This paper develops that conditional idea as a dark-sector continuation. In
 old, settled, low-acceleration galaxies the declared response ansatz gives a
 MOND-like galaxy law and the baryonic Tully-Fisher scaling. In clusters and
 cosmology the candidate source has to move as transported stress, with its own
 relaxation, lensing, growth, and likelihood tests.  The first audited public
-comparisons find the fixed conditional \(\mathbb Z_6\) scale essentially on the
-aggregate RAR optimum and the slope-four BTFR limit compatible with the
+comparisons find the fixed conditional \(\mathbb Z_6\) scale close to the
+aggregate radial acceleration relation (RAR) optimum and the slope-four
+baryonic Tully-Fisher relation (BTFR) limit compatible with the
 error-aware public fit, while the fixed BTFR normalization remains under
 systematic-sensitive pressure.  Universal Solar-System extrapolation of the
 same static equation is strongly excluded by Cassini, making a source-derived
@@ -309,7 +311,7 @@ The dark continuation distinguishes
 \]
 The first is raw finite conditional mutual information. The second is a
 source variable proved, or explicitly hypothesized on the continuation branch,
-to equal the anomalous local modular energy entering the BW ball calculation.
+to equal the anomalous local modular energy entering the Bisognano-Wichmann (BW) ball calculation.
 The third is a tensor stress reconstructed from all-frame source readings and
 a finite packet parent. The paper does not identify these three objects by
 notation alone.
@@ -714,36 +716,180 @@ The Poisson law does not follow from fixing this mean alone.
 Fixed mean alone would select a geometric distribution on nonnegative
 integers.  The OPH claim needs the stronger collar-count premise: independent
 increments on disjoint collar intervals, rare local repair events, and
-refinement stability.  Partition an interval \(I\) with mean \(\mu(I)\) into
-\(m\) equal subintervals.  If each subinterval has one activation opportunity
-with probability \(\mu(I)/m+O(m^{-2})\), and the probability of two or more
-events in one subinterval is \(O(m^{-2})\), then for every fixed \(n\),
+refinement stability.  The following model states those premises exactly, and
+the counting theorem on that model class carries an explicit total-variation
+error bound at every finite refinement depth.
+
+\begin{definition}[Refinement-stable collar opportunity model]
+\label{def:collar-opportunity-model}
+Fix a cut interval \(I\) and a finite intensity measure \(\mu\) on \(I\).
+For each refinement depth \(r\in\mathbb N\), partition \(I\) into finitely
+many collar cells \(B_{r,1},\dots,B_{r,m_r}\), and attach to each cell an
+activation indicator \(X_{r,i}\in\{0,1\}\) with
+\(p_{r,i}:=\Pr[X_{r,i}=1]\).  For every union of cells \(J\subseteq I\)
+write
+\[
+  N_r(J):=\sum_{B_{r,i}\subseteq J}X_{r,i},
+  \qquad
+  \mu_r(J):=\sum_{B_{r,i}\subseteq J}p_{r,i}.
+\]
+The family is a refinement-stable collar opportunity model when three
+premises hold.
+\begin{enumerate}
+\item Disjoint-collar independence: at every depth \(r\) the indicators
+  \(X_{r,1},\dots,X_{r,m_r}\) are independent.
+\item Rare local activation: \(p_{\max}(r):=\max_i p_{r,i}\to0\) as
+  \(r\to\infty\).
+\item Refinement stability: there is a sequence \(\delta_r\to0\) with
+  \(\lvert\mu_r(J)-\mu(J)\rvert\le\delta_r\) for every cell-aligned
+  \(J\subseteq I\) and every depth \(r\).
+\end{enumerate}
+Each cell carries an indicator, not a count, so multiplicity inside a cell
+is resolved by passing to deeper cells; refinement stability is exactly the
+statement that this re-counting reproduces the same intensity measure at
+every depth.
+\end{definition}
+
+\begin{theorem}[Quantitative Poisson law for collar opportunities]
+\label{thm:collar-poisson}
+In a refinement-stable collar opportunity model, for every cell-aligned
+subinterval \(J\subseteq I\) and every depth \(r\),
 \begin{equation}
-  \Pr[N(I)=n]
+  d_{\mathrm{TV}}\bigl(\mathcal L(N_r(J)),\,\mathrm{Poisson}(\mu(J))\bigr)
+  \le
+  \sum_{B_{r,i}\subseteq J}p_{r,i}^{\,2}+\delta_r
+  \le
+  \mu_r(J)\,p_{\max}(r)+\delta_r,
+  \label{eq:lecambound}
+\end{equation}
+with
+\(d_{\mathrm{TV}}(\alpha,\beta)
+  :=\sup_{A\subseteq\mathbb N}\lvert\alpha(A)-\beta(A)\rvert\).
+The right side vanishes as \(r\to\infty\), so \(N_r(J)\) converges in total
+variation to \(\mathrm{Poisson}(\mu(J))\): for every \(n\),
+\begin{equation}
+  \lim_{r\to\infty}\Pr[N_r(J)=n]
   =
-  \lim_{m\to\infty}
-  {m\choose n}
-  \left(\frac{\mu(I)}{m}\right)^n
-  \left(1-\frac{\mu(I)}{m}\right)^{m-n}
-  =
-  e^{-\mu(I)}\frac{\mu(I)^n}{n!}.
+  e^{-\mu(J)}\frac{\mu(J)^n}{n!}.
   \label{eq:poissonlaw}
 \end{equation}
-In particular, the zero-count probability is
+\end{theorem}
+
+\begin{proof}
+Le Cam's inequality \cite{lecam1960,barbour1992} bounds the total-variation
+distance between a sum of independent Bernoulli indicators and the Poisson
+law with the matching mean:
+\[
+  d_{\mathrm{TV}}\bigl(\mathcal L(N_r(J)),\,
+  \mathrm{Poisson}(\mu_r(J))\bigr)
+  \le\sum_{B_{r,i}\subseteq J}p_{r,i}^{\,2}.
+\]
+Disjoint-collar independence supplies the independence premise.  The
+monotone coupling of two Poisson laws gives
+\(d_{\mathrm{TV}}(\mathrm{Poisson}(a),\mathrm{Poisson}(b))
+  \le\lvert a-b\rvert\), and refinement stability bounds
+\(\lvert\mu_r(J)-\mu(J)\rvert\) by \(\delta_r\).  The triangle inequality
+gives the first inequality in \eqref{eq:lecambound}; the second uses
+\(p_{r,i}^{\,2}\le p_{\max}(r)\,p_{r,i}\).  Rare local activation sends
+\(\mu_r(J)\,p_{\max}(r)\) to zero because
+\(\mu_r(J)\le\mu(J)+\delta_r\) stays bounded, and \(\delta_r\to0\) by
+refinement stability.
+\end{proof}
+
+\begin{corollary}[Poisson process limit and \(\lambdac\) identification]
+\label{cor:collar-poisson-process}
+In a refinement-stable collar opportunity model, for disjoint cell-aligned
+subintervals \(J_1,\dots,J_k\subseteq I\),
+\[
+  d_{\mathrm{TV}}\Bigl(
+  \mathcal L\bigl(N_r(J_1),\dots,N_r(J_k)\bigr),\,
+  \textstyle\bigotimes_{s=1}^{k}\mathrm{Poisson}(\mu(J_s))
+  \Bigr)
+  \le
+  \sum_{s=1}^{k}
+  \Bigl[\mu_r(J_s)\,p_{\max}(r)+\delta_r\Bigr]
+  \longrightarrow 0,
+\]
+so the limiting counting process on \(I\) is the Poisson process with
+intensity measure \(\mu\).  On codimension-one collar/cut support the total
+intensity at acceleration ratio \(x\) is \(\mu(x)=\lambdac\sqrt{x}\), and
+\(\lambdac\) is identified as the refinement-stable active-opportunity
+intensity per unit of the dimensionless cut coordinate
+\(\sqrt{x}=r_M/r\).  The numerical value of \(\lambdac\) is branch data from
+the finite-collar coefficient section, not an output of this corollary.
+\end{corollary}
+
+\begin{proof}
+The count vectors on disjoint cell-aligned subintervals are independent by
+disjoint-collar independence, and total variation is subadditive over
+products of independent coordinates, so the joint distance is bounded by the
+sum of the marginal bounds \eqref{eq:lecambound}.  Kolmogorov consistency of
+the limiting finite-dimensional laws defines the Poisson process with
+intensity \(\mu\).  The identification of \(\lambdac\) restates the
+codimension-one cut count of \eqref{eq:sqrtx} with its refinement-stable
+proportionality constant.
+\end{proof}
+
+In particular, the zero-count probability in the refinement limit is
 \begin{equation}
-  \Pr[N(I)=0]
+  \Pr[N=0]
   =
-  \lim_{m\to\infty}
-  \left(1-\frac{\mu(I)}{m}\right)^m
+  e^{-\mu(x)}
   =
-  e^{-\mu(I)}.
+  \exp[-\lambdac\sqrt{x}],
 \end{equation}
-The probability that at least one repair opportunity is active is
+and the probability that at least one repair opportunity is active is
 \begin{equation}
   p(x)=1-\Pr[N=0]
       =1-\exp[-\lambdac\sqrt{x}].
   \label{eq:activation}
 \end{equation}
+At finite depth, \eqref{eq:lecambound} bounds the activation-probability
+error itself:
+\(\lvert\Pr[N_r(I)\ge1]-p(x)\rvert
+  \le\mu_r(I)\,p_{\max}(r)+\delta_r\).
+
+\paragraph{Finite-range dependence robustness.}
+Disjoint-collar independence can be weakened without losing the limit.
+Suppose each \(X_{r,i}\) is independent of
+\(\sigma(X_{r,j}:j\notin B_i)\) for a dependence neighborhood
+\(B_i\subseteq\{1,\dots,m_r\}\) with \(\lvert B_i\rvert\le 2R_r+1\) (finite
+dependence range \(R_r\) in cells).  The Chen--Stein bound of Arratia,
+Goldstein, and Gordon \cite{arratia1989} gives
+\[
+  d_{\mathrm{TV}}\bigl(\mathcal L(N_r(J)),\,
+  \mathrm{Poisson}(\mu_r(J))\bigr)
+  \le b_1+b_2,
+  \qquad
+  b_1=\sum_i\sum_{j\in B_i}p_{r,i}\,p_{r,j},
+  \quad
+  b_2=\sum_i\sum_{j\in B_i\setminus\{i\}}
+  \mathbb E[X_{r,i}X_{r,j}],
+\]
+with the mixing term \(b_3=0\) under exact neighborhood independence.
+With
+\(b_1\le(2R_r+1)\,p_{\max}(r)\,\mu_r(J)\)
+and
+\(b_2\le 2R_r\,\chi_r\,\mu_r(J)\),
+where
+\(\chi_r:=\max_i\max_{j\in B_i\setminus\{i\}}
+  \Pr[X_{r,j}=1\mid X_{r,i}=1]\),
+the Poisson limit holds whenever \(R_r\,p_{\max}(r)\to0\) and
+\(\chi_r\to0\).  A finite-range Gibbs collar model with exponential
+clustering sits in this class; the collar CMI decay packet is the
+corresponding recoverability statement.
+
+\paragraph{Machine witness.}
+The certificate
+\texttt{collar\_poisson\_witness\_certificate.json}
+(\texttt{code/dark\_matter/certificates/}, generator and verifier alongside)
+enumerates exact opportunity-count laws on declared finite families: uniform
+and nonuniform independent families at the unit-branch and
+\(\Zsix\)-presence-branch intensities, a mean-drift family exercising the
+\(\delta_r\) term, and a one-dependent family exercising the
+\(b_1+b_2\) route.  For each family it reports the exact total-variation
+distance to the matching Poisson law and checks it against
+\eqref{eq:lecambound} or \(b_1+b_2\).
 
 The activation count is only the counting part of the static law.  The source
 closure says that active scalar repair opportunities recover baryonic flux in
@@ -1172,7 +1318,7 @@ product-thickening branch of the screen-microphysics paper:
 \[
 Z^{\rm thick}_{6,r,C}=Z_{6,r,C}\otimes1_Y,
 \]
-and, essentially,
+and, in condensed form,
 \[
 \frac{
 \tau^{\mathcal E}_{q,r,C}
@@ -1198,7 +1344,7 @@ product-thickening branch, the imported theorem labeled
   =
   0.9320429912748350\ldots .
 \end{equation}
-The scalar-weighted receipt already fixes this value by linearity; the uniform
+The scalar-weighted receipt fixes this value by linearity on its own; the uniform
 branch adds slice-wise constancy of the profile, which the exact value does
 not consume.  Without the scalar-weighted receipt, the theorem-grade
 coefficient is
@@ -1736,8 +1882,8 @@ The transported homogeneous dust branch is
 The legacy plumbing run used \(H_0=67.4\,\mathrm{km\,s^{-1}\,Mpc^{-1}}\),
 \(\Omega_b h^2=0.02237\), \(\Omega_r=9.17\times10^{-5}\), and the
 target-informed weighted-cycle comparison value
-\(\sum m_\nu=0.0900119296\,\mathrm{eV}\).  That neutrino value is now rejected
-and has no OPH prediction status.  The resulting historical residual was:
+\(\sum m_\nu=0.0900119296\,\mathrm{eV}\).  That neutrino value is rejected
+and has no OPH prediction status.  The stored legacy residual is:
 \begin{center}
 \begin{tabular}{@{}lr@{}}
 \toprule
@@ -2318,7 +2464,7 @@ its acceleration scales unchanged.
 
 \subsection{Audited Fixed-Branch RAR And BTFR Results}
 
-The aggregate RAR calculation above is now also evaluated explicitly as a
+The aggregate RAR calculation above is also evaluated explicitly as a
 fixed-branch test.  Without refitting either OPH branch to the 2,693 public RAR
 rows from 153 galaxies, the conditional \(\Zsix\) scale gives
 \(0.1328335\) dex RMS, while the unit endpoint gives \(0.1342082\) dex.  The
@@ -2336,9 +2482,9 @@ a_0=(1.19\pm0.04_{\rm stat}\pm0.09_{\rm sys})\times10^{-10}
 placing the conditional \(\Zsix\) value near its central result
 \cite{desmond2023}.
 
-The BTFR audit corrects an earlier statistics error.  Unweighted ordinary
-least squares discarded the published errors in both \(M_b\) and \(V_f\), and
-the earlier \(0.9469\)-dex headline compared unequal-slope intercepts at
+The BTFR audit rejects one candidate fit as a statistics error: unweighted
+ordinary least squares discards the published errors in both \(M_b\) and
+\(V_f\), and its \(0.9469\)-dex headline compares unequal-slope intercepts at
 \(V_f=1\,\mathrm{km\,s^{-1}}\), far outside the sample.  Orthogonal maximum
 likelihood with both-axis errors and intrinsic perpendicular scatter gives
 \[
@@ -2386,7 +2532,7 @@ branch-mapping error has been found.
 
 This falsifies the natural universal/full-source extension of the displayed
 static equation.  It does not, by itself, falsify the recovered OPH core or
-the equation's declared old-settled-galaxy scope.  The branch now owes a
+the equation's declared old-settled-galaxy scope.  The branch owes a
 quantitative source-derived applicability, coarse-graining, screening, or
 transport theorem that preserves the galaxy result while suppressing the
 Solar-System quadrupole.  A free switch introduced after reading Cassini would
@@ -2786,7 +2932,7 @@ product-thickening branch of the microphysics paper:
 \[
 Z^{\rm thick}_{6,r,C}=Z_{6,r,C}\otimes1_Y,
 \]
-and, essentially,
+and, in condensed form,
 \[
 \frac{
 \tau^{\mathcal E}_{q,r,C}
@@ -2810,7 +2956,7 @@ product-thickening branch, the microphysics theorem labeled
 =
 0.9320429912748350\ldots .
 \]
-The scalar-weighted receipt already fixes this value by linearity; the uniform
+The scalar-weighted receipt fixes this value by linearity on its own; the uniform
 branch adds slice-wise constancy of the profile, which the exact value does
 not consume.  Without the scalar-weighted receipt, the theorem-grade
 coefficient is

@@ -37,9 +37,12 @@ P_star -> alpha_U(P_star) -> v/E_star
 The `R_U` Krawczyk certificate proves a unique source zero inside the supplied
 interval for the declared formula stack. The bundle also records its boundary:
 source-only public Thomson transport, raw outward-rounded interval logs,
-Higgs/top interval boxes, theorem-grade W/Z promotion, the full no-G clock
-stack, and the theorem-grade local/global resonance theorem are outside this
-certificate.
+theorem-grade W/Z promotion, the full no-G clock stack, and the theorem-grade
+local/global resonance theorem are outside this certificate. The Higgs/top
+raw interval input box is carried by the separate
+`R_HT_interval_input_box_log.json` artifact with verifier
+`validators/verify_ht_interval_box.py`; its eleven inputs are declared branch
+inputs, so it closes the declared-surface arithmetic grade only.
 
 The `R_N_global_repair_tick_certificate.json` artifact closes the global
 repair-tick theorem on the selected resonance branch: with the corpus readback

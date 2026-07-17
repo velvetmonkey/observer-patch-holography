@@ -27,6 +27,7 @@ from msa_characterizations import (  # noqa: E402
     modular_splitting_defect,
     mutual_information,
     one_sided_hamiltonian,
+    partial_trace,
     random_aligned_blocks,
     random_generic_blocks,
     takesaki_defect,
@@ -304,6 +305,248 @@ def test_descent_invariant_but_noncentral_interface_breaks_alignment():
 
     assert entropic_alignment_defect(blocks) > 1e-3
     assert modular_splitting_defect(blocks) > 1e-3
+
+
+# ---------------------------------------------------------------------------
+# Independence of the central-interface collar clause (issue #544,
+# Proposition prop:clauseindependence): a finite regulator package that
+# satisfies the checked repair/consensus axiom-side conditions while its
+# retained Axiom-3 family carries a K-invariant NON-central cross-cut density.
+# ---------------------------------------------------------------------------
+
+
+def _rand_herm(rng: np.random.Generator, n: int) -> np.ndarray:
+    x = rng.normal(size=(n, n)) + 1j * rng.normal(size=(n, n))
+    return 0.5 * (x + x.conj().T)
+
+
+def _noncentral_package(rng: np.random.Generator, g_cross: float = 1.5):
+    """Retained Axiom-3 density family with an invariant noncentral coupling.
+
+    Returns (U, isometries, densities) where densities = (H_AL, H_RD, H_X)
+    are the three retained gauge-invariant local densities on the 64-dim
+    pre-quotient space: two one-sided K-invariant terms and one group-averaged
+    (hence K-invariant) but NON-central bL--bR cross-cut density, scaled by
+    g_cross. This is exactly the coupling class of
+    test_descent_invariant_but_noncentral_interface_breaks_alignment.
+    """
+    U, _, _, isometries = _pre_quotient_model(rng)
+    u4 = np.diag([1.0, 1.0, -1.0, -1.0])
+    h_al = _group_average(_rand_herm(rng, 8), np.kron(np.eye(2), u4))
+    h_rd = _group_average(_rand_herm(rng, 8), np.kron(u4, np.eye(2)))
+    H_AL = np.kron(h_al, np.eye(8))
+    H_RD = np.kron(np.eye(8), h_rd)
+    cross = _group_average(_rand_herm(rng, 16), np.kron(u4, u4))
+    H_X = g_cross * np.kron(np.eye(2), np.kron(cross, np.eye(2)))
+    return U, isometries, (H_AL, H_RD, H_X)
+
+
+def _gibbs(h: np.ndarray) -> np.ndarray:
+    evals, vecs = np.linalg.eigh(h)
+    w = (vecs * np.exp(-(evals - evals.min()))) @ vecs.conj().T
+    return w / np.trace(w).real
+
+
+def _descend_gibbs(h_pre: np.ndarray, isometries) -> list:
+    """Descend the Gibbs state of a pre-quotient Hamiltonian to collar blocks."""
+    blocks, weights = [], []
+    for s in (0, 1):
+        v = isometries[s]
+        h_s = v.conj().T @ h_pre @ v
+        evals, vecs = np.linalg.eigh(h_s)
+        w = (vecs * np.exp(-evals)) @ vecs.conj().T
+        weights.append(np.trace(w).real)
+        blocks.append(w)
+    z = sum(weights)
+    return [(weights[s] / z, blocks[s] / weights[s], (2, 2, 2, 2))
+            for s in (0, 1)]
+
+
+def _relative_entropy(rho: np.ndarray, sigma: np.ndarray) -> float:
+    from msa_characterizations import logm_psd as _logm
+    return float(np.trace(rho @ (_logm(rho) - _logm(sigma))).real)
+
+
+def test_noncentral_model_satisfies_axioms():
+    """Independence witness, quantum layer (Proposition prop:clauseindependence).
+
+    The retained family {H_AL, H_RD, H_X} with H_X the invariant-but-noncentral
+    cross-cut density passes every axiom-side condition checked here:
+
+    (a) Axiom-3 admissibility: each density is self-adjoint and gauge
+        (K_Sigma-)invariant, and the family plus the identity is linearly
+        independent, so the MaxEnt multipliers are unique
+        (lem:closure-residual, item i);
+    (b) Axiom 2 (overlap consistency): restrictions of the realized Gibbs
+        state to the two overlapping patches {A,BL,BR} and {BL,BR,D} agree
+        on the shared half-collar pair;
+    (c) refinement closure (Axiom-3 clause): the declared ancilla-extension
+        refinement channel (extra regulator cells disjoint from the collar,
+        coarse-graining = partial trace) has closure defect exactly zero at
+        every tested multiplier vector, with identity induced multiplier map,
+        so the noncentral coupling survives to the finer stage unchanged;
+
+    while the central-interface collar clause FAILS: the descended MaxEnt
+    state is not EC-aligned. Repair/consensus and closure therefore do not
+    force the clause; it is an independent axiom-level input.
+    """
+    rng = np.random.default_rng(31)
+    U, isometries, densities = _noncentral_package(rng)
+    H_AL, H_RD, H_X = densities
+
+    # (a) admissibility: invariance and linear independence
+    for h in densities:
+        assert np.linalg.norm(h - h.conj().T) < 1e-12
+        assert np.linalg.norm(h @ U - U @ h) < 1e-12, \
+            "every retained density must be gauge-invariant"
+    ops = [H_AL, H_RD, H_X, np.eye(64)]
+    gram = np.array([[np.trace(a.conj().T @ b).real for b in ops] for a in ops])
+    assert np.linalg.matrix_rank(gram, tol=1e-8) == 4, \
+        "densities plus identity must be linearly independent"
+
+    dims = [2, 4, 4, 2]
+    for lam in ([1.0, 1.0, 1.0], [0.7, 1.3, 0.9], [1.1, 0.6, 1.4]):
+        h_eff = lam[0] * H_AL + lam[1] * H_RD + lam[2] * H_X
+        omega = _gibbs(h_eff)
+
+        # (b) overlap consistency of the realized state
+        rho_p1 = partial_trace(omega, dims, [0, 1, 2])       # patch {A,BL,BR}
+        rho_p2 = partial_trace(omega, dims, [1, 2, 3])       # patch {BL,BR,D}
+        shared_1 = partial_trace(rho_p1, [2, 4, 4], [1, 2])
+        shared_2 = partial_trace(rho_p2, [4, 4, 2], [0, 1])
+        assert np.linalg.norm(shared_1 - shared_2) < 1e-12
+
+        # (c) refinement closure: fine stage adds two ancilla cells away from
+        # the collar; the channel is the partial trace over them.
+        h_fine = np.kron(h_eff, np.eye(4))
+        omega_fine = _gibbs(h_fine)
+        coarse_grained = partial_trace(omega_fine, dims + [4], [0, 1, 2, 3])
+        assert _relative_entropy(coarse_grained, omega) < 1e-9, \
+            "closure defect must vanish (def:closure-defect)"
+        for h in densities:  # identity induced multiplier map: moments match
+            m_fine = np.trace(omega_fine @ np.kron(h, np.eye(4))).real
+            m_coarse = np.trace(omega @ h).real
+            assert abs(m_fine - m_coarse) < 1e-10
+
+        # the clause fails at every stage: the MaxEnt state is not aligned
+        blocks = _descend_gibbs(h_eff, isometries)
+        assert entropic_alignment_defect(blocks) > 1e-3
+        assert modular_splitting_defect(blocks) > 1e-3
+        assert not is_ec_aligned(blocks)
+
+
+def _rooted_extension(boundary: int, edge_labels: tuple) -> tuple:
+    """E(b) of thm:functional-selected-fiber on the Z_2 seam chain."""
+    vals = [boundary]
+    for c in edge_labels:
+        vals.append(vals[-1] ^ c)
+    return tuple(vals)
+
+
+def _enabled_repairs(state: tuple, boundary: int, edge_labels: tuple):
+    """Touched-overlap transactions enabled at `state`.
+
+    Transaction T_i proposes s_i := s_{i-1} XOR c_i (the recovery-derived
+    seam proposal), reads the two seams meeting register i
+    (validation-complete read set), writes only register i >= 1 (boundary
+    preserved), and commits only under strict lexicographic descent of
+    mu = (Phi, N_unresolved), the declared well-founded measure of
+    def:transactional-quotient-repair.
+    """
+    full = (boundary,) + state
+    ext = _rooted_extension(boundary, edge_labels)
+
+    def mu(f):
+        phi = sum(1 for i, c in enumerate(edge_labels) if f[i] ^ c != f[i + 1])
+        unresolved = sum(1 for a, b in zip(f, ext) if a != b)
+        return (phi, unresolved)
+
+    moves = []
+    for i in range(1, len(full)):
+        proposal = full[i - 1] ^ edge_labels[i - 1]
+        if proposal == full[i]:
+            continue
+        new = full[:i] + (proposal,) + full[i + 1:]
+        if mu(new) < mu(full):  # touched-overlap acceptance: strict descent
+            moves.append((i, new[1:]))
+    return moves
+
+
+def test_noncentral_model_repair_confluence():
+    """Independence witness, classical repair layer.
+
+    The flux-sector patch net carrying the noncentral package is a layered
+    functional boundary carrier (thm:layered-carrier-HB-Hfib). Exhaustive
+    enumeration over every initial state and every schedule of accepted
+    touched-overlap transactions verifies: strict descent on accepted moves,
+    termination, repair completeness (terminal states are exactly the
+    consistent fiber), and schedule-independent confluence to the rooted
+    extension E(b) (thm:confluence, thm:boundary-conditioned-uniqueness).
+    The repair layer reads only interface sector data; the settled net then
+    realizes the noncentral quantum package with no enabled transaction, so
+    overlap-consistent repair is inert on it and cannot exclude the coupling.
+    """
+    from itertools import product
+
+    for boundary, edge_labels in ((0, (0, 1, 1)), (1, (1, 0, 1)), (0, (0, 0, 0))):
+        ext = _rooted_extension(boundary, edge_labels)
+        for init in product((0, 1), repeat=len(edge_labels)):
+            terminals = set()
+            stack = [tuple(init)]
+            seen = set()
+            while stack:
+                state = stack.pop()
+                if state in seen:
+                    continue
+                seen.add(state)
+                moves = _enabled_repairs(state, boundary, edge_labels)
+                if not moves:
+                    terminals.add(state)
+                    continue
+                for _, new_state in moves:
+                    stack.append(new_state)
+            # confluence + completeness: unique terminal = consistent fiber
+            assert terminals == {ext[1:]}, \
+                f"schedules from {init} must settle on E(b)"
+
+    # the settled net realizes the noncentral package; repair has no move
+    # left, yet the realized MaxEnt state breaks alignment.
+    rng = np.random.default_rng(37)
+    _, isometries, (H_AL, H_RD, H_X) = _noncentral_package(rng)
+    settled = _rooted_extension(0, (0, 1, 1))
+    assert not _enabled_repairs(settled[1:], 0, (0, 1, 1))
+    blocks = _descend_gibbs(H_AL + H_RD + H_X, isometries)
+    assert entropic_alignment_defect(blocks) > 1e-3
+    assert not is_ec_aligned(blocks)
+
+
+def test_noncentral_coupling_passes_small_cmi_budget():
+    """The small-CMI clause of Axiom 4 does not exclude the coupling class.
+
+    At coupling strength g the collar CMI of the descended Gibbs state
+    scales quadratically while the modular-splitting defect scales linearly.
+    Every finite CMI budget therefore admits invariant noncentral couplings
+    whose distance from the EC-aligned class is parametrically larger than
+    the budget, so collar recoverability cannot force the clause.
+    """
+    rng = np.random.default_rng(41)
+    _, isometries, (H_AL, H_RD, H_X) = _noncentral_package(rng, g_cross=1.0)
+
+    strengths = (0.4, 0.2, 0.1)
+    cmi_vals, msd_vals = [], []
+    for g in strengths:
+        blocks = _descend_gibbs(H_AL + H_RD + g * H_X, isometries)
+        cmi_vals.append(collar_cmi(blocks))
+        msd_vals.append(modular_splitting_defect(blocks))
+
+    # quadratic CMI decay versus linear splitting-defect decay
+    assert cmi_vals[1] / cmi_vals[0] < 0.35      # expect ~ (1/2)^2
+    assert cmi_vals[2] / cmi_vals[1] < 0.35
+    assert msd_vals[1] / msd_vals[0] > 0.4       # expect ~ 1/2
+    assert msd_vals[2] / msd_vals[1] > 0.4
+    # the misalignment outruns the CMI budget as g decreases
+    assert msd_vals[2] / cmi_vals[2] > msd_vals[0] / cmi_vals[0]
+    assert msd_vals[2] > 10.0 * cmi_vals[2]
 
 
 if __name__ == "__main__":

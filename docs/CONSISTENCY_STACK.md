@@ -164,8 +164,11 @@ cutoffs su2=120/su3=90 with the tail majorants folded in, worst piece
 L ≤ 0.3041, exceptional set empty. Each declared map therefore has at most
 one fixed point on the declared domain, and with the stage-2 existence
 certificate exactly one. The domain-global statement requires no monotonicity
-of A_T in P; monotonicity is open only as an analytic refinement beyond the
-declared domain (GAP-A7).
+of A_T in P. Uniqueness beyond the declared domain is discharged by the
+maximal-domain extension certificate (GAP-A7, closed 2026-07-17):
+each declared readout map has exactly one fixed point on its maximal
+analytic domain, with an empty exclusion list
+(`code/P_derivation/runtime/p_global_uniqueness_extension_certificate_2026-07-17.json`).
 
 **L2 (one N).** Under CP-1 to CP-3 the coupled readback map is affine in the load
 coordinate with contraction 1/2, and its unique fixed point is the bridge

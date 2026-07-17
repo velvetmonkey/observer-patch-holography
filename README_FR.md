@@ -145,9 +145,11 @@ ces vues locales deviennent mutuellement cohérentes. Le langage de simulation
 de l'OPH nomme ce réseau d'observateurs auto-cohérent au niveau
 opératoire. Le dossier en faveur de l'OPH est
 mathématique et empirique : la même architecture de cohérence d'observateurs
-est proposée pour retrouver la physique établie. Son explication plus large de
-l'existence d'un monde auto-cohérent capable de produire des observateurs qui le
-reconstruisent relève de l'interprétation, hors du paquet de théorèmes récupérés.
+est proposée pour retrouver la physique établie. L'hypothèse de la boucle
+étrange explique pourquoi un monde auto-cohérent existe et produit des
+observateurs : ce monde engendre des observateurs qui reconstruisent la
+simulation qui les a produits, puis construisent le matériel et le logiciel qui
+ferment la boucle de l'intérieur.
 
 Dans la pile de papiers, un patch d'observateur désigne un objet algébrique
 abstrait avec algèbre accessible, état, algèbre d'enregistrements, interfaces

@@ -26,7 +26,7 @@ def test_hierarchy_bundle_validators_pass() -> None:
     result = _run("validators/validate_bundle.py")
     payload = json.loads(result.stdout)
 
-    assert len(payload) == 13
+    assert len(payload) == 14
     assert all(entry["returncode"] == 0 for entry in payload)
     validator_outputs = [json.loads(entry["stdout"]) for entry in payload]
     assert all(output["pass"] is True for output in validator_outputs)
@@ -76,6 +76,55 @@ def test_ru_outward_rounded_log_reproduces_witness_from_directed_rounding() -> N
     assert declared["P_fwd_decimal"] == "1.630968209403959324879279847782648941"
     assert declared["N2"] == 128 and declared["N3"] == 64
     assert log["checks"]["pass"] is True
+
+
+def test_ht_interval_box_log_reproduces_declared_surface_enclosure() -> None:
+    result = _run(
+        "validators/verify_ht_interval_box.py",
+        "certificates/R_HT_interval_input_box_log.json",
+    )
+    payload = json.loads(result.stdout)
+
+    assert payload["pass"] is True
+    checks = payload["checks"]
+    assert checks["backend_declaration_matches_module"] is True
+    assert checks["declared_input_keys_match_allowlist"] is True
+    assert checks["resolved_input_blocks_bit_exact"] is True
+    assert checks["interval_extension_matches_module"] is True
+    assert checks["computed_block_bit_exact"] is True
+    assert checks["declared_outputs_inside_box_enclosures"] is True
+    assert checks["center_enclosures_inside_box_enclosures"] is True
+    assert checks["top_diagonal_strictly_positive"] is True
+    assert checks["higgs_diagonal_strictly_negative"] is True
+    assert checks["determinant_recomputed_bit_exact"] is True
+    assert checks["determinant_excludes_zero"] is True
+    assert checks["chart_diagonals_reproduce_from_input_boxes"] is True
+    assert checks["uniqueness_statement_scoped"] is True
+    assert checks["provenance_classes_allowed"] is True
+    assert checks["declared_branch_inputs_match_whitelist"] is True
+    assert checks["no_measured_endpoint_constants"] is True
+
+    log = json.loads(
+        (ROOT / "certificates/R_HT_interval_input_box_log.json").read_text()
+    )
+    assert log["status"] == "raw_interval_input_box_and_jacobian_enclosure_supplied"
+    assert log["backend"]["number_format"] == "IEEE-754 binary64"
+    declared = log["declared_inputs"]["declared"]
+    assert declared["box_relative_half_width_decimal"] == "1e-9"
+    resolved = log["declared_inputs"]["resolved"]
+    assert len(resolved) == 11
+    assert all("provenance_class" in entry for entry in resolved.values())
+    assert log["checks"]["pass"] is True
+
+    surface = json.loads(
+        (ROOT / "certificates/R_HT_declared_surface_certificate.json").read_text()
+    )
+    assert surface["status"] == "declared_surface_output_recorded_with_raw_interval_input_box"
+    cert_block = surface["interval_certification"]
+    assert cert_block["raw_interval_input_box_log"] == (
+        "certificates/R_HT_interval_input_box_log.json"
+    )
+    assert cert_block["verifier"] == "validators/verify_ht_interval_box.py"
 
 
 def test_hierarchy_numeric_witness_keeps_public_and_source_audit_branches_separate() -> None:

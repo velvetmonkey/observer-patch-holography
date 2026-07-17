@@ -34,6 +34,11 @@ P_\star^{-1/2}\exp\left[-\frac{2\pi}{4\alpha_U(P_\star)}\right].
 - `tools/ru_formula_stack.py`
 - `validators/verify_ru_outward_rounded_log.py`
 - `certificates/R_HT_declared_surface_certificate.json`
+- `certificates/R_HT_interval_input_box_log.json`
+- `tools/ht_formula_stack.py`
+- `computations/generate_ht_interval_box_log.py`
+- `validators/verify_ht_interval_box.py`
+- `HT_INTERVAL_EXTENSION.md`
 - `certificates/RG_Higgs_naturality_defect_certificate.json`
 - `certificates/R_WZ_boundary_certificate.json`
 - `certificates/R_gamma_noG_DAG_certificate.json`
@@ -129,7 +134,29 @@ Closed inside this bundle:
    importing measured endpoint constants, and checks that the
    high-precision root and Krawczyk image lie inside the outward-rounded
    witness.
-16. The pixel-screen resonance summary receipt: the selected `(P_*,N_CRC^EW)`
+16. The issue-#333 raw interval input box for the Higgs/top declared
+   surface: `certificates/R_HT_interval_input_box_log.json` publishes the
+   eleven declared branch inputs of the frozen R_HT formula stack (candidate
+   D10 tuple plus declared D11 core/Jacobian constants) with centers, boxes,
+   units or dimensionless normalization, and per-input provenance tags, and
+   re-evaluates the full stack in the same directed-rounding backend as the
+   `R_U` log (`tools/ht_formula_stack.py`, per-node interval extension
+   documented in `HT_INTERVAL_EXTENSION.md`). The log records the interval
+   image of every formula node at the centers and over the full box, the
+   forward-mode Jacobian enclosure of `pi_y`, `pi_lambda`, `m_H`, and `m_t`
+   in all eleven inputs, the diagonal chart-block non-singularity
+   certificate with determinant bounded away from zero, exact rational
+   inclusion of the recorded `(m_H, m_t)` decimals, and a uniqueness scope
+   restricted to the declared surface (single-valued arithmetic and
+   injective diagonal readout; no criticality-system existence or
+   uniqueness claim). `validators/verify_ht_interval_box.py` reproduces
+   every serialized bound bit-exactly, enforces the input allowlist and
+   provenance classes, and scans the verify path for measured-constant
+   markers. The inputs are declared branch inputs, so the enclosure closes
+   the arithmetic grade of the declared surface while the source-root,
+   scale, QT1--QT5, RG/scheme, rigidity, provenance, uncertainty, and
+   complex-pole gates stay open upstream.
+17. The pixel-screen resonance summary receipt: the selected `(P_*,N_CRC^EW)`
    branch emits `K_cell=4*N_CRC^EW/P_*`, checks
    `K_cell*(P_*/4)=N_CRC^EW`, and records the dimensionless de Sitter
    coordinate pair `Lambda_CRC*l_star^2=3*pi/N_CRC^EW` and
@@ -146,7 +173,13 @@ External/source gates outside this bundle:
    verifier `validators/verify_ru_outward_rounded_log.py`, under the stated
    IEEE-754 assumption set; the remaining external step is a mechanized
    proof-assistant replay of that log.
-3. Raw D10/D11 interval box for Higgs/top internals.
+3. Source derivation of the eleven declared branch inputs of the Higgs/top
+   declared surface. The raw interval input box, per-node interval
+   extension, Jacobian enclosure, and non-singularity certificate are
+   supplied inside this bundle at
+   `certificates/R_HT_interval_input_box_log.json` with verifier
+   `validators/verify_ht_interval_box.py`; the remaining external step is
+   source emission of the D10 tuple and the D11 core/Jacobian constants.
 4. Full `R_gamma` stack for SI gravity/clock hierarchy.
 5. An independently source-closed physical `E_star`; this bundle fixes
    `v/E_star`, not a weak scale in GeV.
@@ -169,6 +202,8 @@ python3 validators/validate_bundle.py
 python3 computations/hierarchy_recompute.py
 python3 computations/generate_ru_outward_rounded_log.py
 python3 validators/verify_ru_outward_rounded_log.py
+python3 computations/generate_ht_interval_box_log.py
+python3 validators/verify_ht_interval_box.py
 python3 verify_issue_332_rg_naturality.py --check --output issue_332_rg_naturality_certificate.json
 python3 verify_issue_335_local_global_resonance.py --check --output certificates/R_local_global_hierarchy_resonance_closeout_335.json
 python3 verify_issue_337_electroweak_projection.py --check --output certificates/R_EW_tick_projection_certificate.json

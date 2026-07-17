@@ -126,8 +126,21 @@ Part A gaps:
   PDG 2026 masses and widths, the chart W coordinate sits 0.5 propagated
   experimental standard deviations from the converted pole as a convention
   diagnostic carrying no pull.
-- **GAP-A7.** Uniqueness beyond the declared domain (α⁻¹ outside [100, 200]). Analytic
-  refinement; no physical role at current standing.
+- **GAP-A7.** Closed 2026-07-17. Uniqueness beyond the declared domain (α⁻¹ outside
+  [100, 200]) is discharged by the maximal-domain extension certificate
+  (`code/P_derivation/runtime/p_global_uniqueness_extension_certificate_2026-07-17.json`).
+  The certificate states the maximal analytic domain of both declared readout maps with
+  every window, branch, and positivity condition (P > 0; pixel window
+  α_U ∈ [0.02, 0.08]; m_Z window ln(μ_U/m_Z) ∈ [0, 50]; edge-sum convergence t₂, t₃ > 0;
+  implicit-root nondegeneracy; nonzero readout). An envelope lemma from the window
+  bounds and the m_Z-closure identity certifies 1/α₃(m_Z) ≥ 4 and a positive readout
+  floor on the whole domain, and an interval sweep of the full pixel window certifies
+  that every window-consistent fixed-point candidate of either map lies inside the
+  declared physical interval; the exterior fixed-point set is empty (no nonphysical
+  solutions exist). Composed with the 2026-07-14 existence and at-most-one
+  certificates, each declared map has exactly one fixed point on its maximal analytic
+  domain. Public claims stay tied to the declared physical interval; the certified
+  fixed point is unchanged.
 - **GAP-A8.** P4 count-density coherence for the coupled readback (the argmax
   representation must agree with the fixed point). Recorded as an open obligation in
   G2-GAP-1.
@@ -157,6 +170,22 @@ Part B gaps:
   from conditional to forced.
 - **GAP-B10.** Independent reproduction: named external parties re-running the mechanical
   claims from a fresh clone (pillar 5).
+- **GAP-B11.** Closed 2026-07-17 (paper audit 003, issue #529). The compact paper's
+  regulator gluing proposition (`prop:regulatedrealization`) formerly read as deriving
+  invertible unitary rechartings from bare patch-net interface projections; that reading
+  is withdrawn. Bare interface projections determine no invertible chart-change map:
+  with S_i = {0,1,2,3} and S_j = {0,1} both projecting onto a one-bit interface, no
+  bijection S_i → S_j and no *-isomorphism M₄(C) → M₂(C) exists. The repair layers the
+  claim: the quantum regulator gluing datum (`def:qregdatum`; finite-dimensional
+  algebras, overlap subalgebras, invertible recharting *-isomorphisms, cocycle law) is a
+  declared regulator input, the proposition realizes it, and `lem:qregdatum-realized`
+  supplies it constructively on the realized echosahedral multiresolution carrier
+  (presentation circuits give Ad-unitary rechartings with the strict cocycle law), so
+  the downstream consensus-to-physics chain runs at full strength on that branch.
+  Machine-verified evidence bundle: `code/regulator_gluing/` (invertibility and
+  triple-overlap composition gates pass on the strict and central witnesses; the
+  bare-interface-projection countermodel is rejected with structured reasons;
+  artifact `code/regulator_gluing/runs/regulator_gluing_evidence_bundle_current.json`).
 
 Cross-cutting:
 

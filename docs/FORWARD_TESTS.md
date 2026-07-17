@@ -42,10 +42,21 @@ exposed: the fixed-capacity theorem forces $w = -1$ identically, and the
 drift map $w(a) = -1 + \tfrac{1}{3}\,d\ln N/d\ln a$ shows that mimicking the
 DR2 thawing central would require capacity growth of order 84% per e-fold,
 which the axiom forbids; the lane cannot bend toward the anomaly it is scored
-against. The low-$\ell$ row inverts the usual anomaly hunt: the icosahedral
-screen predicts a null on the celebrated $\ell = 2, 3$ alignments and places
-its fingerprint at $\ell = 6$ and, for the chiral screen, at $\ell = 15$,
-where no competing framework places one.
+against. The low-$\ell$ row inverts the usual anomaly hunt, and its scope is
+exact. The screen null binds the screen's own contribution to the sky:
+ordinary primordial fluctuations populate $\ell = 2, 3$ in OPH as in any
+cosmology, and low quadrupole power is a scalar the symmetry never
+constrains. What the icosahedral screen forbids is a deterministic imprint at
+$\ell = 2..5$ and any anisotropic quadrupole covariance, since $\ell = 2$
+restricts to the irreducible $\mathbf 5$ of $A_5$ and Schur forces isotropy.
+What it permits is frame-locked octopole anisotropy through the
+$\mathbf 3' \oplus \mathbf 4$ splitting, plus its fingerprint at $\ell = 6$
+and, on the chiral screen, at $\ell = 15$, where no competing framework
+places one. The observed quadrupole-octopole alignment is an a posteriori
+temperature statistic with its axis near the ecliptic. Statistical isotropy
+of the quadrupole is an assumption $\Lambda$CDM shares silently; a
+polarization-confirmed cosmological alignment falsifies both frameworks, and
+OPH alone registers that outcome as a kill condition in advance.
 
 ## Status and provenance
 

@@ -1209,7 +1209,7 @@ D(\sigma\|\omega_L(\lambda'))=-S(\sigma)+\sum_c\lambda'_c\langle S_c\rangle_\sig
 A finite two-lattice acceptance check implements this counting and projection package. It covers the constraint/multiplier count against the displayed \((N_{\mathrm{con}}+N_{\mathrm{glob}})\)-dimensional family, the moment-matching projection, the residual bound, a generic channel with strictly positive closure defect, and an exactly closed subfamily. The check is included with the repository sources.
 
 \paragraph{Central-interface collar clause (declared branch input).}\label{par:cicclause}
-For every collar cut \(\Sigma\) used by the literal exact-Markov identities of this manuscript, the retained constraint family of Axiom~\ref{ax:maxent} is declared to be \emph{central-interface} in the sense of Theorem~\ref{thm:msaderivation}: every retained density whose support meets both half-collars of \(\Sigma\) acts through the boundary-charge (flux) functions in \(\pi_L\bigl(Z(C^*(\widehat K_\Sigma))\bigr)\), while all remaining terms are one-sided \(\widehat K_\Sigma\)-invariant operators. This is an explicit axiom-level input of the declared branch, on the same footing as the refinement-closure clause above. Overlap consistency does not derive it. Under this clause, Theorem~\ref{thm:msaderivation} derives the Markov-split alignment hypothesis (Definition~\ref{def:ecaligned}) and exact collar Markovianity for the MaxEnt reference states, so the MSA-conditioned identities of this manuscript hold on the declared branch without a separate state hypothesis. Lattice-gauge-type regulators satisfy the clause manifestly, their interface energy being a function of the conserved flux; the Bell-pair state of Remark~\ref{rem:hjpwalignment} violates it and marks the failure boundary. Deriving the clause from overlap-consistent repair is work in progress (Remark~\ref{rem:msascope}).
+For every collar cut \(\Sigma\) used by the literal exact-Markov identities of this manuscript, the retained constraint family of Axiom~\ref{ax:maxent} is declared to be \emph{central-interface} in the sense of Theorem~\ref{thm:msaderivation}: every retained density whose support meets both half-collars of \(\Sigma\) acts through the boundary-charge (flux) functions in \(\pi_L\bigl(Z(C^*(\widehat K_\Sigma))\bigr)\), while all remaining terms are one-sided \(\widehat K_\Sigma\)-invariant operators. This is an explicit axiom-level input of the declared branch, on the same footing as the refinement-closure clause above. Overlap consistency does not derive it. Under this clause, Theorem~\ref{thm:msaderivation} derives the Markov-split alignment hypothesis (Definition~\ref{def:ecaligned}) and exact collar Markovianity for the MaxEnt reference states, so the MSA-conditioned identities of this manuscript hold on the declared branch without a separate state hypothesis. Lattice-gauge-type regulators satisfy the clause manifestly, their interface energy being a function of the conserved flux; the Bell-pair state of Remark~\ref{rem:hjpwalignment} violates it and marks the failure boundary. The clause is independent of the repair/consensus axioms: Proposition~\ref{prop:clauseindependence} exhibits a finite package that satisfies overlap consistency, the touched-overlap transactional contract with schedule-independent confluence, and an exactly closed refinement-channel family, while its retained constraint family carries a \(\widehat K_\Sigma\)-invariant noncentral cross-cut density. The clause is therefore a permanent named input of the declared branch (Remark~\ref{rem:msascope}).
 
 \begin{axiom}[Recoverable Generalized Entropy]\label{ax:entropy}
 A generalized entropy functional exists on caps,
@@ -2401,8 +2401,19 @@ consensus, ordinary two-point clustering, or local Gibbs form. The scalar CMI an
 error are not promoted to a rank-two stress tensor or a dark-sector source.
 \end{remark}
 
-\begin{proposition}[Derived regulator gluing datum]\label{prop:regulatedrealization}
-Fix a regulator-scale finite patch cover of a cap neighborhood and let \(R\) be any finite union of regulator cells. Assume only the finite patch-net presentation implicit in Definition~\ref{def:patchnet} together with overlap consistency on common interfaces. Then:
+\begin{definition}[Quantum regulator gluing datum]\label{def:qregdatum}
+Fix a regulator-scale finite patch cover with the finite nerve of Definition~\ref{def:patchnet}. A \emph{quantum regulator gluing datum} on a connected boundary component \(\Sigma\) assigns
+\begin{enumerate}[leftmargin=2em]
+\item to each regulator cell \(i\) meeting \(\Sigma\) a finite-dimensional \(C^*\)-algebra \(\mathcal A_i\), together with a distinguished unital overlap subalgebra \(\mathcal A_{ij}\subset\mathcal A_i\) for each overlap \(ij\) and injective unital \(^*\)-embeddings of the overlap subalgebras into the cut presentation;
+\item to each ordered overlap \(ij\) an invertible recharting \(^*\)-isomorphism
+\(\varphi_{ij}:\mathcal A_{ji}\to\mathcal A_{ij}\) with \(\varphi_{ji}=\varphi_{ij}^{-1}\);
+\item on each triple overlap the composition law \(\varphi_{ij}\circ\varphi_{jk}=\varphi_{ik}\) on the common domain, holding strictly on the ordinary branch, up to a central unitary \(2\)-cocycle \(z_{ijk}\) on the central-defect branch, and up to the crossed-module associator data of Theorem~\ref{thm:hgdatum} on the genuinely noncentral branch.
+\end{enumerate}
+The datum is a declared regulator input, on the same footing as the central-interface collar clause stated with Axiom~\ref{ax:maxent}. Overlap consistency of interface values does not derive it: with \(S_i=\{0,1,2,3\}\), \(S_j=\{0,1\}\), and both patches projecting onto the one-bit interface \(I_e=\{0,1\}\) with \(\pi_{i,e}\) many-to-one, Definition~\ref{def:patchnet} is satisfied with a nonempty consistency set, yet no bijection \(S_i\to S_j\) and no \(^*\)-isomorphism \(M_4(\mathbb C)\to M_2(\mathbb C)\) exists. The classical patch-net layer of Definition~\ref{def:patchnet} and the quantum regulator layer of this definition are separate layers, connected by the realization map of Proposition~\ref{prop:regulatedrealization}. Machine receipts for the invertibility and composition-law gates, together with the rejection of the bare-interface-projection countermodel, are provided with the released regulator-gluing code (\texttt{code/regulator\_gluing}).
+\end{definition}
+
+\begin{proposition}[Regulator gluing realization of a declared quantum datum]\label{prop:regulatedrealization}
+Fix a regulator-scale finite patch cover of a cap neighborhood and let \(R\) be any finite union of regulator cells. Assume the finite patch-net presentation implicit in Definition~\ref{def:patchnet}, overlap consistency on common interfaces, and a declared quantum regulator gluing datum (Definition~\ref{def:qregdatum}) on each connected boundary component. Then:
 \begin{enumerate}[leftmargin=2em]
 \item each regulator cell \(i\) with finite local state space \(S_i\) can be Hilbertized as \(\tilde{\mathcal H}_i\cong \mathbb C^{|S_i|}\), so the extended algebra before overlap quotienting is the finite type-I algebra
 \[
@@ -2410,11 +2421,11 @@ Fix a regulator-scale finite patch cover of a cap neighborhood and let \(R\) be 
 \qquad
 \tilde{\mathcal H}_R:=\bigotimes_{i\subset R}\tilde{\mathcal H}_i;
 \]
-\item for each connected boundary component \(\Sigma\subset\partial R\), after choosing a reference cut presentation \(\tilde{\mathcal H}_\Sigma\), every overlap-consistent change of local chart along \(\Sigma\) is implemented by a unitary on \(\tilde{\mathcal H}_\Sigma\), and the compact closure of the subgroup generated by all such recharting unitaries is a compact boundary redundancy group
+\item for each connected boundary component \(\Sigma\subset\partial R\), after choosing a reference cut presentation \(\tilde{\mathcal H}_\Sigma\), every recharting \(^*\)-isomorphism supplied by the declared datum along \(\Sigma\) is implemented by a unitary on \(\tilde{\mathcal H}_\Sigma\), and the compact closure of the subgroup generated by all such recharting unitaries is a compact boundary redundancy group
 \[
 K_\Sigma\subset U(\tilde{\mathcal H}_\Sigma);
 \]
-before the choice of reference chart, the same data form a compact unitary groupoid of overlap-preserving transitions;
+before the choice of reference chart, the declared invertible rechartings with their composition law form a compact unitary groupoid of overlap-preserving transitions;
 \item if triple-overlap defects are central, the projective composition law of item 2 lifts to a direct action of a compact central extension \(\widehat K_\Sigma\); a genuinely noncentral defect is the only obstruction to reducing the transition system to an ordinary compact group action;
 \item in the invariant-state realization of the quotient, the chart-independent endomorphisms of the lifted presentation form the boundary-invariant algebra
 \[
@@ -2424,11 +2435,23 @@ before the choice of reference chart, the same data form a compact unitary group
 \]
 \noindent with the convention \(\widehat K_\Sigma=K_\Sigma\) whenever no central extension is needed; the physical state space is the corresponding invariant subspace, and on collars the sector-preserving algebra induced on that subspace is the block-diagonal algebra used in Theorem~\ref{thm:markovcollar}.
 \end{enumerate}
-Items 1 and the lifted fixed-point presentation of item 4 are the fixed-cutoff realized data used by the compact-gauge branch; they are not extra axioms beyond the finite regulator presentation plus overlap redundancy.
+Items 1 and the lifted fixed-point presentation of item 4 are the fixed-cutoff realized data used by the compact-gauge branch. Item 1 consumes only the finite regulator presentation; items 2--4 consume the declared quantum regulator gluing datum. Bare interface projections alone determine none of items 2--4; the \(M_4(\mathbb C)\)-versus-\(M_2(\mathbb C)\) countermodel in Definition~\ref{def:qregdatum} marks that boundary, and Lemma~\ref{lem:qregdatum-realized} supplies the datum constructively on the realized echosahedral regulator branch.
 \end{proposition}
 
 \begin{proof}[Proof sketch]
-Item 1 is the Hilbertization of finite sets. For item 2, each overlap-consistent recharting acts on a finite-dimensional matrix algebra, and every \(^*\)-automorphism of such an algebra is inner. After transporting all local overlap presentations to a chosen reference chart, each recharting is therefore implemented by a unitary on the cut Hilbert space. The subgroup generated by those unitaries has compact closure inside a finite-dimensional unitary group, which yields \(K_\Sigma\); without fixing the reference chart one has the corresponding compact unitary groupoid. Item 3 is the usual projective-versus-central-extension lift for a central 2-cocycle. Item 4 records the lifted fixed-point presentation: chart-independent endomorphisms of the unreduced boundary data are exactly the fixed points of the derived boundary action, while the collar theorem uses the invariant-state realization and the sector-preserving algebra induced on the matched-cut subspace. If the defect is genuinely noncentral, the quotient is well defined, but the correct bookkeeping object is the crossed-module or higher-gauge data instead of an ordinary compact group.
+Item 1 is the Hilbertization of finite sets. For item 2, each recharting supplied by the declared datum is an invertible \(^*\)-isomorphism between finite-dimensional matrix algebras of equal dimension. After transporting all local overlap presentations to a chosen reference chart, each recharting becomes a \(^*\)-automorphism of the cut algebra, and every \(^*\)-automorphism of a finite-dimensional full matrix algebra is inner, hence implemented by a unitary on the cut Hilbert space. The automorphism input is consumed from the declared datum; bare interface projections supply no such map, as the countermodel in Definition~\ref{def:qregdatum} records. The subgroup generated by those unitaries has compact closure inside a finite-dimensional unitary group, which yields \(K_\Sigma\); without fixing the reference chart the declared rechartings with their composition law give the corresponding compact unitary groupoid. Item 3 is the usual projective-versus-central-extension lift for a central 2-cocycle. Item 4 records the lifted fixed-point presentation: chart-independent endomorphisms of the unreduced boundary data are exactly the fixed points of the derived boundary action, while the collar theorem uses the invariant-state realization and the sector-preserving algebra induced on the matched-cut subspace. If the defect is genuinely noncentral, the quotient is well defined, but the correct bookkeeping object is the crossed-module or higher-gauge data instead of an ordinary compact group.
+\end{proof}
+
+\begin{lemma}[Realized supply of the gluing datum on the echosahedral regulator]\label{lem:qregdatum-realized}
+On the reference multiresolution echosahedral carrier of Ref.~\cite{ophmicrophysics}, every declared patch, port, and collar presentation at regulator scale \(r\) is the image \(M_r=\operatorname{Ad}(W_r)(\widetilde M_r)\) of one common bare factor product \(\widetilde M_r\) under a declared finite-depth unitary presentation circuit \(W_r\), with unital injective \(^*\)-homomorphic refinement embeddings; equal-refinement patches share the port architecture, and overlaps are read through the port identifications of that shared architecture. Consequently the quantum regulator gluing datum of Definition~\ref{def:qregdatum} is supplied constructively on this branch: for two equal-regulator chart presentations \(W_r\), \(W'_r\) of the same overlap data, the recharting is \(\operatorname{Ad}(W'_rW_r^{*})\), an invertible \(^*\)-isomorphism with inverse \(\operatorname{Ad}(W_rW_r'^{*})\), and the composition law holds strictly:
+\[
+\operatorname{Ad}(W''_rW_r'^{*})\circ\operatorname{Ad}(W'_rW_r^{*})=\operatorname{Ad}(W''_rW_r^{*}).
+\]
+Proposition~\ref{prop:regulatedrealization} and its downstream consumers therefore run unconditionally on the realized echosahedral branch, with the datum supplied by the port identifications, so no separately priced input enters on this branch; the central-defect and genuinely noncentral branches enter only for regulator presentations outside this reference class.
+\end{lemma}
+
+\begin{proof}
+The reference multiresolution carrier and the fixed-cutoff regulator certificate of Ref.~\cite{ophmicrophysics} present every regulator-scale chart by conjugating one fixed bare factor product with a unitary finite-depth circuit, and prove the refinement embeddings unital, injective, and \(^*\)-homomorphic. Unitary conjugations invert exactly and compose strictly, which yields items 1--3 of Definition~\ref{def:qregdatum} on the strict branch of the composition law. The port readout maps enter only through the visible interface and impose no further condition.
 \end{proof}
 
 \begin{theorem}[Derived edge-center collar decomposition and exact Markov normal form]\label{thm:markovcollar}
@@ -2614,7 +2637,7 @@ Theorem~\ref{thm:msaderivation} discharges the Markov-split alignment hypothesis
 \end{remark}
 
 \begin{theorem}[Derived higher-gauge cut datum]\label{thm:hgdatum}
-Fix a connected cut \(\Sigma\) and a finite regulator chart \(\{P_i\}_{i\in I_\Sigma}\) meeting along \(\Sigma\), with finite nerve \(N_\Sigma\). On the genuinely noncentral branch, the weak gluing data are implemented by a compact crossed module
+Fix a connected cut \(\Sigma\) and a finite regulator chart \(\{P_i\}_{i\in I_\Sigma}\) meeting along \(\Sigma\), with finite nerve \(N_\Sigma\), carrying a declared quantum regulator gluing datum (Definition~\ref{def:qregdatum}). On the genuinely noncentral branch, the weak gluing data are implemented by a compact crossed module
 \[
 \mathbb K_\Sigma=(H_\Sigma\xrightarrow{\partial_\Sigma}G_\Sigma,\triangleright)
 \]
@@ -2683,7 +2706,7 @@ this theorem package.
 \end{theorem}
 
 \begin{proof}[Proof sketch]
-On pair overlaps, every regulator-scale recharting acts on a finite-dimensional matrix algebra and is therefore inner, so it is implemented by a unitary on the cut Hilbert space. On triple overlaps, genuinely noncentral failure of strict composition is recorded by unitary associators instead of scalars. These \(1\)- and \(2\)-morphisms form a compact unitary \(2\)-group of rechartings. Skeletal strictification of a compact \(2\)-group is equivalent to crossed-module data, which yields the displayed compact \(\mathbb K_\Sigma\). Because the nerve is finite, \(C^1(N_\Sigma,H_\Sigma)\) and \(C^0(N_\Sigma,G_\Sigma)\) are finite products of compact groups, hence \(\mathcal T_\Sigma\) is compact. The displayed formulas are the standard crossed-module coboundary action, and the orbit class is exactly the nonabelian \v{C}ech \(2\)-class of the defect data; see \cite{bullivant17} for an explicit higher-lattice-gauge realization of the same crossed-module structures.
+On pair overlaps, every regulator-scale recharting supplied by the declared datum is an invertible \(^*\)-isomorphism of finite-dimensional matrix algebras and, after transport to the reference chart, a \(^*\)-automorphism, therefore inner, so it is implemented by a unitary on the cut Hilbert space. On triple overlaps, genuinely noncentral failure of strict composition is recorded by unitary associators instead of scalars. These \(1\)- and \(2\)-morphisms form a compact unitary \(2\)-group of rechartings. Skeletal strictification of a compact \(2\)-group is equivalent to crossed-module data, which yields the displayed compact \(\mathbb K_\Sigma\). Because the nerve is finite, \(C^1(N_\Sigma,H_\Sigma)\) and \(C^0(N_\Sigma,G_\Sigma)\) are finite products of compact groups, hence \(\mathcal T_\Sigma\) is compact. The displayed formulas are the standard crossed-module coboundary action, and the orbit class is exactly the nonabelian \v{C}ech \(2\)-class of the defect data; see \cite{bullivant17} for an explicit higher-lattice-gauge realization of the same crossed-module structures.
 \end{proof}
 
 \begin{theorem}[Higher-gauge edge-center completion]\label{thm:hgedgecenter}
@@ -3145,7 +3168,7 @@ The additional terms are local projector constraints supported on finitely many 
 \end{proof}
 
 \begin{remark}[Status of the regulator package and the precise Markov boundary]
-Proposition~\ref{prop:regulatedrealization}, Theorem~\ref{thm:markovcollar}, and Theorems~\ref{thm:hgdatum}--\ref{thm:hgtransport} together with Proposition~\ref{prop:hginteracting} show that edge-center completion is a theorem of overlap consistency plus the finite regulator presentation on the ordinary, central-defect, and genuinely noncentral higher-gauge branches. No preferred quantum-link realization is assumed on the ordinary or central branch, and the genuinely noncentral branch is handled by the compact crossed-module replacement instead of by one more ordinary-group lemma. The fixed-cutoff topological UV package is closed on all three branches. The continuum modular/geometric lift on the support-visible geometric subnet is Theorem~\ref{thm:bw}; the compact-gauge realized branch is handled by Theorem~\ref{thm:mar-witness-landing}. The distinct state-control issue is that exact splice and modular-additivity identities require either literal exact Markovity or a controlled family that converges to the exact Markov set on one fixed finite-dimensional collar; and, wherever those identities use the preselected edge factors \(b_L^\alpha,b_R^\alpha\), they additionally carry the Markov-split alignment hypothesis of Definition~\ref{def:ecaligned}, which exact Markovity does not imply (Remark~\ref{rem:hjpwalignment}).
+Proposition~\ref{prop:regulatedrealization}, Theorem~\ref{thm:markovcollar}, and Theorems~\ref{thm:hgdatum}--\ref{thm:hgtransport} together with Proposition~\ref{prop:hginteracting} show that edge-center completion is a theorem of overlap consistency plus the finite regulator presentation plus the declared quantum regulator gluing datum of Definition~\ref{def:qregdatum} on the ordinary, central-defect, and genuinely noncentral higher-gauge branches. Beyond that declared gluing datum, no preferred quantum-link realization is assumed on the ordinary or central branch, and the genuinely noncentral branch is handled by the compact crossed-module replacement instead of by one more ordinary-group lemma. The fixed-cutoff topological UV package is closed on all three branches. The continuum modular/geometric lift on the support-visible geometric subnet is Theorem~\ref{thm:bw}; the compact-gauge realized branch is handled by Theorem~\ref{thm:mar-witness-landing}. The distinct state-control issue is that exact splice and modular-additivity identities require either literal exact Markovity or a controlled family that converges to the exact Markov set on one fixed finite-dimensional collar; and, wherever those identities use the preselected edge factors \(b_L^\alpha,b_R^\alpha\), they additionally carry the Markov-split alignment hypothesis of Definition~\ref{def:ecaligned}, which exact Markovity does not imply (Remark~\ref{rem:hjpwalignment}).
 \end{remark}
 
 \begin{definition}[Exact Markov set and collar-distance modulus]\label{def:markovmodulus}
@@ -12036,7 +12059,12 @@ m_t^{D11}=172.3523553288312~\mathrm{GeV}.
 \]
 These are back-solved from the measured pair through the synchronization-scale
 scan, so the row is a target-anchored fit rather than a prediction: it lands on
-the 2025 PDG Higgs average by construction. The target-free headline for this
+the 2025 PDG Higgs average by construction. The arithmetic of this declared
+surface is certified from raw interval data: the repository publishes the raw
+interval input box for the eleven declared branch inputs with provenance tags,
+the outward-rounded interval extension of every displayed node, the Jacobian
+interval enclosure over the full box, and a non-singular diagonal readout
+certificate, with the certified scope restricted to the declared surface. The target-free headline for this
 pair is the double-criticality family, whose frozen boundary-scale candidate
 gives \((m_H,m_t)=(125.77,\,172.63)~\mathrm{GeV}\) at two loops with
 \(m_H=125.72~\mathrm{GeV}\) on the fit-free curve at the measured top. The
@@ -12299,6 +12327,12 @@ B.~M\"uller, A.~Osika, M.~Poneder, K.~Xue, M.~A.~Visser, and D.~Matscheko,
 \emph{Deriving the Particle Zoo from Observer Consistency},
 2026.
 Available at \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/deriving_the_particle_zoo_from_observer_consistency.pdf}.
+
+\bibitem{ophmicrophysics}
+B.~M\"uller, A.~Osika, K.~Xue, B.~Cassie, M.~A.~Visser, and D.~Matscheko,
+\emph{Federated Echosahedral Screen Microphysics: Patch Hardware, Records, and Observer Synchronization in OPH},
+2026.
+Available at \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/screen_microphysics_and_observer_synchronization.pdf}.
 
 \bibitem{matschekoProofChain}
 D.~Matscheko,

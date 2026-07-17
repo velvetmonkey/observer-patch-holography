@@ -87,11 +87,11 @@ The source-only
 calculation contracts to \(\alpha^{-1}=136.994835177413\ldots\), the
 interval-certified unique fixed point of the declared source map (enclosure
 width \(7.2\times10^{-24}\)); it sits outside the SL-3 basin by
-\(3.0\times10^{-4}\) in relative units, and this loop residual is closure row
-CL-1 of the ledger. The self-consistent gauge-width map has the certified
+\(3.0\times10^{-4}\) in relative units, and this loop residual is a row of
+the closure ledger. The self-consistent gauge-width map has the certified
 fixed point \(\alpha^{-1}=137.035660136946577\ldots\), \(2.5\times10^{-6}\)
 below the measured \(137.035999177(21)\), about \(1.6\times10^{4}\)
-measurement sigma (row CL-2); the previously displayed
+measurement sigma, a second ledger row; the value
 \(137.0359595008\ldots\) is a mixed-provenance display packet (source root
 plus \(\alpha_U\) at the SL-3 pixel), not a fixed point of any single declared
 map, and stays on record as a display packet only.
@@ -153,7 +153,7 @@ declared law makes each residual a measurement of the principle set.
 There is a long history of attempts to understand \(\alpha\) from deeper structure. Jentschura and Nandori give a useful survey of first-principles attempts, including beta-function, symmetry, cutoff, and string-inspired ideas \cite{jentschura-nandori}. Golden-ratio constructions appear in historical geometric proposals \cite{heyrovska-narayan} and in semi-empirical work on electroweak and flavor mixing \cite{ciborowski}. Octonionic and exceptional-algebra approaches also produce values near \(1/137\) \cite{singh}. ArXiv papers use symbolic regression and quantum-information criteria to look for structure in Standard Model constants and electroweak parameters \cite{chekanov-kjellerstrand,liu-low-yin}. The OPH calculation belongs to this broad search for structure, with one added requirement: the number must arise from a fixed-point map whose input and output are the same local screen cell.
 
 \begin{quote}\small
-\textbf{Source/root audit.} The executable source map contracts to the undressed source/root inverse coupling \(\alphainv_{\mathrm{root}}=136.994835177413\ldots\), the interval-certified unique fixed point of the declared map (interval certificate shipped with the code release \cite{oph-code}; enclosure width \(7.2\times10^{-24}\), \(L\le0.0724\)). The earlier printed tail \(136.9948351646\ldots\) came from an unconverged run and is superseded beyond digit~9 (ledger row CL-6, closed). The self-consistent map that adds the finite-screen unified gauge width \(\alpha_U(P)\) inside the loop has the certified fixed point \(137.035660136946577\ldots\); this is the current closure status of the loop (ledger row CL-2, \(2.5\times10^{-6}\) relative, about \(1.6\times10^{4}\) measurement sigma). The historically displayed combination \(A_{\alpha_U}^{\mathrm{fp}}=137.0359595008\ldots\) mixes the source root with \(\alpha_U(\Ppub)\) evaluated at the SL-3 pixel (the CODATA-derived comparison pixel); it is a mixed-provenance display packet, not a fixed point of any single declared map, and stays on record as a display packet only. Neither certified fixed point is a source-only prediction or a derivation of \(\alpha\), because measured \(\alpha\) is the input that fixed the pixel under SL-3.
+\textbf{Source/root audit.} The executable source map contracts to the undressed source/root inverse coupling \(\alphainv_{\mathrm{root}}=136.994835177413\ldots\), the interval-certified unique fixed point of the declared map (interval certificate shipped with the code release \cite{oph-code}; enclosure width \(7.2\times10^{-24}\), \(L\le0.0724\)). The printed tail \(136.9948351646\ldots\) is an unconverged-run artifact, superseded beyond digit~9 (ledger row CL-6, closed). The self-consistent map that adds the finite-screen unified gauge width \(\alpha_U(P)\) inside the loop has the certified fixed point \(137.035660136946577\ldots\); this is the current closure status of the loop (ledger row CL-2, \(2.5\times10^{-6}\) relative, about \(1.6\times10^{4}\) measurement sigma). The combination \(A_{\alpha_U}^{\mathrm{fp}}=137.0359595008\ldots\) mixes the source root with \(\alpha_U(\Ppub)\) evaluated at the SL-3 pixel (the CODATA-derived comparison pixel); it is a mixed-provenance display packet, not a fixed point of any single declared map, and stays on record as a display packet only. Neither certified fixed point is a source-only prediction or a derivation of \(\alpha\), because measured \(\alpha\) is the input that fixed the pixel under SL-3.
 
 \textbf{CODATA/NIST measured endpoint.} CODATA/NIST reports \(\alphainv(0)=137.035999177(21)\). The difference from \(A_{\alpha_U}^{\mathrm{fp}}\) is CODATA-minus-diagnostic bookkeeping; it is not the output of a same-scheme hadronic spectral calculation.
 \end{quote}
@@ -738,7 +738,7 @@ Against the comparison packet the residuals are approximately \(-228\),
 error \(0.08347\%\).  These numbers therefore document an accurate, but
 branch-sensitive, complete postdiction.  They are not a prospective OPH
 prediction: reference masses are absent at runtime, but the frozen formula
-family has historical post-hoc ancestry.  Moreover, no charged RG/threshold
+family has historical post-hoc ancestry.  No charged RG/threshold
 theorem maps this historical mass coordinate to the pole masses used for the
 ppm comparison. Its executable receipt is committed with the repository
 sources.
@@ -1404,6 +1404,19 @@ discharged on the declared physical domain (\(\alpha^{-1}\in[100,200]\)):
 exceptional set
 (domain-global uniqueness certificate in the same release), so
 each map has exactly one fixed point on the domain.
+A maximal-domain extension certificate closes the exterior. An envelope
+lemma built from the declared solver windows (the pixel scan window
+\(\alpha_U\in[0.02,0.08]\) and the \(m_Z\) log-grid window
+\(\ln(\mu_U/m_Z)\in[0,50]\)) together with the \(m_Z\)-closure identity
+certifies \(1/\alpha_3(m_Z)\ge 4\) and a positive inverse-alpha readout
+floor on the whole analytic domain, and an interval sweep of the full pixel
+window certifies that every window-consistent fixed-point candidate of
+either readout map lies inside the declared physical interval
+(runtime artifact
+\texttt{p\_global\_uniqueness\_extension\_certificate\_2026-07-17.json}).
+Each declared map therefore has exactly one fixed point on its maximal
+analytic domain, and the set of fixed points outside the declared interval
+is empty; the headline enclosures above are unchanged.
 
 The release gate for promoting this row from empirical endpoint comparison to source-only theorem is
 explicit. The packet must contain

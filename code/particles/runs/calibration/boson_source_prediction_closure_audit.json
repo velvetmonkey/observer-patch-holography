@@ -40,7 +40,7 @@
     "d11_declared_surface_promotion_allowed": false,
     "d11_reference_adapter_promotable": false,
     "d11_reference_adapter_status": "compare_only_exact_reference_adapter",
-    "ht_boundary_status": "declared_surface_output_recorded_interval_inputs_missing",
+    "ht_boundary_status": "declared_surface_output_recorded_with_raw_interval_input_box",
     "selection_status": "conditional_selection_theorem_axioms_named",
     "wz_boundary_status": "compare_only_boundary"
   },
@@ -167,7 +167,7 @@
       "parallel_fibre_identity_residual": 4.531626267810507e-20
     }
   },
-  "generated_utc": "2026-07-12T10:35:58Z",
+  "generated_utc": "2026-07-17T04:44:57Z",
   "input_manifest": [
     {
       "bytes": 5021,
@@ -175,9 +175,9 @@
       "sha256": "caa241c5a851a8a4760361989cc8e58221ad0e8b898bb1feffa409e05017615f"
     },
     {
-      "bytes": 6758,
+      "bytes": 10202,
       "path": "code/P_derivation/runtime/p_closure_trunk_current.json",
-      "sha256": "52b5dae26d7774428f231e8b5ba487363b0847680eb73471d158800efa3dee90"
+      "sha256": "2af7cace05d45df8ef8f7ae140c57307b0abb502ec2c34d91df3071ff243be9e"
     },
     {
       "bytes": 3132,
@@ -200,9 +200,9 @@
       "sha256": "054e5a89f61c1f46bf1763a15f01d57c9cca92b035fae1ae9b0a7edf8c9da655"
     },
     {
-      "bytes": 10118,
+      "bytes": 11055,
       "path": "code/particles/calibration/derive_color_amplitude_loop_split.py",
-      "sha256": "40cf5084a50c13046a62ae03c597764b624b572fb85cb05afd936f335f17e704"
+      "sha256": "53c3342a538ed080d44351e3ed81398e61aa17baed2826cb08f0bcc92764b30b"
     },
     {
       "bytes": 11670,
@@ -230,9 +230,9 @@
       "sha256": "dd3c0a1dbe97d7dc4db7e963a06e403576a99020773526afcb7850689c90e129"
     },
     {
-      "bytes": 1065,
+      "bytes": 2528,
       "path": "code/particles/hierarchy/certificates/R_HT_declared_surface_certificate.json",
-      "sha256": "3eb749b766308013d1f839c8838c32e1b59cb8ed2e4e079f4b7ba8b7397c4575"
+      "sha256": "22cfb798c7e7c3bf3a577e6ad4f5d7ebb702152f04efb825ee0ec44de8cb15d2"
     },
     {
       "bytes": 1080,
@@ -260,19 +260,19 @@
       "sha256": "42be5381c4fcfbb121d8deb0771c51e5ecadf5414b81e13b3ab92bd64d8efa63"
     },
     {
-      "bytes": 3247,
+      "bytes": 3879,
       "path": "code/particles/runs/calibration/color_amplitude_loop_split.json",
-      "sha256": "be7872116036b0d75367115191f0ccf374ffb21b1d2f42ec1b3ff8cf9f5d611a"
+      "sha256": "c2ff6da5d90bfd5d2d8fea437a1a028a435477ac5d9bc33d98a8dda320391eb0"
     },
     {
       "bytes": 2883,
       "path": "code/particles/runs/calibration/d10_ew_minimal_conditional_theorem.json",
-      "sha256": "9d6c474de02674966b368743792b7f68c2616475fe0ad765e0d0826aaf0e88a2"
+      "sha256": "789bc9c917d874462415897119f111f0e4320b333af69cba35879991511ad698"
     },
     {
       "bytes": 3693,
       "path": "code/particles/runs/calibration/d10_ew_observable_family.json",
-      "sha256": "c30a72e4d2e1c6442bbdcf997d52d0074b20cd209140afd8386b2ab3788330af"
+      "sha256": "f4060ed131b0b45942705e9823f2ca220e23bd4814684176a9dd99e3c9e2fe07"
     },
     {
       "bytes": 5681,
@@ -282,37 +282,37 @@
     {
       "bytes": 9245,
       "path": "code/particles/runs/calibration/d10_ew_source_transport_pair.json",
-      "sha256": "f2f4f6f51498172b2cb23dbc025c90d26c2031dfd26c31f05320dd02e5f24814"
+      "sha256": "366cea1d58df57f6db331073aacee44a606f3a16f912604925a14f96b2e62876"
     },
     {
       "bytes": 4715,
       "path": "code/particles/runs/calibration/d10_ew_target_free_repair_value_law.json",
-      "sha256": "70455b17384c7d9f1bbc6b66db1c147b1333e6f160713fb8347a001a2fe12133"
+      "sha256": "60fb7394f14d1aac556b42cba2dc880a7b577ec5d833b703e87e85f80a144c3e"
     },
     {
       "bytes": 6490,
       "path": "code/particles/runs/calibration/d10_ew_w_anchor_neutral_shear_factorization_official_pdg_2025_update.json",
-      "sha256": "416aa8d00909411521f80bca1b5259752fc7bdd008fbc4e953f77a3009caf43f"
+      "sha256": "d9fbe01e96d11e041971769d3f46c7544c1fb47801e57f046bef4746cea44692"
     },
     {
-      "bytes": 4052,
+      "bytes": 4159,
       "path": "code/particles/runs/calibration/d10_repair_tuple_selection_theorem.json",
-      "sha256": "0377609ef228190c4e555a721570bd942549963c852ff13d1c1ee73a6dfdd0d8"
+      "sha256": "fcf9b0006883e8f9243f5ae898f14145000da0825fdde6d3bef7f754e9b96500"
     },
     {
       "bytes": 1763,
       "path": "code/particles/runs/calibration/d11_declared_calibration_surface.json",
-      "sha256": "33f2ae6d772dcf08b01d04f4416567bcd992893d206018139a50d3a7b2834805"
+      "sha256": "f9d488386b1230fd9a483733c64078f79ba2c164dd3011d3f1f8cad7fac898fc"
     },
     {
       "bytes": 6586,
       "path": "code/particles/runs/calibration/d11_live_exact_split_pair_theorem.json",
-      "sha256": "0f99ecd08e8d46a8e299322d1ba213415b7a1c4348bf30e25ea83bc1b9ec408b"
+      "sha256": "6876cc72b5cb385894186d57295c13732e8c1069787e153df36f7e81ce9dd3bf"
     },
     {
       "bytes": 2177,
       "path": "code/particles/runs/calibration/d11_reference_exact_adapter.json",
-      "sha256": "906056a47fd3ed3290c64cc04d43acb9191c987e579d35d0a22950c597495d41"
+      "sha256": "a560a51b8cfb169a39316bde7ae2dd488b2f0d1bbd19e414f53aa63147d5db41"
     }
   ],
   "mass_surfaces": [
@@ -500,7 +500,7 @@
   "schema_version": "1.0.0",
   "source_branches": {
     "compressed_p_trunk_candidate": {
-      "P": "1.63097210492078846050203640439",
+      "P": "1.630972172289734415925897501373482673022655099072161516985001733211109918232723345616738572172898702297689609012",
       "alpha_U": null,
       "branch_id": "compressed_p_trunk_candidate",
       "eligible_for_source_only_mass_prediction": false,

@@ -1,0 +1,3421 @@
+{
+  "artifact": "R_HT_interval_input_box_log",
+  "issue": 333,
+  "status": "raw_interval_input_box_and_jacobian_enclosure_supplied",
+  "stack_id": "oph-ht-declared-surface-formula-stack",
+  "stack_version": "1.0.0",
+  "backend": {
+    "backend_id": "oph-outward-float64-directed-rounding",
+    "backend_version": "1.0.0",
+    "number_format": "IEEE-754 binary64",
+    "rounding_mode": "hardware round-to-nearest for the correctly rounded primitives +, -, *, /, sqrt, followed by one math.nextafter step outward on each interval bound after every primitive",
+    "transcendental_policy": {
+      "exp": "in-module: x = k*ln2 + r with |r| <= 0.36, degree-20 Taylor polynomial in outward interval arithmetic, symmetric remainder pad 1e-28, exact ldexp rescale padded one ulp",
+      "log": "in-module: exact frexp reduction to m in [sqrt(1/2), sqrt(2)), atanh series 2*atanh((m-1)/(m+1)) truncated at n=14 in outward interval arithmetic, symmetric remainder pad 1e-25, plus e*ln2 in interval arithmetic",
+      "deep_underflow": "exp(x) for x <= -710 returns [0, 1e-308]; exp(-710) < 4.5e-309 < 1e-308",
+      "libm_assumption": "none for exp/log; libm exp/log are not called on the certificate path"
+    },
+    "constant_policy": "pi and ln2 enter as recorded decimal strings, bracketed against binary64 by exact rational comparison and padded one ulp outward per side for decimal truncation; series coefficients 1/n! and 1/(2n+1) are bracketed from exact rationals",
+    "constants": {
+      "pi": {
+        "decimal_string": "3.1415926535897932384626433832795028841971693993751",
+        "bracket": {
+          "lo_hex": "0x1.921fb54442d17p+1",
+          "hi_hex": "0x1.921fb54442d1ap+1",
+          "lo": "3.1415926535897927",
+          "hi": "3.141592653589794"
+        }
+      },
+      "ln2": {
+        "decimal_string": "0.6931471805599453094172321214581765680755001343602552",
+        "bracket": {
+          "lo_hex": "0x1.62e42fefa39eep-1",
+          "hi_hex": "0x1.62e42fefa39f1p-1",
+          "lo": "0.6931471805599452",
+          "hi": "0.6931471805599455"
+        }
+      }
+    },
+    "serialization_format": "JSON; every interval bound carries float.hex() plus repr decimal, pinning the exact binary64 bit pattern",
+    "assumption_set": [
+      "IEEE-754 correct rounding of +, -, *, /, sqrt on binary64",
+      "exactness of math.nextafter, math.frexp, and math.ldexp on normal outputs",
+      "correctness of the recorded decimal strings for pi and ln2"
+    ]
+  },
+  "interval_extension": {
+    "policy": "Each node of the declared Higgs/top stack is evaluated with the directed-rounding primitives of tools/outward_interval.py in a fixed deterministic operation order; the verifier reproduces every bound bit-exactly.",
+    "nodes": {
+      "A_T, B_H, R_T, R_H, pi_y, pi_lambda, delta_y_t_mt, delta_lambda_mt, m_t_D11_GeV, m_H_GeV, Sigma_HT, w_HT, c_T_live, c_H_live": "outward-rounded binary64 interval +, -, *, / with rational coefficients bracketed from exact fractions",
+      "eta powers": "fixed chain of outward interval products: eta^2, eta^4=eta^2*eta^2, eta^5=eta^4*eta, eta^6=eta^5*eta, eta^8=eta^4*eta^4, eta^9=eta^8*eta",
+      "rho_HT": "in-module interval log applied to the strictly positive interval 1+tau2_tree_exact (frexp reduction, atanh series with explicit remainder pad; no libm log)",
+      "sqrt(pi)": "correctly rounded math.sqrt of the bracketed pi decimal string, stepped one ulp outward per side",
+      "gradient": "forward-mode interval automatic differentiation in all eleven inputs with the same primitives, giving the Jacobian interval enclosure over the full input box"
+    },
+    "backend_functions_added_for_this_stack": "none"
+  },
+  "declared_inputs": {
+    "declared": {
+      "eta_source_decimal": "0.022147000871961295",
+      "beta_EW_decimal": "0.5385291530498766",
+      "lambda_EW_decimal": "0.00022769874427635073",
+      "tau2_tree_exact_decimal": "-0.0002311623001746158",
+      "delta_n_tree_exact_decimal": "0.0002346358802434819",
+      "y_t_core_mt_decimal": "0.92046435",
+      "lambda_core_mt_decimal": "0.13164915",
+      "mH_core_gev_decimal": "126.62263",
+      "mt_pole_core_gev_decimal": "170.26125",
+      "d_mH_d_lambda_decimal": "480.0",
+      "d_mt_pole_d_y_t_decimal": "184.97",
+      "box_relative_half_width_decimal": "1e-9"
+    },
+    "resolved": {
+      "eta_source": {
+        "decimal": "0.022147000871961295",
+        "center": {
+          "lo_hex": "0x1.6adb411cc58bcp-6",
+          "hi_hex": "0x1.6adb411cc58bdp-6",
+          "lo": "0.022147000871961295",
+          "hi": "0.0221470008719613"
+        },
+        "box": {
+          "lo_hex": "0x1.6adb4116af16dp-6",
+          "hi_hex": "0x1.6adb4122dc00bp-6",
+          "lo": "0.022147000849814292",
+          "hi": "0.022147000894108298"
+        },
+        "role": "candidate D10 tuple scalar; leading split coordinate seed",
+        "normalization": "dimensionless",
+        "provenance_class": "declared_branch_input_d10_tuple",
+        "source_artifact": "code/particles/runs/calibration/d10_ew_source_transport_pair.json",
+        "note": "Candidate D10 tuple entry on the legacy D10 calibration branch; descends from the MSbar gauge couplings alpha2_mz and alphaY_mz at the Z scale and the alpha_U seed; candidate-only upstream, no measured particle mass value enters numerically. Formula: alpha_u_from_seed * beta_EW."
+      },
+      "beta_EW": {
+        "decimal": "0.5385291530498766",
+        "center": {
+          "lo_hex": "0x1.13ba17d89566ap-1",
+          "hi_hex": "0x1.13ba17d89566bp-1",
+          "lo": "0.5385291530498766",
+          "hi": "0.5385291530498767"
+        },
+        "box": {
+          "lo_hex": "0x1.13ba17d3f529ap-1",
+          "hi_hex": "0x1.13ba17dd35a3ap-1",
+          "lo": "0.5385291525113474",
+          "hi": "0.5385291535884058"
+        },
+        "role": "candidate D10 tuple scalar; electroweak coupling asymmetry (paper symbol rho_EW)",
+        "normalization": "dimensionless",
+        "provenance_class": "declared_branch_input_d10_tuple",
+        "source_artifact": "code/particles/runs/calibration/d10_ew_source_transport_pair.json",
+        "note": "Candidate D10 tuple entry on the legacy D10 calibration branch; descends from the MSbar gauge couplings alpha2_mz and alphaY_mz at the Z scale and the alpha_U seed; candidate-only upstream, no measured particle mass value enters numerically. Formula: (alpha2_mz - alphaY_mz)/(alpha2_mz + alphaY_mz)."
+      },
+      "lambda_EW": {
+        "decimal": "0.00022769874427635073",
+        "center": {
+          "lo_hex": "0x1.dd84d51ec767fp-13",
+          "hi_hex": "0x1.dd84d51ec7680p-13",
+          "lo": "0.00022769874427635073",
+          "hi": "0.00022769874427635076"
+        },
+        "box": {
+          "lo_hex": "0x1.dd84d516c47a6p-13",
+          "hi_hex": "0x1.dd84d526ca558p-13",
+          "lo": "0.00022769874404865198",
+          "hi": "0.00022769874450404948"
+        },
+        "role": "candidate D10 tuple scalar; quartic-channel repair coordinate",
+        "normalization": "dimensionless",
+        "provenance_class": "declared_branch_input_d10_tuple",
+        "source_artifact": "code/particles/runs/calibration/d10_ew_target_free_repair_value_law.json",
+        "note": "Candidate D10 tuple entry on the legacy D10 calibration branch; descends from the MSbar gauge couplings alpha2_mz and alphaY_mz at the Z scale and the alpha_U seed; candidate-only upstream, no measured particle mass value enters numerically."
+      },
+      "tau2_tree_exact": {
+        "decimal": "-0.0002311623001746158",
+        "center": {
+          "lo_hex": "-0x1.e4c8509e41035p-13",
+          "hi_hex": "-0x1.e4c8509e41034p-13",
+          "lo": "-0.0002311623001746158",
+          "hi": "-0.00023116230017461578"
+        },
+        "box": {
+          "lo_hex": "-0x1.e4c850a663235p-13",
+          "hi_hex": "-0x1.e4c850961ee35p-13",
+          "lo": "-0.00023116230040577811",
+          "hi": "-0.0002311622999434535"
+        },
+        "role": "candidate D10 tuple scalar; charged-channel tree repair coordinate",
+        "normalization": "dimensionless",
+        "provenance_class": "declared_branch_input_d10_tuple",
+        "source_artifact": "code/particles/runs/calibration/d10_ew_target_free_repair_value_law.json",
+        "note": "Candidate D10 tuple entry on the legacy D10 calibration branch; descends from the MSbar gauge couplings alpha2_mz and alphaY_mz at the Z scale and the alpha_U seed; candidate-only upstream, no measured particle mass value enters numerically."
+      },
+      "delta_n_tree_exact": {
+        "decimal": "0.0002346358802434819",
+        "center": {
+          "lo_hex": "0x1.ec112dd3e0963p-13",
+          "hi_hex": "0x1.ec112dd3e0964p-13",
+          "lo": "0.00023463588024348188",
+          "hi": "0.0002346358802434819"
+        },
+        "box": {
+          "lo_hex": "0x1.ec112dcb9f2cbp-13",
+          "hi_hex": "0x1.ec112ddc21ffcp-13",
+          "lo": "0.000234635880008846",
+          "hi": "0.0002346358804781178"
+        },
+        "role": "candidate D10 tuple scalar; neutral-channel tree repair coordinate (diagnostic exactifier denominator)",
+        "normalization": "dimensionless",
+        "provenance_class": "declared_branch_input_d10_tuple",
+        "source_artifact": "code/particles/runs/calibration/d10_ew_target_free_repair_value_law.json",
+        "note": "Candidate D10 tuple entry on the legacy D10 calibration branch; descends from the MSbar gauge couplings alpha2_mz and alphaY_mz at the Z scale and the alpha_U seed; candidate-only upstream, no measured particle mass value enters numerically."
+      },
+      "y_t_core_mt": {
+        "decimal": "0.92046435",
+        "center": {
+          "lo_hex": "0x1.d7471a70c48e3p-1",
+          "hi_hex": "0x1.d7471a70c48e4p-1",
+          "lo": "0.9204643499999999",
+          "hi": "0.92046435"
+        },
+        "box": {
+          "lo_hex": "0x1.d7471a68dc6edp-1",
+          "hi_hex": "0x1.d7471a78acadap-1",
+          "lo": "0.9204643490795356",
+          "hi": "0.9204643509204644"
+        },
+        "role": "declared D11 core top Yukawa at mu_t",
+        "normalization": "dimensionless",
+        "provenance_class": "declared_branch_input_d11_surface",
+        "source_artifact": "code/particles/runs/calibration/d11_declared_calibration_surface.json",
+        "note": "Declared D11 calibration-surface constant on the printed D10/D11 running, matching, and threshold surface; the historical selection of this surface used target inspection (target-anchored fit), and its source derivation is an open upstream gate."
+      },
+      "lambda_core_mt": {
+        "decimal": "0.13164915",
+        "center": {
+          "lo_hex": "0x1.0d9e11ce5e9d4p-3",
+          "hi_hex": "0x1.0d9e11ce5e9d5p-3",
+          "lo": "0.13164915",
+          "hi": "0.13164915000000002"
+        },
+        "box": {
+          "lo_hex": "0x1.0d9e11c9d89dbp-3",
+          "hi_hex": "0x1.0d9e11d2e49cdp-3",
+          "lo": "0.13164914986835083",
+          "hi": "0.13164915013164916"
+        },
+        "role": "declared D11 core Higgs quartic at mu_t",
+        "normalization": "dimensionless",
+        "provenance_class": "declared_branch_input_d11_surface",
+        "source_artifact": "code/particles/runs/calibration/d11_declared_calibration_surface.json",
+        "note": "Declared D11 calibration-surface constant on the printed D10/D11 running, matching, and threshold surface; the historical selection of this surface used target inspection (target-anchored fit), and its source derivation is an open upstream gate."
+      },
+      "mH_core_gev": {
+        "decimal": "126.62263",
+        "center": {
+          "lo_hex": "0x1.fa7d92b7fe08ap+6",
+          "hi_hex": "0x1.fa7d92b7fe08bp+6",
+          "lo": "126.62262999999999",
+          "hi": "126.62263"
+        },
+        "box": {
+          "lo_hex": "0x1.fa7d92af7eac7p+6",
+          "hi_hex": "0x1.fa7d92c07d64fp+6",
+          "lo": "126.62262987337736",
+          "hi": "126.62263012662264"
+        },
+        "role": "declared D11 core Higgs chart coordinate",
+        "normalization": "GeV",
+        "provenance_class": "declared_branch_input_d11_surface",
+        "source_artifact": "code/particles/runs/calibration/d11_declared_calibration_surface.json",
+        "note": "Declared D11 calibration-surface constant on the printed D10/D11 running, matching, and threshold surface; the historical selection of this surface used target inspection (target-anchored fit), and its source derivation is an open upstream gate."
+      },
+      "mt_pole_core_gev": {
+        "decimal": "170.26125",
+        "center": {
+          "lo_hex": "0x1.5485c28f5c28fp+7",
+          "hi_hex": "0x1.5485c28f5c290p+7",
+          "lo": "170.26125",
+          "hi": "170.26125000000002"
+        },
+        "box": {
+          "lo_hex": "0x1.5485c289a5a08p+7",
+          "hi_hex": "0x1.5485c29512b17p+7",
+          "lo": "170.26124982973874",
+          "hi": "170.26125017026126"
+        },
+        "role": "declared D11 core top pole chart coordinate",
+        "normalization": "GeV",
+        "provenance_class": "declared_branch_input_d11_surface",
+        "source_artifact": "code/particles/runs/calibration/d11_declared_calibration_surface.json",
+        "note": "Declared D11 calibration-surface constant on the printed D10/D11 running, matching, and threshold surface; the historical selection of this surface used target inspection (target-anchored fit), and its source derivation is an open upstream gate."
+      },
+      "d_mH_d_lambda": {
+        "decimal": "480.0",
+        "center": {
+          "lo_hex": "0x1.e000000000000p+8",
+          "hi_hex": "0x1.e000000000000p+8",
+          "lo": "480.0",
+          "hi": "480.0"
+        },
+        "box": {
+          "lo_hex": "0x1.dffffff7f26a6p+8",
+          "hi_hex": "0x1.e00000080d95ap+8",
+          "lo": "479.99999951999996",
+          "hi": "480.00000048000004"
+        },
+        "role": "declared D11 Jacobian entry d m_H / d lambda",
+        "normalization": "GeV per unit quartic",
+        "provenance_class": "declared_branch_input_d11_surface",
+        "source_artifact": "code/particles/runs/calibration/d11_declared_calibration_surface.json",
+        "note": "Declared D11 calibration-surface constant on the printed D10/D11 running, matching, and threshold surface; the historical selection of this surface used target inspection (target-anchored fit), and its source derivation is an open upstream gate."
+      },
+      "d_mt_pole_d_y_t": {
+        "decimal": "184.97",
+        "center": {
+          "lo_hex": "0x1.71f0a3d70a3d7p+7",
+          "hi_hex": "0x1.71f0a3d70a3d8p+7",
+          "lo": "184.97",
+          "hi": "184.97000000000003"
+        },
+        "box": {
+          "lo_hex": "0x1.71f0a3d0d55c1p+7",
+          "hi_hex": "0x1.71f0a3dd3f1edp+7",
+          "lo": "184.96999981502998",
+          "hi": "184.97000018497002"
+        },
+        "role": "declared D11 Jacobian entry d m_t / d y_t",
+        "normalization": "GeV per unit Yukawa",
+        "provenance_class": "declared_branch_input_d11_surface",
+        "source_artifact": "code/particles/runs/calibration/d11_declared_calibration_surface.json",
+        "note": "Declared D11 calibration-surface constant on the printed D10/D11 running, matching, and threshold surface; the historical selection of this surface used target inspection (target-anchored fit), and its source derivation is an open upstream gate."
+      }
+    },
+    "box_policy": {
+      "relative_half_width_decimal": "1e-9",
+      "construction": "For each input with center decimal c and half width h, the box is the outward binary64 bracket of the exact rational interval [c - |c|*h, c + |c|*h], so the box contains the declared decimal centers.",
+      "provenance_class": "enclosure_choice",
+      "note": "Enclosure-domain choice; the enclosure and the non-singularity conditions are proved over the entire box, so the choice widens rather than weakens the certified statement."
+    },
+    "declared_branch_input_whitelist": [
+      "eta_source",
+      "beta_EW",
+      "lambda_EW",
+      "tau2_tree_exact",
+      "delta_n_tree_exact",
+      "y_t_core_mt",
+      "lambda_core_mt",
+      "mH_core_gev",
+      "mt_pole_core_gev",
+      "d_mH_d_lambda",
+      "d_mt_pole_d_y_t"
+    ],
+    "input_character": "All eleven scalars are declared branch inputs of the frozen declared surface: the candidate D10 tuple descends from the MSbar gauge couplings at the Z scale on the legacy D10 calibration branch, and the D11 core/Jacobian constants belong to a declared surface whose historical selection used target inspection. No measured particle mass value appears numerically in the input box. The enclosure certifies the declared-surface arithmetic; source derivation of the inputs stays an open upstream gate."
+  },
+  "computed": {
+    "evaluations": {
+      "at_input_centers": {
+        "eta_source": {
+          "lo_hex": "0x1.6adb411cc58bcp-6",
+          "hi_hex": "0x1.6adb411cc58bdp-6",
+          "lo": "0.022147000871961295",
+          "hi": "0.0221470008719613"
+        },
+        "beta_EW": {
+          "lo_hex": "0x1.13ba17d89566ap-1",
+          "hi_hex": "0x1.13ba17d89566bp-1",
+          "lo": "0.5385291530498766",
+          "hi": "0.5385291530498767"
+        },
+        "lambda_EW": {
+          "lo_hex": "0x1.dd84d51ec767fp-13",
+          "hi_hex": "0x1.dd84d51ec7680p-13",
+          "lo": "0.00022769874427635073",
+          "hi": "0.00022769874427635076"
+        },
+        "tau2_tree_exact": {
+          "lo_hex": "-0x1.e4c8509e41035p-13",
+          "hi_hex": "-0x1.e4c8509e41034p-13",
+          "lo": "-0.0002311623001746158",
+          "hi": "-0.00023116230017461578"
+        },
+        "delta_n_tree_exact": {
+          "lo_hex": "0x1.ec112dd3e0963p-13",
+          "hi_hex": "0x1.ec112dd3e0964p-13",
+          "lo": "0.00023463588024348188",
+          "hi": "0.0002346358802434819"
+        },
+        "y_t_core_mt": {
+          "lo_hex": "0x1.d7471a70c48e3p-1",
+          "hi_hex": "0x1.d7471a70c48e4p-1",
+          "lo": "0.9204643499999999",
+          "hi": "0.92046435"
+        },
+        "lambda_core_mt": {
+          "lo_hex": "0x1.0d9e11ce5e9d4p-3",
+          "hi_hex": "0x1.0d9e11ce5e9d5p-3",
+          "lo": "0.13164915",
+          "hi": "0.13164915000000002"
+        },
+        "mH_core_gev": {
+          "lo_hex": "0x1.fa7d92b7fe08ap+6",
+          "hi_hex": "0x1.fa7d92b7fe08bp+6",
+          "lo": "126.62262999999999",
+          "hi": "126.62263"
+        },
+        "mt_pole_core_gev": {
+          "lo_hex": "0x1.5485c28f5c28fp+7",
+          "hi_hex": "0x1.5485c28f5c290p+7",
+          "lo": "170.26125",
+          "hi": "170.26125000000002"
+        },
+        "d_mH_d_lambda": {
+          "lo_hex": "0x1.e000000000000p+8",
+          "hi_hex": "0x1.e000000000000p+8",
+          "lo": "480.0",
+          "hi": "480.0"
+        },
+        "d_mt_pole_d_y_t": {
+          "lo_hex": "0x1.71f0a3d70a3d7p+7",
+          "hi_hex": "0x1.71f0a3d70a3d8p+7",
+          "lo": "184.97",
+          "hi": "184.97000000000003"
+        },
+        "A_T": {
+          "lo_hex": "0x1.a27742fb12accp+0",
+          "hi_hex": "0x1.a27742fb12acfp+0",
+          "lo": "1.6346322882624689",
+          "hi": "1.6346322882624695"
+        },
+        "B_H": {
+          "lo_hex": "0x1.52c7c2264a77ep+0",
+          "hi_hex": "0x1.52c7c2264a781p+0",
+          "lo": "1.3233605712398169",
+          "hi": "1.3233605712398175"
+        },
+        "one_plus_tau2": {
+          "lo_hex": "0x1.ffe1b37af61bep-1",
+          "hi_hex": "0x1.ffe1b37af61c0p-1",
+          "lo": "0.9997688376998253",
+          "hi": "0.9997688376998255"
+        },
+        "rho_HT": {
+          "lo_hex": "-0x1.e4d6a9475d916p-13",
+          "hi_hex": "-0x1.e4d6a9475b903p-13",
+          "lo": "-0.0002311890222974142",
+          "hi": "-0.00023118902229719165"
+        },
+        "eta_pow_2": {
+          "lo_hex": "0x1.012867f6eb3c6p-11",
+          "hi_hex": "0x1.012867f6eb3c9p-11",
+          "lo": "0.0004904896476226543",
+          "hi": "0.0004904896476226546"
+        },
+        "eta_pow_4": {
+          "lo_hex": "0x1.0252271e6bb15p-22",
+          "hi_hex": "0x1.0252271e6bb1dp-22",
+          "lo": "2.405800944249955e-07",
+          "hi": "2.4058009442499595e-07"
+        },
+        "eta_pow_5": {
+          "lo_hex": "0x1.6e25694c5f901p-28",
+          "hi_hex": "0x1.6e25694c5f90fp-28",
+          "lo": "5.328127561006906e-09",
+          "hi": "5.328127561006918e-09"
+        },
+        "eta_pow_6": {
+          "lo_hex": "0x1.037d3f03dceafp-33",
+          "hi_hex": "0x1.037d3f03dcebcp-33",
+          "lo": "1.1800204573954092e-10",
+          "hi": "1.1800204573954126e-10"
+        },
+        "eta_pow_8": {
+          "lo_hex": "0x1.04a9b1366688ap-44",
+          "hi_hex": "0x1.04a9b1366689cp-44",
+          "lo": "5.787878183353975e-14",
+          "hi": "5.787878183353998e-14"
+        },
+        "eta_pow_9": {
+          "lo_hex": "0x1.7177340de839fp-50",
+          "hi_hex": "0x1.7177340de83bbp-50",
+          "lo": "1.2818414317354623e-15",
+          "hi": "1.2818414317354678e-15"
+        },
+        "R_T": {
+          "lo_hex": "0x1.e77ddbbb27fcdp-24",
+          "hi_hex": "0x1.e77ddbbb27fdcp-24",
+          "lo": "1.1350299093876583e-07",
+          "hi": "1.1350299093876603e-07"
+        },
+        "R_H": {
+          "lo_hex": "0x1.6d2d45f554baep-28",
+          "hi_hex": "0x1.6d2d45f554bc2p-28",
+          "lo": "5.314022546071079e-09",
+          "hi": "5.314022546071096e-09"
+        },
+        "pi_y": {
+          "lo_hex": "0x1.927489e2b1a48p-7",
+          "hi_hex": "0x1.927489e2b1acap-7",
+          "lo": "0.012281958891788083",
+          "hi": "0.012281958891788309"
+        },
+        "pi_lambda": {
+          "lo_hex": "0x1.9f188dd47a2d7p-7",
+          "hi_hex": "0x1.9f188dd47a342p-7",
+          "lo": "0.012667721989559606",
+          "hi": "0.012667721989559792"
+        },
+        "delta_y_t_mt": {
+          "lo_hex": "0x1.727218c9b8597p-7",
+          "hi_hex": "0x1.727218c9b8612p-7",
+          "lo": "0.011305105308056436",
+          "hi": "0.011305105308056649"
+        },
+        "delta_lambda_mt": {
+          "lo_hex": "-0x1.8499df29d3adfp-9",
+          "hi_hex": "-0x1.8499df29d3a75p-9",
+          "lo": "-0.0029647908130877444",
+          "hi": "-0.0029647908130876984"
+        },
+        "m_t_D11_GeV": {
+          "lo_hex": "0x1.58b467eaebcd6p+7",
+          "hi_hex": "0x1.58b467eaebcdbp+7",
+          "lo": "172.35235532883115",
+          "hi": "172.3523553288313"
+        },
+        "m_H_GeV": {
+          "lo_hex": "0x1.f4cc51b3212ecp+6",
+          "hi_hex": "0x1.f4cc51b3212f1p+6",
+          "lo": "125.19953040971785",
+          "hi": "125.19953040971792"
+        },
+        "Sigma_HT": {
+          "lo_hex": "0x1.98c68bdb95e8ep-7",
+          "hi_hex": "0x1.98c68bdb95f08p-7",
+          "lo": "0.012474840440673842",
+          "hi": "0.012474840440674054"
+        },
+        "w_HT": {
+          "lo_hex": "-0x1.94807e3911f41p-12",
+          "hi_hex": "-0x1.94807e391019fp-12",
+          "lo": "-0.0003857630977717082",
+          "hi": "-0.000385763097771297"
+        },
+        "c_T_live": {
+          "lo_hex": "0x1.38081bddbe9d2p-12",
+          "hi_hex": "0x1.38081bf9064dep-12",
+          "lo": "0.0002975765945475692",
+          "hi": "0.00029757659609825997"
+        },
+        "c_H_live": {
+          "lo_hex": "0x1.3c44d8637f49cp-7",
+          "hi_hex": "0x1.3c44d864303dcp-7",
+          "lo": "0.009651761683011899",
+          "hi": "0.009651761684269226"
+        }
+      },
+      "over_full_input_box_with_gradient": {
+        "eta_source": {
+          "value": {
+            "lo_hex": "0x1.6adb4116af16dp-6",
+            "hi_hex": "0x1.6adb4122dc00bp-6",
+            "lo": "0.022147000849814292",
+            "hi": "0.022147000894108298"
+          },
+          "gradient": {
+            "eta_source": {
+              "lo_hex": "0x1.0000000000000p+0",
+              "hi_hex": "0x1.0000000000000p+0",
+              "lo": "1.0",
+              "hi": "1.0"
+            },
+            "beta_EW": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "lambda_EW": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "tau2_tree_exact": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "delta_n_tree_exact": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "y_t_core_mt": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "lambda_core_mt": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "mH_core_gev": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "mt_pole_core_gev": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "d_mH_d_lambda": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "d_mt_pole_d_y_t": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            }
+          }
+        },
+        "beta_EW": {
+          "value": {
+            "lo_hex": "0x1.13ba17d3f529ap-1",
+            "hi_hex": "0x1.13ba17dd35a3ap-1",
+            "lo": "0.5385291525113474",
+            "hi": "0.5385291535884058"
+          },
+          "gradient": {
+            "eta_source": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "beta_EW": {
+              "lo_hex": "0x1.0000000000000p+0",
+              "hi_hex": "0x1.0000000000000p+0",
+              "lo": "1.0",
+              "hi": "1.0"
+            },
+            "lambda_EW": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "tau2_tree_exact": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "delta_n_tree_exact": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "y_t_core_mt": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "lambda_core_mt": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "mH_core_gev": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "mt_pole_core_gev": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "d_mH_d_lambda": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "d_mt_pole_d_y_t": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            }
+          }
+        },
+        "lambda_EW": {
+          "value": {
+            "lo_hex": "0x1.dd84d516c47a6p-13",
+            "hi_hex": "0x1.dd84d526ca558p-13",
+            "lo": "0.00022769874404865198",
+            "hi": "0.00022769874450404948"
+          },
+          "gradient": {
+            "eta_source": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "beta_EW": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "lambda_EW": {
+              "lo_hex": "0x1.0000000000000p+0",
+              "hi_hex": "0x1.0000000000000p+0",
+              "lo": "1.0",
+              "hi": "1.0"
+            },
+            "tau2_tree_exact": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "delta_n_tree_exact": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "y_t_core_mt": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "lambda_core_mt": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "mH_core_gev": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "mt_pole_core_gev": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "d_mH_d_lambda": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "d_mt_pole_d_y_t": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            }
+          }
+        },
+        "tau2_tree_exact": {
+          "value": {
+            "lo_hex": "-0x1.e4c850a663235p-13",
+            "hi_hex": "-0x1.e4c850961ee35p-13",
+            "lo": "-0.00023116230040577811",
+            "hi": "-0.0002311622999434535"
+          },
+          "gradient": {
+            "eta_source": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "beta_EW": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "lambda_EW": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "tau2_tree_exact": {
+              "lo_hex": "0x1.0000000000000p+0",
+              "hi_hex": "0x1.0000000000000p+0",
+              "lo": "1.0",
+              "hi": "1.0"
+            },
+            "delta_n_tree_exact": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "y_t_core_mt": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "lambda_core_mt": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "mH_core_gev": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "mt_pole_core_gev": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "d_mH_d_lambda": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "d_mt_pole_d_y_t": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            }
+          }
+        },
+        "delta_n_tree_exact": {
+          "value": {
+            "lo_hex": "0x1.ec112dcb9f2cbp-13",
+            "hi_hex": "0x1.ec112ddc21ffcp-13",
+            "lo": "0.000234635880008846",
+            "hi": "0.0002346358804781178"
+          },
+          "gradient": {
+            "eta_source": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "beta_EW": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "lambda_EW": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "tau2_tree_exact": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "delta_n_tree_exact": {
+              "lo_hex": "0x1.0000000000000p+0",
+              "hi_hex": "0x1.0000000000000p+0",
+              "lo": "1.0",
+              "hi": "1.0"
+            },
+            "y_t_core_mt": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "lambda_core_mt": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "mH_core_gev": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "mt_pole_core_gev": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "d_mH_d_lambda": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "d_mt_pole_d_y_t": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            }
+          }
+        },
+        "y_t_core_mt": {
+          "value": {
+            "lo_hex": "0x1.d7471a68dc6edp-1",
+            "hi_hex": "0x1.d7471a78acadap-1",
+            "lo": "0.9204643490795356",
+            "hi": "0.9204643509204644"
+          },
+          "gradient": {
+            "eta_source": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "beta_EW": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "lambda_EW": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "tau2_tree_exact": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "delta_n_tree_exact": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "y_t_core_mt": {
+              "lo_hex": "0x1.0000000000000p+0",
+              "hi_hex": "0x1.0000000000000p+0",
+              "lo": "1.0",
+              "hi": "1.0"
+            },
+            "lambda_core_mt": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "mH_core_gev": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "mt_pole_core_gev": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "d_mH_d_lambda": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "d_mt_pole_d_y_t": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            }
+          }
+        },
+        "lambda_core_mt": {
+          "value": {
+            "lo_hex": "0x1.0d9e11c9d89dbp-3",
+            "hi_hex": "0x1.0d9e11d2e49cdp-3",
+            "lo": "0.13164914986835083",
+            "hi": "0.13164915013164916"
+          },
+          "gradient": {
+            "eta_source": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "beta_EW": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "lambda_EW": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "tau2_tree_exact": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "delta_n_tree_exact": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "y_t_core_mt": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "lambda_core_mt": {
+              "lo_hex": "0x1.0000000000000p+0",
+              "hi_hex": "0x1.0000000000000p+0",
+              "lo": "1.0",
+              "hi": "1.0"
+            },
+            "mH_core_gev": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "mt_pole_core_gev": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "d_mH_d_lambda": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "d_mt_pole_d_y_t": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            }
+          }
+        },
+        "mH_core_gev": {
+          "value": {
+            "lo_hex": "0x1.fa7d92af7eac7p+6",
+            "hi_hex": "0x1.fa7d92c07d64fp+6",
+            "lo": "126.62262987337736",
+            "hi": "126.62263012662264"
+          },
+          "gradient": {
+            "eta_source": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "beta_EW": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "lambda_EW": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "tau2_tree_exact": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "delta_n_tree_exact": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "y_t_core_mt": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "lambda_core_mt": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "mH_core_gev": {
+              "lo_hex": "0x1.0000000000000p+0",
+              "hi_hex": "0x1.0000000000000p+0",
+              "lo": "1.0",
+              "hi": "1.0"
+            },
+            "mt_pole_core_gev": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "d_mH_d_lambda": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "d_mt_pole_d_y_t": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            }
+          }
+        },
+        "mt_pole_core_gev": {
+          "value": {
+            "lo_hex": "0x1.5485c289a5a08p+7",
+            "hi_hex": "0x1.5485c29512b17p+7",
+            "lo": "170.26124982973874",
+            "hi": "170.26125017026126"
+          },
+          "gradient": {
+            "eta_source": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "beta_EW": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "lambda_EW": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "tau2_tree_exact": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "delta_n_tree_exact": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "y_t_core_mt": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "lambda_core_mt": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "mH_core_gev": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "mt_pole_core_gev": {
+              "lo_hex": "0x1.0000000000000p+0",
+              "hi_hex": "0x1.0000000000000p+0",
+              "lo": "1.0",
+              "hi": "1.0"
+            },
+            "d_mH_d_lambda": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "d_mt_pole_d_y_t": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            }
+          }
+        },
+        "d_mH_d_lambda": {
+          "value": {
+            "lo_hex": "0x1.dffffff7f26a6p+8",
+            "hi_hex": "0x1.e00000080d95ap+8",
+            "lo": "479.99999951999996",
+            "hi": "480.00000048000004"
+          },
+          "gradient": {
+            "eta_source": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "beta_EW": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "lambda_EW": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "tau2_tree_exact": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "delta_n_tree_exact": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "y_t_core_mt": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "lambda_core_mt": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "mH_core_gev": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "mt_pole_core_gev": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "d_mH_d_lambda": {
+              "lo_hex": "0x1.0000000000000p+0",
+              "hi_hex": "0x1.0000000000000p+0",
+              "lo": "1.0",
+              "hi": "1.0"
+            },
+            "d_mt_pole_d_y_t": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            }
+          }
+        },
+        "d_mt_pole_d_y_t": {
+          "value": {
+            "lo_hex": "0x1.71f0a3d0d55c1p+7",
+            "hi_hex": "0x1.71f0a3dd3f1edp+7",
+            "lo": "184.96999981502998",
+            "hi": "184.97000018497002"
+          },
+          "gradient": {
+            "eta_source": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "beta_EW": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "lambda_EW": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "tau2_tree_exact": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "delta_n_tree_exact": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "y_t_core_mt": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "lambda_core_mt": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "mH_core_gev": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "mt_pole_core_gev": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "d_mH_d_lambda": {
+              "lo_hex": "0x0.0p+0",
+              "hi_hex": "0x0.0p+0",
+              "lo": "0.0",
+              "hi": "0.0"
+            },
+            "d_mt_pole_d_y_t": {
+              "lo_hex": "0x1.0000000000000p+0",
+              "hi_hex": "0x1.0000000000000p+0",
+              "lo": "1.0",
+              "hi": "1.0"
+            }
+          }
+        },
+        "A_T": {
+          "value": {
+            "lo_hex": "0x1.a27742fa7ea52p+0",
+            "hi_hex": "0x1.a27742fba6b48p+0",
+            "lo": "1.6346322881278366",
+            "hi": "1.6346322883971016"
+          },
+          "gradient": {
+            "eta_source": {
+              "lo_hex": "-0x0.0000000000004p-1022",
+              "hi_hex": "0x0.0000000000004p-1022",
+              "lo": "-2e-323",
+              "hi": "2e-323"
+            },
+            "beta_EW": {
+              "lo_hex": "0x1.ffffffffffffdp-3",
+              "hi_hex": "0x1.0000000000003p-2",
+              "lo": "0.24999999999999992",
+              "hi": "0.25000000000000017"
+            },
+            "lambda_EW": {
+              "lo_hex": "-0x0.0000000000004p-1022",
+              "hi_hex": "0x0.0000000000004p-1022",
+              "lo": "-2e-323",
+              "hi": "2e-323"
+            },
+            "tau2_tree_exact": {
+              "lo_hex": "-0x0.0000000000004p-1022",
+              "hi_hex": "0x0.0000000000004p-1022",
+              "lo": "-2e-323",
+              "hi": "2e-323"
+            },
+            "delta_n_tree_exact": {
+              "lo_hex": "-0x0.0000000000004p-1022",
+              "hi_hex": "0x0.0000000000004p-1022",
+              "lo": "-2e-323",
+              "hi": "2e-323"
+            },
+            "y_t_core_mt": {
+              "lo_hex": "-0x0.0000000000004p-1022",
+              "hi_hex": "0x0.0000000000004p-1022",
+              "lo": "-2e-323",
+              "hi": "2e-323"
+            },
+            "lambda_core_mt": {
+              "lo_hex": "-0x0.0000000000004p-1022",
+              "hi_hex": "0x0.0000000000004p-1022",
+              "lo": "-2e-323",
+              "hi": "2e-323"
+            },
+            "mH_core_gev": {
+              "lo_hex": "-0x0.0000000000004p-1022",
+              "hi_hex": "0x0.0000000000004p-1022",
+              "lo": "-2e-323",
+              "hi": "2e-323"
+            },
+            "mt_pole_core_gev": {
+              "lo_hex": "-0x0.0000000000004p-1022",
+              "hi_hex": "0x0.0000000000004p-1022",
+              "lo": "-2e-323",
+              "hi": "2e-323"
+            },
+            "d_mH_d_lambda": {
+              "lo_hex": "-0x0.0000000000004p-1022",
+              "hi_hex": "0x0.0000000000004p-1022",
+              "lo": "-2e-323",
+              "hi": "2e-323"
+            },
+            "d_mt_pole_d_y_t": {
+              "lo_hex": "-0x0.0000000000004p-1022",
+              "hi_hex": "0x0.0000000000004p-1022",
+              "lo": "-2e-323",
+              "hi": "2e-323"
+            }
+          }
+        },
+        "B_H": {
+          "value": {
+            "lo_hex": "0x1.52c7c2263f80cp+0",
+            "hi_hex": "0x1.52c7c226556f2p+0",
+            "lo": "1.323360571229844",
+            "hi": "1.3233605712497902"
+          },
+          "gradient": {
+            "eta_source": {
+              "lo_hex": "-0x0.0000000000004p-1022",
+              "hi_hex": "0x0.0000000000004p-1022",
+              "lo": "-2e-323",
+              "hi": "2e-323"
+            },
+            "beta_EW": {
+              "lo_hex": "-0x1.2f684bda12f6cp-6",
+              "hi_hex": "-0x1.2f684bda12f65p-6",
+              "lo": "-0.01851851851851853",
+              "hi": "-0.018518518518518507"
+            },
+            "lambda_EW": {
+              "lo_hex": "-0x0.0000000000004p-1022",
+              "hi_hex": "0x0.0000000000004p-1022",
+              "lo": "-2e-323",
+              "hi": "2e-323"
+            },
+            "tau2_tree_exact": {
+              "lo_hex": "-0x0.0000000000004p-1022",
+              "hi_hex": "0x0.0000000000004p-1022",
+              "lo": "-2e-323",
+              "hi": "2e-323"
+            },
+            "delta_n_tree_exact": {
+              "lo_hex": "-0x0.0000000000004p-1022",
+              "hi_hex": "0x0.0000000000004p-1022",
+              "lo": "-2e-323",
+              "hi": "2e-323"
+            },
+            "y_t_core_mt": {
+              "lo_hex": "-0x0.0000000000004p-1022",
+              "hi_hex": "0x0.0000000000004p-1022",
+              "lo": "-2e-323",
+              "hi": "2e-323"
+            },
+            "lambda_core_mt": {
+              "lo_hex": "-0x0.0000000000004p-1022",
+              "hi_hex": "0x0.0000000000004p-1022",
+              "lo": "-2e-323",
+              "hi": "2e-323"
+            },
+            "mH_core_gev": {
+              "lo_hex": "-0x0.0000000000004p-1022",
+              "hi_hex": "0x0.0000000000004p-1022",
+              "lo": "-2e-323",
+              "hi": "2e-323"
+            },
+            "mt_pole_core_gev": {
+              "lo_hex": "-0x0.0000000000004p-1022",
+              "hi_hex": "0x0.0000000000004p-1022",
+              "lo": "-2e-323",
+              "hi": "2e-323"
+            },
+            "d_mH_d_lambda": {
+              "lo_hex": "-0x0.0000000000004p-1022",
+              "hi_hex": "0x0.0000000000004p-1022",
+              "lo": "-2e-323",
+              "hi": "2e-323"
+            },
+            "d_mt_pole_d_y_t": {
+              "lo_hex": "-0x0.0000000000004p-1022",
+              "hi_hex": "0x0.0000000000004p-1022",
+              "lo": "-2e-323",
+              "hi": "2e-323"
+            }
+          }
+        },
+        "one_plus_tau2": {
+          "value": {
+            "lo_hex": "0x1.ffe1b37af599cp-1",
+            "hi_hex": "0x1.ffe1b37af69e2p-1",
+            "lo": "0.9997688376995941",
+            "hi": "0.9997688377000566"
+          },
+          "gradient": {
+            "eta_source": {
+              "lo_hex": "-0x0.0000000000001p-1022",
+              "hi_hex": "0x0.0000000000001p-1022",
+              "lo": "-5e-324",
+              "hi": "5e-324"
+            },
+            "beta_EW": {
+              "lo_hex": "-0x0.0000000000001p-1022",
+              "hi_hex": "0x0.0000000000001p-1022",
+              "lo": "-5e-324",
+              "hi": "5e-324"
+            },
+            "lambda_EW": {
+              "lo_hex": "-0x0.0000000000001p-1022",
+              "hi_hex": "0x0.0000000000001p-1022",
+              "lo": "-5e-324",
+              "hi": "5e-324"
+            },
+            "tau2_tree_exact": {
+              "lo_hex": "0x1.fffffffffffffp-1",
+              "hi_hex": "0x1.0000000000001p+0",
+              "lo": "0.9999999999999999",
+              "hi": "1.0000000000000002"
+            },
+            "delta_n_tree_exact": {
+              "lo_hex": "-0x0.0000000000001p-1022",
+              "hi_hex": "0x0.0000000000001p-1022",
+              "lo": "-5e-324",
+              "hi": "5e-324"
+            },
+            "y_t_core_mt": {
+              "lo_hex": "-0x0.0000000000001p-1022",
+              "hi_hex": "0x0.0000000000001p-1022",
+              "lo": "-5e-324",
+              "hi": "5e-324"
+            },
+            "lambda_core_mt": {
+              "lo_hex": "-0x0.0000000000001p-1022",
+              "hi_hex": "0x0.0000000000001p-1022",
+              "lo": "-5e-324",
+              "hi": "5e-324"
+            },
+            "mH_core_gev": {
+              "lo_hex": "-0x0.0000000000001p-1022",
+              "hi_hex": "0x0.0000000000001p-1022",
+              "lo": "-5e-324",
+              "hi": "5e-324"
+            },
+            "mt_pole_core_gev": {
+              "lo_hex": "-0x0.0000000000001p-1022",
+              "hi_hex": "0x0.0000000000001p-1022",
+              "lo": "-5e-324",
+              "hi": "5e-324"
+            },
+            "d_mH_d_lambda": {
+              "lo_hex": "-0x0.0000000000001p-1022",
+              "hi_hex": "0x0.0000000000001p-1022",
+              "lo": "-5e-324",
+              "hi": "5e-324"
+            },
+            "d_mt_pole_d_y_t": {
+              "lo_hex": "-0x0.0000000000001p-1022",
+              "hi_hex": "0x0.0000000000001p-1022",
+              "lo": "-5e-324",
+              "hi": "5e-324"
+            }
+          }
+        },
+        "rho_HT": {
+          "value": {
+            "lo_hex": "-0x1.e4d6a94f800c9p-13",
+            "hi_hex": "-0x1.e4d6a93f3914fp-13",
+            "lo": "-0.00023118902252861607",
+            "hi": "-0.00023118902206598977"
+          },
+          "gradient": {
+            "eta_source": {
+              "lo_hex": "-0x0.0000000000002p-1022",
+              "hi_hex": "0x0.0000000000002p-1022",
+              "lo": "-1e-323",
+              "hi": "1e-323"
+            },
+            "beta_EW": {
+              "lo_hex": "-0x0.0000000000002p-1022",
+              "hi_hex": "0x0.0000000000002p-1022",
+              "lo": "-1e-323",
+              "hi": "1e-323"
+            },
+            "lambda_EW": {
+              "lo_hex": "-0x0.0000000000002p-1022",
+              "hi_hex": "0x0.0000000000002p-1022",
+              "lo": "-1e-323",
+              "hi": "1e-323"
+            },
+            "tau2_tree_exact": {
+              "lo_hex": "0x1.000f272813c9ep+0",
+              "hi_hex": "0x1.000f2728144c6p+0",
+              "lo": "1.000231215748307",
+              "hi": "1.0002312157487707"
+            },
+            "delta_n_tree_exact": {
+              "lo_hex": "-0x0.0000000000002p-1022",
+              "hi_hex": "0x0.0000000000002p-1022",
+              "lo": "-1e-323",
+              "hi": "1e-323"
+            },
+            "y_t_core_mt": {
+              "lo_hex": "-0x0.0000000000002p-1022",
+              "hi_hex": "0x0.0000000000002p-1022",
+              "lo": "-1e-323",
+              "hi": "1e-323"
+            },
+            "lambda_core_mt": {
+              "lo_hex": "-0x0.0000000000002p-1022",
+              "hi_hex": "0x0.0000000000002p-1022",
+              "lo": "-1e-323",
+              "hi": "1e-323"
+            },
+            "mH_core_gev": {
+              "lo_hex": "-0x0.0000000000002p-1022",
+              "hi_hex": "0x0.0000000000002p-1022",
+              "lo": "-1e-323",
+              "hi": "1e-323"
+            },
+            "mt_pole_core_gev": {
+              "lo_hex": "-0x0.0000000000002p-1022",
+              "hi_hex": "0x0.0000000000002p-1022",
+              "lo": "-1e-323",
+              "hi": "1e-323"
+            },
+            "d_mH_d_lambda": {
+              "lo_hex": "-0x0.0000000000002p-1022",
+              "hi_hex": "0x0.0000000000002p-1022",
+              "lo": "-1e-323",
+              "hi": "1e-323"
+            },
+            "d_mt_pole_d_y_t": {
+              "lo_hex": "-0x0.0000000000002p-1022",
+              "hi_hex": "0x0.0000000000002p-1022",
+              "lo": "-1e-323",
+              "hi": "1e-323"
+            }
+          }
+        },
+        "eta_pow_2": {
+          "value": {
+            "lo_hex": "0x1.012867ee4a444p-11",
+            "hi_hex": "0x1.012867ff8c34ap-11",
+            "lo": "0.0004904896466416749",
+            "hi": "0.0004904896486036339"
+          },
+          "gradient": {
+            "eta_source": {
+              "lo_hex": "0x1.6adb4116af16bp-5",
+              "hi_hex": "0x1.6adb4122dc00dp-5",
+              "lo": "0.04429400169962857",
+              "hi": "0.04429400178821661"
+            },
+            "beta_EW": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            },
+            "lambda_EW": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            },
+            "tau2_tree_exact": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            },
+            "delta_n_tree_exact": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            },
+            "y_t_core_mt": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            },
+            "lambda_core_mt": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            },
+            "mH_core_gev": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            },
+            "mt_pole_core_gev": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            },
+            "d_mH_d_lambda": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            },
+            "d_mt_pole_d_y_t": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            }
+          }
+        },
+        "eta_pow_4": {
+          "value": {
+            "lo_hex": "0x1.0252270d15c5dp-22",
+            "hi_hex": "0x1.0252272fc19d3p-22",
+            "lo": "2.4058009346267504e-07",
+            "hi": "2.405800953873163e-07"
+          },
+          "gradient": {
+            "eta_source": {
+              "lo_hex": "0x1.6c7f61e9e99bcp-15",
+              "hi_hex": "0x1.6c7f620e9aa4cp-15",
+              "lo": "4.345149848399311e-05",
+              "hi": "4.345149874470221e-05"
+            },
+            "beta_EW": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            },
+            "lambda_EW": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            },
+            "tau2_tree_exact": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            },
+            "delta_n_tree_exact": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            },
+            "y_t_core_mt": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            },
+            "lambda_core_mt": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            },
+            "mH_core_gev": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            },
+            "mt_pole_core_gev": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            },
+            "d_mH_d_lambda": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            },
+            "d_mt_pole_d_y_t": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            }
+          }
+        },
+        "eta_pow_5": {
+          "value": {
+            "lo_hex": "0x1.6e25692da8a22p-28",
+            "hi_hex": "0x1.6e25696b167e9p-28",
+            "lo": "5.328127534366265e-09",
+            "hi": "5.328127587647555e-09"
+          },
+          "gradient": {
+            "eta_source": {
+              "lo_hex": "0x1.42e6b0d05b371p-20",
+              "hi_hex": "0x1.42e6b0fbb204bp-20",
+              "lo": "1.2029004673133745e-06",
+              "hi": "1.2029004769365823e-06"
+            },
+            "beta_EW": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            },
+            "lambda_EW": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            },
+            "tau2_tree_exact": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            },
+            "delta_n_tree_exact": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            },
+            "y_t_core_mt": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            },
+            "lambda_core_mt": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            },
+            "mH_core_gev": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            },
+            "mt_pole_core_gev": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            },
+            "d_mH_d_lambda": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            },
+            "d_mt_pole_d_y_t": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            }
+          }
+        },
+        "eta_pow_6": {
+          "value": {
+            "lo_hex": "0x1.037d3ee9bdee2p-33",
+            "hi_hex": "0x1.037d3f1dfbe85p-33",
+            "lo": "1.1800204503152857e-10",
+            "hi": "1.180020464475535e-10"
+          },
+          "gradient": {
+            "eta_source": {
+              "lo_hex": "0x1.129c0ee23e796p-25",
+              "hi_hex": "0x1.129c0f1050df2p-25",
+              "lo": "3.1968765206197566e-08",
+              "hi": "3.196876552588535e-08"
+            },
+            "beta_EW": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            },
+            "lambda_EW": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            },
+            "tau2_tree_exact": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            },
+            "delta_n_tree_exact": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            },
+            "y_t_core_mt": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            },
+            "lambda_core_mt": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            },
+            "mH_core_gev": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            },
+            "mt_pole_core_gev": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            },
+            "d_mH_d_lambda": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            },
+            "d_mt_pole_d_y_t": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            }
+          }
+        },
+        "eta_pow_8": {
+          "value": {
+            "lo_hex": "0x1.04a9b1136a399p-44",
+            "hi_hex": "0x1.04a9b15962d88p-44",
+            "lo": "5.787878137050944e-14",
+            "hi": "5.787878229657023e-14"
+          },
+          "gradient": {
+            "eta_source": {
+              "lo_hex": "0x1.6fcd591523be6p-36",
+              "hi_hex": "0x1.6fcd596b8786cp-36",
+              "lo": "2.0907131132744685e-11",
+              "hi": "2.0907131425444632e-11"
+            },
+            "beta_EW": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            },
+            "lambda_EW": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            },
+            "tau2_tree_exact": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            },
+            "delta_n_tree_exact": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            },
+            "y_t_core_mt": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            },
+            "lambda_core_mt": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            },
+            "mH_core_gev": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            },
+            "mt_pole_core_gev": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            },
+            "d_mH_d_lambda": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            },
+            "d_mt_pole_d_y_t": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            }
+          }
+        },
+        "eta_pow_9": {
+          "value": {
+            "lo_hex": "0x1.717733d61ea39p-50",
+            "hi_hex": "0x1.71773445b1d19p-50",
+            "lo": "1.2818414201988879e-15",
+            "hi": "1.2818414432720407e-15"
+          },
+          "gradient": {
+            "eta_source": {
+              "lo_hex": "0x1.253ee735d7809p-41",
+              "hi_hex": "0x1.253ee7848f33cp-41",
+              "lo": "5.209090323345846e-13",
+              "hi": "5.209090406691324e-13"
+            },
+            "beta_EW": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            },
+            "lambda_EW": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            },
+            "tau2_tree_exact": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            },
+            "delta_n_tree_exact": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            },
+            "y_t_core_mt": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            },
+            "lambda_core_mt": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            },
+            "mH_core_gev": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            },
+            "mt_pole_core_gev": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            },
+            "d_mH_d_lambda": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            },
+            "d_mt_pole_d_y_t": {
+              "lo_hex": "-0x0.0000000000003p-1022",
+              "hi_hex": "0x0.0000000000003p-1022",
+              "lo": "-1.5e-323",
+              "hi": "1.5e-323"
+            }
+          }
+        },
+        "R_T": {
+          "value": {
+            "lo_hex": "0x1.e77ddba29801fp-24",
+            "hi_hex": "0x1.e77ddbd3b7f8bp-24",
+            "lo": "1.1350299059789375e-07",
+            "hi": "1.1350299127963812e-07"
+          },
+          "gradient": {
+            "eta_source": {
+              "lo_hex": "0x1.58a921c40186cp-17",
+              "hi_hex": "0x1.58a921db3f1c1p-17",
+              "lo": "1.027168844559505e-05",
+              "hi": "1.0271688486878578e-05"
+            },
+            "beta_EW": {
+              "lo_hex": "0x1.288f235446c68p-38",
+              "hi_hex": "0x1.288f238ffb533p-38",
+              "lo": "4.214358751126014e-12",
+              "hi": "4.214358801698346e-12"
+            },
+            "lambda_EW": {
+              "lo_hex": "-0x0.0000000000012p-1022",
+              "hi_hex": "0x0.0000000000012p-1022",
+              "lo": "-9e-323",
+              "hi": "9e-323"
+            },
+            "tau2_tree_exact": {
+              "lo_hex": "-0x1.012867ff8c34fp-11",
+              "hi_hex": "-0x1.012867ee4a43fp-11",
+              "lo": "-0.0004904896486036344",
+              "hi": "-0.0004904896466416743"
+            },
+            "delta_n_tree_exact": {
+              "lo_hex": "-0x0.0000000000012p-1022",
+              "hi_hex": "0x0.0000000000012p-1022",
+              "lo": "-9e-323",
+              "hi": "9e-323"
+            },
+            "y_t_core_mt": {
+              "lo_hex": "-0x0.0000000000012p-1022",
+              "hi_hex": "0x0.0000000000012p-1022",
+              "lo": "-9e-323",
+              "hi": "9e-323"
+            },
+            "lambda_core_mt": {
+              "lo_hex": "-0x0.0000000000012p-1022",
+              "hi_hex": "0x0.0000000000012p-1022",
+              "lo": "-9e-323",
+              "hi": "9e-323"
+            },
+            "mH_core_gev": {
+              "lo_hex": "-0x0.0000000000012p-1022",
+              "hi_hex": "0x0.0000000000012p-1022",
+              "lo": "-9e-323",
+              "hi": "9e-323"
+            },
+            "mt_pole_core_gev": {
+              "lo_hex": "-0x0.0000000000012p-1022",
+              "hi_hex": "0x0.0000000000012p-1022",
+              "lo": "-9e-323",
+              "hi": "9e-323"
+            },
+            "d_mH_d_lambda": {
+              "lo_hex": "-0x0.0000000000012p-1022",
+              "hi_hex": "0x0.0000000000012p-1022",
+              "lo": "-9e-323",
+              "hi": "9e-323"
+            },
+            "d_mt_pole_d_y_t": {
+              "lo_hex": "-0x0.0000000000012p-1022",
+              "hi_hex": "0x0.0000000000012p-1022",
+              "lo": "-9e-323",
+              "hi": "9e-323"
+            }
+          }
+        },
+        "R_H": {
+          "value": {
+            "lo_hex": "0x1.6d2d45d684942p-28",
+            "hi_hex": "0x1.6d2d461424e29p-28",
+            "lo": "5.314022519344983e-09",
+            "hi": "5.314022572797188e-09"
+          },
+          "gradient": {
+            "eta_source": {
+              "lo_hex": "0x1.41e06d5c02178p-20",
+              "hi_hex": "0x1.41e06d8785943p-20",
+              "lo": "1.1990840311800024e-06",
+              "hi": "1.1990840408419673e-06"
+            },
+            "beta_EW": {
+              "lo_hex": "-0x1.c165c7b476ac4p-44",
+              "hi_hex": "-0x1.c165c71dabb2dp-44",
+              "lo": "-9.978630777351731e-14",
+              "hi": "-9.978630577779031e-14"
+            },
+            "lambda_EW": {
+              "lo_hex": "0x1.cd506fd86e18ap-38",
+              "hi_hex": "0x1.cd5070354e0f5p-38",
+              "lo": "6.555669168418248e-12",
+              "hi": "6.5556692470863125e-12"
+            },
+            "tau2_tree_exact": {
+              "lo_hex": "-0x0.0000000000012p-1022",
+              "hi_hex": "0x0.0000000000012p-1022",
+              "lo": "-9e-323",
+              "hi": "9e-323"
+            },
+            "delta_n_tree_exact": {
+              "lo_hex": "-0x0.0000000000012p-1022",
+              "hi_hex": "0x0.0000000000012p-1022",
+              "lo": "-9e-323",
+              "hi": "9e-323"
+            },
+            "y_t_core_mt": {
+              "lo_hex": "-0x0.0000000000012p-1022",
+              "hi_hex": "0x0.0000000000012p-1022",
+              "lo": "-9e-323",
+              "hi": "9e-323"
+            },
+            "lambda_core_mt": {
+              "lo_hex": "-0x0.0000000000012p-1022",
+              "hi_hex": "0x0.0000000000012p-1022",
+              "lo": "-9e-323",
+              "hi": "9e-323"
+            },
+            "mH_core_gev": {
+              "lo_hex": "-0x0.0000000000012p-1022",
+              "hi_hex": "0x0.0000000000012p-1022",
+              "lo": "-9e-323",
+              "hi": "9e-323"
+            },
+            "mt_pole_core_gev": {
+              "lo_hex": "-0x0.0000000000012p-1022",
+              "hi_hex": "0x0.0000000000012p-1022",
+              "lo": "-9e-323",
+              "hi": "9e-323"
+            },
+            "d_mH_d_lambda": {
+              "lo_hex": "-0x0.0000000000012p-1022",
+              "hi_hex": "0x0.0000000000012p-1022",
+              "lo": "-9e-323",
+              "hi": "9e-323"
+            },
+            "d_mt_pole_d_y_t": {
+              "lo_hex": "-0x0.0000000000012p-1022",
+              "hi_hex": "0x0.0000000000012p-1022",
+              "lo": "-9e-323",
+              "hi": "9e-323"
+            }
+          }
+        },
+        "pi_y": {
+          "value": {
+            "lo_hex": "0x1.927489dbb29afp-7",
+            "hi_hex": "0x1.927489e9b0b61p-7",
+            "lo": "0.012281958879061998",
+            "hi": "0.012281958904514391"
+          },
+          "gradient": {
+            "eta_source": {
+              "lo_hex": "0x1.20de3778607b2p-1",
+              "hi_hex": "0x1.20de377860895p-1",
+              "lo": "0.5641953787273819",
+              "hi": "0.5641953787274071"
+            },
+            "beta_EW": {
+              "lo_hex": "-0x1.118a73652a240p-15",
+              "hi_hex": "-0x1.118a735bfb2cbp-15",
+              "lo": "-3.260860720761096e-05",
+              "hi": "-3.260860714235854e-05"
+            },
+            "lambda_EW": {
+              "lo_hex": "-0x0.0000000000011p-1022",
+              "hi_hex": "0x0.0000000000011p-1022",
+              "lo": "-8.4e-323",
+              "hi": "8.4e-323"
+            },
+            "tau2_tree_exact": {
+              "lo_hex": "0x1.d827d9247337ep-1",
+              "hi_hex": "0x1.d827d925c4becp-1",
+              "lo": "0.9221790177340237",
+              "hi": "0.9221790178875131"
+            },
+            "delta_n_tree_exact": {
+              "lo_hex": "-0x0.0000000000011p-1022",
+              "hi_hex": "0x0.0000000000011p-1022",
+              "lo": "-8.4e-323",
+              "hi": "8.4e-323"
+            },
+            "y_t_core_mt": {
+              "lo_hex": "-0x0.0000000000011p-1022",
+              "hi_hex": "0x0.0000000000011p-1022",
+              "lo": "-8.4e-323",
+              "hi": "8.4e-323"
+            },
+            "lambda_core_mt": {
+              "lo_hex": "-0x0.0000000000011p-1022",
+              "hi_hex": "0x0.0000000000011p-1022",
+              "lo": "-8.4e-323",
+              "hi": "8.4e-323"
+            },
+            "mH_core_gev": {
+              "lo_hex": "-0x0.0000000000011p-1022",
+              "hi_hex": "0x0.0000000000011p-1022",
+              "lo": "-8.4e-323",
+              "hi": "8.4e-323"
+            },
+            "mt_pole_core_gev": {
+              "lo_hex": "-0x0.0000000000011p-1022",
+              "hi_hex": "0x0.0000000000011p-1022",
+              "lo": "-8.4e-323",
+              "hi": "8.4e-323"
+            },
+            "d_mH_d_lambda": {
+              "lo_hex": "-0x0.0000000000011p-1022",
+              "hi_hex": "0x0.0000000000011p-1022",
+              "lo": "-8.4e-323",
+              "hi": "8.4e-323"
+            },
+            "d_mt_pole_d_y_t": {
+              "lo_hex": "-0x0.0000000000011p-1022",
+              "hi_hex": "0x0.0000000000011p-1022",
+              "lo": "-8.4e-323",
+              "hi": "8.4e-323"
+            }
+          }
+        },
+        "pi_lambda": {
+          "value": {
+            "lo_hex": "0x1.9f188dcd832b1p-7",
+            "hi_hex": "0x1.9f188ddb71369p-7",
+            "lo": "0.012667721976890563",
+            "hi": "0.012667722002228836"
+          },
+          "gradient": {
+            "eta_source": {
+              "lo_hex": "0x1.20dd8bb75884cp-1",
+              "hi_hex": "0x1.20dd8bb75888ep-1",
+              "lo": "0.5641902600584756",
+              "hi": "0.5641902600584829"
+            },
+            "beta_EW": {
+              "lo_hex": "-0x1.443251eb91544p-19",
+              "hi_hex": "-0x1.443251e0aeffap-19",
+              "lo": "-2.4154526181730826e-06",
+              "hi": "-2.4154526133395695e-06"
+            },
+            "lambda_EW": {
+              "lo_hex": "0x1.0444c790a69e7p-38",
+              "hi_hex": "0x1.0444c7c50cc60p-38",
+              "lo": "3.6986402580067515e-12",
+              "hi": "3.698640302390466e-12"
+            },
+            "tau2_tree_exact": {
+              "lo_hex": "-0x1.7e5c6c47f454ap-1",
+              "hi_hex": "-0x1.7e5c6c47dacf6p-1",
+              "lo": "-0.7467988813242894",
+              "hi": "-0.746798881312684"
+            },
+            "delta_n_tree_exact": {
+              "lo_hex": "-0x0.0000000000011p-1022",
+              "hi_hex": "0x0.0000000000011p-1022",
+              "lo": "-8.4e-323",
+              "hi": "8.4e-323"
+            },
+            "y_t_core_mt": {
+              "lo_hex": "-0x0.0000000000011p-1022",
+              "hi_hex": "0x0.0000000000011p-1022",
+              "lo": "-8.4e-323",
+              "hi": "8.4e-323"
+            },
+            "lambda_core_mt": {
+              "lo_hex": "-0x0.0000000000011p-1022",
+              "hi_hex": "0x0.0000000000011p-1022",
+              "lo": "-8.4e-323",
+              "hi": "8.4e-323"
+            },
+            "mH_core_gev": {
+              "lo_hex": "-0x0.0000000000011p-1022",
+              "hi_hex": "0x0.0000000000011p-1022",
+              "lo": "-8.4e-323",
+              "hi": "8.4e-323"
+            },
+            "mt_pole_core_gev": {
+              "lo_hex": "-0x0.0000000000011p-1022",
+              "hi_hex": "0x0.0000000000011p-1022",
+              "lo": "-8.4e-323",
+              "hi": "8.4e-323"
+            },
+            "d_mH_d_lambda": {
+              "lo_hex": "-0x0.0000000000011p-1022",
+              "hi_hex": "0x0.0000000000011p-1022",
+              "lo": "-8.4e-323",
+              "hi": "8.4e-323"
+            },
+            "d_mt_pole_d_y_t": {
+              "lo_hex": "-0x0.0000000000011p-1022",
+              "hi_hex": "0x0.0000000000011p-1022",
+              "lo": "-8.4e-323",
+              "hi": "8.4e-323"
+            }
+          }
+        },
+        "delta_y_t_mt": {
+          "value": {
+            "lo_hex": "0x1.727218bd10b61p-7",
+            "hi_hex": "0x1.727218d660046p-7",
+            "lo": "0.011305105285037422",
+            "hi": "0.01130510533107566"
+          },
+          "gradient": {
+            "eta_source": {
+              "lo_hex": "0x1.09e489be6044ep-1",
+              "hi_hex": "0x1.09e489c74c529p-1",
+              "lo": "0.5193217320339814",
+              "hi": "0.5193217330726486"
+            },
+            "beta_EW": {
+              "lo_hex": "-0x1.f791b3fe22b7fp-16",
+              "hi_hex": "-0x1.f791b3dc55216p-16",
+              "lo": "-3.0015060467774003e-05",
+              "hi": "-3.0015060347681343e-05"
+            },
+            "lambda_EW": {
+              "lo_hex": "-0x0.0000000000013p-1022",
+              "hi_hex": "0x0.0000000000013p-1022",
+              "lo": "-9.4e-323",
+              "hi": "9.4e-323"
+            },
+            "tau2_tree_exact": {
+              "lo_hex": "0x1.b29a3a225df20p-1",
+              "hi_hex": "0x1.b29a3a3229d5bp-1",
+              "lo": "0.8488329092933533",
+              "hi": "0.8488329111323013"
+            },
+            "delta_n_tree_exact": {
+              "lo_hex": "-0x0.0000000000013p-1022",
+              "hi_hex": "0x0.0000000000013p-1022",
+              "lo": "-9.4e-323",
+              "hi": "9.4e-323"
+            },
+            "y_t_core_mt": {
+              "lo_hex": "0x1.927489dbb29adp-7",
+              "hi_hex": "0x1.927489e9b0b63p-7",
+              "lo": "0.012281958879061994",
+              "hi": "0.012281958904514395"
+            },
+            "lambda_core_mt": {
+              "lo_hex": "-0x0.0000000000013p-1022",
+              "hi_hex": "0x0.0000000000013p-1022",
+              "lo": "-9.4e-323",
+              "hi": "9.4e-323"
+            },
+            "mH_core_gev": {
+              "lo_hex": "-0x0.0000000000013p-1022",
+              "hi_hex": "0x0.0000000000013p-1022",
+              "lo": "-9.4e-323",
+              "hi": "9.4e-323"
+            },
+            "mt_pole_core_gev": {
+              "lo_hex": "-0x0.0000000000013p-1022",
+              "hi_hex": "0x0.0000000000013p-1022",
+              "lo": "-9.4e-323",
+              "hi": "9.4e-323"
+            },
+            "d_mH_d_lambda": {
+              "lo_hex": "-0x0.0000000000013p-1022",
+              "hi_hex": "0x0.0000000000013p-1022",
+              "lo": "-9.4e-323",
+              "hi": "9.4e-323"
+            },
+            "d_mt_pole_d_y_t": {
+              "lo_hex": "-0x0.0000000000013p-1022",
+              "hi_hex": "0x0.0000000000013p-1022",
+              "lo": "-9.4e-323",
+              "hi": "9.4e-323"
+            }
+          }
+        },
+        "delta_lambda_mt": {
+          "value": {
+            "lo_hex": "-0x1.8499df36dde95p-9",
+            "hi_hex": "-0x1.8499df1cc96bfp-9",
+            "lo": "-0.0029647908190176355",
+            "hi": "-0.0029647908071578073"
+          },
+          "gradient": {
+            "eta_source": {
+              "lo_hex": "-0x1.0e6d79796497dp-3",
+              "hi_hex": "-0x1.0e6d7970519ecp-3",
+              "lo": "-0.13204474355422838",
+              "hi": "-0.13204474329013693"
+            },
+            "beta_EW": {
+              "lo_hex": "0x1.2f80efa968bb5p-21",
+              "hi_hex": "0x1.2f80efbdc84b6p-21",
+              "lo": "5.653196143883386e-07",
+              "hi": "5.653196166502284e-07"
+            },
+            "lambda_EW": {
+              "lo_hex": "-0x1.e74ff6325cb6bp-41",
+              "hi_hex": "-0x1.e74ff5bfe6d31p-41",
+              "lo": "-8.656406265819928e-13",
+              "hi": "-8.656406144630155e-13"
+            },
+            "tau2_tree_exact": {
+              "lo_hex": "0x1.65f4a13c65d55p-3",
+              "hi_hex": "0x1.65f4a148808adp-3",
+              "lo": "0.17478300061768928",
+              "hi": "0.1747830009699717"
+            },
+            "delta_n_tree_exact": {
+              "lo_hex": "-0x0.000000000000cp-1022",
+              "hi_hex": "0x0.000000000000cp-1022",
+              "lo": "-6e-323",
+              "hi": "6e-323"
+            },
+            "y_t_core_mt": {
+              "lo_hex": "-0x0.000000000000cp-1022",
+              "hi_hex": "0x0.000000000000cp-1022",
+              "lo": "-6e-323",
+              "hi": "6e-323"
+            },
+            "lambda_core_mt": {
+              "lo_hex": "-0x1.70f961a69d862p-6",
+              "hi_hex": "-0x1.70f9619a3bb44p-6",
+              "lo": "-0.02252039467062906",
+              "hi": "-0.02252039462558321"
+            },
+            "mH_core_gev": {
+              "lo_hex": "-0x0.000000000000cp-1022",
+              "hi_hex": "0x0.000000000000cp-1022",
+              "lo": "-6e-323",
+              "hi": "6e-323"
+            },
+            "mt_pole_core_gev": {
+              "lo_hex": "-0x0.000000000000cp-1022",
+              "hi_hex": "0x0.000000000000cp-1022",
+              "lo": "-6e-323",
+              "hi": "6e-323"
+            },
+            "d_mH_d_lambda": {
+              "lo_hex": "-0x0.000000000000cp-1022",
+              "hi_hex": "0x0.000000000000cp-1022",
+              "lo": "-6e-323",
+              "hi": "6e-323"
+            },
+            "d_mt_pole_d_y_t": {
+              "lo_hex": "-0x0.000000000000cp-1022",
+              "hi_hex": "0x0.000000000000cp-1022",
+              "lo": "-6e-323",
+              "hi": "6e-323"
+            }
+          }
+        },
+        "m_t_D11_GeV": {
+          "value": {
+            "lo_hex": "0x1.58b467e4febb8p+7",
+            "hi_hex": "0x1.58b467f0d8df9p+7",
+            "lo": "172.35235515222098",
+            "hi": "172.35235550544147"
+          },
+          "gradient": {
+            "eta_source": {
+              "lo_hex": "0x1.803c5af1f63c4p+6",
+              "hi_hex": "0x1.803c5b0bbf6edp+6",
+              "lo": "96.05894067826654",
+              "hi": "96.0589410625068"
+            },
+            "beta_EW": {
+              "lo_hex": "-0x1.6bd92faf846c6p-8",
+              "hi_hex": "-0x1.6bd92f8ae26eap-8",
+              "lo": "-0.0055518857402760465",
+              "hi": "-0.005551885706958729"
+            },
+            "lambda_EW": {
+              "lo_hex": "-0x0.0000000000dbep-1022",
+              "hi_hex": "0x0.0000000000dbep-1022",
+              "lo": "-1.738e-320",
+              "hi": "1.738e-320"
+            },
+            "tau2_tree_exact": {
+              "lo_hex": "0x1.3a046a3e6215ap+7",
+              "hi_hex": "0x1.3a046a5455578p+7",
+              "lo": "157.00862307498284",
+              "hi": "157.0086237291505"
+            },
+            "delta_n_tree_exact": {
+              "lo_hex": "-0x0.0000000000dbep-1022",
+              "hi_hex": "0x0.0000000000dbep-1022",
+              "lo": "-1.738e-320",
+              "hi": "1.738e-320"
+            },
+            "y_t_core_mt": {
+              "lo_hex": "0x1.22ca24bfb6256p+1",
+              "hi_hex": "0x1.22ca24d394395p+1",
+              "lo": "2.2717939315883013",
+              "hi": "2.271793940839823"
+            },
+            "lambda_core_mt": {
+              "lo_hex": "-0x0.0000000000dbep-1022",
+              "hi_hex": "0x0.0000000000dbep-1022",
+              "lo": "-1.738e-320",
+              "hi": "1.738e-320"
+            },
+            "mH_core_gev": {
+              "lo_hex": "-0x0.0000000000dbep-1022",
+              "hi_hex": "0x0.0000000000dbep-1022",
+              "lo": "-1.738e-320",
+              "hi": "1.738e-320"
+            },
+            "mt_pole_core_gev": {
+              "lo_hex": "0x1.fffffffffffffp-1",
+              "hi_hex": "0x1.0000000000001p+0",
+              "lo": "0.9999999999999999",
+              "hi": "1.0000000000000002"
+            },
+            "d_mH_d_lambda": {
+              "lo_hex": "-0x0.0000000000dbep-1022",
+              "hi_hex": "0x0.0000000000dbep-1022",
+              "lo": "-1.738e-320",
+              "hi": "1.738e-320"
+            },
+            "d_mt_pole_d_y_t": {
+              "lo_hex": "0x1.727218bd10b5ep-7",
+              "hi_hex": "0x1.727218d660049p-7",
+              "lo": "0.011305105285037417",
+              "hi": "0.011305105331075664"
+            }
+          }
+        },
+        "m_H_GeV": {
+          "value": {
+            "lo_hex": "0x1.f4cc51aa58796p+6",
+            "hi_hex": "0x1.f4cc51bbe9e48p+6",
+            "lo": "125.19953027882579",
+            "hi": "125.19953054061"
+          },
+          "gradient": {
+            "eta_source": {
+              "lo_hex": "-0x1.fb0d43cc1e624p+5",
+              "hi_hex": "-0x1.fb0d43aa17441p+5",
+              "lo": "-63.381476969411125",
+              "hi": "-63.381476715884226"
+            },
+            "beta_EW": {
+              "lo_hex": "0x1.1c88e0aa0c1e3p-12",
+              "hi_hex": "0x1.1c88e0c6b1d81p-12",
+              "lo": "0.0002713534146350489",
+              "hi": "0.0002713534162634632"
+            },
+            "lambda_EW": {
+              "lo_hex": "-0x1.c8daf6d6e1194p-32",
+              "hi_hex": "-0x1.c8daf65c3e37ep-32",
+              "lo": "-4.1550750117486424e-10",
+              "hi": "-4.1550749452673973e-10"
+            },
+            "tau2_tree_exact": {
+              "lo_hex": "0x1.4f955722fe25fp+6",
+              "hi_hex": "0x1.4f95573999d43p+6",
+              "lo": "83.89584021259496",
+              "hi": "83.89584054948232"
+            },
+            "delta_n_tree_exact": {
+              "lo_hex": "-0x0.0000000001684p-1022",
+              "hi_hex": "0x0.0000000001684p-1022",
+              "lo": "-2.848e-320",
+              "hi": "2.848e-320"
+            },
+            "y_t_core_mt": {
+              "lo_hex": "-0x0.0000000001684p-1022",
+              "hi_hex": "0x0.0000000001684p-1022",
+              "lo": "-2.848e-320",
+              "hi": "2.848e-320"
+            },
+            "lambda_core_mt": {
+              "lo_hex": "-0x1.59e9cb92015dap+3",
+              "hi_hex": "-0x1.59e9cb7aca492p+3",
+              "lo": "-10.809789452711744",
+              "hi": "-10.809789409470145"
+            },
+            "mH_core_gev": {
+              "lo_hex": "0x1.fffffffffffffp-1",
+              "hi_hex": "0x1.0000000000001p+0",
+              "lo": "0.9999999999999999",
+              "hi": "1.0000000000000002"
+            },
+            "mt_pole_core_gev": {
+              "lo_hex": "-0x0.0000000001684p-1022",
+              "hi_hex": "0x0.0000000001684p-1022",
+              "lo": "-2.848e-320",
+              "hi": "2.848e-320"
+            },
+            "d_mH_d_lambda": {
+              "lo_hex": "-0x1.8499df36dde98p-9",
+              "hi_hex": "-0x1.8499df1cc96bcp-9",
+              "lo": "-0.002964790819017637",
+              "hi": "-0.002964790807157806"
+            },
+            "d_mt_pole_d_y_t": {
+              "lo_hex": "-0x0.0000000001684p-1022",
+              "hi_hex": "0x0.0000000001684p-1022",
+              "lo": "-2.848e-320",
+              "hi": "2.848e-320"
+            }
+          }
+        },
+        "Sigma_HT": {
+          "value": {
+            "lo_hex": "0x1.98c68bd49ae2ep-7",
+            "hi_hex": "0x1.98c68be290f67p-7",
+            "lo": "0.012474840427976277",
+            "hi": "0.012474840453371617"
+          },
+          "gradient": {
+            "eta_source": {
+              "lo_hex": "0x1.20dde197dc7fcp-1",
+              "hi_hex": "0x1.20dde197dc895p-1",
+              "lo": "0.5641928193929284",
+              "hi": "0.5641928193929454"
+            },
+            "beta_EW": {
+              "lo_hex": "-0x1.25cd9883e3397p-16",
+              "hi_hex": "-0x1.25cd987a061c8p-16",
+              "lo": "-1.751202991289203e-05",
+              "hi": "-1.7512029877849046e-05"
+            },
+            "lambda_EW": {
+              "lo_hex": "0x1.0444c790a69e4p-39",
+              "hi_hex": "0x1.0444c7c50cc63p-39",
+              "lo": "1.8493201290033745e-12",
+              "hi": "1.849320151195234e-12"
+            },
+            "tau2_tree_exact": {
+              "lo_hex": "0x1.672db371fb8cdp-4",
+              "hi_hex": "0x1.672db377a7bdbp-4",
+              "lo": "0.08769006820486709",
+              "hi": "0.08769006828741459"
+            },
+            "delta_n_tree_exact": {
+              "lo_hex": "-0x0.0000000000015p-1022",
+              "hi_hex": "0x0.0000000000015p-1022",
+              "lo": "-1.04e-322",
+              "hi": "1.04e-322"
+            },
+            "y_t_core_mt": {
+              "lo_hex": "-0x0.0000000000015p-1022",
+              "hi_hex": "0x0.0000000000015p-1022",
+              "lo": "-1.04e-322",
+              "hi": "1.04e-322"
+            },
+            "lambda_core_mt": {
+              "lo_hex": "-0x0.0000000000015p-1022",
+              "hi_hex": "0x0.0000000000015p-1022",
+              "lo": "-1.04e-322",
+              "hi": "1.04e-322"
+            },
+            "mH_core_gev": {
+              "lo_hex": "-0x0.0000000000015p-1022",
+              "hi_hex": "0x0.0000000000015p-1022",
+              "lo": "-1.04e-322",
+              "hi": "1.04e-322"
+            },
+            "mt_pole_core_gev": {
+              "lo_hex": "-0x0.0000000000015p-1022",
+              "hi_hex": "0x0.0000000000015p-1022",
+              "lo": "-1.04e-322",
+              "hi": "1.04e-322"
+            },
+            "d_mH_d_lambda": {
+              "lo_hex": "-0x0.0000000000015p-1022",
+              "hi_hex": "0x0.0000000000015p-1022",
+              "lo": "-1.04e-322",
+              "hi": "1.04e-322"
+            },
+            "d_mt_pole_d_y_t": {
+              "lo_hex": "-0x0.0000000000015p-1022",
+              "hi_hex": "0x0.0000000000015p-1022",
+              "lo": "-1.04e-322",
+              "hi": "1.04e-322"
+            }
+          }
+        },
+        "w_HT": {
+          "value": {
+            "lo_hex": "-0x1.94807ff7d3741p-12",
+            "hi_hex": "-0x1.94807c7a4e9ffp-12",
+            "lo": "-0.00038576312316683867",
+            "hi": "-0.00038576307237617175"
+          },
+          "gradient": {
+            "eta_source": {
+              "lo_hex": "0x1.57820fe47ffffp-18",
+              "hi_hex": "0x1.5782100920001p-18",
+              "lo": "5.1186688989623966e-06",
+              "hi": "5.118668931491933e-06"
+            },
+            "beta_EW": {
+              "lo_hex": "-0x1.fa8e9c8e3e682p-16",
+              "hi_hex": "-0x1.fa8e9c7a842edp-16",
+              "lo": "-3.0193154594271392e-05",
+              "hi": "-3.0193154524185457e-05"
+            },
+            "lambda_EW": {
+              "lo_hex": "-0x1.0444c7c50cc61p-38",
+              "hi_hex": "-0x1.0444c790a69e6p-38",
+              "lo": "-3.698640302390467e-12",
+              "hi": "-3.698640258006751e-12"
+            },
+            "tau2_tree_exact": {
+              "lo_hex": "0x1.ab4222b627039p+0",
+              "hi_hex": "0x1.ab4222b6dc89cp+0",
+              "lo": "1.6689778990467075",
+              "hi": "1.6689778992118027"
+            },
+            "delta_n_tree_exact": {
+              "lo_hex": "-0x0.0000000000023p-1022",
+              "hi_hex": "0x0.0000000000023p-1022",
+              "lo": "-1.73e-322",
+              "hi": "1.73e-322"
+            },
+            "y_t_core_mt": {
+              "lo_hex": "-0x0.0000000000023p-1022",
+              "hi_hex": "0x0.0000000000023p-1022",
+              "lo": "-1.73e-322",
+              "hi": "1.73e-322"
+            },
+            "lambda_core_mt": {
+              "lo_hex": "-0x0.0000000000023p-1022",
+              "hi_hex": "0x0.0000000000023p-1022",
+              "lo": "-1.73e-322",
+              "hi": "1.73e-322"
+            },
+            "mH_core_gev": {
+              "lo_hex": "-0x0.0000000000023p-1022",
+              "hi_hex": "0x0.0000000000023p-1022",
+              "lo": "-1.73e-322",
+              "hi": "1.73e-322"
+            },
+            "mt_pole_core_gev": {
+              "lo_hex": "-0x0.0000000000023p-1022",
+              "hi_hex": "0x0.0000000000023p-1022",
+              "lo": "-1.73e-322",
+              "hi": "1.73e-322"
+            },
+            "d_mH_d_lambda": {
+              "lo_hex": "-0x0.0000000000023p-1022",
+              "hi_hex": "0x0.0000000000023p-1022",
+              "lo": "-1.73e-322",
+              "hi": "1.73e-322"
+            },
+            "d_mt_pole_d_y_t": {
+              "lo_hex": "-0x0.0000000000023p-1022",
+              "hi_hex": "0x0.0000000000023p-1022",
+              "lo": "-1.73e-322",
+              "hi": "1.73e-322"
+            }
+          }
+        },
+        "c_T_live": {
+          "value": {
+            "lo_hex": "0x1.38073e63c3596p-12",
+            "hi_hex": "0x1.3808f973034bfp-12",
+            "lo": "0.0002975733716404581",
+            "hi": "0.0002975798190057547"
+          },
+          "gradient": {
+            "eta_source": {
+              "lo_hex": "0x1.669f528855b4fp-5",
+              "hi_hex": "0x1.669f52c49dedfp-5",
+              "lo": "0.0437771427120227",
+              "hi": "0.04377714315063285"
+            },
+            "beta_EW": {
+              "lo_hex": "-0x1.dd62e0b75fca2p-16",
+              "hi_hex": "-0x1.dd5ea4f0c9107p-16",
+              "lo": "-2.8454437339228555e-05",
+              "hi": "-2.8453451650937492e-05"
+            },
+            "lambda_EW": {
+              "lo_hex": "-0x0.00000033f7b36p-1022",
+              "hi_hex": "0x0.00000033f7b36p-1022",
+              "lo": "-2.69226044e-316",
+              "hi": "2.69226044e-316"
+            },
+            "tau2_tree_exact": {
+              "lo_hex": "-0x1.eb22776c69f2dp-2",
+              "hi_hex": "-0x1.eb22766f45c92p-2",
+              "lo": "-0.4796236667557306",
+              "hi": "-0.4796236520209699"
+            },
+            "delta_n_tree_exact": {
+              "lo_hex": "-0x1.44acd4fd88027p+0",
+              "hi_hex": "-0x1.44ab07f0c86fap+0",
+              "lo": "-1.2682622069332952",
+              "hi": "-1.268234726223851"
+            },
+            "y_t_core_mt": {
+              "lo_hex": "-0x0.00000033f7b36p-1022",
+              "hi_hex": "0x0.00000033f7b36p-1022",
+              "lo": "-2.69226044e-316",
+              "hi": "2.69226044e-316"
+            },
+            "lambda_core_mt": {
+              "lo_hex": "-0x0.00000033f7b36p-1022",
+              "hi_hex": "0x0.00000033f7b36p-1022",
+              "lo": "-2.69226044e-316",
+              "hi": "2.69226044e-316"
+            },
+            "mH_core_gev": {
+              "lo_hex": "-0x0.00000033f7b36p-1022",
+              "hi_hex": "0x0.00000033f7b36p-1022",
+              "lo": "-2.69226044e-316",
+              "hi": "2.69226044e-316"
+            },
+            "mt_pole_core_gev": {
+              "lo_hex": "-0x0.00000033f7b36p-1022",
+              "hi_hex": "0x0.00000033f7b36p-1022",
+              "lo": "-2.69226044e-316",
+              "hi": "2.69226044e-316"
+            },
+            "d_mH_d_lambda": {
+              "lo_hex": "-0x0.00000033f7b36p-1022",
+              "hi_hex": "0x0.00000033f7b36p-1022",
+              "lo": "-2.69226044e-316",
+              "hi": "2.69226044e-316"
+            },
+            "d_mt_pole_d_y_t": {
+              "lo_hex": "-0x0.00000033f7b36p-1022",
+              "hi_hex": "0x0.00000033f7b36p-1022",
+              "lo": "-2.69226044e-316",
+              "hi": "2.69226044e-316"
+            }
+          }
+        },
+        "c_H_live": {
+          "value": {
+            "lo_hex": "0x1.3c44d2b9b168dp-7",
+            "hi_hex": "0x1.3c44de0dfe37ep-7",
+            "lo": "0.009651759045833397",
+            "hi": "0.009651764321448427"
+          },
+          "gradient": {
+            "eta_source": {
+              "lo_hex": "-0x1.4eea58486d8f6p-8",
+              "hi_hex": "-0x1.4eea57f9701f4p-8",
+              "lo": "-0.005110403588721937",
+              "hi": "-0.005110403516880958"
+            },
+            "beta_EW": {
+              "lo_hex": "0x1.2af345dde2b01p-6",
+              "hi_hex": "0x1.2af3460603ed3p-6",
+              "lo": "0.01824647734569407",
+              "hi": "0.018246477491685575"
+            },
+            "lambda_EW": {
+              "lo_hex": "-0x1.e00058cad524bp-26",
+              "hi_hex": "-0x1.e0005839e081fp-26",
+              "lo": "-2.7939756101882204e-08",
+              "hi": "-2.793975559896641e-08"
+            },
+            "tau2_tree_exact": {
+              "lo_hex": "-0x1.4997b29f5105ap+5",
+              "hi_hex": "-0x1.4997b2725fc38p+5",
+              "lo": "-41.199071163807005",
+              "hi": "-41.19907082895992"
+            },
+            "delta_n_tree_exact": {
+              "lo_hex": "-0x1.4914a1c0f8d3dp+5",
+              "hi_hex": "-0x1.491495ec249fdp+5",
+              "lo": "-41.13507414588319",
+              "hi": "-41.135051579349216"
+            },
+            "y_t_core_mt": {
+              "lo_hex": "-0x0.00000033f7b36p-1022",
+              "hi_hex": "0x0.00000033f7b36p-1022",
+              "lo": "-2.69226044e-316",
+              "hi": "2.69226044e-316"
+            },
+            "lambda_core_mt": {
+              "lo_hex": "-0x0.00000033f7b36p-1022",
+              "hi_hex": "0x0.00000033f7b36p-1022",
+              "lo": "-2.69226044e-316",
+              "hi": "2.69226044e-316"
+            },
+            "mH_core_gev": {
+              "lo_hex": "-0x0.00000033f7b36p-1022",
+              "hi_hex": "0x0.00000033f7b36p-1022",
+              "lo": "-2.69226044e-316",
+              "hi": "2.69226044e-316"
+            },
+            "mt_pole_core_gev": {
+              "lo_hex": "-0x0.00000033f7b36p-1022",
+              "hi_hex": "0x0.00000033f7b36p-1022",
+              "lo": "-2.69226044e-316",
+              "hi": "2.69226044e-316"
+            },
+            "d_mH_d_lambda": {
+              "lo_hex": "-0x0.00000033f7b36p-1022",
+              "hi_hex": "0x0.00000033f7b36p-1022",
+              "lo": "-2.69226044e-316",
+              "hi": "2.69226044e-316"
+            },
+            "d_mt_pole_d_y_t": {
+              "lo_hex": "-0x0.00000033f7b36p-1022",
+              "hi_hex": "0x0.00000033f7b36p-1022",
+              "lo": "-2.69226044e-316",
+              "hi": "2.69226044e-316"
+            }
+          }
+        }
+      }
+    },
+    "jacobian_enclosure_over_full_box": {
+      "pi_y": {
+        "eta_source": {
+          "lo_hex": "0x1.20de3778607b2p-1",
+          "hi_hex": "0x1.20de377860895p-1",
+          "lo": "0.5641953787273819",
+          "hi": "0.5641953787274071"
+        },
+        "beta_EW": {
+          "lo_hex": "-0x1.118a73652a240p-15",
+          "hi_hex": "-0x1.118a735bfb2cbp-15",
+          "lo": "-3.260860720761096e-05",
+          "hi": "-3.260860714235854e-05"
+        },
+        "lambda_EW": {
+          "lo_hex": "-0x0.0000000000011p-1022",
+          "hi_hex": "0x0.0000000000011p-1022",
+          "lo": "-8.4e-323",
+          "hi": "8.4e-323"
+        },
+        "tau2_tree_exact": {
+          "lo_hex": "0x1.d827d9247337ep-1",
+          "hi_hex": "0x1.d827d925c4becp-1",
+          "lo": "0.9221790177340237",
+          "hi": "0.9221790178875131"
+        },
+        "delta_n_tree_exact": {
+          "lo_hex": "-0x0.0000000000011p-1022",
+          "hi_hex": "0x0.0000000000011p-1022",
+          "lo": "-8.4e-323",
+          "hi": "8.4e-323"
+        },
+        "y_t_core_mt": {
+          "lo_hex": "-0x0.0000000000011p-1022",
+          "hi_hex": "0x0.0000000000011p-1022",
+          "lo": "-8.4e-323",
+          "hi": "8.4e-323"
+        },
+        "lambda_core_mt": {
+          "lo_hex": "-0x0.0000000000011p-1022",
+          "hi_hex": "0x0.0000000000011p-1022",
+          "lo": "-8.4e-323",
+          "hi": "8.4e-323"
+        },
+        "mH_core_gev": {
+          "lo_hex": "-0x0.0000000000011p-1022",
+          "hi_hex": "0x0.0000000000011p-1022",
+          "lo": "-8.4e-323",
+          "hi": "8.4e-323"
+        },
+        "mt_pole_core_gev": {
+          "lo_hex": "-0x0.0000000000011p-1022",
+          "hi_hex": "0x0.0000000000011p-1022",
+          "lo": "-8.4e-323",
+          "hi": "8.4e-323"
+        },
+        "d_mH_d_lambda": {
+          "lo_hex": "-0x0.0000000000011p-1022",
+          "hi_hex": "0x0.0000000000011p-1022",
+          "lo": "-8.4e-323",
+          "hi": "8.4e-323"
+        },
+        "d_mt_pole_d_y_t": {
+          "lo_hex": "-0x0.0000000000011p-1022",
+          "hi_hex": "0x0.0000000000011p-1022",
+          "lo": "-8.4e-323",
+          "hi": "8.4e-323"
+        }
+      },
+      "pi_lambda": {
+        "eta_source": {
+          "lo_hex": "0x1.20dd8bb75884cp-1",
+          "hi_hex": "0x1.20dd8bb75888ep-1",
+          "lo": "0.5641902600584756",
+          "hi": "0.5641902600584829"
+        },
+        "beta_EW": {
+          "lo_hex": "-0x1.443251eb91544p-19",
+          "hi_hex": "-0x1.443251e0aeffap-19",
+          "lo": "-2.4154526181730826e-06",
+          "hi": "-2.4154526133395695e-06"
+        },
+        "lambda_EW": {
+          "lo_hex": "0x1.0444c790a69e7p-38",
+          "hi_hex": "0x1.0444c7c50cc60p-38",
+          "lo": "3.6986402580067515e-12",
+          "hi": "3.698640302390466e-12"
+        },
+        "tau2_tree_exact": {
+          "lo_hex": "-0x1.7e5c6c47f454ap-1",
+          "hi_hex": "-0x1.7e5c6c47dacf6p-1",
+          "lo": "-0.7467988813242894",
+          "hi": "-0.746798881312684"
+        },
+        "delta_n_tree_exact": {
+          "lo_hex": "-0x0.0000000000011p-1022",
+          "hi_hex": "0x0.0000000000011p-1022",
+          "lo": "-8.4e-323",
+          "hi": "8.4e-323"
+        },
+        "y_t_core_mt": {
+          "lo_hex": "-0x0.0000000000011p-1022",
+          "hi_hex": "0x0.0000000000011p-1022",
+          "lo": "-8.4e-323",
+          "hi": "8.4e-323"
+        },
+        "lambda_core_mt": {
+          "lo_hex": "-0x0.0000000000011p-1022",
+          "hi_hex": "0x0.0000000000011p-1022",
+          "lo": "-8.4e-323",
+          "hi": "8.4e-323"
+        },
+        "mH_core_gev": {
+          "lo_hex": "-0x0.0000000000011p-1022",
+          "hi_hex": "0x0.0000000000011p-1022",
+          "lo": "-8.4e-323",
+          "hi": "8.4e-323"
+        },
+        "mt_pole_core_gev": {
+          "lo_hex": "-0x0.0000000000011p-1022",
+          "hi_hex": "0x0.0000000000011p-1022",
+          "lo": "-8.4e-323",
+          "hi": "8.4e-323"
+        },
+        "d_mH_d_lambda": {
+          "lo_hex": "-0x0.0000000000011p-1022",
+          "hi_hex": "0x0.0000000000011p-1022",
+          "lo": "-8.4e-323",
+          "hi": "8.4e-323"
+        },
+        "d_mt_pole_d_y_t": {
+          "lo_hex": "-0x0.0000000000011p-1022",
+          "hi_hex": "0x0.0000000000011p-1022",
+          "lo": "-8.4e-323",
+          "hi": "8.4e-323"
+        }
+      },
+      "m_H_GeV": {
+        "eta_source": {
+          "lo_hex": "-0x1.fb0d43cc1e624p+5",
+          "hi_hex": "-0x1.fb0d43aa17441p+5",
+          "lo": "-63.381476969411125",
+          "hi": "-63.381476715884226"
+        },
+        "beta_EW": {
+          "lo_hex": "0x1.1c88e0aa0c1e3p-12",
+          "hi_hex": "0x1.1c88e0c6b1d81p-12",
+          "lo": "0.0002713534146350489",
+          "hi": "0.0002713534162634632"
+        },
+        "lambda_EW": {
+          "lo_hex": "-0x1.c8daf6d6e1194p-32",
+          "hi_hex": "-0x1.c8daf65c3e37ep-32",
+          "lo": "-4.1550750117486424e-10",
+          "hi": "-4.1550749452673973e-10"
+        },
+        "tau2_tree_exact": {
+          "lo_hex": "0x1.4f955722fe25fp+6",
+          "hi_hex": "0x1.4f95573999d43p+6",
+          "lo": "83.89584021259496",
+          "hi": "83.89584054948232"
+        },
+        "delta_n_tree_exact": {
+          "lo_hex": "-0x0.0000000001684p-1022",
+          "hi_hex": "0x0.0000000001684p-1022",
+          "lo": "-2.848e-320",
+          "hi": "2.848e-320"
+        },
+        "y_t_core_mt": {
+          "lo_hex": "-0x0.0000000001684p-1022",
+          "hi_hex": "0x0.0000000001684p-1022",
+          "lo": "-2.848e-320",
+          "hi": "2.848e-320"
+        },
+        "lambda_core_mt": {
+          "lo_hex": "-0x1.59e9cb92015dap+3",
+          "hi_hex": "-0x1.59e9cb7aca492p+3",
+          "lo": "-10.809789452711744",
+          "hi": "-10.809789409470145"
+        },
+        "mH_core_gev": {
+          "lo_hex": "0x1.fffffffffffffp-1",
+          "hi_hex": "0x1.0000000000001p+0",
+          "lo": "0.9999999999999999",
+          "hi": "1.0000000000000002"
+        },
+        "mt_pole_core_gev": {
+          "lo_hex": "-0x0.0000000001684p-1022",
+          "hi_hex": "0x0.0000000001684p-1022",
+          "lo": "-2.848e-320",
+          "hi": "2.848e-320"
+        },
+        "d_mH_d_lambda": {
+          "lo_hex": "-0x1.8499df36dde98p-9",
+          "hi_hex": "-0x1.8499df1cc96bcp-9",
+          "lo": "-0.002964790819017637",
+          "hi": "-0.002964790807157806"
+        },
+        "d_mt_pole_d_y_t": {
+          "lo_hex": "-0x0.0000000001684p-1022",
+          "hi_hex": "0x0.0000000001684p-1022",
+          "lo": "-2.848e-320",
+          "hi": "2.848e-320"
+        }
+      },
+      "m_t_D11_GeV": {
+        "eta_source": {
+          "lo_hex": "0x1.803c5af1f63c4p+6",
+          "hi_hex": "0x1.803c5b0bbf6edp+6",
+          "lo": "96.05894067826654",
+          "hi": "96.0589410625068"
+        },
+        "beta_EW": {
+          "lo_hex": "-0x1.6bd92faf846c6p-8",
+          "hi_hex": "-0x1.6bd92f8ae26eap-8",
+          "lo": "-0.0055518857402760465",
+          "hi": "-0.005551885706958729"
+        },
+        "lambda_EW": {
+          "lo_hex": "-0x0.0000000000dbep-1022",
+          "hi_hex": "0x0.0000000000dbep-1022",
+          "lo": "-1.738e-320",
+          "hi": "1.738e-320"
+        },
+        "tau2_tree_exact": {
+          "lo_hex": "0x1.3a046a3e6215ap+7",
+          "hi_hex": "0x1.3a046a5455578p+7",
+          "lo": "157.00862307498284",
+          "hi": "157.0086237291505"
+        },
+        "delta_n_tree_exact": {
+          "lo_hex": "-0x0.0000000000dbep-1022",
+          "hi_hex": "0x0.0000000000dbep-1022",
+          "lo": "-1.738e-320",
+          "hi": "1.738e-320"
+        },
+        "y_t_core_mt": {
+          "lo_hex": "0x1.22ca24bfb6256p+1",
+          "hi_hex": "0x1.22ca24d394395p+1",
+          "lo": "2.2717939315883013",
+          "hi": "2.271793940839823"
+        },
+        "lambda_core_mt": {
+          "lo_hex": "-0x0.0000000000dbep-1022",
+          "hi_hex": "0x0.0000000000dbep-1022",
+          "lo": "-1.738e-320",
+          "hi": "1.738e-320"
+        },
+        "mH_core_gev": {
+          "lo_hex": "-0x0.0000000000dbep-1022",
+          "hi_hex": "0x0.0000000000dbep-1022",
+          "lo": "-1.738e-320",
+          "hi": "1.738e-320"
+        },
+        "mt_pole_core_gev": {
+          "lo_hex": "0x1.fffffffffffffp-1",
+          "hi_hex": "0x1.0000000000001p+0",
+          "lo": "0.9999999999999999",
+          "hi": "1.0000000000000002"
+        },
+        "d_mH_d_lambda": {
+          "lo_hex": "-0x0.0000000000dbep-1022",
+          "hi_hex": "0x0.0000000000dbep-1022",
+          "lo": "-1.738e-320",
+          "hi": "1.738e-320"
+        },
+        "d_mt_pole_d_y_t": {
+          "lo_hex": "0x1.727218bd10b5ep-7",
+          "hi_hex": "0x1.727218d660049p-7",
+          "lo": "0.011305105285037417",
+          "hi": "0.011305105331075664"
+        }
+      }
+    },
+    "readout_non_singularity": {
+      "chart_block": "d(m_t_D11_GeV, m_H_GeV) / d(pi_y, pi_lambda)",
+      "d_mt_d_pi_y": {
+        "lo_hex": "0x1.54843ea650341p+7",
+        "hi_hex": "0x1.54843ebd2a3c1p+7",
+        "lo": "170.25829047898335",
+        "hi": "170.25829116001663"
+      },
+      "d_mt_d_pi_lambda_identically_zero": true,
+      "d_mH_d_pi_y_identically_zero": true,
+      "d_mH_d_pi_lambda": {
+        "lo_hex": "-0x1.c15cc8670704cp+6",
+        "hi_hex": "-0x1.c15cc848df077p+6",
+        "lo": "-112.34060822468126",
+        "hi": "-112.34060777531873"
+      },
+      "determinant": {
+        "lo_hex": "-0x1.2adbae10574edp+14",
+        "hi_hex": "-0x1.2adbade83a9e5p+14",
+        "lo": "-19126.919984211145",
+        "hi": "-19126.919831195748"
+      },
+      "top_diagonal_strictly_positive": true,
+      "higgs_diagonal_strictly_negative": true,
+      "determinant_excludes_zero": true,
+      "off_diagonal_note": "On the declared stack m_t_D11_GeV carries no pi_lambda dependence and m_H_GeV carries no pi_y dependence, so the chart block is diagonal by construction."
+    },
+    "output_inclusion": {
+      "m_H_GeV": {
+        "center_enclosure": {
+          "lo_hex": "0x1.f4cc51b3212ecp+6",
+          "hi_hex": "0x1.f4cc51b3212f1p+6",
+          "lo": "125.19953040971785",
+          "hi": "125.19953040971792"
+        },
+        "box_enclosure": {
+          "lo_hex": "0x1.f4cc51aa58796p+6",
+          "hi_hex": "0x1.f4cc51bbe9e48p+6",
+          "lo": "125.19953027882579",
+          "hi": "125.19953054061"
+        },
+        "center_enclosure_inside_box_enclosure": true
+      },
+      "m_t_D11_GeV": {
+        "center_enclosure": {
+          "lo_hex": "0x1.58b467eaebcd6p+7",
+          "hi_hex": "0x1.58b467eaebcdbp+7",
+          "lo": "172.35235532883115",
+          "hi": "172.3523553288313"
+        },
+        "box_enclosure": {
+          "lo_hex": "0x1.58b467e4febb8p+7",
+          "hi_hex": "0x1.58b467f0d8df9p+7",
+          "lo": "172.35235515222098",
+          "hi": "172.35235550544147"
+        },
+        "center_enclosure_inside_box_enclosure": true
+      },
+      "pi_y": {
+        "center_enclosure": {
+          "lo_hex": "0x1.927489e2b1a48p-7",
+          "hi_hex": "0x1.927489e2b1acap-7",
+          "lo": "0.012281958891788083",
+          "hi": "0.012281958891788309"
+        },
+        "box_enclosure": {
+          "lo_hex": "0x1.927489dbb29afp-7",
+          "hi_hex": "0x1.927489e9b0b61p-7",
+          "lo": "0.012281958879061998",
+          "hi": "0.012281958904514391"
+        },
+        "center_enclosure_inside_box_enclosure": true
+      },
+      "pi_lambda": {
+        "center_enclosure": {
+          "lo_hex": "0x1.9f188dd47a2d7p-7",
+          "hi_hex": "0x1.9f188dd47a342p-7",
+          "lo": "0.012667721989559606",
+          "hi": "0.012667721989559792"
+        },
+        "box_enclosure": {
+          "lo_hex": "0x1.9f188dcd832b1p-7",
+          "hi_hex": "0x1.9f188ddb71369p-7",
+          "lo": "0.012667721976890563",
+          "hi": "0.012667722002228836"
+        },
+        "center_enclosure_inside_box_enclosure": true
+      }
+    },
+    "uniqueness": {
+      "statement": "F_HT is an explicit finite composition of backend primitives on the input box, so it assigns exactly one output pair (m_H_GeV, m_t_D11_GeV) to every point of the box, and the emitted box enclosures contain every such output. The diagonal chart block d(m_t, m_H)/d(pi_y, pi_lambda) has entries bounded away from zero with fixed signs over the entire box, so the readout (pi_y, pi_lambda) -> (m_t, m_H) is injective on the box image. This is the interval-grade form of the single-valued local implication stated for the declared surface.",
+      "scope": "The certificate encloses the declared frozen D10/D11 surface map only. It is a statement about the arithmetic of the declared surface; it is neither an existence nor a uniqueness statement for the two-loop criticality system lambda=0, beta_lambda=0, which stays on the conditional criticality branch, and it leaves the source-root, physical-scale, QT1-QT5, RG/scheme, rigidity, provenance, uncertainty, and complex-pole gates open."
+    }
+  },
+  "consistency_with_declared_surface_certificate": {
+    "declared_surface_certificate": "certificates/R_HT_declared_surface_certificate.json",
+    "declared_outputs": {
+      "m_H_GeV": "125.1995304097179",
+      "m_t_D11_GeV": "172.3523553288312"
+    },
+    "m_H_GeV_inside_box_enclosure": true,
+    "m_H_GeV_inside_center_enclosure": true,
+    "m_t_D11_GeV_inside_box_enclosure": true,
+    "m_t_D11_GeV_inside_center_enclosure": true,
+    "note": "Box membership is the certified condition; the center-enclosure booleans are recorded data, since the stored decimal outputs were computed in round-to-nearest binary64 and can sit a few ulps from the true real value pinned by the center enclosure."
+  },
+  "checks": {
+    "declared_outputs_inside_box_enclosures": true,
+    "center_enclosures_inside_box_enclosures": true,
+    "top_diagonal_strictly_positive": true,
+    "higgs_diagonal_strictly_negative": true,
+    "determinant_excludes_zero": true,
+    "pass": true
+  },
+  "reproduction": {
+    "generator": "python3 computations/generate_ht_interval_box_log.py",
+    "verifier": "python3 validators/verify_ht_interval_box.py",
+    "determinism": "The computed block is a deterministic function of the declared inputs under the backend policy; the verifier recomputes every node and requires bit-exact agreement of all serialized bounds."
+  }
+}
