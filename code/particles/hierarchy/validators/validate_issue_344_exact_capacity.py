@@ -84,7 +84,10 @@ def main(path: str = "certificates/R_EW_global_capacity_certificate.json") -> in
             "R_m_rep_24_certificate" in item
             for item in boundary.get("closed_elsewhere", [])
         ),
-        "no_remaining_boundary": boundary.get("not_closed_here", []) == [],
+        "boundary_records_readout_and_cosmic_gates": (
+            any("HIERARCHY-SCREEN-READOUT" in item for item in boundary.get("not_closed_here", []))
+            and any("cosmic-capacity" in item for item in boundary.get("not_closed_here", []))
+        ),
         "boundary_scope_present": "scope" in boundary and "N_CRC^EW" in boundary.get("scope", ""),
         "derivation_chain_has_eight_steps": (
             len(derivation) == 8 and set(derivation_steps.keys()) == set(range(1, 9))
@@ -112,15 +115,16 @@ def main(path: str = "certificates/R_EW_global_capacity_certificate.json") -> in
         ),
         "step_1_distinguishes_p_public_from_p_source_audit": (
             "P_public" in _step_conclusion(1)
-            and "P_cand = 1.63097209569432901817967892561191884270169" in _step_conclusion(1)
+            and "P_cand = 1.63097209585889737696451390350695562847912625483895268486516" in _step_conclusion(1)
         ),
         "step_2_imports_d10_beta_ew": "beta_EW" in _step_conclusion(2) and "= 4" in _step_conclusion(2),
         "step_3_imports_m_rep_24": (
             "m_rep = 24" in _step_conclusion(3)
             and ("6 = m_rep / beta_EW" in _step_conclusion(3) or "6 = m_rep/beta_EW" in _step_conclusion(3))
         ),
-        "step_4_imports_pi_ew_resonance_target": (
-            "Pi_EW(P_star, N_CRC^EW) = 4*P_star" in _step_conclusion(4)
+        "step_4_records_cp1_as_conditional_target": (
+            "declared CP-1 target" in _step_conclusion(4)
+            and "HIERARCHY-SCREEN-READOUT" in _step_conclusion(4)
         ),
         "step_5_equates_resonance_to_bridge_residual": (
             "B_EW(P_star,N)" in _step_conclusion(5) and "= 0" in _step_conclusion(5)
@@ -149,7 +153,7 @@ def main(path: str = "certificates/R_EW_global_capacity_certificate.json") -> in
             p_star_factor.get("parallel_source_audit_witness")
             == "certificates/R_P_source_audit_pixel_certificate.json"
             and p_star_factor.get("parallel_source_audit_value")
-            == "1.63097209569432901817967892561191884270169"
+            == "1.63097209585889737696451390350695562847912625483895268486516"
         ),
         "factor_origin_p_star_value_matches_p_public": (
             p_star_factor.get("value")
@@ -198,7 +202,7 @@ def main(path: str = "certificates/R_EW_global_capacity_certificate.json") -> in
             "parallel_source_audit_branch_note" in branch_scope
             and "R_P_source_audit_pixel_certificate.json"
             in branch_scope.get("parallel_source_audit_branch_note", "")
-            and "P_cand = 1.63097209569432901817967892561191884270169"
+            and "P_cand = 1.63097209585889737696451390350695562847912625483895268486516"
             in branch_scope.get("parallel_source_audit_branch_note", "")
         ),
         "branch_scope_note_present": (

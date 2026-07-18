@@ -242,14 +242,21 @@ as the resolution is refined that fusion data carries through consistently. A
 reconstruction theorem then works backward from the surviving charge data to the
 symmetry group behind it.
 
-This is classification before selection. A consistency test decides which charge
-sectors can be transported cleanly around every loop. That test, together with
-the condition that the fusion data survive refinement, fixes which compact group
-the charges reconstruct. Picking the smallest matter content that carries a
-single Higgs and passes every test lands on the physical gauge group $SU(3)
-\times SU(2) \times U(1)/\mathbb{Z}_6$. On the same footing, the minimal charged
-carrier fixes three colors, and particle-antiparticle asymmetry together with
-high-energy consistency picks the smallest workable number of generations.
+This is classification before selection. Transport and refinement reconstruct
+a compact group. Minimal Admissible Realization (MAR) then selects the smallest
+one-Higgs matter package that works, including three colors and three
+generations. On that branch, six shared center transformations act trivially on
+all realized matter. Counting those duplicates once gives
+$S(U(3)\times U(2))\cong(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$.
+
+The twelve-port icosahedral screen supplies an independent mathematical
+cross-check. Its real port readings split into bundles of sizes $1,3,3,$ and
+$5$, exactly the pattern carried by the twelve gauge directions. With the
+screen orientation and compact composition rule supplied, those coefficients
+also carry the right compact algebra. The six antipodal screen axes have their
+own sixfold residue. That residue becomes the physical $\mathbb Z_6$ only after
+a physical map ties screen loops to the action on matter. None of this fixes a
+mass or coupling.
 
 The notation looks forbidding, but the roles are practical. $SU(3)$ is the
 color accounting system for quarks. $SU(2)$ is the weak doublet accounting

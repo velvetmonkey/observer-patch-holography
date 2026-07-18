@@ -45,14 +45,14 @@ def test_two_law_boundary_reproduces_research_coordinates():
 
     zero = two_law["zero_selector_law"]
     nonzero = two_law["nonzero_carrier_law"]
-    assert abs(zero["MW_over_E_star"] / 6.5796308665770565e-18 - 1) < 1e-12
-    assert abs(zero["MZ_over_E_star"] / 7.46333486303666e-18 - 1) < 1e-12
-    assert abs(nonzero["MW_over_E_star"] / 6.578870367942109e-18 - 1) < 1e-12
-    assert abs(nonzero["MZ_over_E_star"] / 7.463750125274474e-18 - 1) < 1e-12
+    assert abs(zero["MW_over_E_star"] / 6.579630842967428e-18 - 1) < 1e-12
+    assert abs(zero["MZ_over_E_star"] / 7.463334836253536e-18 - 1) < 1e-12
+    assert abs(nonzero["MW_over_E_star"] / 6.578870344335345e-18 - 1) < 1e-12
+    assert abs(nonzero["MZ_over_E_star"] / 7.463750098489782e-18 - 1) < 1e-12
 
     assert zero["J10"] == 0.0
     assert nonzero["J10"] > 1e-7
-    assert abs(nonzero["J10"] / 3.1206348013466805e-07 - 1) < 1e-3
+    assert abs(nonzero["J10"] / 3.120420452752223e-07 - 1) < 1e-3
 
 
 def test_carrier_reproductions_and_exact_readout_pass():

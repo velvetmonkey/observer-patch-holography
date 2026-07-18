@@ -48,7 +48,7 @@ def test_neutrino_lambda_nu_bridge_candidate() -> None:
     assert residual["definition"] == "B_nu = lambda_nu * q_mean^p_nu / m_star_eV"
     assert residual["compare_only_B_nu_star"] > 1.0
     ruled_out = payload["ruled_out_current_selected_point_scalar"]
-    assert ruled_out["status"] == "already_internal_to_current_candidate_stack_not_the_missing_bridge_scalar"
+    assert ruled_out["status"] == "internal_to_declared_candidate_stack_not_the_missing_bridge_scalar"
     assert ruled_out["selected_point"] == "weighted_cycle_selector_psi_wc"
     assert ruled_out["gate"] == "selector_overlap_phase_coboundary_trivializes_same_label_edge_transport"
     assert "0.5 * sum_e qbar_e" in ruled_out["definition"]

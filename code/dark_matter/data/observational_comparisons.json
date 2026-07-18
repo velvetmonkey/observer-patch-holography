@@ -1,10 +1,10 @@
 {
   "date_stamp": "2026-05-03",
   "notes": [
-    "Values are starter comparison targets for OPH cosmology research, not canonical paper claims.",
-    "Recheck primary sources before promoting any result into reverse-engineering-reality."
+    "External observational comparison values only; none is an OPH prediction target or scoring surface.",
+    "Primary-source verification is required wherever these values are displayed."
   ],
-  "targets": {
+  "comparisons": {
     "planck_2018_vi": {
       "source": "https://arxiv.org/abs/1807.06209",
       "model": "base LambdaCDM unless noted",

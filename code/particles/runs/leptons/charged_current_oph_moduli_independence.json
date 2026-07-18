@@ -1,6 +1,6 @@
 {
   "artifact": "oph_charged_current_oph_moduli_independence",
-  "claim_boundary": "This certificate proves non-identifiability only for the explicitly scoped charged signature. It is not a no-go for future OPH dynamics. A successful extension must add a source object that is nonconstant along the displayed spectral family, bind its receipt scope, and freeze it before charged-mass comparison.",
+  "claim_boundary": "This certificate proves non-identifiability only for the explicitly scoped charged signature and makes no claim outside that scope. A closing extension must add a source object that is nonconstant along the displayed spectral family, bind its receipt scope, and freeze it before charged-mass comparison.",
   "distinct_failed_selector_audits": {
     "balanced_phase": {
       "conclusion": "Both determinant-normalized spectra are positive, simple, and exactly Koide-balanced, but their ratios and loop phases differ.",
@@ -97,7 +97,7 @@
       }
     },
     "z6_defect_lengths": {
-      "conclusion": "Conditional audit: even granting the historically proposed identification of suppression exponents with Z6 residue lifts, quotient data would not choose the integer lifts. Current OPH does not first derive that identification.",
+      "conclusion": "Conditional audit: even granting the proposed identification of suppression exponents with Z6 residue lifts, quotient data would not choose the integer lifts. Current OPH does not first derive that identification.",
       "determinant_power_change": 18,
       "exponents_A": [
         7,
@@ -125,16 +125,16 @@
   },
   "extended_centered_candidate_scope": {
     "remaining_spectral_modulus": "mu=(1/3)log|det Y_e|",
-    "statement": "If one additionally grants a fixed theorem-grade centered charged readout, the two shape coordinates cease to be free, but the exact common-shift family Y_e -> exp(kappa)Y_e remains. The present on-disk centered operator is only a template-dependent candidate and does not satisfy its promotion gate."
+    "statement": "If one additionally grants a fixed theorem-grade centered charged readout, the two shape coordinates cease to be free, but the exact common-shift family Y_e -> exp(kappa)Y_e is free. The on-disk centered operator is a template-dependent candidate and does not satisfy its promotion gate."
   },
-  "historical_stage5_independent_inputs": [
+  "historical_target_informed_examples_present": true,
+  "independent_inputs_not_supplied": [
     "charged-block action gap ln(2) plus ensemble-to-Yukawa isometry",
     "physical C3 family connection and loop law fixing delta=2/9",
     "physical root-to-family attachment",
     "absolute excitation/determinant law det(Y_e)=sqrt(2)/6^14",
     "renormalization coordinate and QED/electroweak pole-mass conversion"
   ],
-  "historical_target_informed_examples_present": true,
   "independent_spectral_coordinate_family": {
     "base": {
       "centered_log_singular_values": [
@@ -271,7 +271,7 @@
       "mass-dependent electromagnetic vacuum-polarization transport",
       "the Thomson endpoint and its moving P(kappa) fixed point",
       "empirical hadronic payloads, target-anchored charged readouts, and thresholds",
-      "any already-supplied physical charged Yukawa matrix"
+      "any physical charged Yukawa matrix supplied as an input"
     ],
     "included": [
       "G_SM=(SU(3)xSU(2)xU(1))/Z6 and D9 charged-channel admissibility",
@@ -279,7 +279,7 @@
       "the invariant twelve-port screen and count-only 24-slot register",
       "the named MaxEnt, phase, centered-scale, and trace-lift audit receipts"
     ],
-    "why_excluded": "Electromagnetic endpoint transport changes under a common charged rescaling. It can therefore break the scale freedom, but its current closure uses empirical or still-open source inputs and is not an antecedent of the charged common-shift theorem."
+    "why_excluded": "Electromagnetic endpoint transport changes under a common charged rescaling. It can therefore break the scale freedom, but its closure depends on empirical inputs or source inputs whose derivation is work in progress; it is not an antecedent of the charged common-shift theorem."
   },
   "smallest_honest_positive_routes": [
     "derive a physical uncentered charged response Y_e(P) directly",
@@ -289,19 +289,19 @@
     {
       "artifact": "oph_d10_ew_forward_transmutation_certificate",
       "path": "particles/runs/calibration/d10_ew_forward_transmutation_certificate.json",
-      "sha256": "46ebf8bf22fb21997e89e0710c9261185cfa1a857a49e19d15723df643f64298",
+      "sha256": "dc58591752a8ce120aa4b77d94b0105fcbf3d46eb41b3cad0d2fb410328d61a3",
       "status": "closed_forward_p_to_t_map"
     },
     {
       "artifact": "R_screen_sieve_icosahedral_certificate",
       "path": "particles/hierarchy/certificates/R_screen_sieve_icosahedral_certificate.json",
-      "sha256": "285b30486e4d8548bed60ee0d7220796fee5c80276aa36a0820a709df680433c",
-      "status": "closed_on_declared_triangulated_screen_branch"
+      "sha256": "5dd36866b482446bc85d9e3d5f20b1b69851306538b387398927c4e2f1194f30",
+      "status": "conditional_finite_selector_theorem"
     },
     {
       "artifact": "R_m_rep_24_certificate",
       "path": "particles/hierarchy/certificates/R_m_rep_24_certificate.json",
-      "sha256": "32d39eba6223eaed55ce124a934a04bd4e9027b24bec559ab2400e21643edfe4",
+      "sha256": "7b182aad721d5c3e8372534a2396862e20b87297c4aabe406ccbd1e7f2256dd7",
       "status": "closed_representation_to_spectrum_round_count"
     },
     {
@@ -331,11 +331,11 @@
   ],
   "source_scope_checks": {
     "centered_scale_receipt_does_not_promote": true,
+    "conditional_screen_branch_has_twelve_uniform_unit_defects": true,
     "d10_forward_map_closed": true,
     "maxent_does_not_promote_koide": true,
     "oriented_round_count_is_24": true,
     "phase_receipt_does_not_promote_2_over_9": true,
-    "screen_has_twelve_uniform_unit_defects": true,
     "trace_lift_receipt_does_not_promote": true
   },
   "source_scope_checks_pass": true,

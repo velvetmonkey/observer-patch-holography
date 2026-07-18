@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Evaluate the OPH Z6 shared-edge reserve lambda_collar target."""
+"""Evaluate the conditional OPH Z6 shared-edge reserve coefficient."""
 
 from __future__ import annotations
 
@@ -85,12 +85,12 @@ def compute(args: argparse.Namespace) -> dict[str, Any]:
 
     return {
         "status": {
-            "category": "Z6 shared-edge reserve theorem target",
-            "claim": "Poisson branch selected if protected reserve lives in the activation count layer",
-            "proven_inputs": [
-                "ellbar_shared = P/4 on the realized product-group branch",
-                "G_phys = (SU(3) x SU(2) x U(1)) / Z6",
-                "Z6 acts trivially on the realized matter and Higgs spectrum",
+            "category": "conditional Z6 shared-edge reserve law",
+            "claim": "Poisson thinning follows if a physical order-six reserve occupies the independent activation-count layer",
+            "branch_inputs": [
+                "ellbar_shared = P/4",
+                "a physical Z6 quotient from trace-balanced block integration, tensor-kernel triviality, and axis-center descent",
+                "the MAR-selected matter and Higgs action is trivial on that kernel",
             ],
             "open_bridge": (
                 "promote the premise that protected quotient-center edge "
@@ -122,8 +122,8 @@ def print_markdown(payload: dict[str, Any]) -> None:
     print()
     print(payload["status"]["claim"])
     print()
-    print("Proven OPH inputs:")
-    for item in payload["status"]["proven_inputs"]:
+    print("Branch inputs:")
+    for item in payload["status"]["branch_inputs"]:
         print(f"- {item}")
     print()
     print(f"P: `{payload['inputs']['P_pixel']:.15f}`")

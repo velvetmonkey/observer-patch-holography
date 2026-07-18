@@ -11,7 +11,7 @@ where the internal candidate proxy is
 
 The goal is not to promote a theorem. It is to preserve a diagnostic audit
 surface on the rejected source-open candidate by
-searching for the smallest supported target-containing correction window for the
+searching for the smallest supported measured-reference correction window for the
 reduced exact object ``C_nu`` and translating that back into a sharper
 compare-only window for ``B_nu``.
 """
@@ -147,7 +147,7 @@ def _best_target_containing_window(
     payload = _corridor(values, target)
     payload["selected_candidates"] = list(best_combo)
     payload["selection_rule"] = (
-        "Choose one candidate per route family that still contains the live compare-only target while minimizing "
+        "Choose one candidate per route family that contains the declared compare-only target while minimizing "
         "relative half-width; total algebraic complexity and route-local compare-only error break ties."
     )
     payload["candidate_count"] = len(best_combo)
@@ -324,12 +324,12 @@ def build_payload(
             "Once the candidate bridge is reduced to C_nu above the internal proxy sqrt(I_nu * ratio_hat) / sum_defect, the compare-only search surface becomes materially tighter. "
             "The best direct core correction clue is "
             f"`{core_candidates[0]['formula']}`, while the strongest family-assisted clue is "
-            f"`{family_candidates[0]['formula']}`. Their target-containing correction window induces a narrower target-containing B_nu window than the old direct bridge corridor."
+            f"`{family_candidates[0]['formula']}`. Their measured-reference correction window induces a narrower measured-reference B_nu window than the old direct bridge corridor."
         ),
         "hard_guard": {
             "status": "do_not_promote",
             "reason": (
-                "C_nu is a smaller exact bridge object, but every formula emitted here is still selected by compare-only search. "
+                "C_nu is a smaller exact bridge object, but every formula emitted here is selected by compare-only search. "
                 "This audit is diagnostic-only on a rejected source-open candidate and does not emit an independent bridge theorem."
             ),
         },

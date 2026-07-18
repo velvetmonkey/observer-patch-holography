@@ -65,9 +65,9 @@
     "exact_residual_moduli_space": "R_{>0}",
     "symbol": "C_nu"
   },
-  "generated_utc": "2026-07-13T06:10:22Z",
+  "generated_utc": "2026-07-18T05:55:34Z",
   "hard_guard": {
-    "reason": "C_nu is a smaller exact bridge object, but every formula emitted here is still selected by compare-only search. This audit is diagnostic-only on a rejected source-open candidate and does not emit an independent bridge theorem.",
+    "reason": "C_nu is a smaller exact bridge object, but every formula emitted here is selected by compare-only search. This audit is diagnostic-only on a rejected source-open candidate and does not emit an independent bridge theorem.",
     "status": "do_not_promote"
   },
   "induced_target_containing_bridge_scalar_window": {
@@ -132,7 +132,7 @@
         "value": 0.9994295999075177
       }
     ],
-    "selection_rule": "Choose one candidate per route family that still contains the live compare-only target while minimizing relative half-width; total algebraic complexity and route-local compare-only error break ties."
+    "selection_rule": "Choose one candidate per route family that contains the declared compare-only target while minimizing relative half-width; total algebraic complexity and route-local compare-only error break ties."
   },
   "proof_chain_role": "diagnostic_target_search_only",
   "public_promotion_allowed": false,
@@ -201,7 +201,7 @@
         "value": 0.9994295999075177
       }
     ],
-    "selection_rule": "Choose one candidate per route family that still contains the live compare-only target while minimizing relative half-width; total algebraic complexity and route-local compare-only error break ties."
+    "selection_rule": "Choose one candidate per route family that contains the declared compare-only target while minimizing relative half-width; total algebraic complexity and route-local compare-only error break ties."
   },
   "top_core_correction_candidates": [
     {
@@ -445,5 +445,5 @@
       "value": 1.0116020355909907
     }
   ],
-  "working_observation": "Once the candidate bridge is reduced to C_nu above the internal proxy sqrt(I_nu * ratio_hat) / sum_defect, the compare-only search surface becomes materially tighter. The best direct core correction clue is `I_nu^-1 * ratio_hat^0.5 * gamma^0.5`, while the strongest family-assisted clue is `sum_gap^2 * prod_qbar * solar_response_over_mstar^-0.5`. Their target-containing correction window induces a narrower target-containing B_nu window than the old direct bridge corridor."
+  "working_observation": "Once the candidate bridge is reduced to C_nu above the internal proxy sqrt(I_nu * ratio_hat) / sum_defect, the compare-only search surface becomes materially tighter. The best direct core correction clue is `I_nu^-1 * ratio_hat^0.5 * gamma^0.5`, while the strongest family-assisted clue is `sum_gap^2 * prod_qbar * solar_response_over_mstar^-0.5`. Their measured-reference correction window induces a narrower measured-reference B_nu window than the old direct bridge corridor."
 }

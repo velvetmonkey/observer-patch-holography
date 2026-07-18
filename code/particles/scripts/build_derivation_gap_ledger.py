@@ -102,12 +102,13 @@ def _load_hierarchy_summary() -> dict[str, Any]:
     return {
         "artifact_path": str(HIERARCHY_ROOT.relative_to(ROOT)),
         "exists": True,
-        "claim_status": "closed_local_global_hierarchy_and_naturality_certificate",
-        "may_feed_local_hierarchy_claim": True,
+        "claim_status": "exact_conditional_local_global_hierarchy_and_closed_naturality_certificate",
+        "may_feed_local_hierarchy_claim": False,
+        "may_feed_conditional_local_hierarchy_claim": True,
         "may_feed_naturality_claim": True,
         "local_global_resonance_status": resonance["status"],
         "full_theorem_grade_resonance_promoted": resonance["full_theorem_grade_resonance_promoted"],
-        "remaining_promotion_gates": resonance["remaining_promotion_gates"],
+        "work_in_progress_receipts": resonance["work_in_progress_receipts"],
         "ew_capacity_status": ew_capacity["status"],
         "N_CRC_EW": exact_capacity["N_CRC_EW"],
         "bridge_residual": exact_capacity["bridge_residual"],
@@ -132,9 +133,10 @@ def _load_hierarchy_summary() -> dict[str, Any]:
         "krawczyk_interior": krawczyk["inclusion"]["K_I_subset_interior_I_U"],
         "dag_forbidden_paths": dag["validation_result"]["forbidden_paths_to_protected_targets"],
         "boundary": (
-            "This certificate closes the selected local P -> alpha_U -> v/E_star hierarchy lane, "
-            "the local/global resonance bridge, and the Higgs naturality defect epsilon_H=0. "
-            "Separate non-promoted gates are the public Thomson endpoint transport, theorem-grade "
+            "The selected local P -> alpha_U -> v/E_star lane and the Higgs naturality defect "
+            "epsilon_H=0 are exact on their declared branches. The local/global resonance bridge "
+            "is exact under the screen premises listed in work_in_progress_receipts. Separate "
+            "non-promoted gates are the public Thomson endpoint transport, theorem-grade "
             "W/Z promotion, charged-lepton absolute masses, source-only hadron masses, Strong CP, "
             "and the full no-G clock stack for SI gravity."
         ),
@@ -221,8 +223,8 @@ def _charged_trace_lift_gate() -> dict[str, Any]:
         )
         next_action = (
             "Keep charged masses suppressed. Under the no-new-axiom rule, reopen only if an "
-            "already-declared determinant-sensitive source observable is exhibited that breaks "
-            "the kappa countermodel; the gate still flips only when N_det has the certified "
+            "declared determinant-sensitive source observable is exhibited that breaks "
+            "the kappa countermodel; the gate flips only when N_det has the certified "
             "singleton interval [0,0]."
         )
 
@@ -609,7 +611,7 @@ def build_gap_rows() -> list[dict[str, Any]]:
                 "is 0.631, at the lower edge of the certified interval [0.649, 0.855]. The "
                 "anchor-exactness no-go (route B) is false: the anchor is a one-loop value with an "
                 "understood deficit, not a source-chain failure. A same-scheme bridge (route A) that "
-                "fills the deficit needs the measured hadronic running (empirical class, already "
+                "fills the deficit needs the measured hadronic running (empirical class, "
                 "carried by the payload) or the OPH source hadronic spectral measure."
             ),
             "next_action": (
@@ -908,7 +910,7 @@ def render_markdown(ledger: dict[str, Any]) -> str:
                 f"- Forbidden DAG paths into protected targets: `{hierarchy['dag_forbidden_paths']}`",
                 f"- Local/global resonance status: `{hierarchy['local_global_resonance_status']}`",
                 f"- Full theorem-grade resonance promoted: `{hierarchy['full_theorem_grade_resonance_promoted']}`",
-                f"- Remaining promotion gates: `{hierarchy['remaining_promotion_gates']}`",
+                f"- Work-in-progress receipts: `{hierarchy['work_in_progress_receipts']}`",
                 f"- Conditional EW bridge capacity (modulo F and CP-1 to CP-3): "
                 f"`{hierarchy['N_CRC_EW']}`",
                 f"- Bridge residual: `{hierarchy['bridge_residual']}`",

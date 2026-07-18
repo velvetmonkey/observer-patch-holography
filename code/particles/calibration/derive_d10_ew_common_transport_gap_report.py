@@ -7,7 +7,7 @@ W/Z pair for a given pixel constant `P`.
 
 Mathematics: build the exact D10 running family from `P`, lift it to the
 current two-scalar source pair, emit the current source-only transport law, and
-compare it against the unique freeze-once common transport that would hit the
+compare it against the unique reference-fitted common transport that would hit the
 benchmark `W/Z` pair on the same family.
 
 OPH-derived inputs: `P` and the D10 running family. The benchmark pair is used

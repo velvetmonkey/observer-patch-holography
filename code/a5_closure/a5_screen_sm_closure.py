@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
-"""Exact certificate for the strengthened OPH A5 screen/SM closure.
+"""Exact finite-A5 and compact coefficient-algebra certificate.
 
-The certificate proves finite representation arithmetic and enumerates the
-compact-Lie alternatives under explicit assumptions.  It deliberately does
-not claim the missing physical bridge from port repair to a group-level A5
-automorphism or the noncentrality of the rank-5 band.
+The certificate proves representation arithmetic and enumerates compact-Lie
+alternatives under explicit hypotheses.  It does not identify record
+projectors, port fluctuations, or their commutators with physical currents.
 """
 from __future__ import annotations
 
@@ -181,20 +180,33 @@ payload = {
         "physical_gate": "derive a quotient-visible face-phase-to-family attachment",
     },
     "compact_lie_trichotomy": trichotomy,
-    "rank5_noncentral_corollary": {
-        "theorem": "If the canonical rank-5 port band is noncentral, the Lie algebra is su(3)+su(2)+u(1).",
-        "proof_summary": "the other two viable compact outcomes have the entire rank-5 band in their center",
-        "physical_gate": "prove one nonzero repair commutator involving the rank-5 band and prove the common A5 action is group-level",
+    "coefficient_rank5_noncentral_corollary": {
+        "theorem": "For a group-level A5 action on the compact coefficient algebra, noncentrality of its W5 summand selects su(3)+su(2)+u(1).",
+        "proof_summary": "the other two viable compact outcomes place the W5 coefficient summand in the center",
+        "physical_gate": "A5-COMMON-ACTION plus a source-derived W5 current commutator; PORT-CURRENT-INNER is the stronger route",
     },
     "degree2_kinetic_relations": kinetic_relations,
     "higgs_missing_four_audit": higgs_dimension_match_status,
+    "theorem_scope": {
+        "exact_here": "conditional finite A5 vertex module and compact coefficient-algebra classification",
+        "exact_companion_constructions": [
+            "u(3)+so(3) coefficient bracket",
+            "trace-balanced block integration under coefficient 1/2",
+            "six-axis lattice quotient isomorphic to Z6",
+        ],
+        "physical_gates": [
+            "UD12 and RP-A5 source the finite selector",
+            "PORT-CURRENT-INNER supplies a full-rank compact skew-adjoint commutator-closed current algebra with inner A5 action",
+            "BLOCK-DETERMINANT-BALANCE, PORT-SPIN-LIFT, and AXIS-CENTER-DESCENT identify the physical group and quotient",
+            "MAR supplies the matter, hypercharge, and faithful tensor-kernel premises",
+        ],
+    },
     "claim_boundary": {
-        "proved_here": "finite A5 representation arithmetic and conditional compact-Lie classification",
-        "not_proved_here": [
-            "OPH repair acts through the same group-level A5 on ports and gauge currents",
-            "the rank-5 band has a nonzero physical commutator",
-            "the face C3 phase is the physical generation carrier",
-            "the adjacency polynomial is the physical gauge kinetic operator",
+        "proved_here": "finite A5 arithmetic and conditional coefficient-algebra classification",
+        "work_in_progress": [
+            "physical current realization and refinement intertwining",
+            "physical block/axis descent and MAR matter realization",
+            "face-phase family attachment and gauge kinetic operator",
         ],
     },
 }

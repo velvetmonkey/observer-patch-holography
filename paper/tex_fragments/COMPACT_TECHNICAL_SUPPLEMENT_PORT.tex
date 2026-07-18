@@ -235,8 +235,9 @@ static-patch formulas. The local null-data route does not by itself determine th
 that value is fixed by the readback closure. The capacity closure fixes
 \(\Lambda_{\mathrm{CRC}}\ell_\star^2=3\pi/N_{\mathrm{CRC}}\); the SI static-patch scale
 additionally requires the selected scale certificate. CMB kernels, inflation-replacement claims,
-\(H_0/S_8\) branches, dark/anomaly growth kernels, and baryogenesis continuations require separate
-continuation theorems or likelihood contracts.
+\(H_0/S_8\) branches and dark/anomaly growth kernels require separate continuation theorems or
+likelihood contracts. The baryogenesis anomaly/current theorem and gauge/deck no-go are separate
+from D6; the anomalous record attachment and physical CP-odd source generator remain open.
 
 \begin{theorem}[Conditional OPH screen-spectrum theorem]\label{thm:compact-conditional-screen-spectrum}
 Let \((\mathcal S_r)\) be a cofinal finite spherical OPH screen system with a
@@ -322,7 +323,7 @@ package, and once the admissible class includes one connected abelian charge fac
 connected Lie realization is \(SU(3)\times SU(2)\times U(1)\) up to finite quotient.
 \end{theorem}
 
-\begin{corollary}[No leptoquarks, hence no gauge-mediated proton decay]
+\begin{corollary}[No simple-GUT \(X/Y\) gauge channel]
 With product gauge group, the adjoint representation of the full connected gauge group is
 \[
 (8,1,0)\oplus(1,3,0)\oplus(1,1,0),
@@ -331,14 +332,85 @@ equivalently the derived nonabelian adjoint is
 \[
 (8,1,0)\oplus(1,3,0).
 \]
-There are therefore no gauge generators in mixed representations \((3,2,\pm 5/6)\), i.e. no
-simple-GUT \(X,Y\) bosons on the realized branch. The structural claim is exactly
-\[
-\tau_p^{(\mathrm{gauge})}=\infty,
-\]
-{\emergencystretch=8em\relax meaning that the gauge-boson proton-decay channel is absent. Scalar-mediated or
-higher-dimensional baryon-violating operators are outside this structural corollary.\par}
+There are therefore no gauge generators in mixed representations
+\((3,2,\pm5/6)\), i.e. no simple-GUT \(X,Y\) bosons on the realized branch.
+This excludes the ordinary \(X/Y\) exchange channel, not every gauge-mediated
+ultraviolet mechanism. General proton stability and a proton lifetime require
+separate baryon-violating operator and ultraviolet data.
 \end{corollary}
+
+\subsection{Finite-Quotient Baryogenesis Source Theorem and Gauge-Deck No-Go}
+\label{app:baryogenesis-source-theorem}
+
+At regulator \(r\), let
+\[
+\mathfrak B_r=(Q_r,C_r,E_r,\omega_{R,r},L_{r,T},p_{r,i},
+\tau_r,T_r,\rho_{R,r})
+\]
+be a finite baryogenesis source packet. Here \(Q_r\) is the physical quotient,
+\(C_r\) is its CP involution, \(\omega_{R,r}:E_r\to\mathbb Z\) is a CP-odd
+integral winding cocycle, \(L_{r,T}\) is a quotient-intrinsic continuous-time
+Markov generator, \(p_{r,i}\) is the source initial law, \(\tau_r\) and
+\(T_r(\tau)\) supply the physical clock and temperature map, and
+\(\rho_{R,r}\) assigns record charges \(r_\psi\) to left-handed Weyl
+multiplets. Let \(\theta_0=2\pi/m_R\), where \(m_R\) is the primitive winding
+period.
+
+\begin{theorem}[Finite-quotient anomaly-and-current theorem]
+\label{thm:finite-baryogenesis-source}
+If the record phase acts as
+\(\psi\mapsto e^{ir_\psi\Theta_R}\psi\), then its electroweak topological
+coefficient and expected phase velocity are
+\[
+k_R=\sum_{\psi\,{\rm LH}}r_\psi\,2T_2(R_\psi),
+\qquad
+\dot\Theta_R(T)=\theta_0
+\sum_{q,q'\in Q_r}p_r(q,T)L_{r,T}(q,q')\omega_{R,r}(q,q').
+\]
+The probability law satisfies \(dp_r/d\tau=p_rL_{r,T(\tau)}\). If
+\(p_{r,i}(C_rq)=p_{r,i}(q)\) and
+\(L_{r,T}(C_rq,C_rq')=L_{r,T}(q,q')\), then
+\[
+\dot\Theta_R(T)=Y_B=0.
+\]
+For the determinant/deck direction of the realized Standard Model branch,
+the natural central gauge attachment is hypercharge and
+\[
+k_R^{YWW}=N_g(3Y_Q+Y_L)
+=3\left(3\cdot\frac16-\frac12\right)=0.
+\]
+The OPH \(\mathbb Z_6\) gauge/deck phase therefore supplies no direct
+\(\Theta_R W\widetilde W\) baryogenesis coupling. A conventional global
+\(B+L\) attachment would instead give \(k_R=2N_g=6\), conditional on a
+quotient-visible gauge-singlet record phase carrying that attachment.
+\end{theorem}
+
+\begin{proof}
+The chiral measure gives the mixed \(SU(2)_L^2U(1)_R\) anomaly index, with an
+\(SU(2)\) doublet contributing \(r_\psi2T_2(\mathbf2)=r_\psi\), including
+spectator multiplicities. The expected number of transitions \(q\to q'\) in
+proper time \(d\tau\) is \(p_r(q,T)L_{r,T}(q,q')d\tau\); weighting by the
+integral winding increment gives the displayed current. Pairing every
+transition with its CP image cancels the current under a CP-symmetric law.
+The gauge/deck value is the Standard Model mixed hypercharge anomaly, which
+vanishes generation by generation. For \(B+L\), the quark and lepton weak
+doublets contribute two units per generation.
+\end{proof}
+
+\paragraph{Source boundary.}
+The determinant/deck cocycle supplies a candidate phase coordinate and its CP
+inversion. Normal-form settlement and the oriented 24-slot register supply no
+transition probabilities and select no baryon sign. A nonzero branch requires
+a distinct anomalous record attachment, a source-only \(L_{r,T}\), a physical
+clock and initial or boundary law, a quotient-intrinsic CP-odd affinity, and
+cosmological domain coherence. On the conditional \(B+L\) branch, the
+transport functional requires
+\[
+\left\langle\frac{\dot\Theta_R}{T}\right\rangle_{\rm fo}
+=(4.463\pm0.028)\times10^{-9}.
+\]
+This number is an evaluation target for the source generator. It is not an
+input from which the generator may be selected.
 
 \paragraph{Proton-spin continuation benchmark.}
 On the realized D8--D9 branch the color factor is \(\mathrm{SU}(3)\), so the structural OPH

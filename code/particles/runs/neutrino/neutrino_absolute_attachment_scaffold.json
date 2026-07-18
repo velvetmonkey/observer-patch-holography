@@ -1,6 +1,6 @@
 {
   "artifact": "oph_neutrino_absolute_attachment_scaffold",
-  "generated_utc": "2026-07-11T05:55:53Z",
+  "generated_utc": "2026-07-18T05:43:23Z",
   "status": "superseded_conditional_absolute_scale_scaffold",
   "public_promotion_allowed": false,
   "exact_missing_object": "source_closed_neutrino_operator_basis_and_mass_label_contract",
@@ -159,7 +159,7 @@
             "value": 6.704321502726554
           }
         ],
-        "selection_rule": "Within the already-admitted top candidates of each route family, choose one candidate per route that minimizes cross-route relative half-width; total algebraic complexity and route-local compare-only error break ties.",
+        "selection_rule": "Within the admitted top candidates of each route family, choose one candidate per route that minimizes cross-route relative half-width; total algebraic complexity and route-local compare-only error break ties.",
         "shortlist_depth_per_route": 5
       },
       "bridge_correction_candidate_audit": {
@@ -306,7 +306,7 @@
       },
       {
         "id": "selector_centered_unitary_common_refinement_descent_on_edge_bundle",
-        "role": "selector-centered common-refinement edge-bundle descent theorem already closed above the same-label phase-cocycle layer",
+        "role": "closed selector-centered common-refinement edge-bundle descent theorem above the same-label phase-cocycle layer",
         "status": "closed_from_normalized_common_refinement_unitary_transport"
       },
       {
@@ -336,7 +336,7 @@
   "notes": [
     "Within the rejected candidate algebra, the residual absolute ambiguity is a positive rescaling orbit; this is not a statement that the physical neutrino lane is otherwise closed.",
     "Relative to the candidate residual-amplitude proxy, a near-unity correction scalar C_nu can be tracked for debugging only.",
-    "Direct C_nu auditing yields a narrower target-containing induced B_nu window than the old direct bridge corridor, but it remains compare-only and cannot be promoted.",
+    "Direct C_nu auditing yields a narrower measured-reference induced B_nu window than the old direct bridge corridor, but it remains compare-only and cannot be promoted.",
     "The first physical missing object is the source-closed operator, basis, charged-basis, and mass-label contract; an absolute-scale theorem is downstream of that gate."
   ]
 }

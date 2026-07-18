@@ -40,7 +40,22 @@
     "shape_parameter_count_after_common_scale": 2,
     "statement": "Every Hermitian operator on one face fiber that commutes with the regular C3 shift has the form C=aI+bR+conjugate(b)R^2. Its three eigenvalues are a+2|b|cos(delta+2*pi*k/3)."
   },
-  "claim_boundary": "The icosahedron is integral to OPH microphysics and the face-corner C3 carrier is a genuine new local geometric lemma. The numerical completion remains a conditional, retrospectively discovered conjecture until the listed source maps are proved.",
+  "claim_boundary": "The icosahedron is integral to OPH microphysics and the face-corner C3 carrier is a source-side local geometric lemma. The numerical formulas are conditional conjectures because the listed source maps are work in progress.",
+  "claim_scope": {
+    "not_derived_by_face_incidence": [
+      "delta=beta_EW/(2*N_c*N_g) or its endpoint correction",
+      "the one-bit amplitude balance or its leakage correction",
+      "det(Y_e)=sqrt(2)/6^14 or det(M_e)=v^3/(2*6^14)",
+      "the kappa, chi_rho, and zeta_delta finite-incidence equalizers",
+      "identification with the on-shell pole-mass coordinate"
+    ],
+    "validated_here": [
+      "icosahedral V=12, E=30, F=20 incidence",
+      "face stabilizer C3 and the three-corner cyclic carrier",
+      "Hermitian-circulant spectral algebra",
+      "face-ID independence of the unordered spectrum"
+    ]
+  },
   "conditional_physical_completion_theorem": {
     "if_supplied": [
       "an OPH quotient-visible attachment Xi from the face-corner bundle to the physical charged-generation multiplicity space",
@@ -251,33 +266,18 @@
     "every_vertex_is_five_valent": true,
     "sphere_euler_characteristic_is_2": true
   },
-  "pro_completion_v1_boundary": {
-    "not_derived_by_face_incidence": [
-      "delta=beta_EW/(2*N_c*N_g) or its endpoint correction",
-      "the one-bit amplitude balance or its leakage correction",
-      "det(Y_e)=sqrt(2)/6^14 or det(M_e)=v^3/(2*6^14)",
-      "the kappa, chi_rho, and zeta_delta finite-incidence equalizers",
-      "identification with the on-shell pole-mass coordinate"
-    ],
-    "validated_here": [
-      "icosahedral V=12, E=30, F=20 incidence",
-      "face stabilizer C3 and the three-corner cyclic carrier",
-      "Hermitian-circulant spectral algebra",
-      "face-ID independence of the unordered spectrum"
-    ]
-  },
   "public_charged_mass_promotion_allowed": false,
-  "relation_to_twelve_port_W5_theorem": "The face-corner bundle is a valid alternative incidence carrier. It does not contradict the W5 no-go, which applies to linear moments of scalar weights on the twelve vertices. Incidence geometry can supply a geometric C3 fiber without a nonuniform port scalar, but still requires a physical charged attachment and dynamical spectral value law.",
+  "relation_to_twelve_port_W5_theorem": "The face-corner bundle is a valid alternative incidence carrier. It does not contradict the W5 no-go, which applies to linear moments of scalar weights on the twelve vertices. Incidence geometry can supply a geometric C3 fiber without a nonuniform port scalar, but requires a physical charged attachment and dynamical spectral value law.",
   "screen_premise_checks": {
     "orbit_size_is_12": true,
     "rotation_group_is_A5": true,
     "rotation_group_order_is_60": true,
     "screen_certificate_check_passes": true,
-    "screen_status_closed": true,
+    "screen_status_is_conditional_selector_theorem": true,
     "vertex_stabilizer_order_is_5": true
   },
   "screen_source": "R_screen_sieve_icosahedral_certificate.json",
-  "screen_source_sha256": "285b30486e4d8548bed60ee0d7220796fee5c80276aa36a0820a709df680433c",
+  "screen_source_sha256": "5dd36866b482446bc85d9e3d5f20b1b69851306538b387398927c4e2f1194f30",
   "source_only": true,
   "status": "CLOSED_GEOMETRIC_C3_FACE_CARRIER_PHYSICAL_ATTACHMENT_AND_VALUE_LAWS_OPEN"
 }

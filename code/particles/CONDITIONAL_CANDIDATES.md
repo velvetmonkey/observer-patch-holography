@@ -1,6 +1,6 @@
 # Conditional Candidate Outputs
 
-Generated: `2026-07-12T11:21:03Z`
+Generated: `2026-07-18T05:01:49Z`
 
 This surface renders the numeric conditional candidates that the strict
 source-only promotion policy withholds from the public OPH-value columns.
@@ -12,7 +12,7 @@ exact fits stay in `EXACT_FITS_ONLY.md`.
 The electroweak row is the target-free D10 value law. It is the OPH
 derivation for the pair: no measured mass enters, and the value follows as
 an exact implication of the five quotient-transport premises. The
-diagnostic base-running chart and the target-anchored freeze-once adapter
+diagnostic base-running chart and the measured-reference inverse adapter
 stay in the technical audit README and off this surface.
 
 ## Conditional GeV Chart Candidates
@@ -42,13 +42,3 @@ Higgs/top ratio shares the declared-surface split pair.
 | Observable | Value | Chart | Open gates | Source |
 | --- | ---: | --- | --- | --- |
 | `v_over_E_star` | `2.0199803239725553e-17` | `closed_form_hierarchy_law_on_public_endpoint_packet` | `e_star_physical_normalization, clock_scale_certificate, frozen_running_threshold_convention` | `code/particles/hierarchy/computations/hierarchy_numeric_witness.json` |
-
-Supersession note: the removed
-`alpha_inv_no_hadron_near_endpoint` value was a mixed-provenance display packet
-(the inner value evaluated at `P_fwd` plus `alpha_U` evaluated at the SL-3
-pixel) from a run that predates the converged precision-100 reruns; it is not
-a fixed point of any single declared map and stays on record as a display
-packet only and is not a live conditional candidate. The certified
-self-consistent gauge-width fixed point is
-`alpha^-1 = 137.035660136946577...`, and the certified source root is
-`alpha^-1 = 136.994835177413...` (CL-2/CL-6 in `../../docs/CLOSURE_LEDGER.md`).

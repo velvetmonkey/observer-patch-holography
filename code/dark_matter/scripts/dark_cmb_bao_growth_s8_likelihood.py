@@ -17,7 +17,7 @@ from d6_capacity_calculator import (
 
 
 ROOT = Path(__file__).resolve().parents[1]
-TARGETS_PATH = ROOT / "data" / "observational_targets.json"
+COMPARISONS_PATH = ROOT / "data" / "observational_comparisons.json"
 
 
 def import_camb() -> Any:
@@ -30,9 +30,9 @@ def import_camb() -> Any:
     return camb
 
 
-def load_targets() -> dict[str, Any]:
-    with TARGETS_PATH.open("r", encoding="utf-8") as handle:
-        return json.load(handle)["targets"]
+def load_comparisons() -> dict[str, Any]:
+    with COMPARISONS_PATH.open("r", encoding="utf-8") as handle:
+        return json.load(handle)["comparisons"]
 
 
 def load_parent(path: str | None) -> dict[str, Any] | None:
@@ -141,9 +141,9 @@ def compute(args: argparse.Namespace) -> dict[str, Any]:
     ):
         return blocked_payload(parent, neutrino_provenance)
 
-    targets = load_targets()
-    planck = targets["planck_2018_vi"]
-    desi = targets["desi_dr1_bao"]
+    comparisons = load_comparisons()
+    planck = comparisons["planck_2018_vi"]
+    desi = comparisons["desi_dr1_bao"]
     h = args.H0 / 100.0
     rho_ratio = float(parent["rho_A_over_rho_b"])
     omAh2 = args.ombh2 * rho_ratio

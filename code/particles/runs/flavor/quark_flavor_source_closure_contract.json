@@ -25,34 +25,34 @@
   "current_repository_emits_physical_quark_sextet": false,
   "dependency_files": {
     "particles/hierarchy/certificates/R_P_source_audit_pixel_certificate.json": {
-      "sha256": "11aeb17fd03b032af987100f8b865786f77b17c6d81aa4a649984e5059f42010"
+      "sha256": "5fd78433b7fe5832c931507694aa0c378301bec589b33656abdc64b0d746443c"
     },
     "particles/runs/flavor/family_transport_kernel.json": {
       "sha256": "712f4ac9ac065bb5349eda86f168c5aca5f011771cefc5e50ededea56c17152a"
     },
     "particles/runs/flavor/quark_axiom_level_yukawa_moduli_nonidentifiability.json": {
-      "sha256": "19f90fc2fa792673cfd970391a56b86e8b211773dbf5f960ddd8224c612c9c1d"
+      "sha256": "f7d8f93c4d755760151a6e70de9727a229627f7f36bd4fbfa02211be609e03b6"
     },
     "particles/runs/flavor/quark_further_theorem_audit.json": {
       "sha256": "06a0f13f28a56139d3658624ff4d8d7951af9a851a4eb1c7ea9588973b8ce688"
     },
     "particles/runs/flavor/quark_odd_response_law.json": {
-      "sha256": "27b8e3f2ff12a02bd01dfab74089060673edde333502d363108aaa8f40ed9923"
+      "sha256": "0292adf98a01f378efadd04c3e934682ece87ec72e216fb4825570a998a18cd3"
     },
     "particles/runs/flavor/quark_rscc_completion_candidate.json": {
-      "sha256": "904011566874460a2fbbc10e74b6eba9ce40690adaa92f15133885a25bfbcc74"
+      "sha256": "5a7bd5e1f66b89c5c2ea1fc247d31f611cfa5425db5be1fd1f0dc84d88101129"
     },
     "particles/runs/flavor/quark_rscc_completion_candidate_audit.json": {
-      "sha256": "966296b4c799ac358d49d93d8aa8c098ba3fa10da6c0beca3ab794b267dc4280"
+      "sha256": "5457ffa17b00f924b62cc1458ce2d34cac92a9b0c38c66e8def499c8770371cf"
     },
     "particles/runs/flavor/quark_rscc_module_arithmetic.json": {
       "sha256": "945da0cef4b21f39e1327d26a167af4b3f174a4c26cb0b0b2abcd81c0c36322b"
     },
     "particles/runs/flavor/quark_running_mass_scheme_convention_obstruction.json": {
-      "sha256": "ca5d5b406fbaba265dc4ad1718d34c7d52145d403049ea0b921c01c687615163"
+      "sha256": "de53e09444c1b391324bb3491a2d8953bfe8876fe9404189f13a8e4ef95cdc9a"
     },
     "particles/runs/flavor/quark_sector_mean_split.json": {
-      "sha256": "943a0d6770ab5a0be6ad0ce5e69e5beffac1afa3ce31ffc4b9e3ebe776926b7e"
+      "sha256": "5fa74146fddfb2c3bbea9f2c794aa55d3493d3c4d3724e6e5fa45d3bcfc0334d"
     }
   },
   "exact_algebra": {
@@ -180,7 +180,7 @@
     "audit_artifact": "oph_quark_rscc_completion_candidate_audit_v1",
     "claim_class": "post_hoc_target_informed_rscc_module_incidence_and_cumulant_ansatz_not_physical_quark_postdiction",
     "exact_arithmetic_status": "exact_arithmetic_passed_physical_module_selection_not_proved",
-    "maximum_mixed_chart_relative_residual_percent": 0.29435865035596365,
+    "maximum_mixed_chart_relative_residual_percent": 0.2943585954534367,
     "negative_control_beats_full_rscc": true,
     "old_candidate_flavor_decimals_consumed_directly": false,
     "promotion_allowed": false,

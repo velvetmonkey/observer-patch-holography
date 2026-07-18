@@ -50,18 +50,22 @@ def payload() -> dict:
             "For an inner A5 action on each su(2) factor, its fixed space has dimension 0 (icosahedral action) or 3 (trivial action); four factors give a fixed dimension divisible by 3, contradicting dim(g^A5)=1.",
             "Therefore dim Z(g)=1 and dim [g,g]=11.",
             "The only compact semisimple dimension partition of 11 is 8+3, hence [g,g]=su(3)+su(2).",
-            "Thus g=su(3)+su(2)+u(1). The A5 module forces the 8-dimensional ideal to be 5 plus one triplet and the 3-dimensional ideal to be the other triplet, up to the outer automorphism of A5.",
+            "Thus g=su(3)+su(2)+u(1). Under the hypotheses, the 8-dimensional ideal is 5 plus one triplet and the 3-dimensional ideal is the other triplet, up to the outer automorphism of A5.",
         ],
         "conclusion": "g is isomorphic to su(3) + su(2) + u(1), conditional on the hypotheses",
         "what_is_not_proved": [
             "the physical port-to-current map",
             "innerness of the screen A5 action from bare OPH repair axioms",
-            "the kinetic form, locality, normalization, or global Z6 quotient",
+            "the kinetic form, locality, or normalization",
+            "trace-balanced physical integration or axis-center descent",
+            "the MAR matter package, hypercharge lattice, or global gauge quotient",
         ],
-        "counterbranches_without_innerness": [
+        "counterbranches_if_innerness_is_dropped_but_group_integrality_is_retained": [
             "u(1)^12 with a nontrivial A5 lattice action",
-            "su(3)+u(1)^4 with a nontrivial A5 action on the center",
             "su(2)+su(2)+u(1)^6 with center module 1+5",
+        ],
+        "additional_real_module_counterbranch_only_if_group_level_integral_central_lattice_constraints_are_also_dropped": [
+            "su(3)+u(1)^4 with a nonintegral real A5 center module 1+3",
         ],
     }
 

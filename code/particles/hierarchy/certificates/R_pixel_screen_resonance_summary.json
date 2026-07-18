@@ -5,11 +5,12 @@
     "capacity_certificate_accepted": true,
     "cell_count_reconstructs_capacity": true,
     "cosmological_cell_coordinate_matches_count_form": true,
+    "hierarchy_screen_readout_is_named_open_premise": true,
     "joint_product_branch_recorded": true,
     "primitive_carrier_not_selected_here": true,
     "readback_uses_same_n_crc_ew": true,
-    "resonance_certificate_promoted": true,
-    "screen_sieve_supplies_twelve_ports": true,
+    "resonance_certificate_is_exact_conditional": true,
+    "screen_sieve_supplies_twelve_ports_and_x_over_twelve": true,
     "si_lambda_not_promoted_here": true
   },
   "claim_boundary": {
@@ -18,7 +19,8 @@
       "a primitive one-cell or fixed-block carrier theorem",
       "an SI Lambda value without the selected scale certificate",
       "an SI G or no-G clock-stack promotion",
-      "a coupled (P,N_CRC) source-map theorem beyond the recorded product branch"
+      "a coupled (P,N_CRC) source-map theorem beyond the recorded product branch",
+      "HIERARCHY-SCREEN-READOUT: log(E_cell/v)=Gamma_screen"
     ]
   },
   "dependency_artifacts": {
@@ -47,15 +49,19 @@
     "reconstruction_formula": "K_cell*(P_star/4) = N_CRC^EW",
     "relative_reconstruction_error": "0"
   },
-  "purpose": "Expose the pixel-screen tile identity, 12/24-port hierarchy lock, and dimensionless de Sitter capacity coordinate as one machine-readable summary sourced from existing hierarchy certificates.",
-  "shared_12_24_port_lock": {
-    "hierarchy_readout": "v/E_cell = (N_CRC^EW/pi)^(-P_star/12)",
+  "purpose": "Expose the pixel-screen tile identity, 12/24-port arithmetic alignment, and dimensionless de Sitter capacity coordinate as one machine-readable summary sourced from existing hierarchy certificates.",
+  "shared_12_24_port_alignment": {
+    "conditional_hierarchy_readout": "v/E_cell = (N_CRC^EW/pi)^(-P_star/12)",
+    "conditional_tick_form": "v/E_cell = |g_*'|^(4*P_star)",
+    "conditional_transport_time": "t_tr(P_star) = (P_star/12) * log(N_CRC^EW/pi)",
+    "gamma_screen_algebra": "Gamma_screen=(P_star/12)*log(N_CRC^EW/pi)",
+    "identification_premise": "HIERARCHY-SCREEN-READOUT",
+    "identification_status": "work_in_progress",
     "repair_register_slots": 24,
     "repair_register_source": "certificates/R_m_rep_24_certificate.json",
+    "screen_load_split": "X/12",
     "screen_port_source": "certificates/R_screen_sieve_icosahedral_certificate.json",
-    "screen_ports": 12,
-    "tick_form": "v/E_cell = |g_*'|^(4*P_star)",
-    "transport_time": "t_tr(P_star) = (P_star/12) * log(N_CRC^EW/pi)"
+    "screen_ports": 12
   },
   "source_pair": {
     "N_CRC_EW": "3.5323546226929906511187512962330547600462096590942035604238177731136802717148740820434110040644403858228611984E+122",

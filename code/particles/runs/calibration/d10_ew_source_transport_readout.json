@@ -159,11 +159,11 @@
     "MZ_pole_err_gev": 0.002,
     "epoch": "2025",
     "kind": "local_machine_readable_reference_surface",
-    "note": "This law is exact on the frozen authoritative D10 target surface. The stronger target-free emission from P alone remains open.",
+    "note": "This law is exact on the declared measured-reference surface. The stronger target-free emission from P alone remains open.",
     "source_label": "PDG 2026 API"
   },
   "freeze_once_target_free_residual_object": "EWTargetFreeRepairValueLaw_D10",
-  "generated_utc": "2026-07-13T06:09:17Z",
+  "generated_utc": "2026-07-18T05:56:18Z",
   "mass_pair_predictive_candidate": {
     "MW_pole": 80.3625,
     "MZ_pole": 91.1879,
@@ -229,7 +229,7 @@
     "The selected carrier point emits the mass pair directly from the transported D10 couplings.",
     "The reduced two-scalar carrier gives the compact source family on the selected D10 lane.",
     "The exact mass-pair chart on the selected carrier is closed, and the builder-local mass-side residual is the selector `EWExactMassPairSelector_D10` on that chart.",
-    "The freeze-once coherent repair law is closed on one authoritative frozen target pair, so the W/Z surface comes from one coherent coupling pair on the shared D10 family.",
+    "The reference-fitted coherent repair law is closed on one declared comparison pair, so the W/Z surface comes from one coherent coupling pair on the shared D10 family.",
     "The selected electroweak point is the chosen carrier point itself, not a separate transported seed placeholder.",
     "The compact point records the same family on the fixed-eta slice eta_EW = alpha_u * cos(2*theta_W0) with free sigma_EW; the no-new-parameter point is sigma_EW = -eta_EW.",
     "The compact anti-diagonal slice restores alpha_em^-1 and sin^2(theta_W) through a source-normalized hypercharge readout on the selected carrier point, but that slice does not define the public fine-structure theorem.",

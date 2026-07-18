@@ -74,8 +74,9 @@ is the protected Z6 reserve
 `thm:z6-reserve-trace` with declared branch input `l_shared = P/4`;
 Definition `def:z6-reserve-projector`): reserve mean `tau_q(Z6) = P/24` per
 accounting unit, Poisson reserve exponent `e^(-P/24)`. Every number downstream
-inherits the `l_shared = P/4` branch input and the MaxEnt-maximal-symmetry named
-hypothesis (remark after `thm:icosahedral-screen-sieve`).
+inherits the `l_shared = P/4` branch input, strict unit splitting, inverse-port
+pairing, and source-side D-optimal tomography of
+`thm:icosahedral-screen-sieve`.
 
 **Branch point BR-1, reserve semantics (menu size 3).**
 
@@ -156,16 +157,16 @@ structure the membership clause does not declare; recorded, not executed.
 
 ### Step 6. Symmetry quotient. Branch axis BR-5
 
-The no-marked-point rule makes the twelve ports indistinguishable; the face-corner
-bundle supplies twenty faces `F_20 ~ A5/C3` and sixty face-corner flags forming a
-free transitive A5-set (`thm:icosahedral-face-corner-bundle` and its boundary
+The screen-sieve premises give twelve equal-weight ports; the face-corner
+bundle supplies twenty faces `F_20 ~ A5/C3` and sixty face-corner flags forming
+a free transitive A5-set (`thm:icosahedral-face-corner-bundle` and its boundary
 remark).
 
 **Branch point BR-5 (menu size 3).**
 
 - **S- (A5 quotient):** configurations counted up to the icosahedral action; divide
   by `|A5| = 60`; `d += -ln 60`.
-- **S0 (already quotiented):** `nf` already delivers one representative per class;
+- **S0 (quotient representatives):** `nf` delivers one representative per class;
   no factor.
 - **S+ (flag multiplicity):** the sixty flags label distinct record anchorings;
   `d += +ln 60`.
@@ -180,9 +181,9 @@ c = c_BR3 + k_BR4  in  {-2, ..., +3},
 d = d_BR3 + k_BR4*ln(4/P) + d_BR5.
 ```
 
-No declared structure produced an `N log N` term or any other tail: every declared
+No declared structure produces an `N log N` term or any other tail: every declared
 multiplicity and cost in Steps 3 through 6 is per-cell (linear in `N`), per-load
-(`log N`), or global (constant). This is recorded now since it fixes the reachable
+(`log N`), or global (constant). This fixes the reachable
 fixed-point scale before any evaluation.
 
 The spec does not supply a formula for `Cap_read`; it supplies the growth form of P3
@@ -371,25 +372,25 @@ are recorded as excluded.** The exclusion is informative in three ways.
    Any port-based landing at `~1e122` must inject `~282` nats of additive per-load
    structure, which is Step 4's excluded fifth reading (the CL-3 bridge exponent).
 
-**Gap item G2-GAP-1 (new).** The declared structure underdetermines the count at
+**Gap item G2-GAP-1.** The declared structure underdetermines the count at
 exactly one load-bearing point: no theorem supplies a per-cell or per-port record
 multiplicity of order `exp(6*pi/(P*alpha_U))`, equivalently a mechanism producing
 `1 - rho` at the `1e-122` scale or an `N log N` tail with stationary point near
 `exp(282)`. The only corpus object of that order is the CL-3 electroweak-bridge
 exponent, whose value is barred from the evaluation cone by the spec (Section 3)
 and whose derivation from the source side is precisely the CL-3 resolution path
-("derive the EW-bridge/capacity connection"). Until a source-side theorem ties the
+("derive the EW-bridge/capacity connection"). Without a source-side theorem tying the
 port load `X = log(N/pi)` to the inner observation step of the D10 lane, every
 count built from the declared combinatorics closes at O(1)-O(10^3) nats. G2 (this
 map) and the CL-3 connection are one missing theorem, seen from two rows.
 
-**Ledger action: none.** No branch passes A7, so
-[CLOSURE_LEDGER.md](../../docs/CLOSURE_LEDGER.md) row CL-7 is untouched; this document
-and the runtime certificates carry the exclusion record. Promotion of any future
-candidate requires: a count with a structure-derived reference-scale stationary
+**Ledger state.** No branch passes A7, so
+[CLOSURE_LEDGER.md](../../docs/CLOSURE_LEDGER.md) row CL-7 has no promotable branch;
+this document and the runtime certificates carry the exclusion record. Promotion
+requires a count with a structure-derived reference-scale stationary
 point, P4 coherence or a registered discrepancy row, a directed-rounding backend
 (Arb/MPFI class) for the certificates, and a blind A7 landing.
 
 Wall-clock for the full run (three families, 190 rows, comparison):
 about 80 seconds on the development machine; each family script is deterministic
-(byte-identical artifacts across reruns, checked by SHA-256).
+(deterministic agreement across reruns).

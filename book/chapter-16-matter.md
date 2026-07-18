@@ -52,14 +52,12 @@ Stable-pattern language can sound philosophical unless the reader is shown
 where the familiar particle families enter the chain. This is the point where
 the zoo stops looking like a zoo.
 
-The first bridge is symmetry. Once Lorentz kinematics is recovered, a durable
-excitation is sorted by the familiar labels of relativistic physics: mass,
-spin, and helicity. The compact gauge structure is reconstructed from the
-stable sectors and how they transport across the screen, so the charge
-bookkeeping also stops looking arbitrary. The construction picks out the
-Standard Model gauge group $SU(3)\times SU(2)\times U(1)/\mathbb Z_6$, with its
-exact pattern of charges, three colors, and three generations. Those are
-structural answers about what kinds of matter can exist.
+The first bridge is symmetry. Once Lorentz kinematics is recovered, durable
+excitations are sorted by mass, spin, and helicity. The stated refinement
+receipt reconstructs compact gauge structure from stable transported sectors.
+On that branch, Minimal Admissible Realization (MAR) selects the Standard Model
+quotient $SU(3)\times SU(2)\times U(1)/\mathbb Z_6$, its exact charge pattern,
+three colors, and three generations. These are structural carrier results.
 
 This is where the book leans heavily on the collective history of particle
 physics. Rutherford showed that atoms have small nuclei. Chadwick found the
@@ -75,9 +73,9 @@ roles coming first. The classical wave modes of electromagnetism, the strong
 force, and gravity follow from their field equations on a stated background.
 Turning those classical modes into actual photon, gluon, and graviton particles
 is a further step that needs a full quantum treatment, and that step is work in
-progress. The same gauge structure also blocks one route to proton decay,
-because the gauge group is a product group and does not contain the extra force
-carriers that grand-unified theories would need to make the proton fall apart.
+progress. The connected product adjoint has no X/Y generator, so the standard
+simple-GUT gauge-mediated proton-decay channel is absent; this is not a theorem
+of general proton stability.
 
 None of the from-scratch calculations in this chapter produces a nonzero mass
 on its own. The results that come out cleanly describe massless carriers, and
@@ -130,171 +128,57 @@ attempts to read off its low-energy value. The physical transport is incomplete,
 and variants evaluated at different pixels or with measured hadronic input must
 remain separate coordinates.
 
-The same weak-sector calculation fixes the ratio between the Higgs scale and a
-deeper reference energy, though it cannot pin the Higgs scale in absolute units
-without knowing that reference energy on its own. The overall size that appears
-here is about $10^{122}$, the same enormous number that governs the screen's
-information capacity. The factor of twelve in its exponent traces back to a
-clean geometric fact: a triangulated sphere must carry exactly twelve fivefold
-defects, and they sit at the corners of an icosahedron.
+The weak-sector calculation fixes only a dimensionless hierarchy coordinate.
+Its $m_{\rm rep}=24$ comes independently from reversible doubling of the
+product-adjoint dimension $8+3+1$. The unit-split screen separately gives
+twelve ports and 24 oriented slots. Equality of the counts is a branch
+alignment, not a physical identification or an absolute mass scale.
 
 The electroweak chart and the electromagnetic fixed-point diagnostic come from
 one proposed construction. The pure-theory side and the parts that lean on
 measured hadronic data are tracked separately. Neither supplies a physical
 electroweak pole prediction or a closed Thomson-limit prediction.
 
-The Higgs and top masses come out together, and OPH ties them to the forces it
-has in hand rather than to any measured mass. The idea is a criticality
-condition: at one very high energy the Higgs self-interaction and its rate of
-change with energy both switch off at the same moment. Demanding that fixes the
-Higgs and the top jointly, with no free dial to turn, only a choice of which
-high energy to impose the condition at. The natural choice, written down and
-frozen in advance, gives
+The Higgs/top construction defines conditional chart coordinates. It lacks a
+source-rigid boundary scale, complete running and matching, uncertainty
+propagation, and a complex-pole map. It therefore emits no source-only physical
+Higgs or top mass.
 
-$$
-(m_H,m_t)=(125.77,\ 172.63)\,\mathrm{GeV},
-$$
+For the charged leptons, reversible repair gives a write/verify pair and the
+icosahedral face orbit $A_5/C_3$ gives a cyclic three-place fiber. A
+norm-preserving radial readback into the positive square-root-mass operator,
+with one-bit block compensation and no uncounted response, implies the Koide
+value $2/3$. The radial readback, the charged source direction fixing the phase,
+and the laboratory mass map are work in progress.
 
-within half a percent of the measured Higgs and two hundredths of a percent of
-the measured top. Run the same relation the other way, feeding in the measured
-top and asking what Higgs it implies, and the curve returns 125.72 GeV, an
-independent check of the same law. A sharper-looking pair of values also
-exists, but it is obtained by working backward from the measured masses, so it
-is a consistency check on the machinery rather than a prediction, and it is kept
-to one side.
+The face geometry is exact: the twenty outward faces form one orbit and each
+face stabilizer cycles its three corners. The sixty face-corner flags form the
+regular $A_5$ torsor, not one physical three-family space. A declared affine
+repair map on this carrier is contractive and has one stable fixed point, while
+source-multiplier countermodels with the same symmetry and contraction give
+different fixed points. Those properties do not select the physical rule.
 
-The one open piece is a theorem that singles out that special energy from first
-principles instead of by the frozen choice. There is a candidate for it, and a
-future higher-order calculation will test it. This piece is work in progress.
-Until it is settled, the top figure travels along as a companion to the Higgs
-rather than as an independent top-mass prediction.
+An eight-register finite model realizes the declared map with a bounded local
+state, ports, readback, repair moves, and durable accepted/rejected records. It
+is an observer-like self-reading fixed-cutoff construction, but its registers,
+paths, signs, clock, and response are inputs. Physical source selection, family
+attachment, refinement naturality, and the interacting particle-pole map are
+work in progress. The associated numerical charged-mass coordinates are
+target-informed fits, not source predictions. Electromagnetic transport fixes a
+common scale only with measured electromagnetic and hadronic inputs, so it is a
+consistency surface rather than a first-principles mass theorem.
 
-The three charged leptons carry a striking but weaker result. A historical OPH
-continuation writes their square-root masses as one singlet plus a cyclic
-three-family mode. It then chooses a balanced singlet/charged amplitude and the
-phase $2/9$. Those choices give the mass ratios to between about 10 and 31 parts
-per million. That numerical match is real, but it is a postdiction: the balanced
-carrier is another way of imposing the Koide relation, and the $2/9$ phase was
-an existing empirical charged-lepton parametrization.
+The restricted quark theorem fixes two shape parameters and leaves two free.
+Its reciprocal-ray specialization requires a product equal to one, while the
+common-scale data give about $0.84$ and a best fit more than twenty percent from
+the charm and strange coordinates. The physical quark interface therefore
+needs six independent common-scale Yukawa coordinates and a source-derived
+flavor selector. Generation-blind inputs cannot supply that selector. This
+construction is work in progress.
 
-The MaxEnt slogan in older drafts skipped a necessary step. A natural trace
-counts the one-dimensional singlet once and the two-dimensional charged block
-twice. Equal block power, and hence Koide, needs an additional one-bit
-compensation together with a rule that turns ensemble weights into one physical
-square-root-mass response. OPH dynamics does not derive either rule, and it does not derive
-the geometric ingredient that would fix the $2/9$ phase.
-
-The missing balance law has a sharper OPH-shaped formulation. Reversible repair
-comes with a write/verify pair, and the icosahedral face geometry carries a
-cyclic three-state fiber. If a physical radial law connected those two objects
-through a norm-preserving readback into the positive square-root-mass
-operator, with no response leaking into uncounted channels, the two conjugate
-components would each have amplitude $1/\sqrt{2}$ relative to the singlet.
-Koide's $2/3$ would follow without using the phase. This is an exact conditional
-theorem, but the condition does the remaining physical work: the corpus proves
-the repair pair and cyclic carrier separately, and symmetry supplies no map
-from a neutral singlet into a labeled charged pair. A radial law can avoid that
-vector obstruction and is enough for Koide alone; the phase and individual
-ratios need a charged source direction. Positivity, the radial response, and
-the conversion to measured masses are work in progress.
-
-The same historical continuation adds a couple of extra prescriptions and
-reproduces the electron, muon, and tau masses to within a few hundredths of a
-percent. The exact accuracy shifts depending on which internal setting is used,
-from about two hundredths of a percent in one case to about eight hundredths in
-another, and that sensitivity to the setting matters. The formula also carries
-an extra normalization factor with no first-principles proof, and no derivation
-converts its raw output into the specific kind of mass the experiments report.
-That conversion is work in progress.
-
-The icosahedral screen suggests a cleaner carrier. Its twenty outward-facing
-triangles form a single orbit, and the rotations that preserve one triangle
-cycle its three corners. The geometry therefore supplies a local three-place
-cyclic structure without forcing a uniform load to split itself. This much is
-exact. The sixty possible face-corner arrangements together form the full
-icosahedral rotation orbit rather than one physical three-family space, so a map
-down to the three charged generations is required.
-
-A calculation built on this face carrier matches the known lepton masses
-extraordinarily well on one version, at the level of a fraction of a part per
-million, though the accuracy falls to tens of parts per million on other
-versions. The repair formulas behind it were designed after the masses were
-known and reproduce those masses by construction. The face geometry is a proven
-fact, the repair formulas are a concrete conjecture, and the masses are a
-check-after-the-fact until the physical attachment and the conversion to
-laboratory masses are derived. That work is in progress.
-
-A follow-up proof settles a narrower mathematical question. Once the proposed
-repair rule is written down, it has exactly one stable solution that any
-starting guess converges to. That much is solid. The catch is that a simple
-tweak to the rule, doubling one of its terms, keeps all the nice mathematical
-properties while changing the predicted masses, so the mathematics alone does
-not single out the physical rule. Finding a first-principles reason to select
-one specific rule is work in progress.
-
-To show that the class of allowed solutions is not empty, a small computer model
-was built. It has the anatomy OPH asks of an observer: a boundary, its own local
-state, a way to read evidence, a repair move, and durable records. The model
-demonstrates internal consistency, but it derives no physics. Every physical
-ingredient is put in by hand, and the model was built after the lepton masses
-were known. The physical selection rule, the attachment to real families, and
-the conversion to laboratory masses are open work.
-
-A later result shows that if two physical ingredients were supplied, a proper
-attachment of the Higgs coupling to the families and a proper handling of how
-masses show up as particle poles, then the masses would follow uniquely. Those
-two ingredients are exactly the physics that is missing. The version worked out
-so far uses a stand-in that carries no real interactions, so it captures the
-logic without supplying the physics.
-
-A related electromagnetic calculation can pin one common mass scale, but only
-after it is fed the measured electromagnetic strength, the target lepton ratios,
-and hadronic data. It is a useful consistency check rather than a
-first-principles prediction. What it produces is an unusually accurate
-after-the-fact match, with its limits clearly marked.
-
-The quark calculation started from a restricted result. Under one simplifying
-assumption about the family structure, the equations fix two of the shape
-parameters but leave two others completely free. Nothing in the construction
-picks a value for those two, which sets a floor on how much physical input is
-missing. The full quark problem has even more freedom than this simplified
-version.
-
-A sharper test rejects that simplifying assumption outright. The assumption
-requires a certain product of two quantities to equal one, and the data put it
-near 0.84 instead. The best fit of this kind misses the measured charm and
-strange quarks by more than twenty percent, and that gap holds up whether the
-comparison is made at low energy or run all the way up toward grand-unified
-scales. The mismatch does not go away.
-
-The full quark problem needs six independent numbers to specify it. The earlier
-shortcut that used only three is exact only inside the narrow simplifying
-assumptions, and it breaks down outside them. A source of information that
-cannot tell the three generations apart cannot fix the gap either, because such
-a source can only produce quarks that all look identical. What is needed is
-something in the underlying theory that distinguishes the generations.
-Supplying it is work in progress.
-
-Some older attempts survive as records of proposals that did not work. They
-matched the masses to a few tenths of a percent, but the comparison mixed
-incompatible conventions, so those matches do not count as physical
-predictions. The arithmetic behind them depends on an author's chosen catalogue
-of ingredients, and the maximum-entropy argument they lean on does not pin down
-the distribution it needs.
-
-The OPH computer simulations hide no missing ingredient either. Their update
-rules contain no quark, Higgs, or Yukawa couplings at all, so they carry no
-information about these masses by construction. A large run confirmed this: it
-produced numbers, but none of them could be tied to a physical mass. The wider
-survey of these runs came up empty in the same way. There is nothing there to
-calibrate against, and the raw quark numbers are held back for that reason.
-
-A separate test looked for a specific mathematical structure the theory would
-like the families to have. Across several independent runs the simulations
-produced an essentially trivial answer, far below the sizeable values that
-structure would require. The current construction does not produce it. A future
-version might, but building it by hand to match the desired answer would be
-circular reasoning.
+The OPH simulations contain no quark, Higgs, or Yukawa couplings, so their raw
+coordinates are not physical mass observables. They also supply no nontrivial
+family selector.
 
 Running means the quoted mass depends on the energy scale at which the quark is
 probed. This is normal in quantum field theory. It is why a quark mass in a
@@ -302,11 +186,9 @@ short-distance table is not the same kind of number as a proton mass measured in
 the lab.
 
 The subscripts name the quark flavors: up, down, strange, charm, bottom, and
-top. To build the actual quark couplings, OPH would need to emit its own running
-of the couplings with energy, bring all the masses to a single common energy
-with the proper matching at each quark threshold, emit the running Higgs value
-in the same scheme, and only then combine them. Those steps are work in
-progress.
+top. A physical quark calculation requires source-derived coupling flow,
+common-scale threshold matching, and the Higgs value in the same scheme. This
+construction is work in progress.
 
 The neutrino calculation offers a candidate comparison point, and the global
 fit to neutrino oscillation data rejects it. The mixing pattern it would need is
@@ -314,23 +196,13 @@ not fixed by the theory, and the pieces that would set the neutrino masses in
 absolute units are absent. Any mass or mixing-phase numbers attached to this
 candidate are diagnostic only, since the candidate itself is rejected.
 
-The particle picture is larger than a handful of isolated numbers. It holds
-together as a map with several parts at different stages: massless force
-carriers that are on firm ground but not promoted to full particles, an exact
-electroweak chart, a conditional law for the weak masses, the conditional Higgs
-and top relation, the after-the-fact charged-lepton match with its computer
-model, the rejection of the simplified quark shape, and the rejected neutrino
-candidate. The charged-lepton and quark constructions assume the very physics
-they would need to derive, so both are incomplete. Filling that in is work in
-progress.
-
-The quark story is where the particle picture changes gear. The simplified
-construction leaves two parameters free, and the sharper test rejects the shape
-that construction assumed. Several separate problems are open here: the
-strong-CP puzzle, a full six-parameter quark construction chosen by the theory,
-and the masses of actual hadrons. Protons, neutrons, and mesons are bound states
-of quarks and gluons, so their masses come from the hard, nonperturbative
-physics of confinement rather than from quark masses alone.
+The particle map contains structural massless carrier modes, an exact
+electroweak chart, conditional weak and Higgs/top relations, a target-informed
+charged-lepton candidate, a rejected quark specialization, and a rejected
+neutrino candidate. Physical particle poles, the six-coordinate quark selector,
+strong CP, and nonperturbative hadron masses are work in progress. Protons,
+neutrons, and mesons are bound states whose masses depend on confinement, not
+quark masses alone.
 
 Majorana phases are extra neutrino mixing phases that matter if neutrinos are
 their own antiparticles in the relevant sense. The candidate's phase values are
@@ -340,9 +212,38 @@ electron, muon, and tau instead label flavor states.
 
 QCD is quantum chromodynamics, the strong-interaction theory that binds quarks
 and gluons into hadrons. The symbols $\theta_{\mathrm{QCD}}$ and $\bar\theta$
-name strong-CP angles, parameters that would measure a CP-violating
-strong-interaction phase. The chapter says plainly that OPH has not derived
-their physical vanishing.
+name strong-CP angles, parameters that measure a CP-violating
+strong-interaction phase. Their physical vanishing is work in progress.
+
+### Why the Universe Contains More Matter Than Antimatter
+
+The structural particle map gives matter and antimatter together. It does not
+by itself explain why the observable universe contains much more matter. That
+question needs a directed physical process, a clock, and a source of CP
+asymmetry.
+
+The finite OPH source theorem makes the missing pieces precise. A record phase
+can drive electroweak baryon-number violation only when its charge assignment
+has a nonzero electroweak anomaly. Its time dependence must be an oriented
+probability current of actual repair transitions. A settled record label is
+static. A normal form says where repair ends; it does not say how often the
+system traverses a winding in one direction rather than the CP-conjugate
+direction.
+
+This distinction rules out the most direct proposal. The sixfold Standard
+Model gauge/deck phase follows the hypercharge direction, whose mixed
+electroweak anomaly cancels exactly. That phase cannot directly source the
+matter excess. A separate gauge-singlet record phase with a $B+L$ attachment
+would have the required anomaly; that attachment and its physical repair law
+are not derived.
+
+A CP-symmetric initial state with CP-symmetric transition rates produces zero
+current at every temperature. Orientation, settlement, and bookkeeping do not
+choose the observed sign. The open physical construction is therefore narrow:
+derive the anomalous record phase, its transition rates, its clock and thermal
+history, and the CP-odd boundary or affinity that makes one sign dominate.
+Only then can standard sphaleron transport and freeze-out turn the emitted
+history into a baryon abundance.
 
 ## 16.5 What Is a Particle?
 

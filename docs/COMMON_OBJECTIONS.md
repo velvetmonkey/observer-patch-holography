@@ -654,6 +654,7 @@ SM endpoint is branch-conditional: MAR minima exist because the admissible
 class is nonempty and the MAR complexity vector lives in a well-founded
 lexicographic order on `N^4`; within the stated one-Higgs chiral package, the
 minimal coupled carrier gives `C^3 tensor C^2`, the commutant gives one `U(1)`,
-the hypercharge theorem fixes the charge lattice, and the realized spectrum
-fixes the `Z_6` quotient. Generation count is also MAR-branch conditional:
+the hypercharge theorem fixes the charge lattice, and the trace-balanced block
+kernel on the MAR matter action gives the `Z_6` quotient conditional on
+axis-center descent. Generation count is MAR-branch conditional:
 anomaly cancellation alone does not fix it.

@@ -2,8 +2,7 @@
 """Ward-projected hadronic transport payload harness (generator G1).
 
 This module emits source-side quantities only. It contains no comparison
-target, comparison tolerance, or scoring rule. Scoring belongs to the separate
-``score_bracket.py`` process after the emitted artifact has been sealed.
+target, comparison tolerance, scoring rule, or promotion mechanism.
 
 Declared contract implemented here, per
 ``code/P_derivation/THOMSON_TRANSPORT_THEOREMS.md`` and

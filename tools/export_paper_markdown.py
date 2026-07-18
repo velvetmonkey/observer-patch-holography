@@ -15,7 +15,6 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 WORKSPACE_ROOT = REPO_ROOT.parent
 PAPER_DIR = REPO_ROOT / "paper"
 EXTRA_DIR = REPO_ROOT / "extra"
-COSMOLOGY_DIR = REPO_ROOT / "cosmology"
 DEFAULT_OUT = WORKSPACE_ROOT / "markdown"
 NON_PAPER_TEX = {
     "appendix_B_bft_qecc_extensions.tex",
@@ -27,23 +26,13 @@ DEFAULT_CORE_PAPERS = sorted(
 DEFAULT_SUPPLEMENTAL_PAPERS = [
 ]
 DEFAULT_EXTRA_PAPERS = sorted(EXTRA_DIR.glob("*.tex"))
-DEFAULT_RELEASED_COSMOLOGY_PAPERS = [
-    COSMOLOGY_DIR / "oph_dark_matter_paper.tex",
-]
 DEFAULT_SOURCES = [
     *DEFAULT_CORE_PAPERS,
     *DEFAULT_SUPPLEMENTAL_PAPERS,
     *DEFAULT_EXTRA_PAPERS,
-    *DEFAULT_RELEASED_COSMOLOGY_PAPERS,
 ]
 BUILD_INFO_NAME = "_build_info.json"
-COMPACT_PAPER_SOURCE = (
-    PAPER_DIR / "recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex"
-)
-COMPACT_MARKDOWN_SOURCE = PAPER_DIR / "tex_fragments" / "PAPER.tex"
-MARKDOWN_SOURCE_OVERRIDES = {
-    COMPACT_PAPER_SOURCE: COMPACT_MARKDOWN_SOURCE,
-}
+MARKDOWN_SOURCE_OVERRIDES: dict[Path, Path] = {}
 
 
 def postprocess_markdown(text: str) -> str:
@@ -251,7 +240,7 @@ def current_release_metadata() -> tuple[str, str]:
 def write_build_info(out_dir: Path, generated: list[str], release_tag: str) -> None:
     payload = {
         "release_tag": release_tag,
-        "source_snapshot": "reverse-engineering-reality/paper, reverse-engineering-reality/extra, and released reverse-engineering-reality/cosmology papers",
+        "source_snapshot": "reverse-engineering-reality/paper and reverse-engineering-reality/extra",
         "generated_files": generated,
     }
     (out_dir / BUILD_INFO_NAME).write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
@@ -266,7 +255,7 @@ def resolve_source(name_or_path: str) -> Path:
             return candidate
 
     basename = candidate.stem if candidate.suffix else name_or_path
-    for directory in (PAPER_DIR, EXTRA_DIR, COSMOLOGY_DIR):
+    for directory in (PAPER_DIR, EXTRA_DIR):
         source = directory / f"{basename}.tex"
         if source.is_file():
             return source

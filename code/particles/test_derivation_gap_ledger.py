@@ -27,10 +27,12 @@ def test_gap_ledger_keeps_compressed_trunk_claim_safe() -> None:
     assert ledger["promotion_policy"]["obstruction_only_worker_result_allowed"] is True
     assert ledger["promotion_policy"]["hadron_backend_in_current_local_scope"] is False
     assert ledger["electroweak_hierarchy"]["claim_status"] == (
-        "closed_local_global_hierarchy_and_naturality_certificate"
+        "exact_conditional_local_global_hierarchy_and_closed_naturality_certificate"
     )
-    assert ledger["electroweak_hierarchy"]["full_theorem_grade_resonance_promoted"] is True
-    assert ledger["electroweak_hierarchy"]["remaining_promotion_gates"] == []
+    assert ledger["electroweak_hierarchy"]["may_feed_local_hierarchy_claim"] is False
+    assert ledger["electroweak_hierarchy"]["may_feed_conditional_local_hierarchy_claim"] is True
+    assert ledger["electroweak_hierarchy"]["full_theorem_grade_resonance_promoted"] is False
+    assert ledger["electroweak_hierarchy"]["work_in_progress_receipts"]
     assert ledger["electroweak_hierarchy"]["bridge_residual"].strip("0.") == ""
     assert ledger["electroweak_hierarchy"]["epsilon_H"] == "0"
     gap_ids = {row["id"] for row in ledger["rows"]}

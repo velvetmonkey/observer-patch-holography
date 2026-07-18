@@ -398,7 +398,7 @@
     "theorem_scope": "current_family_common_refinement_transport_frame_only",
     "wrapper_theorem": "oph_quark_exact_yukawa_end_to_end_theorem"
   },
-  "generated_utc": "2026-07-13T06:09:32Z",
+  "generated_utc": "2026-07-18T05:33:36Z",
   "internalized_theorems": [
     {
       "formula": "Theta_ud^Delta(public light-quark D12 data) = (1/6) * log(c_d / c_u)",
@@ -917,7 +917,7 @@
     "audit_artifact": "oph_quark_rscc_completion_candidate_audit_v1",
     "claim_class": "post_hoc_target_informed_rscc_module_incidence_and_cumulant_ansatz_not_physical_quark_postdiction",
     "current_repository_emits_physical_quark_sextet": false,
-    "maximum_mixed_chart_relative_residual_percent": 0.29435865035596365,
+    "maximum_mixed_chart_relative_residual_percent": 0.2943585954534367,
     "negative_control_beats_full_rscc": true,
     "numeric_quark_prediction_rows_allowed": false,
     "old_candidate_flavor_decimals_consumed_directly": false,
@@ -934,7 +934,7 @@
     "emitted_coordinate_unit": "dimensionless",
     "exact_algebra_status": "exact_symbolic_verification_passed",
     "flavor_source_closure_artifact": "oph_quark_flavor_source_closure_contract_v1",
-    "maximum_mixed_chart_relative_residual_percent": 0.29457592878043837,
+    "maximum_mixed_chart_relative_residual_percent": 0.2945759178962559,
     "promotion_allowed": false,
     "source_only_ancestry_passes": false,
     "statistical_interpretation_allowed": false,

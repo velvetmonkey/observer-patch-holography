@@ -2,6 +2,9 @@ import Mathlib
 
 namespace OPH.S2DesignSignature
 
+/-! This file checks the degree-six Legendre arithmetic for an assumed
+icosahedral inner-product multiset.  It does not select that geometry. -/
+
 /-- The sixth Legendre polynomial, expressed as a polynomial in `x²`.
 This lets the icosahedral inner product be certified using only `x² = 1/5`. -/
 def legendreSixFromSquare (x2 : ℚ) : ℚ :=

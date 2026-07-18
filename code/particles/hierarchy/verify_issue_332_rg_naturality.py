@@ -126,8 +126,8 @@ def main() -> int:
 
     cert: dict[str, Any] = {
         "issue": 332,
-        "theorem": "RG/coarse-graining naturality for source hierarchy to Higgs/electroweak normal-form readout",
-        "mode": "exact_selected_OPH_branch",
+        "theorem": "Conditional RG/coarse-graining commuting square for the selected source-to-Higgs comparison map",
+        "mode": "exact_selected_OPH_branch_conditional_readout",
         "accepted": bool(accepted),
         "epsilon_n": decstr(eps_n),
         "epsilon_h": decstr(eps_h),
@@ -156,8 +156,18 @@ def main() -> int:
         },
         "comparison_map": {
             "rho_sH": "[x]_s -> [P(x), N(x), Theta(x), Pi_HT F_D11 F_D10(P(x), N(x))]_H",
-            "Theta": "(N/pi)^(-P/12) = |g_*'|^(4P)",
+            "Theta": "conditional on HIERARCHY-SCREEN-READOUT: (N/pi)^(-P/12) = |g_*'|^(4P)",
             "obstruction_map": "chi_sH maps source holonomy/relevant-scalar obstruction data to Higgs-stage obstruction coordinates",
+        },
+        "claim_boundary": {
+            "closed_here": "epsilon_n=epsilon_h=epsilon_H=0 for the declared selected comparison-map square",
+            "conditional_on": "HIERARCHY-SCREEN-READOUT: log(E_cell/v)=Gamma_screen and its alpha_U/B_EW attachment",
+            "not_closed_here": [
+                "a derivation of HIERARCHY-SCREEN-READOUT",
+                "an independently emitted physical cosmic capacity",
+                "a physical Higgs or electroweak pole-mass theorem",
+            ],
+            "receipt_class": "conditional_identity",
         },
         "allowed_inputs": [
             "OPH local pixel fixed point P_star and its source certificate",
@@ -165,6 +175,7 @@ def main() -> int:
             "upstream #336 global repair-tick record for |g_*'|",
             "upstream #337 electroweak tick-projection record",
             "upstream #338 joint (P,N_CRC) fixed-point/stability record",
+            "HIERARCHY-SCREEN-READOUT as a named physical branch premise owned by #547",
             "declared D10/D11 running, matching, threshold, and Higgs/top split maps",
             "finite-constraint MaxEnt/refinement-stability branch clauses",
         ],
@@ -178,8 +189,9 @@ def main() -> int:
         "dependency_graph": [
             "#338 emits stable P_star and N_CRC branch record",
             "#336 emits global repair-tick |g_*'|=(N_CRC/pi)^(-1/48)",
-            "#337 emits electroweak tick projection v/E_cell=|g_*'|^(4P_star)",
-            "#332 proves rho_sH n_s = n_H rho_sH and chi_sH h_s = h_H rho_sH, hence epsilon_H=0",
+            "#337 defines Pi_EW and proves Pi_EW=4P iff B_EW=0; it does not derive CP-1",
+            "#547 owns HIERARCHY-SCREEN-READOUT, which gives physical meaning to the hierarchy equality",
+            "#332 proves the selected comparison-map identities rho_sH n_s = n_H rho_sH and chi_sH h_s = h_H rho_sH, hence epsilon_H=0 conditional on that readout",
         ],
         "verifier_command": "python3 code/particles/hierarchy/verify_issue_332_rg_naturality.py --check --output code/particles/hierarchy/issue_332_rg_naturality_certificate.json",
     }

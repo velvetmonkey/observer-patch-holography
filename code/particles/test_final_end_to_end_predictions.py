@@ -25,14 +25,14 @@ def test_final_end_to_end_predictions_include_particle_five_gates_and_values() -
     assert fine["source_side_no_hadron_near_endpoint"]["row_class"] == (
         "source_side_no_hadron_near_endpoint"
     )
-    assert fine["source_side_no_hadron_near_endpoint"]["alpha_inv"].startswith("137.035959500817")
+    assert fine["source_side_no_hadron_near_endpoint"]["alpha_inv"].startswith("137.035959513608567790")
     assert fine["source_side_no_hadron_near_endpoint"]["missing_hadronic_correction_alpha_inv"].startswith(
-        "0.000039676182720047"
+        "0.000039663391432209"
     )
     assert fine["source_side_no_hadron_near_endpoint"]["status"] == (
-        "historical_mixed_provenance_display_packet_not_fixed_point"
+        "certified_source_root_plus_public_width_diagnostic"
     )
-    assert fine["root_only_audit"]["alpha_inv"].startswith("136.994835")
+    assert fine["root_only_audit"]["alpha_inv"].startswith("136.994835177412937295")
     assert payload["fine_structure"]["source_only_oph"]["status"] == "not_emitted"
     assert payload["fine_structure"]["oph_plus_empirical_hadron_closure"]["row_class"] == (
         "oph_plus_empirical_hadron_closure"
@@ -41,9 +41,17 @@ def test_final_end_to_end_predictions_include_particle_five_gates_and_values() -
     assert payload["fine_structure"]["empirical_payload_policy"]["source_only_theorem_status"] == "not_promoted"
     assert payload["fine_structure"]["empirical_payload_policy"]["external_cross_section_data_integrated"] is False
     hierarchy = payload["hierarchy_and_naturality"]
-    assert hierarchy["status"]["resonance_status"] == "closed_full_local_global_hierarchy_resonance"
-    assert hierarchy["status"]["full_theorem_grade_resonance_promoted"] is True
-    assert hierarchy["status"]["remaining_promotion_gates"] == []
+    assert hierarchy["status"]["resonance_status"] == "exact_conditional_local_global_hierarchy_resonance"
+    assert hierarchy["status"]["full_theorem_grade_resonance_promoted"] is False
+    assert hierarchy["status"]["work_in_progress_receipts"] == [
+        "source production of the unit cost, inverse pairing, and D-optimal selector",
+        "HIERARCHY-SCREEN-READOUT: identify log(E_cell/v)=Gamma_screen and attach it to the alpha_U/B_EW branch",
+    ]
+    assert "independently of the screen sieve" in hierarchy["claim_boundary"][
+        "count_independence"
+    ]
+    assert "HIERARCHY-SCREEN-READOUT" in hierarchy["claim_boundary"]["missing_bridge"]
+    assert "Pi_EW=4P" in hierarchy["claim_boundary"]["missing_bridge"]
     assert hierarchy["factor_origins"]["higgs_naturality_defect"] == "0"
     assert hierarchy["local_global_bridge"]["bridge_residual"].strip("0.") == ""
     assert "discharge CP-1, CP-2, and CP-3" in hierarchy["claim_boundary"][
@@ -59,6 +67,15 @@ def test_final_end_to_end_predictions_include_particle_five_gates_and_values() -
         "Lambda_CRC*a_cell = 3*pi*P_star/N_CRC^EW"
     )
     assert pixel_screen["dimensionless_de_sitter_coordinate"]["relative_cell_coordinate_error"] == "0"
+    assert pixel_screen["shared_12_24_port_alignment"]["identification_premise"] == (
+        "HIERARCHY-SCREEN-READOUT"
+    )
+    alignment = pixel_screen["shared_12_24_port_alignment"]
+    assert alignment["screen_oriented_slots"] == 24
+    assert alignment["product_adjoint_rounds_m_rep"] == 24
+    assert alignment["equal_cardinality_status"] == (
+        "arithmetic_alignment_without_physical_identification"
+    )
     gates = {gate["issue"]: gate for gate in payload["particle_five_issue_gates"]}
     assert set(gates) == {32, 153, 199, 201, 207, 223, 224, 225, 234, 235}
     assert gates[153]["state"] == "closed_out_of_scope_computationally_blocked"
@@ -112,6 +129,7 @@ def test_final_end_to_end_predictions_include_particle_five_gates_and_values() -
     assert payload["direct_top_auxiliary_comparison"]["value_policy"] == (
         "compare_only_codomain_values_withheld_from_final_prediction_output"
     )
+    assert payload["direct_top_auxiliary_comparison"]["primary_top_codomain"] == "Q007TP4"
     assert payload["direct_top_auxiliary_comparison"]["bridge_status"] == (
         "hard_no_go_current_corpus_compare_only_direct_top_codomain"
     )

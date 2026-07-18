@@ -2,34 +2,33 @@
 
 This directory holds OPH cosmology papers inside the public core repository.
 
-## Round-One Public-Data Audit
+These cosmology papers are very early, work-in-progress, unpublished research
+drafts. They are not part of the OPH release paper bundle. They should be read
+as staging documents for source, transfer, likelihood, and falsification gates,
+not as completed OPH cosmology results.
 
-The first audited comparison pass is encouraging but conditional:
+## Public-Data Status
 
-- the fixed $\mathbb Z_6$ galaxy response gives `0.1328335 dex` aggregate RAR
-  scatter, and the BTFR exponent `4` is `1.79854 sigma` from the error-aware
-  fit;
-- the analytic candidate `n_s = 1 - P_star/48 = 0.9660214956` is `0.267 sigma`
-  from the Planck summary, while the 83-bin CAMB diagnostic differs from its
-  Planck-like baseline by only `Delta chi2 = +0.8302`;
-- the universal static Solar-System extrapolation fails the Cassini quadrupole
-  summary at about `19.2232 sigma` on the fixed $\mathbb Z_6$ input. This kills
-  that universal extension and leaves the old-settled-galaxy branch conditional
-  on a source-derived applicability or screening rule.
+The dark-sector paper proposes a repair-charge condensate action. Its dilute
+normal phase has pressureless background scaling. Its cubic condensed link
+energy gives the spherical deep radial-acceleration law and baryonic
+Tully--Fisher scaling. The same action supplies repair current, stress, and a
+coherent-source coupling weighted by $\chi_\nu^{\rm can}$.
 
-These are retrospective or conditional comparison receipts, not frozen
-predictions. The current ledger contains zero frozen physical cosmology
-prediction receipts. Reproducibility details and commands are in
-[`../code/dark_matter/ROUND_ONE_PUBLIC_DATA_AUDIT.md`](../code/dark_matter/ROUND_ONE_PUBLIC_DATA_AUDIT.md).
+The canonical repair pair, source maps, dimensional calibrations, full
+constitutive law, relativistic limit, abundance, lensing, CMB, clusters,
+Solar-System response, and laboratory receipts are work in progress. The
+paper supplies no closed physical dark-matter prediction. The
+analytic tilt and CAMB rows are conditional comparison diagnostics, not an
+OPH-native cosmology result. Reproducibility details and commands are in
+The companion code under [`../code/dark_matter/`](../code/dark_matter/) contains
+empirical and numerical diagnostics with no prediction status.
 
-## Release Bundle
+## Release Status
 
 - `oph_dark_matter_paper.tex`
-  - release-bundle paper for the dark/anomaly stress branch, the galaxy limit,
-    quotient-edge scalar/$Z_6$ finite-thickness coefficient gates, cluster
-    and cosmology contracts, the source-only anomaly abundance selector, the
-    simulator promotion ladder, the audited RAR/BTFR/Cassini comparison ledger,
-    and the dark-sector source interface used by later CMB/LSS work
+  - conditional repair-charge condensate action, repair-current balance,
+    dust-like normal phase, cubic deep-galaxy branch, and coherent-source force
 
 ## Companion Papers
 
@@ -46,14 +45,14 @@ These files are public technical companions outside the release bundle.
   - OPH-native vacuum boundary, fluctuation ensembles, proto-object/worldline
     formation, and structure-seed checks
 - `oph_cosmology_data_likelihood_contracts.tex`
-  - frozen source artifacts, no-data-use checks, pooled reducers, Boltzmann
-    transfer, the round-one audited comparison ledger, and official likelihood
+  - source-provenance artifacts, no-data-use checks, pooled reducers, Boltzmann
+    transfer, the public-data comparison ledger, and official likelihood
     comparisons
 - simulator reference: https://github.com/muellerberndt/oph-physics-sim
 - visualization companion: https://simulation.floatingpragma.io
 
 The CMB companion distinguishes diagnostic proxies, conditional physical
-artifacts using a frozen imported FLRW packet, and OPH-native physical artifacts
+artifacts using a declared imported FLRW packet, and OPH-native physical artifacts
 derived from the quotient carrier.
 Flat-sector work is likewise split: spatial Levi--Civita holonomy identifies the $\kappa=0$
 branch, while direct theorem, conditional CMH, or explicit-assumption labels select it.
@@ -62,12 +61,12 @@ branch, while direct theorem, conditional CMH, or explicit-assumption labels sel
 
 Two cosmology papers would be too compressed. The split is five papers:
 
-1. **Dark sector and structure**: the released dark-matter paper, including galaxy phenomenology, the local quotient-edge scalar coefficient gates, transported stress, the source-only abundance selector, cluster behavior, simulator promotion gates, and the dark/anomaly source contract.
-2. **Finite-source CMB prediction program**: source-only inputs, scale calibration, Boltzmann transfer, frozen likelihoods, and simulator checks.
+1. **Dark sector and structure**: the repair-charge condensate action and its conditional normal, condensed, and coherent-source branches; OPH derivation and physical evidence are work in progress.
+2. **Finite-source CMB prediction program**: source-only inputs, scale calibration, Boltzmann transfer, declared likelihoods, and simulator checks.
 3. **Inflation without inflaton**: observer-screen synchronization, flatness, horizon coherence, geometric screen spectrum, screen release amplitude, radial lift, and hot source data.
 4. **Cosmological vacuum and structure formation**: OPH-native vacuum boundary, fluctuation ensembles, proto-object/worldline formation, and visualization-facing checks.
 5. **Data and likelihood contracts**: CMB/LSS/BAO/SN/WL/growth comparison protocols.
 
-The release bundle contains item 1. Items 2-5 are technical companions whose
-physical-prediction claims are conditional on the source, transfer, and
-likelihood boundaries stated inside each paper.
+All five cosmology papers are outside the release bundle and contain diagnostic
+outputs only. Their physical source, transfer, and likelihood boundaries are
+work in progress.

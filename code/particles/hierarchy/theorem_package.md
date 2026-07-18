@@ -27,7 +27,7 @@ v/E_\star = 2.0199803239725553\times10^{-17}.
 On the source-audit branch:
 
 ```math
-v(P_{cand})/E_\star = 2.0198114150099223\times10^{-17}.
+v(P_{cand})/E_\star = 2.0198114078576331\times10^{-17}.
 ```
 
 ## Conditional Theorem B: Higgs D10/D11 declared surface
@@ -192,10 +192,13 @@ Euler and triangular incidence give
 V-E+F=2,\qquad 3F=2E,\qquad \sum_v q_v=12.
 ```
 
-Convex positive defect cost selects twelve unit fivefold defects. Edge-center
-collars expose those defects as central ports. The no-marked-point finite
-isotropy rule places them on the `A5/C5` orbit, with size `60/5=12`.
-Therefore a scalar screen load `X=log(N/pi)` is read locally as `X/12`.
+Assume a feasible integer charge domain and an additive cost with
+`h(k)>=h(1)|k|`, strictly for `|k|>=2`. This selects twelve positive unit
+defects. Edge-center collars expose them as central ports, and inverse-port
+pairing gives six axes. The declared D-optimal selector maximizes
+`det(F1)det(F2)`. Its equality conditions `F1=2I3` and `F2=(4/5)I5` make the
+six axes the unique real ETF(3,6), the regular icosahedral axes. Therefore an
+equal-weight scalar load `X=log(N/pi)` is read locally as `X/12`.
 With cell entropy `P/4` and `beta_EW=4`, this gives
 
 ```math
@@ -207,6 +210,13 @@ With cell entropy `P/4` and `beta_EW=4`, this gives
 ```
 
 The certificate is `certificates/R_screen_sieve_icosahedral_certificate.json`.
+Source production of the unit cost, inverse pairing, and D-optimal selector is
+work in progress.
+
+The screen theorem supplies `X/12` and the displayed `Gamma_EW` algebra only.
+The physical equality `log(E_cell/v)=Gamma_EW`, its attachment to the
+`alpha_U` transmutation branch, and therefore `B_EW=0` require the separate
+`HIERARCHY-SCREEN-READOUT` premise.
 
 ## Theorem F: EW-refined exact capacity fixed point
 
@@ -235,9 +245,10 @@ B_{\rm EW}(P_\star,N_{\rm CRC}^{\rm EW})=0.
 ```
 
 The certificate is `certificates/R_EW_global_capacity_certificate.json`. It
-records the fixed-point residual, the bridge residual, the residual contraction
-check, and the rounded-capacity diagnostic. The rounded display `3.31e122`
-remains a capacity-scale display and fails the exact EW bridge residual.
+records the fixed point of the bridge-defined map and the resulting identity
+`B_EW=0`; it does not independently emit cosmic capacity or prove
+`HIERARCHY-SCREEN-READOUT`. The rounded display `3.31e122` is a separate
+capacity-scale diagnostic and fails the exact EW bridge residual.
 
 ## Theorem G: Finite readback-resolution certificate
 
@@ -284,8 +295,7 @@ calibration.
 
 ## Theorem H: Representation-to-spectrum round count
 
-On the OPH realized product branch, the observer-visible compact gauge repair
-support is the product adjoint
+Assume the active observer-visible current support is the product adjoint
 
 ```math
 \mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak u(1).
@@ -308,10 +318,10 @@ m_{\rm rep}
 =24.
 ```
 
-The cyclic repair scheduler on this oriented support has period 24. The SU(5)
-adjoint has the same single-orientation integer for a different support: it
-contains mixed X/Y adjoint generators, which are excluded by the OPH product
-branch. This algebraic comparison does not assert a propagating particle.
+The cyclic repair scheduler on this oriented support has period 24. This result
+uses no screen/A5 selector, global quotient, or MAR matter package. Identifying
+the product adjoint with physical currents is an upstream premise. The SU(5)
+adjoint is a different support containing excluded mixed X/Y generators.
 The certificate is `certificates/R_m_rep_24_certificate.json`.
 
 ## Lemma H: Global repair-tick lemma
@@ -365,8 +375,10 @@ Boundary: the closure transport follows at the interface level of `F`, condition
 declared counting model above. The finite readback-resolution object is supplied by
 `R_readback_resolution_certificate.json`. The representation-to-spectrum round count is
 supplied by `R_m_rep_24_certificate.json`. The local/global hierarchy-resonance theorem
-closes on the selected branch. The promoted hierarchy row does not use the local/global
-resonance as an input.
+is exact conditional on `HIERARCHY-SCREEN-READOUT`. The screen's oriented
+24-slot register and the independent product-adjoint round count `m_rep=24`
+are not physically identified by their equal cardinalities. The hierarchy row
+does not use the local/global resonance as an input.
 
 ## Boundary theorem: SI gravity/clock hierarchy
 

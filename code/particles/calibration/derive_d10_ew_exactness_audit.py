@@ -25,7 +25,7 @@ REPAIR_BRANCH_JSON = ROOT / "particles" / "runs" / "calibration" / "d10_ew_repai
 TARGET_POINT_DIAGNOSTIC_JSON = ROOT / "particles" / "runs" / "calibration" / "d10_ew_repair_target_point_diagnostic.json"
 W_ANCHOR_FACTORIZATION_JSON = ROOT / "particles" / "runs" / "calibration" / "d10_ew_w_anchor_neutral_shear_factorization_official_pdg_2025_update.json"
 W_ANCHOR_BOX_JSON = ROOT / "particles" / "runs" / "calibration" / "d10_ew_w_anchor_neutral_shear_box_dominance.json"
-TARGET_FREEZE_SPLIT_JSON = ROOT / "particles" / "runs" / "calibration" / "d10_ew_target_freeze_and_subobject_split.json"
+REFERENCE_FIT_SPLIT_JSON = ROOT / "particles" / "runs" / "calibration" / "d10_ew_reference_fit_subobject_split.json"
 MINIMAL_CONDITIONAL_JSON = ROOT / "particles" / "runs" / "calibration" / "d10_ew_minimal_conditional_theorem.json"
 TARGET_EMITTER_JSON = ROOT / "particles" / "runs" / "calibration" / "d10_ew_target_emitter_candidate.json"
 TARGET_FREE_REPAIR_JSON = ROOT / "particles" / "runs" / "calibration" / "d10_ew_target_free_repair_value_law.json"
@@ -114,7 +114,7 @@ def main() -> int:
     parser.add_argument("--target-point-diagnostic", default=str(TARGET_POINT_DIAGNOSTIC_JSON))
     parser.add_argument("--w-anchor-factorization", default=str(W_ANCHOR_FACTORIZATION_JSON))
     parser.add_argument("--w-anchor-box", default=str(W_ANCHOR_BOX_JSON))
-    parser.add_argument("--target-freeze-split", default=str(TARGET_FREEZE_SPLIT_JSON))
+    parser.add_argument("--reference-fit-split", default=str(REFERENCE_FIT_SPLIT_JSON))
     parser.add_argument("--minimal-conditional-promotion", default=str(MINIMAL_CONDITIONAL_JSON))
     parser.add_argument("--target-emitter", default=str(TARGET_EMITTER_JSON))
     parser.add_argument("--target-free-repair", default=str(TARGET_FREE_REPAIR_JSON))
@@ -174,10 +174,10 @@ def main() -> int:
         if w_anchor_box_path.exists()
         else None
     )
-    target_freeze_split_path = Path(args.target_freeze_split)
-    target_freeze_split = (
-        json.loads(target_freeze_split_path.read_text(encoding="utf-8"))
-        if target_freeze_split_path.exists()
+    reference_fit_split_path = Path(args.reference_fit_split)
+    reference_fit_split = (
+        json.loads(reference_fit_split_path.read_text(encoding="utf-8"))
+        if reference_fit_split_path.exists()
         else None
     )
     minimal_conditional_path = Path(args.minimal_conditional_promotion)
@@ -414,11 +414,11 @@ def main() -> int:
             "bounds": w_anchor_box.get("bounds"),
             "verdict": w_anchor_box.get("verdict"),
         },
-        "target_freeze_and_subobject_split": None if target_freeze_split is None else {
-            "artifact": target_freeze_split.get("artifact"),
-            "status": target_freeze_split.get("status"),
-            "target_freeze_required": target_freeze_split.get("target_freeze_required"),
-            "subobject_split": target_freeze_split.get("subobject_split"),
+        "reference_fit_and_subobject_split": None if reference_fit_split is None else {
+            "artifact": reference_fit_split.get("artifact"),
+            "status": reference_fit_split.get("status"),
+            "measured_reference_required": reference_fit_split.get("measured_reference_required"),
+            "subobject_split": reference_fit_split.get("subobject_split"),
         },
         "target_free_source_only_underdetermination": None if minimal_conditional is None else {
             "artifact": minimal_conditional.get("artifact"),
@@ -533,10 +533,10 @@ def main() -> int:
             None
             if target_free_closed
             else
-            "On one frozen authoritative D10 target pair, the coherent repair law is closed and emits exact W/Z on one family; the only stricter remaining D10 step is the target-free repair value law from P alone."
+            "On one declared D10 measured-reference pair, the coherent repair law is closed and emits exact W/Z on one family; the only stricter remaining D10 step is the target-free repair value law from P alone."
             if w_anchor_factorization and w_anchor_factorization.get("status") == "closed_freeze_once_coherent_repair_law"
             else
-            "the exact two-coordinate current-carrier chart is closed, but the current selector still has a unique zero at the current point, so exact W/Z closure now needs one nonzero selector on that chart"
+            "the exact two-coordinate current-carrier chart is closed, but its selector has a unique zero at the selected point, so exact W/Z closure needs one nonzero selector on that chart"
             if exact_mass_pair_chart and exact_mass_pair_chart.get("status") == "closed_smaller_primitive"
             else
             "current closed one-variable carrier moves W and Z with the same sign, so exact mass-pair closure needs one additional neutral-leg scalar beyond tau2_tree_exact"
@@ -546,7 +546,7 @@ def main() -> int:
             if exact_wz_coordinate and exact_wz_coordinate.get("next_residual_object_if_open") == "tau2_tree_exact"
             else "the selected D10 carrier point admits a closed split exactness law, but the stronger single post-transport tree identity remains open"
             if exact_closure and exact_closure.get("status") == "closed"
-            else "the reopened two-scalar D10 carrier is now canonically selected, but the selected current-carrier point still does not close the full electroweak target surface exactly"
+            else "the declared two-scalar D10 carrier is canonically selected, but its selected current-carrier point does not close the full electroweak target surface exactly"
         ),
         "active_builder_smallest_missing_object": (
             None
@@ -613,12 +613,12 @@ def main() -> int:
         "notes": [
             "This audit computes a purely inverse reference-W/Z slice for diagnosis only; that slice is not a predictive artifact and is not emitted by the live D10 source-pair builder.",
             "Any coherent family matching those reference W/Z values forces sin2(theta_W) = 1 - (MW/MZ)^2, so the current mixed reference surface cannot be hit exactly by one simple tree-level family.",
-            "On the fixed-eta current family, the reference W and Z masses already point to nearly the same sigma_EW, but that sigma_EW is incompatible with the running alpha_em^-1 target and the running sin^2(theta_W) target is not even admissible on that one-parameter slice.",
+            "On the fixed-eta current family, the reference W and Z masses point to nearly the same sigma_EW, but that sigma_EW is incompatible with the running alpha_em^-1 target and the running sin^2(theta_W) target is not admissible on that one-parameter slice.",
             (
-                "The carrier-level selector, split exact-closure law, fiberwise tree law, exact current-carrier mass chart, freeze-once coherent repair law, and target-free source-only repair theorem are all closed. The W/Z mass lane comes from the target-free theorem, the frozen authoritative repair surface is compare-only validation, and the fine-structure constant is read separately on the Ward-projected U(1)_Q transport family."
+                "The carrier-level selector, split exact-closure law, fiberwise tree law, exact current-carrier mass chart, reference-fitted coherent repair law, and target-free source-only repair theorem are all closed. The W/Z mass lane comes from the target-free theorem, the reference-fitted repair diagnostic is compare-only validation, and the fine-structure constant is read separately on the Ward-projected U(1)_Q transport family."
                 if target_free_closed
                 else
-                "The carrier-level selector, split exact-closure law, fiberwise tree law, exact current-carrier mass chart, and freeze-once coherent repair law are all closed. Exact public W/Z now come from the frozen authoritative repair surface, while the stricter still-open D10 step is the target-free repair value law from P alone."
+                "The carrier-level selector, split exact-closure law, fiberwise tree law, exact current-carrier mass chart, and reference-fitted coherent repair law are closed. The reference-fitted repair diagnostic emits exact public W/Z only as comparison coordinates; the target-free repair value law from P alone is work in progress."
                 if w_anchor_factorization and w_anchor_factorization.get("status") == "closed_freeze_once_coherent_repair_law"
                 else
                 "The carrier-level selector, split exact-closure law, fiberwise tree law, and exact current-carrier mass chart are all closed on the existing carrier; the remaining builder-local D10 mass-side object is the selector `EWExactMassPairSelector_D10` on that chart, but the broader exact-PDG frontier is the repair branch beyond the current carrier."
@@ -631,15 +631,15 @@ def main() -> int:
                 if exact_wz_coordinate and exact_wz_coordinate.get("next_residual_object_if_open") == "tau2_tree_exact"
                 else "The carrier-level selector and the split exact closure law are both closed on the existing reopened two-scalar carrier; the stronger remaining question is whether one unsplit post-transport tree identity can replace that split readout."
                 if exact_closure and exact_closure.get("status") == "closed"
-                else "The carrier-level selector is now closed on the existing reopened two-scalar carrier, so the exact local question is whether exact electroweak closure requires a new invariant beyond the current selected carrier point."
+                else "The carrier-level selector is closed on the declared two-scalar carrier; exact electroweak closure requires a new invariant beyond the selected carrier point."
             ),
             (
                 "The broader D10 geometry is the repair branch beyond the present current carrier. That branch remains explicit, the W/Z mass lane uses the target-free source-only repair law, and the electromagnetic readout sits on the Ward-projected U(1)_Q transport family."
                 if target_free_closed
-                else "The broader D10 geometry is still the repair branch beyond the present current carrier, but on one frozen authoritative target pair the coherent repair law is already explicit and exact."
+                else "The broader D10 geometry is the repair branch beyond the selected carrier. The declared measured-reference pair admits an exact inverse fit."
             ),
             (
-                "The forward transmutation certificate now records the non-circular P -> alpha_U -> t map explicitly and separates the calibration beta_ratio_EW from the transmutation counting factor beta_transmutation_EW = N_c + 1."
+                "The forward transmutation certificate records the non-circular P -> alpha_U -> t map and separates the calibration beta_ratio_EW from the transmutation counting factor beta_transmutation_EW = N_c + 1."
                 if forward_transmutation is not None
                 else "No explicit forward transmutation certificate is attached to this audit."
             ),
@@ -647,13 +647,13 @@ def main() -> int:
             (
                 "No stricter D10 electroweak mass-side theorem object remains open on the active Phase II calibration surface."
                 if target_free_closed
-                else "The only stricter remaining D10 theorem step is a target-free law that emits the same nonzero repair directly from P alone with no frozen authoritative W/Z input."
+                else "A source-only D10 repair law from P is work in progress and permits no measured-reference W/Z input."
             ),
             (
                 "The source-only underdetermination theorem, the minimal conditional route through ColorBalancedQuadraticRepairDescent_D10, and the former candidate EWTargetEmitter_D10 all sit beneath the target-free mass-side theorem; they do not define the public electromagnetic readout."
                 if target_free_closed and (minimal_conditional is not None or target_emitter is not None)
                 else
-                "That target-free step is now split sharply on disk: the current source-only D10 corpus underdetermines the repair coefficients, the smallest supported conditional theorem route goes through ColorBalancedQuadraticRepairDescent_D10, and the strongest current source-only candidate is EWTargetEmitter_D10."
+                "The target-free step has three exact statuses: the source-only D10 corpus underdetermines the repair coefficients; the smallest supported conditional theorem route uses ColorBalancedQuadraticRepairDescent_D10; and EWTargetEmitter_D10 is the strongest source-only candidate."
                 if (minimal_conditional is not None or target_emitter is not None)
                 else "No sharper target-free split is attached to this audit."
             ),

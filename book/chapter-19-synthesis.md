@@ -117,18 +117,22 @@ those charges persist through finer and finer descriptions has to satisfy a set
 of consistency conditions. The gauge group is reconstructed from that persistent
 charge bookkeeping itself. This reconstruction classifies the compact group
 carried by the charges that can be transported across patches; it does not make
-the Standard Model choice by itself. Choosing the smallest matter content that
-works picks the version with a single Higgs. On that branch, the group is
+the Standard Model choice by itself. MAR and the declared tensor/matter package
+select the one-Higgs branch and its global form
 
 $$
 SU(3)\times SU(2)\times U(1)/\mathbb Z_6.
 $$
 
-This quotient notation means that the strong, weak, and hypercharge symmetry
-systems share a small common center that should not be counted six separate
-ways. $SU(3)$ carries color, $SU(2)$ carries weak doublet structure, and
-$U(1)$ carries hypercharge. The $\mathbb Z_6$ quotient is the discrete
-identification that makes the Standard Model charge lattice fit together.
+The $\mathbb Z_6$ is the six-element set of transformations that acts
+trivially on the realized matter package. On the separate UD12/RP-A5 screen
+branch, twelve icosahedral port readings split as
+$1+3+3+5$, matching the twelve gauge directions, and the oriented coefficient
+space carries the corresponding compact algebra. Turning that coefficient
+algebra into physical currents remains work in progress. The six antipodal
+screen axes also leave a sixfold residue, but that abstract residue becomes the
+physical $\mathbb Z_6$ only when a physical map connects screen loops to the
+matter action. Neither construction fixes a mass or coupling.
 
 The same construction also carries the four-dimensional Yang-Mills form
 and the mass-gap story for compact simple gauge groups. The Euclidean action
@@ -146,50 +150,15 @@ first genuine excitation above the vacuum costs a positive amount of energy.
 The continuum work is what lets a finite screen construction be read as that
 smooth field theory.
 
-The color triplet follows from the smallest coupled carrier, and the count of
-three generations follows from counting the quark-mixing phases together with
-weak-sector consistency and minimality on the same low-energy branch. The
-electromagnetic, color, and gravitational carrier roles pick up their classical
-wave modes once their action and phase conditions are met, but showing that
-these carriers behave as genuine quantum particles takes a stronger argument,
-and that part is work in progress. For the weak bosons the framework gives the W
-and Z running-chart coordinates close to $80.3$ and $91.1$ GeV without feeding
-in a measured W or Z mass. A physical comparison is undefined until the theory
-supplies a renormalized vacuum expectation value, tadpole prescription,
-threshold and matching terms, and a complex-pole convention. The partial
-one-loop and hybrid two-loop packets exclude only their own prescriptions, so
-they establish neither experimental pulls nor a unique percent-level defect.
-The low-energy electromagnetic strength can
-be read in several ways: from the first-principles side alone, from a mixed
-calculation, and from a version that uses measured hadron data.
-The declared first-principles maps omit the complete hadronic transport, and the
-first bracket exercise is exploratory rather than blind. The Higgs and top
-masses come out together from a
-criticality condition on the forces, close to $125.8$ and $172.6$ GeV; feeding
-the measured top mass into the same relation returns about $125.7$ GeV for the
-Higgs.
-
-None of these numbers is a particle mass derived purely from first principles
-with nothing measured fed in. The massless modes protected by symmetry are
-classical results that await a proper quantum treatment. Every nonzero mass
-above is either conditional on unproven assumptions or a check made after the
-fact against known values.
-
-For the charged leptons there is a construction built on icosahedral symmetry
-that gives a conditional mass law, worked out as a small finite digital model
-that either accepts or rejects each record. That model is hard-coded, and it
-does not select the physics from first principles. It gives the correct
-transport only once two physical inputs are supplied, and those two inputs are
-the missing pieces. The analogous law proposed for the quarks fails when tested
-against the measured quark couplings at a common scale, missing by about twenty
-percent. A full quark description needs six independent numbers and a rule that
-picks out the right flavor pattern, and that rule is missing. The observer
-simulation carries no quark information and serves only as a calibration check.
-A proposed neutrino pattern is ruled out by the measured oscillation data, and
-the neutrino mixing matrix, the ordering of the masses, and the absolute masses
-are open work. Direct top comparison, hadrons, and the strong-CP question sit
-around that particle map as neighboring pieces of physics supported to different
-degrees.
+The color triplet and three-generation count are structural results on the MAR
+branch. Classical carrier modes require their declared actions, and quantum
+particles require separate pole receipts. The W/Z and Higgs/top coordinates
+lack complete physical pole maps; the electromagnetic source maps lack the
+same-scheme hadronic transport; the $A_5$ charged carrier selects no physical
+family or mass; the quark source leaves six common-scale Yukawa coordinates
+undetermined; and the neutrino candidate fails its correlated profile. No
+nonzero source-only physical particle mass or physical neutrino mixing matrix
+is produced.
 
 The particle words here refer to roles explained in Chapters 12-16: color is the
 three-way strong-force bookkeeping, CKM phases describe quark mixing under the
@@ -312,33 +281,16 @@ measured long-distance value; the other leaves it out from the start. The two
 give nearby pixel values, but they cannot be merged into a single
 first-principles claim.
 
-The electroweak hierarchy uses the same local ruler. Once the first-principles
-side fixes the unified coupling, the hierarchy relation fixes the ratio
-$v/E_\star$ between the electroweak scale and the reference scale. It supplies
-no mass in GeV until an independent physical value of $E_\star$ is
-established. The step that connects the first-principles side to the Higgs closes
-without any leftover discrepancy, so the reading of Higgs naturality is carried
-along the same line, with no separate bare scalar mass put in by hand. The full
-gravity readout in ordinary units depends on the complete clock bridge that
-avoids inserting Newton's constant.
+The electroweak hierarchy relation fixes only the dimensionless ratio
+$v/E_\star$ on its declared branch. Absolute masses, couplings, and the gravity
+readout in ordinary units require their scale, pole, and clock receipts.
 
-The global screen-capacity branch also carries the global repair-register
-story. OPH treats reality as a continual repair of disagreements between local
-observers. In the hierarchy story, a local physics pixel has to synchronize
-with the cosmic record-capacity screen. The screen side supplies twelve
-irreducible curvature ports. Reversible write/check orientation turns those
-ports into a 24-slot oriented repair register. The weak hierarchy uses this
-24-fold normalization to read a local piece of the global screen depth. This is
-the book-level picture behind the local/global hierarchy link: particle physics
-samples the local screen readout of the proposed closure for the whole horizon
-record.
-
-The 24 slots have a simple group-theory origin. The visible product branch has
-eight color channels, three weak channels, and one hypercharge channel.
-Reversible repair reads each channel in two orientations, write and verify.
-Twelve one-way channels therefore become a 24-slot oriented repair register.
-The SU(5) adjoint lands on the same single-orientation number for a different
-support; its X/Y mixed gauge channels are absent from the OPH product branch.
+The hierarchy normalization is
+$m_{\rm rep}=2\dim(\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak u(1))
+=2(8+3+1)=24$, derived independently by reversible doubling of the product
+adjoint. The unit-split icosahedral screen separately has twelve ports and 24
+oriented slots. Equality of the counts is a branch alignment unless a physical
+identification is supplied.
 
 The compact bridge gives an electroweak capacity near
 $3.53\times10^{122}$ on the public endpoint branch, while the capacity
@@ -346,20 +298,18 @@ located from the measured cosmological constant is $3.31\times10^{122}$. Using
 the unrounded central values, $3.5324\times10^{122}$ and
 $3.3126\times10^{122}$, gives a $6.6$ percent mismatch. This is a conditional
 central-value comparison. The readback map and the three premises that connect
-the electroweak bridge to the de Sitter capacity are open, and the cosmological
-posterior has not been propagated. The
-screen-sieve theorem reads the weak-scale exponent as an icosahedral sampling
-law on the finite spherical screen: the refinement-stable screen has twelve
-unit fivefold defects, exposed as central ports on the $A_5$ vertex orbit.
+the electroweak bridge to the de Sitter capacity are open. The comparison omits
+the cosmological posterior. On its strict unit-splitting and source-selector
+premises, the screen-sieve theorem gives twelve unit fivefold defects, exposed
+as central ports on the icosahedral vertex orbit.
 
-A sieve is a finite sampling rule. Here it says that the stable spherical
-screen exposes twelve special ports, organized like the vertices of an
-icosahedron. The weak-scale exponent reads that twelve-port geometry in the
-local/global bridge.
+A sieve is a finite sampling rule. On the declared branch, the spherical screen
+exposes twelve ports organized like the vertices of an icosahedron. Its
+alignment with the independently derived hierarchy count is conditional.
 
 At the formal level, the bridge value is a candidate fixed point in log-capacity
-coordinates. The one-capacity axiom supplies the test only after the readback
-map and its premises are derived. The displayed mismatch is neither a physical
+coordinates. The one-capacity axiom requires the readback map and its premises.
+The displayed mismatch is neither a physical
 contradiction nor a closed prediction.
 
 The proposed readback side has a matching finite target. At a finite cutoff, a
@@ -443,16 +393,16 @@ that this internal readback reconstruct the same boundary capacity.
 The evidence logic is likewise simple. A prediction counts only when its
 calculation does not borrow the measured target or a calibrated proxy for it.
 Under that rule the ledger contains zero landed results that are both
-discriminating and frozen before their target data. The structural zeros and
-conditional hypercharge lattice are mathematical results, not prospective
-empirical hits. The electroweak packets are known-data prescription checks. The
-127-qubit IBM hardware exercise reproduces a standard quantum-mechanical target.
+discriminating and prospective. The structural zeros and conditional
+hypercharge lattice are mathematical results, not prospective empirical hits.
+The electroweak packets are known-data prescription checks. The 127-qubit IBM
+hardware exercise reproduces a standard quantum-mechanical benchmark.
 Its evidential status is a non-discriminating benchmark, with no OPH-specific
-confirmation.
+confirmation. The falsification program has no target registry and excludes cosmology.
 The deeper point is compression: the same
 two closure coordinates organize the observer problem, gravity and gauge
-reconstruction, the hierarchy bridge, dark energy, the dark-sector budget, the
-absence of simple-GUT proton decay, particle inventory, and the string-vacuum
+reconstruction, the hierarchy bridge, dark energy, the dark-sector test, the
+absence of the simple-GUT \(X/Y\) gauge channel, particle inventory, and the string-vacuum
 sieve.
 
 The same rule blocks a subtler mistake. A finite output does not become a
@@ -462,7 +412,7 @@ radiation until a source, propagation path, and detector are supplied. A repair
 spectrum is not a physical spectrum until the physical operator and readout are
 supplied. A reconstruction threshold is not a Page time until physical entropy
 and clock data are supplied. Renaming preserves the same bookkeeping; a physical
-claim needs a new bridge.
+claim needs an explicit bridge.
 
 The recovery of hidden correlations across a buffer region obeys the same
 discipline. Under stated technical assumptions about the state, the leftover
@@ -476,30 +426,21 @@ This certifies only how well information can be recovered. Extracting
 stress-energy or any dark-sector source takes its own separate reconstruction
 and coupling work.
 
-The cosmology story is narrower where the sky becomes finely detailed. The
-de Sitter capacity closure belongs to the global gravity story. Screen patterns
-become CMB curves, growth curves, and dark-sector sky predictions only after
-source physics, clocks, stress-energy, the source-only dark abundance selector,
-and statistical confrontation with data enter the story. The questions stay at
-the edge of the book without turning the chapter into a lab notebook.
+The dark-sector continuation promotes integer repair occupation and a compact
+repair phase to a canonical pair. Conditional on its proposed action, repair
+charge obeys a current-balance law and carries field stress. A dilute homogeneous
+branch is dust-like. A cubic condensed branch gives the deep radial-acceleration
+law and baryonic Tully--Fisher scaling under static spherical premises.
 
-The first audited comparisons sharpen that boundary. The fixed
-$\mathbb Z_6$ galaxy response reproduces an aggregate radial-acceleration
-scatter of $0.132834$ dex, the baryonic Tully-Fisher exponent $4$ lies about
-$1.80$ standard deviations from an error-aware fit, and the analytic candidate
-$n_s=1-P_\star/48=0.9660215$ lies $0.27$ standard deviations from the Planck
-summary. A conventional binned CAMB diagnostic is close to its Planck-like
-baseline, but it is not an official likelihood. These are conditional or
-retrospective comparison receipts; no cosmology number in this ledger is yet a
-frozen physical prediction.
+The action, baryonic source normalization, acceleration scale, relativistic
+limit, abundance, perturbations, lensing, clusters, and Solar-System behavior
+are not derived from finite OPH repair dynamics. Those constructions and their
+likelihoods are work in progress. OPH has no physical dark-matter solution.
 
-One extrapolation has lost. Used as a universal static Solar-System
-law, the same dark response misses the Cassini quadrupole summary by about
-$19.22$ standard deviations on the fixed $\mathbb Z_6$ input. That result kills
-the universal extension, not the explicitly scoped galaxy branch. The latter
-owes a source-derived applicability theorem tied to the self-reading
-observer system (its bounded state, ports, records, feedback, and repair) and
-cannot be rescued by an empirical exception.
+Coherent material can enter the same scalar channel through a dimensionless
+efficiency. That coefficient alone predicts no force. A physical force also
+needs a dimensional calibration, an external repair field or net repair
+charge, and a complete momentum ledger.
 
 ## 19.7 Why de Sitter Fits
 
@@ -601,8 +542,8 @@ reconstructs a compact gauge group. On the branch with the smallest matter
 content that works, the menu reads as the strong, weak, and hypercharge
 factors with their shared center.
 
-Horizon bookkeeping, made consistent patch by patch, forces the Einstein form
-of the gravity law and leaves exactly one global number behind.
+On the declared gravity branch, consistent horizon bookkeeping yields the
+Einstein form and leaves one global capacity coordinate.
 
 A screen at perfect balance carries no events. Records need a small detuning,
 and the declared detuning law leaves exactly one local number.
@@ -629,7 +570,7 @@ open. The electromagnetic roots belong to incomplete maps rather than a defined
 physical basin.
 
 What stands between here and a closed case is finite and named. The local closure
-needs a complete, scheme-consistent hadronic transport and a new blind target
+needs a complete, scheme-consistent hadronic transport and an independent blind target
 whose coordinate and comparison pixel are fixed without target exposure. The
 global closure needs a constructed capacity readback map and all three premises
 that connect it to the displayed capacities. The W and Z chart needs a complete

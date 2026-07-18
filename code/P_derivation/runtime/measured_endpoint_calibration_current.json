@@ -24,11 +24,11 @@
     "must_show_caveat": "fine-structure endpoint uses OPH plus empirical hadron closure; source-only spectral payload is absent"
   },
   "current_source_candidate": {
-    "P": "1.63097209569432901817967892561191884270169",
-    "alpha": "0.00729954516887664794921875",
-    "alpha_inv": "136.994835164621649457949994585787193262029",
-    "missing_inverse_alpha_units": "0.041164012378350542050005414212806737971",
-    "p_gap_implemented_minus_calibrated": "0.0000038862903696933003990778292699013657063242089711084969148420339247715484988"
+    "P": "1.63097209585889737696451390350695562847912625483895268486516",
+    "alpha": "0.00729954526172440175717253605953558189309431675972983242103576",
+    "alpha_inv": "136.994835177412937295289429464436902857561206151035393184502",
+    "missing_inverse_alpha_units": "0.041163999587062704710570535563097142438793848964606815498",
+    "p_gap_implemented_minus_calibrated": "0.0000038864549380520852340557243066871431434032110276241990092466092206601066568"
   },
   "empirical_hadron_closure": {
     "dispersion_payload_status": "schema_and_source_registry_present_without_integrated_dataset",
@@ -42,7 +42,7 @@
   "exact_alpha_promoted": false,
   "external_input_role": "The measured Thomson-limit inverse fine-structure constant supplies the empirical hadron-completed endpoint for numeric tables and displays. It is excluded from the source-only solver and from theorem promotion.",
   "external_input_used": true,
-  "generated_utc": "2026-06-29T06:58:53Z",
+  "generated_utc": "2026-07-18T05:01:02Z",
   "promotion_allowed": false,
   "row_class": "oph_plus_empirical_hadron_closure",
   "source_only_guard": {

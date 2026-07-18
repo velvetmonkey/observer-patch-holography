@@ -278,7 +278,7 @@ The electron is stable. The muon and tau decay quickly.
 
 The fermions come in a strange pattern: three copies. The up and down quarks, plus the electron and its neutrino, form the first generation. The charm and strange quarks, plus the muon and its neutrino, form the second. The top and bottom, plus the tau and its neutrino, form the third.
 
-Historically, the Standard Model by itself does not explain why there are three generations. OPH later argues that, on its realized one-Higgs branch, the minimal viable count is three. The charged members of the second and third generations are heavier copies of the first, while the neutrino sector has its own mixing pattern. Almost all ordinary matter uses only first-generation particles.
+The Standard Model by itself does not explain why there are three generations. On the OPH one-Higgs matter branch, the minimal viable count is three. The charged members of the second and third generations are heavier copies of the first, while the neutrino sector has its own mixing pattern. Almost all ordinary matter uses only first-generation particles.
 
 ### Bosons: The Force Carriers
 
@@ -562,30 +562,27 @@ all physical states and are counted once. It is like discovering that two labels
 on a wiring diagram name the same actual connection. The Standard Model quotient
 removes that duplicate counting across color, weak isospin, and hypercharge.
 
-The reconstruction step by itself gives some compact gauge group from the
-transportable charge sectors. The Standard Model choice enters through a
-smallest-that-works rule: among the sector packages that carry a single Higgs
-and pass every consistency test, pick the smallest one. The logic splits into
-two stages. A classification stage asks which gluing patterns can be made to fit
-together consistently around every loop, and keeps only the charge sectors that
-survive. Those sectors feed the reconstruction that reads off a compact group. A
-selection stage then picks the minimal matter package from what the
-reconstruction allows.
+From the transportable charge sectors, reconstruction gives some compact gauge
+group. The Standard Model choice is conditional on Minimal Admissible
+Realization (MAR): among consistent one-Higgs sector packages, select the
+smallest. Classification keeps gluing patterns that fit around every loop; MAR
+selects the minimal realized matter package.
 
 The consistency test underneath that first stage is technical, and its point is
 simple. Some ways of gluing patches around a loop leave a leftover twist, and
 the theory keeps only the gluing choices where a compatible twist-free option
 exists. Everything downstream builds on the choices that survive.
 
-Once you ask for the smallest matter sector that can carry color, weak
-interactions, chirality, and ordinary charge, the answer is forced into a
-color triplet, a weak doublet, and one abelian charge direction. The weak
-factor has to behave like $SU(2)$ because weak doublets come in the right
-two-dimensional pseudoreal form. The color factor has to behave like $SU(3)$
-because color triplets need a genuinely complex three-dimensional action. Once
-those two are in place, the remaining commuting charge direction is $U(1)$,
-and the sixth-integer hypercharge pattern sharpens the result to the Standard
-Model quotient.
+On this MAR branch, the smallest matter sector contains a color triplet, a
+weak doublet, and one abelian charge direction, giving the product Lie type
+$SU(3)\times SU(2)\times U(1)$. The realized matter package also tells us
+which apparently different transformations act identically on every state.
+There are six of them. Counting those duplicates once gives the physical group
+
+$$
+S(U(3)\times U(2))\cong
+\frac{SU(3)\times SU(2)\times U(1)}{\mathbb Z_6}.
+$$
 
 The representation words only say how a particle multiplet transforms. A weak
 doublet is a two-entry object rotated by the weak symmetry. A color triplet is a
@@ -594,6 +591,30 @@ distinguish whether the mirror representation is effectively the same object or
 a genuinely different one.
 
 The same low-energy sector also fixes the counting. The minimal coupled carrier makes the quark doublet a color triplet and therefore fixes $N_c=3$. On the same one-Higgs quark branch, intrinsic CKM CP capability requires at least three generations, weak-sector ultraviolet consistency keeps the count finite, and the smallest viable answer is $N_g=3$. The Witten anomaly then remains as a consistency check on the resulting triplet-doublet structure. This anomaly is a global $SU(2)$ obstruction: the theory is consistent only when the number of left-handed weak doublets is even.
+
+### The Icosahedral Screen Check
+
+The finite screen reaches the same algebra from a different direction. Suppose
+its total coordination defect is physically resolved into twelve equal units,
+and a source rule places those units at the vertices of a regular icosahedron.
+The proper rotations of an icosahedron form the finite group $A_5$.
+
+The twelve real port readings then split into four nonrepeating bundles of
+sizes $1,3,3,$ and $5$. The Standard Model gauge directions split the same
+way: one hypercharge direction, three weak directions, and eight color
+directions that appear as a triplet plus a quintet when viewed through the
+icosahedral symmetry. With the outward orientation and a compact composition
+rule, the screen coefficient space carries an exact algebra of the same type,
+$\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$.
+
+This is an exact coefficient-algebra construction with a clear physical boundary.
+Source derivations of the twelve equal defects and icosahedral selector, the
+physical current realization, and its refinement intertwiner are work in progress.
+The six antipodal axes also produce a
+sixfold lattice residue. Its name, $\mathbb Z_6$, matches the physical quotient
+above, but matching names do not identify the objects. A physical map from
+screen loops to the action on matter is still required. The construction fixes
+no mass or coupling.
 
 ## 14.10 Hypercharge from Gluing Consistency
 
@@ -884,7 +905,7 @@ strong binding.
 The plain summary is that this chapter derives no particle mass from scratch.
 The clean zeros it does produce are statements about massless classical carrier
 modes, not finished quantum particles, and every nonzero mass mentioned here is
-either conditional or a retrospective comparison.
+either conditional or comparison-only.
 
 The sphere ladder from Chapter 3 is useful here only as a logic map. It says
 seed, loop, screen, bulk. It does not say photon, gluon, graviton, hadron.
@@ -956,7 +977,7 @@ bookkeeping closes on an unbroken $U(1)$ factor. That result identifies the
 electromagnetic symmetry and connection role. A group label alone does not
 provide a propagating field or a photon.
 
-The next step is an explicit Maxwell branch. If the low-energy action contains
+An explicit Maxwell branch requires the following premise. If the low-energy action contains
 the usual positive $F^2$ kinetic term, and the selected vacuum has no Higgs,
 Stueckelberg, medium, or nonlocal mass operator, gauge reduction leaves two
 transverse classical waves. Their quadratic Green function has a pole at
@@ -964,7 +985,7 @@ $\omega^2=c_*^2|\mathbf k|^2$. This is a precise massless classical
 carrier-mode statement.
 
 A photon is the quantum interpretation of that mode. To earn that word from
-the OPH construction, one still needs a positive-energy quantization, a
+the OPH construction requires a positive-energy quantization, a
 physical Hilbert space, a positive-residue two-point-function pole, and a stable
 asymptotic state. The present group and Maxwell-equation derivation does not by
 itself supply those objects.
@@ -1005,7 +1026,7 @@ precision. Can OPH compute it from the same quadratic carrier analysis?
 
 No. Even the carrier analysis depends on choosing an action and a background,
 and turning a carrier into a real particle takes the extra quantum argument
-above. The proton is harder still. It is a bound state, and bound states ask for
+above. The proton adds a bound-state problem, which requires
 the full nonperturbative drama of quarks, gluons, and confinement.
 
 That difference matters. Some results in the framework are structural and
@@ -1072,51 +1093,27 @@ running pattern of the couplings.
 
 The sharper structural prediction concerns *how* any unification-like closure would happen.
 
-### Why Protons Don't Decay
+### Product-Adjoint X/Y-Channel Boundary
 
 Traditional Grand Unified Theories achieve unification by embedding the Standard Model gauge group into a larger simple group like SU(5) or SO(10). This embedding has a dramatic consequence: it introduces new gauge bosons called X and Y bosons that can turn quarks into leptons. Protons should decay, with minimal SU(5) predicting lifetimes around $10^{31}$ years.
 
 But Super-Kamiokande has been watching for proton decay since 1996. The experimental limit is
 $\tau_p > 10^{34}$ years, a thousand times longer than predicted. The simplest GUTs are dead.
 
-OPH takes a different path. The gauge group is not embedded in anything larger.
-The reconstruction builds it directly from the charge-sector data as a product
-of three factors:
+The realized connected gauge adjoint is the product branch
 
 $$G_{\mathrm{phys}} = \mathrm{SU}(3) \times \mathrm{SU}(2) \times \mathrm{U}(1) / \mathbb{Z}_6$$
 
-There is no larger group. No X and Y bosons. No leptoquark generators. Any
-coupling closure happens geometrically, with all three couplings sharing a
-common "diffusion time" on the edge, not algebraically through group
-embedding.
-
-The prediction is stark: **gauge-mediated proton decay is forbidden**.
-
-This is one of the cleanest experimental forks in the road. A simple-group
-unification scheme predicts new gauge bosons that mediate proton decay. The OPH
-route predicts that those bosons never exist. The difference is a detector
-signal in those channels versus a structural null result.
-
-The claim is unusually valuable. Many high-energy ideas differ
-mainly in elegance or ultraviolet taste. Proton decay is harsher. Either the
-detector sees the relevant channel or it keeps not seeing it. OPH lands on the
-null-decay side for structural reasons.
-
-This is a distinctive experimental signature. Standard supersymmetric grand
-unified theories predict both precise coupling unification and proton decay. OPH
-separates those two things. Its gauge group is a plain product with no extra
-particles that could turn a quark into a lepton, so gauge-mediated proton decay
-is forbidden, while the coupling strengths can converge in the unification-like
-way through shared geometry rather than through a bigger group. A continued
-absence of proton decay in the big detectors, together with measurements that
-favor converging couplings, would point toward this geometric route over the
-older algebraic one.
+Its adjoint contains no connected $(3,2,\pm5/6)$ X/Y generator, so the standard
+simple-GUT gauge-mediated proton-decay channel is absent on this branch. This
+does not exclude every ultraviolet embedding, non-gauge baryon violation, or
+prove proton stability.
 
 ## 14.20 What the Model Explains
 
 The framework accounts for several concrete facts.
 
-**The integers.** Why three colors? Why three generations? Why those specific hypercharges? These are consequences of consistency requirements, not free parameters. Anomaly cancellation and Yukawa invariance fix the hypercharge lattice, the minimal coupled carrier fixes the color triplet, and CKM CP capability together with weak-sector ultraviolet consistency fixes the generation count.
+**The integers.** On the declared nonempty one-Higgs chiral MAR class, anomaly cancellation and Yukawa invariance fix the hypercharge lattice, the minimal coupled carrier fixes the color triplet, and CKM CP capability together with weak-sector ultraviolet consistency fixes three generations. Physical realization of that matter class is a separate premise.
 
 **The carrier modes.** With the ordinary Maxwell action, electromagnetism has
 two transverse massless classical wave modes. With the pure Einstein action
@@ -1127,18 +1124,13 @@ construct the photon or the graviton as quantum particles. Experimental limits
 on the photon mass and on the speed of gravitational waves become tests of OPH
 once the matching quantum argument is supplied.
 
-**The particle structure.** Section 14.14 lays this out. The framework fixes the
-carrier roles and gives their classical wave modes. It organizes the
-declared fine-structure fixed-point map, the running chart for the W and Z
-carriers, and a conditional relation between the Higgs and top masses. The mass
-predictions are less settled. The charged leptons have a clean geometric skeleton with the
-physical mass-setting piece open. A proposed shortcut for the quark masses fails
-its own consistency test by about twenty percent, so its old close-looking
-numbers count as coincidences rather than predictions. The general quark case
-needs six free numbers that nothing in the source fixes. A candidate neutrino
-comparison point conflicts with the best global fit of neutrino data, and the
-framework does not form the physical neutrino mixing pattern, mass ordering, or
-absolute masses.
+**The particle structure.** The framework fixes carrier roles and classical
+wave modes. Its W/Z and Higgs/top values are conditional chart coordinates
+without complete physical pole maps. The $A_5$ charged carrier selects no
+physical family or mass; the quark source leaves six common-scale Yukawa
+coordinates undetermined; and the neutrino candidate fails its correlated
+profile. No nonzero source-only physical mass or physical neutrino mixing
+matrix is produced.
 
 The reason these numbers belong in one chapter is that the framework organizes
 them with one local fixed-point structure. The same pixel ratio feeds the
@@ -1149,47 +1141,29 @@ electroweak relations, the Higgs/top quantitative relation,
 electromagnetism at low energy, and Newton's constant into one common
 structure.
 
-The mass hierarchy fits the same local story. The huge gap between the weak
-scale and the deeper scales of the theory comes out as an exponentially small
-number, set by the strength of the unified coupling in much the way the tiny
-proton mass emerges from a slowly running strong coupling. The framework
-produces that small ratio cleanly. It does not, on its own, pin the overall
-energy scale in GeV, so the ratio explains the hierarchy without handing you an
-absolute mass.
+The declared hierarchy map gives an exponentially small conditional ratio from
+the unified coupling. Its physical interpretation requires
+HIERARCHY-SCREEN-READOUT, which identifies the screen load with the electroweak
+transmutation exponent. The construction does not fix an absolute energy scale
+in GeV.
 
-There is also a bigger-picture version of the same link. OPH treats reality as
-the constant repair of disagreements between neighboring observers. A local
-patch of physics has to stay in step with the record capacity of the whole
-cosmic horizon. That count has a concrete origin. The visible forces come with
-twelve channels in all, eight for color, three for the weak force, and one for
-hypercharge. Reading each channel in both directions, write and verify, doubles
-twelve to twenty-four. The weak hierarchy uses that count of twenty-four to read
-off its local share of the horizon's depth. Particle physics samples locally the
-same bookkeeping that fixes the record of the entire horizon.
+The hierarchy count is independent of the screen selector:
+$m_{\rm rep}=2\dim(\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak u(1))
+=2(8+3+1)=24$. The unit-split screen separately has twelve ports and 24
+oriented slots. Their equality is a branch alignment unless a physical
+identification receipt is supplied; it fixes no family, mass, or coupling.
+The cosmic capacity and absolute energy scale require their own closure and
+clock receipts.
 
-The number twenty-four is a shared hierarchy device. It does not by itself
-generate the three-family pattern of matter, and a later attempt to build the
-quark masses out of the same number needs extra ingredients that the framework
-does not supply. The clean verdict on that attempt is that its shape is wrong.
+**Charge quantization and line operators.** On the realized matter package,
+color singlets have integer electric charge. On the physical MAR/tensor
+$\mathbb Z_6$ branch, the minimum magnetic line is one electron-Dirac unit with
+the required color-magnetic charge, and the electromagnetic theta period is
+$2\pi$. This is a global-form discriminator, not a dynamical monopole prediction.
 
-The same horizon carries a famous large number. The information capacity of the
-cosmic horizon is about $10^{122}$ in natural units, the same enormous figure
-that shows up in the cosmological constant problem. OPH ties the tiny weak-scale
-ratio to that capacity through the geometry of the finite spherical screen,
-which exposes exactly twelve sampling points arranged with the symmetry of an
-icosahedron. The precise value belongs to the repair rhythm of the theory, and
-the rounded version is the number usually quoted for the de Sitter horizon.
-
-For the W, Z, and Higgs, structural relations are worked out and the
-physical inputs that would turn them into actual mass predictions are missing.
-For the W and Z this includes the renormalized vacuum convention, tadpole terms,
-threshold matching, and the complex-pole map. Partial radiative prescriptions
-can move the chart, but none of the implemented versions defines the unique
-observable comparison. Supplying the missing pieces is work in progress.
-
-**Charge quantization.** All color-singlet particles have integer electric charge. No fractional charges like $\pm 1/3$ can exist outside hadrons. This follows from the global structure of the gauge group.
-
-**Gauge-mediated proton decay.** Gauge-mediated proton decay is forbidden. The gauge group is a product group with no embedding in a larger simple group, so no leptoquark generators exist. Published experimental limits ($\tau_p > 10^{34}$ years) are consistent with this prediction.
+**Simple-GUT proton-decay channel.** The connected product adjoint has no X/Y
+generator, so the standard simple-GUT channel is absent. Other baryon-violating
+operators are separate.
 
 **Why hadrons are harder.** Quark masses are short-distance parameters.
 Hadrons are bound states. Their masses come from the nonperturbative dynamics
@@ -1213,11 +1187,10 @@ The gauge and coordinate redundancy alone does not deliver that, and it does not
 rule out the various extra effects, massive modes and higher-derivative terms
 among them, that live outside this particular setup.
 
-The quark and lepton charges are fixed by the smallest gauge structure that
-passes every consistency test. Three colors and three generations follow from
-the same demands, the requirements of anomaly cancellation, chirality, the
-minimal color carrier, particle-antiparticle asymmetry, and consistency at high
-energy.
+Within the declared nonempty one-Higgs chiral MAR class, the smallest admissible
+gauge-and-matter package fixes the quark and lepton charges. Three colors and
+three generations follow from anomaly cancellation, chirality, the minimal color
+carrier, CP capability, and the weak-sector clause on that class.
 
 What the book delivers is concrete on the structural side and openly unfinished
 on the mass side. It points to a specific gauge group, charge pattern, color

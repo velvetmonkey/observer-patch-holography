@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Emit a pixel-screen resonance summary from existing hierarchy certificates.
 
-This is a receipt-level composition artifact. It does not add a new theorem:
-it records the equal-area screen chart identities already used in the compact
-proof and checks that they are sourced from the same selected `(P, N_CRC^EW)`
+This is a receipt-level composition artifact, not an additional theorem. It
+records the equal-area screen chart identities in the compact proof and checks
+that they are sourced from the same selected `(P, N_CRC^EW)`
 branch as the local/global hierarchy resonance certificate.
 """
 
@@ -76,9 +76,30 @@ def build_payload() -> dict[str, Any]:
 
     checks = {
         "capacity_certificate_accepted": capacity.get("accepted") is True,
-        "resonance_certificate_promoted": resonance.get("full_theorem_grade_resonance_promoted") is True,
-        "screen_sieve_supplies_twelve_ports": screen.get("orbit_stabilizer", {}).get("orbit_size") == 12
-        and screen.get("capacity_electroweak_projection", {}).get("gamma_EW") == "(P/12)*log(N/pi)",
+        "resonance_certificate_is_exact_conditional": (
+            resonance.get("accepted") is True
+            and resonance.get("status")
+            == "exact_conditional_local_global_hierarchy_resonance"
+            and resonance.get("full_theorem_grade_resonance_promoted") is False
+        ),
+        "screen_sieve_supplies_twelve_ports_and_x_over_twelve": (
+            screen.get("orbit_stabilizer", {}).get("orbit_size") == 12
+            and screen.get("screen_load_arithmetic", {}).get("local_port_read") == "X/12"
+            and screen.get("screen_load_arithmetic", {}).get("gamma_screen_simplified")
+            == "(P/12)*log(N/pi)"
+        ),
+        "hierarchy_screen_readout_is_named_open_premise": (
+            resonance.get("target_relation", {}).get("conditional_on")
+            == "HIERARCHY-SCREEN-READOUT"
+            and screen.get("hierarchy_screen_readout_gate", {}).get("supplied_by_screen_sieve")
+            is False
+        ),
+        "screen_and_product_adjoint_counts_are_independently_sourced": (
+            2 * screen.get("orbit_stabilizer", {}).get("orbit_size", 0) == 24
+            and resonance.get("round_count_certificate", {}).get("m_rep") == 24
+            and resonance.get("round_count_certificate", {}).get("artifact")
+            == "certificates/R_m_rep_24_certificate.json"
+        ),
         "readback_uses_same_n_crc_ew": "N_CRC^EW" in str(readback.get("branch_scope", {})),
         "joint_product_branch_recorded": joint.get("status")
         == "closed_product_branch_theorem_with_explicit_coupled_branch_boundary",
@@ -95,7 +116,7 @@ def build_payload() -> dict[str, Any]:
         "status": "closed_receipt_summary_from_existing_hierarchy_certificates",
         "accepted": bool(accepted),
         "purpose": (
-            "Expose the pixel-screen tile identity, 12/24-port hierarchy lock, and "
+            "Expose the pixel-screen tile identity, independent screen and product-adjoint counts, and "
             "dimensionless de Sitter capacity coordinate as one machine-readable "
             "summary sourced from existing hierarchy certificates."
         ),
@@ -110,6 +131,7 @@ def build_payload() -> dict[str, Any]:
                 "an SI Lambda value without the selected scale certificate",
                 "an SI G or no-G clock-stack promotion",
                 "a coupled (P,N_CRC) source-map theorem beyond the recorded product branch",
+                "HIERARCHY-SCREEN-READOUT: log(E_cell/v)=Gamma_screen",
             ],
         },
         "source_pair": {
@@ -132,14 +154,22 @@ def build_payload() -> dict[str, Any]:
             "reconstruction_formula": "K_cell*(P_star/4) = N_CRC^EW",
             "relative_reconstruction_error": decstr(capacity_rel),
         },
-        "shared_12_24_port_lock": {
+        "shared_12_24_port_alignment": {
             "screen_ports": 12,
-            "repair_register_slots": 24,
+            "screen_oriented_slots": 24,
             "screen_port_source": "certificates/R_screen_sieve_icosahedral_certificate.json",
-            "repair_register_source": "certificates/R_m_rep_24_certificate.json",
-            "hierarchy_readout": resonance["target_relation"]["hierarchy_ratio"],
-            "tick_form": resonance["target_relation"]["tick_form"],
-            "transport_time": resonance["target_relation"]["transport_time"],
+            "screen_register_source": "paper/screen_microphysics_and_observer_synchronization.tex#def:oriented-24-slot-register",
+            "product_adjoint_dimension": 12,
+            "product_adjoint_rounds_m_rep": 24,
+            "product_adjoint_source": "certificates/R_m_rep_24_certificate.json",
+            "equal_cardinality_status": "arithmetic_alignment_without_physical_identification",
+            "screen_load_split": "X/12",
+            "gamma_screen_algebra": "Gamma_screen=(P_star/12)*log(N_CRC^EW/pi)",
+            "identification_premise": "HIERARCHY-SCREEN-READOUT",
+            "identification_status": "work_in_progress",
+            "conditional_hierarchy_readout": resonance["target_relation"]["hierarchy_ratio"],
+            "conditional_tick_form": resonance["target_relation"]["tick_form"],
+            "conditional_transport_time": resonance["target_relation"]["transport_time"],
         },
         "dimensionless_de_sitter_coordinate": {
             "Lambda_lstar2": decstr(lambda_lstar2),
@@ -155,6 +185,7 @@ def build_payload() -> dict[str, Any]:
             "exact_capacity": "certificates/R_EW_global_capacity_certificate.json",
             "local_global_resonance": "certificates/R_local_global_hierarchy_resonance_closeout_335.json",
             "screen_sieve": "certificates/R_screen_sieve_icosahedral_certificate.json",
+            "product_adjoint_round_count": "certificates/R_m_rep_24_certificate.json",
             "finite_readback_resolution": "certificates/R_readback_resolution_certificate.json",
             "joint_product_fixed_point": "certificates/R_PN_joint_fixed_point_certificate_report.json",
         },

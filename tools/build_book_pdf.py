@@ -204,10 +204,6 @@ def normalize_tex_symbols(text: str) -> str:
         "\\[\n\\alpha^{-1}(0)=137.035999177(21), \\qquad\nP=1.630968209403959324879279847782648941\\ldots.\n\\]",
         "\\[\n\\begin{aligned}\n\\alpha^{-1}(0)&=137.035999177(21),\\\\\nP&=1.630968209403959324879279847782648941\\ldots.\n\\end{aligned}\n\\]",
     )
-    text = text.replace(
-        "The source-only audit row emits inverse alpha\n\\(136.994835164621649457949994585787193262029\\) at pixel\n\\(1.63097209569432901817967892561191884270169\\). The displayed endpoint\nuses the same OPH fixed-point equation",
-        "The source-only audit row emits inverse alpha and pixel values\n\\[\n\\begin{aligned}\n\\alpha^{-1}_{\\mathrm{source}}&=136.994835164621649457949994585787193262029,\\\\\nP_{\\mathrm{source}}&=1.63097209569432901817967892561191884270169.\n\\end{aligned}\n\\]\nThe displayed endpoint uses the same OPH fixed-point equation",
-    )
     return text
 
 

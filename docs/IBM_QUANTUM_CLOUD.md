@@ -355,7 +355,7 @@ Direct repeat of the selected mapping:
 - leakage `0.01%`
 
 The preregistered test is recorded as failed: the base-layout runs measured
-`1.8536` (raw) and `1.8724` (mitigated) against the frozen target `2.0000`.
+`1.8536` (raw) and `1.8724` (mitigated) against the programmed reference `2.0000`.
 That verdict is permanent under the failure-permanence rule.
 
 The physical mapping clearly changes the extracted value. Because the reversed

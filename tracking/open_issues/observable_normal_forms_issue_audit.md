@@ -355,7 +355,7 @@ the removed application section or citations into the neutral paper.
 | [#398](https://github.com/FloatingPragma/observer-patch-holography/issues/398) | [Physics problems] Cosmic Censorship | U | No GR singularity or censorship theorem. |
 | [#399](https://github.com/FloatingPragma/observer-patch-holography/issues/399) | [Physics problems] Chronology Protection | U | No causal-structure or chronology-protection result. |
 | [#403](https://github.com/FloatingPragma/observer-patch-holography/issues/403) | [Physics problems] General constructive QFT beyond Yang-Mills | U | No constructive QFT measure, axioms, or interacting continuum model. |
-| [#409](https://github.com/FloatingPragma/observer-patch-holography/issues/409) | [Physics problems] Matter-Antimatter Asymmetry | U | No baryogenesis, CP violation, or abundance calculation. |
+| [#556](https://github.com/FloatingPragma/observer-patch-holography/issues/556) | Proof spine GAP-B12: derive the anomalous baryogenesis record phase and CP-odd quotient generator | U | The audited normal-form paper supplies no anomalous chiral attachment, physical CP-odd quotient generator, clock, domain-coherence theorem, or baryon-abundance calculation. |
 | [#414](https://github.com/FloatingPragma/observer-patch-holography/issues/414) | [Physics problems] Dark Flow | U | No cosmological velocity-field prediction or data audit. |
 | [#417](https://github.com/FloatingPragma/observer-patch-holography/issues/417) | [Physics problems] Hubble Tension | U | No expansion-history calculation, calibration bridge, or likelihood comparison. |
 | [#420](https://github.com/FloatingPragma/observer-patch-holography/issues/420) | [Physics problems] Neutron Lifetime Puzzle | U | No neutron decay-channel or lifetime calculation. |

@@ -2,20 +2,6 @@
   "artifact": "oph_conditional_candidate_surface",
   "dimensionless_candidates": [
     {
-      "chart": "deterministic_pixel_root_plus_unified_width_term",
-      "claim_label": "conditional_source_side_no_hadron_near_endpoint",
-      "observable": "alpha_inv_no_hadron_near_endpoint",
-      "open_gates": [
-        "source_spectral_endpoint",
-        "same_scheme_hadronic_remainder",
-        "full_interval_source_certificate"
-      ],
-      "promotable": false,
-      "source_artifact": "code/particles/runs/status/final_end_to_end_predictions.json",
-      "unit": "dimensionless",
-      "value": "137.035959500817279952949994585787193262029"
-    },
-    {
       "chart": "closed_form_hierarchy_law_on_public_endpoint_packet",
       "claim_label": "conditional_public_endpoint_hierarchy_ratio",
       "observable": "v_over_E_star",
@@ -30,7 +16,7 @@
       "value": "2.0199803239725553e-17"
     }
   ],
-  "generated_utc": "2026-07-12T11:21:03Z",
+  "generated_utc": "2026-07-18T05:01:49Z",
   "gev_chart_candidates": [
     {
       "chart": "declared_d10_d11_running_matching_threshold_surface",

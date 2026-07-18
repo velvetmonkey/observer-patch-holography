@@ -222,18 +222,36 @@
     "stricter_still_open_object": "EWTargetFreeRepairValueLaw_D10",
     "target_free_predictive_emission_closed": false
   },
-  "generated_utc": "2026-07-13T06:09:15Z",
+  "generated_utc": "2026-07-18T05:56:19Z",
   "notes": [
     "This audit computes a purely inverse reference-W/Z slice for diagnosis only; that slice is not a predictive artifact and is not emitted by the live D10 source-pair builder.",
     "Any coherent family matching those reference W/Z values forces sin2(theta_W) = 1 - (MW/MZ)^2, so the current mixed reference surface cannot be hit exactly by one simple tree-level family.",
-    "On the fixed-eta current family, the reference W and Z masses already point to nearly the same sigma_EW, but that sigma_EW is incompatible with the running alpha_em^-1 target and the running sin^2(theta_W) target is not even admissible on that one-parameter slice.",
-    "The carrier-level selector, split exact-closure law, fiberwise tree law, exact current-carrier mass chart, and freeze-once coherent repair law are all closed. Exact public W/Z now come from the frozen authoritative repair surface, while the stricter still-open D10 step is the target-free repair value law from P alone.",
-    "The broader D10 geometry is still the repair branch beyond the present current carrier, but on one frozen authoritative target pair the coherent repair law is already explicit and exact.",
-    "The forward transmutation certificate now records the non-circular P -> alpha_U -> t map explicitly and separates the calibration beta_ratio_EW from the transmutation counting factor beta_transmutation_EW = N_c + 1.",
+    "On the fixed-eta current family, the reference W and Z masses point to nearly the same sigma_EW, but that sigma_EW is incompatible with the running alpha_em^-1 target and the running sin^2(theta_W) target is not admissible on that one-parameter slice.",
+    "The carrier-level selector, split exact-closure law, fiberwise tree law, exact current-carrier mass chart, and reference-fitted coherent repair law are closed. The reference-fitted repair diagnostic emits exact public W/Z only as comparison coordinates; the target-free repair value law from P alone is work in progress.",
+    "The broader D10 geometry is the repair branch beyond the selected carrier. The declared measured-reference pair admits an exact inverse fit.",
+    "The forward transmutation certificate records the non-circular P -> alpha_U -> t map and separates the calibration beta_ratio_EW from the transmutation counting factor beta_transmutation_EW = N_c + 1.",
     "The current-carrier exact pair remains a distinct object from the public repaired pair; they should not be conflated in audits or status surfaces.",
-    "The only stricter remaining D10 theorem step is a target-free law that emits the same nonzero repair directly from P alone with no frozen authoritative W/Z input.",
-    "That target-free step is now split sharply on disk: the current source-only D10 corpus underdetermines the repair coefficients, the smallest supported conditional theorem route goes through ColorBalancedQuadraticRepairDescent_D10, and the strongest current source-only candidate is EWTargetEmitter_D10."
+    "A source-only D10 repair law from P is work in progress and permits no measured-reference W/Z input.",
+    "The target-free step has three exact statuses: the source-only D10 corpus underdetermines the repair coefficients; the smallest supported conditional theorem route uses ColorBalancedQuadraticRepairDescent_D10; and EWTargetEmitter_D10 is the strongest source-only candidate."
   ],
+  "reference_fit_and_subobject_split": {
+    "artifact": "oph_d10_ew_reference_fit_subobject_split",
+    "measured_reference_required": true,
+    "status": "closed_reference_fit_subobject_split",
+    "subobject_split": {
+      "charged_anchor_object": "EWChargedAnchorLaw_D10",
+      "neutral_shear_object": "EWNeutralShearLaw_D10",
+      "reference_fit_values": {
+        "delta_alpha2_dagger": -1.9991648436440412e-05,
+        "delta_alpha2_tree": -1.9991648436440412e-05,
+        "delta_alphaY_parallel": 5.9969727526906094e-06,
+        "delta_alphaY_perp": 1.8756950557734103e-05,
+        "delta_n_dagger": 0.00042716772021678714,
+        "delta_n_tree_exact": 0.00042716772021678714,
+        "tau2_w_anchor": -0.0005918464744071317
+      }
+    }
+  },
   "reference_inputs": {
     "MW_pole_gev": 80.3625,
     "MZ_pole_gev": 91.1879,
@@ -268,7 +286,7 @@
   },
   "scope": "current_family_only",
   "smallest_constructive_missing_object": "EWTargetFreeRepairValueLaw_D10",
-  "smallest_exact_obstruction": "On one frozen authoritative D10 target pair, the coherent repair law is closed and emits exact W/Z on one family; the only stricter remaining D10 step is the target-free repair value law from P alone.",
+  "smallest_exact_obstruction": "On one declared D10 measured-reference pair, the coherent repair law is closed and emits exact W/Z on one family; the only stricter remaining D10 step is the target-free repair value law from P alone.",
   "target_free_source_only_candidate": {
     "artifact": "oph_d10_ew_target_emitter_candidate",
     "coherent_emitted_quintet": {
@@ -373,7 +391,7 @@
         "tauY_fiber": "-(tau2_tree_exact + 2 * eta_source) / (1 + 4 * tau2_tree_exact^2)"
       },
       "name": "EWTargetFreeRepairValueLaw_D10",
-      "statement": "Given the current selected D10 candidate rule and the basis (alpha2_mz, alphaY_mz, eta_source, v_report), the formulas below deterministically evaluate (tau2_tree_exact, delta_n_tree_exact), the repaired coupling pair (alpha2_prime, alphaY_prime), and one coherent quintet without a frozen target argument in the forward calculation. The present corpus does not derive or uniquely select the candidate rule from the finite quotient transport, so this statement is not a promoted source theorem."
+      "statement": "Given the current selected D10 candidate rule and the basis (alpha2_mz, alphaY_mz, eta_source, v_report), the formulas below deterministically evaluate (tau2_tree_exact, delta_n_tree_exact), the repaired coupling pair (alpha2_prime, alphaY_prime), and one coherent quintet without a measured-reference argument in the forward calculation. The present corpus does not derive or uniquely select the candidate rule from the finite quotient transport, so this statement is not a promoted source theorem."
     }
   },
   "target_free_source_only_underdetermination": {
@@ -417,24 +435,6 @@
       "name": "current_corpus_underdetermination_of_forward_d10_repair_law",
       "statement": "For arbitrary real (c,d), the source-only family tau2_exact = -c*eta_source^2 and delta_n_exact = d*(1-beta_EW)*eta_source^2 defines a coherent runtime-forward D10 repair law. Therefore the current emitted corpus does not determine a unique forward repair coefficient pair."
     }
-  },
-  "target_freeze_and_subobject_split": {
-    "artifact": "oph_d10_ew_target_freeze_and_subobject_split",
-    "status": "closed_freeze_once_subobject_split",
-    "subobject_split": {
-      "charged_anchor_object": "EWChargedAnchorLaw_D10",
-      "current_frozen_target_values": {
-        "delta_alpha2_dagger": -1.9991648436440412e-05,
-        "delta_alpha2_tree": -1.9991648436440412e-05,
-        "delta_alphaY_parallel": 5.9969727526906094e-06,
-        "delta_alphaY_perp": 1.8756950557734103e-05,
-        "delta_n_dagger": 0.00042716772021678714,
-        "delta_n_tree_exact": 0.00042716772021678714,
-        "tau2_w_anchor": -0.0005918464744071317
-      },
-      "neutral_shear_object": "EWNeutralShearLaw_D10"
-    },
-    "target_freeze_required": true
   },
   "tau2_current_carrier_obstruction": {
     "artifact": "oph_d10_ew_tau2_current_carrier_obstruction",
@@ -520,10 +520,10 @@
       "v_report": 246.76711732749683
     },
     "conclusion": {
-      "meaning": "On the frozen authoritative D10 target surface, the exact repair package and coherent repaired quintet are fully emitted.",
+      "meaning": "On the declared measured-reference surface, the exact repair package and coherent repaired quintet are fully emitted.",
       "still_compare_only": true,
       "stricter_still_open_object": "EWTargetFreeRepairValueLaw_D10",
-      "stricter_still_open_statement": "Emit the same nonzero repair directly from P alone with no frozen target input."
+      "stricter_still_open_statement": "Emit the same nonzero repair directly from P alone with no measured-reference input."
     },
     "exact_missing_law": {
       "kind": "freeze_once_authoritative_target_repair",

@@ -4,6 +4,10 @@ open scoped BigOperators
 
 namespace OPH.Z6Exact
 
+/-! This file proves an abstract six-axis lattice quotient.  It does not
+formalize a gauge-group cocharacter lattice, trace-balanced block integration,
+a matter tensor kernel, or physical axis-center descent. -/
+
 abbrev Lattice := Fin 6 → ℤ
 
 def total : Lattice →+ ℤ where

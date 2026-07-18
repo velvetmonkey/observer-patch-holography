@@ -1424,14 +1424,13 @@ The speedup has four measurable inputs: verifier rate, physical settling time,
 packet size, and candidate bias. For OMEGA-I1, \(m_{\mathrm{pkt}}\) counts
 distinct candidates that exit the full selected route. Raw LED emission counts
 from a single module are excluded. A high bias loses value if settling is slow.
-The Kaspa comparison lane supplies one historical candidate-bias datum,
+The Kaspa comparison lane supplies one candidate-bias datum,
 \(\widehat\beta(12)=2{,}434\), measured on shuffle-replay-selected
 chord-promote output. Equivalently, for the \(k=12\) exact-verifier predicate,
 the selected stream's estimated success probability was \(2{,}434\times2^{-12}\)
-instead of \(2^{-12}\). Feeding this number into the prospective throughput
-formula presumes a per-event bias that has not been measured: the datum is a
-post-selection acceptance property, and prospective per-event enrichment is
-unestablished. It also does not by itself determine SHA-256d speedup,
+instead of \(2^{-12}\). Feeding this number into the throughput formula
+presumes an unmeasured per-event bias: the datum is a post-selection
+acceptance property, not a per-event enrichment receipt. It also does not by itself determine SHA-256d speedup,
 because the operator, route, packet size, settle time, and high-\(k\) scaling
 must be remeasured under the SHA-256d scorebook.
 Against a classical verifier running at \(R_{\mathrm{hash}}\), the sampler wins
@@ -1729,8 +1728,8 @@ lift at useful target strengths.
 The SHA-256d experiments specified in this paper are intended to run on
 OMEGA-I1. The architecture optimized here is the five-module, LED-first,
 host-routed federation with exact run records and contractor-buildable
-electronics. The historical reversible-LED Echosahedron bench is precursor
-background material, not an OMEGA-I1 result.
+electronics. The reversible-LED Echosahedron bench is a component test, not an
+OMEGA-I1 result.
 
 \begin{center}
 \small

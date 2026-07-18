@@ -1,6 +1,6 @@
 # Particle Pipeline Closure Status
 
-Generated: `2026-07-12T03:51:10Z`
+Generated: `2026-07-18T05:32:25Z`
 
 Single closure gate for source-only rows and empirical hadron closure rows.
 
@@ -19,7 +19,7 @@ Single closure gate for source-only rows and empirical hadron closure rows.
 | `closed_claim_scope_repaired_quantum_particle_gate_fail_closed` | `True` | `particles/runs/status/carrier_mode_acceptance.json` | not_needed_for_analytic_claim_gate |
 | `closed_exact_selected_branch` | `True` | `particles/hierarchy/issue_332_rg_naturality_certificate.json` | not_needed_for_closed_certificate |
 | `closed_projection_bridge_with_exact_residual` | `True` | `particles/hierarchy/certificates/R_EW_tick_projection_certificate.json` | not_needed_for_closed_certificate |
-| `closed_full_local_global_hierarchy_resonance` | `True` | `particles/hierarchy/certificates/R_local_global_hierarchy_resonance_closeout_335.json` | not_needed_for_closed_certificate |
+| `exact_conditional_local_global_hierarchy_resonance` | `True` | `particles/hierarchy/certificates/R_local_global_hierarchy_resonance_closeout_335.json` | not_needed_for_closed_certificate |
 | `closed_blocker_isolated_endpoint_package` | `True` | `P_derivation/runtime/thomson_endpoint_package_current.json` | not_needed_for_closed_package |
 | `closed_blocker_isolated_source_residual_no_go` | `True` | `P_derivation/runtime/thomson_endpoint_contract_current.json` | not_needed_until_source_spectral_measure_payload_exists |
 | `closed_canonical_guarded_trunk_adoption` | `True` | `P_derivation/runtime/p_closure_trunk_current.json` | not_needed_for_guarded_codepath_closure |
@@ -88,7 +88,7 @@ Single closure gate for source-only rows and empirical hadron closure rows.
 - `obstruction_only_worker_result_allowed`: `True`
 - `paper_material_sync_complete_without_live_publish`: `True`
 - `source_spectral_stage_gate`: `populated source spectral measure payload plus interval certificate`
-- `hierarchy_local_global_resonance_closed`: `True`
+- `hierarchy_local_global_resonance_closed`: `False`
 - `higgs_naturality_defect_closed`: `True`
 - `pixel_screen_resonance_summary_closed`: `True`
 - `symmetry_only_particle_promotion_blocked`: `True`

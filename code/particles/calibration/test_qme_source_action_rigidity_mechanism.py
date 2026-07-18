@@ -30,7 +30,7 @@ def _artifact() -> dict:
 def test_bernoulli_moment_matches_the_expected_value():
     certificate = lane.load_certificate()
     p = lane.bernoulli_moment(certificate["P_cand"])
-    assert abs(p - mp.mpf("0.007299545168876648")) < mp.mpf("1e-15")
+    assert abs(p - mp.mpf(lane.EXPECTED_P_BERNOULLI)) < mp.mpf("1e-40")
     branch = _artifact()["branch"]
     assert branch["p_agrees_to_1e-15"] is True
     assert mp.mpf(branch["p_agreement_residual"]) < mp.mpf("1e-15")
@@ -69,7 +69,8 @@ def test_selector_gap_meets_the_pinsker_lower_bound():
 def test_legendre_hessian_matches_the_declared_value():
     checks = _artifact()["mechanism_checks"]
     hessian = mp.mpf(checks["Gamma_hessian"])
-    assert abs(hessian - mp.mpf("138.00219014027388")) < mp.mpf("1e-9")
+    p = lane.bernoulli_moment(lane.load_certificate()["P_cand"])
+    assert abs(hessian - 1 / (p * (1 - p))) < mp.mpf("1e-40")
 
 
 def test_moment_gate_is_absent_and_promotion_is_disallowed():

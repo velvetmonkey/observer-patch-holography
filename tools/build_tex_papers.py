@@ -10,7 +10,6 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parent.parent
 PAPER_DIR = REPO_ROOT / "paper"
 EXTRA_DIR = REPO_ROOT / "extra"
-COSMOLOGY_DIR = REPO_ROOT / "cosmology"
 
 PAPERS = {
     "deriving_the_particle_zoo_from_observer_consistency": (
@@ -27,10 +26,7 @@ PAPERS = {
 EXTRA_PAPERS = {
     tex_path.stem: tex_path for tex_path in sorted(EXTRA_DIR.glob("*.tex"))
 }
-RELEASED_COSMOLOGY_PAPERS = {
-    "oph_dark_matter_paper": COSMOLOGY_DIR / "oph_dark_matter_paper.tex",
-}
-RELEASED_ADJUNCT_PAPERS = {**EXTRA_PAPERS, **RELEASED_COSMOLOGY_PAPERS}
+RELEASED_ADJUNCT_PAPERS = dict(EXTRA_PAPERS)
 ALL_PAPERS = {**PAPERS, **RELEASED_ADJUNCT_PAPERS}
 
 RELEASE_TRACKED = (
@@ -66,7 +62,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--extra-only",
         action="store_true",
-        help="Build only extra/ papers and explicitly released cosmology papers.",
+        help="Build only root-level extra/ papers.",
     )
     parser.add_argument(
         "--list",
@@ -85,8 +81,6 @@ def resolve_targets(args: argparse.Namespace) -> list[str]:
         for paper_id in sorted(ALL_PAPERS):
             if paper_id in RELEASE_TRACKED_SET:
                 marker = "release"
-            elif paper_id in RELEASED_COSMOLOGY_PAPERS:
-                marker = "released-cosmology"
             elif paper_id in EXTRA_PAPERS:
                 marker = "extra"
             else:

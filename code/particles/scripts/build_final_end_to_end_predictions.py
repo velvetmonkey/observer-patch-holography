@@ -128,7 +128,7 @@ def _fine_structure_surface(measured_endpoint: dict[str, Any]) -> dict[str, Any]
     relative_shortfall = missing_hadronic_correction / measured_alpha_inv
     near_endpoint = {
         "row_class": "source_side_no_hadron_near_endpoint",
-        "status": "historical_mixed_provenance_display_packet_not_fixed_point",
+        "status": "certified_source_root_plus_public_width_diagnostic",
         "formula": "alpha_root^-1 + alpha_U(P_star)",
         "alpha_root_inv": source_candidate["alpha_inv"],
         "alpha_U": alpha_u,
@@ -149,7 +149,7 @@ def _fine_structure_surface(measured_endpoint: dict[str, Any]) -> dict[str, Any]
     }
     root_audit = {
         "row_class": "root_only_audit_trunk",
-        "status": "root_only_audit_before_alpha_U_addition",
+        "status": "certified_source_root_coordinate",
         "alpha_inv": source_candidate["alpha_inv"],
         "alpha": source_candidate["alpha"],
         "P": source_candidate["P"],
@@ -212,7 +212,7 @@ def _hierarchy_surface() -> dict[str, Any]:
             "full_theorem_grade_resonance_promoted": bool(
                 (resonance or {}).get("full_theorem_grade_resonance_promoted", False)
             ),
-            "remaining_promotion_gates": list((resonance or {}).get("remaining_promotion_gates") or []),
+            "work_in_progress_receipts": list((resonance or {}).get("work_in_progress_receipts") or []),
             "ew_capacity_status": (ew_capacity or {}).get("status"),
             "readback_status": (readback or {}).get("status") or readback_resolution.get("status"),
             "m_rep_status": (m_rep or {}).get("status") or round_count.get("status"),
@@ -246,8 +246,17 @@ def _hierarchy_surface() -> dict[str, Any]:
         },
         "claim_boundary": {
             "improves": (
-                "The hierarchy and Higgs naturality rows are promoted as selected-branch "
-                "source-side results with zero bridge residual and epsilon_H=0."
+                "The selected branch has zero algebraic bridge residual and epsilon_H=0. "
+                "Its hierarchy interpretation is conditional on HIERARCHY-SCREEN-READOUT."
+            ),
+            "count_independence": (
+                "m_rep=24 is derived from the doubled observer-visible product adjoint, "
+                "independently of the screen sieve. The screen's twelve ports and oriented "
+                "24-slot register are an arithmetic alignment, not a physical identification."
+            ),
+            "missing_bridge": (
+                "HIERARCHY-SCREEN-READOUT must identify log(E_cell/v)=Gamma_screen; "
+                "the alpha_U branch must then establish Pi_EW=4P, equivalently B_EW=0."
             ),
             "does_not_promote": [
                 "public Thomson endpoint without the missing hadronic spectral payload",
@@ -258,6 +267,7 @@ def _hierarchy_surface() -> dict[str, Any]:
                 "SI G without the full no-G clock stack",
             ],
             "capacity_conditions": [
+                "supply HIERARCHY-SCREEN-READOUT and the Pi_EW=4P identification",
                 "construct the physical readback map F",
                 "discharge CP-1, CP-2, and CP-3",
                 "propagate the joint cosmological posterior before comparison",
@@ -268,7 +278,9 @@ def _hierarchy_surface() -> dict[str, Any]:
             "accepted": bool((pixel_screen or {}).get("accepted", False)),
             "source_pair": (pixel_screen or {}).get("source_pair"),
             "tile_identity": (pixel_screen or {}).get("pixel_screen_tile_identity"),
-            "shared_12_24_port_lock": (pixel_screen or {}).get("shared_12_24_port_lock"),
+            "shared_12_24_port_alignment": (pixel_screen or {}).get(
+                "shared_12_24_port_alignment"
+            ),
             "dimensionless_de_sitter_coordinate": (pixel_screen or {}).get(
                 "dimensionless_de_sitter_coordinate"
             ),
@@ -467,7 +479,7 @@ def build_payload() -> dict[str, Any]:
             "github_issues": [153, 157],
         },
         "direct_top_auxiliary_comparison": {
-            "current_top_codomain": direct_top["current_target_audit_coordinate"]["pdg_summary_id"],
+            "primary_top_codomain": direct_top["current_target_audit_coordinate"]["pdg_summary_id"],
             "auxiliary_direct_top_codomain": direct_top["auxiliary_direct_top_coordinate"]["pdg_summary_id"],
             "value_policy": "compare_only_codomain_values_withheld_from_final_prediction_output",
             "audit_artifact": "code/particles/runs/calibration/direct_top_bridge_contract.json",
@@ -660,7 +672,7 @@ def render_markdown(payload: dict[str, Any]) -> str:
             "",
             "## Fine Structure",
             "",
-            "| Output class | alpha^-1 coordinate | P | Legacy difference to endpoint | Claim label |",
+            "| Output class | alpha^-1 coordinate | P | Difference to endpoint | Claim label |",
             "| --- | ---: | ---: | ---: | --- |",
         ]
     )
@@ -686,8 +698,8 @@ def render_markdown(payload: dict[str, Any]) -> str:
     lines.extend(
         [
             "",
-            f"- Historical mixed-provenance display formula: `{source_no_hadron['formula']}`",
-            f"- Legacy relative coordinate difference to the endpoint: "
+            f"- Diagnostic formula: `{source_no_hadron['formula']}`",
+            f"- Relative coordinate difference to the endpoint: "
             f"`{source_no_hadron['relative_shortfall']}` "
             f"(`{source_no_hadron['percent_shortfall']}` percent)",
             f"- Open physical-map requirements: "
@@ -699,7 +711,7 @@ def render_markdown(payload: dict[str, Any]) -> str:
             "",
             f"- Resonance label: `{_display_status(hierarchy_status['resonance_status'])}`",
             f"- Full theorem-grade resonance promoted: `{hierarchy_status['full_theorem_grade_resonance_promoted']}`",
-            f"- Remaining promotion gates: `{hierarchy_status['remaining_promotion_gates']}`",
+            f"- Work-in-progress receipts: `{hierarchy_status['work_in_progress_receipts']}`",
             f"- Conditional EW bridge capacity (modulo F and CP-1 to CP-3): "
             f"`{hierarchy_bridge['N_CRC_EW']}`",
             f"- Bridge residual: `{hierarchy_bridge['bridge_residual']}`",
@@ -707,6 +719,8 @@ def render_markdown(payload: dict[str, Any]) -> str:
             f"- Factor origins: `ports={hierarchy_factors['screen_ports']}`, "
             f"`m_rep={hierarchy_factors['m_rep']}`, "
             f"`exponent={hierarchy_factors['specialized_exponent']}`",
+            f"- Count independence: {hierarchy['claim_boundary']['count_independence']}",
+            f"- Missing hierarchy bridge: {hierarchy['claim_boundary']['missing_bridge']}",
             f"- Higgs naturality defect: `epsilon_H={hierarchy_factors['higgs_naturality_defect']}`",
             f"- Boundary: {hierarchy['claim_boundary']['improves']}",
             f"- Physical capacity conditions: "
@@ -726,7 +740,7 @@ def render_markdown(payload: dict[str, Any]) -> str:
             "",
             "## Direct-Top Auxiliary Comparison",
             "",
-            f"- Current codomain: `{direct['current_top_codomain']}`",
+            f"- Primary codomain: `{direct['primary_top_codomain']}`",
             f"- Auxiliary codomain: `{direct['auxiliary_direct_top_codomain']}`",
             f"- Value policy: `{direct['value_policy']}`",
             f"- Audit artifact: `{direct['audit_artifact']}`",

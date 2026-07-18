@@ -1,6 +1,6 @@
 {
   "artifact": "oph_charged_nonuniform_port_record_dynamics_no_go",
-  "claim_boundary": "A nonuniform twelve-port record is not derivable from the current homogeneous OPH screen dynamics. It requires a new observer-conditioned non-equilibrium or spontaneous-symmetry-breaking branch with its own refinement theorem.",
+  "claim_boundary": "A nonuniform twelve-port record is not derivable on the declared homogeneous strict-unit screen branch. A source-derived observer-conditioned non-equilibrium or spontaneous-symmetry-breaking branch with its own refinement theorem.",
   "declared_branch": {
     "convex_cost": "C(q)=sum_i q_i^2",
     "homogeneous_MaxEnt_constraints": true,
@@ -38,7 +38,7 @@
       "a hash-bound no-target-leak packet frozen before charged-mass comparison"
     ]
   },
-  "status": "CLOSED_NO_GO_CURRENT_OPH_SCREEN_DYNAMICS_FORCE_UNIFORM_RECORD",
+  "status": "CONDITIONAL_NO_GO_ON_DECLARED_STRICT_UNIT_SCREEN_BRANCH",
   "theorem": {
     "checks": {
       "first_moment_norm": 0.0,
@@ -54,7 +54,7 @@
       "Every one-port expectation is therefore equal; centering annihilates the record.",
       "Individual fluctuations do not select an ID-independent refinement-stable orientation unless an additional record/conditioning rule is emitted."
     ],
-    "statement": "On the declared twelve-port screen branch, fixed total charge 12 and strictly convex defect cost force q_i=1 at every port. The homogeneous no-marked-point MaxEnt constraints are A5-invariant; uniqueness from strict entropy concavity therefore makes the expected port record A5-invariant and uniform. Its centered first and quadrupole moments vanish. Consequently the current OPH dynamics cannot derive a deterministic refinement-stable non-singlet port record."
+    "statement": "On the declared twelve-port screen branch, fixed total charge 12 and strictly convex defect cost force q_i=1 at every port. The homogeneous no-marked-point MaxEnt constraints are A5-invariant; uniqueness from strict entropy concavity therefore makes the expected port record A5-invariant and uniform. Its centered first and quadrupole moments vanish. Consequently the the declared homogeneous screen branch cannot derive a deterministic refinement-stable non-singlet port record."
   },
   "why_fluctuations_do_not_close_the_gap": {
     "ensemble_non_singlet_expectation": 0,

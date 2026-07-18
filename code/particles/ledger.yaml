@@ -5,7 +5,7 @@ notes:
   - "Candidate branch values: P = 1.63097210492078846050203640439 and alpha_cand^-1 = 136.994020662724205139718642793."
   - "This ledger is conservative: compare-only rows, target-anchored witnesses, and corpus-limited no-go boundaries sit outside live target-free predictions."
   - "Issues #199, #201, #207, #223, #224, #234, #235, and #32 have closed blocker, no-go, guarded-adoption, provenance, or declared-convention status."
-  - "Issues #332, #335, and #337 close the selected-branch electroweak hierarchy/naturality bridge with zero bridge residual and epsilon_H=0."
+  - "Issue #332 certifies a conditional selected-branch RG/Higgs square, #335 composes the conditional resonance, #337 derives the projection map and residual equivalence, and #547 owns HIERARCHY-SCREEN-READOUT."
 entries:
   - id: conditional.carrier_mode.photon
     output_keys: []
@@ -55,20 +55,20 @@ entries:
     label: "Electroweak hierarchy/naturality bridge"
     tier: selected_branch_theorem
     branch: hierarchy
-    oph_derived_piece: "local P -> alpha_U -> v/E_star hierarchy lane, exact EW capacity fixed point, 12-port screen sieve, 24-slot oriented repair register, and source-to-Higgs normal-form square"
+    oph_derived_piece: "local P -> alpha_U -> v/E_star lane; bridge-defined N_CRC^EW identity; conditional 12-port screen with a 24-slot register; independent product-adjoint m_rep=24; conditional source-to-Higgs square"
     borrowed_qft_piece: null
-    extra_ansatz: "selected branch only; this does not promote W/Z masses, the public Thomson endpoint, charged-lepton absolute masses, source-only hadrons, Strong CP, or full SI G"
+    extra_ansatz: "selected branch plus HIERARCHY-SCREEN-READOUT; this does not identify the screen register with m_rep or promote physical cosmic capacity, W/Z masses, the public Thomson endpoint, charged-lepton absolute masses, source-only hadrons, Strong CP, or full SI G"
     numeric_outputs:
       N_CRC_EW: "3.5323546226929906511187512962330547600462096590942035604238177731136802717148740820434110040644403858228611984E+122"
       bridge_residual: "0"
       epsilon_H: "0"
-    status_summary: "Closed selected-branch theorem. The local/global resonance bridge has exact residual zero at N_CRC^EW, the 12-port screen sieve and 24-slot oriented repair register supply the hierarchy normalization, and the source-to-Higgs square has epsilon_H=0."
-    next_action: "Keep this theorem scoped to hierarchy/naturality. W/Z mass promotion, the public Thomson endpoint, charged-lepton absolute masses, source-only hadrons, Strong CP, and full SI G stay in their own ledgers."
+    status_summary: "Exact conditional identities. The bridge-defined N_CRC^EW has zero algebraic residual, the screen supplies X/12, the independent product adjoint supplies m_rep=24, and the selected source-to-Higgs square has epsilon_H=0."
+    next_action: "HIERARCHY-SCREEN-READOUT and source production of the screen selector are work in progress. W/Z masses, the Thomson endpoint, charged-lepton masses, source-only hadrons, Strong CP, and full SI G have separate gates."
     caveats:
-      - "#332 closes the RG/Higgs naturality square with epsilon_H=0 on the selected exact branch."
-      - "#335 closes the full local/global hierarchy resonance on the selected branch."
-      - "#337 closes the electroweak tick-projection bridge with exact residual zero."
-    blocked_by: []
+      - "#332 gives epsilon_H=0 on the selected comparison-map branch conditional on HIERARCHY-SCREEN-READOUT."
+      - "#335 is exact conditional on HIERARCHY-SCREEN-READOUT and the named screen-selector premises."
+      - "#337 derives the electroweak projection map and the equivalence Pi_EW=4P iff B_EW=0; #547 owns the physical equality."
+    blocked_by: ["HIERARCHY-SCREEN-READOUT", "source production of the strict unit cost, inverse pairing, and D-optimal selector"]
   - id: calibration.d11.higgs_top
     output_keys: ["crit_mt_MS", "crit_mt_pole", "crit_mH_tree"]
     label: "D11 Higgs/top calibration theorem"

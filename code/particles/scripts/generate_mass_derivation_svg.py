@@ -144,7 +144,7 @@ STATUS_EXPLAINER = {
 }
 
 STATUS_NEXT_STEP = {
-    "structural": "This row belongs to a structural theorem surface; any particle interpretation still requires the explicit carrier gates.",
+    "structural": "This row belongs to a structural theorem surface; particle interpretation requires the explicit carrier gates.",
     "conditional_carrier_mode": "This row records a zero hard quadratic parameter only; quantization, phase, spectrum, and positive-residue pole receipts remain required for particle promotion.",
     "calibration": "This row belongs to the implemented P-driven electroweak closure surface.",
     "candidate_trunk_compare_only": "This row belongs to the electroweak massive-boson frontier.",
@@ -202,12 +202,12 @@ LANES: List[Dict[str, Any]] = [
         "key": "d10",
         "status": "candidate_trunk_compare_only",
         "title": "Electroweak Massive-Boson Audit",
-        "summary": "The W/Z lane separates a selected-carrier chart, a conditional five-premise value law, and a target-containing freeze-once inverse adapter.",
+        "summary": "The W/Z lane separates a selected-carrier chart, a conditional five-premise value law, and a measured-reference inverse adapter.",
         "takeaway": "The older rounded boundary aliases belong to the conditional value-law candidate, not the inverse adapter. No nonzero source-only physical mass or complex-pole row is emitted.",
         "logic": (
             "From P the calculation builds the electroweak running family and the source basis that feeds the mass chart. "
             "The selected-carrier chart and the conditional five-premise value law are distinct objects. The finite-carrier "
-            "certificate behind the latter is absent. The freeze-once inverse comparison adapter consumes the reference "
+            "certificate behind the latter is absent. The reference-fitted inverse comparison adapter consumes the reference "
             "boundary. The electromagnetic side is a separate endpoint-closure problem."
         ),
         "frontier_text": "A source-only W/Z result requires the finite quotient-transport certificate, one independently fixed physical scale and scheme, a single source branch, prospective provenance, and complex-pole and uncertainty receipts.",
@@ -247,7 +247,7 @@ LANES: List[Dict[str, Any]] = [
             "zero-self-energy kernel is a free witness rather than the interacting charged kernel."
         ),
         "frontier_text": "Physical promotion requires source-derived dynamical selection, honest target-free ancestry, identification with the charged-generation space, a global response channel, an interacting infrared-complete kernel, determinant and pole attachment, and cofinal physical refinement.",
-        "prediction_surface": "No nonzero source-only charged-lepton mass is emitted. The finite digital schema witness and central-record construction remain separate from retrospective and target-informed mass diagnostics.",
+        "prediction_surface": "No nonzero source-only charged-lepton mass is emitted. The finite digital schema witness and central-record construction remain separate from target-informed mass diagnostics.",
         "particles": ["electron", "muon", "tau"],
     },
     {
@@ -258,14 +258,14 @@ LANES: List[Dict[str, Any]] = [
         "logic": (
             "The six-scalar interface is (mu_u, sigma_u, rho_u, mu_d, sigma_d, rho_d), with an exact inverse to each "
             "ordered positive Yukawa pair. The reciprocal condition rho_u rho_d = 1 fails from the electroweak scale "
-            "through the highest tested scale. Historic sub-percent residuals fit a mixed-convention retrospective mass "
+            "through the highest tested scale. Sub-percent residuals fit a mixed-convention target-informed mass "
             "chart, and a lower-order ablation fits that same chart better. Flavor-singlet source scalars cannot emit a "
             "nonzero fixed bifundamental Yukawa representative. The completed 64k simulator runs measure no quark/Higgs "
             "operator and are calibration-null. Independent and archived direct-carrier assays remain rank one in the Haar "
             "basis and miss both required transport shapes; complex orientation and refinement exports are absent."
         ),
         "frontier_text": "A physical result requires a source-derived flavor-orbit selector, a gauge-invariant chiral Higgs attachment, one common-scale six-Yukawa output, full coupled running and matching, and blind covariant validation. All eight prediction-contract gates fail.",
-        "prediction_surface": "No nonzero source-only physical quark mass is emitted. The reciprocal-ray candidate is rejected; historic formula fits and simulator outputs remain comparison diagnostics.",
+        "prediction_surface": "No nonzero source-only physical quark mass is emitted. The reciprocal-ray candidate is rejected; formula fits and simulator outputs remain comparison diagnostics.",
         "particles": ["up_quark", "down_quark", "strange_quark", "charm_quark", "bottom_quark", "top_quark"],
     },
     {
@@ -310,7 +310,7 @@ LANES: List[Dict[str, Any]] = [
             "The surrogate execution bridge is only a diagnostic proof that the schema closes; it is not a promotable hadron output surface."
         ),
         "frontier_text": "Source-only scope requires real correlator arrays and declared statistical, continuum, volume, and chiral systematics. The empirical endpoint is data-driven and does not close the source-only hadron backend.",
-        "prediction_surface": "Four fine-structure coordinates stay separate: source/root witness 136.9948351646, mixed-provenance no-hadron diagnostic 137.0359595008, empirical endpoint 136.2636589431, and measured endpoint 137.035999177. No nonzero source-only hadron mass is emitted.",
+        "prediction_surface": "Four fine-structure coordinates stay separate: certified source root 136.9948351774, source-root-plus-public-width diagnostic 137.0359595136, empirical endpoint 136.2636589431, and measured endpoint 137.035999177. No nonzero source-only hadron mass is emitted.",
         "particles": ["proton", "neutron", "neutral_pion", "rho_770_0"],
     },
 ]
@@ -1319,7 +1319,7 @@ def build_svg(results: Dict[str, Any], exact_by_id: Dict[str, Dict[str, Any]]) -
             "Status colors",
             [
                 "classical carrier = zero hard quadratic parameter on a declared branch; quantum-particle gate open",
-                "electroweak frontier = selected chart, conditional value law, and target-containing inverse adapter remain separate",
+                "electroweak frontier = selected chart, conditional value law, and measured-reference inverse adapter remain separate",
                 "secondary = quantitative branch built on a declared electroweak layer",
                 "quark boundary = common-scale six-Yukawa data reject the reciprocal ray; numeric rows withheld",
                 "continuation = declared continuation or witness surface",

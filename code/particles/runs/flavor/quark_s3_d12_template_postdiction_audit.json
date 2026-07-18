@@ -20,8 +20,8 @@
   "artifact": "oph_quark_s3_d12_template_postdiction_audit_v2",
   "claim_class": "post_hoc_target_informed_repository_template_ansatz_not_physical_postdiction",
   "descriptive_mixed_chart_comparison": {
-    "max_abs_relative_error_percent": 0.29457592878043837,
-    "raw_diagonal_residual_sum": 1.1653240915049556,
+    "max_abs_relative_error_percent": 0.2945759178962559,
+    "raw_diagonal_residual_sum": 1.1653239401869968,
     "reasons": [
       "formula and selectors were discovered from the comparison spectrum",
       "rows do not share one renormalization scale or mass convention",
@@ -29,55 +29,55 @@
       "no source-theory uncertainty or covariance matrix is supplied",
       "the postdeclared denominator grammar omits continuous and structural choices"
     ],
-    "rms_nominal_z": 0.4407047559506167,
+    "rms_nominal_z": 0.4407047273377412,
     "rows": {
       "b": {
-        "dimensionless_coordinate": 4.192020570504227,
-        "nominal_z_after_unproved_1GeV_unit_insertion": 1.0034284173712216,
+        "dimensionless_coordinate": 4.192020570077209,
+        "nominal_z_after_unproved_1GeV_unit_insertion": 1.0034283462014848,
         "reference_chart": "MSbar at self-scale",
         "reference_gev": 4.186,
         "reference_sigma_gev": 0.006,
-        "relative_error_percent_after_unproved_1GeV_unit_insertion": 0.14382633789362664
+        "relative_error_percent_after_unproved_1GeV_unit_insertion": 0.14382632769252002
       },
       "c": {
-        "dimensionless_coordinate": 1.2730350538241826,
-        "nominal_z_after_unproved_1GeV_unit_insertion": 0.03001196092948059,
+        "dimensionless_coordinate": 1.2730350539722035,
+        "nominal_z_after_unproved_1GeV_unit_insertion": 0.030011993823020337,
         "reference_chart": "MSbar at self-scale",
         "reference_gev": 1.2729,
         "reference_sigma_gev": 0.0045,
-        "relative_error_percent_after_unproved_1GeV_unit_insertion": 0.010609931980720688
+        "relative_error_percent_after_unproved_1GeV_unit_insertion": 0.010609943609374284
       },
       "d": {
-        "dimensionless_coordinate": 0.004713845068652681,
-        "nominal_z_after_unproved_1GeV_unit_insertion": 0.19778669503829915,
+        "dimensionless_coordinate": 0.004713845068141124,
+        "nominal_z_after_unproved_1GeV_unit_insertion": 0.19778668773034283,
         "reference_chart": "MSbar at 2 GeV",
         "reference_gev": 0.0047,
         "reference_sigma_gev": 7e-05,
-        "relative_error_percent_after_unproved_1GeV_unit_insertion": 0.29457592878043837
+        "relative_error_percent_after_unproved_1GeV_unit_insertion": 0.2945759178962559
       },
       "s": {
-        "dimensionless_coordinate": 0.09312611565085319,
-        "nominal_z_after_unproved_1GeV_unit_insertion": 0.3230223583616996,
+        "dimensionless_coordinate": 0.0931261156378832,
+        "nominal_z_after_unproved_1GeV_unit_insertion": 0.32302233983314793,
         "reference_chart": "MSbar at 2 GeV",
         "reference_gev": 0.0929,
         "reference_sigma_gev": 0.0007,
-        "relative_error_percent_after_unproved_1GeV_unit_insertion": 0.24339682546090646
+        "relative_error_percent_after_unproved_1GeV_unit_insertion": 0.2433968114996743
       },
       "t": {
-        "dimensionless_coordinate": 172.1711958402559,
-        "nominal_z_after_unproved_1GeV_unit_insertion": 0.11865973375985088,
+        "dimensionless_coordinate": 172.17119585133148,
+        "nominal_z_after_unproved_1GeV_unit_insertion": 0.11865975221913536,
         "reference_chart": "separate top extraction",
         "reference_gev": 172.1,
         "reference_sigma_gev": 0.6,
-        "relative_error_percent_after_unproved_1GeV_unit_insertion": 0.041368878707670476
+        "relative_error_percent_after_unproved_1GeV_unit_insertion": 0.041368885143211465
       },
       "u": {
-        "dimensionless_coordinate": 0.00216023873762791,
-        "nominal_z_after_unproved_1GeV_unit_insertion": 0.003410537541568123,
+        "dimensionless_coordinate": 0.002160238737786629,
+        "nominal_z_after_unproved_1GeV_unit_insertion": 0.003410539808988006,
         "reference_chart": "MSbar at 2 GeV",
         "reference_gev": 0.00216,
         "reference_sigma_gev": 7e-05,
-        "relative_error_percent_after_unproved_1GeV_unit_insertion": 0.011052667958777462
+        "relative_error_percent_after_unproved_1GeV_unit_insertion": 0.011052675306899573
       }
     },
     "statistical_interpretation_allowed": false
@@ -94,14 +94,14 @@
     "artifact": "oph_quark_s3_d12_template_postdiction_v2",
     "basis": {
       "L=ctr(-1,x,1)": [
-        "-0.8275154876974217820932556789687907373990",
-        "-0.3449690246051564358134886420624185252021",
-        "1.172484512302578217906744321031209262601"
+        "-0.8275154876814942674816592453200633709626",
+        "-0.3449690246370114650366815093598732580749",
+        "1.172484512318505732518340754679936629037"
       ],
       "Q=ctr(1,x^2,1)": [
-        "0.2440806123805585635138258651474327856941",
-        "-0.4881612247611171270276517302948655713881",
-        "0.2440806123805585635138258651474327856941"
+        "0.2440806123640750659732244116681153376560",
+        "-0.4881612247281501319464488233362306753121",
+        "0.2440806123640750659732244116681153376560"
       ]
     },
     "blocking_conditions": [
@@ -114,47 +114,47 @@
     ],
     "centered_log_coordinates": {
       "down": [
-        "-3.257961638110872456935372593211657491021",
-        "-0.2745109190962729470042918061897455826254",
-        "3.532472557207145403939664399401403073647"
+        "-3.257961638102841267369130282605449228969",
+        "-0.2745109191189928874791526902697134120915",
+        "3.532472557221834154848282972875162641060"
       ],
       "up": [
-        "-5.888322078491026142820391052421549670887",
-        "0.4906183138089970512362818477797018610890",
-        "5.397703764682029091584109204641847809798"
+        "-5.888322078502244999387773302630438532207",
+        "0.4906183138405791569242971417769838803200",
+        "5.397703764661665842463476160853454651887"
       ]
     },
     "claim_class": "post_hoc_target_informed_repository_template_ansatz_not_physical_postdiction",
     "derived_scalars": {
-      "A_ud": "0.2467353976108380309074358015616406714028",
-      "B_ud": "0.8123054858855996907206864413327202535640",
-      "a_d": "3.395217097659008930437518496306530282334",
-      "a_u": "5.643012921586527617202250128531698740342",
-      "b_d": "-1.836962392588072475547322605499526882066",
-      "b_d_ray": "-1.804663484173215767538898904919083564064",
-      "b_u": "-4.992782821691104012492820915549556219942",
-      "b_u_ray": "-4.976062057434310159912172121640656486112",
-      "edge_d": "3.421056224390894296844257456770884936736",
-      "edge_u": "5.578415104756814201185402727370812104338",
+      "A_ud": "0.2467353976140376121082812225213456585772",
+      "B_ud": "0.8123054859777477996973573801136135198091",
+      "a_d": "3.395217097662337711108706627740305935014",
+      "a_u": "5.643012921581955420925624731741946592047",
+      "b_d": "-1.836962392889493908300954990052195226365",
+      "b_d_ray": "-1.804663484477588871778584433429098186311",
+      "b_u": "-4.992782822457982266812781296536525897632",
+      "b_u_ray": "-4.976062058202417087475658593717576014257",
+      "edge_d": "3.421056224391861740326603073038783567058",
+      "edge_u": "5.578415104758145347880883618495752511939",
       "g_ch": "0.9231656602589082000000000000000000000000",
-      "g_d": "0.1225434395708537717300289238094390437150",
-      "g_u": "0.7794128039749331596019547030545707045233",
-      "mean_d": "3.296357378426965200814872589825317489690",
-      "mean_u": "5.573918317061316465181092791994606279376",
-      "q_d": "-0.03229890841485670800842370058044331800202",
-      "q_u": "-0.01672076425679385258064879390889973382979",
-      "r": "0.3179975210810065795631761918087973956262",
-      "rho": "1.294220538510731056547507726209007588563",
-      "tau_f": "0.3819038971916968881381807709386250562738",
-      "x": "-0.5174535369077346537202329630936277878031"
+      "g_d": "0.1225434395565709173114487416735777150143",
+      "g_u": "0.7794128040409431582664096241535642353805",
+      "mean_d": "3.296357378439328386321928845404675921247",
+      "mean_u": "5.573918317063058555796075619637471997534",
+      "q_d": "-0.03229890841190503652237055662309704005395",
+      "q_u": "-0.01672076425556517933712270281894988337475",
+      "r": "0.3179975210395046338419590580970626253020",
+      "rho": "1.294220538533903070345205557083320667536",
+      "tau_f": "0.3819038972352003150232320305782612750766",
+      "x": "-0.5174535369555171975550222640398098871123"
     },
     "dimensionless_output_coordinates": {
-      "b": "4.192020570504227186551360534774133891127",
-      "c": "1.273035053824182550789320245186899120782",
-      "d": "0.004713845068652680905536263729042727807366",
-      "s": "0.09312611565085317966068850446814347380619",
-      "t": "172.1711958402559166754224075861130098959",
-      "u": "0.002160238737627909827447317224084095288229"
+      "b": "4.192020570077208485946838436555348826717",
+      "c": "1.273035053972203513321167069941714881039",
+      "d": "0.004713845068141124023313098170787772321394",
+      "s": "0.09312611563788319453324434429231560917486",
+      "t": "172.1711958513314678969838588700834293686",
+      "u": "0.002160238737786629273446753561344064704843"
     },
     "exact_mathematics": {
       "LQ_Gram_determinant": "4*(1-x^2)^2/3",
@@ -175,10 +175,10 @@
           "sha256": "bda031185dca55e54f4c6c0c020e9fac2e2ba5db5193998135f294898af620b8"
         },
         "particles/hierarchy/certificates/R_P_source_audit_pixel_certificate.json": {
-          "sha256": "11aeb17fd03b032af987100f8b865786f77b17c6d81aa4a649984e5059f42010"
+          "sha256": "5fd78433b7fe5832c931507694aa0c378301bec589b33656abdc64b0d746443c"
         },
         "particles/runs/flavor/charged_budget_transport.json": {
-          "sha256": "68c3d8bb46d785213473bb12065edd5376942b2443151e4dc54be868709c3803"
+          "sha256": "131c5779140a200132f3b841c4afa6db779700f22e9833d9e768fa1b5650d77f"
         },
         "particles/runs/flavor/family_transport_kernel.json": {
           "sha256": "712f4ac9ac065bb5349eda86f168c5aca5f011771cefc5e50ededea56c17152a"
@@ -187,7 +187,7 @@
           "sha256": "d46019c00937b15dc79db874eaf19a0d421f1068e78d305f7bb8a615a9d3b5a0"
         },
         "particles/runs/flavor/quark_odd_response_law.json": {
-          "sha256": "27b8e3f2ff12a02bd01dfab74089060673edde333502d363108aaa8f40ed9923"
+          "sha256": "0292adf98a01f378efadd04c3e934682ece87ec72e216fb4825570a998a18cd3"
         }
       },
       "dimensionful_scale_emitted": false,
@@ -205,10 +205,10 @@
     "repository_inputs": {
       "DeltaS_13": 0.034806034601383956,
       "N_c": 3,
-      "P": "1.63097209569432901817967892561191884270169",
+      "P": "1.63097209585889737696451390350695562847912625483895268486516",
       "S_13": 5.407843949508826,
       "S_23": 3.346451912983049,
-      "alpha_U": "0.04112424744557487",
+      "alpha_U": "0.04112424744181668514088993388965971943770774203135879",
       "d_std_S3": 2,
       "delta_21": 0.30236566025890826,
       "g_ch_template": 0.9231656602589082
@@ -248,8 +248,8 @@
   },
   "shape_diagnostic": {
     "common_scale_validation_performed": false,
-    "mixed_chart_down_adjacent_log_gap_ratio": 0.7836783998630671,
-    "mixed_chart_up_adjacent_log_gap_ratio": 1.2999448361277528,
+    "mixed_chart_down_adjacent_log_gap_ratio": 0.7836783998472888,
+    "mixed_chart_up_adjacent_log_gap_ratio": 1.299944836150236,
     "note": "Adding the universal Q mode abandons the old reciprocal-ray constraint; without RG transport this produces no common-scale shape prediction."
   },
   "submitted_bundle_receipt": {

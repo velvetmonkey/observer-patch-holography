@@ -236,9 +236,9 @@ def main() -> int:
             "projection_target_factor_4_in_4P": {
                 "value": "4",
                 "identification": "beta_EW",
-                "role": "the integer factor in the OPH resonance target Pi_EW(P_star,N_CRC^EW)=beta_EW*P_star=4P_star",
+                "role": "the integer factor in the declared CP-1 target Pi_EW(P_star,N_CRC^EW)=beta_EW*P_star=4P_star",
                 "source_theorem": "D10 transmutation multiplicity",
-                "scope_note": "The resonance target 4P_star=beta_EW*P_star is the OPH local/global EW resonance condition. The EW-refined global-capacity contraction certificate supplies its source-side realization.",
+                "scope_note": "The product target 4P_star=beta_EW*P_star is CP-1. HIERARCHY-SCREEN-READOUT must derive its physical attachment; the bridge-defined capacity certificate supplies only the algebraic specialization.",
             },
             "projection_target_denominator_12_in_P_over_12": {
                 "value": "12",
@@ -271,10 +271,10 @@ def main() -> int:
             },
             {
                 "step": 4,
-                "premise": "OPH local/global EW resonance target",
+                "premise": "declared CP-1 / HIERARCHY-SCREEN-READOUT target",
                 "uses": ["beta_EW=4 (D10 channel count)", "P_star (local pixel fixed point from R_P)"],
                 "conclusion": "Pi_EW(P_star,N_CRC^EW) = beta_EW*P_star = 4*P_star",
-                "scope_note": "This identifies the OPH local/global EW resonance target: a single global tick per electroweak channel per local pixel-area unit. The integers come from D10 (beta_EW) and R_P (P_star). The product target is the resonance condition used by this bridge certificate; a deeper geometric derivation of that product target belongs to a separate strengthening theorem.",
+                "scope_note": "The integers come from D10 (beta_EW) and R_P (P_star), but their product does not derive the physical equality. HIERARCHY-SCREEN-READOUT is the work-in-progress premise that identifies log(E_cell/v)=Gamma_screen and attaches it to this target.",
             },
             {
                 "step": 5,
@@ -312,25 +312,29 @@ def main() -> int:
             "no_measured_higgs_top_W_Z_inputs": True,
             "no_measured_gravity_inputs": True,
             "rounded_N_display_rejected_as_high_precision_bridge": True,
-            "resonance_target_scoped_as_oph_condition": True,
-            "resonance_target_scope": "The equality Pi_EW(P_star,N_CRC^EW)=4*P_star is the OPH local/global EW resonance condition. Each factor is corpus-derived (4=beta_EW from D10; P_star from R_P pixel closure), and the target's source-side realization is the bridge fixed point N_CRC^EW supplied by the EW-refined global-capacity contraction certificate. The product target is scoped to this OPH resonance condition; no measured datum supplies it.",
+            "cp1_target_scoped_as_readout_premise": True,
+            "cp1_target_scope": "The equality Pi_EW(P_star,N_CRC^EW)=4*P_star is CP-1. Its factors are defined on the declared branches, while its physical attachment requires HIERARCHY-SCREEN-READOUT. No measured datum supplies it.",
         },
         "claim_boundary": {
             "closed_here": (
                 "unique projection map Pi_EW(P,N), explicit derivation chain from D10 transmutation and the global repair tick, "
-                "machine-readable origin of every integer factor (4, 12, 24, 48), exact bridge residual B_EW=0, "
-                "and exact bridge target N_EW(P_star)"
+                "machine-readable origin of every integer factor (4, 12, 24, 48), and the exact equivalence "
+                "Pi_EW=4P iff B_EW=0"
             ),
             "source_certificate_required": "The issue-344 exact global capacity certificate supplies B_EW(P_star,N_CRC^EW)=0 for the bridge-refined capacity object.",
             "closed_elsewhere": [
                 "beta_EW=N_c+1=4 from the D10 forward transmutation certificate",
                 "m_rep=24 from the representation-to-spectrum round-count certificate (R_m_rep_24_certificate.json)",
                 "|g_*'|=(N/pi)^(-1/48) from the global repair-tick certificate (R_N_global_repair_tick_certificate.json)",
-                "exact source-side capacity N_CRC^EW from the EW-refined global-capacity certificate (R_EW_global_capacity_certificate.json)",
-                "umbrella local/global hierarchy resonance from the resonance closeout certificate (R_local_global_hierarchy_resonance_closeout_335.json)",
+                "bridge-defined N_CRC^EW identity from R_EW_global_capacity_certificate.json",
+                "conditional local/global hierarchy composition from R_local_global_hierarchy_resonance_closeout_335.json",
+            ],
+            "not_closed_here": [
+                "HIERARCHY-SCREEN-READOUT: log(E_cell/v)=Gamma_screen and its alpha_U/B_EW attachment",
+                "an independently emitted physical cosmic capacity",
             ],
             "rounded_display": "3.31e122 is a capacity-scale label and fails the exact bridge diagnostic.",
-            "scope": "Closed as an exact source-side EW tick-projection bridge for the EW-refined capacity N_CRC^EW. Under the OPH resonance target Pi_EW=4P, the bridge fixed point N_CRC^EW=pi*exp[6*pi/(P_star*alpha_U(P_star))] gives t_tr=(P_star/12)*log(N_CRC^EW/pi) and v/E_cell=(N_CRC^EW/pi)^(-P_star/12)=|g_*'|^(4P_star). The rounded 3.31e122 cosmological capacity display remains a diagnostic label. A deeper geometric derivation of the product target 4P_star belongs to a separate strengthening theorem.",
+            "scope": "Closed as an exact projection-map and residual-equivalence reduction. Conditional on HIERARCHY-SCREEN-READOUT, the bridge-defined N_CRC^EW gives t_tr=(P_star/12)*log(N_CRC^EW/pi) and v/E_cell=(N_CRC^EW/pi)^(-P_star/12)=|g_*'|^(4P_star). The rounded 3.31e122 cosmological capacity display is diagnostic.",
         },
         "verifier_command": "python3 code/particles/hierarchy/verify_issue_337_electroweak_projection.py --check --output code/particles/hierarchy/certificates/R_EW_tick_projection_certificate.json",
     }

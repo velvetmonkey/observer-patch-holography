@@ -23,9 +23,9 @@ def test_same_branch_candidate_is_numeric_and_fail_closed() -> None:
     )
 
     values = report["same_branch_candidate_coordinates"]
-    assert values["W_tree_chart_GeV"] == pytest.approx(80.3207789191, abs=1.0e-9)
-    assert values["Z_tree_chart_GeV"] == pytest.approx(91.1241885296, abs=1.0e-9)
-    assert values["H_running_chart_GeV"] == pytest.approx(125.1023219754, abs=1.0e-9)
+    assert values["W_tree_chart_GeV"] == pytest.approx(80.3207786309, abs=1.0e-9)
+    assert values["Z_tree_chart_GeV"] == pytest.approx(91.1241882025, abs=1.0e-9)
+    assert values["H_running_chart_GeV"] == pytest.approx(125.1023215326, abs=1.0e-9)
     assert report["promotion_allowed"] is False
     assert report["tree_pole_control"]["status"].startswith("zero_width_tree_controls")
     assert "BRST_complete_W_Z_H_self_energies_missing" in report["blockers"]

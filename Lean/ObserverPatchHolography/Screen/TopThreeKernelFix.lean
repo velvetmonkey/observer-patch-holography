@@ -1,10 +1,8 @@
 import Mathlib
 
 /-!
-Kernel-evaluated replacement for the supplied `TopThree.lean` use of
-`native_decide`.  The original theorem was true, but `native_decide` adds a
-native-code axiom to the trust report.  Plain `decide` proves this six-element
-fact in Lean's kernel.
+Kernel-checked S3 ambivalence. Plain `decide` proves this six-element fact
+without a native-code axiom in the trust report.
 -/
 
 namespace OPH.TopThreeKernelFix

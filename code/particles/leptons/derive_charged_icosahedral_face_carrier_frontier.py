@@ -128,8 +128,8 @@ def build_artifact(
     incidence = icosahedral_incidence()
     orbit = screen.get("orbit_stabilizer", {})
     screen_premise_checks = {
-        "screen_status_closed": (
-            screen.get("status") == "closed_on_declared_triangulated_screen_branch"
+        "screen_status_is_conditional_selector_theorem": (
+            screen.get("status") == "conditional_finite_selector_theorem"
         ),
         "screen_certificate_check_passes": (
             screen.get("checks", {}).get("icosahedral_orbit_has_twelve_vertices") is True
@@ -140,7 +140,7 @@ def build_artifact(
         "vertex_stabilizer_order_is_5": orbit.get("fivefold_stabilizer_order") == 5,
     }
     if not all(screen_premise_checks.values()):
-        raise ValueError("face carrier requires the closed A5 twelve-vertex screen certificate")
+        raise ValueError("face carrier requires the conditional A5 twelve-vertex screen certificate")
 
     shift = cyclic_shift()
     c3_checks = {
@@ -249,7 +249,7 @@ def build_artifact(
             "The face-corner bundle is a valid alternative incidence carrier. It does not "
             "contradict the W5 no-go, which applies to linear moments of scalar weights on the "
             "twelve vertices. Incidence geometry can supply a geometric C3 fiber without a "
-            "nonuniform port scalar, but still requires a physical charged attachment and "
+            "nonuniform port scalar, but requires a physical charged attachment and "
             "dynamical spectral value law."
         ),
         "conditional_physical_completion_theorem": {
@@ -265,7 +265,7 @@ def build_artifact(
                 "the physical family lines"
             ),
         },
-        "pro_completion_v1_boundary": {
+        "claim_scope": {
             "validated_here": [
                 "icosahedral V=12, E=30, F=20 incidence",
                 "face stabilizer C3 and the three-corner cyclic carrier",
@@ -282,8 +282,8 @@ def build_artifact(
         },
         "claim_boundary": (
             "The icosahedron is integral to OPH microphysics and the face-corner C3 carrier is "
-            "a genuine new local geometric lemma. The numerical completion remains a conditional, "
-            "retrospectively discovered conjecture until the listed source maps are proved."
+            "a source-side local geometric lemma. The numerical formulas are conditional "
+            "conjectures because the listed source maps are work in progress."
         ),
         "checks_pass": checks_pass,
     }

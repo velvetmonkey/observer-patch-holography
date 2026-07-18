@@ -14,11 +14,11 @@
     "log10_E_star_over_v": "16.69465286086613"
   },
   "source_audit_branch": {
-    "P_cand": "1.63097209569432901817967892561191884270169",
-    "alpha_U": "0.04112424744557487",
-    "alpha_U_inverse": "24.316554395881205",
-    "v_over_E_star": "2.0198114150099223e-17",
-    "relative_shift_vs_public_v": "8.36e-5",
+    "P_cand": "1.63097209585889737696451390350695562847912625483895268486516",
+    "alpha_U": "0.04112424744181668514088993388965971943770774203135879",
+    "alpha_U_inverse": "24.3165543981033997238132507379846182278094026087068",
+    "v_over_E_star": "2.019811407857633059133742618267014853993e-17",
+    "relative_shift_vs_public_v": "0.0000836226536058753535159676636037300752",
     "status": "Use this branch when avoiding measured Thomson endpoint upstream."
   },
   "heat_kernel_witness": {

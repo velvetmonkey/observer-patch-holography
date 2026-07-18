@@ -68,20 +68,20 @@
       },
       "coherent_source_audit": {
         "inputs": {
-          "P": 1.630972095694329,
-          "alpha_U": 0.041124247445574885,
-          "v_gev": 246.59675584714992
+          "P": 1.6309720958588974,
+          "alpha_U": 0.04112424744181668,
+          "v_gev": 246.59675497392996
         },
         "masses_mev": [
-          0.5109559757415664,
-          105.6494987826477,
-          1776.7807007555489
+          0.510955973930992,
+          105.64949840866649,
+          1776.780694465486
         ],
-        "max_absolute_residual_ppm": 84.09987608726243,
+        "max_absolute_residual_ppm": 84.10341929265819,
         "relative_residual_ppm": [
-          -84.09987608726243,
-          -84.01338095831434,
-          -84.02089246684064
+          -84.10341929265819,
+          -84.0169204904262,
+          -84.02443231536606
         ]
       },
       "coherent_truncated_P": {
@@ -127,7 +127,7 @@
     "public_P_uses_measured_Thomson_endpoint": true,
     "public_alpha_U_matches_Krawczyk_center": true,
     "source_alpha_U_matches_source_certificate": true,
-    "source_audit_P": 1.630972095694329,
+    "source_audit_P": 1.6309720958588974,
     "source_audit_P_status": "source_audit_branch_witness_not_full_endpoint_proof",
     "submitted_P": 1.6309681897,
     "submitted_P_matches_compare_only_D10_probe": true,
@@ -195,7 +195,7 @@
   "upstream_receipts": {
     "code/particles/calibration/legacy_d10/particle_masses_paper_d10_d11.py": "78e7f0bfdd85e8bc8bf6d412d92b891b5781e0cb31ba1ab97c3211dc0ef1d50b",
     "code/particles/hierarchy/certificates/R_P_public_pixel_certificate.json": "1d37c44e5d1f1777667eae443ef7af6c5c054fcc3683bb1edb6919b2e2ccee07",
-    "code/particles/hierarchy/certificates/R_P_source_audit_pixel_certificate.json": "11aeb17fd03b032af987100f8b865786f77b17c6d81aa4a649984e5059f42010",
+    "code/particles/hierarchy/certificates/R_P_source_audit_pixel_certificate.json": "5fd78433b7fe5832c931507694aa0c378301bec589b33656abdc64b0d746443c",
     "code/particles/hierarchy/certificates/R_U_krawczyk_certificate.json": "e7c7faea25ab5baca2257ee8beea0d50b1670c37d24c6eea35e8f12b36b5b436",
     "code/particles/runs/calibration/d10_ew_common_transport_gap_report.json": "2c081021a484fbd7bd77e9407161f5db7e54cb46ac875aabcbc0bacab678423d"
   },

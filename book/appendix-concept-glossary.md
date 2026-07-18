@@ -28,12 +28,11 @@ observer patches because a patch is a region with a structured menu of possible
 questions, not a box of facts.
 
 Anomaly
-:   An anomaly is a mismatch between a classical symmetry and the
-quantum theory, or more broadly a leftover term that prevents an ideal
-condition from closing exactly. In the Standard Model, anomaly cancellation
-is essential for consistency. In the OPH dark-sector continuation, a modular
-anomaly is a residual mismatch in the modular-geometric bookkeeping that
-acts gravitationally while remaining dark to electromagnetic probes.
+:   An anomaly is a mismatch between a classical symmetry and a quantum theory
+or a term that prevents a condition from closing. Standard Model consistency
+requires anomaly cancellation. In the OPH dark-sector lane, a modular anomaly
+is only a diagnostic. Its source and stress lift are work in progress; it is
+not a physical dark component.
 
 Area law
 :   An area law says that a quantity scales with boundary area,
@@ -131,7 +130,7 @@ Capacity-electroweak bridge
 :   The bridge reads the weak scale as a local
 projection of the global screen-capacity repair rhythm. The exact bridge
 capacity is separate from the rounded de Sitter capacity display. The
-screen-sieve theorem gives the factor $12$ in the projection.
+conditional screen-sieve theorem gives the factor $12$ in the projection.
 
 Carnot efficiency
 :   Carnot's result sets the ceiling on the work an engine
@@ -512,11 +511,10 @@ carries its own clock. OPH's internal time, its Lorentz branch, and its
 thermality all ride this mathematics.
 
 MOND
-:   MOND, Milgrom's modified-dynamics proposal, fits galaxy rotation
-curves by changing the force law below a small acceleration scale. OPH's
-dark-response branch reaches a similar deep-infrared scale from the de Sitter
-radius, which is why the book treats galaxy-scale anomalies as an extension
-branch with its own applicability question.
+:   MOND changes low-acceleration gravity to fit galaxy rotation curves. The
+OPH dark-sector continuation instead proposes a repair-charge condensate whose
+cubic phase gives the deep MOND scaling. The full interpolation and physical
+completion are work in progress.
 
 Monogamy of entanglement
 :   Monogamy is the rule that entanglement cannot be
@@ -545,8 +543,8 @@ public reality as the stable result of overlap repair. Termination only says
 the repair process stops; confluence is the extra condition that different
 allowed schedules from the same initial quotient state stop at the same
 observer-facing quotient result. Same-boundary uniqueness additionally needs
-that boundary or sector to have a unique consistent extension. In the current
-OPH construction, overlapping repairs are accepted only when they preserve the
+that boundary or sector to have a unique consistent extension. OPH accepts
+overlapping repairs only when they preserve the
 shared boundary data and descend to the same observer-facing result. A digital
 fingerprint can help show that two computed outputs match, but it cannot select
 between two physically distinct consistent endpoints. The OPH paper stack gives
@@ -644,7 +642,9 @@ Quotient
 purpose at hand. In the Standard Model group
 $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$, a shared discrete center is
 counted once across the gauge factors. Quotients remove duplicate labels from
-the physical bookkeeping.
+the physical bookkeeping. The six-axis icosahedral screen also has an abstract
+$\mathbb Z_6$ residue. A separate physical map is needed before that residue
+can be identified with the Standard Model quotient.
 
 Recoverability
 :   Recoverability means information that appears missing
@@ -693,10 +693,11 @@ overlaps of their local patches.
 
 Screen-sieve
 :   A screen-sieve is a finite port sampling rule on the spherical
-screen. In the hierarchy bridge, the refinement-stable triangulated screen has
-twelve unit fivefold defects. Edge-center collars make them central ports, and
-$A_5$ symmetry places them on the icosahedral vertex orbit. This gives the
-geometric origin of the twelve-way local readout.
+screen. On the declared branch, the total coordination defect splits into
+twelve equal units and a physical selection rule places them at the vertices
+of a regular icosahedron. Edge-center collars expose them as central ports.
+This picture gives the twelve-way local readout. Deriving the split and the
+placement from OPH dynamics is work in progress.
 
 Selection filter
 :   A selection filter is a constraint that candidate
@@ -840,5 +841,5 @@ Yukawa coupling
 :   A Yukawa coupling ties a fermion to the Higgs field and
 sets that fermion's mass once the Higgs takes a vacuum value. The pattern of
 Yukawa couplings is where most of the Standard Model's free numbers hide. The
-book tracks which mass claims are forced and which still borrow measured Yukawa
+book tracks which mass claims are forced and which borrow measured Yukawa
 data.

@@ -41,10 +41,10 @@
     "v_report": 246.76711732749683
   },
   "conclusion": {
-    "meaning": "On the frozen authoritative D10 target surface, the exact repair package and coherent repaired quintet are fully emitted.",
+    "meaning": "On the declared measured-reference surface, the exact repair package and coherent repaired quintet are fully emitted.",
     "still_compare_only": true,
     "stricter_still_open_object": "EWTargetFreeRepairValueLaw_D10",
-    "stricter_still_open_statement": "Emit the same nonzero repair directly from P alone with no frozen target input."
+    "stricter_still_open_statement": "Emit the same nonzero repair directly from P alone with no measured-reference input."
   },
   "current_basis": {
     "MW_current_gev": 80.38629169244275,
@@ -66,7 +66,7 @@
     "stricter_still_open_object": "EWTargetFreeRepairValueLaw_D10"
   },
   "forward_claim_allowed": false,
-  "generated_utc": "2026-07-13T06:09:17Z",
+  "generated_utc": "2026-07-18T05:45:49Z",
   "new_smaller_primitive": {
     "depends_on": [
       "EWSinglePostTransportTreeIdentity_D10",
@@ -99,7 +99,7 @@
     "MZ_pole_err_gev": 0.002,
     "epoch": "2025",
     "kind": "local_machine_readable_reference_surface",
-    "note": "This law is exact on the frozen authoritative D10 target surface. The stronger target-free emission from P alone remains open.",
+    "note": "This law is exact on the declared measured-reference surface. The stronger target-free emission from P alone remains open.",
     "source_label": "PDG 2026 API"
   },
   "theorem": {
@@ -127,7 +127,7 @@
       "EWChargedAnchorLaw_D10",
       "EWNeutralShearLaw_D10"
     ],
-    "name": "Freeze-once coherent D10 electroweak repair law",
-    "statement": "Fix the current D10 carrier basis and one authoritative frozen target pair (MW_target, MZ_target) with 0 < MW_target < MZ_target. Then there exists a unique coherent repair package (delta_alpha2_dagger, delta_alphaY_parallel, delta_alphaY_perp), equivalently (tau2_w_anchor, delta_n_dagger). The corresponding repaired coupling pair (alpha2_dagger, alphaY_dagger) emits one coherent electroweak quintet on a single family, with no mixed readout and no hidden selector."
+    "name": "Reference-fitted coherent D10 electroweak repair law",
+    "statement": "Fix the current D10 carrier basis and one declared comparison pair (MW_target, MZ_target) with 0 < MW_target < MZ_target. Then there exists a unique coherent repair package (delta_alpha2_dagger, delta_alphaY_parallel, delta_alphaY_perp), equivalently (tau2_w_anchor, delta_n_dagger). The corresponding repaired coupling pair (alpha2_dagger, alphaY_dagger) emits one coherent electroweak quintet on a single family, with no mixed readout and no hidden selector."
   }
 }

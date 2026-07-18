@@ -50,12 +50,14 @@ declared branch.
 
 **C4. Transportable-charge consistency.** Internal labels must transport
 coherently across overlaps. The category of transportable charges, under the
-compact-gauge receipt, reconstructs a compact gauge group (Tannaka-Krein). The
-explicit one-Higgs matter package and the Minimal Admissible Realization rule
-select SU(3)×SU(2)×U(1)/Z₆ with the hypercharge lattice, N_c = 3, N_g = 3.
-Removed freedom: the gauge menu. Carrier: compact paper, gauge reconstruction;
-MAR clauses declared as counted inputs. Status: theorem conditional on
-the declared receipt and clause inputs.
+compact-gauge receipt, reconstructs a compact group (Tannaka-Krein). A
+conditional finite `A5` module admits an exact compact coefficient bracket;
+trace-balanced block integration and the six-axis lattice quotient are exact
+mathematical companions. Physical currents and the global gauge form require
+the full-rank compact skew-adjoint receipt PORT-CURRENT-INNER,
+PORT-SPIN-LIFT, block/axis descent, and the one-Higgs MAR
+tensor-kernel premises. On that branch they select SU(3)×SU(2)×U(1)/Z₆, its hypercharge
+lattice, N_c = 3, and N_g = 3. Status: conditional theorem.
 
 **C5. Entropic-gravitational consistency.** Local horizon thermodynamics of
 the record surfaces, made consistent patch by patch, yields the Einstein branch
@@ -95,7 +97,7 @@ are open. The joint Planck posterior propagated through the Λ-to-N map places
 the offset at 2.4 to 2.5 one-dimensional sigma under the consumed likelihood
 combination and 3.8 to 3.9 under Planck+BAO
 (`../code/capacity_readback/planck_posterior/`); CL-3 becomes evaluable only
-after the premises close and the likelihood combination is frozen.
+under a completed physical readback and likelihood map.
 
 **C9. Loop closure.** The detuning law, run through the full forward chain
 A_T(P), must return the pixel it started from: P = φ + √π/A_T(P), exactly.
@@ -106,15 +108,9 @@ declared-map outputs because the Ward-projected hadronic transport is absent
 (CL-1/CL-2). The missing transport is a frontier of the field: the required
 4×10⁻⁹ relative payload precision exceeds every method on Earth (see "Why The
 Hadronic Test Is Hard" in
-[OPH_FALSIFICATION_PROGRAM.md](OPH_FALSIFICATION_PROGRAM.md)). The externally
-timestamped historical v2 target in
-`../falsification/frozen_targets/` is algebraically invalid and specifies no
-verdict. Corrective v3 is a permanently inactive post-target-access erratum
-scaffold. A valid future test needs a detached successor whose complete method
-is frozen before withheld data or produced by an audited clean-room operator.
-The V1 grid is exploratory and non-blind and cannot execute such a test; its
-defect inventory is recorded in the reading rules of
-[CLOSURE_LEDGER.md](CLOSURE_LEDGER.md).
+[CLOSURE_LEDGER.md](CLOSURE_LEDGER.md)). The source transport function and
+same-scheme remainder are work in progress. No registered target or scoring
+protocol exists.
 
 **C10. Unit self-consistency (SL-5).** One clock anchor (cesium) connects
 substrate units to laboratory units; every SI display is bookkeeping downstream
@@ -191,7 +187,7 @@ The ledger rows are not independent. They reduce to four generating objects:
 | Generator | Object to construct or compute | Ledger rows it closes or moves |
 |---|---|---|
 | G1 | Complete the Ward-projected hadronic transport and run a target-blind payload under a detached successor whose full method-selection chronology is blind or clean-room audited. The required 4×10⁻⁹ relative payload precision exceeds every method on Earth ("Why The Hadronic Test Is Hard", [OPH_FALSIFICATION_PROGRAM.md](OPH_FALSIFICATION_PROGRAM.md)). The V1 grid is exploratory and non-blind; its `S_hadronic` range contains the zero-EW CL-1 point diagnostic 0.8954 with no promotion weight, and its full defect inventory and the correct total/residual endpoint diagnostics are recorded in the reading rules of [CLOSURE_LEDGER.md](CLOSURE_LEDGER.md) and ../code/particles/hadron/ward_projected_payload/PAYLOAD_STATUS.md. No promotion follows | CL-1, CL-2 |
-| G2 | The capacity readback map F and its contraction certificate. Current status: G2-GAP-1 is a conditional theorem (../code/capacity_readback/G2_GAP_1_COUPLING_THEOREM.md). Its fixed point equals the EW bridge capacity N = π·exp(6π/(P·α_U)) only modulo CP-1, CP-2, and CP-3. The certified conditional fixed point at P_fwd encloses 3.5321315434e122 with relative width 1.6e-25 (../code/capacity_readback/runtime/F_candidate_coupled_certificates.json). CL-7 is open. The joint-posterior propagation through the Λ readout is executed (../code/capacity_readback/planck_posterior/); after F and CP-1 to CP-3 close, CL-3 additionally requires the frozen likelihood-combination choice recorded there | CL-3, CL-4, CL-7 |
+| G2 | The capacity readback map F and its contraction certificate. G2-GAP-1 is a conditional theorem (../code/capacity_readback/G2_GAP_1_COUPLING_THEOREM.md). Its fixed point equals the EW bridge capacity N = π·exp(6π/(P·α_U)) only modulo CP-1, CP-2, and CP-3. The certified conditional fixed point at P_fwd encloses 3.5321315434e122 with relative width 1.6e-25 (../code/capacity_readback/runtime/F_candidate_coupled_certificates.json). CL-7 is open. The joint-posterior propagation through the Λ readout is diagnostic (../code/capacity_readback/planck_posterior/) and carries no cosmological verdict | CL-3, CL-4, CL-7 |
 | G3 | Define the physical electroweak readout and complete its scheme map before comparing it with data. The emitted pair is a running/tree chart coordinate; the quoted references are stale PDG 2025 mass-dependent-width Breit-Wigner parameters, not pole masses, so CL-5 is not physically evaluable. The 96-entry one-loop sweep tests only the declared chart menu. The two-loop result applies SM two-loop increments to an MSSM one-loop baseline and excludes that hybrid prescription, not two-loop repair in general. The pole packet is a scale-dependent partial PRTS/Feynman-gauge prescription with open tadpole/FJ and vev schemes; its JKV cross-check audits a slope term rather than the complete finite packet. No raw W/Z pull from these packets is evidence | CL-5 |
 | G4 | Solver hygiene: matched printed pair at certified precision | CL-6, closed (converged precision-100 reruns; identity to 35+ digits; CI test) |
 

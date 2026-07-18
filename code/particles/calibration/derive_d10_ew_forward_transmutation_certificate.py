@@ -99,7 +99,7 @@ def build_artifact(family: dict, source_pair: dict, *, color_count: int) -> dict
                 "the dimensional-transmutation exponent t_tr = 2*pi / ((N_c + 1) * alpha_U). Once the "
                 "source-only basis (alpha2_mz, alphaY_mz, eta_source, v_report) has been emitted on that "
                 "same branch, it reconstructs the same alpha_U through alpha_U = eta_source / beta_ratio_EW. "
-                "No measured low-energy coupling or frozen W/Z target is used to determine the internal "
+                "No measured low-energy coupling or reference W/Z target is used to determine the internal "
                 "transmutation parameters."
             ),
             "formulas": {
@@ -160,7 +160,7 @@ def build_artifact(family: dict, source_pair: dict, *, color_count: int) -> dict
             "v_source_vs_core_residual_gev": v_from_source - v_core,
         },
         "notes": [
-            "The calibration lane previously exposed alpha_U numerically but not the transmutation parameters t_U and t_tr as first-class artifacts.",
+            "The certificate exposes alpha_U and the transmutation parameters t_U and t_tr as first-class artifacts.",
             "This certificate separates the source-ratio beta_ratio_EW from the paper's transmutation counting factor beta_transmutation_EW = N_c + 1 so the two roles are not conflated.",
             "Low-energy gauge observables remain compare-only outputs of the forward D10 branch, not inputs that fix alpha_U, t_U, or t_tr.",
         ],

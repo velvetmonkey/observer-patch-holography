@@ -53,7 +53,26 @@ def main() -> int:
 
     exact = ew.get("exact_bridge", {})
     rounded = ew.get("rounded_capacity_diagnostic", {})
-    promotion_requires = audit.get("promotion_requires", [])
+    work_in_progress_receipts = list(audit.get("promotion_requires", []))
+    screen_work_in_progress_raw = screen_sieve.get("claim_boundary", {}).get(
+        "work_in_progress", []
+    )
+    if isinstance(screen_work_in_progress_raw, str):
+        screen_work_in_progress = [screen_work_in_progress_raw]
+    else:
+        screen_work_in_progress = list(screen_work_in_progress_raw)
+    for receipt in screen_work_in_progress:
+        if receipt and receipt not in work_in_progress_receipts:
+            work_in_progress_receipts.append(receipt)
+
+    screen_arithmetic = screen_sieve.get("screen_load_arithmetic", {})
+    hierarchy_readout_gate = screen_sieve.get("hierarchy_screen_readout_gate", {})
+    hierarchy_readout_premise_declared = (
+        hierarchy_readout_gate.get("premise_id") == "HIERARCHY-SCREEN-READOUT"
+        and hierarchy_readout_gate.get("supplied_by_screen_sieve") is False
+        and hierarchy_readout_gate.get("required_identification")
+        == "log(E_cell/v)=Gamma_screen"
+    )
 
     dependencies = {
         "global_repair_tick": tick.get("status")
@@ -62,8 +81,9 @@ def main() -> int:
         == "closed_projection_map_with_exact_bridge_condition"
         and ew.get("accepted") is True,
         "screen_sieve_icosahedral_geometric_strengthening": screen_sieve.get("status")
-        == "closed_on_declared_triangulated_screen_branch"
+        == "conditional_finite_selector_theorem"
         and screen_sieve.get("pass") is True,
+        "hierarchy_screen_readout_premise_declared": hierarchy_readout_premise_declared,
         "exact_global_capacity_certificate": exact_capacity.get("status")
         == "closed_bridge_refined_global_capacity_fixed_point_certificate"
         and exact_capacity.get("accepted") is True,
@@ -92,42 +112,55 @@ def main() -> int:
         and rounded_residual is not None
     )
 
-    screen_sieve_geometric_factor_one_over_twelve = (
-        screen_sieve.get("checks", {}).get("electroweak_projection_factor_is_one_over_twelve")
+    screen_sieve_arithmetic_factor_one_over_twelve = (
+        screen_sieve.get("checks", {}).get("screen_port_load_factor_is_one_over_twelve")
         is True
         and screen_sieve.get("orbit_stabilizer", {}).get("orbit_size") == 12
-        and screen_sieve.get("capacity_electroweak_projection", {}).get("gamma_EW")
+        and screen_arithmetic.get("local_port_read") == "X/12"
+        and screen_arithmetic.get("gamma_screen_simplified")
         == "(P/12)*log(N/pi)"
     )
 
+    component_receipts_valid = {
+        "finite_readback_resolution": readback.get("accepted") is True,
+        "round_count_derivation": m_rep.get("accepted") is True,
+        "exact_capacity_source_certificate": exact_capacity.get("accepted") is True,
+        "conditional_screen_sieve": screen_sieve.get("pass") is True,
+    }
+    promotion_gate_status = {
+        "screen_source_production_closed": not bool(screen_work_in_progress[:1]),
+        "hierarchy_screen_readout_closed": hierarchy_readout_gate.get("status") == "closed",
+    }
     closeout_checks = {
         "all_prerequisite_records_present": all(dependencies.values()),
         "exact_projection_bridge_residual_zero": exact_residual == 0,
         "exact_capacity_source_certificate_supplied": capacity_residual == 0,
         "exact_projection_exponent_matches_4P": abs(exact_projection_error) <= TOL,
-        "screen_sieve_supplies_geometric_one_over_twelve": screen_sieve_geometric_factor_one_over_twelve,
+        "screen_sieve_supplies_x_over_twelve_and_gamma_algebra": screen_sieve_arithmetic_factor_one_over_twelve,
+        "hierarchy_screen_readout_premise_is_explicit": hierarchy_readout_premise_declared,
         "rounded_capacity_is_diagnostic": rounded.get("status")
         == "diagnostic_only_not_exact_bridge_certificate",
         "rounded_capacity_fails_exact_bridge": abs(rounded_residual) > Decimal("1e-6"),
-        "remaining_promotion_gates_recorded": {
-            "finite_readback_resolution": readback.get("accepted") is True,
-            "round_count_derivation": m_rep.get("accepted") is True,
-            "exact_capacity_source_certificate": exact_capacity.get("accepted") is True,
-            "screen_sieve_geometric_strengthening": screen_sieve.get("pass") is True,
-        },
+        "component_receipts_valid": component_receipts_valid,
+        "promotion_gate_status": promotion_gate_status,
     }
-    gates = closeout_checks["remaining_promotion_gates_recorded"]
-    full_theorem_grade_promoted_computed = (
+    conditional_composition_verified = (
         closeout_checks["all_prerequisite_records_present"]
         and closeout_checks["exact_projection_bridge_residual_zero"]
         and closeout_checks["exact_capacity_source_certificate_supplied"]
         and closeout_checks["exact_projection_exponent_matches_4P"]
-        and closeout_checks["screen_sieve_supplies_geometric_one_over_twelve"]
+        and closeout_checks["screen_sieve_supplies_x_over_twelve_and_gamma_algebra"]
+        and closeout_checks["hierarchy_screen_readout_premise_is_explicit"]
         and closeout_checks["rounded_capacity_is_diagnostic"]
         and closeout_checks["rounded_capacity_fails_exact_bridge"]
-        and all(gates.values())
+        and all(component_receipts_valid.values())
     )
-    accepted = full_theorem_grade_promoted_computed
+    full_theorem_grade_promoted_computed = (
+        conditional_composition_verified
+        and all(promotion_gate_status.values())
+        and not work_in_progress_receipts
+    )
+    accepted = conditional_composition_verified
 
     derivation_chain = [
         {
@@ -171,26 +204,27 @@ def main() -> int:
         },
         {
             "step": 5,
-            "premise": "icosahedral screen-sieve theorem (geometric strengthening)",
+            "premise": "icosahedral screen-sieve theorem and imported load coordinates",
             "uses": [
                 "declared triangulated S^2 screen branch with q_v = 6 - deg(v)",
                 "discrete Gauss-Bonnet sum_v q_v = 6V - 2E = 12",
-                "convex defect cost selects 12 unit fivefold defects",
-                "A5/C5 orbit-stabilizer: |orbit| = 60/5 = 12",
-                "OPH cell-entropy identification P/4 = P/beta_EW",
+                "strict unit-splitting cost selects 12 positive unit defects",
+                "inverse pairing plus D-optimal vector/quadrupole tomography selects the unique icosahedral six-axis frame",
+                "imported X = log(N/pi), cell entropy P/4, and beta_EW = 4",
             ],
-            "conclusion": "local port reads X/12 of screen load X = log(N/pi); Gamma_EW = beta_EW * (P/4) * (1/12) * log(N/pi) = (P/12) * log(N/pi); v/E_cell = (N/pi)^(-P/12)",
-            "geometric_strengthening_note": "This step supplies the geometric screen factor for the EW tick-projection certificate by deriving the (1/12) port-read factor from icosahedral A5/C5 orbit geometry on the declared triangulated S^2 screen branch.",
+            "conclusion": "the screen has 12 ports and each local port reads X/12; after the stated imports, Gamma_screen := beta_EW*(P/4)*(X/12) = (P/12)*log(N/pi)",
+            "scope_note": "The screen theorem does not identify log(E_cell/v) with Gamma_screen and does not derive alpha_U or B_EW=0.",
             "source": "certificates/R_screen_sieve_icosahedral_certificate.json",
         },
         {
             "step": 6,
-            "premise": "electroweak tick-projection bridge theorem",
+            "premise": "electroweak tick-projection bridge plus HIERARCHY-SCREEN-READOUT",
             "uses": [
                 "ratio of step-1 t_tr and step-3 -log|g_*'|",
-                "geometric form Gamma_EW = (P/12)*log(N/pi) from step 5",
+                "named identification premise log(E_cell/v) = Gamma_screen",
+                "Gamma_screen = (P/12)*log(N/pi) from the algebra in step 5",
             ],
-            "conclusion": "Pi_EW(P,N) := -log(v/E_cell)/(-log|g_*'|) = (4*pi*m_rep)/(beta_EW*alpha_U*log(N/pi)) = 24*pi/(alpha_U*log(N/pi)); the resonance condition Pi_EW(P_*,N_CRC^EW) = 4*P_* (equivalently Gamma_EW(P_*,N_CRC^EW) = (P_*/12)*log(N_CRC^EW/pi) per step 5) is equivalent to B_EW(P,N) = alpha_U(P)*log(N/pi) - 6*pi/P = 0",
+            "conclusion": "conditional on HIERARCHY-SCREEN-READOUT, Pi_EW(P,N) := -log(v/E_cell)/(-log|g_*'|) = 24*pi/(alpha_U*log(N/pi)); matching the D10 transmutation exponent to Gamma_screen is equivalent to B_EW(P,N) = alpha_U(P)*log(N/pi) - 6*pi/P = 0",
             "source": "certificates/R_EW_tick_projection_certificate.json",
         },
         {
@@ -205,13 +239,14 @@ def main() -> int:
         },
         {
             "step": 8,
-            "premise": "umbrella composition: substitute step 7 into steps 1, 3, 5",
+            "premise": "umbrella composition under HIERARCHY-SCREEN-READOUT",
             "uses": [
                 "log(N_CRC^EW/pi) = 6*pi/(P_*alpha_U(P_*)) from step 7",
-                "(P_*/12) port-read factor from step 5",
+                "Gamma_screen = (P_*/12)*log(N_CRC^EW/pi) from step 5",
+                "log(E_cell/v) = Gamma_screen from the named readout premise",
                 "t_tr from step 1; |g_*'| from step 3",
             ],
-            "conclusion": "t_tr(P_*) = (P_*/12)*log(N_CRC^EW/pi); v/E_cell = (N_CRC^EW/pi)^(-P_*/12) = |g_*'|^(4*P_*); equality of all three target forms verified at residual <= 1e-40",
+            "conclusion": "conditional on HIERARCHY-SCREEN-READOUT, t_tr(P_*) = log(E_cell/v) = (P_*/12)*log(N_CRC^EW/pi), so v/E_cell = (N_CRC^EW/pi)^(-P_*/12) = |g_*'|^(4*P_*); the algebraic residual is <= 1e-40",
             "discharged_here": True,
         },
         {
@@ -251,8 +286,8 @@ def main() -> int:
         "icosahedral_orbit_size_12": {
             "value": "12",
             "definition": "|A5| / |C5| = 60 / 5",
-            "role": "twelve fivefold-defect ports on the triangulated S^2 screen, hence the local port reads X/12 of the global load X = log(N/pi)",
-            "source_theorem": "icosahedral screen-sieve theorem (discrete Gauss-Bonnet + convex defect cost + orbit-stabilizer)",
+            "role": "twelve fivefold-defect ports on the triangulated S^2 screen, hence the local port-load split is X/12",
+            "source_theorem": "conditional icosahedral screen-sieve theorem (Gauss-Bonnet + strict unit splitting + D-optimal ETF rigidity)",
             "source_artifact": "certificates/R_screen_sieve_icosahedral_certificate.json",
         },
         "total_curvature_charge_12": {
@@ -267,19 +302,19 @@ def main() -> int:
             "definition": "1 / beta_EW",
             "role": "cell entropy P/4 = P/beta_EW: pixel-area entropy apportioned per electroweak channel",
             "source_theorem": "OPH structural identification (cell-per-channel apportionment)",
-            "scope_note": "The cell-entropy identification P/beta_EW is an OPH structural choice consumed by the icosahedral screen-sieve theorem as input. At this closeout level, its derivation status remains a scoped OPH structural identification. Together with the icosahedral 1/12 port-read factor and the D10 channel multiplicity, it composes the (P/12) form. This is the residual definitional residue of the umbrella resonance on the selected branch.",
+            "scope_note": "P/beta_EW is imported into the load arithmetic. Together with beta_EW=4 and the screen theorem's X/12 split, it defines Gamma_screen=(P/12)log(N/pi); a physical hierarchy readout requires HIERARCHY-SCREEN-READOUT.",
         },
         "projection_target_factor_4_in_4P": {
             "value": "4",
             "identification": "beta_EW",
             "role": "the integer factor in Pi_EW(P_*,N_CRC^EW) = beta_EW * P_* = 4*P_*",
-            "source_theorem": "D10 transmutation multiplicity, geometrically realized through the screen-sieve composition (step 5)",
+            "source_theorem": "D10 transmutation multiplicity; its physical match to Gamma_screen is conditional on HIERARCHY-SCREEN-READOUT",
         },
         "projection_target_denominator_12_in_P_over_12": {
             "value": "12",
             "definition": "icosahedral orbit size = |A5|/|C5| = 60/5",
-            "role": "denominator in t_tr = (P_*/12)*log(N_CRC^EW/pi) and v/E_cell = (N_CRC^EW/pi)^(-P_*/12)",
-            "source_theorem": "icosahedral screen-sieve theorem (geometric strengthening of the prior algebraic identification 12 = 2*m_rep/beta_EW = 48/4)",
+            "role": "denominator in the algebraic Gamma_screen=(P/12)log(N/pi); its hierarchy interpretation requires HIERARCHY-SCREEN-READOUT",
+            "source_theorem": "conditional icosahedral screen-sieve theorem for X/12; the same integer also equals 2*m_rep/beta_EW = 48/4",
             "source_artifact": "certificates/R_screen_sieve_icosahedral_certificate.json",
         },
     }
@@ -287,29 +322,30 @@ def main() -> int:
     branch_scope = {
         "oph_local_branch": "R_P pixel closure: source-audit or public-endpoint pixel fixed point P_*",
         "oph_product_gauge_branch": "observer-visible product adjoint su(3)+su(2)+u(1) (excludes SU(5) X/Y mixed adjoint generators; no particle-spectrum conclusion)",
-        "screen_branch": "declared triangulated S^2 screen branch with finite Hilbert spaces on links, Gauss constraints at vertices, locally six-valent MaxEnt vacuum, convex positive defect cost, edge-center collars exposing irreducible positive defects as central ports, no-marked-point finite isotropy",
+        "screen_branch": "declared triangulated S^2 screen branch with integer charges, a feasible strict unit-splitting cost, inverse-port pairing, source-side D-optimal vector/quadrupole tomography, and edge-center collars exposing unit defects as central ports",
+        "hierarchy_screen_readout_branch": "named premise HIERARCHY-SCREEN-READOUT: log(E_cell/v)=Gamma_screen; this identification is not supplied by the screen sieve",
         "rg_branch": "selected exact source-to-Higgs RG/coarse-graining branch with epsilon_H in [0,0]",
         "joint_branch": "product-separated joint (P, log N_CRC) source map J(P,x) = (Gamma(P), C_hat(x)) with component contractions",
-        "scope_note": "The umbrella resonance closes as a theorem on the conjunction of the five branches above. The composition is exact and machine-checkable; the residual definitional residue is the cell-entropy identification P/beta_EW (factor_origins.cell_entropy_factor_one_over_four). All other integer factors are derived from corpus theorems with explicit source artifacts.",
+        "scope_note": "The umbrella resonance is exact conditional on the listed branches and HIERARCHY-SCREEN-READOUT. The screen theorem supplies 12 ports and X/12 only; the cell-entropy coordinate P/beta_EW and beta_EW=4 are imported for the Gamma_screen algebra. Source production of the screen selector and the hierarchy readout identification is work in progress.",
     }
 
     cert: dict[str, Any] = {
         "issue": 335,
         "artifact": "R_local_global_hierarchy_resonance_closeout",
-        "status": "closed_full_local_global_hierarchy_resonance",
+        "status": "exact_conditional_local_global_hierarchy_resonance",
         "accepted": bool(accepted),
         "full_theorem_grade_resonance_promoted": bool(full_theorem_grade_promoted_computed),
         "closeout_decision": (
             "The eight prerequisite theorems compose into the umbrella resonance "
             "relation t_tr(P_*) = (P_*/12)*log(N_CRC^EW/pi) on the selected branch, "
-            "with the icosahedral screen-sieve theorem supplying the geometric "
-            "strengthening of the (P/12) factor used by the EW tick-projection "
-            "certificate. The full-theorem-grade "
-            "promotion is computed from the conjunction of all dependency status "
-            "checks; the only residual definitional residue is the OPH cell-entropy "
-            "identification P/beta_EW, recorded under factor_origins."
+            "with the screen theorem supplying twelve ports and X/12. The algebraic "
+            "Gamma_screen=(P/12)log(N/pi) also imports X=log(N/pi), P/4, and beta_EW=4. "
+            "The hierarchy equality and its alpha_U/B_EW match are conditional on the "
+            "named HIERARCHY-SCREEN-READOUT premise. Source production of the screen "
+            "selector and this readout identification is work in progress."
         ),
         "target_relation": {
+            "conditional_on": "HIERARCHY-SCREEN-READOUT",
             "transport_time": "t_tr(P_star) = (P_star/12) * log(N_CRC^EW/pi)",
             "hierarchy_ratio": "v/E_cell = (N_CRC^EW/pi)^(-P_star/12)",
             "tick_form": "v/E_cell = |g_*'|^(4*P_star)",
@@ -317,16 +353,16 @@ def main() -> int:
         "exact_surviving_statement": {
             "projection_map": ew["definitions"]["Pi_EW"],
             "bridge_residual": ew["definitions"]["bridge_residual"],
-            "geometric_form_of_target": screen_sieve["capacity_electroweak_projection"]["gamma_EW"],
+            "gamma_screen_algebra": screen_arithmetic["gamma_screen_simplified"],
+            "identification_premise": "HIERARCHY-SCREEN-READOUT",
             "statement": (
                 "With the EW-refined exact-capacity certificate supplying "
                 "B_EW(P_star,N_CRC^EW)=0, the finite readback-resolution certificate "
                 "supplying rho_read -> (N_CRC/pi)^(-1/2), the representation-to-spectrum "
-                "theorem deriving m_rep=24, and the icosahedral screen-sieve theorem "
-                "deriving the local port-read factor 1/12 from A5/C5 orbit geometry, "
-                "the target local/global hierarchy relation follows from the closed "
-                "tick, projection, joint fixed-point, geometric, and RG/Higgs naturality "
-                "records on the selected branch."
+                "theorem deriving m_rep=24, and the screen sieve deriving twelve ports "
+                "and X/12, the target local/global hierarchy relation follows only "
+                "under HIERARCHY-SCREEN-READOUT, which identifies log(E_cell/v) with "
+                "the imported-coordinate algebra Gamma_screen."
             ),
             "exact_bridge_target": ew["definitions"]["exact_bridge_capacity"],
             "N_EW_public_endpoint": exact_capacity["exact_capacity_fixed_point"]["N_CRC_EW"],
@@ -348,8 +384,8 @@ def main() -> int:
             "rounded_bridge_residual": rounded.get("bridge_residual"),
             "rounded_v_error": rounded.get("v_error"),
             "meaning": (
-                "The rounded 3.31e122 cosmological capacity display remains a "
-                "diagnostic label; the EW-refined exact-capacity certificate supplies "
+                "The rounded 3.31e122 cosmological capacity display is a diagnostic "
+                "label; the EW-refined exact-capacity certificate supplies "
                 "the exact hierarchy bridge target."
             ),
         },
@@ -374,32 +410,37 @@ def main() -> int:
         "screen_sieve_certificate": {
             "artifact": "certificates/R_screen_sieve_icosahedral_certificate.json",
             "orbit_size": screen_sieve["orbit_stabilizer"]["orbit_size"],
-            "total_curvature_charge": screen_sieve["convex_defect_minimum"]["total_charge"],
-            "gamma_EW": screen_sieve["capacity_electroweak_projection"]["gamma_EW"],
-            "hierarchy_readout": screen_sieve["capacity_electroweak_projection"]["hierarchy_readout"],
+            "total_curvature_charge": screen_sieve["strict_unit_defect_minimum"]["total_charge"],
+            "local_port_read": screen_arithmetic["local_port_read"],
+            "gamma_screen_algebra": screen_arithmetic["gamma_screen_simplified"],
+            "hierarchy_readout_premise": hierarchy_readout_gate,
             "status": screen_sieve["status"],
         },
-        "remaining_promotion_gates": promotion_requires,
+        "work_in_progress_receipts": work_in_progress_receipts,
         "derivation_chain": derivation_chain,
         "factor_origins": factor_origins,
         "branch_scope": branch_scope,
         "acceptance_criteria_status": {
             "states_precise_local_and_global_objects": True,
             "prerequisite_steps_accounted_for": all(dependencies.values()),
+            "exact_conditional_resonance_proved": bool(conditional_composition_verified),
             "full_theorem_grade_resonance_proved": bool(full_theorem_grade_promoted_computed),
             "exact_capacity_source_certificate_supplied": capacity_residual == 0,
             "finite_readback_resolution_supplied": readback.get("accepted") is True,
             "round_count_derivation_supplied": m_rep.get("accepted") is True,
             "screen_sieve_geometric_strengthening_supplied": screen_sieve.get("pass") is True,
+            "screen_source_production_closed": not bool(screen_work_in_progress[:1]),
+            "hierarchy_screen_readout_premise_declared": hierarchy_readout_premise_declared,
+            "hierarchy_screen_readout_closed": hierarchy_readout_gate.get("status") == "closed",
             "compatible_with_local_transmutation_certificate": True,
             "forbids_measured_weak_higgs_or_hierarchy_calibration": True,
             "public_hierarchy_packet_emitted": True,
             "residual_definitional_residue_scoped_as_oph_identification": True,
             "residual_definitional_residue_scope_note": (
                 "The OPH cell-entropy identification P/beta_EW (factor 1/4) is the "
-                "only residual definitional residue of the umbrella resonance on the "
-                "selected branch; all other integer factors are derived from corpus "
-                "theorems with explicit source artifacts."
+                "separate structural input to Gamma_screen. The screen theorem supplies "
+                "X/12 but not log(E_cell/v)=Gamma_screen; that equality is the named "
+                "HIERARCHY-SCREEN-READOUT premise."
             ),
         },
         "allowed_inputs": [
@@ -409,6 +450,7 @@ def main() -> int:
             "joint product-branch fixed-point/stability record for (P,N_CRC)",
             "RG/Higgs naturality square on the selected exact branch",
             "icosahedral screen-sieve geometric record on the declared triangulated S^2 screen branch",
+            "conditional HIERARCHY-SCREEN-READOUT identification log(E_cell/v)=Gamma_screen",
         ],
         "forbidden_calibrations": [
             "measured weak scale v as an input",

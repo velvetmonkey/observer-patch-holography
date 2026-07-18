@@ -95,10 +95,10 @@
 <rect x="86" y="462" width="1418" height="244" rx="32" fill="url(#readout)" stroke="#40515a" stroke-width="1.2" filter="url(#shadow)"/>
 <text x="126" y="514" class="sans" fill="#f7fbff" font-size="30" font-weight="780">Numerical accounting</text>
 <text x="126" y="562" class="mono" fill="#6ee7d8" font-size="28" font-weight="760">
-  <tspan>OPH core:</tspan><tspan dx="10">&#945;</tspan><tspan baseline-shift="super" font-size="16">-1</tspan><tspan>(0) = 136.9948351646216494</tspan>
+  <tspan>OPH core:</tspan><tspan dx="10">&#945;</tspan><tspan baseline-shift="super" font-size="16">-1</tspan><tspan>(0) = 136.9948351774129373</tspan>
 </text>
 <text x="126" y="608" class="mono" fill="#f4d06f" font-size="26">
-  <tspan>+ measured hadronic/QCD correction = 0.0411640123783506</tspan>
+  <tspan>+ measured hadronic/QCD correction = 0.0411639995870627</tspan>
 </text>
 <text x="126" y="654" class="mono" fill="#f7fbff" font-size="27" font-weight="700">
   <tspan>= measured endpoint:</tspan><tspan dx="10">&#945;</tspan><tspan baseline-shift="super" font-size="16">-1</tspan><tspan>(0) = 137.035999177(21)</tspan>

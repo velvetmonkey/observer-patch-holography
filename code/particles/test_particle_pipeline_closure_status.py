@@ -30,7 +30,7 @@ def test_particle_pipeline_closure_status_scope_locks_hadrons_and_workers() -> N
         ROOT / "P_derivation" / "runtime" / "empirical_thomson_endpoint_current.json"
     ).exists()
     assert status["finalization_gates"]["empirical_hadron_spectral_dataset_integrated"] is expected
-    assert status["finalization_gates"]["hierarchy_local_global_resonance_closed"] is True
+    assert status["finalization_gates"]["hierarchy_local_global_resonance_closed"] is False
     assert status["finalization_gates"]["higgs_naturality_defect_closed"] is True
     assert status["finalization_gates"]["pixel_screen_resonance_summary_closed"] is True
     assert status["finalization_gates"]["symmetry_only_particle_promotion_blocked"] is True
@@ -65,8 +65,10 @@ def test_particle_pipeline_closure_status_scope_locks_hadrons_and_workers() -> N
     assert gates[332]["closable_now"] is True
     assert gates[337]["state"] == "closed_projection_bridge_with_exact_residual"
     assert gates[337]["closable_now"] is True
-    assert gates[335]["state"] == "closed_full_local_global_hierarchy_resonance"
+    assert gates[335]["state"] == "exact_conditional_local_global_hierarchy_resonance"
     assert gates[335]["closable_now"] is True
+    assert gates[335]["full_theorem_grade_resonance_promoted"] is False
+    assert gates[335]["work_in_progress_receipts"]
     assert gates[223]["closable_now"] is True
     assert gates[223]["successor_issue"] == 235
     assert gates[223]["chrome_workers"] == "not_needed_for_closed_package"

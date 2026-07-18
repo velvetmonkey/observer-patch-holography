@@ -1,37 +1,23 @@
-# Physical CMB Theorem Program
+# Physical CMB Theorem Boundary
 
-This contract keeps the physical-CMB promotion boundary machine-auditable. OPH-FPE CMB curves remain diagnostics until a bounded finite observer-patch parent emits local state, declared ports and boundaries, readback records, feedback or repair moves, and a public evidence bundle that closes every contract below.
+OPH-FPE CMB curves are diagnostics. A physical CMB claim requires a bounded finite observer-patch source, a covariant stress tensor, a physical scale map, gauge-invariant initial data, an Einstein--Boltzmann transfer system, and a complete observable likelihood.
 
-## Required contracts
+## Required constructions
 
-- **Finite source:** source-only receipts for `A_zeta`, scalar shape and tilt, `q_IR`, `ell_IR`, freezeout, and `N_CRC`, with no measurement-tuned constants.
-- **Physical scale:** receipts for physical `k`, angular `ell`, scale factor or redshift, freezeout, and the common primordial/anomaly mode basis.
-- **Covariant stress parent:** finite stress-energy closure, recipient stress for nonzero exchange, gauge-independent variables, causal response, and refinement convergence.
-- **Dark/anomaly kernels:** physical `B_A(k,a)`, `rho_A(a)`, and `Gamma_rec(k,a)` from one declared parent; `Gamma_rec` also requires a physical clock, active-fiber receipt, conserved-sector decomposition, and common-parent response pole.
-- **Transfer and likelihood:** frozen source, solver, and likelihood hashes; custom-parent and Standard-Model-off regressions; CDM-limit recovery; blinded comparison; full observable likelihood execution; and a global rather than shard-local reduction.
+- **Finite source:** source-derived scalar amplitude, shape, clock, release surface, and background capacity.
+- **Physical scale:** maps to physical wavenumber, angular multipole, scale factor or redshift, and a common mode basis.
+- **Covariant stress:** total stress-energy closure, recipient stress for nonzero exchange, causal response, and refinement convergence.
+- **Dark-sector kernels:** abundance, pressure, sound speed, anisotropic stress, exchange current, and repair response from one repair-charge action.
+- **Transfer:** regular gauge-invariant initial modes, recombination and collision terms, numerical convergence, and recovery of declared limiting cases.
+- **Likelihood:** datasets, masks, covariance, nuisance parameters, priors, and combination rules.
 
-The executable schema and fail-closed validator live in the sibling simulator repository at `oph-physics-sim/oph_fpe/cosmology/physical_cmb_contract.py`; its regression tests live at `oph-physics-sim/tests/test_physical_cmb_contract.py`. This document is the research-repository theorem contract, not a duplicate implementation.
+The source map, physical radial lift, relativistic repair stress, dark abundance, Boltzmann bridge, and joint likelihood are work in progress. No CMB output is a physical OPH prediction. Cosmology is outside the falsification program.
 
-## Owning theorem fragments
+The detailed interfaces live in:
 
-- `paper/tex_fragments/SCREEN_SPECTRUM_THEOREMS.tex` — screen scalar, precision operator, MaxEnt covariance, tilt receipts. Status: screen-level receipts open; the `P/48` tilt is an analytic candidate with the `kappa_rep` certificate pending.
-- `paper/tex_fragments/PRIMORDIAL_BRIDGE_THEOREMS.tex` — screen-to-primordial radial lift, amplitude conversion, null-space and forward-projection receipts. Status: open.
-- `paper/tex_fragments/PHYSICAL_SCALE_BRIDGE_THEOREMS.tex` — physical `k`, angular `ell`, scale factor, freezeout certificates. Status: open.
-- `paper/tex_fragments/FINITE_COVARIANT_PARENT_THEOREMS.tex` — covariant stress parent, stress/exchange closure, kernel receipts. Status: open.
-- `paper/tex_fragments/FINITE_QUOTIENT_ENSEMBLE_THEOREMS.tex` — quotient ensembles and claim tiers E0–E5. Status: shared surface, in use.
-- `cosmology/oph_boltzmann_transport_derivation.tex` — transport reduction with declared imports; transfer receipts `Boltz-R1/N1/X1/V1`. Status: R1/V1 open, N1/X1 declared imports.
-- `cosmology/oph_cosmology_data_likelihood_contracts.tex` — frozen source/solver/likelihood hashes and no-data-use receipts. Status: zero frozen physical-prediction receipts.
-
-## Issue ownership
-
-- [#371](https://github.com/FloatingPragma/observer-patch-holography/issues/371): finite-source contract hardening.
-- [#372](https://github.com/FloatingPragma/observer-patch-holography/issues/372): physical scale bridge and mode calibration.
-- [#373](https://github.com/FloatingPragma/observer-patch-holography/issues/373): finite covariant collar-packet stress parent.
-- [#374](https://github.com/FloatingPragma/observer-patch-holography/issues/374): physical dark/anomaly kernels.
-- [#363](https://github.com/FloatingPragma/observer-patch-holography/issues/363): Boltzmann transfer and frozen likelihood closure.
-
-GitHub issue state is canonical; regenerate the open-problem ledger before using this list as a schedule.
-
-## Claim boundary
-
-Until the complete contract passes, OPH-FPE CMB outputs are measurement-facing diagnostics, not physical CMB predictions. Good shape agreement identifies useful work; it does not replace finite source, scale, stress, transfer, and frozen-likelihood receipts.
+- `cosmology/oph_cosmology_finite_source_cmb_program.tex`
+- `cosmology/oph_cosmology_data_likelihood_contracts.tex`
+- `cosmology/oph_boltzmann_transport_derivation.tex`
+- `paper/tex_fragments/PRIMORDIAL_BRIDGE_THEOREMS.tex`
+- `paper/tex_fragments/PHYSICAL_SCALE_BRIDGE_THEOREMS.tex`
+- `paper/tex_fragments/FINITE_COVARIANT_PARENT_THEOREMS.tex`

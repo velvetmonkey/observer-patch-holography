@@ -182,7 +182,7 @@ def build_artifact(source_pair: dict, references: dict) -> dict:
                 "(alpha2_mz, alphaY_mz, eta_source, v_report), the formulas below "
                 "deterministically evaluate (tau2_tree_exact, delta_n_tree_exact), the "
                 "repaired coupling pair (alpha2_prime, alphaY_prime), and one coherent "
-                "quintet without a frozen target argument in the forward calculation. "
+                "quintet without a measured-reference argument in the forward calculation. "
                 "The present corpus does not derive or uniquely select the candidate rule "
                 "from the finite quotient transport, so this statement is not a promoted "
                 "source theorem."
@@ -226,7 +226,7 @@ def build_artifact(source_pair: dict, references: dict) -> dict:
             "This artifact records the current runtime target-free-input D10 mass-side candidate beneath the Ward-projected electromagnetic transport family.",
             "The unconditional source-only underdetermination theorem remains the support boundary on the present corpus, so this candidate is not promoted to theorem status.",
             "The exact conditional QT1-QT5 quotient-path theorem reproduces this formula, but the current corpus does not yet emit QT1-QT5 or bind them to one strict source pixel branch.",
-            "The freeze-once coherent repair law serves as compare-only validation on the same W/Z mass lane.",
+            "The reference-fitted coherent repair law serves as compare-only validation on the same W/Z mass lane.",
             "At the repo default P this candidate nearly coincides numerically with the frozen benchmark surface, but that numerical coincidence is not by itself a proof of target-free closure.",
         ],
     }

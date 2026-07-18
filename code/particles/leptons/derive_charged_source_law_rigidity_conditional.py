@@ -17,6 +17,7 @@ evidence.  Every physical CFQ gate therefore remains false.
 from __future__ import annotations
 
 import argparse
+import functools
 import hashlib
 import json
 from dataclasses import dataclass
@@ -27,7 +28,18 @@ from typing import Any, Iterable
 import mpmath as mp
 
 
-mp.mp.dps = 100
+WORKING_DPS = 100
+
+
+def _scoped_dps(func):
+    """Evaluate the receipt at its declared precision without leaking globals."""
+
+    @functools.wraps(func)
+    def wrapper(*args: Any, **kwargs: Any) -> Any:
+        with mp.workdps(WORKING_DPS):
+            return func(*args, **kwargs)
+
+    return wrapper
 
 HERE = Path(__file__).resolve()
 CODE_ROOT = HERE.parents[2]
@@ -356,6 +368,7 @@ def multiplier_admissible_inside_cfq(multiplier: Fraction) -> bool:
     return multiplier == 1
 
 
+@_scoped_dps
 def build_artifact(
     face_receipt: dict[str, Any],
     face_receipt_sha256: str,

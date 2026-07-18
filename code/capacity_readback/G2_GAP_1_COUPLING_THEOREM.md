@@ -1,14 +1,14 @@
 # The G2-GAP-1 Coupling Theorem
 
-Resolution document for gap item G2-GAP-1 of
-[F_CONSTRUCTION_2026-07-14.md](F_CONSTRUCTION_2026-07-14.md): the coupling of the
+Conditional theorem for the coupling of the
 twelve-port screen load `X = log(N/pi)` to the D10 observation step, and the resulting
 identification of the D6 capacity readback fixed point with the electroweak bridge
-capacity. Stated against [F_READBACK_SPEC.md](F_READBACK_SPEC.md).
+capacity. The construction is stated against
+[F_READBACK_SPEC.md](F_READBACK_SPEC.md).
 
 **Status: conditional theorem. Proven modulo three declared premises CP-1, CP-2, CP-3
-(Section 5). CL-7 stays open, reduced from one unquantified gap (G2-GAP-1) to this
-premise set. No ledger row moves.**
+(Section 5). CP-1 is the HIERARCHY-SCREEN-READOUT premise that identifies the
+independently derived screen and product-adjoint readouts.**
 
 ## 1. Statement
 
@@ -61,7 +61,7 @@ gives `3.5323546226...e122`, the value recorded by
 | EW share of screen depth `Gamma_EW = (P/12)*log(N/pi)` | `extra/compact_proof_of_oph.tex`, QCD-free hierarchy witness |
 | contraction carrier, `lambda = 1/2` free | `R_EW_global_capacity_certificate.json`, derivation chain step 7 |
 | seed fixed point `pi` of the pure port inversion | [F_CONSTRUCTION_2026-07-14.md](F_CONSTRUCTION_2026-07-14.md) Section 2.2; [F_candidate_capP.py](F_candidate_capP.py) |
-| `beta_EW = 4` isolation and SM-triple structural exclusion | `falsification/preregistered/ew_repair_results_2026-07-14.json` |
+| `beta_EW = 4` relation | conditional D10 relation stated in the compact paper; no registered comparison target |
 | certified `P_fwd` and `alpha_U(P_fwd)` enclosures | `code/P_derivation/runtime/p_interval_contraction_certificate_2026-07-14.json` (`interval_diagnostics.alpha_u`) |
 
 ## 3. Notation
@@ -81,11 +81,12 @@ reasoning) or PREMISE (declared here, carried in Section 5).
 horizon record surface reads back capacity `N`). Source: `def:self-closure-density`;
 spec Section 1.
 
-**S2 (PROVEN). Twelve-port read.** The invariant screen load `X = log(N/pi)` is read
+**S2 (CONDITIONAL THEOREM). Twelve-port read.** The invariant screen load `X = log(N/pi)` is read
 locally as `X/12` across twelve indistinguishable ports
 (`thm:icosahedral-screen-sieve`). The oriented 24-slot register is bookkeeping of the
 same surface and creates no independent carrier (`def:oriented-24-slot-register`).
-Inherits IH-1 (MaxEnt-maximal-symmetry rule) and IH-2 (`l_shared = P/4` branch input).
+Inherits IH-1a (strict unit splitting), IH-1b (inverse pairing and D-optimal
+tomography), and IH-2 (`l_shared = P/4` branch input).
 
 **S3 (PROVEN). Seed and load coordinate.** The D6 radius identity
 `r_CRC/ell_star = (N/pi)^(1/2)` is proved by the global repair-tick certificate, so
@@ -103,18 +104,20 @@ fixes the transmutation depth `t_tr = 2*pi/(beta_EW*alpha_U(P))` with
 (`d10_ew_forward_transmutation_certificate.json`, theorem block; compact proof).
 Inherits IH-3 (declared D10 branch conventions).
 
-**S5 (PROVEN). Global repair tick.** `|g_*'| = (N/pi)^(-1/48)`, so the per-tick
+**S5 (PROVEN ON THE PRODUCT-ADJOINT BRANCH). Global repair tick.**
+`|g_*'| = (N/pi)^(-1/48)`, so the per-tick
 contraction is `-log|g_*'| = X/48`, with `48 = 2*m_rep` and
 `m_rep = 2*dim(su(3)+su(2)+u(1)) = 24` derived by the representation-to-spectrum
-round-count theorem. The twelve sieve ports and the unoriented product-adjoint
-dimension `8+3+1 = 12` are identified on the realized branch
-(`R_m_rep_24_certificate.json` derivation step 3; compact proof hierarchy witness), so
-the oriented 24-slot register of S2 and the round count `m_rep = 24` are one object on
-this branch. Inherits IH-4 (repair-tick declared items).
+round-count theorem. This derivation does not use the twelve-port screen, the global
+quotient, or the MAR matter realization (`R_m_rep_24_certificate.json`). The equalities
+`12 = 8+3+1` and `24 = 2(8+3+1)` therefore do not identify the sieve ports or their
+oriented bookkeeping register with gauge generators or the product-adjoint repair
+register. Inherits IH-4 (repair-tick declared items).
 
-**S6 (PROVEN). Identity I1, the tick-projection formula.** By definition the
-tick-projection bridge is the ratio of the transmutation depth to the per-tick
-contraction:
+**S6 (CONDITIONAL ON HIERARCHY-SCREEN-READOUT). Identity I1, the tick-projection
+formula.** The bridge premise permits the screen load and product-adjoint tick law to
+enter one readout. The tick projection is the ratio of the transmutation depth to the
+per-tick contraction:
 
 ```
 Pi_EW(P,N) := t_tr / (X/48) = (2*pi/(beta_EW*alpha_U)) * (48/X)
@@ -214,7 +217,7 @@ the spec's promotion gate.
 
 ## 5. Premise ledger
 
-New premises declared by this theorem:
+Premises declared by this theorem:
 
 | id | assertion | what would discharge it |
 |---|---|---|
@@ -222,12 +225,13 @@ New premises declared by this theorem:
 | CP-2 | `Cap_read` on the coupled branch is the port-load inversion `F(N) = pi*exp(X_read(N))` (seed and units proven, family selection premised) | a uniqueness theorem for the inversion form among `Cap_read` families. Reduction record: [CP2_INVERSION_FORM_REDUCTION_2026-07-17.md](CP2_INVERSION_FORM_REDUCTION_2026-07-17.md) decomposes CP-2 into load mediation plus read consistency, classifies the surviving freedom exactly (the load gauge `phi`, pinned at the seed and, under P4 plus CP-4, at `x_EW`), and proves a P4-coherence argument alone cannot pin more than the fixed-point location |
 | CP-3 | The re-emitted load is the `lambda`-average of the screen-side and D10-side loads, `lambda in (0,1)` (dispensable for the fixed-point location, load-bearing for the constructive contraction) | a derivation of the averaging carrier, for instance from the write/check orientation split; any declared contraction toward balance suffices |
 
-Inherited named hypotheses of cited theorems (declared in their sources, carried, no
-new content added here):
+Inherited named hypotheses of cited theorems (declared in their sources rather
+than independently here):
 
 | id | hypothesis | source |
 |---|---|---|
-| IH-1 | MaxEnt-maximal-symmetry rule selecting the icosahedral twelve-port orbit | remark after `thm:icosahedral-screen-sieve` |
+| IH-1a | feasible integer charge domain and strict unit-splitting cost | `thm:icosahedral-screen-sieve` |
+| IH-1b | inverse-port pairing and source-side D-optimal vector/quadrupole selector | `thm:icosahedral-screen-sieve` |
 | IH-2 | shared-cut entropy density `l_shared = P/4` as declared branch input | preamble of `thm:z6-reserve-trace` |
 | IH-3 | D10 branch conventions: pixel-closure form, one-loop MSSM coefficients, tree-level `m_Z` closure, Stage-5 continuation (certified as declared) | `p_interval_contraction_certificate_2026-07-14.json` claim boundary |
 | IH-4 | repair-tick declared items: homogeneous positive-root one-tick normal form; readback counting model `F(N) = pi/rho_read^2` as a D6-consistent modeling identification | `R_N_global_repair_tick_certificate.json`, `declared_not_derived` |
@@ -239,7 +243,7 @@ Executed candidate: `F(N) = pi*exp((1-lambda)*log(N/pi) + lambda*x_EW(P))`,
 
 | test | result |
 |---|---|
-| A1 finite executability | pass; byte-identical artifact across reruns (SHA-256 checked) |
+| A1 finite executability | pass; deterministic agreement across reruns |
 | A2 refinement stability | executed as inapplicable: no finite-cutoff `F_r` family is constructed for the coupled map; the obligation travels with CP-2/CP-3 |
 | A3 self-map enclosure | pass on the load interval `[x_EW - 1, x_EW + 1]`; capacity-coordinate check passes on `[0.9, 1.1] * N_CRC` |
 | A4 contraction | pass; derivative enclosure thin at `1/2` on the load coordinate (`L = 0.5827` on the capacity-coordinate interval) |

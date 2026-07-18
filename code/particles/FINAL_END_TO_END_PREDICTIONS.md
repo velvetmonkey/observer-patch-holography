@@ -1,14 +1,14 @@
 # Final End-to-End Particle Predictions
 
-Generated: `2026-07-12T03:51:10Z`
+Generated: `2026-07-18T05:32:31Z`
 
 Scope: `nonhadron_particle_pipeline_with_empirical_hadron_closure_policy`
 Claim label: `final_nonhadron_predictions_with_classical_carriers_and_empirical_hadrons_separated`
 
 ## P Closure
 
-- Candidate `P`: `1.63097210492078846050203640439`
-- Candidate `alpha^-1`: `136.994020662724205139718642793`
+- Candidate `P`: `1.630972172289734415925897501373482673022655099072161516985001733211109918232723345616738572172898702297689609012`
+- Candidate `alpha^-1`: `136.9940258961185127104409023920559579278278595210377402655367838643416163059458987723160506837823465289198011341`
 - Claim label: `compressed_candidate_trunk_not_final_particle_root`
 - May feed promoted particle predictions: `False`
 
@@ -112,45 +112,32 @@ These rows are retained in audit surfaces but are not numeric predictions.
 
 ## Fine Structure
 
-| Output class | alpha^-1 coordinate | P | Legacy difference to endpoint | Claim label |
+| Output class | alpha^-1 coordinate | P | Difference to endpoint | Claim label |
 | --- | ---: | ---: | ---: | --- |
-| `source_side_no_hadron_near_endpoint` | `137.035959500817279952949994585787193262029` | `1.63097209569432901817967892561191884270169` | `0.000039676182720047050005414212806737971` | `historical_mixed_provenance_display_packet_not_fixed_point` |
+| `source_side_no_hadron_near_endpoint` | `137.035959513608567790289429464436902857561206151035393184502` | `1.63097209585889737696451390350695562847912625483895268486516` | `0.000039663391432209710570535563097142438793848964606815498` | `certified_source_root_plus_public_width_diagnostic` |
 | `oph_plus_empirical_hadron_closure` | `137.035999177` | `1.6309682094039593248792798477826489413359828516279250606661507533907793398933432` | `0` | `oph_plus_empirical_hadron_closure_endpoint` |
-| `root_only_audit` | `136.994835164621649457949994585787193262029` | `1.63097209569432901817967892561191884270169` | `0.041164012378350542050005414212806737971` | `root_only_audit_before_alpha_U_addition` |
+| `root_only_audit` | `136.994835177412937295289429464436902857561206151035393184502` | `1.63097209585889737696451390350695562847912625483895268486516` | `0.041163999587062704710570535563097142438793848964606815498` | `certified_source_root_coordinate` |
 
-- Historical mixed-provenance display formula: `alpha_root^-1 + alpha_U(P_star)`
-- Legacy relative coordinate difference to the endpoint: `2.89531093715017514615674912690376427684548585659122318204396420518829023665287125109688724E-7` (`0.0000289531093715017514615674912690376427684548585659122318204396420518829023665287125109688724` percent)
-- Open physical-map requirements: `source Ward-projected hadronic spectral measure; same-scheme finite remainder; one-coordinate fixed-point evaluation; interval certificate and theory uncertainty`
+- Diagnostic formula: `alpha_root^-1 + alpha_U(P_star)`
+- Relative coordinate difference to the endpoint: `2.89437751177916604322666514307897049455969499321918298417487080749524704872141861334049096E-7` (`0.0000289437751177916604322666514307897049455969499321918298417487080749524704872141861334049096` percent)
+- Open physical-map requirements: `['source Ward-projected hadronic spectral measure', 'same-scheme finite remainder', 'one-coordinate fixed-point evaluation', 'interval certificate and theory uncertainty']`
 - Source-only physical Thomson endpoint emitted: `False`
 - Empirical payload policy: `schema_and_source_registry_present_without_integrated_dataset`
 
-Supersession note: the rows above record the run artifact
-`runs/status/final_end_to_end_predictions.json`, which predates the converged
-precision-100 reruns. CL-6 is closed by those reruns: the certified source
-root is `alpha^-1 = 136.994835177413...` with
-`P_fwd = 1.630972095858897...`, superseding the recorded
-`136.994835164...` and `1.630972095694...` tails beyond digits 9 and ~10. The
-recorded `137.0359595008...` value is a mixed-provenance display packet (the
-inner value evaluated at `P_fwd` plus `alpha_U` evaluated at the SL-3 pixel);
-it is not a fixed point of any single declared map and stays on record as a
-display packet only. The certified self-consistent gauge-width fixed point is
-`alpha^-1 = 137.035660136946577...`, and the CL-2 residual against measured
-`137.035999177(21)` is `2.5e-6` relative (about `1.6e4` measurement sigma),
-superseding the recorded `2.895...e-7` shortfall, which described the display
-packet (`../../docs/CLOSURE_LEDGER.md`, rows CL-2 and CL-6).
-
 ## Hierarchy And Naturality
 
-- Resonance label: `closed_full_local_global_hierarchy_resonance`
-- Full theorem-grade resonance promoted: `True`
-- Remaining promotion gates: `[]`
+- Resonance label: `exact_conditional_local_global_hierarchy_resonance`
+- Full theorem-grade resonance promoted: `False`
+- Work-in-progress receipts: `['source production of the unit cost, inverse pairing, and D-optimal selector', 'HIERARCHY-SCREEN-READOUT: identify log(E_cell/v)=Gamma_screen and attach it to the alpha_U/B_EW branch']`
 - Conditional EW bridge capacity (modulo F and CP-1 to CP-3): `3.5323546226929906511187512962330547600462096590942035604238177731136802717148740820434110040644403858228611984E+122`
 - Bridge residual: `0.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000`
 - Source `v/E_cell`: `2.5797040595276223506583341903922018695490035369903290256096683452314630559578761079150341073645683725521032233E-17`
 - Factor origins: `ports=12`, `m_rep=24`, `exponent=-1/48`
+- Count independence: m_rep=24 is derived from the doubled observer-visible product adjoint, independently of the screen sieve. The screen's twelve ports and oriented 24-slot register are an arithmetic alignment, not a physical identification.
+- Missing hierarchy bridge: HIERARCHY-SCREEN-READOUT must identify log(E_cell/v)=Gamma_screen; the alpha_U branch must then establish Pi_EW=4P, equivalently B_EW=0.
 - Higgs naturality defect: `epsilon_H=0`
-- Boundary: The hierarchy and Higgs naturality rows are promoted as selected-branch source-side results with zero bridge residual and epsilon_H=0.
-- Physical capacity conditions: construct the physical readback map F; discharge CP-1, CP-2, and CP-3; propagate the joint cosmological posterior before comparison.
+- Boundary: The selected branch has zero algebraic bridge residual and epsilon_H=0. Its hierarchy interpretation is conditional on HIERARCHY-SCREEN-READOUT.
+- Physical capacity conditions: supply HIERARCHY-SCREEN-READOUT and the Pi_EW=4P identification; construct the physical readback map F; discharge CP-1, CP-2, and CP-3; propagate the joint cosmological posterior before comparison
 - Not promoted by this bridge: public Thomson endpoint without the missing hadronic spectral payload, electroweak massive-boson mass rows, charged-lepton absolute masses, source-only hadron masses, strong CP, SI G without the full no-G clock stack
 
 ## Pixel-Screen Resonance
@@ -166,7 +153,7 @@ packet (`../../docs/CLOSURE_LEDGER.md`, rows CL-2 and CL-6).
 
 ## Direct-Top Auxiliary Comparison
 
-- Current codomain: `Q007TP4`
+- Primary codomain: `Q007TP4`
 - Auxiliary codomain: `Q007TP`
 - Value policy: `compare_only_codomain_values_withheld_from_final_prediction_output`
 - Audit artifact: `code/particles/runs/calibration/direct_top_bridge_contract.json`

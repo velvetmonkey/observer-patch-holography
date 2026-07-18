@@ -53,13 +53,13 @@ def test_derivation_chain_closure_matrix_keeps_stage_gates_explicit() -> None:
         "no_public_prediction_row_target_free_d10_repair_not_promoted"
     )
     assert rows["hierarchy_naturality_bridge"]["status"] == (
-        "closed_selected_branch_local_global_hierarchy_naturality"
+        "exact_conditional_selected_branch_local_global_hierarchy_naturality"
     )
-    assert rows["hierarchy_naturality_bridge"]["promotable"] is True
-    assert rows["hierarchy_naturality_bridge"]["open_gates"] == []
+    assert rows["hierarchy_naturality_bridge"]["promotable"] is False
+    assert rows["hierarchy_naturality_bridge"]["open_gates"]
     assert rows["hierarchy_naturality_bridge"]["closed_issue_refs"] == [332, 335, 337]
     assert rows["hierarchy_naturality_bridge"]["outputs"]["epsilon_H"] == "0"
-    assert rows["hierarchy_naturality_bridge"]["full_theorem_grade_resonance_promoted"] is True
+    assert rows["hierarchy_naturality_bridge"]["full_theorem_grade_resonance_promoted"] is False
     assert rows["charged_leptons"]["status"] == "closed_current_corpus_charged_end_to_end_no_go"
     assert rows["charged_leptons"]["promotable"] is False
     assert rows["charged_leptons"]["open_gates"] == []
@@ -121,5 +121,5 @@ def test_derivation_chain_closure_matrix_keeps_stage_gates_explicit() -> None:
     assert payload["particle_five_gates"]["225"]["state"] == "closed_material_sync_no_live_publish"
     assert payload["particle_five_gates"]["234"]["state"] == "closed_provenance_ledger_and_declared_sensitivity_taxonomy"
     assert payload["particle_five_gates"]["332"]["state"] == "closed_exact_selected_branch"
-    assert payload["particle_five_gates"]["335"]["state"] == "closed_full_local_global_hierarchy_resonance"
+    assert payload["particle_five_gates"]["335"]["state"] == "exact_conditional_local_global_hierarchy_resonance"
     assert payload["particle_five_gates"]["337"]["state"] == "closed_projection_bridge_with_exact_residual"

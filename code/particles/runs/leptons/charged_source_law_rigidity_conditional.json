@@ -289,9 +289,9 @@
   ],
   "provenance": {
     "declared_map_receipt": "particles/runs/leptons/charged_face_incidence_conditional_theorem.json",
-    "declared_map_receipt_sha256": "5169478e6b3a2420d5b4c5a6efd0d7f616427768d2d7b61d1c89fc56d9d6d79a",
+    "declared_map_receipt_sha256": "22e78a303f0aaa50532050002b8dfbbb1384fe73e906afff235f89655376044a",
     "geometric_face_receipt": "particles/runs/leptons/charged_icosahedral_face_carrier_frontier.json",
-    "geometric_face_receipt_sha256": "7ca8619bc16834a7eb941f25878a34175dcba107e5f71cada36da2f8b232108b",
+    "geometric_face_receipt_sha256": "06f6a69f33c3203ba473fc15f7ecb9596fdd0f5535a822a731e07ddb6c55dcbe",
     "submitted_narrative_attachment_sha256": "879f5afbdb704d8894fe826544e26dff90651040df45954485be422ea2c0779e",
     "submitted_receipt_sha256": "d0acb1242714a38ea7ccc3b9f335bc9accf8e8bbdd9d6959d7e7e5dcf93be4d3",
     "submitted_rigidity_archive_sha256": "792dad5c1524984c52d7582e751e1123099978164def80fad34310a34e314dff"

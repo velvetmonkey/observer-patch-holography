@@ -283,8 +283,8 @@ The OPH connection is direct.
 
 ### Time as Modular Flow
 
-In previous chapters, we developed the idea that time emerges from modular
-flow. At finite cutoff, or in a special type-I representation, an observer has
+The modular-time construction reads time from modular flow. At finite cutoff,
+or in a special type-I representation, an observer has
 a patch $P$ on the holographic screen and the reduced density matrix on that
 patch defines a modular Hamiltonian:
 
@@ -403,7 +403,7 @@ This is why the recovered observer-facing bulk chart is three-dimensional.
 
 A cap is not an observer point. Observer data, such as a clock, a tetrad, or a
 stable record frame, select where an observer sits in the chart. The chart's
-overall physical scale is still a separate gravity-branch question.
+overall physical scale is a separate gravity-branch question.
 
 Record-populated space is also a separate step. A record token enters the
 observer-facing chart only when its calibrated cap responses behave like one
@@ -760,64 +760,36 @@ The important point is simpler. Information belongs to the screen bookkeeping,
 and the interior is encoded, not stored in a second independent vault. Page
 curves and islands show the same lesson in the cleanest holographic examples.
 
-## 15.12 Dark Sector: The Modular Anomaly
+## 15.12 Dark Sector: Static Response and Missing Parent
 
 ### The Problem
 
-Galaxies rotate too fast. The stars at the outer edges orbit the galactic center at speeds that should fling them into intergalactic space, given the visible matter. Something provides extra gravitational pull.
+Galaxies rotate faster than their visible matter predicts. Lensing, clusters,
+the cosmic microwave background, and structure growth extend the discrepancy
+beyond rotation curves.
 
 The standard response: dark matter particles. Some new, weakly interacting particle that clumps around galaxies and provides the missing mass. Decades of searches have produced no confirmed new particle.
 
-An alternative: modify gravity (MOND). At low accelerations, perhaps gravity
-behaves differently. This fits many galaxy rotation curves, but struggles with
-galaxy clusters and the Bullet Cluster.
+Modified Newtonian dynamics, or MOND, changes the low-acceleration law. It fits
+many galaxy rotation curves but does not by itself supply relativistic lensing,
+cluster stress, or cosmological perturbations.
 
-### A Third Route
+### The Repair-Charge Completion
 
-OPH proposes imperfect information recovery as a possible origin of extra
-gravitational pull, with no new particle species in the source model.
+The proposed dark-sector action pairs an integer count of repair occupation
+with a compact repair phase, much like the number and angle of a rotor. The
+action is an extra dynamical premise. Given that premise, its continuity
+equation includes repair flux through the boundary, and changing the geometry
+supplies the field stress. The dilute phase scales as pressureless matter. A
+cubic condensed phase gives the spherical deep-galaxy relation
+$a_R=\sqrt{a_ba_0}$.
 
-In the clean limit, information on one side of a boundary can be fully recovered
-from the boundary itself. In the more realistic case, Chapter 7 bounds how much
-information leaks, with the leak shrinking as the boundary region thickens.
-Either way, the framework controls how faithfully one region can be
-reconstructed from another.
+### Stress and Relativistic Observables
 
-A single leakage number carries no direction, so it cannot act as a
-gravitational source on its own. Gravity is sourced by a tensor, an object with
-directions built in, and that tensor has to pass the usual conservation and
-coupling tests before it counts. The leakage can flag where such a source would
-sit. It does not stand in for the source.
-
-If that tensor source can be built, visible matter supplies the ordinary
-gravitational pull and the recovered piece supplies the extra pull. The extra
-piece has no electromagnetic handle, which is what would make it dark to
-telescopes.
-
-### Why It's Dark
-
-The proposed sector is dark at the level of its couplings. It would gravitate
-and carry no electromagnetic charge, so galaxy rotation curves, gravitational
-lensing, and cluster dynamics would become different views of one source instead
-of separate puzzles each needing its own invisible matter. That is the
-organizing claim. Turning it into a full, testable theory, with a predicted
-abundance and a direct comparison to the data, is work in progress.
-
-### The MOND Scale
-
-The cosmological constant supplies the natural infrared scale. The de Sitter
-radius then singles out a characteristic acceleration:
-
-$$a_0 = \frac{15}{8\pi^2} c^2 \sqrt{\frac{\Lambda}{3}} \approx 1.0 \times 10^{-10} \text{ m/s}^2$$
-
-This lands near the empirical MOND acceleration scale. The proximity matters
-because it ties galaxy-scale anomalies back to the same de Sitter capacity
-logic that shaped the horizon from the start. Chapter 13 tells the longer
-cosmological version: the galaxy-scale anomaly and the dark-energy horizon are
-linked by the same infrared capacity scale. The galaxy law is the settled,
-low-acceleration limit. Clusters, the CMB, and structure growth require the
-transported stress version of the story, plus a source-only selector for the
-homogeneous anomaly abundance.
+The canonical pair, source maps, dimensional constants, full constitutive law,
+relativistic limit, gravitational slip, lensing, clusters, Solar-System
+response, abundance, and perturbations are work in progress. The action is a
+conditional mechanism rather than a physical dark-matter prediction.
 
 ## 15.13 Reverse Engineering Summary
 

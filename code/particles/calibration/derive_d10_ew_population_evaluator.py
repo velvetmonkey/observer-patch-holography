@@ -227,9 +227,9 @@ def build_artifact(source_pair: dict, readout: dict) -> dict:
         "required_extra_invariant_symbol": None,
         "required_extra_object_contract": None,
         "notes": [
-            "The reopened two-scalar D10 carrier is already minimal and the carrier-level selector is now closed on current data.",
-            "J_pop_EW selects the same hypercharge-only point that was previously only recorded as a compact shell candidate, so that shell is now demoted to a restriction of the full carrier functional.",
-            "The remaining D10 gap is no longer carrier selection but exact electroweak closure beyond the current selected carrier point.",
+            "The two-scalar D10 carrier is minimal and J_pop_EW uniquely selects its hypercharge-only point.",
+            "The compact shell candidate is the restriction of J_pop_EW to the selected hypercharge-only point.",
+            "Exact electroweak closure beyond the selected carrier point is work in progress.",
             "No reference-fit W/Z slice is consumed anywhere in this evaluator.",
         ],
     }

@@ -945,8 +945,8 @@
   <text x="950" y="3629" fill="#ff8f97" font-size="15" font-family="JetBrains Mono, monospace" font-weight="700" letter-spacing="2" opacity="1">COMPLETION</text>
   <rect x="938" y="3974" width="227.2" height="3" rx="1.5" fill="#ff8f97" opacity="0.82" />
   <text x="944" y="3682" fill="#f4f7fb" font-size="30" font-family="Space Grotesk, sans-serif" font-weight="700" letter-spacing="-0.35" opacity="1">Fine-Structure / Hadron Boundary</text>
-  <text x="944" y="3735" fill="#9ba7b8" font-size="22" font-family="JetBrains Mono, monospace" font-weight="500" opacity="1">source/root 136.9948351646; mixed diagnostic</text>
-  <text x="944" y="3767" fill="#9ba7b8" font-size="22" font-family="JetBrains Mono, monospace" font-weight="500" opacity="1">137.0359595008</text>
+  <text x="944" y="3735" fill="#9ba7b8" font-size="22" font-family="JetBrains Mono, monospace" font-weight="500" opacity="1">source/root 136.9948351774; mixed diagnostic</text>
+  <text x="944" y="3767" fill="#9ba7b8" font-size="22" font-family="JetBrains Mono, monospace" font-weight="500" opacity="1">137.0359595136</text>
   <text x="944" y="3799" fill="#9ba7b8" font-size="22" font-family="JetBrains Mono, monospace" font-weight="500" opacity="1">empirical 136.2636589431 on [136.1583832834,</text>
   <text x="944" y="3831" fill="#9ba7b8" font-size="22" font-family="JetBrains Mono, monospace" font-weight="500" opacity="1">136.3690975240]</text>
   <text x="944" y="3863" fill="#9ba7b8" font-size="22" font-family="JetBrains Mono, monospace" font-weight="500" opacity="1">measured 137.035999177; anchor gap</text>

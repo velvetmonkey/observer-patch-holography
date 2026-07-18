@@ -1,15 +1,14 @@
 #!/usr/bin/env python3
 """Verifier for OPH issue #343: representation-to-spectrum m_rep=24.
 
-Composes corpus-side OPH foundational theorems (cited to the compact proof
-and the particle-zoo derivation paper) into an eight-step machine-checkable
-derivation of the global repair-tick round count m_rep=24 on the realized
-observer-visible product-gauge branch (SU(3) x SU(2) x U(1))/Z6.
+Composes a product-adjoint branch premise with the OPH orientation grammar
+into an eight-step machine-checkable derivation of the global repair-tick
+round count m_rep=24.  The count uses neither a screen selector nor a global
+gauge quotient or matter realization.
 
-The derivation rests on three corpus theorems:
-  (S1) the OPH realized product-gauge branch (overlap holonomy + Tannaka
-       reconstruction + MAR + anomaly cancellation) with connected adjoint
-       (8,1,0) (+) (1,3,0) (+) (1,1,0) and no mixed (3,2,+/-5/6) X/Y carrier;
+The derivation rests on three branch statements:
+  (S1) the active observer-visible current algebra has product-adjoint support
+       su(3) + su(2) + u(1), with no mixed X/Y or extra U(1) generators;
   (S2) the reversible write/check orientation grammar that doubles each
        unoriented adjoint generator into two oriented primitive repair ticks;
   (S3) the cyclic repair scheduler whose order on the oriented support is the
@@ -43,23 +42,24 @@ FORBIDDEN_INPUTS = {
 }
 
 
-CORPUS_PRODUCT_BRANCH_SOURCE = (
-    "extra/compact_proof_of_oph.tex (realized compact-gauge branch theorem: "
-    "overlap holonomy + Tannaka reconstruction + MAR + anomaly cancellation, "
-    "lines 482-504 establishing connected adjoint (8,1,0)(+)(1,3,0)(+)(1,1,0) "
-    "and no mixed X/Y carrier); "
-    "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
+CORPUS_PRODUCT_ADJOINT_SOURCE = (
+    "extra/compact_proof_of_oph.tex, section 'The compact-gauge branch', "
+    "quoted premise: 'Its connected adjoint is (8,1,0)+(1,3,0)+(1,1,0), "
+    "excluding mixed (3,2,+/-5/6) generators'; "
+    "paper/deriving_the_particle_zoo_from_observer_consistency.tex, section "
+    "'Local/global resonance continuation for the hierarchy'"
 )
 
 CORPUS_ORIENTATION_DOUBLING_SOURCE = (
-    "extra/compact_proof_of_oph.tex (reversible compare/write/verify slice, "
-    "line 220; line 301-303: reversible write/check orientation doubles the "
-    "product-adjoint repair register to 24)"
+    "extra/compact_proof_of_oph.tex, section 'The QCD-free hierarchy witness', "
+    "quoted premise: 'reversible orientation doubles the product-adjoint "
+    "dimension: m_rep=2 dim(su(3)+su(2)+u(1))=2(8+3+1)=24'"
 )
 
-CORPUS_TWELVE_PORTS_SOURCE = (
-    "extra/compact_proof_of_oph.tex (line 301: the OPH screen branch supplies "
-    "twelve curvature ports as the unoriented product-adjoint dimension)"
+CORPUS_UNORIENTED_PRODUCT_ADJOINT_SOURCE = (
+    "extra/compact_proof_of_oph.tex, section 'The compact-gauge branch', "
+    "quoted connected-adjoint premise (8,1,0)+(1,3,0)+(1,1,0), whose "
+    "unoriented dimension is 8+3+1=12"
 )
 
 GLOBAL_REPAIR_TICK_ARTIFACT = (
@@ -93,19 +93,16 @@ def build_derivation_chain(
     return [
         {
             "step": 1,
-            "premise": "OPH realized observer-visible product-gauge branch (corpus theorem)",
+            "premise": "Observer-visible product-adjoint branch premise",
             "uses": [
-                "overlap-holonomy and zero-obstruction transport build a compact bosonic gauge category",
-                "DR/Tannaka reconstruction reads off a compact group from that category",
-                "MAR selects the realized one-generation/one-Higgs matter package",
-                "anomaly cancellation, Yukawa invariance, and the central kernel of the realized action fix the hypercharge lattice and the Z6 quotient",
+                "the active connected current algebra is su(3)+su(2)+u(1)",
+                "its adjoint support has no mixed X/Y generators or extra visible U(1)",
+                "the screen selector, global group, and MAR matter realization are not used",
             ],
-            "source_artifact": CORPUS_PRODUCT_BRANCH_SOURCE,
+            "source_artifact": CORPUS_PRODUCT_ADJOINT_SOURCE,
             "conclusion": (
-                "The realized OPH compact-gauge branch is (SU(3)xSU(2)xU(1))/Z6 "
-                "with connected adjoint (8,1,0)(+)(1,3,0)(+)(1,1,0); there are "
-                "no mixed (3,2,+/-5/6) X/Y connected-adjoint generators and no extra visible "
-                "low-scale U(1) on this branch."
+                "The active product adjoint has dimensions 8, 3, and 1; its "
+                "support excludes mixed X/Y generators and extra visible U(1) factors."
             ),
         },
         {
@@ -126,17 +123,16 @@ def build_derivation_chain(
         },
         {
             "step": 3,
-            "premise": "OPH twelve-curvature-port theorem",
+            "premise": "Unoriented product-adjoint support dimension",
             "uses": [
-                "step 1 (realized product-gauge branch fixes the active adjoint sector)",
+                "step 1 (product-adjoint premise fixes the active support)",
                 "step 2 (per-factor adjoint dimensions)",
-                "the unoriented adjoint dimension on the realized branch is the sum of per-factor adjoint dimensions",
+                "the unoriented support dimension is the sum of per-factor adjoint dimensions",
             ],
-            "source_artifact": CORPUS_TWELVE_PORTS_SOURCE,
+            "source_artifact": CORPUS_UNORIENTED_PRODUCT_ADJOINT_SOURCE,
             "conclusion": (
                 f"unoriented product-adjoint repair register has dimension "
-                f"{dim_su3} + {dim_su2} + {dim_u1} = {unoriented_total} "
-                f"(the OPH screen branch's twelve curvature ports)"
+                f"{dim_su3} + {dim_su2} + {dim_u1} = {unoriented_total}"
             ),
         },
         {
@@ -156,15 +152,16 @@ def build_derivation_chain(
         },
         {
             "step": 5,
-            "premise": "Oriented adjoint support dimension on the realized branch",
+            "premise": "Oriented adjoint support dimension on the product-adjoint branch",
             "uses": [
                 "step 3 (unoriented adjoint dimension = 12)",
                 "step 4 (orientation multiplier = 2)",
                 "the oriented support is the disjoint union of the two oriented primitives over each unoriented generator",
             ],
             "source_artifact": (
-                "compact_proof_of_oph.tex line 301-303: 'Reversible write/check "
-                "orientation doubles the product-adjoint repair register to 24'"
+                "extra/compact_proof_of_oph.tex, section 'The QCD-free hierarchy "
+                "witness'; quoted orientation-doubling premise in "
+                "CORPUS_ORIENTATION_DOUBLING_SOURCE"
             ),
             "conclusion": (
                 f"oriented_support_dimension = m_rep = orientation_multiplier * "
@@ -209,14 +206,15 @@ def build_derivation_chain(
             "step": 8,
             "premise": "Negative-control rejection of nearby round counts",
             "uses": [
-                "step 1 (no X/Y mixed connected-adjoint generators; no particle-spectrum conclusion)",
+                "step 1 (no X/Y mixed connected-adjoint generators; no particle-spectrum premise)",
                 "step 4 (orientation doubling required by reversible record-preserving repair)",
                 "the graviton is the dynamical metric branch, not an internal compact-gauge adjoint repair channel",
             ],
             "source_artifact": (
-                "compact_proof_of_oph.tex line 503-504 (no X/Y leptoquark "
-                "carrier on the realized product quotient); line 1098-1100 "
-                "(unification without simple-GUT proton-decay channel)"
+                "extra/compact_proof_of_oph.tex, section 'The compact-gauge branch', "
+                "quoted exclusion of mixed (3,2,+/-5/6) generators; summary-table "
+                "row 'Gauge-mediated proton-decay boundary', quoted premise: "
+                "'The connected product adjoint has no X/Y generator'"
             ),
             "conclusion": (
                 "every nearby round count (m=12 unoriented, m=6 minimal "
@@ -242,7 +240,7 @@ def build_factor_origins(
     return {
         "dim_su3_adjoint": {
             "value": dim_su3,
-            "role": "color-adjoint dimension on the realized OPH product-gauge branch",
+            "role": "color-adjoint dimension on the product-adjoint branch",
             "source_theorem": "compact Lie algebra fact dim(su(n))=n^2-1 evaluated at n=3",
             "source_artifact": (
                 "standard compact Lie algebra; encoded as su_dim(3)=8 in this verifier"
@@ -250,7 +248,7 @@ def build_factor_origins(
         },
         "dim_su2_adjoint": {
             "value": dim_su2,
-            "role": "weak-isospin-adjoint dimension on the realized OPH product-gauge branch",
+            "role": "weak-isospin-adjoint dimension on the product-adjoint branch",
             "source_theorem": "compact Lie algebra fact dim(su(n))=n^2-1 evaluated at n=2",
             "source_artifact": (
                 "standard compact Lie algebra; encoded as su_dim(2)=3 in this verifier"
@@ -258,16 +256,16 @@ def build_factor_origins(
         },
         "dim_u1": {
             "value": dim_u1,
-            "role": "hypercharge/abelian Lie algebra dimension on the realized branch",
+            "role": "abelian Lie algebra dimension on the product-adjoint branch",
             "source_theorem": "abelian Lie algebra dimension is 1",
             "source_artifact": "standard compact Lie algebra; encoded as 1 in this verifier",
         },
-        "unoriented_total_twelve_curvature_ports": {
+        "unoriented_product_adjoint_dimension": {
             "value": unoriented_total,
             "definition": f"{dim_su3} + {dim_su2} + {dim_u1}",
-            "role": "unoriented product-adjoint repair register dimension on the realized OPH branch",
-            "source_theorem": "OPH twelve-curvature-port theorem on the realized product-gauge branch",
-            "source_artifact": CORPUS_TWELVE_PORTS_SOURCE,
+            "role": "unoriented product-adjoint repair-register dimension",
+            "source_theorem": "dimension of the conditional observer-visible product adjoint",
+            "source_artifact": CORPUS_UNORIENTED_PRODUCT_ADJOINT_SOURCE,
         },
         "orientation_multiplier": {
             "value": orientation_multiplier,
@@ -300,11 +298,10 @@ def build_factor_origins(
 
 def build_branch_scope() -> dict[str, Any]:
     return {
-        "oph_realized_compact_gauge_branch": (
-            "the realized observer-visible compact-gauge branch with global group "
-            "(SU(3) x SU(2) x U(1))/Z6, MAR-minimal one-Higgs sector, no extra "
-            "visible low-scale U(1), and no mixed (3,2,+/-5/6) X/Y connected-adjoint generators "
-            "(corpus theorem in extra/compact_proof_of_oph.tex)"
+        "product_adjoint_branch": (
+            "the active observer-visible current algebra is su(3)+su(2)+u(1), "
+            "with no extra visible U(1) or mixed X/Y generators; a screen selector, "
+            "global quotient, and MAR matter package are not premises"
         ),
         "reversible_repair_orientation_branch": (
             "the OPH finite patch-carrier pipeline operates on a completed "
@@ -318,11 +315,12 @@ def build_branch_scope() -> dict[str, Any]:
             "support is a cyclic permutation whose order equals m_rep"
         ),
         "scope_note": (
-            "the representation-to-spectrum round-count theorem m_rep=24 and "
+            "the conditional representation-to-spectrum result m_rep=24 and "
             "the specialization |g_*'| = (N_CRC/pi)^(-1/48) are theorems on "
             "the conjunction of the three branches above; the parametric "
             "law |g_*'| = (N_CRC/pi)^(-1/(2*m)) at the m-tick decomposition "
-            "is supplied by the global repair-tick lemma."
+            "is supplied by the global repair-tick lemma. Identifying the "
+            "product adjoint with physical currents is an upstream gate."
         ),
     }
 
@@ -348,39 +346,39 @@ def build_negative_controls(
             "exponent_at_m": "-1/12",
             "status": "reject",
             "reason": "counts the matter-coupled carrier rank, not the adjoint repair spectrum",
-            "violated_branch": "oph_realized_compact_gauge_branch",
+            "violated_branch": "product_adjoint_branch",
         },
         {
             "name": "color-only doubled adjoint",
             "m": 2 * dim_su3,
             "exponent_at_m": f"-1/{4 * dim_su3}",
             "status": "reject",
-            "reason": "omits weak and hypercharge channels from the realized product branch",
-            "violated_branch": "oph_realized_compact_gauge_branch",
+            "reason": "omits weak and abelian channels from the product-adjoint support",
+            "violated_branch": "product_adjoint_branch",
         },
         {
             "name": "color-plus-weak doubled without U(1)",
             "m": 2 * (dim_su3 + dim_su2),
             "exponent_at_m": f"-1/{4 * (dim_su3 + dim_su2)}",
             "status": "reject",
-            "reason": "omits the hypercharge/electromagnetic channel forced by the realized Z6 quotient",
-            "violated_branch": "oph_realized_compact_gauge_branch",
+            "reason": "omits the one-dimensional abelian summand in the product-adjoint premise",
+            "violated_branch": "product_adjoint_branch",
         },
         {
             "name": "single-orientation SU(5) adjoint",
             "m": su_dim(5),
             "exponent_at_m": f"-1/{2 * su_dim(5)}",
             "status": "reject_despite_same_integer",
-            "reason": "wrong support: includes the (3,2,+/-5/6) X/Y mixed adjoint generators absent on the realized OPH branch and lacks the orientation-doubling factor",
-            "violated_branch": "oph_realized_compact_gauge_branch + reversible_repair_orientation_branch",
+            "reason": "wrong support: includes mixed X/Y adjoint generators and lacks the orientation-doubling factor",
+            "violated_branch": "product_adjoint_branch + reversible_repair_orientation_branch",
         },
         {
             "name": "doubled SU(5) adjoint",
             "m": 2 * su_dim(5),
             "exponent_at_m": f"-1/{4 * su_dim(5)}",
             "status": "reject",
-            "reason": "wrong branch: contains the X/Y leptoquark carrier excluded by the OPH product-group adjoint theorem",
-            "violated_branch": "oph_realized_compact_gauge_branch",
+            "reason": "wrong support: contains X/Y generators excluded by the product-adjoint premise",
+            "violated_branch": "product_adjoint_branch",
         },
         {
             "name": "include graviton in compact-gauge repair support",
@@ -388,7 +386,7 @@ def build_negative_controls(
             "exponent_at_m": None,
             "status": "reject",
             "reason": "the graviton is the dynamical metric branch and fixes the radius/capacity chart, not an internal compact-gauge adjoint repair channel",
-            "violated_branch": "oph_realized_compact_gauge_branch (compact-gauge sector)",
+            "violated_branch": "product_adjoint_branch (internal current sector)",
         },
     ]
 
@@ -421,7 +419,7 @@ def build_acceptance_criteria_status(
     )
     no_measured_inputs = forbidden_used_empty
     public_certificate_emitted = True
-    surfaces_unchanged_because_status_unchanged = True
+    theorem_package_status_is_closed_round_count = True
     factor_origins_complete = factor_origins_keys == 7
 
     all_satisfied = (
@@ -431,7 +429,7 @@ def build_acceptance_criteria_status(
         and negative_controls_supplied
         and no_measured_inputs
         and public_certificate_emitted
-        and surfaces_unchanged_because_status_unchanged
+        and theorem_package_status_is_closed_round_count
         and factor_origins_complete
     )
 
@@ -442,7 +440,7 @@ def build_acceptance_criteria_status(
         "negative_controls_for_nearby_round_counts_supplied": negative_controls_supplied,
         "no_measured_weak_higgs_g_planck_area_lambda_or_hierarchy_ratio_inputs_used": no_measured_inputs,
         "public_certificate_and_verifier_emitted_under_hierarchy_package": public_certificate_emitted,
-        "theorem_package_status_integration_compact_proof_paper_book_readme_unchanged_because_status_unchanged": surfaces_unchanged_because_status_unchanged,
+        "theorem_package_status_is_closed_representation_round_count": theorem_package_status_is_closed_round_count,
         "factor_origins_documented_for_every_numerical_factor": factor_origins_complete,
         "all_acceptance_criteria_satisfied": all_satisfied,
     }
@@ -488,9 +486,9 @@ def build_certificate() -> dict[str, Any]:
         "SU(3) adjoint dimension = 8 (compact Lie algebra dim(su(n))=n^2-1 at n=3)",
         "SU(2) adjoint dimension = 3 (compact Lie algebra dim(su(n))=n^2-1 at n=2)",
         "U(1) Lie algebra dimension = 1 (abelian Lie algebra)",
-        "OPH realized product-gauge branch theorem (extra/compact_proof_of_oph.tex lines 482-504)",
-        "OPH twelve-curvature-port theorem (extra/compact_proof_of_oph.tex line 301)",
-        "OPH reversible orientation-doubling axiom (extra/compact_proof_of_oph.tex lines 220, 301-303)",
+        "conditional product-adjoint branch (extra/compact_proof_of_oph.tex, section 'The compact-gauge branch', quoted connected-adjoint premise)",
+        "unoriented product-adjoint dimension 8+3+1=12 (extra/compact_proof_of_oph.tex)",
+        "OPH reversible orientation-doubling axiom (extra/compact_proof_of_oph.tex, section 'The QCD-free hierarchy witness', quoted m_rep premise)",
         "parametric global repair-tick law |g_*'| = (N_CRC/pi)^(-1/(2*m)) from R_N_global_repair_tick_certificate.json",
     ]
     forbidden_used = sorted(set(used_inputs) & FORBIDDEN_INPUTS)
@@ -532,9 +530,9 @@ def build_certificate() -> dict[str, Any]:
             for item in negative_controls
         ),
         "derivation_chain_has_eight_steps": len(derivation_chain) == 8,
-        "derivation_chain_step1_realized_product_branch": (
+        "derivation_chain_step1_product_adjoint_branch": (
             derivation_chain[0]["premise"].startswith(
-                "OPH realized observer-visible product-gauge branch"
+                "Observer-visible product-adjoint branch"
             )
         ),
         "derivation_chain_step4_orientation_doubling": (
@@ -549,13 +547,13 @@ def build_certificate() -> dict[str, Any]:
             "dim_su3_adjoint",
             "dim_su2_adjoint",
             "dim_u1",
-            "unoriented_total_twelve_curvature_ports",
+            "unoriented_product_adjoint_dimension",
             "orientation_multiplier",
             "m_rep",
             "exponent_denominator",
         },
-        "branch_scope_includes_realized_product_branch": (
-            "oph_realized_compact_gauge_branch" in branch_scope
+        "branch_scope_includes_product_adjoint_branch": (
+            "product_adjoint_branch" in branch_scope
         ),
         "branch_scope_includes_reversible_repair": (
             "reversible_repair_orientation_branch" in branch_scope
@@ -579,20 +577,23 @@ def build_certificate() -> dict[str, Any]:
         "status": "closed_representation_to_spectrum_round_count",
         "accepted": bool(accepted),
         "theorem": "representation-to-spectrum derivation of the 24-round repair count",
-        "claim": "The selected screen-capacity repair cycle has m_rep=24.",
+        "claim": "The conditional product-adjoint repair grammar has m_rep=24.",
         "target_relation": (
             "G_N = g_N^m_rep with m_rep=24, hence "
             "|g_*'| = (N_CRC/pi)^(-1/(2*m_rep)) = (N_CRC/pi)^(-1/48)"
         ),
         "branch": {
-            "name": "OPH realized observer-visible Standard Model product branch",
-            "global_group": "(SU(3) x SU(2) x U(1)) / Z6",
+            "name": "conditional observer-visible product-adjoint branch",
+            "lie_algebra": "su(3) + su(2) + u(1)",
             "conditions": [
-                "realized compact-gauge branch",
-                "MAR-minimal one-Higgs branch",
+                "active observer-visible product-adjoint current support",
                 "no extra visible low-scale U(1)",
                 "no simple-GUT X/Y mixed connected-adjoint generators",
-                "observer-visible product adjoint only",
+            ],
+            "not_used": [
+                "twelve-port screen or A5 selector",
+                "global Z6 quotient",
+                "MAR matter realization",
             ],
         },
         "representation_sector": {
@@ -637,9 +638,9 @@ def build_certificate() -> dict[str, Any]:
         "branch_scope": branch_scope,
         "dependency_artifacts": {
             "global_repair_tick_lemma": GLOBAL_REPAIR_TICK_ARTIFACT,
-            "corpus_realized_product_branch": CORPUS_PRODUCT_BRANCH_SOURCE,
+            "corpus_product_adjoint_branch": CORPUS_PRODUCT_ADJOINT_SOURCE,
             "corpus_orientation_doubling": CORPUS_ORIENTATION_DOUBLING_SOURCE,
-            "corpus_twelve_curvature_ports": CORPUS_TWELVE_PORTS_SOURCE,
+            "corpus_unoriented_product_adjoint": CORPUS_UNORIENTED_PRODUCT_ADJOINT_SOURCE,
         },
         "consumer_artifacts": {
             "global_repair_tick_lemma": GLOBAL_REPAIR_TICK_ARTIFACT,
@@ -664,8 +665,8 @@ def build_certificate() -> dict[str, Any]:
                     "parametric proof."
                 ),
                 "m_rep_24_primary": (
-                    "This certificate derives m_rep = 24 from the OPH realized "
-                    "product-gauge branch + reversible orientation-doubling axiom "
+                    "This certificate derives m_rep = 24 from the product-adjoint "
+                    "premise + reversible orientation-doubling axiom "
                     "+ Lie-algebra dimension formulas + cyclic-scheduler order. "
                     "Steps 1-6 of the derivation chain do not use the tick law; "
                     "the per-tick exponent -1/(2m) appears in no premise or "
@@ -690,8 +691,8 @@ def build_certificate() -> dict[str, Any]:
                 "is the canonical place where the -1/48 specialization is "
                 "consumed without redundant cross-reference."
             ),
-            "other_remaining_branches_are_upstream_only": (
-                "The realized product-gauge branch (extra/compact_proof_of_oph.tex), "
+            "other_branches_are_upstream_only": (
+                "The product-adjoint branch (extra/compact_proof_of_oph.tex), "
                 "the reversible orientation-doubling axiom (same), the cyclic "
                 "scheduler branch (recorded in branch_scope), and the source-side "
                 "fixed point N_CRC^EW(P_*) (R_EW_global_capacity_certificate.json) "
@@ -710,7 +711,7 @@ def build_certificate() -> dict[str, Any]:
         "forbidden_inputs_used": forbidden_used,
         "claim_boundary": {
             "closed_here": [
-                "m_rep=2*dim(su(3)+su(2)+u(1))=24 on the realized product-gauge branch",
+                "m_rep=2*dim(su(3)+su(2)+u(1))=24 on the product-adjoint branch",
                 "the cyclic scheduler on the oriented adjoint support has spectral period 24",
                 "the parametric global repair-tick law specializes to |g_*'| = (N_CRC/pi)^(-1/48) at m=24",
                 "every nearby round count is rejected on structural grounds (negative_controls)",
@@ -718,10 +719,11 @@ def build_certificate() -> dict[str, Any]:
             "not_closed_here": [],
             "scope": (
                 "the representation-to-spectrum theorem m_rep=24 and the specialization "
-                "|g_*'| = (N_CRC/pi)^(-1/48) are theorems on the realized OPH "
-                "compact-gauge branch + reversible orientation-doubling grammar + "
+                "|g_*'| = (N_CRC/pi)^(-1/48) are conditional on the product-adjoint "
+                "branch + reversible orientation-doubling grammar + "
                 "cyclic scheduler. The parametric per-tick law -1/(2*m) is supplied by "
-                "R_N_global_repair_tick_certificate.json; the source-side fixed point "
+                "R_N_global_repair_tick_certificate.json. The screen selector, global "
+                "quotient, and MAR matter package are not premises; the source-side fixed point "
                 "N_CRC^EW(P_*) is supplied separately by R_EW_global_capacity_certificate.json."
             ),
         },

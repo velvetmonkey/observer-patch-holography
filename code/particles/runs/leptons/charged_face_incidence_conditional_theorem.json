@@ -69,7 +69,7 @@
     "candidate_v1_archive_sha256": "4dff09dbc66368a99dbddac4e238e3dcd42906dada7d2f084ff059dda32b04ef",
     "conditional_theorem_archive_sha256": "cc550b311c5f2bc416d78f65b4ec9e1bf32f10f9b73fc4135fd05de626b48d4f",
     "geometric_face_receipt": "charged_icosahedral_face_carrier_frontier.json",
-    "geometric_face_receipt_sha256": "7ca8619bc16834a7eb941f25878a34175dcba107e5f71cada36da2f8b232108b"
+    "geometric_face_receipt_sha256": "06f6a69f33c3203ba473fc15f7ecb9596fdd0f5535a822a731e07ddb6c55dcbe"
   },
   "public_prediction_promotion_allowed": false,
   "repair_map": {

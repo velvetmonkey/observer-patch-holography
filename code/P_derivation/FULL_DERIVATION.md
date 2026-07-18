@@ -66,19 +66,12 @@ alpha_U(P) = 0.041124336195630495
 v/E_star   = 2.0199803239725553e-17
 ```
 
-On the source-audit branch it records
+The source-audit branch is
 
 ```text
-alpha_U(P_source_audit) = 0.04112424744557487
-v(P_source_audit)/E_star = 2.0198114150099223e-17
+alpha_U(P_source_audit) = 0.0411242474418166851408899338896597194
+v(P_source_audit)/E_star = 2.0198114078576330591337426182670149e-17
 ```
-
-The bundle records an earlier unconverged forward run. Converged precision-100
-reruns supersede that source-audit branch beyond digit ~10 (CL-6, closed):
-the certified forward values are
-P_fwd = 1.630972095858897..., alpha_U(P_fwd) = 0.041124247441816685..., and
-v(P_fwd)/E_star = 2.0198114078576331e-17. The public endpoint branch is
-unchanged.
 
 The `R_U` certificate proves a unique local source zero in the supplied
 interval by Krawczyk inclusion and a derivative enclosure excluding zero. The

@@ -21,7 +21,9 @@ from typing import Any
 from alpha_gap_audit import (
     CODATA_2022_ALPHA_INV,
     CODATA_2022_ALPHA_INV_UNCERTAINTY,
+    DEFAULT_INTERVAL_CERTIFICATE,
     build_alpha_gap_audit,
+    certified_source_point,
 )
 from paper_math import PaperMathContext, _dec, to_serializable
 
@@ -131,6 +133,7 @@ def _endpoint_at_compare_point(
 def build_endpoint_package(
     report: dict[str, Any],
     *,
+    source_point: dict[str, Any] | None = None,
     compare_alpha_inv: Decimal = CODATA_2022_ALPHA_INV,
     compare_alpha_inv_uncertainty: Decimal = CODATA_2022_ALPHA_INV_UNCERTAINTY,
     precision: int = DEFAULT_ENDPOINT_PRECISION,
@@ -141,6 +144,7 @@ def build_endpoint_package(
     ctx = PaperMathContext(precision=precision, su2_cutoff=su2_cutoff, su3_cutoff=su3_cutoff)
     implemented_root = build_alpha_gap_audit(
         report,
+        source_point=source_point,
         compare_alpha_inv=compare_alpha_inv,
         compare_alpha_inv_uncertainty=compare_alpha_inv_uncertainty,
     )
@@ -221,6 +225,7 @@ def build_endpoint_package(
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Emit the conditional Thomson endpoint package.")
     parser.add_argument("--report", default=str(DEFAULT_REPORT))
+    parser.add_argument("--interval-certificate", default=str(DEFAULT_INTERVAL_CERTIFICATE))
     parser.add_argument("--output", default=str(DEFAULT_OUT))
     parser.add_argument("--compare-alpha-inv", default=str(CODATA_2022_ALPHA_INV))
     parser.add_argument("--compare-alpha-inv-uncertainty", default=str(CODATA_2022_ALPHA_INV_UNCERTAINTY))
@@ -234,8 +239,12 @@ def parse_args() -> argparse.Namespace:
 def main() -> int:
     args = parse_args()
     report = json.loads(Path(args.report).read_text(encoding="utf-8"))
+    interval_certificate = json.loads(
+        Path(args.interval_certificate).read_text(encoding="utf-8")
+    )
     payload = build_endpoint_package(
         report,
+        source_point=certified_source_point(interval_certificate),
         compare_alpha_inv=_dec(args.compare_alpha_inv),
         compare_alpha_inv_uncertainty=_dec(args.compare_alpha_inv_uncertainty),
         precision=args.precision,

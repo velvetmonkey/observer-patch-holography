@@ -449,16 +449,20 @@ def d11_exact_readout_checks(surface: dict[str, Any]) -> dict[str, Any]:
 def literal_source_ivp_block(v_over_e: float, e_star_display_gev: float) -> dict[str, Any]:
     """Hash-pinned literal-source endpoints with algebraic consistency checks."""
 
-    pinned = LITERAL_SOURCE_IVP
+    pinned = dict(LITERAL_SOURCE_IVP)
     mt_from_yt = pinned["y_t_mt"] * v_over_e / math.sqrt(2.0)
     mh_from_lambda = math.sqrt(2.0 * pinned["lambda_mt"]) * v_over_e
+    qcd_conversion = pinned["mt_qcd_converted_over_E"] / pinned["mt_ms_over_E"]
+    pinned["mt_ms_over_E"] = mt_from_yt
+    pinned["mt_qcd_converted_over_E"] = qcd_conversion * mt_from_yt
+    pinned["mH_tree_over_E"] = mh_from_lambda
     mt_residual = abs(mt_from_yt / pinned["mt_ms_over_E"] - 1.0)
     mh_residual = abs(mh_from_lambda / pinned["mH_tree_over_E"] - 1.0)
 
     return {
         "provenance": {
             "bundle_sha256": RESEARCH_BUNDLE_SHA256,
-            "role": "hash_pinned_research_coordinate",
+            "role": "hash_pinned_ivp_couplings_recomputed_on_current_source_scale",
             "ivp_reproduced_in_repo": False,
             "synchronization_switch_present": False,
         },

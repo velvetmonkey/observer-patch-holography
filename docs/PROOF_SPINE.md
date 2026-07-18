@@ -15,13 +15,11 @@ conditional capacity fixed point is certified to relative width 1.6×10⁻²⁵;
 hostile third-party audit reproduced this arithmetic and found
 no false theorem in the recovered mathematical core across its 42 findings.
 Second, machine checking: 111 sorry-free Lean theorems cover the consensus
-core and the capacity-coupling algebra. Third, fail-closed execution: the two
-implementation defects the audit exposed (the hadronic target-coordinate
-algebra and the finite-clock eligibility predicate) are repaired,
-with gates that make every downstream consumer fail closed and
-adversarial regressions that keep them failing closed. Fourth, a standing
-falsification program with frozen, externally timestamped targets and a
-permanent executed record. Fifth, proximity: the gauge-width map lands
+core and the capacity-coupling algebra. Third, fail-closed execution: the
+hadronic coordinate algebra and finite-clock eligibility predicate have
+fail-closed gates and adversarial regressions. Fourth, the falsification
+program is restricted to mature non-cosmological claims and contains no
+target registry or forward scorecard. Fifth, proximity: the gauge-width map lands
 2.5×10⁻⁶ relative from the measured α⁻¹ with the transport term open; the
 chart W coordinate sits 0.5 propagated experimental standard deviations from
 the PDG 2026 complex pole as a convention diagnostic, with the readout
@@ -67,16 +65,17 @@ that combination is claimed as proof anywhere in the corpus.
 | B1 | Consensus mechanics and the quantum event surface: quotient normal forms, Born rule, Lüders update, CHSH bound | theorem-grade on the declared branch; consensus core machine-checked (98 sorry-free Lean theorems) |
 | B2 | Kinematics: Conf⁺(S²) ≅ SO⁺(3,1), 3+1 events, H³ observer space | theorem on the declared branch; realized-branch nonemptiness open (GAP-B1) |
 | B3 | Gravity: Einstein equation from entropy stationarity, one global ambiguity +Λg | theorem on the declared five-axiom branch |
-| B4 | Gauge structure and matter: compact group by reconstruction; SM quotient SU(3)×SU(2)×U(1)/Z₆, hypercharge lattice, N_c = 3, N_g = 3, one Higgs | theorem conditional on the compact-gauge receipt and declared MAR clause inputs (GAP-B9) |
+| B4 | Gauge structure and matter: conditional finite A5 module; exact coefficient bracket, trace-balanced integration, and six-axis lattice quotient; SM matter branch | physical current/global descent and one-Higgs MAR premises are conditional (GAP-B9) |
 | B5 | Electroweak chart and hierarchy: forward W/Z chart coordinates, v/E★ transmutation law | W/Z physical comparison not evaluable because the common-observable scheme map is incomplete; hierarchy relation is conditional on its declared branch (GAP-A6) |
 | B6 | Strong sector: Λ_QCD by transmutation, nucleon mass via external lattice ratio | record at about 1×10⁻²; conditional tags in the closure ledger |
 | B7 | Cosmology: capacity Λ, dark sector as repair bookkeeping, screen tilt | record rows conditional; promotion gates open (GAP-B7) |
 | B8 | Mass sector completion: flavor spreads, charged leptons, neutrinos | open (GAP-B3, GAP-B5, GAP-B4) |
-| B9 | Machine formalization of the physics branches | program: consensus core plus coupling algebra done; branches open (GAP-B8) |
+| B9 | Machine formalization | 98 consensus plus 13 coupling theorems; screen files check only abstract matrix, lattice, and arithmetic statements (GAP-B8) |
+| B10 | Baryogenesis: finite anomaly/current theorem, source attachment, and physical CP-odd generator | anomaly/current theorem and direct gauge/deck no-go done; physical source branch open (GAP-B12) |
 
 ## The open-gap register
 
-Every gap standing between the current state and the completed proof. Nothing is open
+Every gap in the proof package. Nothing is open
 that is not on this list; anything removed from this list carries a dated verdict.
 
 Part A gaps:
@@ -168,7 +167,7 @@ Part B gaps:
 - **GAP-B2.** Quantum pole receipts: the photon, gluon, and graviton zeros are classical
   action statements; the quantum pole constructions are open gates.
 - **GAP-B3.** The flavor-orbit selector: the proven two-modulus non-identifiability names
-  the missing object; twelve preregistered declared-structure candidates stand
+  the missing object; twelve declared-structure candidates stand
   evaluated and excluded.
 - **GAP-B4.** The neutrino sector: no mixing matrix or absolute mass row is emitted; the
   weighted-cycle candidate is rejected by NuFIT 6.1 (permanent verdict).
@@ -180,20 +179,21 @@ Part B gaps:
 - **GAP-B7.** Cosmology promotion gates: the source-derived applicability rule the
   Cassini exclusion demands, the S8 tension, physical CMB promotion, and the κ_rep
   certificate for the tilt.
-- **GAP-B8.** Lean formalization of the physics branches (the consensus core and the
-  coupling algebra are done: 98 plus 13 sorry-free theorems).
-- **GAP-B9.** The MAR clause inputs and compact-gauge receipt behind the SM quotient
-  stand as declared inputs; deriving them from the principles would move the gauge sector
-  from conditional to forced.
+- **GAP-B8.** Lean formalization of the physics branches. The 98 consensus and
+  13 coupling theorems exclude the A5 selector, physical current map,
+  trace-balanced group, tensor kernel, and axis-center descent.
+- **GAP-B9.** PORT-CURRENT-INNER, PORT-SPIN-LIFT, physical block/axis descent,
+  the compact-gauge receipt, and the MAR matter premises behind the SM quotient
+  are declared inputs or work in progress.
 - **GAP-B10.** Independent reproduction: named external parties re-running the mechanical
   claims from a fresh clone (pillar 5).
-- **GAP-B11.** Closed 2026-07-17 (paper audit 003, issue #529). The compact paper's
-  regulator gluing proposition (`prop:regulatedrealization`) formerly read as deriving
-  invertible unitary rechartings from bare patch-net interface projections; that reading
-  is withdrawn. Bare interface projections determine no invertible chart-change map:
+- **GAP-B11.** Bare patch-net interface projections do not derive invertible
+  unitary rechartings. The regulator gluing proposition
+  (`prop:regulatedrealization`) requires explicit quantum regulator gluing data.
+  Bare interface projections determine no invertible chart-change map:
   with S_i = {0,1,2,3} and S_j = {0,1} both projecting onto a one-bit interface, no
-  bijection S_i → S_j and no *-isomorphism M₄(C) → M₂(C) exists. The repair layers the
-  claim: the quantum regulator gluing datum (`def:qregdatum`; finite-dimensional
+  bijection S_i → S_j and no *-isomorphism M₄(C) → M₂(C) exists. The quantum
+  regulator gluing datum (`def:qregdatum`; finite-dimensional
   algebras, overlap subalgebras, invertible recharting *-isomorphisms, cocycle law) is a
   declared regulator input, the proposition realizes it, and `lem:qregdatum-realized`
   supplies it constructively on the realized echosahedral multiresolution carrier
@@ -203,6 +203,16 @@ Part B gaps:
   triple-overlap composition gates pass on the strict and central witnesses; the
   bare-interface-projection countermodel is rejected with structured reasons;
   artifact `code/regulator_gluing/runs/regulator_gluing_evidence_bundle_current.json`).
+- **GAP-B12 ([issue #556](https://github.com/FloatingPragma/observer-patch-holography/issues/556)).** Baryogenesis source completion. The finite quotient theorem fixes
+  the mixed anomaly coefficient and oriented repair-current functional, proves
+  zero current for a CP-symmetric law, and rules out direct use of the natural
+  hypercharge-attached $\mathbb Z_6$ determinant/deck phase through
+  $k_R^{YWW}=0$. Discharged by: derive a distinct quotient-visible,
+  gauge-singlet, electroweak-anomalous record phase; construct its source-only
+  transition generator, physical clock and temperature map, CP-odd initial or
+  boundary law, and sign-domain coherence; then evaluate the emitted history
+  through sphaleron transport, washout, and freeze-out without using the
+  observed baryon abundance as a source input.
 
 Cross-cutting:
 

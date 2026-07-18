@@ -80,7 +80,7 @@ The chapter uses the word **observer** in an operational sense. An observer,
 not necessarily a human mind, is any physical system capable of receiving
 signals, forming records, updating internal state, and participating in a
 network of comparisons. A detector, a laboratory, a biological nervous
-system, and a future engineered patch-federation can all instantiate parts of
+system, and an engineered patch-federation can all instantiate parts of
 that role at different scales. The aim is to identify the formal surface they
 share: bounded access,
 record-making, and overlap comparison.
@@ -158,7 +158,7 @@ make that lesson technical. Descartes supplies the unavoidable observer.
 Kant supplies the idea that space might be a form of representation rather
 than a pre-built box. Godel and Hofstadter supply self-reference.
 
-The chapter's new cave diagram is a reminder that projection is not enough.
+The chapter's cave diagram is a reminder that projection is not enough.
 The shadows become a world only because observers compare and reconstruct. A
 single shadow is ambiguous. Several partial records, cross-checked through
 overlap, can begin to constrain a shared model.
@@ -625,17 +625,11 @@ $\log|\Omega^{\mathrm{sc}}_N|-N$ as its proposed finite-count representation.
 The readback map and three premises needed to identify its fixed point with the
 de Sitter capacity are open.
 
-The modular-anomaly branch introduces an effective dark component. The
-benchmark acceleration
-
-$$a_0^{(\mathrm{OPH})}
-=
-\frac{15}{8\pi^2}\frac{c^2}{r_{dS}}
-$$
-
-uses the de Sitter radius to set a deep-infrared scale. The proximity to the
-empirical MOND scale is the reason the chapter treats galaxy-scale anomalies
-as an extension branch outside the recovered-core theorem package.
+The section records a proposed repair-charge condensate action. Its current
+balance, dilute dust-like branch, and spherical deep-galaxy scaling are
+conditional consequences. The OPH derivation, source normalization,
+relativistic limit, lensing, clusters, Solar-System behavior, and cosmological
+likelihoods are work in progress; OPH has no physical dark-matter solution.
 
 The builders include de Sitter, Friedmann, Lemaitre, Hubble, Slipher,
 Gamow, Penzias, Wilson, Guth, Starobinsky, Linde, Riess, Perlmutter, Schmidt,
@@ -660,10 +654,11 @@ $SU(3)$ is the color symmetry of the strong interaction. $SU(2)$ is weak
 isospin. $U(1)$ is hypercharge. Fermions come in representations of this
 group. A representation tells how a field transforms under the symmetry.
 
-In OPH, the charge sectors that survive a consistency test around every loop, and
-that keep surviving as the description is refined, reconstruct the compact gauge
-group they carry. Choosing the smallest single-Higgs matter content that works is
-the later step.
+In OPH, transportable sectors reconstruct a compact group on the refinement
+branch. MAR and the matter package select the one-Higgs product Lie type. The
+physical $\mathbb Z_6$ global form comes from the six transformations that act
+trivially on all realized matter. The icosahedral screen has a separate
+sixfold residue, and identifying the two requires a physical map.
 
 Hypercharge is written $Y$. Electric charge is related by
 
@@ -756,6 +751,15 @@ ordinary space. The answer is stabilization. Some excitations survive
 transport, symmetry constraints, decay channels, decoherence, and redundant
 recording. Those are the patterns we call matter.
 
+The chapter also separates particle content from the cosmological matter
+excess. The finite quotient theorem identifies a baryogenesis source with an
+anomalously attached, CP-odd repair current in physical time. The natural
+sixfold Standard Model gauge/deck direction is hypercharge and has zero mixed
+electroweak anomaly, so it cannot directly source the asymmetry. A distinct
+gauge-singlet anomalous record phase and a CP-asymmetric physical transition
+law are work in progress. A normal form and an oriented register select no
+sign.
+
 The relativistic energy relation
 
 $$E^2=p^2c^2+m^2c^4$$
@@ -776,13 +780,10 @@ values. An empirically anchored witness uses a measured input. A
 first-principles prediction depends only on declared source inputs. A hadron
 calculation also needs QCD binding, which dominates hadron mass.
 
-The hierarchy/naturality relation has its own support level. The weak hierarchy is carried
-by the selected local/global bridge between the pixel scale and the screen
-capacity, with twelve screen ports, a 24-slot oriented repair register, zero
-bridge residual, and zero Higgs naturality defect. That strengthens the particle
-structure record without upgrading the weak-boson running-chart pair, charged
-lepton absolute masses, first-principles hadrons, Strong CP, or the SI gravity
-clock stack.
+The hierarchy normalization $m_{\rm rep}=2(8+3+1)=24$ comes independently from
+the product adjoint. The unit-split icosahedral screen separately has twelve
+ports and 24 oriented slots. Equality of the counts is an alignment condition
+and upgrades no physics.
 
 The matter-stability diagram shows the ladder: screen excitations,
 particles, atoms, chemistry, and classical objects. A macroscopic object is
@@ -869,12 +870,12 @@ standard theorems that each turn out to be a small loop.
 
 Chapter 19 gathers the machinery into one sentence: reality is the
 consistency of observations across overlapping perspectives. The sentence is
-short because the earlier chapters did the work. It includes finite
+short because the preceding chapters supply its ingredients. It includes finite
 screens, algebras, overlaps, entropy, recovery, holography, entanglement,
 codes, modular time, symmetry, de Sitter capacity, particle structure,
 classical matter, and selection. The selection chain the chapter tells as a
 story lists each requirement, the freedom it removes, its mathematical carrier,
-and its current status. The full proof strategy runs in two parts, step by step,
+and its theorem status. The proof strategy runs in two parts, step by step,
 with every open gap named.
 
 The symbol guide is mostly referential. The Standard Model

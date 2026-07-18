@@ -1,12 +1,12 @@
 # Neutrino Sandbox
 
-This directory holds the `/particles` neutrino sandbox on the current local
-prediction chain.
+This directory holds the `/particles` neutrino sandbox for the local prediction
+chain.
 
 ## Scientific Status
 
 The intrinsic isotropic ansatz fails its exact atmospheric-splitting cap. The
-weighted-cycle replacement is a retrospective, target-informed template
+weighted-cycle branch is a target-informed template
 candidate. Its family transport kernel consists of two hand-written matrices,
 and its exponent law was promoted after candidate laws had been ranked against
 the measured splitting ratio.
@@ -19,9 +19,9 @@ all six flavor-row relabelings, and all six mass-column relabelings finds no
 normal-ordering-consistent relabeling of the stored candidate that passes both
 gates. This does not derive or exhaust source-side physical charged-basis
 placements. The stored
-weighted-cycle eigensystem is reproducible, but earlier intrinsic and forward
-builders exported left SVD vectors instead of the Majorana Takagi matrix. That
-implementation error is now corrected. Separately, the shared-basis construction defines
+weighted-cycle eigensystem is reproducible. The builders export the Majorana
+Takagi matrix; this computational correction does not derive its physical
+status. Separately, the shared-basis construction defines
 `U_nu_shared = U_e_left U_wc` and then recovers `U_wc` by cancellation. That
 identity does not derive the physical charged-lepton basis. The failure belongs
 to the weighted-cycle continuation candidate, while finite OPH is unaffected
@@ -102,7 +102,7 @@ promotion questions.
   rejected candidate surface.
 - [`derive_neutrino_bridge_correction_candidate_audit.py`](derive_neutrino_bridge_correction_candidate_audit.py)
   Audits the reduced correction scalar `C_nu` directly and induces a narrower
-  target-containing compare-only `B_nu` window than the older direct bridge
+  measured-reference compare-only `B_nu` window than the older direct bridge
   corridor. This is a diagnostic surface with no prediction status.
 - [`derive_neutrino_bridge_correction_invariant_scaffold.py`](derive_neutrino_bridge_correction_invariant_scaffold.py)
   Records the reduced correction geometry `C_nu` below the raw bridge scalar
@@ -217,7 +217,7 @@ Current closure split:
   splittings only as non-promotable comparison coordinates
 - the exact positive-segment adapter, bridge corridor, and correction audit are
   retained only as diagnostic sidecars on the rejected candidate surface
-- the weighted-cycle calculation emits a frozen target-informed candidate;
+- the weighted-cycle calculation emits a measured-data-informed comparison candidate;
   the NuFIT 6.1 correlated profile rejects it
 - the shared-basis constructor recovers the weighted-cycle matrix by an
   algebraic cancellation; the physical charged-lepton basis remains open, so

@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import json
 import pathlib
+import re
 import sys
 
 
@@ -12,14 +13,14 @@ REQUIRED_FACTOR_ORIGIN_KEYS = {
     "dim_su3_adjoint",
     "dim_su2_adjoint",
     "dim_u1",
-    "unoriented_total_twelve_curvature_ports",
+    "unoriented_product_adjoint_dimension",
     "orientation_multiplier",
     "m_rep",
     "exponent_denominator",
 }
 
 REQUIRED_BRANCH_SCOPE_KEYS = {
-    "oph_realized_compact_gauge_branch",
+    "product_adjoint_branch",
     "reversible_repair_orientation_branch",
     "cyclic_scheduler_branch",
     "scope_note",
@@ -32,16 +33,16 @@ REQUIRED_ACCEPTANCE_KEYS = {
     "negative_controls_for_nearby_round_counts_supplied",
     "no_measured_weak_higgs_g_planck_area_lambda_or_hierarchy_ratio_inputs_used",
     "public_certificate_and_verifier_emitted_under_hierarchy_package",
-    "theorem_package_status_integration_compact_proof_paper_book_readme_unchanged_because_status_unchanged",
+    "theorem_package_status_is_closed_representation_round_count",
     "factor_origins_documented_for_every_numerical_factor",
     "all_acceptance_criteria_satisfied",
 }
 
 REQUIRED_DEPENDENCY_KEYS = {
     "global_repair_tick_lemma",
-    "corpus_realized_product_branch",
+    "corpus_product_adjoint_branch",
     "corpus_orientation_doubling",
-    "corpus_twelve_curvature_ports",
+    "corpus_unoriented_product_adjoint",
 }
 
 REQUIRED_CONSUMER_KEYS = {
@@ -55,7 +56,7 @@ REQUIRED_ACYCLICITY_KEYS = {
     "primary_theorems_are_independent",
     "specialized_corollary_is_a_composition_not_a_circle",
     "umbrella_certificate_resolves_the_composition",
-    "other_remaining_branches_are_upstream_only",
+    "other_branches_are_upstream_only",
 }
 
 REQUIRED_PRIMARY_THEOREM_KEYS = {
@@ -89,6 +90,11 @@ def main(path: str = "certificates/R_m_rep_24_certificate.json") -> int:
     primary_theorems = acyclicity.get("primary_theorems_are_independent", {})
 
     derivation_premises = [step.get("premise", "") for step in derivation_chain]
+    source_anchors = [str(step.get("source_artifact", "")) for step in derivation_chain]
+    source_anchors.extend(
+        str(item.get("source_artifact", "")) for item in factor_origins.values()
+    )
+    source_anchors.extend(str(item) for item in cert.get("used_inputs", []))
 
     validation = {
         "issue_is_343": cert.get("issue") == 343,
@@ -138,18 +144,18 @@ def main(path: str = "certificates/R_m_rep_24_certificate.json") -> int:
             and "(N_CRC/pi)^(-1/48)" in claim_boundary.get("scope", "")
         ),
         "derivation_chain_has_eight_steps": len(derivation_chain) == 8,
-        "derivation_step1_realized_product_branch": (
+        "derivation_step1_product_adjoint_branch": (
             len(derivation_premises) >= 1
-            and "realized observer-visible product-gauge branch"
+            and "Observer-visible product-adjoint branch"
             in derivation_premises[0]
         ),
         "derivation_step2_lie_algebra_dimensions": (
             len(derivation_premises) >= 2
             and "Compact Lie algebra adjoint dimensions" in derivation_premises[1]
         ),
-        "derivation_step3_twelve_curvature_ports": (
+        "derivation_step3_unoriented_product_adjoint": (
             len(derivation_premises) >= 3
-            and "twelve-curvature-port" in derivation_premises[2]
+            and "Unoriented product-adjoint support dimension" in derivation_premises[2]
         ),
         "derivation_step4_orientation_doubling": (
             len(derivation_premises) >= 4
@@ -176,6 +182,15 @@ def main(path: str = "certificates/R_m_rep_24_certificate.json") -> int:
             isinstance(step.get("source_artifact"), str) and step.get("source_artifact")
             for step in derivation_chain
         ),
+        "tex_sources_use_stable_sections_or_labels_not_line_numbers": (
+            not any(re.search(r"\blines?\s+\d", anchor) for anchor in source_anchors)
+            and any("section 'The compact-gauge branch'" in anchor for anchor in source_anchors)
+            and any(
+                "section 'The QCD-free hierarchy witness'" in anchor
+                for anchor in source_anchors
+            )
+            and any("quoted" in anchor for anchor in source_anchors)
+        ),
         "every_derivation_step_has_conclusion": all(
             isinstance(step.get("conclusion"), str) and step.get("conclusion")
             for step in derivation_chain
@@ -187,7 +202,7 @@ def main(path: str = "certificates/R_m_rep_24_certificate.json") -> int:
         "factor_origin_dim_su2_is_3": _factor_value(cert, "dim_su2_adjoint") == 3,
         "factor_origin_dim_u1_is_1": _factor_value(cert, "dim_u1") == 1,
         "factor_origin_unoriented_is_12": (
-            _factor_value(cert, "unoriented_total_twelve_curvature_ports") == 12
+            _factor_value(cert, "unoriented_product_adjoint_dimension") == 12
         ),
         "factor_origin_orientation_multiplier_is_2": (
             _factor_value(cert, "orientation_multiplier") == 2
@@ -202,7 +217,7 @@ def main(path: str = "certificates/R_m_rep_24_certificate.json") -> int:
         ),
         "factor_origin_unoriented_cites_corpus": (
             "compact_proof_of_oph.tex"
-            in factor_origins.get("unoriented_total_twelve_curvature_ports", {}).get(
+            in factor_origins.get("unoriented_product_adjoint_dimension", {}).get(
                 "source_artifact", ""
             )
         ),
@@ -213,9 +228,11 @@ def main(path: str = "certificates/R_m_rep_24_certificate.json") -> int:
         "branch_scope_keys_complete": (
             set(branch_scope.keys()) == REQUIRED_BRANCH_SCOPE_KEYS
         ),
-        "branch_scope_records_realized_product_branch": (
-            "(SU(3) x SU(2) x U(1))/Z6"
-            in branch_scope.get("oph_realized_compact_gauge_branch", "")
+        "branch_scope_records_product_adjoint_without_global_premise": (
+            "su(3)+su(2)+u(1)"
+            in branch_scope.get("product_adjoint_branch", "")
+            and "global quotient"
+            in branch_scope.get("product_adjoint_branch", "")
         ),
         "branch_scope_records_patch_carrier_pipeline": (
             "patch-carrier"
@@ -281,9 +298,9 @@ def main(path: str = "certificates/R_m_rep_24_certificate.json") -> int:
             )
             is True
         ),
-        "acceptance_surfaces_unchanged_true": (
+        "acceptance_theorem_package_status_true": (
             acceptance.get(
-                "theorem_package_status_integration_compact_proof_paper_book_readme_unchanged_because_status_unchanged"
+                "theorem_package_status_is_closed_representation_round_count"
             )
             is True
         ),
@@ -334,7 +351,7 @@ def main(path: str = "certificates/R_m_rep_24_certificate.json") -> int:
         ),
         "other_branches_recorded_as_upstream_only": (
             "strictly upstream"
-            in acyclicity.get("other_remaining_branches_are_upstream_only", "")
+            in acyclicity.get("other_branches_are_upstream_only", "")
         ),
     }
     payload = {"checks": validation, "pass": all(validation.values())}

@@ -11,6 +11,11 @@ from typing import Any
 
 
 DEFAULT_REPORT = Path(__file__).resolve().parent / "runtime" / "full_p_alpha_report_current.json"
+DEFAULT_INTERVAL_CERTIFICATE = (
+    Path(__file__).resolve().parent
+    / "runtime"
+    / "p_interval_contraction_certificate_2026-07-14.json"
+)
 CODATA_2022_ALPHA_INV = Decimal("137.035999177")
 CODATA_2022_ALPHA_INV_UNCERTAINTY = Decimal("0.000000021")
 
@@ -21,9 +26,19 @@ def _dec(value: Any) -> Decimal:
     return Decimal(str(value))
 
 
+def certified_source_point(interval_certificate: dict[str, Any]) -> dict[str, Any]:
+    """Extract the certified structured-running point estimate."""
+    return dict(
+        interval_certificate["modes"]["thomson_structured_running"][
+            "fixed_point_point_estimate_display_only"
+        ]
+    )
+
+
 def build_alpha_gap_audit(
     report: dict[str, Any],
     *,
+    source_point: dict[str, Any] | None = None,
     compare_alpha_inv: Decimal = CODATA_2022_ALPHA_INV,
     compare_alpha_inv_uncertainty: Decimal = CODATA_2022_ALPHA_INV_UNCERTAINTY,
 ) -> dict[str, Any]:
@@ -35,9 +50,10 @@ def build_alpha_gap_audit(
     """
     with localcontext() as ctx:
         ctx.prec = 80
-        alpha_inv = _dec(report["alpha_inv"])
+        point = source_point or report
+        alpha_inv = _dec(point["alpha_inv"])
         source_anchor = _dec(report["source_anchor_alpha_inv"])
-        p = _dec(report["p"])
+        p = _dec(point.get("P", point.get("p")))
         phi = _dec(report["phi"])
         sqrt_pi = _dec(report["sqrt_pi"])
         structured_running = report.get("structured_running") or {}
@@ -58,6 +74,12 @@ def build_alpha_gap_audit(
             ),
             "source_report_mode": report.get("mode"),
             "source_report_precision": report.get("precision"),
+            "source_point_certificate": (
+                "p_interval_contraction_certificate_2026-07-14.json::"
+                "modes.thomson_structured_running.fixed_point_point_estimate_display_only"
+                if source_point is not None
+                else None
+            ),
             "source_anchor_alpha_inv_mz": str(+source_anchor),
             "implemented_alpha_inv": str(+alpha_inv),
             "implemented_alpha": str(+(Decimal(1) / alpha_inv)),

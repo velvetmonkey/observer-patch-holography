@@ -128,7 +128,7 @@
           "value": 0.9994295999075177
         }
       ],
-      "selection_rule": "Choose one candidate per route family that still contains the live compare-only target while minimizing relative half-width; total algebraic complexity and route-local compare-only error break ties."
+      "selection_rule": "Choose one candidate per route family that contains the declared compare-only target while minimizing relative half-width; total algebraic complexity and route-local compare-only error break ties."
     },
     "status": "compare_only_reduced_bridge_correction_search"
   },
@@ -158,14 +158,14 @@
     "exact_residual_moduli_space": "R_{>0}",
     "symbol": "B_nu"
   },
-  "generated_utc": "2026-07-13T06:10:22Z",
+  "generated_utc": "2026-07-18T05:55:34Z",
   "must_not_feed_back": true,
   "notes": [
     "The corridor is a target-informed diagnostic on the rejected source-open candidate.",
     "The family-assisted route is included so the current defect-weighted mu_e family contributes explicitly to the sharpened compare-only bridge picture.",
     "The representative corridor and the wider envelope both contain the live compare-only target B_nu_star.",
     "The reduced correction scalar C_nu isolates conditional bridge geometry above an internal candidate proxy; it is not the first physical missing object.",
-    "A direct C_nu audit yields a narrower target-containing induced B_nu window than the old three-route bridge corridor.",
+    "The direct C_nu audit gives the narrowest measured-reference induced B_nu window among the declared routes.",
     "The shortlist consensus window is narrower than the primary three-point corridor, but it is a route-agreement diagnostic only and need not contain the live compare-only target."
   ],
   "primary_cross_route_corridor": {
@@ -247,7 +247,7 @@
   },
   "sharpened_obstruction": {
     "statement": "After exact q_mean^p_nu factorization, the best converted symmetric-normalizer route, the best core residual route, and the best defect-family-assisted residual route all land in a narrow compare-only corridor for B_nu on the live branch. That materially narrows the remaining scalar numerically, but it does not collapse the irreducible theorem gap.",
-    "why_not_a_theorem": "Every route in this corridor is a compare-only search clue selected against the current target. The attachment irreducibility theorem still leaves one positive bridge invariant external to the emitted stack."
+    "why_not_a_theorem": "Every route in this corridor is a compare-only search clue selected against the declared target. The attachment irreducibility theorem leaves one positive bridge invariant external to the emitted stack."
   },
   "shortlist_route_consensus_window": {
     "compare_only_target_offset_over_midpoint": -0.0017382063382801994,
@@ -319,7 +319,7 @@
         "value": 6.704321502726554
       }
     ],
-    "selection_rule": "Within the already-admitted top candidates of each route family, choose one candidate per route that minimizes cross-route relative half-width; total algebraic complexity and route-local compare-only error break ties.",
+    "selection_rule": "Within the admitted top candidates of each route family, choose one candidate per route that minimizes cross-route relative half-width; total algebraic complexity and route-local compare-only error break ties.",
     "shortlist_depth_per_route": 5
   },
   "status": "compare_only_cross_route_corridor",

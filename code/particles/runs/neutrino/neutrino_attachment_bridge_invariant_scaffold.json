@@ -8,7 +8,7 @@
     "status": "conditional_constructive_subbridge_from_source_open_inputs"
   },
   "bridge_factor_schema": "B_nu = lambda_nu * q_mean^p_nu / m_star_eV",
-  "collapse_alternative": "neither a qbar-only collapse nor a current-selected-point scalar collapse is derivable from the present attached stack; any future closure must adjoin one positive non-homogeneous bridge scalar or an exactly equivalent theorem",
+  "collapse_alternative": "neither a qbar-only collapse nor a selected-point scalar collapse is derivable from the declared attached stack; closure requires one positive non-homogeneous bridge scalar or an exactly equivalent theorem",
   "conditional_absolute_attachment_missing_object": "oph_neutrino_attachment_bridge_invariant",
   "conditional_absolute_attachment_object": {
     "bridge_reconstruction": "B_nu = (I_nu^0.5 * ratio_hat^0.5 * sum_defect^-1) * C_nu",
@@ -39,7 +39,7 @@
   },
   "exact_missing_object": "source_closed_neutrino_operator_basis_and_mass_label_contract",
   "exact_residual_moduli_space": "R_{>0}",
-  "generated_utc": "2026-07-13T06:10:21Z",
+  "generated_utc": "2026-07-18T05:55:34Z",
   "immediate_theorem_gate": null,
   "no_hidden_discrete_branch": false,
   "notes": [
@@ -47,11 +47,11 @@
     "This scaffold isolates a conditional positive scalar quotient inside the rejected candidate.",
     "One-dimensionality of that conditional quotient does not establish a physical branch or exclude missing discrete operator, basis, or mass-label choices.",
     "The conditional attached-stack algebra does not collapse the bridge factor to a qbar-only law.",
-    "The selected-point scalar I_nu^(wc) is diagnostic-only because it is already internal to the candidate stack.",
+    "The selected-point scalar I_nu^(wc) is diagnostic-only because the candidate stack fixes it.",
     "The defect-weighted same-label edge family is numerically complete but inherits source-open flavor inputs.",
     "Factoring through the internal candidate proxy exposes a conditional correction scalar C_nu for debugging only.",
     "The first physical missing object is the source-closed operator, basis, charged-basis, and mass-label contract, not C_nu.",
-    "Direct C_nu auditing now induces a narrower target-containing B_nu window than the old direct bridge corridor, but that sharpening remains compare-only and does not collapse the irreducibility theorem.",
+    "Direct C_nu auditing gives the narrowest measured-reference B_nu window; it remains compare-only and does not collapse the irreducibility theorem.",
     "The shortlist-consensus window is a target-informed route-agreement diagnostic and has no theorem status.",
     "The exact remaining scalar is better parameterized as B_nu := lambda_nu * q_mean^p_nu / m_star_eV, equivalently A_nu / m_star_eV."
   ],
@@ -65,9 +65,9 @@
     "equivalent_if_edge_character_norm_closes": "I_nu^(wc) = sum_e qbar_e * (1 - cos(delta_psi_e))",
     "gate": "selector_overlap_phase_coboundary_trivializes_same_label_edge_transport",
     "selected_point": "weighted_cycle_selector_psi_wc",
-    "status": "already_internal_to_current_candidate_stack_not_the_missing_bridge_scalar",
+    "status": "internal_to_declared_candidate_stack_not_the_missing_bridge_scalar",
     "type": "positive_dimensionless_scalar",
-    "why_ruled_out": "The selected-point scalar is already fixed by the candidate qbar_e, psi_wc, and psi* data, so it cannot be an independent bridge-external scalar."
+    "why_ruled_out": "The candidate qbar_e, psi_wc, and psi* data fix the selected-point scalar, so it cannot be an independent bridge-external scalar."
   },
   "smaller_exact_object_above_emitted_proxy": {
     "bridge_reconstruction": "B_nu = (I_nu^0.5 * ratio_hat^0.5 * sum_defect^-1) * C_nu",
@@ -196,7 +196,7 @@
             "value": 0.9994295999075177
           }
         ],
-        "selection_rule": "Choose one candidate per route family that still contains the live compare-only target while minimizing relative half-width; total algebraic complexity and route-local compare-only error break ties."
+        "selection_rule": "Choose one candidate per route family that contains the declared compare-only target while minimizing relative half-width; total algebraic complexity and route-local compare-only error break ties."
       },
       "status": "compare_only_reduced_bridge_correction_search"
     },
@@ -279,7 +279,7 @@
           "value": 6.704321502726554
         }
       ],
-      "selection_rule": "Within the already-admitted top candidates of each route family, choose one candidate per route that minimizes cross-route relative half-width; total algebraic complexity and route-local compare-only error break ties.",
+      "selection_rule": "Within the admitted top candidates of each route family, choose one candidate per route that minimizes cross-route relative half-width; total algebraic complexity and route-local compare-only error break ties.",
       "shortlist_depth_per_route": 5
     },
     "status": "compare_only_cross_route_corridor",

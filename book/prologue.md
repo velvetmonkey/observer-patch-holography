@@ -182,13 +182,12 @@ perspectives creates objectivity. The stable, shared, predictable structure
 that we call "the physical world" is the overlap-consistent backbone that all
 observers must agree on.
 
-This is a significant shift from the traditional view, and it works. Gravity
-emerges from how observers share entanglement across their screens. The
-particle world emerges after the framework rebuilds the gauge forces from
-consistency and keeps the smallest matter content that works. The dark-sector problem is read
-through modular anomalies, residual mismatches in the bookkeeping that turns
-local observer time into geometry. The question of why anything exists at all
-enters through a self-referential closure picture.
+The gravity branch reconstructs Einstein's equation under stated premises, and
+gauge consistency selects the minimally admissible matter branch. The
+dark-sector lane proposes a repair-charge condensate action with a dust-like
+normal phase and a cubic deep-galaxy branch. Its OPH derivation and physical
+evidence are work in progress. Self-referential closure carries the existence
+question.
 
 Once you make this shift, strange features of reality start making sense.
 The "weird" behaviors of physics, the ones that seem bizarre or paradoxical
@@ -242,9 +241,10 @@ the picture requires to hold exactly and how far each one is from holding.
 Neither closure has a completed physical readout. The local map omits the
 scheme-consistent hadronic transport to the Thomson coupling, and the global
 capacity readback map has not been constructed. The evidential ledger therefore
-contains zero landed results that are both discriminating and frozen before
-their target data. Structural results, known-data checks, and hardware
-demonstrations of standard quantum mechanics occupy different categories.
+assigns no prospective quantitative score. Structural results, known-data
+checks, and hardware demonstrations of standard quantum mechanics occupy
+different categories. The falsification program has no target registry and
+excludes cosmology.
 
 The machinery comes later. Under the hood the book uses the quantum language
 of observables, states, event probabilities, and entropy because a

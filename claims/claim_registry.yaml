@@ -91,7 +91,7 @@
         "trace_norm_operator_norm_duality",
         "Fawzi_Renner_recovery"
       ],
-      "oph_specific_delta": "The OPH collar continuation now exposes the boundary-size prefactor, all regulator/mixing constants, the sharp boundary-aware double-scaling rate, and a finite receipt schema while firewalling the exact central-interface branch and downstream stress/source identifications.",
+      "oph_specific_delta": "The OPH collar continuation exposes the boundary-size prefactor, regulator/mixing constants, sharp boundary-aware double-scaling rate, and finite receipt schema while separating the exact central-interface branch and downstream stress/source identifications.",
       "novelty_type": "conditional_recoverability_theorem_and_receipt_contract",
       "evidence": [
         "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
@@ -105,7 +105,7 @@
     },
     {
       "claim_id": "OPH-FINITE-AUDIT-MATSCHEKO",
-      "statement": "Matscheko's OPHProofChain audit supplies a machine-checked finite-algebra companion for quotient repair, boundary reconstruction, finite modular flow, lambda constancy, hypercharge and Z6 algebra, scalar-channel bookkeeping, twelve-port surface bookkeeping, selected numerical cage checks, and the QBFT quorum-overlap caveat.",
+      "statement": "Matscheko's Lean audit checks a declared finite subset. On the A5/Z6 lane it covers the abstract u(3)+so(3) commutator, dimension and noncentrality witness, six-axis lattice quotient, and 11/25 arithmetic; it does not check the port-frame map, A5 equivariance, compact-Lie classification, trace-balanced global form, or physical identification.",
       "owner_paper": "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
       "tier": "finite_audit_receipt",
       "assumptions": [
@@ -118,13 +118,12 @@
         "finite modular KMS flow",
         "matrix-algebra uniqueness",
         "lambda constancy under conservation and connectivity",
-        "hypercharge and Z6 algebra",
-        "scalar channel bridge",
-        "twelve-port surface bookkeeping",
-        "finite energy cage arithmetic",
+        "abstract A5 coefficient commutator",
+        "six-axis lattice quotient",
+        "finite arithmetic checks",
         "QBFT quorum-overlap caveat"
       ],
-      "oph_specific_delta": "The audit converts several finite OPH proof obligations into checkable finite theorem packets while leaving physical branch-entry and scaling assumptions explicit.",
+      "oph_specific_delta": "The audit certifies finite theorem packets only on its stated formal scope; physical branch-entry and scaling receipts are separate.",
       "novelty_type": "independent_formal_audit",
       "evidence": [
         "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
@@ -238,7 +237,7 @@
         "Rado_uniqueness_of_surface_PL_structure",
         "Mobius_cross_ratio_rigidity_on_S2"
       ],
-      "oph_specific_delta": "The certificate consumed by the BW scaling theorem is no longer a monolithic declared hypothesis: it is produced from normal-form data under decidable finite-stage receipts, and the receipts are proved to be the irreducible geometric branch content of Einstein branch entry.",
+      "oph_specific_delta": "The BW certificate is produced from normal-form data under decidable finite-stage receipts, which carry the geometric branch content of Einstein branch entry.",
       "novelty_type": "producer_theorem_with_countermodels",
       "evidence": [
         "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
@@ -267,7 +266,7 @@
         "Wiesbrock_modular_intersections",
         "Hayden_Jozsa_Petz_Winter_Markov_structure"
       ],
-      "oph_specific_delta": "The standardness, noncircular production, Markov-locality boundary, and four-translation compatibility hypotheses previously implicit in the null bridge are stated, proved on their branches, or exhibited as receipts with counterexample boundaries.",
+      "oph_specific_delta": "The null bridge states standardness, noncircular production, Markov-locality, and four-translation compatibility as branch theorems or explicit receipts with counterexamples.",
       "novelty_type": "standardness_and_assembly_package",
       "evidence": [
         "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex",
@@ -275,7 +274,7 @@
         "code/geometry/test_null_net_standardness.py"
       ],
       "falsifier": "A Borchers-Wiesbrock invocation is found whose standardness input is neither proved nor carried as a receipt, the Markov modular-locality theorem fails on the central-interface branch, or the assembly relations fail on a tower carrying the modular-intersection receipts.",
-      "scope_if_false": "The null bridge reverts to its earlier conditional form; the Einstein branch inherits the weakened status.",
+      "scope_if_false": "The null bridge loses its standardness conclusion; the Einstein branch inherits that boundary.",
       "status": "proved_on_receipt_branch"
     },
     {
@@ -464,7 +463,7 @@
         "compact_Lie_representation_theory",
         "anomaly_cancellation_algebra"
       ],
-      "oph_specific_delta": "OPH supplies the fixed-stage tensor-generated visible-overlap sector category and the MAR selection rule. Refinement/fiber descent is constructed only from the separately supplied compact-gauge refinement receipt: finite extendability, explicit center-compatible block embeddings, coherent surjective compact-group maps, and finite tensor realizations.",
+      "oph_specific_delta": "OPH supplies the fixed-stage tensor category and MAR selection. The separate A5 coefficient bracket is physical only under UD12, RP-A5, and PORT-CURRENT-INNER; trace-balanced integration reaches the physical Z6 only with determinant/spin/descent and realized tensor-action gates. Neither fixes masses or couplings.",
       "novelty_type": "construction_and_selection",
       "evidence": [
         "paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.tex"
@@ -506,20 +505,20 @@
       "assumptions": [
         "selected_public_endpoint_branch",
         "R_EW_capacity_certificate",
-        "m_rep_24_certificate",
+        "product_adjoint_doubling_and_screen_alignment_receipts",
         "source_endpoint_separation",
         "capacity_coupling_premises_CP1_to_CP3"
       ],
       "imported_results": [
         "standard_electroweak_display_conventions"
       ],
-      "oph_specific_delta": "The hierarchy exponent is supplied by the 24-slot oriented repair register and the conditional capacity bridge rather than by a fitted weak-scale input.",
+      "oph_specific_delta": "The hierarchy uses m_rep=2(8+3+1)=24 from reversible product-adjoint doubling. The screen's twelve ports and 24 oriented slots are separate; equal counts require an alignment receipt and fix no mass or coupling.",
       "novelty_type": "quantitative_derivation",
       "evidence": [
         "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
         "code/particles/hierarchy/manifest.json"
       ],
-      "falsifier": "The capacity bridge residual cannot be certified, the 24-slot register proof fails, or the hidden target enters upstream.",
+      "falsifier": "The capacity bridge residual, product-adjoint doubling, or screen-alignment receipt fails, or a hidden target enters upstream.",
       "scope_if_false": "The hierarchy solution falls; the recovered gauge quotient and cosmological capacity branch are separate unless they import the failed bridge.",
       "status": "conditional_on_capacity_coupling_premises"
     },
@@ -567,7 +566,7 @@
       "evidence": [
         "cosmology/oph_dark_matter_paper.tex"
       ],
-      "falsifier": "A frozen joint galaxy, cluster, CMB, BAO, lensing, and growth likelihood excludes the declared transport law.",
+      "falsifier": "No binding falsifier exists while the source law, constants, relativistic completion, and joint likelihood are open. After those objects are fixed, exclusion by the declared joint galaxy, cluster, CMB, BAO, lensing, and growth likelihood retires this continuation.",
       "scope_if_false": "The dark-sector continuation falls; the recovered relativity and Standard Model core survive unless they import this stress law.",
       "status": "work_in_progress"
     },
@@ -601,7 +600,7 @@
       "claim_id": "OPH-CHI-NU",
       "statement": "The coherent-matter susceptibility note translates the OPH dark-sector scalar channel into a laboratory construction window.",
       "owner_paper": "extra/chi_nu_susceptibility_bounds.tex",
-      "tier": "experimental_continuation_target",
+      "tier": "work_in_progress_experimental_continuation",
       "assumptions": [
         "canonical_dark_sector_scalar_channel",
         "coherent_matter_source_branch",
@@ -611,11 +610,11 @@
         "basic_material_response_bookkeeping"
       ],
       "oph_specific_delta": "The invariant collar susceptibility is separated from the engineering response coefficient used in platform design.",
-      "novelty_type": "experimental_target",
+      "novelty_type": "conditional_experimental_program",
       "evidence": [
         "extra/chi_nu_susceptibility_bounds.tex"
       ],
-      "falsifier": "Controlled substrates fail to produce the required coherent contrast under the declared controls.",
+      "falsifier": "No binding force falsifier exists until the coherent-source receipt, dimensional coupling, ambient repair field, and momentum ledger are operational. Once those objects are fixed, repeated receipt-complete null force results retire the coherent-matter force continuation.",
       "scope_if_false": "The coherent-matter construction branch falls; the dark-sector theory is affected only if it depends on the same source branch.",
       "status": "work_in_progress"
     },

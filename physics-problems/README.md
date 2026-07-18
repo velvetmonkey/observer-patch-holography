@@ -15,7 +15,7 @@ records, repair moves, and public evidence receipts. Normal forms classify what
 survives repair; selection, yield, power, or material performance requires a
 branch-specific source law, action, repair ledger, or receipt bundle.
 
-Each note must also separate three questions: what established theory already
+Each note must also separate three questions: what established theory
 explains, what physical target remains open, and what OPH adds. In the current
 set, OPH's clearest differentiator is the instantiated observer-like
 self-reading patch and its evidence/promotion discipline. That does not by
@@ -37,6 +37,17 @@ Use the following evidence vocabulary consistently:
 
 ## Writeups
 
+- [Finite-Quotient OPH Baryogenesis Source Theorem](oph_baryogenesis_source_theorem.md):
+  exact anomaly/current theorem and source no-go for the matter-antimatter
+  problem. It identifies \(k_R\) with the mixed electroweak anomaly index,
+  identifies \(\dot\Theta_R\) with a quotient repair current in physical time,
+  proves that a CP-symmetric source law gives zero, and finds \(k_R=0\) for
+  the natural hypercharge attachment of the OPH \(\mathbb Z_6\) determinant/deck
+  phase. A distinct anomalous record attachment and its CP-odd physical repair
+  generator are open. The companion
+  [audit script](oph_baryogenesis_source_anomaly_audit.py) and
+  [receipt](oph_baryogenesis_source_anomaly_receipt.json) recompute the exact
+  attachment arithmetic.
 - [Ultraluminous X-Ray Sources as Accretion-Record Normal Forms](ultraluminous_x_ray_sources.md):
   a conditional, factorized, set-valued classifier for accretor identity,
   mass, intrinsic Eddington ratio, anisotropy, viewing geometry, and source
@@ -122,7 +133,7 @@ Use the following evidence vocabulary consistently:
 - [Finite E8/Spin8 Triality claim statement for an Alt(9) double cover](e8_spin8_triality_alt9_certificate.md):
   pending algebraic-certificate specification for the exceptional-symmetry
   sidecar. The exact matrices, lattice bases, orbit enumeration, triality
-  intertwiner, and reproducible hash bundle are still required.
+  intertwiner, and reproducible hash bundle are required.
 
 ## Scope Rule
 

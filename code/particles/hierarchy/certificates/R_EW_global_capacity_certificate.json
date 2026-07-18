@@ -75,7 +75,7 @@
   "branch_selection": {
     "selected_branch": "public_endpoint_pixel_branch",
     "branch_locator": "A_T_public = 137.035999177 is consumed strictly as a declared endpoint convention (branch locator), not as an upstream source-map input; this is consistent with R_P_public_pixel_certificate.json's dependency_boundary, which permits the public Thomson endpoint as a branch locator while explicitly forbidding it as an upstream source-map input",
-    "parallel_source_audit_branch": "R_P_source_audit_pixel_certificate.json (P_cand = 1.63097209569432901817967892561191884270169, alpha_U_P_cand = 0.04112424744557487) records the source-only branch witness; its full endpoint proof depends on same-scheme low-energy hadronic spectral transport, a Ward-projected endpoint convention bridge, and an interval proof for the resulting A_T(P) self-map. Those are not consumed here. The same closed-form B_EW(P, N_CRC^EW(P)) = 0 statement specialises to that branch when those inputs are supplied, so the present certificate is parametrically consistent with the source-audit branch."
+    "parallel_source_audit_branch": "R_P_source_audit_pixel_certificate.json (P_cand = 1.63097209585889737696451390350695562847912625483895268486516, alpha_U_P_cand = 0.04112424744181668514088993388965971943770774203135879) records the source-only branch witness; its full endpoint proof depends on same-scheme low-energy hadronic spectral transport, a Ward-projected endpoint convention bridge, and an interval proof for the resulting A_T(P) self-map. Those are not consumed here. The same closed-form B_EW(P, N_CRC^EW(P)) = 0 statement specialises to that branch when those inputs are supplied, so the present certificate is parametrically consistent with the source-audit branch."
   },
   "forbidden_calibrations": [
     "measured weak scale v as an input",
@@ -111,7 +111,7 @@
       "full_precision_source_artifact": "certificates/R_PN_joint_fixed_point_certificate_report.json",
       "alpha_u_source_artifact": "certificates/R_U_krawczyk_certificate.json",
       "parallel_source_audit_branch_witness": "certificates/R_P_source_audit_pixel_certificate.json",
-      "conclusion": "P_star = P_public = 1.6309682094039593248792798477826489413359828516279250606661507533907793398933432 is the public-endpoint OPH local pixel fixed point recorded with full precision by R_PN_joint_fixed_point_certificate_report.json and defined by the closure equation P = phi + sqrt(pi)/A_T(P) of R_P_public_pixel_certificate.json at the declared endpoint convention A_T_public = 137.035999177. alpha_U(P_star) = 0.041124336195630495 is the Krawczyk-inclusion-certified finite-screen unified gauge-width center from R_U_krawczyk_certificate.json. Neither value uses the measured weak-scale v, Higgs, top, W, Z, G, Planck area, Lambda, or hierarchy-ratio. The parallel source-audit branch (R_P_source_audit_pixel_certificate.json, P_cand = 1.63097209569432901817967892561191884270169) is a separate witness whose full endpoint proof is pending and is not used here."
+      "conclusion": "P_star = P_public = 1.6309682094039593248792798477826489413359828516279250606661507533907793398933432 is the public-endpoint OPH local pixel fixed point recorded with full precision by R_PN_joint_fixed_point_certificate_report.json and defined by the closure equation P = phi + sqrt(pi)/A_T(P) of R_P_public_pixel_certificate.json at the declared endpoint convention A_T_public = 137.035999177. alpha_U(P_star) = 0.041124336195630495 is the Krawczyk-inclusion-certified finite-screen unified gauge-width center from R_U_krawczyk_certificate.json. Neither value uses the measured weak-scale v, Higgs, top, W, Z, G, Planck area, Lambda, or hierarchy-ratio. The parallel source-audit branch (R_P_source_audit_pixel_certificate.json, P_cand = 1.63097209585889737696451390350695562847912625483895268486516) is a separate witness whose full endpoint proof is pending and is not used here."
     },
     {
       "step": 2,
@@ -187,7 +187,7 @@
       "source_artifact": "certificates/R_P_public_pixel_certificate.json",
       "full_precision_source_artifact": "certificates/R_PN_joint_fixed_point_certificate_report.json",
       "parallel_source_audit_witness": "certificates/R_P_source_audit_pixel_certificate.json",
-      "parallel_source_audit_value": "1.63097209569432901817967892561191884270169"
+      "parallel_source_audit_value": "1.63097209585889737696451390350695562847912625483895268486516"
     },
     "alpha_U_unification_width": {
       "value": "0.041124336195630495",
@@ -263,7 +263,7 @@
     "representation_to_spectrum_branch": "m_rep = 24 is imported from the representation-to-spectrum round-count theorem (R_m_rep_24_certificate.json)",
     "ew_tick_projection_branch": "Pi_EW(P,N) = 24*pi/(alpha_U(P)*log(N/pi)) and the resonance target Pi_EW(P_star, N_CRC^EW) = 4*P_star are imported from the EW tick-projection bridge (R_EW_tick_projection_certificate.json)",
     "banach_contraction_branch": "the OPH log-capacity averaging map C_EW(P,x) = (1-lambda)*x + lambda*6*pi/(P*alpha_U(P)) with lambda = 1/2 is certified by the Banach fixed-point theorem; the closed-form fixed point x_EW(P_star) is independent of lambda",
-    "parallel_source_audit_branch_note": "The source-audit branch witness (R_P_source_audit_pixel_certificate.json, P_cand = 1.63097209569432901817967892561191884270169, alpha_U_P_cand = 0.04112424744557487) is a parallel branch whose full endpoint proof is pending; it is not used by this certificate, but its parallel B_EW = 0 statement on the source-audit branch is implied by the same closed-form formula N_CRC^EW(P) = pi*exp[6*pi/(P*alpha_U(P))]",
+    "parallel_source_audit_branch_note": "The source-audit branch witness (R_P_source_audit_pixel_certificate.json, P_cand = 1.63097209585889737696451390350695562847912625483895268486516, alpha_U_P_cand = 0.04112424744181668514088993388965971943770774203135879) is a parallel branch whose full endpoint proof is pending; it is not used by this certificate, but its parallel B_EW = 0 statement on the source-audit branch is implied by the same closed-form formula N_CRC^EW(P) = pi*exp[6*pi/(P*alpha_U(P))]",
     "scope_note": "This certificate proves the closed-form fixed point N_CRC^EW(P_star) = pi*exp[6*pi/(P_star*alpha_U(P_star))] and the equivalent exact bridge residual B_EW(P_star, N_CRC^EW) = 0 on the public-endpoint pixel + Krawczyk unification-width + D10 + representation-to-spectrum + EW tick-projection branches, with the public Thomson endpoint A_T_public = 137.035999177 declared as a branch locator (consistent with R_P_public_pixel_certificate.json's allowed list). No measured weak-scale v, Higgs, top, W, Z, G, Planck area, Lambda, or hierarchy-ratio supplies any factor of the derivation."
   },
   "acceptance_criteria_status": {

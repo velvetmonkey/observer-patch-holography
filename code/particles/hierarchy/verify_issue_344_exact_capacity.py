@@ -4,17 +4,18 @@
 Composes the OPH local pixel fixed point, the D10 transmutation theorem,
 the representation-to-spectrum round-count theorem (R_m_rep_24_certificate.json),
 and the electroweak tick-projection bridge (R_EW_tick_projection_certificate.json)
-into the closed-form source-side fixed point
+into the closed-form bridge-defined fixed-point identity
 
     N_CRC^EW(P_*) = pi * exp[6 * pi / (P_* * alpha_U(P_*))],
 
-certified by a Banach contraction with lambda = 1/2 on the source-side log-capacity
+certified by a Banach contraction with lambda = 1/2 on the declared log-capacity
 coordinate. Every factor 6, 24, 4 in the bridge residual and projection map is
 traced back to its source theorem (D10 beta_EW = N_c + 1 = 4; m_rep = 24 from
 R_m_rep_24_certificate.json; 6 = m_rep / beta_EW = 24 / 4). The cert emits
 derivation_chain, factor_origins, branch_scope, claim_boundary.scope,
 dependency_artifacts / consumer_artifacts pointers, dependency_acyclicity_note,
-and a descriptive-boolean acceptance_criteria_status.
+and a descriptive-boolean acceptance_criteria_status. The identity does not
+independently emit cosmic capacity or prove HIERARCHY-SCREEN-READOUT.
 
 The 110-digit Decimal numerical witness shows B_EW(P_*, N_CRC^EW) = 0 and the
 contraction sample residual ratio = 1/2 to absolute tolerance <= 1e-40, while
@@ -129,8 +130,8 @@ def build_derivation_chain() -> list[dict[str, Any]]:
                 "the Krawczyk-inclusion-certified finite-screen unified gauge-width center from R_U_krawczyk_certificate.json. "
                 "Neither value uses the measured weak-scale v, Higgs, top, W, Z, G, Planck area, Lambda, "
                 "or hierarchy-ratio. The parallel source-audit branch (R_P_source_audit_pixel_certificate.json, "
-                "P_cand = 1.63097209569432901817967892561191884270169) is a separate witness whose full "
-                "endpoint proof is pending and is not used here."
+                "P_cand = 1.63097209585889737696451390350695562847912625483895268486516) is a separate witness whose full "
+                "endpoint proof is work in progress and is not used here."
             ),
         },
         {
@@ -152,7 +153,7 @@ def build_derivation_chain() -> list[dict[str, Any]]:
             "premise": "Electroweak tick-projection bridge",
             "uses": ["Pi_EW(P,N) = 24*pi/(alpha_U(P)*log(N/pi))", "target Pi_EW(P_star,N) = 4*P_star"],
             "source_artifact": CORPUS_PI_EW_SOURCE,
-            "conclusion": "The OPH local/global EW resonance condition Pi_EW(P_star, N_CRC^EW) = 4*P_star (= beta_EW * P_star) is identified as the source-side criterion for the bridge-refined capacity object.",
+            "conclusion": "Pi_EW(P_star,N) = 4*P_star (= beta_EW*P_star) is the declared CP-1 target for the bridge-refined capacity object. Its physical meaning requires HIERARCHY-SCREEN-READOUT; this certificate uses the algebraic target but does not derive that readout.",
         },
         {
             "step": 5,
@@ -164,7 +165,7 @@ def build_derivation_chain() -> list[dict[str, Any]]:
             "step": 6,
             "premise": "Closed-form solution of the bridge residual",
             "uses": ["step 5"],
-            "conclusion": "Setting B_EW(P_star,N) = 0 yields x_EW(P_star) := log(N/pi) = 6*pi/(P_star*alpha_U(P_star)) and N_CRC^EW(P_star) = pi*exp[6*pi/(P_star*alpha_U(P_star))], a closed-form source-side fixed point.",
+            "conclusion": "Setting B_EW(P_star,N) = 0 yields x_EW(P_star) := log(N/pi) = 6*pi/(P_star*alpha_U(P_star)) and the bridge-defined identity N_CRC^EW(P_star) = pi*exp[6*pi/(P_star*alpha_U(P_star))].",
         },
         {
             "step": 7,
@@ -197,7 +198,7 @@ def build_factor_origins() -> dict[str, Any]:
             "source_artifact": CORPUS_PUBLIC_ENDPOINT_PIXEL_SOURCE,
             "full_precision_source_artifact": CORPUS_PIXEL_FULL_PRECISION_SOURCE,
             "parallel_source_audit_witness": CORPUS_SOURCE_AUDIT_PIXEL_SOURCE,
-            "parallel_source_audit_value": "1.63097209569432901817967892561191884270169",
+            "parallel_source_audit_value": "1.63097209585889737696451390350695562847912625483895268486516",
         },
         "alpha_U_unification_width": {
             "value": "0.041124336195630495",
@@ -254,8 +255,8 @@ def build_factor_origins() -> dict[str, Any]:
         "factor_four_P_star_resonance_target": {
             "value": "4 * P_star",
             "expression": "beta_EW * P_star",
-            "role": "OPH local/global EW resonance target Pi_EW(P_star, N_CRC^EW) = 4*P_star",
-            "source_theorem": "OPH EW resonance target identified by the EW tick-projection bridge",
+            "role": "declared CP-1 target Pi_EW(P_star,N_CRC^EW) = 4*P_star",
+            "source_theorem": "EW projection-map reduction; physical equality requires HIERARCHY-SCREEN-READOUT",
             "source_artifact": CORPUS_PI_EW_SOURCE,
         },
     }
@@ -283,8 +284,8 @@ def build_branch_scope() -> dict[str, str]:
             "m_rep = 24 is imported from the representation-to-spectrum round-count theorem (R_m_rep_24_certificate.json)"
         ),
         "ew_tick_projection_branch": (
-            "Pi_EW(P,N) = 24*pi/(alpha_U(P)*log(N/pi)) and the resonance target Pi_EW(P_star, N_CRC^EW) = 4*P_star "
-            "are imported from the EW tick-projection bridge (R_EW_tick_projection_certificate.json)"
+            "Pi_EW(P,N) = 24*pi/(alpha_U(P)*log(N/pi)) and the algebraic target Pi_EW(P_star,N_CRC^EW) = 4*P_star "
+            "are imported from R_EW_tick_projection_certificate.json; physical attachment of the target requires HIERARCHY-SCREEN-READOUT"
         ),
         "banach_contraction_branch": (
             "the OPH log-capacity averaging map C_EW(P,x) = (1-lambda)*x + lambda*6*pi/(P*alpha_U(P)) "
@@ -293,18 +294,19 @@ def build_branch_scope() -> dict[str, str]:
         ),
         "parallel_source_audit_branch_note": (
             "The source-audit branch witness (R_P_source_audit_pixel_certificate.json, "
-            "P_cand = 1.63097209569432901817967892561191884270169, alpha_U_P_cand = 0.04112424744557487) "
-            "is a parallel branch whose full endpoint proof is pending; it is not used by this certificate, "
+            "P_cand = 1.63097209585889737696451390350695562847912625483895268486516, alpha_U_P_cand = 0.04112424744181668514088993388965971943770774203135879) "
+            "is a parallel branch whose full endpoint proof is work in progress; it is not used by this certificate, "
             "but its parallel B_EW = 0 statement on the source-audit branch is implied by the same "
             "closed-form formula N_CRC^EW(P) = pi*exp[6*pi/(P*alpha_U(P))]"
         ),
         "scope_note": (
-            "This certificate proves the closed-form fixed point N_CRC^EW(P_star) = pi*exp[6*pi/(P_star*alpha_U(P_star))] "
-            "and the equivalent exact bridge residual B_EW(P_star, N_CRC^EW) = 0 on the public-endpoint pixel "
+            "This certificate proves the bridge-defined fixed-point identity N_CRC^EW(P_star) = pi*exp[6*pi/(P_star*alpha_U(P_star))] "
+            "and the equivalent algebraic residual B_EW(P_star, N_CRC^EW) = 0 on the public-endpoint pixel "
             "+ Krawczyk unification-width + D10 + representation-to-spectrum + EW tick-projection branches, "
             f"with the public Thomson endpoint A_T_public = {PUBLIC_ENDPOINT_A_T} declared as a branch locator "
             "(consistent with R_P_public_pixel_certificate.json's allowed list). No measured weak-scale v, "
-            "Higgs, top, W, Z, G, Planck area, Lambda, or hierarchy-ratio supplies any factor of the derivation."
+            "Higgs, top, W, Z, G, Planck area, Lambda, or hierarchy-ratio supplies any factor of the derivation. "
+            "The certificate does not independently emit cosmic capacity or prove HIERARCHY-SCREEN-READOUT."
         ),
     }
 
@@ -354,7 +356,7 @@ def build_consumer_artifacts() -> dict[str, str]:
             "certificates/R_local_global_hierarchy_resonance_closeout_335.json (composes this certificate "
             "with R_N_global_repair_tick_certificate.json, R_EW_tick_projection_certificate.json, "
             "R_readback_resolution_certificate.json, and R_m_rep_24_certificate.json into the umbrella "
-            "resonance theorem)"
+            "resonance identity conditional on HIERARCHY-SCREEN-READOUT)"
         ),
     }
 
@@ -369,13 +371,13 @@ def build_dependency_acyclicity_note() -> dict[str, Any]:
         "primary_theorems_are_independent": {
             "ew_tick_projection_primary": (
                 "R_EW_tick_projection_certificate.json defines Pi_EW(P,N) = 24*pi/(alpha_U(P)*log(N/pi)) "
-                "and the equivalence Pi_EW(P_star,N) = 4*P_star <=> B_EW(P_star,N) = 0 from the OPH "
+                "and the algebraic equivalence Pi_EW(P_star,N) = 4*P_star <=> B_EW(P_star,N) = 0 from the OPH "
                 "global repair-tick lemma, the D10 transmutation theorem, and the representation-to-spectrum "
                 "round count m_rep = 24. It does not derive a value for N_CRC^EW; that supply is delegated "
-                "to this certificate."
+                "to this certificate. The physical target equality requires HIERARCHY-SCREEN-READOUT."
             ),
             "exact_capacity_primary": (
-                "This certificate solves the closed-form source-side fixed point N_CRC^EW(P_star) = "
+                "This certificate solves the closed-form bridge-defined fixed point N_CRC^EW(P_star) = "
                 "pi*exp[6*pi/(P_star*alpha_U(P_star))] from the bridge residual B_EW(P_star,N) = 0 by "
                 "Banach contraction on the log-capacity coordinate. The Pi_EW form is imported as a "
                 "definitional input, not as a numerical-value supplier."
@@ -390,7 +392,7 @@ def build_dependency_acyclicity_note() -> dict[str, Any]:
         "umbrella_certificate_resolves_the_composition": (
             "R_local_global_hierarchy_resonance_closeout_335.json composes both certificates "
             "(plus R_N_global_repair_tick_certificate.json and R_m_rep_24_certificate.json) into the "
-            "full local/global hierarchy-resonance theorem. The umbrella depends on each peer; no peer "
+            "local/global hierarchy-resonance identity conditional on HIERARCHY-SCREEN-READOUT. The umbrella depends on each peer; no peer "
             "depends on the umbrella."
         ),
         "other_remaining_branches_are_upstream_only": (
@@ -535,7 +537,7 @@ def build_certificate(
             "Krawczyk-inclusion-certified finite-screen unified gauge-width center alpha_U(P_star) = 0.041124336195630495 from R_U_krawczyk_certificate.json with K(I_U) subset interior(I_U)",
             "D10 transmutation theorem fixing beta_EW = N_c + 1 = 4",
             "representation-to-spectrum round-count theorem fixing m_rep = 24",
-            "EW tick-projection bridge fixing Pi_EW(P,N) = 24*pi/(alpha_U(P)*log(N/pi)) and the resonance target Pi_EW(P_star, N_CRC^EW) = 4*P_star",
+            "EW projection-map reduction fixing Pi_EW(P,N) = 24*pi/(alpha_U(P)*log(N/pi)) and declaring the CP-1 target Pi_EW(P_star,N_CRC^EW) = 4*P_star",
             "pi and exp",
             "Banach fixed-point theorem on the source-side log-capacity averaging map",
         ],
@@ -548,8 +550,8 @@ def build_certificate(
                 "endpoint as a branch locator while explicitly forbidding it as an upstream source-map input"
             ),
             "parallel_source_audit_branch": (
-                "R_P_source_audit_pixel_certificate.json (P_cand = 1.63097209569432901817967892561191884270169, "
-                "alpha_U_P_cand = 0.04112424744557487) records the source-only branch witness; its full "
+                "R_P_source_audit_pixel_certificate.json (P_cand = 1.63097209585889737696451390350695562847912625483895268486516, "
+                "alpha_U_P_cand = 0.04112424744181668514088993388965971943770774203135879) records the source-only branch witness; its full "
                 "endpoint proof depends on same-scheme low-energy hadronic spectral transport, a Ward-projected "
                 "endpoint convention bridge, and an interval proof for the resulting A_T(P) self-map. Those "
                 "are not consumed here. The same closed-form B_EW(P, N_CRC^EW(P)) = 0 statement specialises "
@@ -565,23 +567,28 @@ def build_certificate(
             "observed hierarchy-ratio calibration",
             "public Thomson endpoint A_T_public as an upstream source-map input (it is allowed only as a declared branch locator)",
             "rounded 3.31e122 capacity display as an exact bridge certificate",
+            "bridge-defined N_CRC^EW as an independently emitted cosmic capacity",
+            "HIERARCHY-SCREEN-READOUT as a conclusion of this certificate",
         ],
         "claim_boundary": {
-            "closed_here": "source-side contraction fixed point for N_CRC^EW satisfying B_EW(P_star,N_CRC^EW)=0",
+            "closed_here": "bridge-defined contraction fixed-point identity N_CRC^EW satisfying B_EW(P_star,N_CRC^EW)=0",
             "rounded_display": "3.31e122 remains a capacity-scale display and fails the exact EW bridge residual.",
             "closed_elsewhere": [
                 "finite readback-resolution certificate in R_readback_resolution_certificate.json",
                 "representation-to-spectrum round-count theorem in R_m_rep_24_certificate.json",
-                "full local/global hierarchy-resonance closeout in R_local_global_hierarchy_resonance_closeout_335.json",
+                "exact conditional local/global hierarchy-resonance composition in R_local_global_hierarchy_resonance_closeout_335.json",
             ],
-            "not_closed_here": [],
+            "not_closed_here": [
+                "HIERARCHY-SCREEN-READOUT: log(E_cell/v)=Gamma_screen and its alpha_U/B_EW attachment",
+                "an independently emitted physical cosmic-capacity map",
+            ],
             "scope": (
-                "This certificate is restricted to the source-side closed-form fixed point "
+                "This certificate is restricted to the bridge-defined closed-form fixed point "
                 "N_CRC^EW(P_star) = pi*exp[6*pi/(P_star*alpha_U(P_star))] and the equivalent exact "
                 "bridge residual B_EW(P_star, N_CRC^EW) = 0 on the OPH local-pixel + D10 + "
                 "representation-to-spectrum + EW tick-projection branches. The rounded 3.31e122 "
                 "cosmological capacity display is recorded as a diagnostic-only label and is not "
-                "an exact bridge certificate."
+                "an exact bridge certificate. The identity is not an independent cosmic-capacity prediction."
             ),
         },
         "derivation_chain": derivation_chain,

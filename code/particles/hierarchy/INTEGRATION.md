@@ -22,9 +22,9 @@ The source-audit branch keeps the public Thomson endpoint out of the upstream
 path and records
 
 ```text
-P_cand = 1.63097209569432901817967892561191884270169 (predates the converged rerun; the certified P_fwd is 1.630972095858897..., ledger row CL-6)
-alpha_U(P_cand) = 0.04112424744557487
-v(P_cand)/E_star = 2.0198114150099223e-17
+P_cand = 1.63097209585889737696451390350695562847912625483895268486516
+alpha_U(P_cand) = 0.04112424744181668514088993388965971943770774203135879
+v(P_cand)/E_star = 2.019811407857633059133742618267014853993e-17
 ```
 
 The claim closed here is local electroweak hierarchy closure on the declared
@@ -105,7 +105,8 @@ rho_read(r,N_CRC) -> (N_CRC/pi)^(-1/2)
 with weak/Higgs/gravity/cosmology calibrations excluded.
 
 The issue-#343 artifact supplies the representation-to-spectrum round count.
-The observer-visible product adjoint has dimensions
+Conditional on active current algebra `su(3)+su(2)+u(1)`, its adjoint has
+dimensions
 
 ```text
 dim(su(3) + su(2) + u(1)) = 8 + 3 + 1 = 12
@@ -119,12 +120,17 @@ m_rep = 2 * 12 = 24.
 
 The SU(5) adjoint has the same single-orientation integer for a different
 support; its X/Y mixed gauge channels are excluded by the OPH product branch.
+The screen/A5 selector, global quotient, and MAR matter realization are not
+premises; physical-current identification is upstream.
 
 The issue-#335 close-out certificate accounts for the closed global tick,
 projection bridge, exact capacity fixed point, finite readback resolution,
 representation-to-spectrum round count, joint product branch, and RG/Higgs
-naturality records. It closes the umbrella issue as the full local/global
-`N_CRC` hierarchy-resonance theorem on the selected branch.
+naturality records. Their composition is an exact conditional local/global
+resonance. The screen supplies `X/12`; the product adjoint independently
+supplies `m_rep=24`. The physical relation requires
+`HIERARCHY-SCREEN-READOUT: log(E_cell/v)=Gamma_screen`, whose source production
+is work in progress.
 
 The joint `(P,N_CRC)` artifact defines the product branch map
 `J(P,x)=(Gamma(P),C_hat(x))` on `I_P x log I_N`. Component contraction
@@ -133,8 +139,8 @@ contains genuine cross-feedback, the package records the necessary
 weighted-sup derivative condition `max(a+b/r,d+r*c)<1`. The coupled branch
 has residual freedom unless that condition is supplied.
 
-The issue-#332 artifact closes the RG/Higgs naturality square on the selected
-exact branch. The verifier emits
+The issue-#332 artifact certifies the RG/Higgs naturality square on the selected
+comparison-map branch conditional on `HIERARCHY-SCREEN-READOUT`. The verifier emits
 
 ```text
 epsilon_n = epsilon_h = epsilon_H = 0

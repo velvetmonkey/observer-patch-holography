@@ -128,13 +128,13 @@
     "audit_artifact": "code/particles/runs/calibration/direct_top_bridge_contract.json",
     "auxiliary_direct_top_codomain": "Q007TP",
     "bridge_status": "hard_no_go_current_corpus_compare_only_direct_top_codomain",
-    "current_top_codomain": "Q007TP4",
+    "primary_top_codomain": "Q007TP4",
     "value_policy": "compare_only_codomain_values_withheld_from_final_prediction_output"
   },
   "finalization_gates": {
     "empirical_hadron_closure_policy_documented": true,
     "empirical_hadron_spectral_dataset_integrated": true,
-    "hierarchy_local_global_resonance_closed": true,
+    "hierarchy_local_global_resonance_closed": false,
     "higgs_naturality_defect_closed": true,
     "nonhadron_prediction_surface_buildable": true,
     "obstruction_only_worker_result_allowed": true,
@@ -171,49 +171,43 @@
       "status": "oph_plus_empirical_hadron_closure_endpoint"
     },
     "root_only_audit": {
-      "P": "1.63097209569432901817967892561191884270169",
-      "alpha": "0.00729954516887664794921875",
-      "alpha_inv": "136.994835164621649457949994585787193262029",
-      "missing_inverse_alpha_units_to_thomson_endpoint": "0.041164012378350542050005414212806737971",
-      "p_gap_implemented_minus_empirical": "0.0000038862903696933003990778292699013657063242089711084969148420339247715484988",
+      "P": "1.63097209585889737696451390350695562847912625483895268486516",
+      "alpha": "0.00729954526172440175717253605953558189309431675972983242103576",
+      "alpha_inv": "136.994835177412937295289429464436902857561206151035393184502",
+      "missing_inverse_alpha_units_to_thomson_endpoint": "0.041163999587062704710570535563097142438793848964606815498",
+      "p_gap_implemented_minus_empirical": "0.0000038864549380520852340557243066871431434032110276241990092466092206601066568",
       "promotable_as_exact_source_theorem": false,
       "row_class": "root_only_audit_trunk",
-      "status": "root_only_audit_before_alpha_U_addition"
+      "status": "certified_source_root_coordinate"
     },
     "source_only_oph": {
-      "P": "1.63097209569432901817967892561191884270169",
-      "alpha": "0.00729735467714250592971405837328959882723272750294478631093016722270090365401734773810955997",
-      "alpha_U": "0.041124336195630495",
-      "alpha_inv": "137.035959500817279952949994585787193262029",
-      "alpha_root_inv": "136.994835164621649457949994585787193262029",
-      "formula": "alpha_root^-1 + alpha_U(P_star)",
-      "minimal_missing_payload": "oph_qcd_ward_projected_hadronic_spectral_measure",
-      "missing_hadronic_correction_alpha_inv": "0.000039676182720047050005414212806737971",
-      "one_part_in": "3453860.47200957884504096803683387481007119644953257683990852614067753347339185161126082039",
-      "percent_shortfall": "0.0000289531093715017514615674912690376427684548585659122318204396420518829023665287125109688724",
       "promotable_as_exact_source_theorem": false,
-      "relative_shortfall": "2.89531093715017514615674912690376427684548585659122318204396420518829023665287125109688724E-7",
-      "row_class": "source_side_no_hadron_near_endpoint",
-      "status": "source_side_prediction_missing_only_small_qcd_hadronic_endpoint_correction"
+      "row_class": "source_only_physical_thomson_endpoint",
+      "status": "not_emitted"
     },
     "source_side_no_hadron_near_endpoint": {
-      "P": "1.63097209569432901817967892561191884270169",
-      "alpha": "0.00729735467714250592971405837328959882723272750294478631093016722270090365401734773810955997",
+      "P": "1.63097209585889737696451390350695562847912625483895268486516",
+      "alpha": "0.00729735467646135213287275959657089587430790891521842467142211875273997312200120436931566165",
       "alpha_U": "0.041124336195630495",
-      "alpha_inv": "137.035959500817279952949994585787193262029",
-      "alpha_root_inv": "136.994835164621649457949994585787193262029",
+      "alpha_inv": "137.035959513608567790289429464436902857561206151035393184502",
+      "alpha_root_inv": "136.994835177412937295289429464436902857561206151035393184502",
       "formula": "alpha_root^-1 + alpha_U(P_star)",
-      "minimal_missing_payload": "oph_qcd_ward_projected_hadronic_spectral_measure",
-      "missing_hadronic_correction_alpha_inv": "0.000039676182720047050005414212806737971",
-      "one_part_in": "3453860.47200957884504096803683387481007119644953257683990852614067753347339185161126082039",
-      "percent_shortfall": "0.0000289531093715017514615674912690376427684548585659122318204396420518829023665287125109688724",
+      "missing_hadronic_correction_alpha_inv": "0.000039663391432209710570535563097142438793848964606815498",
+      "one_part_in": "3454974.32843617797272979107957669952278026170274441788555972452953956815725634910697261682",
+      "open_physical_map_requirements": [
+        "source Ward-projected hadronic spectral measure",
+        "same-scheme finite remainder",
+        "one-coordinate fixed-point evaluation",
+        "interval certificate and theory uncertainty"
+      ],
+      "percent_shortfall": "0.0000289437751177916604322666514307897049455969499321918298417487080749524704872141861334049096",
       "promotable_as_exact_source_theorem": false,
-      "relative_shortfall": "2.89531093715017514615674912690376427684548585659122318204396420518829023665287125109688724E-7",
+      "relative_shortfall": "2.89437751177916604322666514307897049455969499321918298417487080749524704872141861334049096E-7",
       "row_class": "source_side_no_hadron_near_endpoint",
-      "status": "source_side_prediction_missing_only_small_qcd_hadronic_endpoint_correction"
+      "status": "certified_source_root_plus_public_width_diagnostic"
     }
   },
-  "generated_utc": "2026-07-12T03:51:10Z",
+  "generated_utc": "2026-07-18T05:32:31Z",
   "hadron_policy": {
     "empirical_hadron_closure_allowed_for_display": true,
     "empirical_payload_schema": "particles/hadron/empirical_ee_hadronic_spectral_measure.schema.json",
@@ -237,6 +231,13 @@
       "screen_sieve": "particles/hierarchy/certificates/R_screen_sieve_icosahedral_certificate.json"
     },
     "claim_boundary": {
+      "capacity_conditions": [
+        "supply HIERARCHY-SCREEN-READOUT and the Pi_EW=4P identification",
+        "construct the physical readback map F",
+        "discharge CP-1, CP-2, and CP-3",
+        "propagate the joint cosmological posterior before comparison"
+      ],
+      "count_independence": "m_rep=24 is derived from the doubled observer-visible product adjoint, independently of the screen sieve. The screen's twelve ports and oriented 24-slot register are an arithmetic alignment, not a physical identification.",
       "does_not_promote": [
         "public Thomson endpoint without the missing hadronic spectral payload",
         "electroweak massive-boson mass rows",
@@ -245,7 +246,8 @@
         "strong CP",
         "SI G without the full no-G clock stack"
       ],
-      "improves": "The hierarchy and Higgs naturality rows are promoted as selected-branch source-side results with zero bridge residual and epsilon_H=0."
+      "improves": "The selected branch has zero algebraic bridge residual and epsilon_H=0. Its hierarchy interpretation is conditional on HIERARCHY-SCREEN-READOUT.",
+      "missing_bridge": "HIERARCHY-SCREEN-READOUT must identify log(E_cell/v)=Gamma_screen; the alpha_U branch must then establish Pi_EW=4P, equivalently B_EW=0."
     },
     "factor_origins": {
       "curvature_charge": 12,
@@ -262,6 +264,7 @@
       "fixed_point_residual_x": "0.00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
       "projection_map": "-log(v/E_cell)/(-log|g_*'|) = 24*pi/(alpha_U(P)*log(N/pi))",
       "target_relation": {
+        "conditional_on": "HIERARCHY-SCREEN-READOUT",
         "hierarchy_ratio": "v/E_cell = (N_CRC^EW/pi)^(-P_star/12)",
         "tick_form": "v/E_cell = |g_*'|^(4*P_star)",
         "transport_time": "t_tr(P_star) = (P_star/12) * log(N_CRC^EW/pi)"
@@ -275,11 +278,12 @@
         "capacity_certificate_accepted": true,
         "cell_count_reconstructs_capacity": true,
         "cosmological_cell_coordinate_matches_count_form": true,
+        "hierarchy_screen_readout_is_named_open_premise": true,
         "joint_product_branch_recorded": true,
         "primitive_carrier_not_selected_here": true,
         "readback_uses_same_n_crc_ew": true,
-        "resonance_certificate_promoted": true,
-        "screen_sieve_supplies_twelve_ports": true,
+        "resonance_certificate_is_exact_conditional": true,
+        "screen_sieve_supplies_twelve_ports_and_x_over_twelve": true,
         "si_lambda_not_promoted_here": true
       },
       "claim_boundary": {
@@ -288,7 +292,8 @@
           "a primitive one-cell or fixed-block carrier theorem",
           "an SI Lambda value without the selected scale certificate",
           "an SI G or no-G clock-stack promotion",
-          "a coupled (P,N_CRC) source-map theorem beyond the recorded product branch"
+          "a coupled (P,N_CRC) source-map theorem beyond the recorded product branch",
+          "HIERARCHY-SCREEN-READOUT: log(E_cell/v)=Gamma_screen"
         ]
       },
       "dimensionless_de_sitter_coordinate": {
@@ -301,14 +306,18 @@
         "relative_cell_coordinate_error": "0",
         "si_display_boundary": "SI Lambda requires the selected scale certificate and is not emitted here."
       },
-      "shared_12_24_port_lock": {
-        "hierarchy_readout": "v/E_cell = (N_CRC^EW/pi)^(-P_star/12)",
+      "shared_12_24_port_alignment": {
+        "conditional_hierarchy_readout": "v/E_cell = (N_CRC^EW/pi)^(-P_star/12)",
+        "conditional_tick_form": "v/E_cell = |g_*'|^(4*P_star)",
+        "conditional_transport_time": "t_tr(P_star) = (P_star/12) * log(N_CRC^EW/pi)",
+        "gamma_screen_algebra": "Gamma_screen=(P_star/12)*log(N_CRC^EW/pi)",
+        "identification_premise": "HIERARCHY-SCREEN-READOUT",
+        "identification_status": "work_in_progress",
         "repair_register_slots": 24,
         "repair_register_source": "certificates/R_m_rep_24_certificate.json",
+        "screen_load_split": "X/12",
         "screen_port_source": "certificates/R_screen_sieve_icosahedral_certificate.json",
-        "screen_ports": 12,
-        "tick_form": "v/E_cell = |g_*'|^(4*P_star)",
-        "transport_time": "t_tr(P_star) = (P_star/12) * log(N_CRC^EW/pi)"
+        "screen_ports": 12
       },
       "source_pair": {
         "N_CRC_EW": "3.5323546226929906511187512962330547600462096590942035604238177731136802717148740820434110040644403858228611984E+122",
@@ -340,13 +349,16 @@
     "status": {
       "accepted": true,
       "ew_capacity_status": "closed_bridge_refined_global_capacity_fixed_point_certificate",
-      "full_theorem_grade_resonance_promoted": true,
+      "full_theorem_grade_resonance_promoted": false,
       "higgs_naturality_status": "closed_exact_selected_branch",
       "m_rep_status": "closed_representation_to_spectrum_round_count",
       "readback_status": "closed_finite_readback_resolution_certificate",
-      "remaining_promotion_gates": [],
-      "resonance_status": "closed_full_local_global_hierarchy_resonance",
-      "screen_sieve_status": "closed_on_declared_triangulated_screen_branch"
+      "resonance_status": "exact_conditional_local_global_hierarchy_resonance",
+      "screen_sieve_status": "conditional_finite_selector_theorem",
+      "work_in_progress_receipts": [
+        "source production of the unit cost, inverse pairing, and D-optimal selector",
+        "HIERARCHY-SCREEN-READOUT: identify log(E_cell/v)=Gamma_screen and attach it to the alpha_U/B_EW branch"
+      ]
     }
   },
   "output_classes": [
@@ -359,8 +371,8 @@
     "conditional_classical_carrier_mode_not_particle_mass_prediction"
   ],
   "p_closure": {
-    "P": "1.63097210492078846050203640439",
-    "alpha_inv": "136.994020662724205139718642793",
+    "P": "1.630972172289734415925897501373482673022655099072161516985001733211109918232723345616738572172898702297689609012",
+    "alpha_inv": "136.9940258961185127104409023920559579278278595210377402655367838643416163059458987723160506837823465289198011341",
     "claim_status": "compressed_candidate_trunk_not_final_particle_root",
     "may_feed_live_particle_predictions": false
   },

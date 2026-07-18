@@ -20,7 +20,7 @@ python3 independent_trichotomy_check.py  # independent re-derivation, trusts not
 python3 test_audit.py                    # regression suite
 ```
 
-Requires Python 3.11+ and SymPy. Both scripts exit 0.
+Requires Python 3.11+ and SymPy. The suite exits 0.
 
 ## What is certified (exact; no floating-point fit, no measured number)
 
@@ -30,6 +30,7 @@ Requires Python 3.11+ and SymPy. Both scripts exit 0.
 | Adjacency spectrum | `det(xI-A) = (x-5)(x+1)^5(x^2-5)^3` → canonical ranks `1,3,3,5` |
 | SM adjoint restriction | `ad su(3) = End_0(3') = 3' + 5`; with `su(2) → 3`, `u(1) → 1`, the total is `1 + 3 + 3' + 5` |
 | Icosahedral selection | 3 distinct inner products `{-1, ±1/sqrt5}`, spherical 5-design ⇒ **sharp** (`m=3`, strength `2m-1=5`). By Cohn–Kumar (JAMS 20, 2007) it uniquely minimizes every strictly completely monotonic pair cost of squared distance, up to `O(3)`. |
+| D-optimal selector | Maximizing `det(F1) det(F2)` at fixed vector/quadrupole trace gives `F1=2 I3`, `F2=(4/5) I5`; the six centered projectors form a regular simplex, hence the unique real ETF(3,6), the icosahedral axes. The objective remains a source-side branch premise. |
 | Compact-Lie trichotomy | Exactly three algebras: `u(1)^12`, `su(2)^2 + u(1)^6`, `su(3) + su(2) + u(1)` |
 | **Inner-action closure** | If the `A5` action is **inner**: `dim Z(g) <= 1` (inner autos fix the center pointwise); `Z(g)=0` forces `su(2)^4` whose fixed-space dimension is a multiple of 3, contradicting `dim g^{A5}=1`; hence `dim Z(g)=1`, semisimple dim 11, and `11=8+3` uniquely ⇒ `su(3)+su(2)+u(1)`. **Needs no `W5-NONCENTRAL` receipt.** |
 | Angular multiplets | `l=2: 5` (irreducible); `l=3: 3'+4`; `l=4: 4+5`; `l=5: 3+3'+5`; `l=6: 1+3+4+5`. First nonconstant invariant at `l=6`. |
@@ -51,36 +52,37 @@ semisimple algebra has dimension 1, 5, or 7, or because an `A1^4` / `A1^2`
 adjoint cannot supply `5` (any homomorphism `A5 → S_4` is trivial, `A5` being
 simple of order 60).
 
-## Claim boundary — read before citing
+## Claim boundary
 
-This is a **receipt-conditional theorem**, not an empirical result.
-
-- It emits the gauge **Lie algebra** on the screen branch **without** the
-  realized matter package, so it is logically independent of the MAR clause
-  inputs (GAP-B9). That independence is the point of the result.
-- It does **not** emit the global `Z6` quotient, the hypercharge lattice, or the
-  chiral content. Those remain on the MAR route.
-- It **predicts no new measurement.** It is an explanatory closure of the
-  `8+3+1` conjunction, not an observational discriminator. Do not list it in a
-  forward-test or frozen-target table.
+The exact chain is a conditional finite `A5` module, a compact coefficient
+bracket, trace-balanced block integration under coefficient `1/2`, and a
+six-axis lattice quotient `Z6`. Central record projectors commute; physical
+gauge currents and global form require the full-rank compact skew-adjoint
+receipt **PORT-CURRENT-INNER**,
+**PORT-SPIN-LIFT**, block/axis descent, and the MAR matter/tensor-kernel premises.
+The coefficient construction supplies no observational discriminator.
 
 ### Open receipts
 
-- **RP-A5** — emit a strictly completely monotonic pair kernel from the finite
-  collar mismatch/recovery cost **without inserting the target geometry**. With
-  Cohn–Kumar this retires the icosahedral choice entirely.
-- **PORT-CURRENT-INNER** — the single gate on the inner branch: construct a
-  nonzero refinement-compatible map from port fluctuations to current
-  generators and prove the geometric `A5` action is conjugation on its image.
-- *(weaker group-level branch only)* **A5-COMMON-ACTION** + **W5-NONCENTRAL** —
+- **UD12**: emit a feasible integer charge domain and additive strict
+  unit-splitting cost.
+- **RP-A5**: emit either the D-optimal tomography objective or a strictly
+  completely monotonic pair kernel without an icosahedral template.
+- **PORT-CURRENT-INNER**: construct a full-rank `A5`-equivariant map onto a
+  twelve-dimensional compact commutator-closed current algebra, prove that the
+  induced action lies in `Int(g)`, and intertwine refinement.
+- *(weaker group-level branch only)* **A5-COMMON-ACTION** + **W5-NONCENTRAL**:
   one group-level action shared by ports and gauge reconstruction, plus one
   source-derived repair composition with nonzero projected `W_5` commutator.
-- **A5-FAMILY-ATTACHMENT** (family corollary only) — prove the chiral family
+- **BLOCK-DETERMINANT-BALANCE**, **PORT-SPIN-LIFT**, and
+  **AXIS-CENTER-DESCENT**: select total trace zero, land the mathematical
+  Clifford lift physically, and identify port-loop winding with the deck class.
+- **A5-FAMILY-ATTACHMENT** (family corollary only): prove the chiral family
   fiber's local face-corner phase is the restriction of a global `3` or `3'`
   action, independent of port labels, worker IDs, chart choices, and refinement
   presentation.
 
-## Prospective coupling relation (NOT present evidence)
+## Conditional coupling relation
 
 If the physical quadratic gauge kinetic operator on the port module is an
 adjacency polynomial `K = f(A)`, color coherence (the color triplet and quintet
@@ -91,30 +93,26 @@ k1 = 3*k2 - 2*k3
 ```
 
 independent of which inequivalent triplet carries color (both assignments
-verified). At degree one it collapses to bare coupling unification. This is a
-clean discriminator **only after** OPH derives the polynomial degree, the
-kinetic normalization, the carrier scale, and the complete threshold/RG map.
-**Choosing the degree after inspecting the couplings would invalidate the test**,
-and it is therefore not registered as a forward test.
+verified). At degree one it collapses to bare coupling unification. A physical
+discriminator requires a source-derived polynomial degree, kinetic
+normalization, carrier scale, and complete threshold/RG map. The relation is
+not a forward test.
 
 ## Formal status
 
-`Lean/.../A5Bridge.lean` verifies the character identities and the
-bracket-multiplicity arithmetic without `sorry`. The compact-Lie trichotomy is
-**not yet Lean-formalized**; it is certified here by exact representation
-arithmetic plus the paper proof. A future Lean development should formalize:
-rationality of the center-torus representation, the low-dimensional compact
-semisimple classification step, and the rank-five noncentral corollary.
+`Lean/ObserverPatchHolography/Screen/Compact12.lean` formalizes the abstract
+`u(3) + so(3)` matrix commutator, Lie laws, dimension, and a matrix
+noncentrality witness. `Z6Exact.lean` formalizes the six-axis lattice quotient,
+`S2DesignSignature.lean` formalizes the `11/25` arithmetic, and
+`UnitSplit12.lean` proves only that twelve positive integer weights summing to
+twelve are all one. The slot count, Euler/cost law, source selector,
+icosahedral frame, `Phi`, face orientation, `Theta`, `A5` equivariance,
+compact-Lie trichotomy, trace-balanced group, and physical descent are paper
+proofs or open receipts.
 
 ## Novelty boundary
 
-Finite-group flavor models have long used triplet representations to organize
-three generations, and the Standard Model's global quotients and line sectors
-are established subjects. The narrower claim here is that the same icosahedral
-screen supplies the exact **full** gauge-adjoint module, and that compactness
-plus one rank-five dynamical receipt turns that module into a unique gauge Lie
-algebra. A targeted arXiv/INSPIRE search on 17 July 2026 did not locate the
-exact icosahedral-vertex / full-SM-adjoint identity combined with this
-compact-Lie trichotomy. **This is not a proof of priority**; a specialist
-representation-theory and particle-theory literature review is still required
-before any formal novelty claim.
+Finite-group flavor models use triplet representations, and Standard-Model
+global quotients and line sectors are established subjects. This certificate
+makes no priority claim. Its scoped result is the full gauge-adjoint module on
+the icosahedral vertices plus the conditional compact-Lie classification.

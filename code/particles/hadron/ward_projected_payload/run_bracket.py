@@ -16,8 +16,7 @@ does not enter the bracket. This process contains and reads no comparison
 target, comparison tolerance, measurement-located P, or scoring rule. It uses
 only the source-derived internal Stage-5 root. Its output is a diagnostic
 sampled-grid envelope, not a certified interval and not the P-domain function
-required by the corrective target contract. Seal the output before passing it
-to ``score_bracket.py`` in a separate process.
+required by physical closure.
 """
 
 from __future__ import annotations
@@ -209,10 +208,7 @@ def build_bracket(
             "sampled_grid_extrema_interval_certificate": False,
         },
         "scoring_status": "NOT_EVALUABLE_SOURCE_DIAGNOSTIC",
-        "scoring_process": (
-            "score_bracket.py must run after artifact sealing; the canonical "
-            "corrective target currently fails closed before scoring"
-        ),
+        "scoring_process": None,
         "promotion_allowed": False,
         "promotion_reason": (
             "singleton sampled-grid envelope is not a certified P-domain payload"

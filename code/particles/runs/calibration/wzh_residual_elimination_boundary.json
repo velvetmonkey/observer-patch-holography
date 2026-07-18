@@ -1,21 +1,21 @@
 {
   "artifact": "oph_wzh_residual_elimination_boundary",
   "branch": {
-    "P": "1.63097209569432901817967892561191884270169",
-    "alpha_U": "0.04112424744557487",
+    "P": "1.63097209585889737696451390350695562847912625483895268486516",
+    "alpha_U": "0.04112424744181668514088993388965971943770774203135879",
     "id": "source_audit_P_cand",
-    "source_sha256": "11aeb17fd03b032af987100f8b865786f77b17c6d81aa4a649984e5059f42010"
+    "source_sha256": "5fd78433b7fe5832c931507694aa0c378301bec589b33656abdc64b0d746443c"
   },
   "checks": {
     "c10_carrier_reproduction": true,
     "c11_carrier_reproduction": true,
     "d11_exact_readout": true,
     "j10_rigidity_identity": true,
-    "literal_ivp_algebraic_consistency": true,
+    "literal_ivp_algebraic_consistency": false,
     "nonzero_law_has_positive_J10": true,
     "two_law_evaluator_agreement": true
   },
-  "checks_pass": true,
+  "checks_pass": false,
   "claim_boundary": "Both branch points are tree/chart coordinates on the strict source-audit branch. They are conditional on the discrete repair law choice, the witness-level P root, the declared D11 surface, and the open clock, RG, carrier, and BRST pole packets.",
   "d11_exact_readout": {
     "checks_pass": true,
@@ -51,10 +51,10 @@
   },
   "literal_source_ivp": {
     "algebraic_consistency": {
-      "mH_tree_equals_sqrt_2lambda_v_residual": 0.0,
-      "mt_ms_equals_yt_v_over_sqrt2_residual": 3.3306690738754696e-16
+      "mH_tree_equals_sqrt_2lambda_v_residual": 3.5410677723390904e-09,
+      "mt_ms_equals_yt_v_over_sqrt2_residual": 3.5410683274506027e-09
     },
-    "checks_pass": true,
+    "checks_pass": false,
     "display_GeV_using_unclosed_clock": {
       "mH_tree": 115.10128055804651,
       "mt_MSbar": 154.779273546571,
@@ -91,7 +91,7 @@
     "four_slot_measure": "1/4 (unique for a transitive four-slot register)",
     "invariant_color_measure": "1/3 (unique for a transitive C3 action)",
     "lambda_EW_emission": "lambda_EW = eta^2 / (4 beta)",
-    "lambda_EW_emission_residual": 2.710505431213761e-20,
+    "lambda_EW_emission_residual": 0.0,
     "response_polynomials": {
       "C_2": "1 + (2/3) eta + (1 - beta/6) eta^2",
       "C_n": "1 + (4/3) eta + (2 - beta/6) eta^2",
@@ -107,11 +107,11 @@
     "declared_D11_coefficients_emitted": {
       "A_T": {
         "formula": "N_c/2 + beta/4 = 3/2 + beta/4",
-        "value": 1.6346324100437208
+        "value": 1.6346324100443452
       },
       "B_H": {
         "formula": "C_F - beta/54 = 4/3 - beta/54",
-        "value": 1.3233605622189835
+        "value": 1.3233605622189373
       },
       "log_character": "rho(uv) = rho(u) + rho(v) with rho'(1) = 1 forces rho = log; rho_HT = log(1 + tau2)"
     },
@@ -122,8 +122,8 @@
   },
   "remaining_discrete_selection": {
     "certified_ambiguity_width_GeV": {
-      "MW": 0.00928485276493518,
-      "MZ": 0.0050698956707719844
+      "MW": 0.009284852729948057,
+      "MZ": 0.005069895651629963
     },
     "mechanism_receipt": "runs/calibration/qme_source_action_rigidity_mechanism.json",
     "options": [
@@ -137,51 +137,51 @@
   "status": "expanded_partial_rigidity_closure_not_full_source_pole_prediction",
   "strict_branch_two_law_boundary": {
     "basis": {
-      "alpha2_mz": 0.033777814112390996,
-      "alphaY_mz": 0.010131400543429992,
-      "beta_EW": 0.5385296401748836,
-      "eta_source": 0.02214662617932832,
-      "kappa_selector": 4.333972827112755,
-      "lambda_EW": 0.00022769083377083613,
-      "v_over_E_star": 2.0198114150099223e-17
+      "alpha2_mz": 0.0337778141092008,
+      "alphaY_mz": 0.010131400542401836,
+      "beta_EW": 0.5385296401773811,
+      "eta_source": 0.02214662617740713,
+      "kappa_selector": 4.333972827136212,
+      "lambda_EW": 0.00022769083373027642,
+      "v_over_E_star": 2.019811407857633e-17
     },
     "canonical_evaluator_agreement": {
-      "MW_over_E_star_from_shared_evaluator": 6.578870367942111e-18,
-      "MZ_over_E_star_from_shared_evaluator": 7.463750125274475e-18,
+      "MW_over_E_star_from_shared_evaluator": 6.578870344335345e-18,
+      "MZ_over_E_star_from_shared_evaluator": 7.463750098489782e-18,
       "matches_nonzero_law": true
     },
     "incompatibility": {
-      "J10_at_nonzero": 3.120420453851235e-07,
+      "J10_at_nonzero": 3.120420452752223e-07,
       "J10_at_zero": 0.0,
       "statement": "The archived selector attains its global minimum at the zero deformation, and the nonzero repair tuple has J10 > 0. The nonzero law is a replacement law, never a refinement of the archived selector. Numerical W/Z agreement cannot choose between them."
     },
     "nonzero_carrier_law": {
-      "J10": 3.120420453851235e-07,
-      "MW_over_E_star": 6.578870367942111e-18,
-      "MZ_over_E_star": 7.463750125274475e-18,
-      "delta_n": 0.00023462760775447386,
+      "J10": 3.120420452752223e-07,
+      "MW_over_E_star": 6.578870344335345e-18,
+      "MZ_over_E_star": 7.463750098489782e-18,
+      "delta_n": 0.00023462760771205814,
       "id": "running_tree_value_law",
-      "sin2w_eff": 0.22305822209853243,
-      "tau2": -0.00023115420901653248
+      "sin2w_eff": 0.223058222097962,
+      "tau2": -0.0002311542089750465
     },
     "zero_selector_law": {
       "J10": 0.0,
-      "MW_over_E_star": 6.579630866577059e-18,
-      "MZ_over_E_star": 7.463334863036661e-18,
+      "MW_over_E_star": 6.579630842967428e-18,
+      "MZ_over_E_star": 7.463334836253536e-18,
       "delta_n": 0.0,
-      "sin2w_eff": 0.2227921062603209,
+      "sin2w_eff": 0.2227921062597988,
       "tau2": 0.0
     }
   },
   "two_law_display": {
     "display_scale_status": "GeV columns use the unclosed clock candidate; the clock lane classifies that decimal as a calibration checksum",
     "nonzero_carrier_law": {
-      "MW_GeV": 80.32077891914327,
-      "MZ_GeV": 91.12418852956095
+      "MW_GeV": 80.32077863093059,
+      "MZ_GeV": 91.12418820254928
     },
     "zero_selector_law": {
-      "MW_GeV": 80.3300637719082,
-      "MZ_GeV": 91.11911863389018
+      "MW_GeV": 80.33006348366054,
+      "MZ_GeV": 91.11911830689765
     }
   }
 }

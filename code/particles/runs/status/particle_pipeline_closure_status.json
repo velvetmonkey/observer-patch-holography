@@ -88,7 +88,7 @@
       "exists": true,
       "path": "particles/hierarchy/certificates/R_local_global_hierarchy_resonance_closeout_335.json",
       "promotion_allowed": null,
-      "status": "closed_full_local_global_hierarchy_resonance"
+      "status": "exact_conditional_local_global_hierarchy_resonance"
     },
     "hierarchy_m_rep_24": {
       "artifact": "R_m_rep_24_certificate",
@@ -123,7 +123,7 @@
       "exists": true,
       "path": "particles/hierarchy/certificates/R_screen_sieve_icosahedral_certificate.json",
       "promotion_allowed": null,
-      "status": "closed_on_declared_triangulated_screen_branch"
+      "status": "conditional_finite_selector_theorem"
     },
     "measured_endpoint_calibration": {
       "artifact": "oph_measured_fine_structure_endpoint_calibration",
@@ -312,7 +312,7 @@
   "finalization_gates": {
     "empirical_hadron_closure_policy_documented": true,
     "empirical_hadron_spectral_dataset_integrated": true,
-    "hierarchy_local_global_resonance_closed": true,
+    "hierarchy_local_global_resonance_closed": false,
     "higgs_naturality_defect_closed": true,
     "nonhadron_prediction_surface_buildable": true,
     "obstruction_only_worker_result_allowed": true,
@@ -323,7 +323,7 @@
     "source_spectral_stage_gate": "populated source spectral measure payload plus interval certificate",
     "symmetry_only_particle_promotion_blocked": true
   },
-  "generated_utc": "2026-07-12T03:51:10Z",
+  "generated_utc": "2026-07-18T05:32:25Z",
   "issue_gates": [
     {
       "chrome_workers": "not_needed_for_analytic_claim_gate",
@@ -356,11 +356,15 @@
     {
       "chrome_workers": "not_needed_for_closed_certificate",
       "closable_now": true,
-      "full_theorem_grade_resonance_promoted": true,
+      "full_theorem_grade_resonance_promoted": false,
       "issue": 335,
       "local_next_artifact": "particles/hierarchy/certificates/R_local_global_hierarchy_resonance_closeout_335.json",
-      "state": "closed_full_local_global_hierarchy_resonance",
-      "title": "Local/global hierarchy resonance"
+      "state": "exact_conditional_local_global_hierarchy_resonance",
+      "title": "Local/global hierarchy resonance",
+      "work_in_progress_receipts": [
+        "source production of the unit cost, inverse pairing, and D-optimal selector",
+        "HIERARCHY-SCREEN-READOUT: identify log(E_cell/v)=Gamma_screen and attach it to the alpha_U/B_EW branch"
+      ]
     },
     {
       "chrome_workers": "not_needed_for_closed_package",

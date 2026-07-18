@@ -252,11 +252,11 @@ C_\ell
 \frac{dk}{k}
 \Delta_\zeta^2(k)j_\ell^2(k\chi_\star)
 ```
-has a null space unless a radial prior, finite parametric family, or source-stress bridge is declared. OPH primordial promotion requires the source-only stress, single-clock, entropy-repair, curvature-evolution, adiabatic-mode, phase-coherence, screen-to-radial-lift, radial-null-space, and forward-projection receipts. Observable CMB promotion further requires frozen source, solver, likelihood, no-data-use, pooled-reducer, and falsification-rule receipts.
+has a null space unless a radial prior, finite parametric family, or source-stress bridge is declared. OPH primordial promotion requires source-only stress, a single clock, entropy repair, curvature evolution, an adiabatic mode, phase coherence, a screen-to-radial lift, null-space control, and a forward projection. Observable CMB comparison also requires declared source, solver, dataset, covariance, nuisance, and data-use provenance.
 
 #### Claim tiers and required receipts.
 
-Every ensemble-facing run records immutable ensemble id, claim tier, regulator id, representative schema hash, gauge action hash, canonicalizer hash, base measure, action coefficients, coarse maps, zero-mode projector, amplitude convention, sampler hash, smoothing policy, source provenance, and explicit nonclaims. The seed belongs to the run receipt, not to the ensemble definition. The claim tiers are
+Every ensemble-facing run records its ensemble id, claim tier, regulator, representative schema, gauge action, canonicalizer, base measure, action coefficients, coarse maps, zero-mode projector, amplitude convention, sampler, smoothing policy, source provenance, and explicit nonclaims. The seed belongs to the run receipt rather than the ensemble definition. The claim tiers are
 ``` math
 \begin{array}{ll}
 E0:&\text{seed noise, proposal noise, repair jitter},\\
@@ -267,7 +267,7 @@ E4:&\text{OPH primordial field},\\
 E5:&\text{observable cosmological prediction}.
 \end{array}
 ```
-The simulator must keep separate receipts for stationary-law schedule invariance, detailed balance of the aggregate kernel, and pathwise partition invariance. Deterministic replay of semantic random streams or a canonical serial chain is useful, but it is not pathwise partition invariance. Smoothing must preserve raw coefficients, raw spectra, smoothing kernels, smoothed coefficients, smoothed spectra, and hashes of each stage; it is not part of $`S_r`$ unless explicitly declared.
+The simulator must keep separate receipts for stationary-law schedule invariance, detailed balance of the aggregate kernel, and pathwise partition invariance. Deterministic replay of semantic random streams or a canonical serial chain is useful, but it is not pathwise partition invariance. Smoothing must retain raw coefficients, raw spectra, smoothing kernels, smoothed coefficients, and smoothed spectra; it is not part of $`S_r`$ unless explicitly declared.
 
 # Finite Screen Spectrum Theorem Package
 
@@ -298,7 +298,7 @@ Patch count alone is therefore not an angular-resolution certificate.*
 ``` math
 J_{X,r}(x)=\lambda_r(x)\sqrt{\det\sigma_{AB,r}(x)}>0,
 ```
-and let $`\bar J_{X,r}`$ be emitted by an independently defined homogeneous or frozen-background branch, not by a CMB fit. Define
+and let $`\bar J_{X,r}`$ be emitted by an independently defined homogeneous or fixed-background branch, not by a CMB fit. Define
 ``` math
 q_{0,r}=\frac13\log\frac{J_{X,r}}{\bar J_{X,r}}.
 ```
@@ -403,7 +403,7 @@ A Gaussian statement on that branch requires a separate Laplace or central-limit
 
 <div id="def:oph-screen-release-energy" class="definition">
 
-**Definition 7** (source release energy). *The amplitude source is an independently selected quotient ensemble $`\nu^{\rm src}_r`$ on frozen or released collar normal forms:
+**Definition 7** (source release energy). *The amplitude source is an independently selected quotient ensemble $`\nu^{\rm src}_r`$ on selected or released collar normal forms:
 ``` math
 E^{\rm src}_{q,r}
   =\frac12\int \langle q_r(x),K_rq_r(x)\rangle_r\,d\nu^{\rm src}_r(x).
@@ -570,7 +570,7 @@ The anomaly abundance selector is owned by `cosmology/oph_dark_matter_paper.tex`
 | Near scale invariance | Geometric screen scalar, normalized scalar precision, source release energy, refinement tilt, and angular screen-spectrum receipts. |
 | Amplitude | Source release-energy certificate for $`A_q`$, followed by a separate radial lift for $`A_\zeta`$; neither may be fitted from CMB data. |
 | Hot start | MaxEnt release into the realized radiation branch with a common release clock. |
-| Acoustic transfer | Frozen source functions and Boltzmann transfer owned by the finite-source CMB and data-contract papers. |
+| Acoustic transfer | Declared source functions and Boltzmann transfer owned by the finite-source CMB and data-contract papers. |
 
 # Simulator Contract
 
@@ -608,4 +608,4 @@ enters this paper only after the thin-shell or finite-window lift fixes $`R_\sta
 
 5.  Connect the synchronized release state to the source-only primordial bridge.
 
-6.  Hand the resulting frozen inputs to the CMB and likelihood-contract papers.
+6.  Hand the resulting source inputs to the CMB and likelihood-contract papers.

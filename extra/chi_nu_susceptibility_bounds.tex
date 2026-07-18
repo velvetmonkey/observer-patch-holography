@@ -4,8 +4,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
 \usepackage[margin=1in]{geometry}
-\usepackage{amsmath,amssymb,amsthm,mathtools,bm}
-\usepackage{booktabs,longtable,array,tabularx}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,tabularx}
 \usepackage[shortlabels]{enumitem}
 \usepackage{xcolor}
 \usepackage{hyperref}
@@ -16,51 +16,30 @@
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{0.55em}
 \setlength{\emergencystretch}{3em}
-\renewcommand{\arraystretch}{1.12}
-\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
-\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
 \numberwithin{equation}{section}
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{definition}[theorem]{Definition}
-\newtheorem{assumption}[theorem]{Assumption}
 \newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{assumption}[theorem]{Assumption}
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
 
 \newcommand{\OPH}{\mathrm{OPH}}
+\newcommand{\RPC}{\mathrm{RPC}}
 \newcommand{\chinu}{\chi_\nu}
 \newcommand{\chican}{\chi_\nu^{\mathrm{can}}}
 \newcommand{\chieng}{\chi_\nu^{\mathrm{eng}}}
-\newcommand{\scoh}{S_{\mathrm{coh}}}
 \newcommand{\scohcan}{S_{\mathrm{coh}}^{\mathrm{can}}}
 \newcommand{\scoheng}{S_{\mathrm{coh}}^{\mathrm{eng}}}
 \newcommand{\Ncoh}{N_{\mathrm{coh}}}
-\newcommand{\nueff}{\nu_{\mathrm{eff}}}
-\newcommand{\nuoph}{\nu_{\mathrm{OPH}}}
-\newcommand{\gbar}{\mathbf g_b}
-\newcommand{\A}{\mathcal A}
-\newcommand{\I}{\mathcal I}
-\newcommand{\Ralg}{\mathcal R}
-\newcommand{\U}{\mathcal U}
-\newcommand{\Zrec}{\mathcal Z^{\mathrm{rec}}}
-\newcommand{\RecCap}{\operatorname{Cap}}
-\newcommand{\Law}{\operatorname{Law}}
-\newcommand{\TV}{\mathrm{TV}}
-\newcommand{\dd}{\,\mathrm d}
-\newcommand{\eps}{\varepsilon}
-\newcommand{\rhoa}{\rho_A}
-\newcommand{\Cgeom}{C_g}
-\newcommand{\Gammaeff}{\Gamma_{\mathrm{eff}}}
 \newcommand{\lambdac}{\lambda_{\mathrm{collar}}}
-\newcommand{\Zsix}{\mathbb Z_6}
+\newcommand{\dd}{\,\mathrm d}
 
 \title{\textbf{Theoretical Bounds on \(\chinu\) in Observer-Patch Holography}\\
-\large Coherent-Matter Susceptibility and the Construction Window}
+\large Canonical Coherent-Matter Susceptibility and Repair-Charge Coupling}
 \author{Bernhard Mueller, Alex Osika, and David Matscheko}
-\date{Draft of May 24, 2026}
+\date{\OPHPaperReleaseDate}
 \input{../paper/release_info}
 
 \begin{document}
@@ -71,1966 +50,425 @@
 \end{center}
 
 \begin{abstract}
-The OPH coherent-matter scalar branch contains a susceptibility coefficient. On
-the uniform product-thickening branch with slice-wise scalar-reserve
-unbiasedness, the canonical value is
-\(\chi_\nu=1-P/24=0.9320429912748350\ldots\), with \(P\) the public endpoint
-scalar. In the engineering chart used here, the same invariant coefficient
-appears as a very small vertical response.
-
-The estimate turns the branch into a laboratory target. For a \(100\,\mathrm{kg\,m^{-2}}\) platform, full weight response asks for coherence contrast near \(10^{-8}\). Ten percent assist asks for contrast near \(10^{-9}\). The substrate question is open: a controlled experiment must show whether real materials can produce that scalar contrast.
+The coherent-material branch of observer-patch holography supplies a canonical
+scalar source in the same quotient-edge register as the protected collar
+reserve. On the co-registered presence branch, the dimensionless coupling is
+\(\chi_\nu^{\rm can}=1-P/24=0.9320429912748350\ldots\). Under the weaker
+mean-count reading it lies between that value and one. This is a channel
+coefficient, not a force coefficient. A proposed repair-charge condensate
+action couples the source to a dynamical repair phase. Conditional on that
+action, repair-current continuity, dilute dust behavior, spherical deep-galaxy
+scaling, field stress, and a lawful coherent-source force follow from one
+variational system. A compact neutral coherence contrast has no monopole and
+cannot support a closed device. The dimensional source calibration, ambient
+repair field, compact-phase completion, and laboratory source receipt are work
+in progress; no numerical lift prediction follows from \(\chi_\nu\) alone.
 \end{abstract}
 
-\section*{What This Paper Contributes}
-
-This note takes one dark-sector scalar coefficient and turns it into an
-experimental target. The OPH core supplies the observer carrier, record
-algebras, quotient observables, and canonical collar scalar channel. The added
-branch supplies a finite source-generator test for whether coherent matter can
-source that same channel in a controlled material system.
-
-The result is useful because it separates the invariant coefficient from the
-engineering chart. The canonical susceptibility is order one on every reading
-of the collar branch, while the laboratory response can look tiny after stored
-coherent energy and effective capacity are folded into the scalar. The paper
-therefore gives a narrow construction window: what contrast a platform must
-produce, what a null result would mean, and which part is a continuation
-instead of a recovered-core OPH claim.
-
-\section*{Falsifiability Status}
-
-Three facts about the lane's testability are stated here so that no later
-section overstates them.
-
-First, the lane has no operational test until a coherence-contrast measurement
-recipe exists that is independent of the balance reading. The contrast
-\(\Delta\scoheng\) currently has no instrument-independent definition, so every
-force null is attributable to the platform not reaching the required contrast;
-until such a recipe is produced, a null constrains nothing. Structurally, the
-lane therefore sits outside the closure ledger --- it carries no C-row in the
-consistency stack (\texttt{../docs/CONSISTENCY\_STACK.md}) and no CL row --- and it
-enters that evidential surface only when an instrument-independent recipe
-exists.
-
-Second, ordinary matter carries \(\mathfrak c_U=0\) in this note by assignment,
-not by derivation. Torsion-balance, E\"otv\"os-type, and MICROSCOPE null
-results impose no constraint on the branch only because of that assignment;
-the assignment is an axiom-level choice, and any nonzero ambient scalar
-reinstates those bounds through Eq.~\eqref{eq:ambient-bound}.
-
-Third, the corpus's own bench already bounds the lane. Healthy-device record
-contrasts of order \(10^{-2}\) to \(1\), multiplied by the
-\(5.14\times10^{8}\,\mathrm N\) record-gravity coefficient, predict benchtop
-forces of \(10^{7}\) to \(10^{8}\,\mathrm N\) that coupons at rest do not show.
-The resting coupons therefore bound the gravitationally coupled record contrast
-at \(\Delta S\lesssim10^{-10}\), and any future version of the force law must
-be consistent with this self-generated bound.
-
-\tableofcontents
-
-\section{Introduction}
-
-Four layers are separated throughout the note.  The recovered OPH core supplies
-the fixed-cutoff observer carrier, record algebras, quotient-local observables,
-the Einstein branch, and the canonical scalar source surface.  Tier A alone
-leaves \(\chinu\) unassigned.
-
-Coherent-matter same-channel forcing supplies the finite source theorem.  A
-nondegenerate OPH-coherent material subfederation has a canonical scalar source
-\[
-S_{\mathrm{coh}}^{\mathrm{can}}
-=\mathbf 1_{\rm self-read}\,\mathsf R_U\,\mathsf P_U\,\mathsf C_U ,
-\]
-and Scalar Edge-Center Exhaustion forces that source into the same edge-center
-scalar register priced by the \(Z_6\) collar theorem.  The zero branch is the
-branch where at least one coherent-material receipt vanishes.
-
-The protected-reserve collar theorem fixes the canonical coefficient on the
-closed collar branch.  Granting the dark-sector collar lemmas on that shared
-register, the canonical susceptibility is the collar survival coefficient:
-\[
-\chican=\lambdac.
-\]
-
-Engineering calculations often use a different chart. They fold stored coherent
-energy into the scalar. That makes the coefficient look tiny, although the
-canonical coefficient is order one.
-
-The canonical number is the OPH-invariant number. It uses the per-channel
-observer-facing scalar after the effective patch capacity has been divided out.
-Under the presence reading of the reserve profile, the scalar-weighted reserve
-mean \(P/24\) fixes the coefficient exactly, by linearity:
-\[
-\chican=1-\frac{P}{24}=0.9320429912748350\ldots .
-\]
-Under the mean-count reading, the assumption-minimal Markov band is
-\[
-\boxed{
-0.9320429912748350
-\le
-\chican
-\le
-1.
-}
-\]
-The interval is narrow enough for engineering purposes. The presence-reading
-value is the lower endpoint of this interval.
-
-The engineering chart number is
-\[
-\scoheng=\Ncoh\scohcan,
-\qquad
-\Ncoh=\eps_{\mathrm{sub}}\frac{u_{\mathrm{stored}}}{u_0}.
-\]
-The coefficient in that chart is smaller by the same factor:
-\[
-\boxed{
-\chieng=\frac{\chican}{\Ncoh}.
-}
-\]
-This gives the engineering band
-\[
-\boxed{
-\frac{0.9320429912748350}{\Ncoh}
-\le
-\chieng
-\le
-\frac{1}{\Ncoh}.
-}
-\]
-
-The translation is simple:
-\[
-\begin{array}{c|c}
-\Ncoh & \chieng\ \mathrm{range}\\
-\hline
-10^{20} & 9.32\times10^{-21}\text{ to }1.00\times10^{-20}\\
-10^{21} & 9.32\times10^{-22}\text{ to }1.00\times10^{-21}\\
-10^{22} & 9.32\times10^{-23}\text{ to }1.00\times10^{-22}\\
-10^{23} & 9.32\times10^{-24}\text{ to }1.00\times10^{-23}\\
-10^{24} & 9.32\times10^{-25}\text{ to }1.00\times10^{-24}
-\end{array}
-\]
-
-The engineering consequence is direct. The coefficient is large enough in the
-canonical chart. The hard part is the scalar: build a substrate with enough
-vertical canonical coherence contrast, keep ordinary ambient matter from
-creating the same scalar accidentally, and measure the force with clean
-controls. Values around \(10^{-22}\) mean \(\Ncoh\sim10^{22}\), while the
-canonical coefficient stays order one.
-
-\section{What the Bound Says for Devices}
-
-The branch theorem gives the canonical coefficient:
-\[
-0.9320429912748350
-\le
-\chican
-\le
-1.
-\]
-Under the presence reading, with the scalar-weighted reserve receipt, it is the
-single number
-\[
-\chican=0.9320429912748350\ldots .
-\]
-The susceptibility bound belongs to the closed quotient-edge collar branch. It
-is an order-one coefficient. Zero is excluded for nondegenerate
-coherent-material sources on that branch.
-
-A room-scale lift or weight-reduction device needs only tiny \(\Delta\nu\). For
-areal load \(\Sigma=M/A_\perp\) and target weight fraction \(f\), the required
-response is
-\[
-\Delta\nu_{\mathrm{req}}
-=
-f\,\frac{4\pi G\Sigma}{g}
-=
-8.5525\times10^{-9}\,f\,\Sigma_2,
-\qquad
-\Sigma_2=\frac{\Sigma}{10^2\,\mathrm{kg\,m^{-2}}}.
-\]
-The forced \(\chican\) band converts this into the required canonical coherence
-contrast:
-\[
-\boxed{
-8.55\times10^{-9}\,f\,\Sigma_2
-\le
-\Delta S_{\mathrm{coh,req}}^{\mathrm{can}}
-\le
-9.18\times10^{-9}\,f\,\Sigma_2.
-}
-\]
-For devices, the number to build is the coherence contrast. A
-\(100\,\mathrm{kg\,m^{-2}}\) room-scale platform requires a vertical canonical
-coherence contrast of roughly \(8.6\times10^{-9}\) to \(9.2\times10^{-9}\) for
-full weight compensation. Ten percent compensation requires roughly
-\(8.6\times10^{-10}\) to \(9.2\times10^{-10}\).
-
-\begin{table}[h]
-\centering
-\small
-\begin{tabularx}{\textwidth}{@{}L{0.23\textwidth}R{0.15\textwidth}R{0.08\textwidth}R{0.18\textwidth}X@{}}
-\toprule
-Device-scale case &
-\(\Sigma\,[\mathrm{kg\,m^{-2}}]\) &
-\(f\) &
-\(\Delta\nu_{\mathrm{req}}\) &
-\(\Delta S_{\mathrm{coh,req}}^{\mathrm{can}}\) \\
-\midrule
-light room platform & \(50\) & \(1\) & \(4.28\times10^{-9}\) & \(4.28\times10^{-9}\) to \(4.59\times10^{-9}\) \\
-room-scale platform & \(100\) & \(1\) & \(8.55\times10^{-9}\) & \(8.55\times10^{-9}\) to \(9.18\times10^{-9}\) \\
-heavy room platform & \(250\) & \(1\) & \(2.14\times10^{-8}\) & \(2.14\times10^{-8}\) to \(2.29\times10^{-8}\) \\
-ten percent assist & \(100\) & \(0.1\) & \(8.55\times10^{-10}\) & \(8.55\times10^{-10}\) to \(9.18\times10^{-10}\) \\
-\bottomrule
-\end{tabularx}
-\caption{Room-scale response requirements implied by the branch-theorem canonical band. The table is independent of the engineering chart normalization.}
-\label{tab:room-scale-canonical}
-\end{table}
-
-For a hoverboard-class footprint the areal load is usually higher. A rider plus
-board spread over \(0.5\,\mathrm{m^2}\) gives
-\(\Sigma\simeq200\) to \(300\,\mathrm{kg\,m^{-2}}\). Full response then asks for
-\[
-\Delta S_{\mathrm{coh,req}}^{\mathrm{can}}
-\simeq
-1.7\times10^{-8}\text{ to }2.8\times10^{-8}.
-\]
-A compact footprint near \(600\,\mathrm{kg\,m^{-2}}\) asks for about
-\[
-5.1\times10^{-8}\text{ to }5.5\times10^{-8}.
-\]
-Ten percent assist divides these numbers by ten. The coefficient is in the
-useful range for hoverboard-class experiments. A practical hoverboard
-depends on whether a real substrate can produce and hold that vertical scalar
-contrast under load.
-
-The engineering coefficient is a chart value:
-\[
-\chieng=\frac{\chican}{\Ncoh}.
-\]
-The small engineering numbers are useful only together with the large
-engineering scalar. The response depends on the product
-\[
-\chieng\,\Delta S_{\mathrm{coh}}^{\mathrm{eng}}
-=
-\chican\,\Delta S_{\mathrm{coh}}^{\mathrm{can}}.
-\]
-For \(\Ncoh=10^{22}\), the forced engineering band is
-\[
-9.32\times10^{-23}
-\le
-\chieng
-\le
-1.00\times10^{-22}.
-\]
-A \(100\,\mathrm{kg\,m^{-2}}\) full-response platform then needs
-\[
-\Delta S_{\mathrm{coh,req}}^{\mathrm{eng}}\simeq
-8.6\times10^{13}\text{ to }9.2\times10^{13}.
-\]
-It equals \(10^{22}\) times the canonical contrast in
-Table~\ref{tab:room-scale-canonical}. The large scalar and small coefficient
-are the same normalization written in different coordinates.
-
-On the closed collar branch, the coefficient is in the useful mathematical range for
-macroscopic weight-reduction devices. No room-temperature material claim follows
-from this bound alone. The engineering task is specific: generate a stable vertical
-\(\Delta S_{\mathrm{coh}}^{\mathrm{can}}\) near \(10^{-9}\) for assist and near
-\(10^{-8}\) to \(10^{-7}\) for full hoverboard-class response, keep ambient
-ordinary matter from creating the same scalar accidentally, and measure the
-force with controls that separate the effect from acoustic, thermal,
-electromagnetic, and mechanical couplings.
-
-\section{Support Boundary}
-
-The paper uses three support levels.
-
-Tier A is the recovered OPH core: finite patch carriers, mismatch-lowering
-repair, observer-accessible record algebras, quotient normal forms, checkpoint
-continuation, controlled BW scaling, fixed-cap generalized-entropy
-stationarity, and the Jacobson-type Einstein branch. These ingredients are
-supplied by the consensus, microphysics, synthesis, and compact SM/GR
-papers~\cite{oph-consensus,oph-micro,oph-synthesis,oph-compact}. This tier leaves
-\(\chinu\) unfixed.
-
-Tier B0 is the finite coherent-matter source theorem. It defines a self-reading
-material subfederation, its quotient-visible scalar-source readout, and a finite
-edge-center source generator. Under Scalar Edge-Center Exhaustion, every
-nondegenerate source \(S_{\mathrm{coh}}^{\mathrm{can}}\) is forced into the same
-quotient-edge scalar register used by the dark-sector collar channel. Tier B0
-derives the channel identity; it does not assign the reserve survival
-coefficient.
-
-Tier B1 is the coherent-matter response law
-\begin{equation}
-\delta\nu
-=
-\chican\scohcan
-=
-\chieng\scoheng.
-\label{eq:chinu-law}
-\end{equation}
-This tier states linear weak-field response and the two charts without assigning
-a value for \(\chinu\).
-
-Tier C is the conditional quotient-edge collar branch. It adds the dark-sector
-collar lemmas stated in Section~\ref{sec:canonical-quotient-edge}. On this
-branch, coherent scalar opportunities are co-registered with the canonical
-dark-sector scalar repair channel, and \(\chican\) is forced to equal
-\(\lambdac\).
-
-The dark-sector paper supplies the settled weak-field anomaly law
-\begin{equation}
-\rhoa
-=
--\frac{1}{4\pi G}
-\nabla\cdot[(\nuoph-1)\gbar],
-\label{eq:canonical-dark}
-\end{equation}
-interpreting the anomaly as a transported modular/collar information-defect
-remainder, with no additional particle species postulated~\cite{oph-dark}.
-
-Here \(\scohcan\) is the per-channel observer-facing scalar. It enters the
-dark-sector scalar channel only through the finite source lift in
-Section~\ref{sec:finite-coherent-source-generator}. The scalar \(\scoheng\) is
-the stored-energy engineering scalar. The small values useful in device
-estimates are the engineering chart values \(\chieng=\chican/\Ncoh\).
-
-\section{Canonical Chain}
-
-\subsection{Fixed-cutoff carrier}
-
-At fixed cutoff, an observer-facing OPH implementation surface is a federated
-patch carrier
-\begin{equation}
-\mathfrak F
-=
-\bigl(V,E,\{\A_i\}_{i\in V},\{\I_e\}_{e\in E},
-\{\pi_{i,e}\},\{\Ralg_i\},\{\U_i\}\bigr).
-\end{equation}
-Here \(\A_i\) are local finite algebras, \(\I_e\) are overlap interfaces,
-\(\pi_{i,e}\) are visible restriction maps, \(\Ralg_i\subseteq Z(\A_i)\) are
-record algebras, and \(\U_i\) are local update and repair interfaces. Physical
-claims are made through visible restrictions, record algebras, and quotient-local
-observables, without choosing hidden microscopic representatives~\cite{oph-micro}.
-
-\subsection{Mismatch and repair}
-
-The consensus paper gives a nonnegative visible mismatch functional \(\Phi\).
-Accepted repairs lower the relevant mismatch on finite state spaces. Under the
-declared local-diamond and repair-completeness hypotheses, the terminal
-observer-facing normal form from a fixed initial physical quotient state is unique and independent
-of asynchronous update schedule~\cite{oph-consensus}.
-
-\subsection{Records and checkpoints}
-
-For an observer-supporting subfederation \(U\), the microphysics paper uses a
-checkpoint of the form
-\begin{equation}
-\mathrm{Chk}_U(t)=
-\bigl(
-\Ralg_U(t),
-\rho_U^{\mathrm{acc}}(t),
-\mathfrak I_U^{\mathrm{ext}}(t),
-\nu_{\ge t},
-\mathfrak B_U(t)
-\bigr).
-\end{equation}
-If two checkpoints agree on the accessible record algebra, accessible state,
-external interface, boundary-update schedule class, and provenance bundle, they
-induce the same continuation law on the observer-accessible event algebra. Approximate
-agreement gives a controlled total-variation bound~\cite{oph-micro}.
-
-\subsection{Gravity and dark response}
-
-The compact SM/GR paper keeps the recovered core and downstream continuations
-separate. On the stated controlled scaling branch, the OPH stack gives a
-Jacobson-type Einstein relation; dark-sector response laws are phenomenological
-continuations outside that recovered-core tier~\cite{oph-compact}.
-The dark paper then models the anomaly by Eq.~\eqref{eq:canonical-dark}.
-
-On Earth, \(g_b/a_0\sim 10^{11}\), so the canonical \(\nuoph\) term is pinned
-near unity. A terrestrial tabletop anomaly attributed only to the canonical OPH
-dark sector should read null. The \(\chinu\) continuation is tested against
-that null baseline as a separate effect.
-
-\section{The Coherence Scalar}
-
-\begin{definition}[Patch coherence factors and channel count]
-Let \(U\) be an observer-supporting patch subfederation at cycle \(t\), with
-observer-accessible record algebra \(\Zrec_U(t)\). Let \(Y_U(t)\) be the induced
-record outcome variable, \(X_{\partial U,t+1:t+h}\) the boundary packet
-over horizon \(h\), and \(\Phi_U(t)\) the visible mismatch on the relevant
-support. Define
-\begin{align}
-R_U(t;h)
-&=
-\left[
-1-
-d_{\TV}\!\left(
-\Law(Y_U(t+h)),\Law(Y_U(t))
-\right)
-\right]e^{-\delta_{\mathrm{rec}}(t)},
-\label{eq:R-factor}\\
-P_U(t;h)
-&=
-\frac{
-I\!\left(Y_U(t);X_{\partial U,t+1:t+h}\right)
-}{
-H\!\left(X_{\partial U,t+1:t+h}\right)+\epsilon
-},
-\label{eq:P-factor}\\
-C_U(t)
-&=
-\left[
-1-\frac{\Phi_U(t)}{\Phi_U^{\max}+\epsilon}
-\right]_+.
-\label{eq:C-factor}
-\end{align}
-On the screen or hardware branch, set the finite coherent channel count to
-\begin{equation}
-N_U(t):=\RecCap(\Zrec_U(t)).
-\label{eq:channel-count}
-\end{equation}
-The exponent-free observer core is
-\begin{equation}
-\mathfrak c_U(t;h)=
-\mathbf 1_{\mathrm{self\mbox{-}read}}\,
-R_U(t;h)\,
-P_U(t;h)\,
-C_U(t).
-\label{eq:canonical-core}
-\end{equation}
-\end{definition}
-
-\begin{definition}[Canonical and engineering coherence scalars]
-The capacity-weighted observer scalar is
-\begin{equation}
-\mathbb C_U(t;h)=N_U(t)\,\mathfrak c_U(t;h).
-\label{eq:canonical-mass}
-\end{equation}
-The canonical per-channel scalar is
-\begin{equation}
-\boxed{
-\scohcan(U,t;h)=\frac{\mathbb C_U(t;h)}{N_U(t)}
-=
-\mathfrak c_U(t;h).
-}
-\label{eq:Scoh-can-patch}
-\end{equation}
-Under coherent-matter same-channel forcing and Scalar Edge-Center Exhaustion,
-Section~\ref{sec:finite-coherent-source-generator} routes
-\(\scohcan\in[0,1]\) into the edge-center scalar-slot register. Without that
-source lift, \(\scohcan\) is only an operational observer receipt.
-Let \(u_{\mathrm{stored}}(U,t)\) be the stored coherent matter energy density in
-the substrate mode supported by \(U\), let \(u_0\) be a fixed reference energy
-density, and let \(\eps_{\mathrm{sub}}(U)\in[0,1]\) be the substrate directness
-factor. The engineering scalar is
-\begin{equation}
-\scoheng(U,t;h)
-=
-\eps_{\mathrm{sub}}(U)
-\frac{u_{\mathrm{stored}}(U,t)}{u_0}
-\scohcan(U,t;h)
-=
-\Ncoh(U,t)\scohcan(U,t;h),
-\label{eq:Scoh-eng-patch}
-\end{equation}
-where
-\begin{equation}
-\boxed{
-\Ncoh(U,t)=
-\eps_{\mathrm{sub}}(U)\frac{u_{\mathrm{stored}}(U,t)}{u_0}.
-}
-\label{eq:Ncoh}
-\end{equation}
-Given a partition of unity \(w_U(x)\) over observer-supporting subfederations,
-define the coarse-grained field
-\begin{equation}
-\scohcan(x,t)=\sum_U w_U(x)\scohcan(U,t;h),
-\qquad
-\scoheng(x,t)=\sum_U w_U(x)\scoheng(U,t;h),
-\qquad
-\sum_U w_U(x)=1.
-\label{eq:Scoh-field}
-\end{equation}
-\end{definition}
-
-With the source lift and linear weak-field response, the response law can be
-written in either chart:
-\begin{equation}
-\boxed{
-\nueff(x,t)
-=
-\nuoph(x,t)+\chican\scohcan(x,t)
-=
-\nuoph(x,t)+\chieng\scoheng(x,t).
-}
-\label{eq:continuation-axiom}
-\end{equation}
-On a region with representative \(\Ncoh\),
-\begin{equation}
-\boxed{
-\chieng=\frac{\chican}{\Ncoh}.
-}
-\label{eq:chart-map}
-\end{equation}
-
-\section{Structural Properties}
-
-\begin{proposition}[Observer-facing quotient well-definedness]
-Assume two microscopic representatives induce the same observer-accessible
-continuation law on \(U\), preserve the same visible mismatch score, and expose the
-same stored coherent energy density and substrate class. Then they give the same
-\(\scohcan(U,t;h)\) and \(\scoheng(U,t;h)\).
-\end{proposition}
-
-\begin{proof}
-The factors \(R_U\), \(P_U\), and \(C_U\) are defined from observer-accessible
-records, boundary-law variables, and visible mismatch data. The channel count
-\(N_U\) cancels in the per-channel scalar. These are precisely the quantities
-that survive the observer-facing quotient. Multiplying by \(u_{\mathrm{stored}}\)
-and \(\eps_{\mathrm{sub}}\), which are declared observable substrate data for
-the engineering chart, preserves hidden-representative independence.
-\end{proof}
-
-\begin{proposition}[Null conditions]\label{prop:chi-null-conditions}
-If \(U\) has no self-read, no stable record algebra, or no predictive boundary
-coupling at horizon \(h\), then \(\scohcan(U,t;h)=0\) and
-\(\scoheng(U,t;h)=0\).
-\end{proposition}
-
-\begin{proof}
-If there is no self-read, then
-\(\mathbf 1_{\mathrm{self\mbox{-}read}}=0\). If no stable record algebra is
-available, then the stability factor \(R_U\) vanishes on the declared readout.
-If predictive boundary coupling is absent, then \(P_U=0\). In each case
-\(\mathfrak c_U=0\), hence both scalars vanish.
-\end{proof}
-
-\begin{proposition}[Exact normalization map]
-For the canonical and engineering scalars in Eqs.~\eqref{eq:Scoh-can-patch}
-and \eqref{eq:Scoh-eng-patch},
-\begin{equation}
-\boxed{
-\frac{\scoheng(U,t;h)}{\scohcan(U,t;h)}
-=
-\Ncoh(U,t)
-=
-\eps_{\mathrm{sub}}(U)\frac{u_{\mathrm{stored}}(U,t)}{u_0}.
-}
-\label{eq:normalization-map}
-\end{equation}
-\end{proposition}
-
-\begin{proof}
-Substitute Eq.~\eqref{eq:Scoh-can-patch} into
-Eq.~\eqref{eq:Scoh-eng-patch}. The quotient is exactly
-\(\eps_{\mathrm{sub}}u_{\mathrm{stored}}/u_0\).
-\end{proof}
-
-\begin{proposition}[Saturated-limit reduction]
-If
-\[
-\mathbf 1_{\mathrm{self\mbox{-}read}}\simeq1,\quad
-R_U\simeq1,\quad
-P_U\simeq1,\quad
-C_U\simeq1,
-\]
-then
-\[
-\scohcan(U,t;h)\simeq1,
-\qquad
-\scoheng(U,t;h)\simeq
-\eps_{\mathrm{sub}}(U)\frac{u_{\mathrm{stored}}(U,t)}{u_0}.
-\]
-\end{proposition}
-
-\begin{proof}
-Substitute the saturated factor values into Eqs.~\eqref{eq:Scoh-can-patch}
-and \eqref{eq:Scoh-eng-patch}.
-\end{proof}
-
-\section{Finite Coherent-Matter Source Generator}
-\label{sec:finite-coherent-source-generator}
-
-The channel identity is supplied by importing the finite scalar-slot register,
-Scalar Edge-Center Exhaustion, and the coherent-matter same-channel theorem from
-the microphysics paper~\cite{oph-micro}. The empirical question is separate:
-whether any real substrate can emit a nonzero, signed, controlled \(\scohcan\)
-receipt at useful magnitude.
-
-At fixed regulator \(r\), collar or support \(C\), and physical quotient
-\(Q_r=\Sigma_r/\Gamma_r\), write the imported edge-center scalar-slot register as
-\[
-E_{\nu,r}(C),\qquad
-p_{e,\nu}:Q_r\to\{0,1\},\qquad
-\mathcal N_{\nu,r,C}(q)
-=
-\sum_{e\in E_{\nu,r}(C)}a_e\,p_{e,\nu}(q).
-\]
-Scalar-slot completeness says that, on the quotient-edge scalar branch,
-the first-order scalar subspace is
-\[
-\mathcal S^{(1)}_{\mathrm{sc}}(C)
-=
-\operatorname{span}\{\mathcal N_{\nu,r,C}\}
-\]
-after constants are removed. Thus a quotient-local, central, edge-center scalar
-perturbation has no second scalar channel available on that branch.
-
-\begin{definition}[B.3. Self-reading coherent material subfederation]
-\label{def:self-reading-coherent-material-subfederation}
-Let \(U\subset\mathfrak F_r\) be an observer-supporting material subfederation
-with accessible record algebra \(\mathcal Z^{\mathrm{rec}}_U(t)\), record
-outcome \(Y_U(t)\), future boundary packet \(X_{\partial U,t+1:t+h}\), and
-visible mismatch \(\Phi_U(t)\). Its canonical coherent scalar is
-\[
-S_U(q;t,h)
-:=
-\scohcan(U,t;h)
-=
-\mathbf 1_{\mathrm{self\mbox{-}read}}\,
-R_U(t;h)P_U(t;h)C_U(t).
-\]
-The operational observer-side requirement is the screen-microphysics observer
-test: bounded accessible interface, durable re-readable records, self-read or
-internal state estimation, record-conditioned future behavior, boundary
-prediction better than shuffled controls, and checkpoint continuation within
-declared error.
-\end{definition}
-
-\begin{definition}[B.4. Scalar-slot footprint]
-\label{def:scalar-slot-footprint}
-The material subfederation \(U\) induces a quotient-visible footprint
-\[
-b_{U,r,C}:E_{\nu,r}(C)\times Q_r\to\mathbb R_{\ge0}
-\]
-with
-\[
-\sum_{e\in E_{\nu,r}(C)}b_{U,r,C}(e;q)=1
-\]
-on the active support of \(U\), and \(b_{U,r,C}(e;q)=0\) outside the scalar
-slots exposed by the visible boundary of \(U\). Define the local material slot
-count and availability factor
-\[
-\mathcal N_{\nu,U}(q)
-=
-\sum_{e\in E_{\nu,r}(C)}
-b_{U,r,C}(e;q)a_e\,p_{e,\nu}(q),
-\qquad
-\mathcal O_U(q)
-=
-\sum_{e\in E_{\nu,r}(C)}
-b_{U,r,C}(e;q)p_{e,\nu}(q),
-\]
-and
-\[
-A_{U,r,C}(q)
-=
-\sum_{e\in E_{\nu,r}(C)}
-b_{U,r,C}(e;q)a_e\,[1-p_{e,\nu}(q)].
-\]
-The source is non-saturated at \(q\) when \(A_{U,r,C}(q)>0\).
-\end{definition}
-
-The footprint is not a new field. It is a quotient-visible map from the material
-boundary to the scalar slots it can touch. If the material has no self-read, no
-stable record algebra, or no predictive boundary coupling,
-Proposition~\ref{prop:chi-null-conditions} forces \(\scohcan=0\).
-
-\begin{definition}[B.5. Unit-normalized coherent scalar source generator]
-\label{def:coherent-source-generator}
-For \(q\in Q_r\) and \(e\in E_{\nu,r}(C)\), define
-\[
-q\oplus e
-:=
-n_r(q\ \text{with scalar slot }e\text{ activated}),
-\]
-where \(n_r\) is the quotient normal-form map. If the slot is active in \(q\),
-set \(q\oplus e=q\). For any test function \(f:Q_r\to\mathbb R\), define
-\[
-(\mathcal L^{\mathrm{coh}}_{U,r,C}f)(q)
-=
-S_U(q;t,h)
-\sum_{e\in E_{\nu,r}(C)}
-b_{U,r,C}(e;q)
-\bigl[f(q\oplus e)-f(q)\bigr].
-\]
-This is the unit-normalized canonical generator. Engineering inefficiencies,
-stored-energy amplification, substrate directness, and geometry factors belong
-to the engineering chart, not to the canonical channel identity.
-\end{definition}
-
-\begin{lemma}[B.6. Quotient descent]\label{lem:coherent-source-quotient-descent}
-\(\mathcal L^{\mathrm{coh}}_{U,r,C}\) is a well-defined finite generator on the
-physical quotient \(Q_r\).
-\end{lemma}
-
-\begin{proof}
-\(S_U\) is built from the self-read gate, record stability, predictive boundary
-coupling, and visible mismatch data. The footprint \(b_{U,r,C}\) is
-quotient-visible by definition. The update \(q\oplus e\) is normal-formed by
-\(n_r\). Therefore replacing a microscopic representative of \(q\) by a
-gauge-equivalent representative changes none of \(S_U\), \(b_{U,r,C}\),
-\(q\oplus e\), or the value of the generator. Since \(Q_r\) and
-\(E_{\nu,r}(C)\) are finite, the generator is finite.
-\end{proof}
-
-\begin{theorem}[B.7. Coherent material perturbs the canonical scalar count]
-\label{thm:coherent-material-perturbs-canonical-count}
-Assume the finite scalar-slot register, scalar-slot completeness, a coherent
-material footprint, and the source generator above. If \(S_U(q;t,h)>0\) and
-\(A_{U,r,C}(q)>0\), then the coherent material subfederation \(U\) perturbs the
-same quotient-edge scalar opportunity count \(\mathcal N_{\nu,r,C}\) that
-appears in the dark-sector collar channel:
-\[
-(\mathcal L^{\mathrm{coh}}_{U,r,C}\mathcal N_{\nu,r,C})(q)
-=
-S_U(q;t,h)A_{U,r,C}(q)
->
-0.
-\]
-By scalar-slot completeness, the scalar projection of the
-coherent-matter perturbation lies in
-\[
-\operatorname{span}\{\mathcal N_{\nu,r,C}\},
-\]
-so it cannot define an independent scalar channel.
-\end{theorem}
-
-\begin{proof}
-Evaluate the generator on \(\mathcal N_{\nu,r,C}\):
-\[
-(\mathcal L^{\mathrm{coh}}_{U,r,C}\mathcal N_{\nu,r,C})(q)
-=
-S_U(q;t,h)
-\sum_e b_{U,r,C}(e;q)
-\left[
-\mathcal N_{\nu,r,C}(q\oplus e)
--
-\mathcal N_{\nu,r,C}(q)
-\right].
-\]
-By definition of \(q\oplus e\), activating an inactive slot \(e\) increases
-\(\mathcal N_{\nu,r,C}\) by \(a_e\). A slot active in \(q\) contributes zero:
-\[
-\mathcal N_{\nu,r,C}(q\oplus e)-\mathcal N_{\nu,r,C}(q)
-=
-a_e[1-p_{e,\nu}(q)].
-\]
-Substitution gives
-\[
-(\mathcal L^{\mathrm{coh}}_{U,r,C}\mathcal N_{\nu,r,C})(q)
-=
-S_U(q;t,h)
-\sum_e b_{U,r,C}(e;q)a_e[1-p_{e,\nu}(q)]
-=
-S_U(q;t,h)A_{U,r,C}(q).
-\]
-The positivity follows from the two nonzero hypotheses. The generator changes
-only the central edge-center scalar-slot indicators \(p_{e,\nu}\). By
-scalar-slot completeness, the first-order scalar projection is generated by
-\(\mathcal N_{\nu,r,C}\), with constants removed. Hence the material
-perturbation acts in the canonical quotient-edge scalar channel itself.
-\end{proof}
-
-\begin{definition}[B.8. Oriented coherent scalar contrast]
-\label{def:oriented-coherent-scalar-contrast}
-For a two-zone device or material body, let \(U_+\) and \(U_-\) be the two
-observer-supporting subfederations separated by the declared vertical
-orientation. In the lab force convention used below, \(U_+\) is the bottom zone
-and \(U_-\) is the top zone. Define
-\[
-\Delta\scohcan
-=
-\scohcan(U_+,t;h)-\scohcan(U_-,t;h).
-\]
-The signed source generator is
-\[
-\mathcal L^{\mathrm{coh}}_{\Delta}
-=
-\mathcal L^{\mathrm{coh}}_{U_+}
--
-\mathcal L^{\mathrm{coh}}_{U_-},
-\]
-with scalar projection
-\[
-\mathcal L^{\mathrm{coh}}_{\Delta}\mathcal N_{\nu}
-=
-S_{U_+}A_{U_+}-S_{U_-}A_{U_-}.
-\]
-On a symmetric footprint branch where \(A_{U_+}=A_{U_-}=1\), this reduces to
-\[
-\mathcal L^{\mathrm{coh}}_{\Delta}\mathcal N_{\nu}
-=
-\Delta\scohcan.
-\]
-\end{definition}
-
-\begin{definition}[B.9. Coherent scalar source action]
-\label{def:coherent-scalar-source-action}
-Let \(\mu_{0,r}\) be the unperturbed quotient law on \(Q_r\), with action
-\(I_{0,r}\). Define
-\[
-I_{\eta,r,U}(q)
-=
-I_{0,r}(q)
--
-\eta\,S_U(q;t,h)\mathcal N_{\nu,U}(q).
-\]
-The source-perturbed finite quotient law is
-\[
-\mu_{\eta,r,U}(q)
-=
-Z_{\eta}^{-1}\exp[-I_{\eta,r,U}(q)].
-\]
-\end{definition}
-
-\begin{proposition}[B.10. Linear response through the canonical scalar count]
-\label{prop:coherent-source-linear-response}
-For any bounded quotient observable \(F:Q_r\to\mathbb R\),
-\[
-\left.
-\frac{\dd}{\dd\eta}
-\mathbb E_{\eta}[F]
-\right|_{\eta=0}
-=
-\operatorname{Cov}_{0}
-\left(
-F,\,
-S_U\mathcal N_{\nu,U}
-\right).
-\]
-In particular,
-\[
-\left.
-\frac{\dd}{\dd\eta}
-\mathbb E_{\eta}[\mathcal N_{\nu,r,C}]
-\right|_{\eta=0}
-=
-\operatorname{Cov}_{0}
-\left(
-\mathcal N_{\nu,r,C},\,
-S_U\mathcal N_{\nu,U}
-\right).
-\]
-On the nondegenerate scalar branch this covariance is nonzero whenever
-\(S_U\) is nonzero, the footprint is nonzero, and
-\(\mathcal N_{\nu,U}\) is not \(\mu_0\)-almost surely constant.
-\end{proposition}
-
-\begin{proof}
-Differentiate the finite partition function
-\[
-\mathbb E_{\eta}[F]
-=
-\frac{\sum_q F(q)e^{-I_{0,r}(q)+\eta S_U(q;t,h)\mathcal N_{\nu,U}(q)}}
-{\sum_q e^{-I_{0,r}(q)+\eta S_U(q;t,h)\mathcal N_{\nu,U}(q)}}.
-\]
-At \(\eta=0\), the numerator derivative gives
-\(\mathbb E_0[F\,S_U\mathcal N_{\nu,U}]\), and the partition-function
-derivative subtracts
-\(\mathbb E_0[F]\mathbb E_0[S_U\mathcal N_{\nu,U}]\). This is the displayed
-covariance. Since \(\mathcal N_{\nu,U}\) is built from the same
-\(p_{e,\nu}\) slots, scalar-slot completeness again puts the scalar response in
-the \(\mathcal N_{\nu,r,C}\) channel.
-\end{proof}
-
-\begin{corollary}[B.11. Tier-B response law from the finite generator]
-\label{cor:tier-b-response-from-generator}
-On the finite quotient-edge branch above, coherent matter changes the canonical
-scalar opportunity count by a term proportional to \(\scohcan\). Linear
-weak-field response therefore has the Tier-B1 form
-\[
-\delta\nu=\chican\scohcan.
-\]
-If the Tier-C co-registered collar survival assumptions are also granted, then
-\[
-\chican=\lambdac,
-\qquad
-\nueff=\nuoph+\lambdac\scohcan.
-\]
-In the stored-energy engineering chart,
-\[
-\scoheng=\Ncoh\scohcan,
-\qquad
-\chieng=\frac{\chican}{\Ncoh},
-\qquad
-\nueff=\nuoph+\chieng\scoheng.
-\]
-\end{corollary}
-
-\begin{proof}
-Theorem~\ref{thm:coherent-material-perturbs-canonical-count} proves that the
-material source perturbs the same quotient-edge scalar count used by the
-dark-sector collar channel. Linear weak-field response makes the induced
-perturbation of \(\nu\) proportional to that count in canonical normalization.
-The Tier-C collar theorem identifies the proportionality coefficient with the
-collar survival coefficient. The engineering formulas are the chart change
-\(\scoheng=\Ncoh\scohcan\).
-\end{proof}
-
-\begin{proposition}[Finite channel bridge: slots and slices are one family]
-\label{prop:finite-channel-bridge}
-Let \(E\) be one finite indexed family equipped with both a record panel
-\[
-(p_e(q),a_e,q\mapsto q\oplus e)_{e\in E}
-\]
-and a collar panel
-\[
-(w_e,\epsilon_e)_{e\in E},
-\qquad
-w_e\ge0,\quad \sum_{e\in E}w_e=1,\quad \epsilon_e\ge0.
-\]
-The record panel defines the scalar-slot register of
-Definition~\ref{def:scalar-slot-footprint} and the coherent generator of
-Definition~\ref{def:coherent-source-generator}.  The collar panel defines the
-finite-slice survival coefficient
-\[
-\lambda_{\mathrm{collar}}=\sum_{e\in E}w_e\,(1-\epsilon_e).
-\]
-Because both panels use the same index family \(E\), the statement that
-coherent matter perturbs the same counter priced by the collar is not an
-extra equality between two unrelated constructions.  It is a single-channel
-structure.
-\end{proposition}
-
-\begin{corollary}[Composite Tier-B1 channel law]\label{cor:composite-tier-b1-channel}
-Under the hypotheses of
-Theorem~\ref{thm:coherent-material-perturbs-canonical-count}, and under the
-uniform product-thickening clause \(\epsilon_e=P/24\) for every \(e\in E\),
-the record-source increment and the collar survival factor compose as
-\[
-\lambda_{\mathrm{collar}}\,
-(\mathcal L^{\mathrm{coh}}_{U,r,C}\mathcal N_{\nu,r,C})(q)
-=
-\left(1-\frac{P}{24}\right)S_U(q;t,h)\,A_{U,r,C}(q).
-\]
-\end{corollary}
-
-\begin{proof}
-Theorem~\ref{thm:coherent-material-perturbs-canonical-count} gives
-\[
-(\mathcal L^{\mathrm{coh}}_{U,r,C}\mathcal N_{\nu,r,C})(q)
-=S_U(q;t,h)\,A_{U,r,C}(q).
-\]
-The finite collar gate gives \(\lambda_{\mathrm{collar}}=1-P/24\) under
-slice-wise reserve unbiasedness and the presence reading.  Multiplying the two
-identities gives the displayed composite law.
-\end{proof}
-
-\begin{remark}[What the channel bridge does not close]
-Proposition~\ref{prop:finite-channel-bridge} removes a bookkeeping ambiguity:
-the record slots and collar slices can be represented as one finite channel.
-Two physical residues remain.  First, an actual material system must supply
-receipts showing that its record channel and collar channel instantiate this
-one structure rather than two unrelated counters.  Second, the numerical
-record-\(\Delta S\) to gravity-\(\Delta S\) calibration, denoted G9 in the
-audit ledger, remains an external calibration.  A null experiment therefore
-bounds the product \(\chi_\nu\Delta S\), not \(\chi_\nu\) and \(\Delta S\)
-separately.
-\end{remark}
-
-\begin{remark}[Generator realization is not a law selector]
-The generator above is a realization after the quotient branch, scalar-slot
-register, and source law have been selected. It is not a selector of a unique
-physical probability law by itself. The probability-law statement is the finite
-action formulation in Definition~\ref{def:coherent-scalar-source-action}.
-\end{remark}
-
-\subsection{Source-generator proof ledger}
-
+\section*{Claim Boundary}
+
+This paper proves a finite-channel coefficient on a declared OPH branch. It
+also derives continuity, dilute dust behavior, spherical deep-galaxy scaling,
+force, and momentum formulae conditional on the repair-charge condensate
+action in the dark-sector paper~\cite{oph-dark}. The OPH derivation of that
+action and its dimensional source normalization are work in progress.
+
+The exact statuses are:
 \begin{center}
-\begin{tabularx}{\textwidth}{@{}L{0.25\textwidth}X L{0.25\textwidth}@{}}
+\begin{tabularx}{0.94\textwidth}{@{}lX@{}}
 \toprule
-Target & Closure & Status \\
+Object & Status \\
 \midrule
-Coherent matter sources same scalar channel &
-Finite source generator \(\mathcal L^{\mathrm{coh}}_{U,r,C}\) acts on
-edge-center scalar slots; scalar-slot completeness makes the scalar projection
-rank-one, generated by \(\mathcal N_{\nu,r,C}\). &
-Theorem-level on the finite quotient-edge branch; empirical nonzero
-\(\scohcan\) is a hardware receipt. \\
-Finite channel bridge &
-The record-side source generator and collar-side reserve coefficient are
-represented by one finite indexed family of slots/slices, yielding the
-composite law of Corollary~\ref{cor:composite-tier-b1-channel}. &
-Bookkeeping theorem; nature-instantiation and G9 numerical calibration remain
-physical obligations. \\
-Switchable-force energy cage &
-Any conservative ABBA cycle obeys
-\(W_{\mathrm{ABBA}}=\operatorname{Toggle}(q_1)-\operatorname{Toggle}(q_2)\). &
-Theorem-level accounting constraint; the local response law
-Eq.~\eqref{eq:force-law} remains a branch law, not derived local dynamics. \\
+Coherent source in the quotient-edge scalar register & finite theorem under the stated source receipts \\
+\(\chican=\lambdac\) & theorem under co-registration and reserve-survival premises \\
+\(\chican=1-P/24\) & exact on the presence branch \\
+Repair-charge action & proposed dynamical completion \\
+Continuity, dust limit, and spherical deep-galaxy scaling & derived conditional on that action and its constitutive premises \\
+Dimensional coupling \(q_\star\) & work in progress \\
+Device force & conditional on source charge, external field, and momentum closure \\
+Numerical lift & absent \\
 \bottomrule
 \end{tabularx}
 \end{center}
 
-\subsection{Deterministic source-generator receipts}
+\tableofcontents
 
-Implementation evidence for this branch should expose the following deterministic
-receipt names.
-\begin{description}[leftmargin=*,style=nextline]
-\item[\texttt{SELF\_READ\_PATCH\_RECEIPT}]
-Passes when \(U\) satisfies the operational observer test: bounded interface,
-durable re-readable records, self-read or internal state estimation,
-record-conditioned future behavior, boundary prediction better than shuffled
-controls, and checkpoint continuation.
-\item[\texttt{SCOH\_CANONICAL\_RECEIPT}]
-Emits \(R_U(t;h)\), \(P_U(t;h)\), \(C_U(t)\),
-\(\mathbf 1_{\mathrm{self\mbox{-}read}}\), \(N_U(t)\), and \(\scohcan\), with
-record-algebra hash, boundary-packet hash, mismatch-functional hash, and
-shuffled-record controls.
-\item[\texttt{EDGE\_SOURCE\_LIFT\_RECEIPT}]
-Emits the footprint \(b_{U,r,C}\), proves it factors through the quotient-edge
-scalar register, and proves invariance under port relabeling, hidden carrier
-coordinates, mesh labels, and accepted repair schedule changes.
-\item[\texttt{FINITE\_CHANNEL\_BRIDGE\_RECEIPT}]
-Emits the shared finite index family \(E\) and its two panels: record activity,
-opportunity weights, and activation maps on the source side; slice weights and
-protected-reserve means on the collar side. Fails if the source generator and
-collar survival factor are computed over unrelated counters.
-\item[\texttt{NO\_SEPARATE\_SCALAR\_CHANNEL\_RECEIPT}]
-Fails if the coherent material source depends on bulk labels, screen-area
-labels, noncentral collar variables, heat, rest mass, electrical power, or any
-presentation variable not carried by the scalar-slot register.
-\item[\texttt{SOURCE\_NONDEGENERACY\_RECEIPT}]
-Checks
-\[
-\operatorname{Cov}_{0}
-(\mathcal N_{\nu,r,C},S_U\mathcal N_{\nu,U})\ne0
-\]
-or reports the selected ensemble as source-degenerate.
-\item[\texttt{VERTICAL\_CONTRAST\_RECEIPT}]
-Emits the signed bottom-minus-top \(\Delta\scohcan\), plus sign-reversal runs,
-sham runs, thermal/electromagnetic/mechanical controls, and record-shuffle
-controls.
-\item[\texttt{FINITE\_GENERATOR\_REALIZATION\_RECEIPT}]
-Optional. Emits the slot update maps or repair projections implementing
-\(\mathcal L^{\mathrm{coh}}_{U,r,C}\), while labeling the generator as a
-realization of an externally selected source law.
-\item[\texttt{DARK\_SECTOR\_SIMULATION\_PLAN\_RECEIPT}]
-Optional integration receipt.  It records which dark-sector simulator gates are
-present across the static galaxy, finite covariant parent, finite-collar
-Boltzmann, Boltzmann-input, anomaly, and frozen-likelihood reports, and names
-the next blocked command.  It is not a force receipt, not a susceptibility
-measurement, and not a replacement for the source-lift receipts above.
-\end{description}
+\section{Canonical Coherent-Matter Source}
 
-\section{Canonical Quotient-Edge Susceptibility}
-\label{sec:canonical-quotient-edge}
+An OPH technology instantiation is an observer-like self-reading system: a
+bounded physical or software patch with local state, ports or boundaries,
+readback, records, feedback or repair moves, and a public evidence bundle. For
+a nondegenerate coherent material subfederation \(U\), define the canonical
+source
+\begin{equation}
+\scohcan
+=\mathbf 1_{\rm self\mbox{-}read}\,\mathsf R_U\mathsf P_U\mathsf C_U.
+\label{eq:source}
+\end{equation}
+The factors state that the patch reads itself, produces a stable record,
+supports a predictive boundary, and executes a registered repair or control
+move. If any factor vanishes, the coherent scalar source is zero.
 
-This section is conditional on the closed quotient-edge collar branch. The
-recovered OPH core and the coherent-matter same-channel theorem supply the
-observer-facing carrier, the coherent scalar source readout, and the scalar
-channel. The nonzero coefficient follows after the collar lemmas below are
-granted.
-
-\begin{assumption}[Imported quotient-edge collar theorem stack]
-\label{ass:dark-collar-lemmas}
-The \(\chinu\) branch imports the following theorem-level source package from
-the screen microphysics paper~\cite{oph-micro}:
-\[
-\begin{gathered}
-\texttt{def:oph-coherent-material-subfederation},\quad
-\texttt{def:canonical-coherent-matter-scalar-source},\\
-\texttt{lem:coherent-material-source-quotient-descent},\quad
-\texttt{thm:nonzero-coherent-scalar-source},\\
-\texttt{thm:coherent-matter-same-channel-forcing},\quad
-\texttt{thm:unique-scalar-linear-response}.
-\end{gathered}
-\]
-These imports state that a nondegenerate OPH-coherent material subfederation has
-\[
-S_{\mathrm{coh}}^{\mathrm{can}}
-=\mathbf 1_{\rm self-read}\,\mathsf R_U\,\mathsf P_U\,\mathsf C_U>0
-\]
-and that this source lies in the same edge-center scalar register as the
-protected \(Z_6\) collar channel under Scalar Edge-Center Exhaustion.  The
-collar coefficient uses the following branch-local inputs.
-
-\begin{enumerate}[label=L\arabic*.,leftmargin=*]
-\item Positive scalar source branch: the scalar repair defect is the minimal
-recoverability defect
-\[
-R_C=I(A:D\mid B)\ge0.
-\]
-
-\item Quotient-edge scalar locality: every quotient-local scalar recoverability
-event is resolved on the edge-center cut register. This is imported from the
-microphysics theorem labeled \texttt{thm:scalar-activation-edge-center}, under
-the branch assumption labeled
-\texttt{ass:edge-center-scalar-completeness}~\cite{oph-micro}.
-
-\item Co-registration with the protected reserve: scalar activation and the
-protected \(\Zsix\) reserve live on the same edge-center resolution and
-commute. This is imported from the microphysics theorem labeled
-\texttt{thm:scalar-z6-same-register-commute}.
-
-\item Scalar-channel exhaustion and no separate scalar carrier: the scalar
-activation channel is exhausted by the scalar activation projector, and any
-separate bulk, screen-area, noncentral, or hidden-carrier scalar channel either
-changes quotient observables or is inert. This is imported from the
-microphysics theorems labeled \texttt{thm:scalar-channel-exhaustion} and
-\texttt{thm:no-separate-scalar-carrier}.
-
-\item Presence reading of local reserve survival: \(\Zsix\) is a sum of sector
-projections, so the conditional reserve profile \(\epsilon_{\Zsix}(y)\), a
-ratio of quotient traces of projections, is the conditional probability of the
-reserve-presence event on a co-registered scalar slot at transverse coordinate
-\(y\). A scalar opportunity survives exactly when the presence event does not
-occur, so
-\[
-\lambda_{\mathrm{slot}}(y)=1-\epsilon_{\Zsix}(y)
-\]
-for every occupancy law whose presence event has probability
-\(\epsilon_{\Zsix}(y)\). No occupancy variable with that presence probability
-attains the Poisson zero-count factor \(e^{-\epsilon}\):
-\(1-\epsilon<e^{-\epsilon}\) strictly for \(\epsilon>0\). A mean-count reading,
-in which \(\epsilon_{\Zsix}(y)\) is consumed as the expectation of an
-\(\mathbb N\)-valued occupancy, severs the link to the projection trace and
-consumes a scalar carrier beyond \(\Zsix\), which L4 excludes; its
-assumption-minimal consequence is the Markov band recorded after the exact-value
-corollary. This is imported from the microphysics lemma labeled
-\texttt{lem:presence-reading-reserve}.
-
-\item Finite-thickness averaging with scalar-weighted reserve mean:
-\[
-\lambdac=
-\int \dd y\,w(y)\,[1-\epsilon_{\Zsix}(y)]
-=
-1-\int \dd y\,w(y)\,\epsilon_{\Zsix}(y),
-\]
-with
-\[
-\int \dd y\,w(y)\epsilon_{\Zsix}(y)=\frac{P}{24}.
-\]
-The profile definitions, mean-reserve disintegration, and survival formula are
-imported from the microphysics definitions and theorems labeled
-\texttt{def:finite-thickness-scalar-profile},
-\texttt{thm:finite-thickness-mean-reserve}, and
-\texttt{thm:finite-thickness-collar-survival}.
-
-\item Exact uniform branch: on the uniform product-thickening branch, including
-product algebra, product trace, reserve pullback, scalar activation
-disintegration, and slice-wise scalar-reserve unbiasedness,
-\[
-\lambdac=1-\frac{P}{24}.
-\]
-This is imported from the microphysics definition and theorem labeled
-\texttt{def:uniform-product-thickening-branch} and
-\texttt{thm:exact-uniform-product-thickening-coefficient}. On the presence
-reading of L5, the scalar-weighted receipt of L6 already fixes this value by
-linearity; the uniform clause adds slice-wise constancy of the profile, which
-the exact value does not consume.
+The screen-microphysics branch supplies four structural facts
+\cite{oph-micro}:
+\begin{enumerate}[label=S\arabic*.,leftmargin=*]
+\item \(\scohcan\) descends to a protected quotient observable.
+\item A nondegenerate source is nonzero.
+\item Scalar edge-center exhaustion places it in the unique quotient-local
+scalar register.
+\item The protected \(\mathbb Z_6\) reserve acts on that same register and
+commutes with scalar activation.
 \end{enumerate}
-\end{assumption}
+These statements identify the channel. They supply no spacetime action or
+dimensional gravitational charge.
 
-The public OPH readout gives
+\section{Protected-Reserve Coefficient}
+
+Let \(\epsilon_{\mathbb Z_6}(y)\) be the conditional reserve-presence profile
+on the co-registered scalar slot, and let \(w(y)\) be the normalized scalar
+weight across the finite collar. The scalar opportunity survives with local
+factor
 \begin{equation}
-P=1.630968209403959.
+\lambda_{\rm slot}(y)=1-\epsilon_{\mathbb Z_6}(y).
 \end{equation}
-The normalized quotient reserve mean is
+The finite-thickness collar coefficient is
 \begin{equation}
-\boxed{
-\tau_q(Z_{6,r,C})=\frac{P}{24}=0.06795700872516496.
-}
-\label{eq:z6-reserve}
+\lambdac=\int\dd y\,w(y)
+\left[1-\epsilon_{\mathbb Z_6}(y)\right].
+\label{eq:collar}
 \end{equation}
-The reciprocal reserve-depth trace is
+The protected-reserve receipt gives
 \begin{equation}
-\boxed{
-\operatorname{Tr}^{\#}_q(Z_{6,r,C})=\frac{24}{P}
-=14.715185655746689.
-}
+\int\dd y\,w(y)\epsilon_{\mathbb Z_6}(y)=\frac{P}{24}.
+\label{eq:reserve}
 \end{equation}
-Only the normalized mean \(P/24\) enters the survival coefficient.
 
-\begin{theorem}[Forced canonical susceptibility on the co-registered branch]
-Assume L1 to L6 of Assumption~\ref{ass:dark-collar-lemmas}. Then the canonically
-normalized coherent-matter susceptibility is the collar survival coefficient:
+\begin{theorem}[Canonical susceptibility]
+Assume the nonzero coherent-source branch, scalar edge-center exhaustion,
+co-registration with the protected reserve, and the presence reading in
+Eqs.~\eqref{eq:collar}--\eqref{eq:reserve}. Then
 \begin{equation}
-\boxed{
-\chican=\lambdac.
-}
-\label{eq:chi-can-lambda}
+\boxed{\chican=\lambdac=1-\frac{P}{24}}.
+\label{eq:canonical}
 \end{equation}
-\end{theorem}
-
-\begin{proof}
-By Theorem~\ref{thm:coherent-material-perturbs-canonical-count} and
-Corollary~\ref{cor:tier-b-response-from-generator}, \(\scohcan\) enters the
-same quotient-edge scalar opportunity count before the protected reserve acts.
-By L3, the \(\Zsix\) reserve acts on that same register. By L5, each local
-coherent scalar opportunity survives the reserve with factor
-\(1-\epsilon_{\Zsix}(y)\). By L6, finite-thickness averaging gives the
-surviving coherent scalar fraction
-\[
-S_{\mathrm{coh,after}}^{\mathrm{can}}
-=
-\lambdac S_{\mathrm{coh,before}}^{\mathrm{can}}.
-\]
-The continuation law writes the same surviving fraction as
-\[
-S_{\mathrm{coh,after}}^{\mathrm{can}}
-=
-\chican S_{\mathrm{coh,before}}^{\mathrm{can}}.
-\]
-For any nonzero canonical coherent fraction, the coefficients are equal.
-\end{proof}
-
-\begin{corollary}[Theorem-level nonzero band]
-Under L1 to L6,
+For \(P=1.630968209403959\),
 \begin{equation}
-\boxed{
-0.9320429912748350\ldots
-\le
-\chican
-\le
-1.
-}
-\label{eq:chi-can-band}
-\end{equation}
-\end{corollary}
-
-\begin{proof}
-Under the presence reading of L5, linearity of the integral gives the exact
-value
-\[
-\chican=\int \dd y\,w(y)\,[1-\epsilon_{\Zsix}(y)]
-=
-1-\int \dd y\,w(y)\epsilon_{\Zsix}(y)
-=1-\frac{P}{24},
-\]
-which attains the lower endpoint. Using Eq.~\eqref{eq:z6-reserve},
-\[
-1-\frac{P}{24}=0.9320429912748350\ldots .
-\]
-Under the mean-count reading, with \(\epsilon_{\Zsix}(y)\) the expectation of
-an \(\mathbb N\)-valued occupancy and survival the zero-count event, Markov's
-inequality gives \(1-\epsilon\le\Pr[N=0]\le1\), hence the same band. Reserve
-survival factors are at most one, so \(\chican\le1\).
-\end{proof}
-
-\begin{corollary}[Exact canonical value from the scalar-weighted receipt]
-Assume L1 to L6. Then
-\begin{equation}
-\boxed{
-\chican
-=
-1-\frac{P}{24}
-=
-0.9320429912748350\ldots .
-}
-\label{eq:chi-can-exact}
-\end{equation}
-\end{corollary}
-
-\begin{proof}
-By L5 and L6, \(\lambdac=1-P/24\); the scalar-weighted receipt alone fixes the
-value, by linearity, and L7 adds slice-wise constancy of the profile, which the
-exact value does not consume. Use
-Eq.~\eqref{eq:chi-can-lambda}.
-\end{proof}
-
-\begin{remark}[Reading selection and the superseded Poisson value]
-The exact value \(1-P/24\) is licensed by the scalar-weighted receipt
-\[
-\int \dd y\,w(y)\epsilon_{\Zsix}(y)=\frac{P}{24}
-\]
-under the presence reading of L5, which the receipt semantics supply:
-\(\epsilon_{\Zsix}(y)\) is a conditional trace of the projection \(\Zsix\),
-hence a presence probability. The Poisson value
-\(e^{-P/24}=0.9343006394893864\ldots\) is the superseded mean-count
-alternative; it is attained by no occupancy variable whose presence event has
-probability \(\epsilon_{\Zsix}(y)\), and the mean-count reading that produces
-it consumes a scalar carrier beyond \(\Zsix\), which L4 excludes. Under the
-mean-count reading the available theorem-grade statement is the Markov band
-\(1-P/24\le\lambdac\le1\) of Eq.~\eqref{eq:chi-can-band}. Which reading nature
-uses is a physical gate of this lane, of the same G9 class as the
-record-to-gravity calibration. Without the scalar-weighted receipt the valid
-coefficient is the profile integral
-\[
-\lambdac
-=
-1-\int \dd y\,w(y)\,\epsilon_{\Zsix}(y).
-\]
-\end{remark}
-
-\begin{remark}[Profile-envelope number]
-The dark-sector correction note also lists profile targets: best same-function
-RAR \(0.958802256\), binned RAR \(0.936737944\), and the OPH
-\(\Zsix\) presence value \(0.932042991\). If an extra numerical selector keeps
-the coherent continuation inside that same-function profile envelope, one may
-quote the practical profile range
-\[
-0.932042991\le\chican\le0.958802256.
-\]
-The range is selector-dependent. The theorem-level band used in the
-rest of this paper is Eq.~\eqref{eq:chi-can-band}, with the exact value
-Eq.~\eqref{eq:chi-can-exact} under the presence reading and the scalar-weighted
-receipt.
-\end{remark}
-
-\begin{corollary}[Engineering chart band]
-On any engineering chart with representative normalization \(\Ncoh\),
-\begin{equation}
-\boxed{
-\frac{0.9320429912748350}{\Ncoh}
-\le
-\chieng
-\le
-\frac{1}{\Ncoh}.
-}
-\label{eq:chi-eng-band}
-\end{equation}
-Under the presence reading with the scalar-weighted receipt,
-\begin{equation}
-\boxed{
-\chieng=\frac{1-P/24}{\Ncoh}.
-}
-\label{eq:chi-eng-exact}
-\end{equation}
-\end{corollary}
-
-\begin{table}[h]
-\centering
-\begin{tabular}{@{}R{0.24\textwidth}R{0.31\textwidth}R{0.31\textwidth}@{}}
-\toprule
-\(\Ncoh\) &
-theorem-level \(\chieng\) band &
-exact \(\chieng\) \\
-\midrule
-\(10^{20}\) & \(9.32\times10^{-21}\text{ to }1.00\times10^{-20}\) & \(9.32\times10^{-21}\) \\
-\(10^{21}\) & \(9.32\times10^{-22}\text{ to }1.00\times10^{-21}\) & \(9.32\times10^{-22}\) \\
-\(10^{22}\) & \(9.32\times10^{-23}\text{ to }1.00\times10^{-22}\) & \(9.32\times10^{-23}\) \\
-\(10^{23}\) & \(9.32\times10^{-24}\text{ to }1.00\times10^{-23}\) & \(9.32\times10^{-24}\) \\
-\(10^{24}\) & \(9.32\times10^{-25}\text{ to }1.00\times10^{-24}\) & \(9.32\times10^{-25}\) \\
-\bottomrule
-\end{tabular}
-\caption{Translation from the theorem-level canonical band to the engineering chart. Here \(\Ncoh=\eps_{\mathrm{sub}}u_{\mathrm{stored}}/u_0\).}
-\label{tab:engineering-band}
-\end{table}
-
-\section{Weak-Field Response}
-
-Insert Eq.~\eqref{eq:continuation-axiom} into the settled weak-field density:
-\begin{equation}
-\rhoa^{\mathrm{eff}}
-=
--\frac{1}{4\pi G}
-\nabla\cdot
-\Bigl[
-\bigl(\nuoph-1+\chieng\scoheng\bigr)\gbar
-\Bigr].
-\label{eq:rho-eff}
-\end{equation}
-In a small terrestrial laboratory region with \(\gbar\simeq -g\,\hat z\) and
-canonical \(\nuoph-1\) negligible, this becomes
-\begin{equation}
-\rhoa^{\mathrm{lab}}
-\simeq
--\frac{1}{4\pi G}
-\nabla\cdot
-\bigl[\chieng\scoheng\,\mathbf g\bigr].
-\label{eq:rho-lab}
-\end{equation}
-Equation~\eqref{eq:rho-lab} uses \(\scoh\) only after the coherent material
-source-generator theorem has routed \(\scoh\) into the quotient-edge scalar
-opportunity count. Heat, rest mass, and ordinary stored energy do not enter
-unless they pass the self-read, record, prediction, and quotient-edge footprint
-receipts.
-
-\begin{theorem}[Planar response law]
-Let a thin device have horizontal projected area \(A_\perp\), and define the
-bottom-to-top coherence contrast
-\[
-\Delta\scoheng={\scoheng}_{\mathrm{bottom}}-{\scoheng}_{\mathrm{top}}.
-\]
-Then, to leading order in the thin-device approximation, the apparent vertical
-force generated by the engineering-chart continuation is
-\begin{equation}
-\boxed{
-F_\chi
-=
-\frac{g^2}{4\pi G}A_\perp\,\chieng\,\Delta\scoheng .
-}
-\label{eq:force-law}
+\boxed{\chican=0.9320429912748350\ldots}.
+\label{eq:value}
 \end{equation}
 \end{theorem}
 
 \begin{proof}
-With \(\mathbf g=-g\hat z\), Eq.~\eqref{eq:rho-lab} gives
-\[
-\rhoa^{\mathrm{lab}}
-=
-\frac{g\chieng}{4\pi G}\frac{\partial\scoheng}{\partial z}
-\]
-up to the sign convention for \(z\). Integrating through a thin column gives
-\[
-M_A=
-\int\rhoa^{\mathrm{lab}}\dd V
-=
--\frac{g\chieng}{4\pi G}A_\perp\,\Delta\scoheng
-\]
-when \(\Delta\scoheng\) is bottom minus top. The apparent weight change is
-\(F_\chi=-gM_A\), yielding Eq.~\eqref{eq:force-law}.
+The coherent source enters the scalar opportunity count before the protected
+reserve acts. Co-registration makes the local surviving fraction
+\(1-\epsilon_{\mathbb Z_6}(y)\). Averaging with \(w(y)\) gives
+\(\lambdac\scohcan\). The definition of canonical susceptibility gives
+\(\chican\scohcan\). Nondegeneracy permits cancellation of \(\scohcan\), and
+Eq.~\eqref{eq:reserve} gives the value.
 \end{proof}
 
-\begin{corollary}[Geometric ceiling]
-If \(|\Delta\nu|\lesssim 1\), then
+\begin{corollary}[Mean-count band]
+If \(\epsilon_{\mathbb Z_6}(y)\) is interpreted only as the mean of a
+nonnegative integer occupancy, then
 \begin{equation}
-\frac{|F_\chi|}{A_\perp}
-\lesssim
-\Cgeom
-\equiv
-\frac{g^2}{4\pi G}
-=
-1.1466\times10^{11}\,\mathrm{N\,m^{-2}}
-\label{eq:geometric-ceiling}
+\boxed{0.9320429912748350\ldots\le\chican\le1}.
+\label{eq:band}
 \end{equation}
-for \(g=9.80665\,\mathrm{m\,s^{-2}}\) and
-\(G=6.67430\times10^{-11}\,\mathrm{m^3\,kg^{-1}\,s^{-2}}\).
 \end{corollary}
 
-The ceiling is algebraic. Material reachability of \(|\Delta\nu|=1\) is a
-separate claim.
+\begin{proof}
+Markov's inequality gives
+\(1-\epsilon\le\Pr[N=0]\le1\). Integration and
+Eq.~\eqref{eq:reserve} give the band.
+\end{proof}
 
-\section{Engineering Susceptibility Window}
+The theorem excludes a zero scalar-channel coefficient on the stated
+nondegenerate branch. It does not exclude a zero dimensional gravitational
+coupling \(q_\star\), a zero device repair charge, or a zero ambient repair
+gradient.
 
-For bounds it is useful to package the contrast geometry, substrate directness,
-and OPH coherence factors into one dimensionless number:
+\section{Engineering Coordinates}
+
+An engineering description may absorb an effective coherent capacity into
+the source coordinate:
 \begin{equation}
-\Delta\scoheng
-=
-\Gammaeff\frac{u}{u_0},
+\scoheng=\Ncoh\scohcan.
+\end{equation}
+Invariance of the scalar perturbation requires
+\begin{equation}
+\chican\scohcan=\chieng\scoheng,
 \qquad
-0\le \Gammaeff\le 1.
-\label{eq:Gamma-definition}
+\boxed{\chieng=\frac{\chican}{\Ncoh}}.
+\label{eq:chart}
 \end{equation}
-Here \(u\) is the representative stored coherent energy density in the active
-mode. The factor \(\Gammaeff\) includes vertical contrast, substrate directness,
-and effective canonical observer coherence.
+Very small values of \(\chieng\) can therefore represent an order-one
+canonical coefficient. Equation~\eqref{eq:chart} is a chart identity. It does
+not define \(q_\star\), measure \(\scohcan\), or predict force.
 
-\begin{theorem}[Nonempty macroscopic linear-response window]
-Let \(\Sigma=M/A_\perp\) be the areal load, let \(f\in[0,1]\) be the target
-fraction of the ordinary weight \(Mg\), and let \(\epsilon_{\mathrm{lin}}\le 1\)
-be the maximum allowed \(|\Delta\nu|\) in the chosen linear-response regime.
-Assume \(\Gammaeff>0\). If
+\section{Repair-Charge Coupling}
+
+The dark-sector completion promotes integer scalar repair occupation and a
+compact repair phase to a canonical pair \((n,\theta)\). On a fixed real lift
+of the phase, its relevant action is
+\begin{align}
+I_{\RPC}={}&I_{\rm Regge}+I_{\rm SM}
+\nonumber\\
+&+\int\dd\tau\left[
+-\sum_vV_vn_vD_\tau\theta_v
+-\sum_vV_v\varepsilon(n_v)
+-\sum_eW_e\mathcal K(|(d\theta)_e|)
+\right.\nonumber\\
+&\hspace{31mm}\left.
+-\sum_vV_v\theta_v
+\left(\mathcal Q_{b,v}
++q_\star\chican S_{{\rm coh},v}^{\rm can}\right)
+\right].
+\label{eq:rpc-action}
+\end{align}
+The source and canonical signs are chosen so phase variation gives the
+positive-source balance in Eq.~\eqref{eq:continuity}, and translation of a
+positive localized source gives force \(-Q_R\nabla\theta\). A globally
+single-valued compact-phase coupling, the derivation of this action from finite
+repair dynamics, and the dimensional constants remain open.
+
+The coherent repair-charge density is
 \begin{equation}
-f\,\frac{4\pi G\Sigma}{g}
-<
-\epsilon_{\mathrm{lin}},
-\label{eq:window-condition}
+\mathcal Q_{\rm coh}=q_\star\chican\scohcan.
+\label{eq:repair-charge-density}
 \end{equation}
-then the interval
+The phase equation is
 \begin{equation}
-\boxed{
-\frac{4\pi G\Sigma f}{g}\,
-\frac{u_0}{\Gammaeff u}
-\le
-|\chieng|
-\le
-\epsilon_{\mathrm{lin}}
-\frac{u_0}{\Gammaeff u}
-}
-\label{eq:chi-eng-window}
+D_\tau n+d^\dagger j_R
+=\mathcal Q_b+q_\star\chican\scohcan.
+\label{eq:continuity}
 \end{equation}
-is nonempty. Values in this interval produce at least fraction \(f\) of the
-ordinary weight inside the declared linear-response bound. Conversely, any
-value that produces at least fraction \(f\) while staying inside that
-linear-response bound lies in this interval.
-\end{theorem}
-
-\begin{proof}
-The force law gives
-\[
-\frac{|F_\chi|}{Mg}
-=
-\frac{g}{4\pi G\Sigma}|\chieng|\Delta\scoheng.
-\]
-Requiring \(|F_\chi|/(Mg)\ge f\) gives the lower bound in
-Eq.~\eqref{eq:chi-eng-window}. Requiring
-\(|\Delta\nu|=|\chieng|\Delta\scoheng\le\epsilon_{\mathrm{lin}}\) gives the upper
-bound. The interval is nonempty exactly when the lower bound is smaller than the
-upper bound, which is Eq.~\eqref{eq:window-condition}.
-\end{proof}
-
-\begin{corollary}[Numerical width in normalized areal load]
-Let
-\[
-\Sigma_2=\frac{\Sigma}{10^2\,\mathrm{kg\,m^{-2}}}.
-\]
-Then
-\[
-\frac{4\pi G\Sigma}{g}=8.5525\times10^{-9}\,\Sigma_2.
-\]
-The full-response \((f=1)\), order-unity linear window has width
-\[
-\frac{\chi_{\mathrm{upper}}}{\chi_{\mathrm{lower}}}
-=
-1.1692\times10^8\,\Sigma_2^{-1},
-\]
-independent of \(u\) and \(\Gammaeff\). With
-\(\epsilon_{\mathrm{lin}}=0.1\), the window width is
-\(1.1692\times10^7\,\Sigma_2^{-1}\).
-\end{corollary}
-
-\begin{table}[h]
-\centering
-\begin{tabular}{@{}R{0.19\textwidth}R{0.23\textwidth}R{0.25\textwidth}R{0.20\textwidth}@{}}
-\toprule
-\(u\,[\mathrm{J\,m^{-3}}]\) &
-\(u/u_0\) &
-\(|\chieng|_{\mathrm{req}}\) for \(f\Sigma_2/\Gammaeff=1\) &
-\(|\chieng|_{\mathrm{lin}}\) for \(\epsilon_{\mathrm{lin}}/\Gammaeff=1\) \\
-\midrule
-\(1.0\times10^5\) & \(1.18\times10^{14}\) & \(7.27\times10^{-23}\) & \(8.5\times10^{-15}\) \\
-\(5.5\times10^5\) & \(6.47\times10^{14}\) & \(1.32\times10^{-23}\) & \(1.55\times10^{-15}\) \\
-\(1.0\times10^6\) & \(1.18\times10^{15}\) & \(7.27\times10^{-24}\) & \(8.5\times10^{-16}\) \\
-\(4.0\times10^6\) & \(4.71\times10^{15}\) & \(1.82\times10^{-24}\) & \(2.13\times10^{-16}\) \\
-\(1.0\times10^7\) & \(1.18\times10^{16}\) & \(7.27\times10^{-25}\) & \(8.5\times10^{-17}\) \\
-\bottomrule
-\end{tabular}
-\caption{Full-response susceptibility bounds for \(u_0=8.5\times10^{-10}\,\mathrm{J\,m^{-3}}\) and \(\Sigma_2=\Sigma/(10^2\,\mathrm{kg\,m^{-2}})\). The third column should be multiplied by \(f\Sigma_2/\Gammaeff\). The fourth column should be multiplied by \(\epsilon_{\mathrm{lin}}/\Gammaeff\).}
-\label{tab:window}
-\end{table}
-
-The table gives the bound in numerical form. It says that
-ordinary material stress and coherent phonon energy densities put the
-macroscopic response threshold in the \(\chieng\sim10^{-22}\) to \(10^{-24}\)
-range for macroscopic areal loads and \(\Gammaeff\) near unity. Smaller
-\(\Gammaeff\) shifts the required value upward by \(1/\Gammaeff\).
-
-\section{Power and Stored-Energy Bounds}
-
-\subsection{Conservation-law cage for switchable force claims}
-\label{subsec:conservation-law-cage}
-
-The force law fixes stored energy. Input power depends on how the coherent state
-is maintained.  A stronger bookkeeping constraint applies to any switchable
-force claim.  Let \(q\) denote a device position and \(s\in\{\mathrm{off},
-\mathrm{on}\}\) its internal state.  In any conservative sector with state
-energy \(E(q,s)\), define the toggle ledger
-\[
-\operatorname{Toggle}(q):=E(q,\mathrm{on})-E(q,\mathrm{off})
-\]
-and the work extracted by the ABBA cycle
-\[
-(\mathrm{on\ at}\ q_1)\to(q_2,\mathrm{on})\to
-(\mathrm{off\ at}\ q_2)\to(q_1,\mathrm{off}).
-\]
-Then
-\[
-W_{\mathrm{ABBA}}
-=
-\operatorname{Toggle}(q_1)-\operatorname{Toggle}(q_2).
-\]
-Thus a claimed position-dependent switchable force with no toggle-energy
-ledger is a perpetual-motion claim: if the toggle cost is zero everywhere, the
-cycle work is zero.  If the cycle extracts \(W>0\), some position pair must
-carry a toggle-ledger difference of at least \(W\), and at least one endpoint
-must carry a ledger entry of order \(W/2\) or larger relative to the pair.
-
-This is the G10 conservation-law cage.  It prices any positive
-\(\chi_\nu\) detection, but it does not derive the response law
-Eq.~\eqref{eq:force-law}.  A detection must therefore arrive with both the
-ordinary force controls and a toggle/maintenance energy ledger large enough to
-account for the measured cycle work.
-
-\subsection{Driven coherent oscillations}
-
-For a driven oscillator with angular frequency \(\omega\), mode volume
-\(V_{\mathrm{mode}}\), quality factor \(Q\), and stored density \(u\),
+For a finite region \(\Omega\),
 \begin{equation}
-P_{\mathrm{loss}}
-=
-\frac{uV_{\mathrm{mode}}\omega}{Q}.
-\label{eq:loss-power}
+\frac{\dd}{\dd\tau}\sum_{v\in\Omega}V_vn_v
++\sum_{e\in\partial\Omega}W_ej_{R,e}
+=\sum_{v\in\Omega}V_v
+\left(\mathcal Q_{b,v}+q_\star\chican
+S_{{\rm coh},v}^{\rm can}\right).
+\label{eq:finite-balance}
 \end{equation}
-Combining Eq.~\eqref{eq:loss-power} with the required density from the
-macroscopic response law gives
+The boundary flux is part of the physical source ledger.
+
+\begin{proposition}[Conditional rotor consequences]
+\label{prop:rotor-consequences}
+Assume Eq.~\eqref{eq:rpc-action}, a positive branch \(n>0\), and the infrared
+constitutive functions
 \begin{equation}
-\boxed{
-P_{\mathrm{loss}}
-=
-\frac{4\pi G\Sigma f\,u_0\,V_{\mathrm{mode}}\omega}
-{g\,Q\,\Gammaeff\,|\chieng|}.
-}
-\label{eq:power-bound}
+\varepsilon(n)=m_Rn+\frac{u_R}{3}n^3,
+\qquad
+\mathcal K(y)=\frac{\kappa_R}{3}y^3,
+\qquad
+m_R,u_R,\kappa_R>0.
+\label{eq:rpc-constitutive}
 \end{equation}
-
-For \(\Sigma_2=1\),
-\(V_{\mathrm{mode}}=10^{-3}\,\mathrm{m^3}\),
-\(\omega=2\pi(4.0\times10^4)\,\mathrm{s^{-1}}\),
-\(Q=10^5\), \(f=1\), and \(\Gammaeff=1\), this gives:
-\[
-\begin{array}{c|c}
-|\chieng| & P_{\mathrm{loss}}\\
-\hline
-10^{-20} & 1.8\,\mathrm{W}\\
-10^{-21} & 18\,\mathrm{W}\\
-10^{-22} & 183\,\mathrm{W}\\
-10^{-23} & 1.8\,\mathrm{kW}\\
-10^{-24} & 18\,\mathrm{kW}
-\end{array}
-\]
-The scaling is \(P_{\mathrm{loss}}\propto(Q\Gammaeff|\chieng|)^{-1}\).
-
-\subsection{Static elastic storage}
-
-For a static elastic-strain coherent variable, the stored density is
+Then:
+\begin{enumerate}[label=(\roman*),leftmargin=*]
+\item phase variation gives the exact finite repair-current balance
+Eq.~\eqref{eq:finite-balance};
+\item the homogeneous dilute phase has
 \begin{equation}
-u_{\mathrm{elastic}}=\frac{\sigma^2}{2E},
-\label{eq:elastic-density}
+\rho_R=m_Rn+\frac{u_R}{3}n^3,
+\qquad
+p_R=\frac{2u_R}{3}n^3,
 \end{equation}
-where \(\sigma\) is stress and \(E\) is the Young modulus. In that interpretation
-there is no oscillator decay factor \(\omega/Q\). Maintaining the state is then
-limited by creep, relaxation, and mechanical failure. Its loss law differs from
-Eq.~\eqref{eq:loss-power}. The same susceptibility bounds apply, because they
-depend only on \(u\), \(\Gammaeff\), and \(\Sigma\).
-
-\section{Construction-Scale Consequences}
-
-The bounds are algebraic. Substrate reachability of \(\Gammaeff\simeq1\) and
-safe maintenance of a high-energy coherent state are separate engineering
-claims. The bounds specify the requirements for a macroscopic force device if
-the continuation is real.
-
-A force device, in this narrow sense, is a bounded substrate whose active region
-creates a vertical engineering-coherence contrast \(\Delta\scoheng\). The apparent weight
-fraction is
+so source-free expansion gives \(n\propto a^{-3}\),
+\(\rho_R\propto a^{-3}\), and \(w_R\simeq0\) when
+\(u_Rn^2\ll m_R\);
+\item if \(\mathcal Q_b=\beta_b\rho_b\) and
+\(\mathbf a_R=-\beta_b\nabla\theta\), the static spherical exterior branch
+gives
 \begin{equation}
-\frac{|F_\chi|}{Mg}
-=
-\frac{g}{4\pi G\Sigma}\,
-|\chieng|\,\Gammaeff\frac{u}{u_0}.
-\label{eq:force-fraction}
+a_R=\sqrt{a_ba_0},
+\qquad
+v^4=GM_ba_0,
+\qquad
+a_0=\frac{\beta_b^3}{4\pi G\kappa_R};
 \end{equation}
-All construction choices enter through the product
-\begin{equation}
-|\chieng|\,\Gammaeff\,u.
-\label{eq:construction-product}
-\end{equation}
-The product makes \(\chieng\) the governing chart number. Geometry fixes the coefficient
-\(g/(4\pi G\Sigma)\). Better materials can raise \(u\). Better mode design can
-raise \(\Gammaeff\). A smaller \(\chieng\) must be paid for linearly by higher
-stored energy density, larger active volume, better quality factor, or a smaller
-target response fraction. If \(\chieng=0\), no amount of construction produces the
-continuation force.
-
-For the normalized areal load \(\Sigma_2=1\), the full-response condition is
-\begin{equation}
-\Delta\nu_{\mathrm{full}}(\Sigma_2=1)
-=
-\frac{4\pi G\Sigma}{g}
-=
-8.5525\times10^{-9}.
-\label{eq:full-response-dnu}
-\end{equation}
-The value is far below even a conservative \(\epsilon_{\mathrm{lin}}=0.1\) linear
-bound. The required \(\Delta\nu\) lies inside the theorem window. Construction
-depends on the required \(\Gammaeff u\) product, mode volume, quality factor,
-and material stress.
-
-\begin{table}[p]
-\centering
-\small
-\begin{tabularx}{\textwidth}{@{}R{0.12\textwidth}R{0.16\textwidth}R{0.16\textwidth}L{0.19\textwidth}X@{}}
-\toprule
-\(|\chieng|\) &
-\(u_{\mathrm{req}}\) at \(f\Sigma_2/\Gammaeff=1\) &
-\(P_{\mathrm{loss}}\) at \(f\Sigma_2/\Gammaeff=1,Q=10^5\) &
-Construction class &
-Interpretation \\
-\midrule
-\(10^{-20}\) &
-\(7.3\times10^2\,\mathrm{J\,m^{-3}}\) &
-\(1.8\,\mathrm{W}\) &
-small bench article &
-The force is easy to produce if the coherence scalar is real. Existing ambient-coherence nulls become the primary consistency check. \\
-\(10^{-21}\) &
-\(7.3\times10^3\,\mathrm{J\,m^{-3}}\) &
-\(18\,\mathrm{W}\) &
-tabletop module &
-Accessible to modest driven resonators or static strain specimens. A direct balance or pendulum experiment should see it cleanly. \\
-\(10^{-22}\) &
-\(7.3\times10^4\,\mathrm{J\,m^{-3}}\) &
-\(183\,\mathrm{W}\) &
-high-Q insert / compact platform &
-The first useful construction band. Full response is compatible with ordinary high-Q crystal or metal inserts. Thermal management matters. \\
-\(10^{-23}\) &
-\(7.3\times10^5\,\mathrm{J\,m^{-3}}\) &
-\(1.8\,\mathrm{kW}\) &
-engineered crystal or metal module &
-Inside high-strength material energy densities. Continuous driven operation becomes hard. Static elastic storage becomes much more attractive. \\
-\(10^{-24}\) &
-\(7.3\times10^6\,\mathrm{J\,m^{-3}}\) &
-\(18\,\mathrm{kW}\) &
-industrial multi-module system &
-Near the upper end of practical stored-density claims. Driven operation needs large area, high \(Q\), cryogenic or exceptional materials, or partial-lift use. \\
-\(10^{-25}\) &
-\(7.3\times10^7\,\mathrm{J\,m^{-3}}\) &
-\(183\,\mathrm{kW}\) &
-large array / static-only candidate &
-Inside the response window. Compact driven construction is implausible. Static prestress, very high \(\Gammaeff\), or large arrays are the plausible routes. \\
-\(10^{-26}\) &
-\(7.3\times10^8\,\mathrm{J\,m^{-3}}\) &
-\(1.8\,\mathrm{MW}\) &
-outside compact construction &
-The response inequalities are satisfied. Material and power requirements exceed the intended compact-device scale. For compact devices, this row is effectively a null. \\
-\bottomrule
-\end{tabularx}
-\caption{Construction regimes inside the response-window theorem for \(\Sigma_2=1\), \(f=1\), \(u_0=8.5\times10^{-10}\,\mathrm{J\,m^{-3}}\), \(V_{\mathrm{mode}}=10^{-3}\,\mathrm{m^3}\), \(\omega=2\pi(4.0\times10^4)\,\mathrm{s^{-1}}\), and \(Q=10^5\). Every row has \(\Delta\nu=8.5525\times10^{-9}\), so construction difficulty changes while algebraic admissibility is the same. Multiply the listed material and power requirements by \(f\Sigma_2/\Gammaeff\).}
-\label{tab:construction-regimes}
-\end{table}
-
-Two consequences follow.
-
-First, a measurement of \(\chieng\) selects a construction class. If
-\(|\chieng|\gtrsim10^{-22}\) and \(\Gammaeff\) is reasonably large, compact
-demonstrators are in the ordinary resonator and high-strength-substrate regime.
-If \(|\chieng|\sim10^{-23}\) to \(10^{-24}\), the design must move toward high-Q
-crystals, larger active area, static strain, or partial lift. If
-\(|\chieng|\lesssim10^{-25}\), compact force-device construction stops being the
-right first target. The useful output is a bound on the continuation.
-
-Second, the static-versus-driven distinction is decisive. The driven column pays
-\(uV_{\mathrm{mode}}\omega/Q\). Static elastic storage pays no oscillator
-maintenance cost. It must survive creep and fracture. The same
-\(\chieng\) value can be impractical for a driven phonon design and practical for
-a static strain design. The static-stress experiment decides which maintenance
-law applies to the construction table.
-
-\section{Experimental Bound Formula}
-
-Let an experiment have force sensitivity \(F_{\min}\), projected area
-\(A_\perp\), and known engineering-coherence contrast \(\Delta\scoheng\). A null result gives
-\begin{equation}
-\boxed{
-|\chieng|
-\le
-\frac{4\pi G F_{\min}}{g^2 A_\perp|\Delta\scoheng|}.
-}
-\label{eq:null-bound-general}
-\end{equation}
-If the mode is a driven oscillator, with
-\(\Delta\scoheng=\Gammaeff QP_{\mathrm{in}}/(u_0\omega V_{\mathrm{mode}})\), then
-\begin{equation}
-\boxed{
-|\chieng|
-\le
-\frac{4\pi G F_{\min}u_0\omega V_{\mathrm{mode}}}
-{g^2 A_\perp\Gammaeff QP_{\mathrm{in}}}.
-}
-\label{eq:null-bound-driven}
-\end{equation}
-If the mode is static elastic storage, replace the driven density by
-\(u_{\mathrm{elastic}}\) from Eq.~\eqref{eq:elastic-density}.
-
-\section{Compatibility with Existing Nulls}
-
-\begin{proposition}[No ordinary-matter anomaly from null coherence]
-If ordinary non-engineered configurations have \(\mathfrak c_U=0\) on the
-observer-facing scalar of Eq.~\eqref{eq:canonical-core}, then they impose no direct
-bound on \(\chieng\), because \(\delta\nu=\chieng\scoheng=0\) for those
-configurations.
+\item translation of the coherent source gives
+Eq.~\eqref{eq:force} and the momentum ledger
+Eq.~\eqref{eq:momentum}.
+\end{enumerate}
+These statements are consequences of the proposed action, not derivations of
+that action from the finite OPH theorems.
 \end{proposition}
 
 \begin{proof}
-Equation~\eqref{eq:Scoh-eng-patch} gives the statement immediately. The response
-law couples only to the OPH-native coherent scalar. Undifferentiated rest mass
-or heat is outside this ansatz.
+Item (i) follows by varying \(\theta\) and summing the local equation over a
+finite region. For item (ii), the first-order rotor Hamiltonian density is
+\(\varepsilon(n)\), and its barotropic pressure is
+\(p_R=n\varepsilon'(n)-\varepsilon(n)\). Source-free homogeneous continuity
+then gives \(n a^3=\mathrm{constant}\). For item (iii), spherical integration
+of
+\(\nabla\cdot(\kappa_R|\nabla\theta|\nabla\theta)=\beta_b\rho_b\)
+gives
+\(4\pi r^2\kappa_R|\theta'|\theta'=\beta_bM_b\); the stated acceleration and
+definition of \(a_0\) give the result. Item (iv) follows by translating the
+source term in Eq.~\eqref{eq:rpc-action} and applying translation invariance
+to matter plus repair field.
 \end{proof}
 
-The proposition cuts both ways. Torsion-balance, E\"otv\"os-type, and
-MICROSCOPE equivalence-principle nulls fail to constrain the branch only
-because \(\mathfrak c_U=0\) is assigned to ordinary matter; nothing in the
-recovered core derives that assignment, so it is an axiom-level choice of the
-lane. A theory variant in which ordinary matter carries any nonzero ambient
-scalar meets those nulls at full strength through
-Eq.~\eqref{eq:ambient-bound}, and the bench bound of the Falsifiability Status
-section (\(\Delta S\lesssim10^{-10}\) from coupons at rest) applies to every
-variant that keeps the record-gravity coefficient.
-
-If ordinary matter has a small nonzero ambient scalar
-\({\scoheng}_{\mathrm{amb}}\), then existing gravitational null tests bound the
-product:
+Define the integrated device repair charge
 \begin{equation}
-|\chieng|\,{\scoheng}_{\mathrm{amb}}
-\le
-\delta\nu_{\mathrm{test}}.
-\label{eq:ambient-bound}
+Q_R^{\rm dev}=q_\star\chican
+\int_\Omega\scohcan(x)\dd^3x.
+\label{eq:device-charge}
 \end{equation}
-The condition is real. It becomes a theorem-grade number when the ambient scalar
-is specified. The scalar branch is falsifiable in two ways: by direct \(\chieng\)
-searches through Eq.~\eqref{eq:null-bound-general} and by ordinary-gravity null
-tests once a model for \({\scoheng}_{\mathrm{amb}}\) is fixed.
+For a prescribed external repair phase, translation of the source gives
+\begin{equation}
+\boxed{
+F_i^{\rm coh}=-q_\star\chican
+\int_\Omega\scohcan(x)\,
+\partial_i\theta_{\rm ext}(x)\dd^3x.}
+\label{eq:force}
+\end{equation}
+If the external gradient varies slowly across the device,
+\begin{equation}
+\boxed{F_i^{\rm dev}\simeq
+-Q_R^{\rm dev}\partial_i\theta_{\rm ext}.}
+\label{eq:slow-force}
+\end{equation}
+The sign of \(Q_R^{\rm dev}\) may select attractive or repulsive response.
+Positive repair energy is compatible with signed charge when
+\(\varepsilon(n)=\varepsilon(|n|)\).
 
-\section{Source-Lift Falsifiers}
+\begin{remark}[Switchable-sign boundary]
+\label{rem:switchable-sign}
+The gated source in Eq.~\eqref{eq:source} is nonnegative under its displayed
+definition. With fixed \(q_\star\) and positive \(\chican\), exchanging top and
+bottom source profiles does not reverse the monopole
+\(Q_R^{\rm dev}\). A switchable force sign therefore requires either a signed
+orientation factor derived as part of the coherent source map or a controlled
+reversal of \(\nabla\theta_{\rm ext}\). The finite channel theorem supplies
+neither operation.
+\end{remark}
 
-The finite source-generator branch fails if any of the following tests is
-confirmed under the declared receipt discipline:
-\begin{enumerate}[leftmargin=2em]
-\item a record-shuffled dummy with the same stored energy gives the same force
-signal as the active coherent material branch;
-\item the inferred source changes under port relabeling, hidden carrier
-re-presentation, mesh relabeling, or accepted repair-schedule changes;
-\item the source requires a bulk, screen-area, noncentral collar, heat, rest
-mass, or electrical-power scalar not carried by the edge-center scalar-slot
-register;
-\item \(\scohcan=0\) on the self-read, record, prediction, and mismatch receipts
-while the force is nonzero;
-\item the sign of the force fails to follow the signed bottom-minus-top
-\(\Delta\scohcan\) contrast after orientation reversal and sham controls.
+\section{Compact-Source Constraint}
+
+\begin{proposition}[No monopole from a neutral compact source]
+Suppose the coherent repair source is compactly supported and satisfies
+\begin{equation}
+\int_\Omega\mathcal Q_{\rm coh}\dd^3x=0.
+\label{eq:neutral}
+\end{equation}
+Then it has no repair monopole. Its exterior field begins at dipole order or
+higher. In a uniform external gradient, the leading forces on its positive and
+negative charges cancel.
+\end{proposition}
+
+\begin{proof}
+Integrating Eq.~\eqref{eq:continuity} in a static state makes the exterior
+flux equal the integrated source. Equation~\eqref{eq:neutral} sets the
+monopole flux to zero. The multipole expansion therefore begins beyond the
+monopole. A uniform external gradient couples only to total charge at leading
+order, which vanishes.
+\end{proof}
+
+A bottom-to-top contrast
+\begin{equation}
+\Delta S=S_{\rm bottom}-S_{\rm top}
+\end{equation}
+can shape a dipole, select the sign of injected repair charge, couple to a
+nonuniform external field, or drive an alternating repair current. It does not
+by itself define a nonzero \(Q_R^{\rm dev}\). No formula proportional only to
+\(g^2A\chinu\Delta S/(4\pi G)\) is a force theorem for a closed compact
+device.
+
+\section{Momentum and Energy Closure}
+
+For the cubic condensed branch, the repair-field stress is
+\begin{equation}
+T^R_{ij}=\kappa_R|\nabla\theta|\,
+\partial_i\theta\,\partial_j\theta
+-\delta_{ij}\frac{\kappa_R}{3}|\nabla\theta|^3+\cdots .
+\label{eq:stress}
+\end{equation}
+The exact force ledger is
+\begin{equation}
+\boxed{
+F_i^{\rm matter}+\frac{\dd P_i^R}{\dd t}
++\oint_{\partial\Omega}T^R_{ij}n^j\dd A=0.}
+\label{eq:momentum}
+\end{equation}
+A local repulsive response requires either nonzero device repair charge with a
+field tail or explicit momentum transfer through
+Eq.~\eqref{eq:momentum}. A static, closed, repair-neutral device cannot lift
+itself.
+
+Any switchable force also requires a toggle-energy ledger. Let \(E(q,s)\) be
+the energy at position \(q\) and internal state \(s\), and define
+\begin{equation}
+\operatorname{Toggle}(q)=E(q,{\rm on})-E(q,{\rm off}).
+\end{equation}
+For an on/off spatial cycle between \(q_1\) and \(q_2\), conservation gives
+\begin{equation}
+W_{\rm cycle}=\operatorname{Toggle}(q_1)
+-\operatorname{Toggle}(q_2).
+\end{equation}
+A claimed position-dependent switchable force with no corresponding toggle or
+field-energy difference violates the closed energy ledger.
+
+\section{Laboratory Evidence Conditions}
+
+A force experiment has physical standing only if it supplies:
+\begin{enumerate}
+\item an instrument-independent measurement of \(\scohcan\) or its declared
+engineering coordinate;
+\item the dimensional calibration \(q_\star\);
+\item a measured ambient repair gradient or a controlled emitted repair field;
+\item a nonzero integrated repair charge, or a measured outgoing repair-current
+and momentum flux;
+\item a complete toggle, maintenance-power, and field-energy ledger;
+\item detuned, dummy, reversed-sign, thermal, acoustic, electromagnetic,
+mechanical, and center-of-mass controls;
+\item a force result that follows the repair-field geometry and sign law in
+Eq.~\eqref{eq:force}.
+\item for any claimed switchable reversal, a derived signed source factor or
+an independently measured reversal of the external repair gradient.
 \end{enumerate}
 
-The dark-sector simulation planner can audit downstream galaxy, parent,
-Boltzmann, anomaly, and likelihood gates, but it cannot close any item in this
-source-lift falsifier list.  In particular, a passed planner receipt does not
-establish \texttt{EDGE\_SOURCE\_LIFT\_RECEIPT},
-\texttt{SOURCE\_NONDEGENERACY\_RECEIPT}, or
-\texttt{VERTICAL\_CONTRAST\_RECEIPT}.
-
-\section{How to Read the Two Bands}
-
-The canonical band in Eq.~\eqref{eq:chi-can-band} is the quotient-edge
-continuation statement. It is dimensionless and independent of material energy
-density. It belongs to the branch where coherent scalar sourcing is
-co-registered with the dark-sector scalar repair channel. Under the presence
-reading, with the scalar-weighted receipt, the value is the single number
-\(0.9320429912748350\ldots\).
-
-The engineering band in Eq.~\eqref{eq:chi-eng-band} is the same statement in a
-stored-energy chart. It depends on the declared normalization
-\(\Ncoh=\eps_{\mathrm{sub}}u_{\mathrm{stored}}/u_0\). Large coherent stored
-energy densities make \(\chieng\) numerically small because the scalar itself
-has been scaled up.
-
-The response window in Eq.~\eqref{eq:chi-eng-window} is an operating condition
-for a chosen device geometry and linear-response allowance. A design with
-fixed \(\Sigma\), \(f\), \(u\), and \(\Gammaeff\) is compatible with the OPH
-continuation coefficient when the forced engineering band intersects that
-operating window.
-If the forced band sits above the chosen linear ceiling, the design is outside
-that linear chart. If it sits below the target threshold, the target response is
-too large for that design.
-
-\section{Chart Choices}
-
-The canonical scalar uses the exponent-free observer core
-\(\mathbf 1_{\mathrm{self\mbox{-}read}}R_UP_UC_U\). Optional empirical
-exponents or refinement factors are calibrated-chart data. They are outside
-the canonical quotient-edge coefficient.
-
-The coarse-grained partition weights \(w_U(x)\) should be induced by a declared
-observer-supporting subcover. Only the contrast entering the force law is used
-in the response bounds.
-
-The exact value \(1-P/24\) is licensed by the scalar-weighted protected
-reserve mean under the presence reading, by linearity. The numerical interval
-in Eq.~\eqref{eq:chi-can-band} is the assumption-minimal Markov band of the
-mean-count reading. The profile-envelope range in the
-remark after the exact-value corollary needs an extra numerical selector.
+Without these receipts, a null result does not measure \(\chican\), and a
+nonzero balance signal does not establish repair charge. The lane remains
+outside the falsification program because the action, source calibration, and
+operational source observable are work in progress.
 
 \section{Conclusion}
 
-This note separates channel identity, coefficient value, chart conversion, and
-device evidence.  Coherent-matter same-channel forcing gives a theorem-grade
-scalar-channel identity for nondegenerate OPH-coherent material sources under
-Scalar Edge-Center Exhaustion.  The canonical quotient-edge chart and the
-engineering stored-energy chart are
-\[
-\nueff
-=
-\nuoph+\chican\scohcan
-=
-\nuoph+\chieng\scoheng.
-\]
-On the quotient-edge co-registered collar branch, the protected-reserve lemmas
-force the canonical coefficient to equal the collar survival coefficient:
-\[
-\chican=\lambdac.
-\]
-L1 to L6 give the theorem-grade band
-\[
-0.9320429912748350\ldots
-\le
-\chican
-\le
-1,
-\]
-and under the presence reading the scalar-weighted receipt fixes the exact
-value
-\[
-\chican=1-\frac{P}{24}=0.9320429912748350\ldots .
-\]
-This excludes \(\chican=0\) for nondegenerate coherent-material sources on the
-closed quotient-edge collar branch.
-
-In the engineering chart,
-\[
-\chieng=\frac{\chican}{\Ncoh},
-\qquad
-\Ncoh=\eps_{\mathrm{sub}}\frac{u_{\mathrm{stored}}}{u_0}.
-\]
-This gives
-\[
-\frac{0.9320429912748350}{\Ncoh}
-\le
-\chieng
-\le
-\frac{1}{\Ncoh}.
-\]
-Engineering values near \(10^{-22}\) correspond to
-\(\Ncoh\sim10^{22}\). The response-window inequalities then decide which
-device geometries and material states stay inside the chosen linear-response
-chart.
-
-For \(\Sigma=100\,\mathrm{kg\,m^{-2}}\), full weight response requires
-\[
-\Delta S_{\mathrm{coh,req}}^{\mathrm{can}}
-\simeq
-8.6\times10^{-9}\text{ to }9.2\times10^{-9},
-\]
-and ten percent assist requires about \(8.6\times10^{-10}\) to
-\(9.2\times10^{-10}\). A hoverboard-class areal load around
-\(200\) to \(600\,\mathrm{kg\,m^{-2}}\) moves the full-response target to about
-\(2\times10^{-8}\) to \(6\times10^{-8}\). The coefficient is compatible with
-those room-scale response levels on the closed branch. A device claim requires
-a substrate that produces the required signed vertical canonical contrast, plus
-force controls that separate acoustic, thermal, electromagnetic, and mechanical
-couplings. A cosmological use requires a finite covariant dark-stress parent
-with refinement convergence and likelihood-facing stress observables.
+The canonical coherent-matter susceptibility is an order-one channel
+coefficient fixed by protected-reserve survival on the stated OPH branch. The
+repair-charge condensate completion gives that coefficient a lawful dynamical
+role: it weights the coherent source in the repair-current equation. The same
+proposed action yields exact finite continuity, a dilute dust limit, the
+spherical deep-galaxy scaling, repair-field stress, and a device-force law.
+A device force depends on the dimensional calibration, integrated repair
+charge, external field, and field-momentum ledger. Repulsive response is
+conditionally allowed. Reactionless lift from a compact neutral contrast is
+excluded.
 
 \begin{thebibliography}{99}
 
 \bibitem{oph-synthesis}
-B.\ M\"uller, A.\ Osika, M.\ Poneder, K.\ Xue, B.\ Cassie, P.\ Nguyen, M.\ A.\ Visser, K.\ A.\ Anirudha, D.\ Matscheko, and J.\ Hill,
+B. Mueller et al.,
 \emph{Observers Are All You Need}.
-\href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/observers_are_all_you_need.pdf}{GitHub main PDF}.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/observers_are_all_you_need.pdf}
 
 \bibitem{oph-compact}
-B.\ M\"uller, A.\ Osika, M.\ Poneder, K.\ Xue, P.\ Nguyen, M.\ A.\ Visser, and D.\ Matscheko,
+B. Mueller et al.,
 \emph{Recovering Relativity and the Standard Model from Observer Overlap Consistency}.
-\href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf}{GitHub main PDF}.
-
-\bibitem{oph-consensus}
-B.\ M\"uller, K.\ Xue, K.\ A.\ Anirudha, D.\ Matscheko, and J.\ Hill,
-\emph{Reality as a Consensus Protocol: The Fixed-Point Computation That Implements Physics}.
-\href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/reality_as_consensus_protocol.pdf}{GitHub main PDF}.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf}
 
 \bibitem{oph-micro}
-B.\ M\"uller, A.\ Osika, K.\ Xue, B.\ Cassie, M.\ A.\ Visser, and D.\ Matscheko,
+B. Mueller et al.,
 \emph{Federated Echosahedral Screen Microphysics: Patch Hardware, Records, and Observer Synchronization in OPH}.
-\href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/screen_microphysics_and_observer_synchronization.pdf}{GitHub main PDF}.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/screen_microphysics_and_observer_synchronization.pdf}
 
 \bibitem{oph-dark}
-B.\ M\"uller and D.\ Matscheko,
-\emph{Observer-Patch Holography and the Dark Matter Phenomenon}.
-\href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/cosmology/oph_dark_matter_paper.pdf}{GitHub main PDF}.
+B. Mueller and D. Matscheko,
+\emph{Observer-Patch Holography and the Dark Matter Phenomenon: A Repair-Charge Condensate Completion}.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/cosmology/oph_dark_matter_paper.pdf}
 
 \end{thebibliography}
 

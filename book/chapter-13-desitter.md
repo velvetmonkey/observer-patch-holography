@@ -386,7 +386,7 @@ neatness. Each observer has a static patch, a horizon, a temperature, an
 entropy budget, and finite accessible information. The cosmological horizon is
 the natural screen in this reading.
 
-## 13.10 The Dark Sector: Missing Gravity Without New Particles
+## 13.10 The Dark Sector: Static Law and Physical Gaps
 
 In 1933, Fritz Zwicky looked at galaxies in the Coma Cluster and found a
 problem. They were moving as if the cluster contained far more mass than the
@@ -437,88 +437,47 @@ the usual normalization and coupling tests. The finite quantities a simulation
 can measure are stand-ins for that reconstruction, and they do not amount to a
 full dark source on their own.
 
-### The Acceleration Scale
+### The Repair-Charge Medium
 
-The de Sitter horizon introduces an unavoidable IR length scale:
+The proposed dark-sector completion treats the scalar repair register like a
+rotor. The integer $n$ counts signed repair occupation. The angle $\theta$
+tracks its conjugate phase. Together they form the number-and-phase pair needed
+for dynamics. Finite OPH supplies the scalar register, while this pair and its
+action are proposed additions.
 
-$$r_{dS} = \sqrt{\frac{3}{\Lambda}} \approx 1.66 \times 10^{26} \text{ m}$$
-
-Galaxy rotation anomalies are an infrared phenomenon. They appear at large
-distances where accelerations are tiny. The same de Sitter scale that set the
-horizon therefore supplies the natural ruler for the effect.
-
-A natural acceleration scale, carrying the modular coefficient, is:
-
-$$a_0^{(\text{OPH})} = \frac{15}{8\pi^2} \cdot \frac{c^2}{r_{dS}}$$
-
-Plugging in numbers:
-
-$$a_0^{(\text{OPH})} \approx 1.03 \times 10^{-10} \text{ m/s}^2$$
-
-This lands near the empirical MOND acceleration scale
-$a_0 \sim 1.2 \times 10^{-10}\,\text{m/s}^2$ that fits galaxy rotation curves.
-The proximity matters because it ties a possible galaxy-scale anomaly back to
-the same de Sitter capacity logic that fixed the horizon.
+Given that action, changing the phase gives an exact balance law for repair
+charge, and changing the geometry gives a stress tensor. In a dilute,
+homogeneous phase, charge conservation gives $\rho_R\propto a^{-3}$ and
+$w_R\simeq0$. The medium therefore dilutes like pressureless matter. Its cosmic
+abundance and perturbations are work in progress.
 
 ### Why Galaxies Flatten
 
-In the deep-infrared regime, where the acceleration from visible matter falls
-below $a_0$, the effective gravitational acceleration takes the familiar
-MOND-like form
+In the spherical deep-gradient regime, a cubic repair-phase link energy gives
 
-$$g_{\text{obs}} \approx \sqrt{a_0 \cdot g_b}$$
+$$a_R=\sqrt{a_0g_b}$$
 
 where $g_b$ is the Newtonian acceleration from baryons. For a galaxy this gives
 the flat-rotation-curve behavior astronomers actually see.
 
-$g_{\text{obs}}$ is the effective acceleration inferred from the observed
-rotation curve. $g_b$ is the acceleration expected from visible baryonic matter
-alone: stars, gas, and dust. $a_0$ is the acceleration scale supplied above by
-the de Sitter horizon. The square root is the same scaling that makes flat
-galaxy rotation curves lead to the baryonic Tully-Fisher relation.
+$g_{\text{obs}}$ is inferred from the rotation curve, and $g_b$ is the
+Newtonian acceleration of stars, gas, and dust. The same asymptote gives the
+baryonic Tully-Fisher scaling
 
-The same picture yields the baryonic Tully-Fisher relation:
+$$V^4 = GM_ba_0.$$
 
-$$V^4 = G \cdot M_b \cdot a_0^{(\text{OPH})}$$
+These are conditional consequences of the proposed action. The OPH derivation
+of the canonical pair, source constants, complete constitutive law,
+relativistic limit, lensing, clusters, Solar-System response, abundance, and
+perturbations is work in progress. Cosmology is outside the falsification
+program.
 
-Astronomers discovered this relation empirically: the fourth power of a
-galaxy's flat rotation speed tracks its visible baryonic mass. In the OPH
-reading, the normalization is tied to the de Sitter horizon through the
-acceleration scale above.
-
-The first public-data audit gives this proposal a real, but limited, empirical
-foothold. On the fixed $\mathbb Z_6$ coefficient branch, the radial-acceleration
-relation has an aggregate scatter of $0.132834$ dex. An error-aware fit to the
-baryonic Tully-Fisher data gives an exponent $3.8457\pm0.0858$, putting the OPH
-exponent $4$ about $1.80$ standard deviations away. These are retrospective
-checks on public galaxy data, not predictions frozen before the data were
-opened.
-
-The same audit also marks the present boundary of the proposal. Applying the
-static galaxy equation universally to the Milky-Way--Sun system predicts a
-Cassini quadrupole about $19.22$ standard deviations from the published
-summary on the fixed $\mathbb Z_6$ input. That universal Solar-System extension
-is excluded. The surviving claim is narrower: an old-settled-galaxy branch may
-still work, but only after OPH derives an applicability or screening rule from
-the observer-like system itself (its local state, boundary, readback records,
-and repair dynamics) rather than adding an exception after seeing Cassini.
-
-This is the proposed OPH dark-sector route in the language of this chapter. At
-the level of a settled galaxy, the candidate source is an extra gravitational
-term reconstructed from the framework itself, dark to light and visible to
-gravity. The route does not require a new particle species for galaxy rotation
-curves to feel extra pull. The cosmological constant and the galaxy-scale
-anomaly sit inside one de Sitter picture. The horizon fixes the capacity, and
-the reconstructed source decides whether a leftover term appears where
-accelerations become cosmologically small.
-
-The whole sky matters. Clusters, gravitational lensing, the Bullet Cluster, the
-microwave background, and the growth of structure are where any dark-sector
-account has to survive contact with the data. OPH enters that problem by
-changing the question. The dark sector becomes a question about what a finite
-self-reading horizon leaves behind in gravity once visible matter has done its
-part. Turning that into a full account, with a predicted abundance and a direct
-comparison to all of this data, is work in progress.
+The same action lets coherent material enter the repair channel through a
+fixed dimensionless efficiency. That number is not a force law. A device force
+also needs a dimensional calibration and either an external repair gradient,
+net repair charge, or momentum carried away by the repair field. A closed,
+repair-neutral device cannot support itself through an internal coherence
+contrast.
 
 ---
 

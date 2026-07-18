@@ -60,14 +60,14 @@ def build_payload(
             ],
         },
         "ruled_out_current_selected_point_scalar": {
-            "status": "already_internal_to_current_candidate_stack_not_the_missing_bridge_scalar",
+            "status": "internal_to_declared_candidate_stack_not_the_missing_bridge_scalar",
             "definition": "I_nu^(wc) = 0.5 * sum_e qbar_e * |z_e(psi_wc) - 1|^2",
             "equivalent_if_edge_character_norm_closes": "I_nu^(wc) = sum_e qbar_e * (1 - cos(delta_psi_e))",
             "selected_point": "weighted_cycle_selector_psi_wc",
             "gate": bridge_candidate["bridge_interface_theorem_stack"][1]["id"],
             "type": "positive_dimensionless_scalar",
             "why_ruled_out": (
-                "The selected-point scalar is already fixed by the candidate qbar_e, psi_wc, and psi* data, so it cannot be an independent bridge-external scalar."
+                "The candidate qbar_e, psi_wc, and psi* data fix the selected-point scalar, so it cannot be an independent bridge-external scalar."
             ),
         },
         "qbar_only_collapse_status": (
@@ -76,7 +76,7 @@ def build_payload(
             else "unresolved_on_current_attached_stack"
         ),
         "collapse_alternative": (
-            "neither a qbar-only collapse nor a current-selected-point scalar collapse is derivable from the present attached stack; any future closure must adjoin one positive non-homogeneous bridge scalar or an exactly equivalent theorem"
+            "neither a qbar-only collapse nor a selected-point scalar collapse is derivable from the declared attached stack; closure requires one positive non-homogeneous bridge scalar or an exactly equivalent theorem"
             if irreducibility is not None
             else "prove_the_residual_bridge_scalar_is_internal_to_the_present_stack"
         ),
@@ -131,11 +131,11 @@ def build_payload(
             "This scaffold isolates a conditional positive scalar quotient inside the rejected candidate.",
             "One-dimensionality of that conditional quotient does not establish a physical branch or exclude missing discrete operator, basis, or mass-label choices.",
             "The conditional attached-stack algebra does not collapse the bridge factor to a qbar-only law.",
-            "The selected-point scalar I_nu^(wc) is diagnostic-only because it is already internal to the candidate stack.",
+            "The selected-point scalar I_nu^(wc) is diagnostic-only because the candidate stack fixes it.",
             "The defect-weighted same-label edge family is numerically complete but inherits source-open flavor inputs.",
             "Factoring through the internal candidate proxy exposes a conditional correction scalar C_nu for debugging only.",
             "The first physical missing object is the source-closed operator, basis, charged-basis, and mass-label contract, not C_nu.",
-            "Direct C_nu auditing now induces a narrower target-containing B_nu window than the old direct bridge corridor, but that sharpening remains compare-only and does not collapse the irreducibility theorem.",
+            "Direct C_nu auditing gives the narrowest measured-reference B_nu window; it remains compare-only and does not collapse the irreducibility theorem.",
             "The shortlist-consensus window is a target-informed route-agreement diagnostic and has no theorem status.",
             "The exact remaining scalar is better parameterized as B_nu := lambda_nu * q_mean^p_nu / m_star_eV, equivalently A_nu / m_star_eV.",
         ],

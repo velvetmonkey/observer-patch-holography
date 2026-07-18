@@ -85,7 +85,7 @@ def test_four_pixel_branches_and_four_mass_surfaces_stay_distinct() -> None:
         "1.630968209403959324879279847782648941"
     )
     assert branches["source_audit_P_cand"]["P"] == (
-        "1.63097209569432901817967892561191884270169"
+        "1.63097209585889737696451390350695562847912625483895268486516"
     )
     # Frozen against the trunk artifact regenerated in commit 7e94eb43
     # ("Incorporate audit feedback"): solver precision 100 with 120 outer

@@ -158,19 +158,17 @@ source-only prediction.
 | `theta_C` (Gatto-Sartori-Tonin) | `0.2086` | `0.2250` | same Clebsch lane; `sqrt(m_d/m_s)` |
 | `Lambda_QCD^(3)` | `0.3348 GeV [0.319, 0.350]` | `0.338 +- 0.012 GeV (published)` | dimensional transmutation of the source strong coupling; declared threshold inputs bracket-swept |
 | `m_N` (nucleon) | `0.929 GeV [0.823, 1.043]` | `0.9383 GeV` | source `Lambda_QCD` times a published lattice-theory ratio (`oph_plus_external_qcd_theory`) |
-| `alpha^-1` (no-hadron near endpoint) | `137.0359595008...` | `137.035999177` | deterministic pixel-root evaluation; source spectral endpoint and same-scheme hadronic remainder are work in progress |
+| `alpha^-1` (root plus public width diagnostic) | `137.035959513608567790...` | `137.035999177` | certified source root plus `alpha_U(P_public)`; physical Thomson transport is work in progress |
 | `v / E_star` | `2.0199803239725553e-17` | dimensionless | public-endpoint hierarchy packet; the physical normalization of `E_star` is work in progress |
 
-Supersession note: the recorded `alpha^-1` no-hadron
-near-endpoint value `137.0359595008...` is a mixed-provenance display packet
-(the inner value evaluated at `P_fwd` plus `alpha_U` evaluated at the SL-3
-pixel) from a run that predates the converged precision-100 reruns; it is not
-a fixed point of any single declared map and stays on record as a display
-packet only. The certified self-consistent gauge-width fixed point is
+The source-root-plus-public-width diagnostic is not a fixed point of one map.
+Its difference from the measured endpoint is
+`0.00003966339143220971057` (`2.8943775118e-7` relative). The certified
+self-consistent gauge-width fixed point is
 `alpha^-1 = 137.035660136946577...` (CL-2 residual `2.5e-6` relative, about
 `1.6e4` measurement sigma), and the certified source root is
-`alpha^-1 = 136.994835177413...` (CL-6 closes only the arithmetic root of
-that declared incomplete map; see
+`alpha^-1 = 136.994835177412937295...`; the physical Thomson map is work in
+progress (see
 `../../docs/CLOSURE_LEDGER.md`).
 
 The per-family surface with tier labels, explanations, and blocking objects is
@@ -247,7 +245,9 @@ capacity value
 `N_CRC^EW = 3.5323546226929906511187512962330547600462e122`,
 with zero bridge residual, the 12-port screen sieve, the 24-slot oriented
 repair register, and `epsilon_H = 0` on the selected source-to-Higgs branch.
-These are dimensionless hierarchy/naturality statements. They do not turn
+The screen factor is conditional on strict unit splitting, inverse pairing,
+and a source-side D-optimal tomography selector whose production is work in
+progress. These are dimensionless hierarchy/naturality statements. They do not turn
 `v/E_star` into a GeV mass until the physical meaning and normalization of
 `E_star` are independently source-closed.
 The pixel-screen receipt records the same selected `(P_*,N_CRC^EW)` pair as an
@@ -260,40 +260,11 @@ It is a summary receipt of the existing certificates, not an SI Lambda or
 primitive-carrier promotion.
 Full SI gravity remains gated by the no-G clock stack.
 
-## Historical CL-5 Electroweak Prescription Sweep
+## CL-5 Electroweak Status
 
-Status correction: this discrete menu scanned chart prescriptions
-against stale Breit--Wigner coordinates. It did not define a common physical
-observable, did not exhaust renormalization conventions, and did not propagate
-theory uncertainty. The words "landing" and "pull" below describe only the
-historically declared numerical bands; they are not physical mass coverage or
-statistical significance. CL-5 is not evaluable until a complete scheme map and
-a target in the same convention are frozen.
-
-The forward W/Z repair program for closure ledger row CL-5 ran as a frozen
-discrete menu. The menu was written before any entry was computed
-(`../../falsification/preregistered/ew_repair_menu_2026-07-14.json`); the
-driver `calibration/ew_repair_sweep.py` reuses `build_paper_d10`, the
-source-pair `eta` reduction, and `strict_branch_two_law_evaluation` with no
-forked physics, and emits
-`../../falsification/preregistered/ew_repair_results_2026-07-14.json`.
-Axes: gauge one-loop triple {MSSM (33/5, 1, -3), SM (41/10, -19/6, -7)},
-`beta_EW` in {3, 4, 5}, evaluation pixel {SL-3 certificate, certified
-`P_fwd`, public endpoint `P_C`, rounded legacy carrier 1.63094}, the two-way
-value-law branch, and the Stage-3 `delta_rho` Z surrogate; 96 entries total,
-historical numerical bands `80.3692 +- 0.0133` and `91.1880 +- 0.0020`
-simultaneously. One row falls in those bands: the nonzero-carrier value law at
-the rounded legacy carrier `P = 1.63094`. Its historically printed standardized
-differences were `(+0.59, -0.01)` using experimental errors only. Those numbers
-are not physical pulls, and the row neither confirms the prescription nor
-closes CL-5. Every entry at the certified pixels falls outside the same
-historical bands. The SM
-triple admits no pixel-residual root at all: the `alpha_3` one-loop Landau
-ceiling requires `alpha_U < 0.02701` while an electroweak-scale fixed point
-only exists above it, so the pixel sum overflows on every scanned `alpha_U`.
-`beta_EW = 3` and `beta_EW = 5` place the fixed point near `1.3e-3 GeV` and
-`2.3e6 GeV` respectively; both are recorded as structural failures with
-wide-window diagnostic roots in the results artifact.
+The emitted W/Z pair is a running/tree chart coordinate. A complete physical
+observable, renormalization prescription, theory uncertainty, and complex-pole
+map are absent. CL-5 is not evaluable and is outside the falsification program.
 
 ## Main Outputs
 
@@ -317,11 +288,11 @@ wide-window diagnostic roots in the results artifact.
   [exact_fits_only.json](exact_fits_only.json)
 - machine-readable exact non-hadron mass bundle:
   [exact_nonhadron_masses.json](exact_nonhadron_masses.json)
-- frozen claim-table artifact:
+- generated claim-table artifact:
   [status_table_forward_current.json](runs/status/status_table_forward_current.json)
-- frozen exact-fits-only artifact:
+- generated exact-fits-only artifact:
   [exact_fits_only_current.json](runs/status/exact_fits_only_current.json)
-- frozen exact non-hadron mass bundle:
+- generated exact non-hadron mass bundle:
   [exact_nonhadron_masses_current.json](runs/status/exact_nonhadron_masses_current.json)
 - derivation graph:
   [particle_mass_derivation_graph.svg](particle_mass_derivation_graph.svg)

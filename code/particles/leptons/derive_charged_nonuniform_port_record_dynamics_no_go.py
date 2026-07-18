@@ -33,7 +33,7 @@ def uniform_minimum(total: float, count: int) -> list[float]:
 
 
 def build_artifact(screen: dict[str, Any]) -> dict[str, Any]:
-    minimum = screen["convex_defect_minimum"]
+    minimum = screen["strict_unit_defect_minimum"]
     charges = [float(value) for value in minimum["charges"]]
     total = float(minimum["total_charge"])
     uniform = uniform_minimum(total, len(charges))
@@ -41,7 +41,7 @@ def build_artifact(screen: dict[str, Any]) -> dict[str, Any]:
     uniform_forced = charges == uniform and len(charges) == 12
     return {
         "artifact": "oph_charged_nonuniform_port_record_dynamics_no_go",
-        "status": "CLOSED_NO_GO_CURRENT_OPH_SCREEN_DYNAMICS_FORCE_UNIFORM_RECORD",
+        "status": "CONDITIONAL_NO_GO_ON_DECLARED_STRICT_UNIT_SCREEN_BRANCH",
         "nonuniform_record_derived": False,
         "public_charged_mass_promotion_allowed": False,
         "declared_branch": {
@@ -61,7 +61,7 @@ def build_artifact(screen: dict[str, Any]) -> dict[str, Any]:
                 "no-marked-point MaxEnt constraints are A5-invariant; uniqueness from strict "
                 "entropy concavity therefore makes the expected port record A5-invariant and "
                 "uniform. Its centered first and quadrupole moments vanish. Consequently the "
-                "current OPH dynamics cannot derive a deterministic refinement-stable "
+                "the declared homogeneous screen branch cannot derive a deterministic refinement-stable "
                 "non-singlet port record."
             ),
             "proof": [
@@ -100,8 +100,8 @@ def build_artifact(screen: dict[str, Any]) -> dict[str, Any]:
             "not_allowed": "choosing c_i or lambda_i from electron, muon, or tau masses",
         },
         "claim_boundary": (
-            "A nonuniform twelve-port record is not derivable from the current homogeneous "
-            "OPH screen dynamics. It requires a new observer-conditioned non-equilibrium or "
+            "A nonuniform twelve-port record is not derivable on the declared homogeneous "
+            "strict-unit screen branch. A source-derived observer-conditioned non-equilibrium or "
             "spontaneous-symmetry-breaking branch with its own refinement theorem."
         ),
     }

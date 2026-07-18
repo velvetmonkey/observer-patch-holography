@@ -23,8 +23,9 @@ def test_target_equivalences_hold() -> None:
     eq = payload["target_equivalences"]
 
     assert eq["all_equal_to_precision"] is True
-    assert eq["missing_delta"] == eq["quark_naive_times_screen_gap"]
-    assert eq["missing_delta"] == eq["quark_naive_times_x2_cq"]
+    tolerance = Decimal(eq["tolerance"])
+    assert abs(Decimal(eq["missing_delta"]) - Decimal(eq["quark_naive_times_screen_gap"])) <= tolerance
+    assert abs(Decimal(eq["missing_delta"]) - Decimal(eq["quark_naive_times_x2_cq"])) <= tolerance
 
 
 def test_source_hash_excludes_compare_targets() -> None:

@@ -32,6 +32,34 @@ def test_hierarchy_bundle_validators_pass() -> None:
     assert all(output["pass"] is True for output in validator_outputs)
 
 
+def test_screen_sieve_derives_one_normalized_seidel_graph_class() -> None:
+    cert = json.loads(
+        (ROOT / "certificates/R_screen_sieve_icosahedral_certificate.json").read_text()
+    )
+    seidel = cert["d_optimal_tomography"]["seidel_uniqueness"]
+    graph_class = seidel["normalized_negative_graph_class"]
+
+    assert graph_class["distinct_degree_profiles"] == [[2, 2, 2, 2, 2]]
+    assert graph_class["every_solution_connected"] is True
+    assert graph_class["derived_graph_type"] == "C5"
+    assert graph_class["solutions_equal_all_labelled_c5_graphs"] is True
+    assert graph_class["derived_labelled_c5_graph_count"] == 12
+    assert len(graph_class["canonical_edge_codes"]) == 1
+    assert graph_class["isomorphism_class_count"] == 1
+    assert seidel["switching_isomorphism_classes"] == graph_class[
+        "isomorphism_class_count"
+    ]
+
+    arithmetic = cert["screen_load_arithmetic"]
+    assert arithmetic["local_port_read"] == "X/12"
+    assert arithmetic["gamma_screen_simplified"] == "(P/12)*log(N/pi)"
+    assert "hierarchy_readout" not in arithmetic
+    gate = cert["hierarchy_screen_readout_gate"]
+    assert gate["premise_id"] == "HIERARCHY-SCREEN-READOUT"
+    assert gate["supplied_by_screen_sieve"] is False
+    assert gate["required_identification"] == "log(E_cell/v)=Gamma_screen"
+
+
 def test_ru_krawczyk_certificate_is_unique_root_witness() -> None:
     result = _run(
         "validators/validate_ru_interval_certificate.py",
@@ -135,9 +163,9 @@ def test_hierarchy_numeric_witness_keeps_public_and_source_audit_branches_separa
     assert public["P_C"] == "1.630968209403959324879279847782648941"
     assert public["alpha_U_display"] == "0.041124336195630495"
     assert public["v_over_E_star"] == "2.0199803239725553e-17"
-    assert source_audit["P_cand"] == "1.63097209569432901817967892561191884270169"
-    assert source_audit["alpha_U"] == "0.04112424744557487"
-    assert source_audit["v_over_E_star"] == "2.0198114150099223e-17"
+    assert source_audit["P_cand"] == "1.63097209585889737696451390350695562847912625483895268486516"
+    assert source_audit["alpha_U"].startswith("0.041124247441816685")
+    assert source_audit["v_over_E_star"].startswith("2.019811407857633059")
 
 
 def test_global_repair_tick_lemma_is_closed_with_derived_round_count() -> None:
@@ -221,7 +249,7 @@ def test_issue_337_electroweak_projection_certificate_records_exact_bridge_condi
     assert checks["rounded_N_fails_exact_bridge"] is True
     assert checks["derivation_chain_has_seven_steps"] is True
     assert checks["step_3_derives_projection_formula"] is True
-    assert checks["step_4_records_resonance_target_scope"] is True
+    assert checks["step_4_records_cp1_readout_scope"] is True
     assert checks["step_6_cites_capacity_certificate"] is True
     assert checks["step_7_derives_P_over_12_form"] is True
     assert checks["factor_origin_beta_EW_recorded"] is True
@@ -234,9 +262,10 @@ def test_issue_337_electroweak_projection_certificate_records_exact_bridge_condi
     assert checks["acceptance_factor_12_origin_documented"] is True
     assert checks["acceptance_compatible_with_local_D10"] is True
     assert checks["acceptance_no_measured_weak_inputs"] is True
-    assert checks["acceptance_resonance_target_scoped_as_oph_condition"] is True
+    assert checks["acceptance_cp1_scoped_as_readout_premise"] is True
     assert checks["boundary_records_closed_elsewhere"] is True
     assert checks["boundary_includes_scope_note"] is True
+    assert checks["boundary_records_open_readout"] is True
 
     cert = json.loads((ROOT / "certificates/R_EW_tick_projection_certificate.json").read_text())
     assert cert["accepted"] is True
@@ -359,10 +388,11 @@ def test_issue_344_exact_capacity_certificate_is_fixed_point_source_record() -> 
     assert chain[0]["full_precision_source_artifact"] == "certificates/R_PN_joint_fixed_point_certificate_report.json"
     assert chain[0]["parallel_source_audit_branch_witness"] == "certificates/R_P_source_audit_pixel_certificate.json"
     assert "P_public" in chain[0]["conclusion"]
-    assert "P_cand = 1.63097209569432901817967892561191884270169" in chain[0]["conclusion"]
+    assert "P_cand = 1.63097209585889737696451390350695562847912625483895268486516" in chain[0]["conclusion"]
     assert "beta_EW" in chain[1]["conclusion"]
     assert "m_rep = 24" in chain[2]["conclusion"]
-    assert "Pi_EW(P_star, N_CRC^EW) = 4*P_star" in chain[3]["conclusion"]
+    assert "declared CP-1 target" in chain[3]["conclusion"]
+    assert "HIERARCHY-SCREEN-READOUT" in chain[3]["conclusion"]
     assert "B_EW(P_star,N) := alpha_U*log(N/pi) - 6*pi/P_star" in chain[4]["conclusion"]
     assert "N_CRC^EW(P_star) = pi*exp[6*pi/(P_star*alpha_U(P_star))]" in chain[5]["conclusion"]
     assert "Banach" in chain[6]["conclusion"] and "1 - lambda = 1/2" in chain[6]["conclusion"]
@@ -374,7 +404,7 @@ def test_issue_344_exact_capacity_certificate_is_fixed_point_source_record() -> 
     assert p_star_factor["source_artifact"] == "certificates/R_P_public_pixel_certificate.json"
     assert p_star_factor["full_precision_source_artifact"] == "certificates/R_PN_joint_fixed_point_certificate_report.json"
     assert p_star_factor["parallel_source_audit_witness"] == "certificates/R_P_source_audit_pixel_certificate.json"
-    assert p_star_factor["parallel_source_audit_value"] == "1.63097209569432901817967892561191884270169"
+    assert p_star_factor["parallel_source_audit_value"] == "1.63097209585889737696451390350695562847912625483895268486516"
     assert p_star_factor["value"] == "1.6309682094039593248792798477826489413359828516279250606661507533907793398933432"
     assert factors["alpha_U_unification_width"]["source_artifact"] == "certificates/R_U_krawczyk_certificate.json"
     assert factors["beta_EW_transmutation_multiplicity"]["value"] == "4"
@@ -410,6 +440,9 @@ def test_issue_344_exact_capacity_certificate_is_fixed_point_source_record() -> 
     assert any("A_T_public = 137.035999177" in item and "branch locator" in item for item in allowed)
     forbidden = cert["forbidden_calibrations"]
     assert any("A_T_public" in item and "upstream source-map input" in item for item in forbidden)
+    boundary = cert["claim_boundary"]
+    assert any("HIERARCHY-SCREEN-READOUT" in item for item in boundary["not_closed_here"])
+    assert any("cosmic-capacity" in item for item in boundary["not_closed_here"])
 
     acceptance = cert["acceptance_criteria_status"]
     assert all(acceptance.values())
@@ -547,10 +580,11 @@ def test_issue_343_m_rep_certificate_derives_twenty_four_rounds() -> None:
     assert checks["full_cycle_decomposition_recorded"] is True
     assert checks["claim_boundary_records_scope"] is True
     assert checks["derivation_chain_has_eight_steps"] is True
-    assert checks["derivation_step1_realized_product_branch"] is True
+    assert checks["derivation_step1_product_adjoint_branch"] is True
     assert checks["derivation_step4_orientation_doubling"] is True
     assert checks["derivation_step7_specializes_tick_law"] is True
     assert checks["every_derivation_step_has_source_artifact"] is True
+    assert checks["tex_sources_use_stable_sections_or_labels_not_line_numbers"] is True
     assert checks["factor_origins_keys_complete"] is True
     assert checks["factor_origin_unoriented_cites_corpus"] is True
     assert checks["factor_origin_orientation_cites_corpus"] is True
@@ -579,11 +613,14 @@ def test_issue_343_m_rep_certificate_derives_twenty_four_rounds() -> None:
     chain = cert["derivation_chain"]
     assert len(chain) == 8
     assert chain[0]["premise"].startswith(
-        "OPH realized observer-visible product-gauge branch"
+        "Observer-visible product-adjoint branch"
     )
     assert "compact_proof_of_oph.tex" in chain[0]["source_artifact"]
+    assert "section 'The compact-gauge branch'" in chain[0]["source_artifact"]
+    assert "line 482" not in chain[0]["source_artifact"]
     assert "orientation-doubling axiom" in chain[3]["premise"]
     assert "compact_proof_of_oph.tex" in chain[3]["source_artifact"]
+    assert "section 'The QCD-free hierarchy witness'" in chain[3]["source_artifact"]
     assert (
         chain[6]["premise"]
         == "Specialization of the parametric global repair-tick law"
@@ -604,9 +641,8 @@ def test_issue_343_m_rep_certificate_derives_twenty_four_rounds() -> None:
     )
 
     branch_scope = cert["branch_scope"]
-    assert "(SU(3) x SU(2) x U(1))/Z6" in branch_scope[
-        "oph_realized_compact_gauge_branch"
-    ]
+    assert "su(3)+su(2)+u(1)" in branch_scope["product_adjoint_branch"]
+    assert "global quotient" in branch_scope["product_adjoint_branch"]
     assert "patch-carrier" in branch_scope["reversible_repair_orientation_branch"]
     assert "m_rep=24" in branch_scope["scope_note"]
 
@@ -632,7 +668,7 @@ def test_issue_343_m_rep_certificate_derives_twenty_four_rounds() -> None:
     )
     assert (
         "strictly upstream"
-        in acyclicity["other_remaining_branches_are_upstream_only"]
+        in acyclicity["other_branches_are_upstream_only"]
     )
 
     acceptance = cert["acceptance_criteria_status"]
@@ -673,12 +709,15 @@ def test_issue_332_rg_higgs_naturality_certificate_is_zero_defect() -> None:
     assert cert["accepted"] is True
     assert cert["epsilon_H_interval"] == ["0", "0"]
     assert cert["optional_upstream_resonance_check"]["strict_resonance"] is False
+    assert cert["claim_boundary"]["receipt_class"] == "conditional_identity"
+    assert "HIERARCHY-SCREEN-READOUT" in cert["claim_boundary"]["conditional_on"]
+    assert any("#547" in item for item in cert["allowed_inputs"])
     forbidden = cert["forbidden_calibrations"]
     assert any("measured weak scale" in item for item in forbidden)
     assert any("measured Higgs" in item for item in forbidden)
 
 
-def test_issue_335_local_global_resonance_closes_as_full_selected_branch_statement() -> None:
+def test_issue_335_local_global_resonance_is_exact_conditional_statement() -> None:
     result = _run(
         "validators/validate_issue_335_local_global_resonance.py",
         "certificates/R_local_global_hierarchy_resonance_closeout_335.json",
@@ -687,44 +726,51 @@ def test_issue_335_local_global_resonance_closes_as_full_selected_branch_stateme
 
     assert payload["pass"] is True
     checks = payload["checks"]
-    assert checks["full_theorem_promoted"] is True
+    assert checks["full_theorem_not_promoted"] is True
     assert checks["exact_capacity_supplied"] is True
     assert checks["finite_readback_supplied"] is True
     assert checks["round_count_supplied"] is True
     assert checks["screen_sieve_supplied"] is True
     assert checks["screen_sieve_dependency_present"] is True
     assert checks["rounded_capacity_rejected"] is True
-    assert checks["no_promotion_gates_remain"] is True
+    assert checks["screen_source_receipt_is_work_in_progress"] is True
     assert checks["derivation_chain_has_nine_steps"] is True
-    assert checks["step_5_is_screen_sieve_geometric_strengthening"] is True
-    assert checks["step_8_composes_target_relation"] is True
+    assert checks["step_5_is_screen_sieve_arithmetic_only"] is True
+    assert checks["step_8_composes_conditional_target_relation"] is True
     assert checks["factor_origin_icosahedral_orbit_recorded"] is True
     assert checks["factor_origin_cell_entropy_scoped"] is True
     assert checks["branch_scope_records_screen_branch"] is True
+    assert checks["branch_scope_records_hierarchy_readout_premise"] is True
     assert checks["residual_residue_scoped_in_acceptance"] is True
 
     cert = json.loads((ROOT / "certificates/R_local_global_hierarchy_resonance_closeout_335.json").read_text())
     assert cert["accepted"] is True
-    assert cert["status"] == "closed_full_local_global_hierarchy_resonance"
-    assert cert["full_theorem_grade_resonance_promoted"] is True
+    assert cert["status"] == "exact_conditional_local_global_hierarchy_resonance"
+    assert cert["full_theorem_grade_resonance_promoted"] is False
     acceptance = cert["acceptance_criteria_status"]
     assert acceptance["prerequisite_steps_accounted_for"] is True
-    assert acceptance["full_theorem_grade_resonance_proved"] is True
+    assert acceptance["exact_conditional_resonance_proved"] is True
+    assert acceptance["full_theorem_grade_resonance_proved"] is False
     assert acceptance["exact_capacity_source_certificate_supplied"] is True
     assert acceptance["finite_readback_resolution_supplied"] is True
     assert acceptance["round_count_derivation_supplied"] is True
     assert acceptance["screen_sieve_geometric_strengthening_supplied"] is True
+    assert acceptance["hierarchy_screen_readout_premise_declared"] is True
+    assert acceptance["hierarchy_screen_readout_closed"] is False
     assert acceptance["residual_definitional_residue_scoped_as_oph_identification"] is True
     assert "P/beta_EW" in acceptance["residual_definitional_residue_scope_note"]
-    assert cert["remaining_promotion_gates"] == []
+    assert cert["work_in_progress_receipts"] == [
+        "source production of the unit cost, inverse pairing, and D-optimal selector",
+        "HIERARCHY-SCREEN-READOUT: identify log(E_cell/v)=Gamma_screen and attach it to the alpha_U/B_EW branch",
+    ]
 
     chain = cert["derivation_chain"]
     assert len(chain) == 9
     assert chain[0]["premise"] == "D10 forward transmutation theorem"
     assert "icosahedral screen-sieve" in chain[4]["premise"]
-    assert "EW tick-projection certificate" in chain[4]["geometric_strengthening_note"]
+    assert "does not identify log(E_cell/v)" in chain[4]["scope_note"]
     assert "(P/12)" in chain[4]["conclusion"]
-    assert "electroweak tick-projection bridge" in chain[5]["premise"]
+    assert "HIERARCHY-SCREEN-READOUT" in chain[5]["premise"]
     assert "EW-refined exact-capacity" in chain[6]["premise"]
     assert "(P_*/12)*log(N_CRC^EW/pi)" in chain[7]["conclusion"]
     assert "RG/Higgs naturality" in chain[8]["premise"]
@@ -744,6 +790,7 @@ def test_issue_335_local_global_resonance_closes_as_full_selected_branch_stateme
 
     branch_scope = cert["branch_scope"]
     assert "triangulated S^2" in branch_scope["screen_branch"]
+    assert "HIERARCHY-SCREEN-READOUT" in branch_scope["hierarchy_screen_readout_branch"]
     assert "product adjoint" in branch_scope["oph_product_gauge_branch"]
     assert "cell-entropy" in branch_scope["scope_note"]
 
@@ -752,9 +799,13 @@ def test_issue_335_local_global_resonance_closes_as_full_selected_branch_stateme
 
     screen_sieve_summary = cert["screen_sieve_certificate"]
     assert screen_sieve_summary["orbit_size"] == 12
-    assert screen_sieve_summary["gamma_EW"] == "(P/12)*log(N/pi)"
+    assert screen_sieve_summary["local_port_read"] == "X/12"
+    assert screen_sieve_summary["gamma_screen_algebra"] == "(P/12)*log(N/pi)"
+    assert screen_sieve_summary["hierarchy_readout_premise"]["premise_id"] == (
+        "HIERARCHY-SCREEN-READOUT"
+    )
     assert (
-        screen_sieve_summary["status"] == "closed_on_declared_triangulated_screen_branch"
+        screen_sieve_summary["status"] == "conditional_finite_selector_theorem"
     )
 
 
@@ -775,10 +826,22 @@ def test_pixel_screen_resonance_summary_records_tile_and_cosmology_identities() 
     assert tile["reconstruction_formula"] == "K_cell*(P_star/4) = N_CRC^EW"
     assert tile["relative_reconstruction_error"] == "0"
 
-    lock = payload["shared_12_24_port_lock"]
-    assert lock["screen_ports"] == 12
-    assert lock["repair_register_slots"] == 24
-    assert lock["hierarchy_readout"] == "v/E_cell = (N_CRC^EW/pi)^(-P_star/12)"
+    alignment = payload["shared_12_24_port_alignment"]
+    assert alignment["screen_ports"] == 12
+    assert alignment["screen_oriented_slots"] == 24
+    assert alignment["product_adjoint_dimension"] == 12
+    assert alignment["product_adjoint_rounds_m_rep"] == 24
+    assert alignment["equal_cardinality_status"] == (
+        "arithmetic_alignment_without_physical_identification"
+    )
+    assert "screen_microphysics" in alignment["screen_register_source"]
+    assert "R_m_rep_24_certificate" in alignment["product_adjoint_source"]
+    assert alignment["screen_load_split"] == "X/12"
+    assert alignment["identification_premise"] == "HIERARCHY-SCREEN-READOUT"
+    assert alignment["identification_status"] == "work_in_progress"
+    assert alignment["conditional_hierarchy_readout"] == (
+        "v/E_cell = (N_CRC^EW/pi)^(-P_star/12)"
+    )
 
     ds = payload["dimensionless_de_sitter_coordinate"]
     assert ds["Lambda_lstar2_formula"] == "Lambda_CRC*l_star^2 = 3*pi/N_CRC^EW"

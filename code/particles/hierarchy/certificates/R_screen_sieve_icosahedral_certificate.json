@@ -3,44 +3,248 @@
     "fixed-cutoff OPH screen represented by a quantum-link triangulation of S^2",
     "finite Hilbert spaces on links and Gauss constraints at vertices",
     "boundary-gauge-invariant physical algebras",
-    "locally six-valent MaxEnt vacuum away from curvature defects",
-    "convex positive defect cost",
-    "edge-center collars expose irreducible positive defects as central ports",
-    "no-marked-point finite isotropy rule"
+    "locally six-valent quotient ensemble away from curvature defects",
+    "integer charges and a feasible twelve-unit configuration",
+    "additive cost h with h(0)=0, h(1)>0, h(k)>=h(1)|k| and strict inequality for |k|>=2",
+    "edge-center collars expose unit defects as central ports",
+    "fixed-point-free inverse-port involution gives six unoriented axes",
+    "source selector maximizes det(F1) det(F2) for vector and quadrupole Fisher operators"
   ],
-  "capacity_electroweak_projection": {
-    "beta_EW": 4,
-    "cell_entropy": "P/4",
-    "gamma_EW": "(P/12)*log(N/pi)",
-    "hierarchy_readout": "v/E_cell=(N/pi)^(-P/12)",
-    "local_port_read": "X/12",
-    "screen_load": "X=log(N/pi)"
-  },
   "certificate_id": "R_screen_sieve_icosahedral_certificate",
   "checks": {
-    "electroweak_projection_factor_is_one_over_twelve": true,
+    "d_optimal_bounds_saturated": true,
+    "gamma_screen_algebra_is_p_over_twelve": true,
     "icosahedral_orbit_has_twelve_vertices": true,
+    "physical_hierarchy_readout_not_supplied_by_screen_sieve": true,
     "polyhedral_examples_obey_sphere_charge": true,
-    "unit_defects_minimize_positive_convex_cost": true
+    "projector_gram_is_equiangular": true,
+    "quadrupoles_form_regular_simplex": true,
+    "screen_port_load_factor_is_one_over_twelve": true,
+    "seidel_class_is_unique": true,
+    "unit_defects_minimize_strict_unit_splitting_cost": true
   },
-  "convex_defect_minimum": {
-    "charges": [
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1
+  "claim_boundary": {
+    "exact": "Euler charge, strict unit-splitting implication, D-optimal equality conditions, ETF rigidity, X/12, and the Gamma_screen algebra after importing X=log(N/pi), P/4, and beta_EW=4",
+    "work_in_progress": [
+      "source production of the unit cost, inverse pairing, and D-optimal selector",
+      "HIERARCHY-SCREEN-READOUT: identify log(E_cell/v)=Gamma_screen and attach it to the alpha_U/B_EW branch"
+    ]
+  },
+  "d_optimal_tomography": {
+    "axis_squared_inner_product": "1/5",
+    "projector_gram": [
+      [
+        "1",
+        "1/5",
+        "1/5",
+        "1/5",
+        "1/5",
+        "1/5"
+      ],
+      [
+        "1/5",
+        "1",
+        "1/5",
+        "1/5",
+        "1/5",
+        "1/5"
+      ],
+      [
+        "1/5",
+        "1/5",
+        "1",
+        "1/5",
+        "1/5",
+        "1/5"
+      ],
+      [
+        "1/5",
+        "1/5",
+        "1/5",
+        "1",
+        "1/5",
+        "1/5"
+      ],
+      [
+        "1/5",
+        "1/5",
+        "1/5",
+        "1/5",
+        "1",
+        "1/5"
+      ],
+      [
+        "1/5",
+        "1/5",
+        "1/5",
+        "1/5",
+        "1/5",
+        "1"
+      ]
     ],
-    "defect_cost_sum_q2": 12,
-    "total_charge": 12,
-    "unit_defect_count": 12
+    "quadrupole_determinant_bound": "1024/3125",
+    "quadrupole_fisher_at_equality": "(4/5) I_5",
+    "quadrupole_gram": [
+      [
+        "2/3",
+        "-2/15",
+        "-2/15",
+        "-2/15",
+        "-2/15",
+        "-2/15"
+      ],
+      [
+        "-2/15",
+        "2/3",
+        "-2/15",
+        "-2/15",
+        "-2/15",
+        "-2/15"
+      ],
+      [
+        "-2/15",
+        "-2/15",
+        "2/3",
+        "-2/15",
+        "-2/15",
+        "-2/15"
+      ],
+      [
+        "-2/15",
+        "-2/15",
+        "-2/15",
+        "2/3",
+        "-2/15",
+        "-2/15"
+      ],
+      [
+        "-2/15",
+        "-2/15",
+        "-2/15",
+        "-2/15",
+        "2/3",
+        "-2/15"
+      ],
+      [
+        "-2/15",
+        "-2/15",
+        "-2/15",
+        "-2/15",
+        "-2/15",
+        "2/3"
+      ]
+    ],
+    "quadrupole_trace": 4,
+    "seidel_uniqueness": {
+      "derived_labelled_five_cycles": 12,
+      "normalized_negative_graph_class": {
+        "canonical_edge_codes": [
+          "0011101100"
+        ],
+        "canonical_representative_negative_edges": [
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            5
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            5
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "derived_graph_type": "C5",
+        "derived_labelled_c5_graph_count": 12,
+        "distinct_degree_profiles": [
+          [
+            2,
+            2,
+            2,
+            2,
+            2
+          ]
+        ],
+        "every_solution_connected": true,
+        "isomorphism_class_count": 1,
+        "negative_edge_rule": "{i,j} is an edge iff S[i,j]=-1",
+        "normalization": "S[0,j]=+1 for j=1,...,5",
+        "normalized_solution_count": 12,
+        "solutions_equal_all_labelled_c5_graphs": true,
+        "vertex_labels": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "relation": "S^2=5 I_6",
+      "representative": [
+        [
+          0,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1,
+          1,
+          -1,
+          -1
+        ],
+        [
+          1,
+          1,
+          0,
+          -1,
+          1,
+          -1
+        ],
+        [
+          1,
+          1,
+          -1,
+          0,
+          -1,
+          1
+        ],
+        [
+          1,
+          -1,
+          1,
+          -1,
+          0,
+          1
+        ],
+        [
+          1,
+          -1,
+          -1,
+          1,
+          1,
+          0
+        ]
+      ],
+      "switched_labelled_solutions": 12,
+      "switching_isomorphism_classes": 1
+    },
+    "vector_determinant_bound": "8",
+    "vector_fisher_at_equality": "2 I_3",
+    "vector_trace": 6
   },
   "discrete_gauss_bonnet": {
     "derived_edge_count": "E=3V-6",
@@ -48,6 +252,17 @@
     "total_charge": "sum_v q_v=6V-2E=12",
     "triangular_incidence": "3F=2E",
     "vertex_charge": "q_v=6-deg(v)"
+  },
+  "hierarchy_screen_readout_gate": {
+    "premise_id": "HIERARCHY-SCREEN-READOUT",
+    "required_for": [
+      "v/E_cell=(N/pi)^(-P/12)",
+      "matching Gamma_screen to the alpha_U transmutation branch",
+      "B_EW(P,N)=alpha_U(P)*log(N/pi)-6*pi/P=0"
+    ],
+    "required_identification": "log(E_cell/v)=Gamma_screen",
+    "status": "work_in_progress",
+    "supplied_by_screen_sieve": false
   },
   "orbit_stabilizer": {
     "fivefold_stabilizer_order": 5,
@@ -117,5 +332,34 @@
       "vertices": 12
     }
   ],
-  "status": "closed_on_declared_triangulated_screen_branch"
+  "screen_load_arithmetic": {
+    "gamma_screen_definition": "Gamma_screen=beta_EW*(P/4)*(X/12)",
+    "gamma_screen_simplified": "(P/12)*log(N/pi)",
+    "imported_beta_EW": 4,
+    "imported_cell_entropy": "P/4",
+    "imported_screen_load": "X=log(N/pi)",
+    "local_port_read": "X/12"
+  },
+  "status": "conditional_finite_selector_theorem",
+  "strict_unit_defect_minimum": {
+    "charges": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "defect_cost_sum_q2": 12,
+    "proof": "sum h(q_v) >= h(1) sum |q_v| >= 12 h(1); equality requires twelve positive unit charges",
+    "quadratic_witness": "h(q)=q^2",
+    "total_charge": 12,
+    "unit_defect_count": 12
+  }
 }

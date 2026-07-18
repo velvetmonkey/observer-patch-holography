@@ -1,6 +1,6 @@
 # Particle Derivation Gap Ledger
 
-Generated: `2026-07-12T03:56:19Z`
+Generated: `2026-07-18T05:32:25Z`
 
 Systematic claim-safe queue after the five-equation P-trunk simplification.
 
@@ -10,39 +10,39 @@ Systematic claim-safe queue after the five-equation P-trunk simplification.
 - Exists: `True`
 - Claim label: `compressed_candidate_trunk_not_final_particle_root`
 - May feed promoted particle predictions: `False`
-- Candidate P: `1.63097210492078846050203640439`
-- Candidate alpha^-1: `136.994020662724205139718642793`
+- Candidate P: `1.630972172289734415925897501373482673022655099072161516985001733211109918232723345616738572172898702297689609012`
+- Candidate alpha^-1: `136.9940258961185127104409023920559579278278595210377402655367838643416163059458987723160506837823465289198011341`
 - Source report mode: `thomson_structured_running_asymptotic`
 
 ## Electroweak Hierarchy Certificate
 
 - Artifact: `particles/hierarchy`
 - Exists: `True`
-- Claim label: `closed_local_global_hierarchy_and_naturality_certificate`
-- May feed local hierarchy claim: `True`
+- Claim label: `exact_conditional_local_global_hierarchy_and_closed_naturality_certificate`
+- May feed local hierarchy claim: `False`
 - May feed Higgs naturality claim: `True`
 - Public endpoint P: `1.630968209403959324879279847782648941`
 - Public endpoint alpha_U: `0.041124336195630495`
 - Public endpoint v/E_star: `2.0199803239725553e-17`
 - Public endpoint log10(E_star/v): `16.69465286086613`
-- Source-audit P: `1.63097209569432901817967892561191884270169` (predates the converged rerun; the certified P_fwd is 1.630972095858897..., ledger row CL-6)
-- Source-audit alpha_U: `0.04112424744557487`
-- Source-audit v/E_star: `2.0198114150099223e-17`
+- Source-audit P: `1.63097209585889737696451390350695562847912625483895268486516`
+- Source-audit alpha_U: `0.04112424744181668514088993388965971943770774203135879`
+- Source-audit v/E_star: `2.019811407857633059133742618267014853993e-17`
 - R_U interval: `[0.041123336195630494, 0.041125336195630496]`
 - Krawczyk image: `[0.041124335718554498251685561120150817089903543894567180291985915541514084341979470, 0.041124336672706466103571496781875444719601176485634484342812958790445912366833206]`
 - Derivative interval: `[-10.995767998506369371985481516028357811043316285244607, -10.985284409796418191205377821955038437448873048903355]`
 - Krawczyk interior inclusion: `True`
 - Forbidden DAG paths into protected targets: `[]`
-- Local/global resonance status: `closed_full_local_global_hierarchy_resonance`
-- Full theorem-grade resonance promoted: `True`
-- Remaining promotion gates: `[]`
+- Local/global resonance status: `exact_conditional_local_global_hierarchy_resonance`
+- Full theorem-grade resonance promoted: `False`
+- Work-in-progress receipts: `['source production of the unit cost, inverse pairing, and D-optimal selector', 'HIERARCHY-SCREEN-READOUT: identify log(E_cell/v)=Gamma_screen and attach it to the alpha_U/B_EW branch']`
 - Conditional EW bridge capacity (modulo F and CP-1 to CP-3): `3.5323546226929906511187512962330547600462096590942035604238177731136802717148740820434110040644403858228611984E+122`
 - Bridge residual: `0.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000`
 - Fixed-point residual in log capacity: `0.00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000`
 - Source v/E_cell: `2.5797040595276223506583341903922018695490035369903290256096683452314630559578761079150341073645683725521032233E-17`
 - Higgs naturality defect: `epsilon_H=0`
 - Higgs naturality interval: `[0, 0]`
-- Boundary: This certificate closes the selected local P -> alpha_U -> v/E_star hierarchy lane, the local/global resonance bridge, and the Higgs naturality defect epsilon_H=0. Separate non-promoted gates are the public Thomson endpoint transport, theorem-grade W/Z promotion, charged-lepton absolute masses, source-only hadron masses, Strong CP, and the full no-G clock stack for SI gravity.
+- Boundary: The selected local P -> alpha_U -> v/E_star lane and the Higgs naturality defect epsilon_H=0 are exact on their declared branches. The local/global resonance bridge is exact under the screen premises listed in work_in_progress_receipts. Separate non-promoted gates are the public Thomson endpoint transport, theorem-grade W/Z promotion, charged-lepton absolute masses, source-only hadron masses, Strong CP, and the full no-G clock stack for SI gravity.
 - Physical capacity comparison remains open until F and CP-1 to CP-3 close and the joint cosmological posterior is propagated.
 
 ## Bundle Claim Gates
@@ -65,7 +65,7 @@ Claim gates are grouped into coupled closure packets rather than a one-blocker-a
 - `strong-cp-closure-bundle`: `open_physical_invariant_gap`. No promotion. The selected-class quark wrapper carries only target-anchored mixed-scheme mass textures. The source spread pair is non-identifiable and the physical dimensionless Yukawa normalization is absent. The available corpus does not emit the determinant-line phase contribution, the bare theta_QCD term, or a theorem forcing the physical strong-CP phase to vanish.
 - `qcd-thomson-backend-bundle`: `source_backend_boundary_empirical_policy_emitted`. Constructive result with two surfaces. The source-only primitive remains production_ward_projected_hadronic_spectral_measure_export and requires a real OPH hadron backend. The empirical surface uses a separate e+e- payload class and cannot promote the source-only theorem.
 - `top-codomain-bridge-bundle`: `closed_corpus_limited_codomain_no_go`. No-go result. Q007TP4 remains a target-audit coordinate. The auxiliary direct-top row Q007TP is compare-only because the available corpus emits no source-side extraction-response kernel into that codomain.
-- `particle-root-integration-gate`: `keep_candidate_with_constructive_next_artifacts`. No promotion. The bundle run emits constructive next artifacts, so the compressed P trunk remains candidate/audit metadata until those artifacts are populated and certified.
+- `particle-root-integration-gate`: `keep_candidate_with_constructive_next_artifacts`. No promotion. The first wave emits constructive next artifacts, so the compressed P trunk remains candidate/audit metadata until those artifacts are populated and certified.
 
 ## Claim Gates
 
@@ -76,7 +76,7 @@ Claim gates are grouped into coupled closure packets rather than a one-blocker-a
 | `d10.source-residual-map-and-interval-certificate` | D10 electromagnetic endpoint | `closed_blocker_isolated_source_residual_no_go` | Populate the Ward-projected source spectral measure payload, including rho_had(s;P) or an equivalent spectral primitive, matching remainder, certified quadrature bounds, and the interval certificate for the final map. |
 | `d10.rg-matching-threshold-scheme` | D10 running and matching | `closed_declared_convention_contract` | Keep the declared-convention status visible in prediction surfaces and require a separate theorem before treating those conventions as OPH-derived. |
 | `pclosure.certified-codepath-adoption` | P closure | `closed_guarded_codepath_adoption` | Switch live particle builders only after the source spectral measure payload emits R_Q(P), the interval certificate proves the full map, and the compressed trunk is promoted beyond guarded candidate metadata. |
-| `charged.determinant-normalization-transport` | Charged leptons | `closed_corpus_limited_charged_end_to_end_no_go` | Keep charged masses suppressed. Under the no-new-axiom rule, reopen only if an already-declared determinant-sensitive source observable is exhibited that breaks the kappa countermodel; the gate still flips only when N_det has the certified singleton interval [0,0]. |
+| `charged.determinant-normalization-transport` | Charged leptons | `closed_corpus_limited_charged_end_to_end_no_go` | Keep charged masses suppressed. Under the no-new-axiom rule, reopen only if an declared determinant-sensitive source observable is exhibited that breaks the kappa countermodel; the gate flips only when N_det has the certified singleton interval [0,0]. |
 | `quark.source-spread-identifiability` | Quarks | `closed_corpus_limited_two_modulus_nonidentifiability_obstruction` | Keep all numeric quark rows suppressed. With additional axioms excluded, reopen only if a theorem from the existing MaxEnt/refinement data refutes the equal-MAR-score counterfamily and emits both spreads. |
 | `quark.running-scheme-and-yukawa-normalization` | Quarks | `closed_structural_scheme_nonidentifiability_obstruction` | Emit an RG-covariant mass trajectory or invariant. Apply a declared comparison chart afterward, and require one common scale, threshold transport, top conversion, running v(mu), and y=sqrt(2)m/v before using the phrase physical Yukawa matrix. |
 | `quark.selected-class-vs-global-classification` | Quarks | `selected_class_descent_closed_global_classification_no_go` | Keep selected-fiber descent scoped to representative independence. Global classification may reopen only for a source-emitted ambient public-frame classifier; numeric mass promotion is governed by the separate spread and scheme obstructions. |

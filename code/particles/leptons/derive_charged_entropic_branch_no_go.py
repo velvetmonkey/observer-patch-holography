@@ -16,7 +16,7 @@ charged masses and cannot generate the observed family.  Together with the
 homogeneous shape-silence theorem this closes the second of the three
 candidate mechanisms; the surviving route is a source-emitted charged
 interaction whose invariant mix lies off the entropic ray, inside the
-simple-spectrum region, on the frozen target locus of the decision-geometry
+simple-spectrum region, on the reference-fit locus of the decision-geometry
 lane.
 """
 
@@ -93,7 +93,7 @@ def build() -> dict[str, Any]:
         "consequence": (
             "two equal charged masses on the entropic branch; the observed "
             "family requires a source-emitted charged interaction off the "
-            "entropic ray, on the frozen target locus"
+            "entropic ray, on the reference-fit locus"
         ),
         "checks": checks,
         "checks_pass": all(bool(v) for v in checks.values()),

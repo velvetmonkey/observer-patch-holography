@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import json
+
 import mpmath as mp
 
 import derive_charged_mcpr_completion_conditional as lane
@@ -37,10 +39,11 @@ def test_register_dimensions_match_declared_architecture():
 def test_fixed_point_matches_declared_coefficients():
     geom = lane.icosahedral_incidence_solve()
     dims = lane.register_dimensions(geom)
-    p_value = mp.mpf("1.63097209569432901817967892561191884270169")
-    alpha_u = mp.mpf("0.04112424744557487")
+    source = json.loads(lane.SOURCE_CERTIFICATE.read_text(encoding="utf-8"))
+    p_value = mp.mpf(str(source["P_cand"]))
+    alpha_u = mp.mpf(str(source["alpha_U_P_cand"]))
     fp = lane.response_fixed_point(p_value, alpha_u, dims)
-    assert abs(fp["kappa"] - mp.mpf("0.0008213908200967590397835319530")) < mp.mpf("1e-25")
+    assert abs(fp["kappa"] - mp.mpf("0.0008213908200217955948997382298787794")) < mp.mpf("1e-37")
     assert fp["contraction"] < mp.mpf("0.0016")
     assert max(abs(x) for x in fp["residual"]) < mp.mpf("1e-100")
 
@@ -54,15 +57,15 @@ def test_artifact_reproduces_conditional_triple_and_stays_fail_closed():
     assert artifact["row_class"] == "conditional_on_declared_mcpr_response_architecture"
 
     ratios = artifact["conditional_prediction"]["ratios"]
-    assert abs(mp.mpf(ratios["m_mu_over_m_e"]) - mp.mpf("206.76830059442476067")) < mp.mpf("1e-12")
-    assert abs(mp.mpf(ratios["m_tau_over_m_e"]) - mp.mpf("3477.3655365844047335")) < mp.mpf("1e-9")
-    assert abs(mp.mpf(ratios["m_tau_over_m_mu"]) - mp.mpf("16.81769171864136020")) < mp.mpf("1e-12")
+    assert abs(mp.mpf(ratios["m_mu_over_m_e"]) - mp.mpf("206.76830059518097174")) < mp.mpf("1e-12")
+    assert abs(mp.mpf(ratios["m_tau_over_m_e"]) - mp.mpf("3477.3655365960225913")) < mp.mpf("1e-9")
+    assert abs(mp.mpf(ratios["m_tau_over_m_mu"]) - mp.mpf("16.81769171863604088")) < mp.mpf("1e-12")
 
     masses = [mp.mpf(x) for x in artifact["conditional_prediction"]["masses_over_E_star"]]
     expected = [
-        mp.mpf("4.185110663053609e-23"),
-        mp.mpf("8.653482195992009e-21"),
-        mp.mpf("1.455315958649453e-19"),
+        mp.mpf("4.185110648223775e-23"),
+        mp.mpf("8.653482165360261e-21"),
+        mp.mpf("1.455315953497439e-19"),
     ]
     for got, want in zip(masses, expected, strict=True):
         assert abs(got / want - 1) < mp.mpf("1e-14")
@@ -81,4 +84,4 @@ def test_display_column_is_annotated_as_checksum_scale():
     display = artifact["optional_scale_display"]
     assert "calibration checksum" in display["display_scale_status"]
     assert len(display["masses_MeV"]) == 3
-    assert abs(mp.mpf(display["masses_MeV"][0]) - mp.mpf("0.510955975741552")) < mp.mpf("1e-12")
+    assert abs(mp.mpf(display["masses_MeV"][0]) - mp.mpf("0.510955973930992")) < mp.mpf("1e-12")

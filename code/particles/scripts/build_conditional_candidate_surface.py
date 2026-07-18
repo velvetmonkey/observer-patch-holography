@@ -3,7 +3,7 @@
 
 The strict source-only promotion policy reports `n/a` in every public
 OPH-value column while the sector gates stay open. The numeric conditional
-candidates still exist in the run artifacts. This surface renders those
+candidates exist in the run artifacts. This surface renders those
 values in one place together with their recorded claim labels and open
 gates. Every row stays `promotable=False`; the surface adds no new claims
 and must not feed back into any promotion decision.
@@ -168,10 +168,8 @@ def build_scale_free_chart_ratios() -> list[dict[str, Any]]:
 def build_dimensionless_candidates() -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
 
-    # The historical 137.0359595008... packet is deliberately absent here. It
-    # mixed the source-root coordinate with alpha_U evaluated at another P and
-    # is not a fixed point of a single declared map. It remains in the frozen
-    # audit artifact, but is not a live conditional candidate.
+    # The source-root-plus-public-width coordinate is a diagnostic, not a fixed
+    # point of a single declared map, so it is excluded from this candidate set.
 
     witness = _load_json(HIERARCHY_WITNESS_JSON)
     endpoint_branch = _require(witness, "public_endpoint_branch", _rel(HIERARCHY_WITNESS_JSON))
@@ -210,7 +208,7 @@ def render_markdown(payload: dict[str, Any]) -> str:
         "The electroweak row is the target-free D10 value law. It is the OPH",
         "derivation for the pair: no measured mass enters, and the value follows as",
         "an exact implication of the five quotient-transport premises. The",
-        "diagnostic base-running chart and the target-anchored freeze-once adapter",
+        "diagnostic base-running chart and the measured-reference inverse adapter",
         "stay in the technical audit README and off this surface.",
         "",
         "## Conditional GeV Chart Candidates",

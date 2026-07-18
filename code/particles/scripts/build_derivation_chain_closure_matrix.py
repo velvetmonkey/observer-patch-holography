@@ -117,26 +117,27 @@ def build_payload() -> dict[str, Any]:
         },
         {
             "chain": "hierarchy_naturality_bridge",
-            "status": "closed_selected_branch_local_global_hierarchy_naturality",
-            "claim_level": "selected_branch_source_side_theorem",
+            "status": "exact_conditional_selected_branch_local_global_hierarchy_naturality",
+            "claim_level": "exact_conditional_selected_branch_source_side_theorem",
             "outputs": {
                 "N_CRC_EW": hierarchy_capacity_root["N_CRC_EW"],
                 "bridge_residual": hierarchy_capacity_root["bridge_residual"],
                 "epsilon_H": hierarchy_naturality["epsilon_H"],
             },
-            "promotable": True,
-            "open_gates": [],
+            "promotable": False,
+            "open_gates": hierarchy_resonance["work_in_progress_receipts"],
             "closed_issue_refs": [332, 335, 337],
             "next_artifact": None,
             "resonance_status": hierarchy_resonance["status"],
             "full_theorem_grade_resonance_promoted": hierarchy_resonance[
                 "full_theorem_grade_resonance_promoted"
             ],
-            "remaining_promotion_gates": hierarchy_resonance["remaining_promotion_gates"],
+            "work_in_progress_receipts": hierarchy_resonance["work_in_progress_receipts"],
             "claim_boundary": (
-                "Promotes the hierarchy and Higgs naturality rows only. The public Thomson endpoint, "
-                "W/Z mass promotion, charged-lepton absolute masses, source-only hadrons, Strong CP, "
-                "and full SI G remain separate surfaces."
+                "The hierarchy relation is exact under the declared screen premises; Higgs "
+                "naturality is exact on its selected branch. The public Thomson endpoint, W/Z "
+                "mass promotion, charged-lepton absolute masses, source-only hadrons, Strong CP, "
+                "and full SI G are separate surfaces."
             ),
         },
         {
@@ -259,7 +260,7 @@ def build_payload() -> dict[str, Any]:
             "closed_on_declared_d10_d11_surface_direct_top_no_go",
             "closed_current_corpus_charged_end_to_end_no_go",
             "closed_selected_public_class_global_classification_no_go",
-            "closed_selected_branch_local_global_hierarchy_naturality",
+            "exact_conditional_selected_branch_local_global_hierarchy_naturality",
             "closed_weighted_cycle_absolute_attachment_with_comparison_tension_visible",
         }
     ]
@@ -302,7 +303,8 @@ def build_payload() -> dict[str, Any]:
             "reason": (
                 "Hadron issues #153/#157 have a source-backend boundary and an empirical closure policy surface; "
                 "the P/electromagnetic source-only endpoint needs a populated source spectral measure payload and interval certificate. "
-                "The hierarchy/naturality bridge is closed on the selected branch. "
+                "The hierarchy relation is exact under its declared screen premises, and the "
+                "naturality defect is exact on the selected branch. "
                 "The charged absolute-anchor, quark global-classification, and direct-top auxiliary-codomain lanes "
                 "have corpus-limited no-go boundaries."
             ),

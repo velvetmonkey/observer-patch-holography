@@ -4,6 +4,10 @@ namespace OPH.Compact12
 
 noncomputable section
 
+/-! This file formalizes an abstract twelve-dimensional coefficient Lie
+algebra.  It contains no icosahedral frame, `A5` action, port-to-current map,
+physical gauge algebra, trace-balanced group, or global quotient. -/
+
 abbrev I3 := Fin 3
 abbrev CMat3 := Matrix I3 I3 ℂ
 abbrev RMat3 := Matrix I3 I3 ℝ
@@ -122,7 +126,7 @@ def soBracket (A B : SO3) : SO3 := ⟨commR A.1 B.1, by
     Matrix.transpose_mul, A.2, B.2]
   noncomm_ring⟩
 
-/-- The direct-sum compact algebra `u(3) ⊕ so(3)`. -/
+/-- The abstract direct-sum coefficient algebra `u(3) ⊕ so(3)`. -/
 abbrev Compact := U3 × SO3
 
 def bracket (X Y : Compact) : Compact :=

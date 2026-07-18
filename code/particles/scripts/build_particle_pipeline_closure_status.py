@@ -306,11 +306,16 @@ def build_status() -> dict[str, Any]:
             {
                 "issue": 335,
                 "title": "Local/global hierarchy resonance",
-                "state": "closed_full_local_global_hierarchy_resonance",
+                "state": (hierarchy_local_global or {}).get(
+                    "status", "missing_local_global_hierarchy_resonance_certificate"
+                ),
                 "closable_now": True,
                 "local_next_artifact": _rel(HIERARCHY_LOCAL_GLOBAL_RESONANCE),
                 "full_theorem_grade_resonance_promoted": bool(
                     (hierarchy_local_global or {}).get("full_theorem_grade_resonance_promoted", False)
+                ),
+                "work_in_progress_receipts": list(
+                    (hierarchy_local_global or {}).get("work_in_progress_receipts") or []
                 ),
                 "chrome_workers": "not_needed_for_closed_certificate",
             },
@@ -460,7 +465,11 @@ def build_status() -> dict[str, Any]:
                 "closure_kind": "accepted_sharper_obstruction",
                 "local_next_artifact": _rel(QUARK_SIGMA_OBSTRUCTION),
                 "axiom_level_obstruction_artifact": _rel(QUARK_AXIOM_LEVEL_OBSTRUCTION),
-                "additional_axioms_used": quark_axiom_level.get("additional_axioms_used"),
+                "additional_axioms_used": (
+                    quark_axiom_level.get("additional_axioms_used")
+                    if quark_axiom_level is not None
+                    else None
+                ),
                 "source_only_sigma_emitted": False,
                 "numeric_quark_rows_emitted": False,
                 "chrome_workers": "not_needed_until_new_action_breaking_source_observable_exists",

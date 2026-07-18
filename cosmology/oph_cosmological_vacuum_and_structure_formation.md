@@ -252,11 +252,11 @@ C_\ell
 \frac{dk}{k}
 \Delta_\zeta^2(k)j_\ell^2(k\chi_\star)
 ```
-has a null space unless a radial prior, finite parametric family, or source-stress bridge is declared. OPH primordial promotion requires the source-only stress, single-clock, entropy-repair, curvature-evolution, adiabatic-mode, phase-coherence, screen-to-radial-lift, radial-null-space, and forward-projection receipts. Observable CMB promotion further requires frozen source, solver, likelihood, no-data-use, pooled-reducer, and falsification-rule receipts.
+has a null space unless a radial prior, finite parametric family, or source-stress bridge is declared. OPH primordial promotion requires source-only stress, a single clock, entropy repair, curvature evolution, an adiabatic mode, phase coherence, a screen-to-radial lift, null-space control, and a forward projection. Observable CMB comparison also requires declared source, solver, dataset, covariance, nuisance, and data-use provenance.
 
 #### Claim tiers and required receipts.
 
-Every ensemble-facing run records immutable ensemble id, claim tier, regulator id, representative schema hash, gauge action hash, canonicalizer hash, base measure, action coefficients, coarse maps, zero-mode projector, amplitude convention, sampler hash, smoothing policy, source provenance, and explicit nonclaims. The seed belongs to the run receipt, not to the ensemble definition. The claim tiers are
+Every ensemble-facing run records its ensemble id, claim tier, regulator, representative schema, gauge action, canonicalizer, base measure, action coefficients, coarse maps, zero-mode projector, amplitude convention, sampler, smoothing policy, source provenance, and explicit nonclaims. The seed belongs to the run receipt rather than the ensemble definition. The claim tiers are
 ``` math
 \begin{array}{ll}
 E0:&\text{seed noise, proposal noise, repair jitter},\\
@@ -267,7 +267,7 @@ E4:&\text{OPH primordial field},\\
 E5:&\text{observable cosmological prediction}.
 \end{array}
 ```
-The simulator must keep separate receipts for stationary-law schedule invariance, detailed balance of the aggregate kernel, and pathwise partition invariance. Deterministic replay of semantic random streams or a canonical serial chain is useful, but it is not pathwise partition invariance. Smoothing must preserve raw coefficients, raw spectra, smoothing kernels, smoothed coefficients, smoothed spectra, and hashes of each stage; it is not part of $`S_r`$ unless explicitly declared.
+The simulator must keep separate receipts for stationary-law schedule invariance, detailed balance of the aggregate kernel, and pathwise partition invariance. Deterministic replay of semantic random streams or a canonical serial chain is useful, but it is not pathwise partition invariance. Smoothing must retain raw coefficients, raw spectra, smoothing kernels, smoothed coefficients, and smoothed spectra; it is not part of $`S_r`$ unless explicitly declared.
 
 # Vacuum Claim Boundary
 
@@ -282,7 +282,7 @@ An OPH-native vacuum label requires an E3 receipt. The source data must include
 ```
 with $`J_r`$, $`V_r`$, and $`a_{t,r}`$ derived from OPH source structure rather than from a target law or a desired visual spectrum. Accepted repair moves are generally directed and cannot simply be reused as reversible Euclidean conductances.
 
-# Structure-Formation Targets
+# Structure-Formation Requirements
 
 | Object | Required source-side label |
 |:---|:---|
@@ -290,7 +290,7 @@ with $`J_r`$, $`V_r`$, and $`a_{t,r}`$ derived from OPH source structure rather 
 | OPH vacuum field | E3 only after source Euclidean slab, ground-state, Doob, reflection-positivity, and transfer-refinement receipts. |
 | Proto-object worldlines | Diagnostic until production matter/particle and observer-facing object population receipts pass. |
 | Growth seeds | E4 only after the primordial bridge, radial lift, null-space, positivity, and forward-projection receipts pass. |
-| LSS comparison | E5 only after frozen likelihood/data contracts pass in the data-contract paper. |
+| LSS comparison | Diagnostic; source, transfer, and official likelihood/data contracts are work in progress. |
 
 # Simulator Contract
 

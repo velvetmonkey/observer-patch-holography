@@ -893,21 +893,21 @@
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/403"
     },
     {
-      "blocker": "Classify blocker from the live issue body.",
-      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "blocker": "Derive a quotient-visible anomalous record attachment, physical CP-odd quotient generator and clock, refinement limit, and cosmological sign-domain coherence.",
+      "chrome_policy": "Use the finite source theorem and anomaly receipt as the local packet; do not evaluate against the baryon target before the source history is frozen.",
       "claim_level": "open",
-      "closure": "Add exact closure criterion to this ledger.",
-      "falsification": "Add exact falsification criterion to this ledger.",
+      "closure": "Construct the GAP-B12 source packet and emit a target-free source history satisfying its theorem and receipt gates.",
+      "falsification": "A proof that no quotient-visible gauge-singlet electroweak-anomalous record attachment or no refinement-stable CP-odd generator exists closes the branch as a no-go.",
       "labels": [
-        "surface: archive",
-        "dag:ready-now",
+        "enhancement",
+        "surface: continuation",
         "physics-problems"
       ],
-      "number": 409,
-      "phase": "unclassified",
-      "title": "[Physics problems] Matter-Antimatter Asymmetry",
-      "updated_at": "2026-07-11T04:05:24Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/409"
+      "number": 556,
+      "phase": "D12",
+      "title": "Proof spine GAP-B12: derive the anomalous baryogenesis record phase and CP-odd quotient generator",
+      "updated_at": "2026-07-18T04:47:25Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/556"
     },
     {
       "blocker": "Classify blocker from the live issue body.",

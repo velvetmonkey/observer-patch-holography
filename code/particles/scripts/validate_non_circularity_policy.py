@@ -46,9 +46,9 @@ def validate() -> dict[str, Any]:
     failures: list[str] = []
 
     wz = payloads["d10_wz_factorization"]
-    _require(wz.get("public_surface_candidate_allowed") is False, failures, "W/Z freeze-once adapter is public")
-    _require(wz.get("prediction_promotion_allowed") is False, failures, "W/Z freeze-once adapter is promotable")
-    _require(wz.get("display_allowed_as_compare_only") is True, failures, "W/Z freeze-once adapter lacks compare-only display flag")
+    _require(wz.get("public_surface_candidate_allowed") is False, failures, "W/Z reference-fitted adapter is public")
+    _require(wz.get("prediction_promotion_allowed") is False, failures, "W/Z reference-fitted adapter is promotable")
+    _require(wz.get("display_allowed_as_compare_only") is True, failures, "W/Z reference-fitted adapter lacks compare-only display flag")
 
     readout = payloads["d10_readout"]
     if readout.get("target_free_repair_value_law_status") != "closed":

@@ -1,6 +1,6 @@
 {
   "bundle_id": "oph-hierarchy-proof-artifacts-r1473-2026-06-13",
-  "generated_utc": "2026-07-17T04:44:38Z",
+  "generated_utc": "2026-07-18T05:31:44Z",
   "purpose": "Machine-readable artifacts for the OPH electroweak hierarchy proof obligation audit.",
   "source_release_context": "OPH hierarchy source context with issue #332, #335, #337, #338, #342, #343, and #344 hierarchy closure artifacts, plus the icosahedral screen-sieve theorem.",
   "claim_boundary": {
@@ -14,14 +14,14 @@
       "R_gamma no-G graph skeleton and missing-component gate ledger",
       "R_N global repair-tick theorem with derived m_rep=24 round count",
       "product-branch joint (P,N_CRC) fixed-point and stability theorem",
-      "electroweak tick-projection bridge with exact bridge residual condition",
-      "icosahedral screen-sieve theorem deriving the 12-port sampling factor and P/12 exponent origin on the declared triangulated S^2 branch",
-      "EW-refined exact global-capacity certificate satisfying B_EW(P_star,N_CRC^EW)=0",
-      "issue-#344 EW-refined exact global-capacity fixed-point certificate satisfying B_EW(P_star,N_CRC^EW)=0",
+      "electroweak tick-projection map and exact equivalence Pi_EW=4P iff B_EW=0",
+      "conditional icosahedral screen-sieve theorem deriving twelve ports and X/12; its Gamma_screen algebra imports P/4 and beta_EW=4",
+      "bridge-defined fixed-point identity N_CRC^EW(P)=pi*exp[6*pi/(P*alpha_U(P))] satisfying B_EW=0",
+      "issue-#344 bridge-defined fixed-point identity satisfying B_EW(P_star,N_CRC^EW)=0",
       "issue-#342 finite readback-resolution certificate satisfying rho_read(r,N_CRC)->(N_CRC/pi)^(-1/2)",
       "issue-#343 representation-to-spectrum certificate deriving m_rep=2*(8+3+1)=24",
-      "RG/Higgs naturality defect epsilon_H=0 on the selected exact branch",
-      "issue-#335 full local/global hierarchy-resonance theorem on the selected branch"
+      "RG/Higgs naturality defect epsilon_H=0 on the selected comparison-map branch",
+      "issue-#335 exact local/global hierarchy-resonance identity conditional on HIERARCHY-SCREEN-READOUT"
     ],
     "not_closed_by_bundle": [
       "source-only A_T(P) hadronic endpoint transport for the public Thomson endpoint",
@@ -29,24 +29,27 @@
       "D10/D11 Higgs/top raw interval box for every internal input",
       "full R_gamma source stack: R_alpha, R_e_abs, R_QCD/nuc^133Cs, R_atom^133Cs",
       "W/Z theorem-grade target-free promotion certificate",
+      "HIERARCHY-SCREEN-READOUT: log(E_cell/v)=Gamma_screen and its alpha_U/B_EW attachment",
+      "source production of the strict unit cost, inverse pairing, and D-optimal screen selector",
+      "independently emitted physical cosmic capacity and its comparison with N_CRC^EW",
       "coupled-map joint fixed-point theorem for source branches with cross-feedback"
     ]
   },
   "files": [
     {
       "path": "README.md",
-      "sha256": "5339ed77577f96fb86cc0e173f169c29f7d9c9374c0038ff69a91a391f840e5e",
-      "bytes": 12049
+      "sha256": "17e8157931b1026568d6698f47160ad405a077aedfc15447d247a70812116459",
+      "bytes": 12023
     },
     {
       "path": "STATUS.md",
-      "sha256": "5e34bd44a777094684d95102049a3b9964fdd8e654206cde7b8a286b34ccc1c9",
-      "bytes": 10550
+      "sha256": "3cb1d9c5becc6b25ac3be8685589c37410fb66f330b75743b53188602a2ef3f4",
+      "bytes": 7962
     },
     {
       "path": "INTEGRATION.md",
-      "sha256": "8851afb1d9f4b96af6f11bd87234253f8f7c3c0979a8d68866d424974da7a6f8",
-      "bytes": 6357
+      "sha256": "73836e83eff0162e2a8e8782bd317e18fa0987e6cff51fb23a8ba654dd77a216",
+      "bytes": 6505
     },
     {
       "path": "certificates/DAG_U.json",
@@ -70,8 +73,8 @@
     },
     {
       "path": "certificates/R_PN_joint_fixed_point_certificate_report.json",
-      "sha256": "cfe2ffc9d4cb52aa23c442856a3d53c3f69f8818e4d936a6214318f54e401e40",
-      "bytes": 2639
+      "sha256": "e2609c80cf55998f2c54a997bd0511effb0763e3d76634a554bd58cdb460afc6",
+      "bytes": 2675
     },
     {
       "path": "certificates/R_P_public_pixel_certificate.json",
@@ -80,8 +83,8 @@
     },
     {
       "path": "certificates/R_P_source_audit_pixel_certificate.json",
-      "sha256": "11aeb17fd03b032af987100f8b865786f77b17c6d81aa4a649984e5059f42010",
-      "bytes": 558
+      "sha256": "5fd78433b7fe5832c931507694aa0c378301bec589b33656abdc64b0d746443c",
+      "bytes": 654
     },
     {
       "path": "certificates/R_U_interval_certificate.json",
@@ -120,8 +123,8 @@
     },
     {
       "path": "computations/hierarchy_numeric_witness.json",
-      "sha256": "42be5381c4fcfbb121d8deb0771c51e5ecadf5414b81e13b3ab92bd64d8efa63",
-      "bytes": 2358
+      "sha256": "b8eebcec8a97cc7832367e88fe153fcc93830209413c1ef874a2fb6a3335e64b",
+      "bytes": 2505
     },
     {
       "path": "computations/hierarchy_recompute.py",
@@ -135,8 +138,8 @@
     },
     {
       "path": "theorem_package.md",
-      "sha256": "708c8ac29fb2d041bd8c25c5f7f2219b909ab341a11e1bf41716c289dc20b8b1",
-      "bytes": 11303
+      "sha256": "57fdb3716231bc6d53a63b2d8259dd534b9de8164baf81c9be48b88334654be4",
+      "bytes": 11580
     },
     {
       "path": "verify_issue_332_rg_naturality.py",
@@ -145,13 +148,13 @@
     },
     {
       "path": "verify_joint_fixed_point_certificate.py",
-      "sha256": "06f9f86e123953e1b3a25ab1218e19c9e3a967ee7a0672fcdc2564b5229bfad9",
-      "bytes": 5996
+      "sha256": "f3fa8349a26c84ceefceed1239d9278c8a9447fd936c432f927e68130cfd99dc",
+      "bytes": 6067
     },
     {
       "path": "test_hierarchy_bundle.py",
-      "sha256": "34be8bda6a113d4b384ffef4850c5fbff37cde62a418b62b11fb1e78cfc0320d",
-      "bytes": 41359
+      "sha256": "d62d07786fbd55cc613086068c078756c3326b5e12a402309856d032c97b54bf",
+      "bytes": 44078
     },
     {
       "path": "validators/validate_bundle.py",
@@ -195,13 +198,13 @@
     },
     {
       "path": "certificates/R_screen_sieve_icosahedral_certificate.json",
-      "sha256": "285b30486e4d8548bed60ee0d7220796fee5c80276aa36a0820a709df680433c",
-      "bytes": 2759
+      "sha256": "cb94a6f8795a7772c45c0dc9c1a89368e899ec6dc1eba5354e5f391f4938e2bf",
+      "bytes": 7885
     },
     {
       "path": "certificates/R_EW_global_capacity_certificate.json",
-      "sha256": "b020b3ff4ba130ea3a26631cb6d8fb45aeef5fae6e18d99a0aa2c93549489b7e",
-      "bytes": 24984
+      "sha256": "40b6890472cc5e685db2a70ac658d6ce69a58ef1f22db0c00e070024e5367af0",
+      "bytes": 25128
     },
     {
       "path": "certificates/R_readback_resolution_certificate.json",
@@ -215,8 +218,8 @@
     },
     {
       "path": "verify_screen_sieve_theorem.py",
-      "sha256": "1ee0c7061893b13bd0d6d6092c428e46deceef95c109a642586fc8f16cf24740",
-      "bytes": 4634
+      "sha256": "0dfe6914bf506934b024ea704989faf70fdb86fd22eda56d6c24f51f1280ac70",
+      "bytes": 13312
     },
     {
       "path": "verify_issue_342_readback_resolution.py",
@@ -225,8 +228,8 @@
     },
     {
       "path": "verify_issue_344_exact_capacity.py",
-      "sha256": "6420c0183d0aba1729cfc939b57d1f083c0e5c0de081bef28d2d7dacaf5d9e1d",
-      "bytes": 34987
+      "sha256": "e3cb37ddcea9d54b88472525019a2f1ef5ea8a2e2537f07547ab3ed9c02b38fd",
+      "bytes": 35131
     },
     {
       "path": "validators/validate_issue_337_electroweak_projection.py",
@@ -235,8 +238,8 @@
     },
     {
       "path": "validators/validate_screen_sieve_certificate.py",
-      "sha256": "481a7adc4059eb6e0aedc14521f0e864f04ed2714566e30805bd44f0dedd9625",
-      "bytes": 1809
+      "sha256": "e703df8557bc88a353a3c0c2af324218125cd0eb9c4ba14ad5d315d22a150205",
+      "bytes": 4068
     },
     {
       "path": "validators/validate_issue_342_readback_resolution.py",
@@ -245,48 +248,48 @@
     },
     {
       "path": "validators/validate_issue_344_exact_capacity.py",
-      "sha256": "4c5403411b1cf6eea8c26eca1b69c108c19e11c3da29c08a036678d4d5c00fd3",
-      "bytes": 16172
+      "sha256": "b68fb51216749244576d29f6f761d92bc576d29427d4a79c42a7af4a1a294661",
+      "bytes": 16226
     },
     {
       "path": "certificates/R_local_global_hierarchy_resonance_closeout_335.json",
-      "sha256": "4a129d2c9e737e989b397decb8d512853e9e3f02a7dd45b481e56515254b5ee5",
-      "bytes": 17188
+      "sha256": "c758c10c11afde4e28a77682a4886f175808ff2915561f741c1e91fba6ae6bc1",
+      "bytes": 18317
     },
     {
       "path": "verify_issue_335_local_global_resonance.py",
-      "sha256": "398a399d15343f2abb0491220a449947f8b545f1e638e1fd4dc20a40e2728539",
-      "bytes": 24776
+      "sha256": "89975c2c660261a2f4dfc6c5c0e1f28034300bed5ba156532f0172d440d45b86",
+      "bytes": 26941
     },
     {
       "path": "validators/validate_issue_335_local_global_resonance.py",
-      "sha256": "6d8ddef5bc68cb56ae7c3870cb7c147969f3e67768e37e3c5ebbaf31adb5d00d",
-      "bytes": 7599
+      "sha256": "04708f7de8ba963ce3c4ef321b484291e2fd6a5509ccd7c730bab75730b3551d",
+      "bytes": 9227
     },
     {
       "path": "certificates/R_m_rep_24_certificate.json",
-      "sha256": "32d39eba6223eaed55ce124a934a04bd4e9027b24bec559ab2400e21643edfe4",
-      "bytes": 22549
+      "sha256": "d96e9ba9331f184dba240669103b49939ef3c39273b32c4a877e2e549f0e8aee",
+      "bytes": 22328
     },
     {
       "path": "verify_issue_343_m_rep_24.py",
-      "sha256": "b8bd66502130eb031549fd303a60bd518f84ab82fe20fd1e288a664153cc3b62",
-      "bytes": 34823
+      "sha256": "3fd1adbff018e88eadeb254b61ba5f7d6ee5193ba73be8aadda9f33dec0ffa5a",
+      "bytes": 34489
     },
     {
       "path": "validators/validate_issue_343_m_rep_24.py",
-      "sha256": "0851612a30f96f025dcebbcb2b4c2a0fb5db34ac37c68866b62b9d3370423b11",
-      "bytes": 14699
+      "sha256": "b89b8fbbf87b1212e3ae54a89e4dfac96246f97dc72830b20a3f8582c00787f3",
+      "bytes": 15466
     },
     {
       "path": "certificates/R_pixel_screen_resonance_summary.json",
-      "sha256": "651a623418596aa44a2364f9607fef9274db93000e40ef05b24622b3a8fe4277",
-      "bytes": 4885
+      "sha256": "4c3deb0a36d169d6860df6acc9868cb8b839eed30a897bb64f386eb5c270e2d0",
+      "bytes": 5297
     },
     {
       "path": "verify_pixel_screen_resonance_summary.py",
-      "sha256": "570a0bb2b6e7478da68219df5535f2bfff118f64b491150d56f6ea411c9e7196",
-      "bytes": 8504
+      "sha256": "51c41c8f886a0bc3d8f2dcaaafd3db15082ab792677cc5d5891cba427179eb65",
+      "bytes": 9501
     },
     {
       "path": "certificates/R_U_outward_rounded_interval_log.json",

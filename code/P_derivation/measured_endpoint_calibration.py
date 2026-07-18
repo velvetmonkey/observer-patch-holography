@@ -13,7 +13,9 @@ from typing import Any
 from alpha_gap_audit import (
     CODATA_2022_ALPHA_INV,
     CODATA_2022_ALPHA_INV_UNCERTAINTY,
+    DEFAULT_INTERVAL_CERTIFICATE,
     build_alpha_gap_audit,
+    certified_source_point,
 )
 from paper_math import PaperMathContext, _dec, to_serializable
 from thomson_endpoint_package import build_endpoint_package
@@ -35,6 +37,7 @@ def _load_json(path: Path) -> dict[str, Any]:
 def build_measured_endpoint_calibration(
     report: dict[str, Any],
     *,
+    source_point: dict[str, Any] | None = None,
     source_spectral_theorem: dict[str, Any] | None = None,
     compare_alpha_inv: Decimal = CODATA_2022_ALPHA_INV,
     compare_alpha_inv_uncertainty: Decimal = CODATA_2022_ALPHA_INV_UNCERTAINTY,
@@ -49,11 +52,13 @@ def build_measured_endpoint_calibration(
     ctx = PaperMathContext(precision=precision, su2_cutoff=80, su3_cutoff=60)
     gap = build_alpha_gap_audit(
         report,
+        source_point=source_point,
         compare_alpha_inv=compare_alpha_inv,
         compare_alpha_inv_uncertainty=compare_alpha_inv_uncertainty,
     )
     endpoint = build_endpoint_package(
         report,
+        source_point=source_point,
         compare_alpha_inv=compare_alpha_inv,
         compare_alpha_inv_uncertainty=compare_alpha_inv_uncertainty,
         precision=precision,
@@ -109,9 +114,9 @@ def build_measured_endpoint_calibration(
                 "definition": "P = phi + sqrt(pi)/alpha_inv_0",
             },
             "current_source_candidate": {
-                "alpha_inv": report["alpha_inv"],
-                "alpha": report["alpha"],
-                "P": report["p"],
+                "alpha_inv": (source_point or report)["alpha_inv"],
+                "alpha": (source_point or report)["alpha"],
+                "P": (source_point or report).get("P", report["p"]),
                 "missing_inverse_alpha_units": gap["missing_transport_delta_alpha_inv"],
                 "p_gap_implemented_minus_calibrated": gap["p_gap_implemented_minus_compare"],
             },
@@ -171,6 +176,7 @@ def build_measured_endpoint_calibration(
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Emit the empirical alpha endpoint artifact.")
     parser.add_argument("--report", default=str(DEFAULT_REPORT))
+    parser.add_argument("--interval-certificate", default=str(DEFAULT_INTERVAL_CERTIFICATE))
     parser.add_argument("--source-spectral-theorem", default=str(DEFAULT_SOURCE_THEOREM))
     parser.add_argument("--output", default=str(DEFAULT_OUT))
     parser.add_argument("--compare-alpha-inv", default=str(CODATA_2022_ALPHA_INV))
@@ -184,8 +190,10 @@ def main() -> int:
     args = parse_args()
     source_theorem_path = Path(args.source_spectral_theorem)
     source_theorem = _load_json(source_theorem_path) if source_theorem_path.exists() else None
+    interval_certificate = _load_json(Path(args.interval_certificate))
     payload = build_measured_endpoint_calibration(
         _load_json(Path(args.report)),
+        source_point=certified_source_point(interval_certificate),
         source_spectral_theorem=source_theorem,
         compare_alpha_inv=_dec(args.compare_alpha_inv),
         compare_alpha_inv_uncertainty=_dec(args.compare_alpha_inv_uncertainty),

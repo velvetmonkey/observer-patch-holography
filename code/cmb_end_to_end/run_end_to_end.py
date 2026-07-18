@@ -28,7 +28,7 @@ HERE = Path(__file__).resolve().parent
 RUN = Path("/Users/muellerberndt/Projects/oph-meta/oph-physics-sim/runs/"
            "oph_universe_64k_final_audited_20260711")
 
-P_SRC = 1.630972095694329
+P_SRC = 1.6309720958588974
 PHI = (1 + 5**0.5) / 2
 E = float(np.e)
 

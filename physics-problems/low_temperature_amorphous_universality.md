@@ -278,7 +278,7 @@ The OPH source-audit pixel candidate used here is
 ```math
 P_{\rm src}
 =
-1.630972095694329\ldots\ (recorded value; the 2026-07-14 converged rerun gives 1.630972095858897\ldots, CL-6; the difference is invisible at this note's precision).
+1.630972095858897\ldots\quad\text{(CL-6)}.
 ```
 
 The public comparison endpoint
@@ -613,9 +613,9 @@ Using the source-audit pixel candidate,
 ```math
 \lambda_{\rm collar}^{\rm src}
 =
-e^{-1.630972095694329/24}
+e^{-1.630972095858897/24}
 =
-0.9343004881992495.
+0.9343004881928429.
 ```
 
 The single-active-pair cell probability is therefore

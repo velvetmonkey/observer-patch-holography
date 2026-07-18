@@ -6,8 +6,8 @@ Generated: `2026-06-13T00:00:00Z`
 
 This bundle packages the proof-obligation artifacts for the OPH electroweak hierarchy lane:
 
-Status correction: all capacity "closure" language in this
-historical bundle is internal to the selected bridge packet. Physical cosmic
+All capacity "closure" language in this bundle is internal to the selected
+bridge packet. Physical cosmic
 capacity remains conditional on F and CP-1 to CP-3, and comparison with the
 Lambda-located value additionally requires the joint cosmological posterior.
 The 6.6 percent central-value mismatch is not an unconditional contradiction.
@@ -92,11 +92,11 @@ Closed inside this bundle:
    `B_EW(P,N)=alpha_U(P)*log(N/pi)-6*pi/P=0`. The certificate records the
    exact bridge target `N_EW(P_star)` and keeps the rounded `3.31e122` capacity
    label as a diagnostic.
-9. The icosahedral screen-sieve theorem: on the declared triangulated `S^2`
-   screen branch, `q_v=6-deg(v)` obeys `sum_v q_v=12`; convex defect cost
-   selects twelve unit fivefold defects; edge-center collars expose them as
-   central ports; `A5/C5` gives the 12-vertex orbit. This supplies the
-   geometric origin of the `P/12` exponent.
+9. The conditional icosahedral screen-sieve theorem: `sum_v(6-deg(v))=12`;
+   a strict unit-splitting cost selects twelve unit defects; inverse pairing
+   and the D-optimal vector/quadrupole selector give the unique icosahedral
+   six-axis frame; edge-center collars expose twelve central ports. This
+   supplies the geometric origin of `P/12` on the declared branch.
 10. The issue-#344 conditional EW-refined bridge-capacity certificate:
    `C_EW(P,x)=(1-lambda)*x+lambda*6*pi/(P*alpha_U(P))` is a contraction at
    `lambda=1/2`; its unique fixed point gives
@@ -109,16 +109,18 @@ Closed inside this bundle:
    `rho_read(r,N_CRC) -> (N_CRC/pi)^(-1/2)` in the positive-root
    refinement limit.
 12. The issue-#343 representation-to-spectrum round-count theorem:
-   the observer-visible product adjoint has dimensions `8+3+1=12`; reversible
-   write/verify orientation doubles this to `m_rep=24`. The SU(5) adjoint has
-   the same single-orientation integer for the wrong support because it
-   includes X/Y mixed gauge channels excluded by the product branch.
+   conditional on active current algebra `su(3)+su(2)+u(1)`, the adjoint has
+   dimension `8+3+1=12`; reversible orientation gives `m_rep=24`. Screen/A5,
+   the global quotient, and MAR matter are not premises. The physical-current
+   identification is upstream.
 13. The RG/Higgs naturality square for the selected exact branch:
-   `epsilon_H=max(epsilon_n,epsilon_h)=0`, with measured weak-scale, Higgs,
-   W/Z, gravity, Planck-area, and Lambda inputs excluded.
-14. The issue-#335 close-out certificate: the prerequisite records are
-   accounted for and the full local/global `N_CRC` hierarchy-resonance theorem
-   closes on the selected branch.
+   `epsilon_H=max(epsilon_n,epsilon_h)=0`, conditional on the named hierarchy
+   readout, with measured weak-scale, Higgs, W/Z, gravity, Planck-area, and
+   Lambda inputs excluded.
+14. The issue-#335 certificate composes the exact conditional local/global
+   resonance. The screen supplies `X/12`, the product adjoint independently
+   supplies `m_rep=24`, and `HIERARCHY-SCREEN-READOUT` is required to identify
+   `log(E_cell/v)` with `Gamma_screen`.
 15. The issue-#331 outward-rounded interval log for the `R_U` witness:
    `certificates/R_U_outward_rounded_interval_log.json` re-evaluates the full
    `R_U` formula stack in directed-rounding IEEE-754 binary64 interval
@@ -161,36 +163,39 @@ Closed inside this bundle:
    `K_cell*(P_*/4)=N_CRC^EW`, and records the dimensionless de Sitter
    coordinate pair `Lambda_CRC*l_star^2=3*pi/N_CRC^EW` and
    `Lambda_CRC*a_cell=3*pi*P_*/N_CRC^EW=12*pi/K_cell`. This is a receipt-level
-   composition of existing certificates, not a new primitive-carrier or SI
+   composition of the listed certificates, not an independent primitive-carrier or SI
    Lambda theorem.
 
 External/source gates outside this bundle:
 
 1. Source-only public Thomson endpoint transport `A_T(P)`.
-2. Proof-assistant formalization of the `R_U` interval witness. The
+2. `HIERARCHY-SCREEN-READOUT`, the physical identification
+   `log(E_cell/v)=Gamma_screen`, and source production of the unit cost,
+   inverse pairing, and D-optimal screen selector.
+3. Proof-assistant formalization of the `R_U` interval witness. The
    directed-rounding outward interval log itself is supplied inside this
    bundle at `certificates/R_U_outward_rounded_interval_log.json` with
    verifier `validators/verify_ru_outward_rounded_log.py`, under the stated
    IEEE-754 assumption set; the remaining external step is a mechanized
    proof-assistant replay of that log.
-3. Source derivation of the eleven declared branch inputs of the Higgs/top
+4. Source derivation of the eleven declared branch inputs of the Higgs/top
    declared surface. The raw interval input box, per-node interval
    extension, Jacobian enclosure, and non-singularity certificate are
    supplied inside this bundle at
    `certificates/R_HT_interval_input_box_log.json` with verifier
    `validators/verify_ht_interval_box.py`; the remaining external step is
    source emission of the D10 tuple and the D11 core/Jacobian constants.
-4. Full `R_gamma` stack for SI gravity/clock hierarchy.
-5. An independently source-closed physical `E_star`; this bundle fixes
+5. Full `R_gamma` stack for SI gravity/clock hierarchy.
+6. An independently source-closed physical `E_star`; this bundle fixes
    `v/E_star`, not a weak scale in GeV.
-6. The D10 QT1--QT5 quotient-path certificate: finite quotient
+7. The D10 QT1--QT5 quotient-path certificate: finite quotient
    canonicalization, explicit path enumeration, exact rational measures and
    central trace, fibre Gram/residual derivation, and a positive MAR gap.
-7. A concrete frozen RG/matching/threshold/scheme receipt with truncation
+8. A concrete frozen RG/matching/threshold/scheme receipt with truncation
    intervals.
-8. W/Z/H complex-pole, residue, analytic-sheet, and uncertainty certificates.
-9. A hash-bound prospective source DAG and branch-rigidity receipt.
-10. Coupled-map extension of the joint `(P,N_CRC)` theorem, if OPH source work
+9. W/Z/H complex-pole, residue, analytic-sheet, and uncertainty certificates.
+10. A hash-bound source DAG and branch-rigidity receipt.
+11. Coupled-map extension of the joint `(P,N_CRC)` theorem, if OPH source work
    introduces cross-feedback between the local pixel and global capacity maps.
 
 ## Run validators

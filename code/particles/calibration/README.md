@@ -63,7 +63,7 @@ The live D10 split is explicit:
 So the current carrier is not treated as the whole D10 story. It closes its own
 algebraic chart. The stronger W/Z value law above that carrier is a
 runtime target-free-input candidate, not a closed source theorem: the exact
-conditional quotient-transport implication still assumes the finite QT1--QT5
+conditional quotient-transport implication assumes the finite QT1--QT5
 path certificate, and the present corpus does not emit that certificate or
 bind it to one strict pixel branch. The electromagnetic row is read on the
 Ward-projected `U(1)_Q` transport family anchored at
@@ -76,7 +76,7 @@ The fail-closed composition receipt
 [`boson_source_prediction_closure_audit.json`](../runs/calibration/boson_source_prediction_closure_audit.json)
 keeps the rounded legacy carrier, public-endpoint pixel, source-audit pixel,
 and compressed candidate trunk separate. It also distinguishes the current
-carrier, the selected repair candidate, the freeze-once inverse adapter, and
+carrier, the selected repair candidate, the reference-fitted inverse adapter, and
 the conditional D11 surface. No W, Z, or Higgs complex-pole prediction is
 promoted while the scale, QT1--QT5, RG, rigidity, source-DAG, pole, and
 uncertainty gates remain open.
@@ -158,8 +158,8 @@ pair map on the declared D10/D11 surface.
   plus the declared D11 core/Jacobian surface at runtime. The absence of a
   direct target argument does not derive the D10 selector, D11 core/Jacobian,
   or residual-selector rigidity from OPH source records.
-- The shared split scalar is `rho_HT = log(1 + tau2_tree_exact)`. The currently
-  declared residual-selector formulas are
+- The shared split scalar is `rho_HT = log(1 + tau2_tree_exact)`. The declared
+  residual-selector formulas are
   `R_T = -tau2_tree_exact * eta_source^2 + (1 + beta_EW/28) * eta_source^6 + eta_source^8/14 + eta_source^9/27`
   and
   `R_H = eta_source^5 - (3/25) * eta_source^6 + lambda_EW * eta_source^6 / 18 + eta_source^8 / (2 * beta_EW)`.

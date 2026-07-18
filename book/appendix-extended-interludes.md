@@ -348,22 +348,13 @@ selected scale bridge. Identifying it as an output of the cosmic record closure
 requires an unconstructed readback map and three open premises about the
 terminal observer records.
 
-The dark-sector branch is deliberately careful. The modular anomaly idea ties
-residual mismatch in modular-geometric bookkeeping to an effective gravitating
-component that is dark by construction. It does not couple electromagnetically
-like ordinary matter. It gravitates because it contributes to the effective
-stress-energy side of the equations. The acceleration scale
-$a_0^{(\mathrm{OPH})}=(15/8\pi^2)c^2/r_{dS}$ lands near the empirical MOND
-scale, which makes the galaxy connection physically suggestive.
-
-Galaxy rotation curves are only one lane. Lensing, cluster dynamics, cosmic
-microwave background peaks, structure formation, and precision cosmology all
-constrain the dark sector. OPH treats the settled galaxy law as one limit of a
-transported stress story. The book's value here is narrower: it ties a possible
-infrared anomaly scale to the same de Sitter capacity that belongs to the
-observer-patch architecture. The homogeneous dark abundance is a source claim
-only when a finite quotient release law selects the anomaly load before
-Boltzmann transfer and likelihood comparison.
+The dark-sector continuation is a repair-charge rotor with integer occupation
+and compact phase. Conditional on its proposed action, a dilute branch is
+dust-like and a cubic condensed branch gives the deep galaxy law and baryonic
+Tully--Fisher scaling under static spherical premises. The action, source
+normalization, acceleration scale, relativistic limit, lensing, abundance,
+perturbations, clusters, and Solar-System behavior are work in progress. OPH
+has no physical dark-matter solution.
 
 The human chain includes observers and instrument builders as much as
 theorists: Leavitt, Slipher, Hubble, Friedmann, Lemaitre, Zwicky, Rubin,
@@ -1006,10 +997,11 @@ Einstein branch. The Standard Model reconstruction is audited by separating
 structural theorems, quantitative theorem statements, benchmark checks,
 first-principles boundaries, and empirical closure checks.
 
-The dark-sector branch faces the full cosmological and astrophysical data
-suite. Matching an acceleration scale is interesting, but it is not enough.
-Lensing, clusters, cosmic microwave background peaks, large-scale structure,
-galaxy diversity, and precision expansion history all matter.
+The dark-sector lane contains a proposed repair-charge condensate action. Its
+current balance, dilute dust-like branch, and spherical deep-galaxy scaling are
+conditional consequences. Its OPH derivation, relativistic stress, source
+normalization, lensing, cluster, Solar-System, and cosmology likelihoods are
+work in progress. No physical dark-matter solution is established.
 
 The matter support boundaries require care. Quark masses, hadron inputs,
 neutrino assumptions, and electroweak scheme choices must stay explicit. OPH

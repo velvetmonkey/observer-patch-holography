@@ -23,7 +23,7 @@
     "t_unified": 1.6235491507854898,
     "v_report_gev": 246.76711732749683
   },
-  "generated_utc": "2026-07-13T06:10:16Z",
+  "generated_utc": "2026-07-18T05:45:49Z",
   "notation_split": {
     "beta_ratio_EW": {
       "formula": "(alpha2_mz - alphaY_mz) / (alpha2_mz + alphaY_mz)",
@@ -37,7 +37,7 @@
     }
   },
   "notes": [
-    "The calibration lane previously exposed alpha_U numerically but not the transmutation parameters t_U and t_tr as first-class artifacts.",
+    "The certificate exposes alpha_U and the transmutation parameters t_U and t_tr as first-class artifacts.",
     "This certificate separates the source-ratio beta_ratio_EW from the paper's transmutation counting factor beta_transmutation_EW = N_c + 1 so the two roles are not conflated.",
     "Low-energy gauge observables remain compare-only outputs of the forward D10 branch, not inputs that fix alpha_U, t_U, or t_tr."
   ],
@@ -69,6 +69,6 @@
       "v_from_transmutation": "E_cell(P) * exp(-t_transmutation)"
     },
     "name": "EWForwardTransmutationCertificate_D10",
-    "statement": "On the realized D10 branch, the OPH input P fixes alpha_U through the pixel-closure equation, which then fixes both the unified diffusion time t_U = 4*pi^2*alpha_U and the dimensional-transmutation exponent t_tr = 2*pi / ((N_c + 1) * alpha_U). Once the source-only basis (alpha2_mz, alphaY_mz, eta_source, v_report) has been emitted on that same branch, it reconstructs the same alpha_U through alpha_U = eta_source / beta_ratio_EW. No measured low-energy coupling or frozen W/Z target is used to determine the internal transmutation parameters."
+    "statement": "On the realized D10 branch, the OPH input P fixes alpha_U through the pixel-closure equation, which then fixes both the unified diffusion time t_U = 4*pi^2*alpha_U and the dimensional-transmutation exponent t_tr = 2*pi / ((N_c + 1) * alpha_U). Once the source-only basis (alpha2_mz, alphaY_mz, eta_source, v_report) has been emitted on that same branch, it reconstructs the same alpha_U through alpha_U = eta_source / beta_ratio_EW. No measured low-energy coupling or reference W/Z target is used to determine the internal transmutation parameters."
   }
 }

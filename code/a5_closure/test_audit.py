@@ -47,11 +47,29 @@ class AuditTests(unittest.TestCase):
         self.assertEqual(p["number_of_distances"], 3)
         self.assertEqual(p["spherical_design_strength"], 5)
         self.assertTrue(p["fourth_moment_matches_uniform_S2"])
+        self.assertEqual(p["d_optimal_determinants"], ["8", "1024/3125"])
+        self.assertEqual(p["switched_seidel_solutions"], 12)
 
     def test_compact_dimensions(self):
         m = load("a5_compact_lie_classifier")
         self.assertEqual(m.partitions(11), [(3, 8)])
         self.assertEqual(m.partitions(12), [(3, 3, 3, 3)])
+        p = m.payload()
+        self.assertIn(
+            "counterbranches_if_innerness_is_dropped_but_group_integrality_is_retained",
+            p,
+        )
+        self.assertIn(
+            "additional_real_module_counterbranch_only_if_group_level_integral_central_lattice_constraints_are_also_dropped",
+            p,
+        )
+
+    def test_a5_claim_boundary(self):
+        m = load("a5_screen_sm_closure")
+        state = m.payload["theorem_scope"]
+        self.assertIn("coefficient", state["exact_here"])
+        self.assertTrue(any("PORT-CURRENT-INNER" in x for x in state["physical_gates"]))
+        self.assertTrue(any("MAR" in x for x in state["physical_gates"]))
 
     def test_log_coefficients(self):
         m = load("bh_log_correction")

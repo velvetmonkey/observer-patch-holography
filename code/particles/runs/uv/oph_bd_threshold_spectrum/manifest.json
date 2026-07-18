@@ -19,7 +19,7 @@
     },
     "source_dag.json": {
       "byte_count": 7009,
-      "sha256": "ca12a72507719461f0c6f4daa0872ce1e2749ad98bc4c0e55b96c5a0233d43d3"
+      "sha256": "d3aff25c256eb0a67204d178933d85ebe350cb8665d5cd2dc86c5c47b606ce19"
     },
     "threshold_spectrum_certificate.json": {
       "byte_count": 1927,

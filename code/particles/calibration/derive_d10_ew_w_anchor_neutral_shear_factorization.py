@@ -1,20 +1,20 @@
 #!/usr/bin/env python3
-"""Build the freeze-once D10 electroweak repair law.
+"""Build the reference-fitted D10 electroweak repair law.
 
-Chain role: emit the exact coherent D10 repair package once one authoritative
-target `W/Z` pair is frozen.
+Chain role: evaluate the coherent D10 repair package against one declared
+measured-reference `W/Z` pair.
 
 Mathematics: exact algebra on the selected D10 carrier. First solve the unique
-charged anchor `tau2` that matches the frozen `W`; then factor the remaining
+charged anchor `tau2` that matches the reference `W`; then factor the remaining
 neutral motion into the fiber-parallel hypercharge leg plus one orthogonal
 neutral-shear scalar. The same repaired coupling pair then emits one coherent
 electroweak quintet.
 
-OPH-derived inputs: the current D10 source pair together with the
-machine-readable local frozen target values for `W` and `Z`.
+OPH-derived inputs: the D10 source pair together with machine-readable
+measured reference values for `W` and `Z`.
 
-Output: the closed freeze-once coherent repair law, the target-box dominance
-diagnostic, and the explicit target-freeze / subobject split.
+Output: the reference-fitted coherent repair law, the reference-box dominance
+diagnostic, and the explicit reference-fit / subobject split.
 """
 
 from __future__ import annotations
@@ -33,7 +33,7 @@ REFERENCE_JSON = ROOT / "particles" / "data" / "particle_reference_values.json"
 SOURCE_PAIR_JSON = ROOT / "particles" / "runs" / "calibration" / "d10_ew_source_transport_pair.json"
 DEFAULT_FACTORIZATION_OUT = ROOT / "particles" / "runs" / "calibration" / "d10_ew_w_anchor_neutral_shear_factorization_official_pdg_2025_update.json"
 DEFAULT_BOX_OUT = ROOT / "particles" / "runs" / "calibration" / "d10_ew_w_anchor_neutral_shear_box_dominance.json"
-DEFAULT_SPLIT_OUT = ROOT / "particles" / "runs" / "calibration" / "d10_ew_target_freeze_and_subobject_split.json"
+DEFAULT_SPLIT_OUT = ROOT / "particles" / "runs" / "calibration" / "d10_ew_reference_fit_subobject_split.json"
 
 
 def _timestamp() -> str:
@@ -204,7 +204,7 @@ def build_factorization_report(reference: dict[str, Any], basis: D10Basis) -> di
             "MW_pole_err_gev": _float(reference["w_boson"].get("error_plus_gev"), 0.0),
             "MZ_pole_central_gev": mz_target,
             "MZ_pole_err_gev": _float(reference["z_boson"].get("error_plus_gev"), 0.0),
-            "note": "This law is exact on the frozen authoritative D10 target surface. The stronger target-free emission from P alone remains open.",
+            "note": "This law is exact on the declared measured-reference surface. The stronger target-free emission from P alone remains open.",
         },
         "new_smaller_primitive": {
             "proposed_object_id": "EWAnchoredNeutralShearPrimitive_D10",
@@ -227,9 +227,9 @@ def build_factorization_report(reference: dict[str, Any], basis: D10Basis) -> di
             "alphaY_star": basis.alphaY_star,
         },
         "theorem": {
-            "name": "Freeze-once coherent D10 electroweak repair law",
+            "name": "Reference-fitted coherent D10 electroweak repair law",
             "statement": (
-                "Fix the current D10 carrier basis and one authoritative frozen target pair (MW_target, MZ_target) with 0 < MW_target < MZ_target. "
+                "Fix the current D10 carrier basis and one declared comparison pair (MW_target, MZ_target) with 0 < MW_target < MZ_target. "
                 "Then there exists a unique coherent repair package "
                 "(delta_alpha2_dagger, delta_alphaY_parallel, delta_alphaY_perp), equivalently "
                 "(tau2_w_anchor, delta_n_dagger). The corresponding repaired coupling pair "
@@ -288,10 +288,10 @@ def build_factorization_report(reference: dict[str, Any], basis: D10Basis) -> di
             "v_report": basis.v_report,
         },
         "conclusion": {
-            "meaning": "On the frozen authoritative D10 target surface, the exact repair package and coherent repaired quintet are fully emitted.",
+            "meaning": "On the declared measured-reference surface, the exact repair package and coherent repaired quintet are fully emitted.",
             "still_compare_only": True,
             "stricter_still_open_object": "EWTargetFreeRepairValueLaw_D10",
-            "stricter_still_open_statement": "Emit the same nonzero repair directly from P alone with no frozen target input.",
+            "stricter_still_open_statement": "Emit the same nonzero repair directly from P alone with no measured-reference input.",
         },
     }
 
@@ -347,24 +347,24 @@ def build_box_report(reference: dict[str, Any], basis: D10Basis) -> dict[str, An
     }
 
 
-def build_target_freeze_split(reference: dict[str, Any], basis: D10Basis) -> dict[str, Any]:
+def build_reference_fit_split(reference: dict[str, Any], basis: D10Basis) -> dict[str, Any]:
     factorization = build_factorization_report(reference, basis)
     central = factorization["central_target_point"]
     return {
-        "artifact": "oph_d10_ew_target_freeze_and_subobject_split",
+        "artifact": "oph_d10_ew_reference_fit_subobject_split",
         "generated_utc": _timestamp(),
-        "status": "closed_freeze_once_subobject_split",
+        "status": "closed_reference_fit_subobject_split",
         "forward_claim_allowed": False,
-        "target_freeze_required": True,
-        "reason": "Exact D10 repair is a value-law problem only after one authoritative W/Z target pair is frozen.",
-        "frozen_reference_target": {
-            "MW_pole_target_gev": central["MW_target_gev"],
-            "MZ_pole_target_gev": central["MZ_target_gev"],
+        "measured_reference_required": True,
+        "reason": "This inverse fit consumes a declared measured W/Z reference pair and carries no prediction verdict.",
+        "measured_reference_pair": {
+            "MW_pole_reference_gev": central["MW_target_gev"],
+            "MZ_pole_reference_gev": central["MZ_target_gev"],
         },
         "subobject_split": {
             "charged_anchor_object": "EWChargedAnchorLaw_D10",
             "neutral_shear_object": "EWNeutralShearLaw_D10",
-            "current_frozen_target_values": {
+            "reference_fit_values": {
                 "tau2_w_anchor": central["tau2_w_anchor"],
                 "delta_n_dagger": central["delta_n_dagger"],
                 "delta_n_tree_exact": central["delta_n_tree_exact"],
@@ -374,7 +374,7 @@ def build_target_freeze_split(reference: dict[str, Any], basis: D10Basis) -> dic
                 "delta_alphaY_perp": central["delta_alphaY_perp"],
             },
         },
-        "note": "This file records the exact freeze-once subobject split. The only stricter remaining D10 step is the target-free repair value law from P alone.",
+        "note": "This file records the exact reference-fitted subobject split. A source-only repair value law from P is work in progress.",
     }
 
 
@@ -395,7 +395,7 @@ def main() -> int:
     outputs = [
         (Path(args.factorization_output), build_factorization_report(references, basis)),
         (Path(args.box_output), build_box_report(references, basis)),
-        (Path(args.split_output), build_target_freeze_split(references, basis)),
+        (Path(args.split_output), build_reference_fit_split(references, basis)),
     ]
     for path, payload in outputs:
         path.parent.mkdir(parents=True, exist_ok=True)

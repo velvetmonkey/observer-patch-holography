@@ -6,7 +6,7 @@
     "no_go_certified": true
   },
   "checks_pass": true,
-  "consequence": "two equal charged masses on the entropic branch; the observed family requires a source-emitted charged interaction off the entropic ray, on the frozen target locus",
+  "consequence": "two equal charged masses on the entropic branch; the observed family requires a source-emitted charged interaction off the entropic ray, on the reference-fit locus",
   "extremal_spectrum": [
     -0.5163977794943561,
     -0.5163977794942883,

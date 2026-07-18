@@ -4,11 +4,11 @@
 The exact theorem is deliberately scoped to D9 charged-channel admissibility,
 fixed D10 P and v(P), and the invariant 12/24 structural receipts.  It excludes
 mass-dependent electromagnetic endpoint transport.  On this scope, the three
-spectral coordinates of a charged Yukawa matrix remain free.  Separate audits
-show why the historical MaxEnt, phase, family-attachment, and Z6 stories do not
+spectral coordinates of a charged Yukawa matrix are free. Separate audits
+show why the MaxEnt, phase, family-attachment, and Z6 proposals do not
 select those coordinates.
 
-No charged reference packet is read.  Historically target-informed constants
+No charged reference packet is read. Target-informed constants
 appear only as examples being audited, never as theorem inputs.
 """
 
@@ -147,9 +147,9 @@ def _source_scope_checks() -> dict[str, bool]:
     )
     return {
         "d10_forward_map_closed": d10.get("status") == "closed_forward_p_to_t_map",
-        "screen_has_twelve_uniform_unit_defects": (
+        "conditional_screen_branch_has_twelve_uniform_unit_defects": (
             screen.get("orbit_stabilizer", {}).get("orbit_size") == 12
-            and screen.get("convex_defect_minimum", {}).get("charges") == [1] * 12
+            and screen.get("strict_unit_defect_minimum", {}).get("charges") == [1] * 12
         ),
         "oriented_round_count_is_24": round_count.get("result", {}).get("m_rep") == 24,
         "maxent_does_not_promote_koide": maxent.get("public_koide_promotion_allowed") is False,
@@ -210,12 +210,13 @@ def build_artifact() -> dict[str, Any]:
                 "mass-dependent electromagnetic vacuum-polarization transport",
                 "the Thomson endpoint and its moving P(kappa) fixed point",
                 "empirical hadronic payloads, target-anchored charged readouts, and thresholds",
-                "any already-supplied physical charged Yukawa matrix",
+                "any physical charged Yukawa matrix supplied as an input",
             ],
             "why_excluded": (
                 "Electromagnetic endpoint transport changes under a common charged rescaling. "
-                "It can therefore break the scale freedom, but its current closure uses empirical "
-                "or still-open source inputs and is not an antecedent of the charged common-shift theorem."
+                "It can therefore break the scale freedom, but its closure depends on empirical "
+                "inputs or source inputs whose derivation is work in progress; it is not an "
+                "antecedent of the charged common-shift theorem."
             ),
         },
         "theorem": {
@@ -324,7 +325,7 @@ def build_artifact() -> dict[str, Any]:
                 "sum_B": sum(exponents_b),
                 "determinant_power_change": sum(exponents_b) - sum(exponents_a),
                 "conclusion": (
-                    "Conditional audit: even granting the historically proposed identification "
+                    "Conditional audit: even granting the proposed identification "
                     "of suppression exponents with Z6 residue lifts, quotient data would not "
                     "choose the integer lifts. Current OPH does not first derive that identification."
                 ),
@@ -334,12 +335,12 @@ def build_artifact() -> dict[str, Any]:
             "statement": (
                 "If one additionally grants a fixed theorem-grade centered charged readout, the "
                 "two shape coordinates cease to be free, but the exact common-shift family "
-                "Y_e -> exp(kappa)Y_e remains. The present on-disk centered operator is only a "
+                "Y_e -> exp(kappa)Y_e is free. The on-disk centered operator is a "
                 "template-dependent candidate and does not satisfy its promotion gate."
             ),
             "remaining_spectral_modulus": "mu=(1/3)log|det Y_e|",
         },
-        "historical_stage5_independent_inputs": [
+        "independent_inputs_not_supplied": [
             "charged-block action gap ln(2) plus ensemble-to-Yukawa isometry",
             "physical C3 family connection and loop law fixing delta=2/9",
             "physical root-to-family attachment",
@@ -352,7 +353,7 @@ def build_artifact() -> dict[str, Any]:
         ],
         "claim_boundary": (
             "This certificate proves non-identifiability only for the explicitly scoped charged "
-            "signature. It is not a no-go for future OPH dynamics. A successful extension must "
+            "signature and makes no claim outside that scope. A closing extension must "
             "add a source object that is nonconstant along the displayed spectral family, bind "
             "its receipt scope, and freeze it before charged-mass comparison."
         ),

@@ -111,14 +111,14 @@ def build_payload(
             "compare_only_B_nu_star": residual_amplitude_ratio,
         },
         "ruled_out_current_selected_point_scalar": {
-            "status": "already_internal_to_current_candidate_stack_not_the_missing_bridge_scalar",
+            "status": "internal_to_declared_candidate_stack_not_the_missing_bridge_scalar",
             "name": "I_nu^(wc)",
             "definition": "I_nu^(wc) = 0.5 * sum_e qbar_e * |z_e(psi_wc) - 1|^2",
             "equivalent_if_edge_character_norm_closes": "I_nu^(wc) = sum_e qbar_e * (1 - cos(delta_psi_e))",
             "selected_point": "weighted_cycle_selector_psi_wc",
             "gate": phase_clause,
             "why_ruled_out": (
-            "qbar_e, psi_wc, and psi* are already fixed within the declared candidate stack, so I_nu^(wc) is itself fixed on that conditional one-parameter positive amplitude orbit and cannot be the missing bridge-external scalar."
+            "The declared candidate stack fixes qbar_e, psi_wc, and psi*, hence I_nu^(wc) is fixed on that conditional one-parameter positive amplitude orbit and cannot be the missing bridge-external scalar."
             ),
         },
         "where_B_nu_should_come_from": (
@@ -166,7 +166,7 @@ def build_payload(
             {
                 "id": bundle_clause,
                 "status": scalar_evaluator["bundle_descent_status"],
-                "role": "selector-centered common-refinement edge-bundle descent theorem already closed above the same-label phase-cocycle layer",
+                "role": "closed selector-centered common-refinement edge-bundle descent theorem above the same-label phase-cocycle layer",
             },
             {
                 "id": scalar_theorem_id,
@@ -262,17 +262,17 @@ def build_payload(
             "conditional_absolute_attachment_object": None if exact_smallest_object is None else exact_smallest_object.get("name"),
         },
         "notes": [
-            "This bridge candidate does not claim lambda_nu is already emitted.",
+            "This bridge candidate does not emit lambda_nu.",
             "It packages a conditional interface between the D10 amplitude scale and the rejected weighted-cycle candidate law.",
             "The normalized overlap-defect weight section inherits a source-open scalar certificate; any one-scalar attachment statement is conditional on that rejected stack.",
             "Inside the conditional attached-stack algebra, the bridge factor cannot collapse to a qbar-only law and one positive coordinate remains external.",
-            "The previously proposed selected-point scalar I_nu^(wc) is already fixed by the candidate qbar_e, psi_wc, and psi* data, so it cannot be an independent bridge-external scalar.",
-            "The best constructive local object beneath that bridge is the defect-weighted same-label edge family q_e = sqrt(g_e * d_e), whose induced mu_e anisotropy is already real and sizable but still does not by itself emit the final bridge scalar.",
-            "The sharpest current compare-only narrowing is now a cross-route corridor for B_nu that fuses the converted symmetric-normalizer route, the core residual route, and the best defect-family-assisted residual route.",
+            "The candidate qbar_e, psi_wc, and psi* data fix the selected-point scalar I_nu^(wc), so it cannot be an independent bridge-external scalar.",
+            "The strongest constructive local object beneath that bridge is the defect-weighted same-label edge family q_e = sqrt(g_e * d_e); its real, sizable mu_e anisotropy does not emit the final bridge scalar.",
+            "The narrowest compare-only B_nu result is a cross-route corridor combining the symmetric-normalizer, core-residual, and defect-assisted residual routes.",
             "Relative to the best emitted residual-amplitude proxy sqrt(I_nu * ratio_hat) / sum_defect, the remaining exact bridge can also be written as a near-unity positive correction scalar C_nu on the live branch.",
             "C_nu is only the smallest missing coordinate inside the conditional absolute-scale subproblem. The first physical missing object is the source-closed operator, basis, charged-basis, and mass-label contract.",
-            "Direct auditing of C_nu yields a narrower target-containing induced B_nu corridor than the old three-route B_nu corridor itself, but that sharpening remains compare-only.",
-            "A stricter shortlist-consensus window is available inside the already-admitted route families; it is narrower than the primary target-containing corridor but remains a route-agreement diagnostic rather than an emitted law.",
+            "Direct auditing of C_nu yields the narrowest measured-reference induced B_nu corridor, but that result remains compare-only.",
+            "A stricter shortlist-consensus window inside the admitted route families remains a route-agreement diagnostic rather than an emitted law.",
             "The exact remaining scalar is better parameterized as B_nu := lambda_nu * q_mean^p_nu / m_star_eV, equivalently A_nu / m_star_eV.",
             "The closed-form gamma-over-sqrt-ratio numerology is retained only as a refuted compare-only audit target; it is incompatible with the exact positive-rescaling no-go.",
         ],

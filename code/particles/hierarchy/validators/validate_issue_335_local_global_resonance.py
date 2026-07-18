@@ -19,10 +19,11 @@ def main(path: str = "certificates/R_local_global_hierarchy_resonance_closeout_3
     deps = cert.get("dependencies", {})
     acceptance = cert.get("acceptance_criteria_status", {})
     obstruction = cert.get("obstruction_record", {})
-    gates = cert.get("remaining_promotion_gates", [])
+    work_in_progress = cert.get("work_in_progress_receipts", [])
     forbidden = cert.get("forbidden_calibrations", [])
     checks = cert.get("checks", {})
-    gate_checks = checks.get("remaining_promotion_gates_recorded", {})
+    component_checks = checks.get("component_receipts_valid", {})
+    promotion_gate_status = checks.get("promotion_gate_status", {})
     exact_capacity = cert.get("exact_capacity_certificate", {})
     readback = cert.get("finite_readback_resolution_certificate", {})
     round_count = cert.get("round_count_certificate", {})
@@ -35,12 +36,12 @@ def main(path: str = "certificates/R_local_global_hierarchy_resonance_closeout_3
 
     validation = {
         "issue_is_335": cert.get("issue") == 335,
-        "accepted_closeout": cert.get("accepted") is True,
-        "status_is_full_resonance_closeout": (
-            cert.get("status") == "closed_full_local_global_hierarchy_resonance"
+        "accepted_conditional_closeout": cert.get("accepted") is True,
+        "status_is_exact_conditional_resonance": (
+            cert.get("status") == "exact_conditional_local_global_hierarchy_resonance"
         ),
-        "full_theorem_promoted": cert.get("full_theorem_grade_resonance_promoted") is True,
-        "all_dependencies_closed": all(deps.values()),
+        "full_theorem_not_promoted": cert.get("full_theorem_grade_resonance_promoted") is False,
+        "all_dependency_records_valid": all(deps.values()),
         "screen_sieve_dependency_present": deps.get(
             "screen_sieve_icosahedral_geometric_strengthening"
         )
@@ -60,40 +61,66 @@ def main(path: str = "certificates/R_local_global_hierarchy_resonance_closeout_3
         ),
         "screen_sieve_supplied": (
             acceptance.get("screen_sieve_geometric_strengthening_supplied") is True
-            and screen_sieve.get("status") == "closed_on_declared_triangulated_screen_branch"
+            and screen_sieve.get("status") == "conditional_finite_selector_theorem"
             and screen_sieve.get("orbit_size") == 12
-            and screen_sieve.get("gamma_EW") == "(P/12)*log(N/pi)"
+            and screen_sieve.get("local_port_read") == "X/12"
+            and screen_sieve.get("gamma_screen_algebra") == "(P/12)*log(N/pi)"
+            and screen_sieve.get("hierarchy_readout_premise", {}).get("premise_id")
+            == "HIERARCHY-SCREEN-READOUT"
+            and screen_sieve.get("hierarchy_readout_premise", {}).get(
+                "supplied_by_screen_sieve"
+            )
+            is False
         ),
-        "full_theorem_status_true": acceptance.get("full_theorem_grade_resonance_proved") is True,
+        "conditional_theorem_status_true": acceptance.get(
+            "exact_conditional_resonance_proved"
+        ) is True,
+        "full_theorem_status_false": acceptance.get(
+            "full_theorem_grade_resonance_proved"
+        ) is False,
         "exact_bridge_target_recorded": "3.5323546226929906511187512962330547600462" in (
             cert.get("exact_surviving_statement", {}).get("N_EW_public_endpoint", "")
         ),
         "rounded_capacity_rejected": obstruction.get("rounded_N_CRC_status")
         == "diagnostic_only_not_exact_bridge_certificate"
         and abs(D(obstruction.get("rounded_bridge_residual", "0"))) > Decimal("1e-6"),
-        "no_promotion_gates_remain": len(gates) == 0
-        and gate_checks.get("finite_readback_resolution") is True
-        and gate_checks.get("round_count_derivation") is True
-        and gate_checks.get("exact_capacity_source_certificate") is True
-        and gate_checks.get("screen_sieve_geometric_strengthening") is True,
+        "component_receipts_are_valid": len(component_checks) == 4
+        and all(component_checks.values()),
+        "screen_source_receipt_is_work_in_progress": len(work_in_progress) == 2
+        and "source production" in str(work_in_progress[0])
+        and "HIERARCHY-SCREEN-READOUT" in str(work_in_progress[1])
+        and promotion_gate_status.get("screen_source_production_closed") is False
+        and promotion_gate_status.get("hierarchy_screen_readout_closed") is False
+        and acceptance.get("screen_source_production_closed") is False,
         "weak_scale_forbidden": any("measured weak scale" in item for item in forbidden),
         "rounded_display_forbidden": any("3.31e122" in item for item in forbidden),
         "derivation_chain_has_nine_steps": len(chain) == 9,
         "step_1_cites_d10_transmutation": "D10 forward transmutation theorem"
         in str(chain_steps.get(1, {}).get("premise", "")),
-        "step_5_is_screen_sieve_geometric_strengthening": (
+        "step_5_is_screen_sieve_arithmetic_only": (
             "icosahedral screen-sieve theorem" in str(chain_steps.get(5, {}).get("premise", ""))
-            and "geometric_strengthening_note" in chain_steps.get(5, {})
-            and "EW tick-projection certificate"
-            in str(chain_steps.get(5, {}).get("geometric_strengthening_note", ""))
-            and "(P/12)" in str(chain_steps.get(5, {}).get("conclusion", ""))
+            and "X/12" in str(chain_steps.get(5, {}).get("conclusion", ""))
+            and "Gamma_screen" in str(chain_steps.get(5, {}).get("conclusion", ""))
+            and "does not identify log(E_cell/v)" in str(
+                chain_steps.get(5, {}).get("scope_note", "")
+            )
         ),
-        "step_6_is_ew_projection_bridge": "electroweak tick-projection bridge"
-        in str(chain_steps.get(6, {}).get("premise", "")),
+        "step_6_is_conditional_ew_projection_bridge": (
+            "electroweak tick-projection bridge" in str(
+                chain_steps.get(6, {}).get("premise", "")
+            )
+            and "HIERARCHY-SCREEN-READOUT" in str(
+                chain_steps.get(6, {}).get("premise", "")
+            )
+        ),
         "step_7_is_exact_capacity_contraction": "EW-refined exact-capacity"
         in str(chain_steps.get(7, {}).get("premise", "")),
-        "step_8_composes_target_relation": "(P_*/12)*log(N_CRC^EW/pi)"
-        in str(chain_steps.get(8, {}).get("conclusion", "")),
+        "step_8_composes_conditional_target_relation": (
+            "(P_*/12)*log(N_CRC^EW/pi)"
+            in str(chain_steps.get(8, {}).get("conclusion", ""))
+            and "conditional on HIERARCHY-SCREEN-READOUT"
+            in str(chain_steps.get(8, {}).get("conclusion", ""))
+        ),
         "step_9_is_rg_higgs_compatibility": "RG/Higgs naturality"
         in str(chain_steps.get(9, {}).get("premise", "")),
         "factor_origin_beta_EW_recorded": factor_origins.get("beta_EW", {}).get("value") == "4"
@@ -131,6 +158,12 @@ def main(path: str = "certificates/R_local_global_hierarchy_resonance_closeout_3
         ),
         "branch_scope_records_screen_branch": "triangulated S^2"
         in str(branch_scope.get("screen_branch", "")),
+        "branch_scope_records_hierarchy_readout_premise": (
+            "HIERARCHY-SCREEN-READOUT"
+            in str(branch_scope.get("hierarchy_screen_readout_branch", ""))
+            and acceptance.get("hierarchy_screen_readout_premise_declared") is True
+            and acceptance.get("hierarchy_screen_readout_closed") is False
+        ),
         "branch_scope_records_product_gauge_branch": "product adjoint"
         in str(branch_scope.get("oph_product_gauge_branch", "")),
         "branch_scope_includes_scope_note": "cell-entropy"
@@ -140,6 +173,8 @@ def main(path: str = "certificates/R_local_global_hierarchy_resonance_closeout_3
         )
         is True
         and "P/beta_EW"
+        in str(acceptance.get("residual_definitional_residue_scope_note", ""))
+        and "HIERARCHY-SCREEN-READOUT"
         in str(acceptance.get("residual_definitional_residue_scope_note", "")),
     }
     payload = {"checks": validation, "pass": all(validation.values())}

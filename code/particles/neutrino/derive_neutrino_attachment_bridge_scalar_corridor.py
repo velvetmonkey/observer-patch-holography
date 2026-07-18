@@ -104,7 +104,7 @@ def _shortlist_consensus_window(
     return {
         "shortlist_depth_per_route": min(len(route) for route in shortlists),
         "selection_rule": (
-            "Within the already-admitted top candidates of each route family, choose one candidate per route that minimizes "
+            "Within the admitted top candidates of each route family, choose one candidate per route that minimizes "
             "cross-route relative half-width; total algebraic complexity and route-local compare-only error break ties."
         ),
         "selected_candidates": list(best_combo),
@@ -343,7 +343,7 @@ def build_payload(
                 "That materially narrows the remaining scalar numerically, but it does not collapse the irreducible theorem gap."
             ),
             "why_not_a_theorem": (
-                "Every route in this corridor is a compare-only search clue selected against the current target. The attachment irreducibility theorem still leaves one positive bridge invariant external to the emitted stack."
+                "Every route in this corridor is a compare-only search clue selected against the declared target. The attachment irreducibility theorem leaves one positive bridge invariant external to the emitted stack."
             ),
         },
         "promotion_guard": {
@@ -358,7 +358,7 @@ def build_payload(
             "The family-assisted route is included so the current defect-weighted mu_e family contributes explicitly to the sharpened compare-only bridge picture.",
             "The representative corridor and the wider envelope both contain the live compare-only target B_nu_star.",
             "The reduced correction scalar C_nu isolates conditional bridge geometry above an internal candidate proxy; it is not the first physical missing object.",
-            "A direct C_nu audit yields a narrower target-containing induced B_nu window than the old three-route bridge corridor.",
+            "The direct C_nu audit gives the narrowest measured-reference induced B_nu window among the declared routes.",
             "The shortlist consensus window is narrower than the primary three-point corridor, but it is a route-agreement diagnostic only and need not contain the live compare-only target.",
         ],
     }

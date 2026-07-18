@@ -6,7 +6,7 @@ Chain role: turn the chosen D10 two-scalar transport point into the emitted
 
 Mathematics: factorized shared-scalar readout on top of the baseline D10
 quintet, with explicit separation between the selected carrier point, the
-historical freeze-once coherent repair surface, and the promoted target-free
+historical reference-fitted coherent repair diagnostic, and the promoted target-free
 source-only repair theorem.
 
 OPH-derived inputs: the D10 observable family plus the selected two-scalar
@@ -608,12 +608,12 @@ def build_artifact(
                 if exact_mass_pair_chart.get("status") == "closed_smaller_primitive"
                 else "The smaller fiberwise population tree law removes the placeholder unsplit tree shell, so the remaining D10 mass-side residual is the single scalar tau2_tree_exact."
                 if exact_wz_coordinate.get("next_residual_object_if_open") == "tau2_tree_exact"
-                else "The exact W/Z coordinate shell still depends on a stronger unsplit tree identity."
+                else "The exact W/Z coordinate shell depends on a stronger unsplit tree identity."
             ),
             (
-                "The D10 mass-side surface carries the W/Z pair from the source trunk. The freeze-once coherent pair serves as compare-only validation on the same family and agrees with the source-only mass-side law to machine scale."
+                "The D10 mass-side surface carries the W/Z pair from the source trunk. The reference-fitted coherent pair serves as compare-only validation on the same family and agrees with the source-only mass-side law to machine scale."
                 if target_free_repair_closed
-                else "The freeze-once coherent repair law is closed on one authoritative frozen target pair, so the W/Z surface comes from one coherent coupling pair on the shared D10 family."
+                else "The reference-fitted coherent repair law is closed on one declared comparison pair, so the W/Z surface comes from one coherent coupling pair on the shared D10 family."
                 if freeze_once_repair_closed
                 else "The broader supported exact-PDG W/Z frontier is the repair branch `D10RepairBranchBeyondCurrentCarrier` beyond the present current carrier, not just the builder-local selector shell."
             ),
@@ -622,7 +622,7 @@ def build_artifact(
             (
                 "The compact anti-diagonal slice restores alpha_em^-1 and sin^2(theta_W) through a source-normalized hypercharge readout on the selected carrier point, but that slice does not define the public fine-structure theorem."
                 if exact_closure_closed
-                else "The fixed-eta trace evaluator remains useful diagnostically, but the live predictive blocker is now exact electroweak closure beyond the current selected carrier point rather than another selector on the exhausted compact slice."
+                else "The fixed-eta trace evaluator is diagnostic; exact electroweak closure beyond the selected carrier point is work in progress, while the compact-slice selector is exhausted."
             ),
             "The physical electromagnetic readout is anchored at `a0 = alpha_em^-1(m_Z^2) = 128.30576920234813` on the source-locked running family and is read through Ward projection to the unbroken `U(1)_Q` channel. The Thomson endpoint stored in this artifact is reference compare-only until the source transport is emitted on the same branch.",
             (

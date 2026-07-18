@@ -116,7 +116,7 @@ def build_artifact(
         "notes": [
             "Within the rejected candidate algebra, the residual absolute ambiguity is a positive rescaling orbit; this is not a statement that the physical neutrino lane is otherwise closed.",
             "Relative to the candidate residual-amplitude proxy, a near-unity correction scalar C_nu can be tracked for debugging only.",
-            "Direct C_nu auditing yields a narrower target-containing induced B_nu window than the old direct bridge corridor, but it remains compare-only and cannot be promoted.",
+            "Direct C_nu auditing yields a narrower measured-reference induced B_nu window than the old direct bridge corridor, but it remains compare-only and cannot be promoted.",
             "The first physical missing object is the source-closed operator, basis, charged-basis, and mass-label contract; an absolute-scale theorem is downstream of that gate.",
         ],
     }

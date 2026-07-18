@@ -36,7 +36,7 @@ Patch Hardware, Records, and Observer Synchronization in OPH}
 \begin{abstract}
 OPH needs a finite carrier for screen cuts. Observers see finite pieces of the screen, and this model turns those pieces into patch bodies with ports, records, repair channels, and synchronization rules.
 
-The construction gives a twelve-port screen sieve, edge weights used by later
+The construction gives a conditional twelve-port screen sieve, edge weights used by companion
 papers, central records with Born--L\"uders readout, Bell/CHSH records with the
 Tsirelson bound, and checkpoint restoration for observer continuation after
 repair. It also states the public evidence rule: hardware runs matter only when
@@ -67,6 +67,10 @@ named chi-nu interaction-energy pricing convention.  That formal audit does not
 replace the Scalar Edge-Center Exhaustion, uniform product-thickening,
 presence-reading survival, record-to-gravity calibration, or hardware-evidence
 gates stated below.
+A compactly supported divergence-form implementation of the scalar source has
+zero integrated monopole in a uniform external field.  The finite channel
+theorems supply no support force without an action-derived gravitational charge
+or an explicit response-field momentum ledger.
 
 \tableofcontents
 \newpage
@@ -148,13 +152,12 @@ carrier implementation realizes the same visible map with a public evidence bund
 \end{definition}
 
 The \(E_8/\mathrm{Spin}(8)\) triality sidecar is an algebraic audit instrument in this sense. It
-would certify, by exact finite matrices, that the vector \(\mathrm{Alt}(9)\) and positive-half-spin
+states that the vector \(\mathrm{Alt}(9)\) and positive-half-spin
 \(2\!\cdot\!\mathrm{Alt}(9)\) presentations preserve \(E_8\)-lattice data, have different
 mod-2 orbit fingerprints on \(E_8/2E_8\), and are identified only by the Spin(8) triality outer
-automorphism. The committed surface is currently a claim statement; the certification stands only
-once the audit bundle with raw matrices, scripts, exact checks, and hashes is committed. The
-result would belong to finite exceptional representation bookkeeping, not to hardware
-promotion.
+automorphism. No audit bundle supplies the raw matrices, scripts, exact checks, and hashes, so this
+is an uncertified claim in finite exceptional representation bookkeeping with no hardware
+implication.
 
 The tuple \(\mathsf O_i\) does not impose equal primitive observer size. Fixed-cutoff OPH requires
 bounded accessible algebras and declared interfaces; it also permits different connected support
@@ -433,7 +436,7 @@ probability law on \(Q_r\), or a full finite covariant stress parent.
 
 The scalar-slot theorem above is the rank-one first-order export.  The
 dark-sector and coherent-matter papers also need the local event-algebra
-version: scalar activation, the protected \(\mathbb Z_6\) reserve, and
+realization: scalar activation, the protected \(\mathbb Z_6\) reserve, and
 finite-thickness collar survival have to live on one quotient-visible
 edge-center register before any coefficient can be promoted.
 
@@ -458,10 +461,9 @@ while
 \operatorname{Tr}^{\#}_q(Z_{6,r,C})=\frac{24}{P}
 \quad\text{is the reciprocal slot-depth trace.}
 \]
-If legacy prose writes \(\operatorname{Tr}_q(Z_{6,r,C})=24/P\), it must either
-be changed to \(\operatorname{Tr}^{\#}_q\), or the prose must explicitly say
-that \(\operatorname{Tr}_q\) is being used as a reciprocal slot-count trace in
-that paragraph.
+The notation \(\operatorname{Tr}_q(Z_{6,r,C})=24/P\) is valid only when
+\(\operatorname{Tr}_q\) is explicitly defined as a reciprocal slot-count trace;
+otherwise the reciprocal quantity is \(\operatorname{Tr}^{\#}_q\).
 
 \begin{definition}[Physical collar quotient and edge-center map]
 \label{def:physical-collar-edge-center-map}
@@ -1586,7 +1588,7 @@ and under the mean-count reading it may add only the Markov band
 1-\frac{P}{24}\le\lambda_{\rm collar}\le1.
 \]
 
-Release review applies the following checks.  No survival coefficient may use
+The coefficient ledger imposes the following checks. No survival coefficient may use
 \(24/P\); occurrences of \(\operatorname{Tr}_q(Z_6)\) with \(24/P\) must be
 renamed to \(\operatorname{Tr}^{\#}_q\) or explicitly declared reciprocal;
 every exact \(1-P/24\) coefficient claim must cite
@@ -1863,7 +1865,7 @@ superselection condition have been proved.
 A finite evidence bundle implements this regulator branch only when it exports the factor list,
 presentation circuit, refinement maps, conditional-expectation identities, transported state errors,
 renormalized observable tails, and positive-transfer or reflected-Gram certificates. A finite
-cellulation, finite-group score, or stable numerical extrapolation by itself remains a
+cellulation, finite-group score, or stable numerical extrapolation by itself is a
 regulator-chart result.
 \end{remark}
 
@@ -1913,17 +1915,23 @@ the port arrangement.
 Assume the fixed-cutoff OPH screen branch is represented by a quantum-link
 triangulation of \(S^2\), with finite Hilbert spaces on links, Gauss constraints
 at vertices, boundary-gauge-invariant physical algebras, and a refinement-stable
-MaxEnt quotient-ensemble background that is locally six-valent away from curvature defects. Let the
-discrete curvature charge at a vertex be
+quotient ensemble locally six-valent away from curvature defects. Let
 \[
 q_v=6-\deg(v).
 \]
-If the defect cost is convex in the charges and the edge-center collar
-decomposition exposes each irreducible positive defect as one central port, then
-the invariant screen contraction is sampled by exactly twelve indistinguishable
-ports. Under the no-marked-point MaxEnt symmetry rule those ports form the
-\(12\)-vertex icosahedral orbit. Therefore an invariant scalar screen load
-\(X\) that is additive across ports is read locally as \(X/12\).
+Assume integer charges, a feasible twelve-unit configuration, and an additive
+cost with \(h(0)=0\), \(h(1)>0\), \(h(k)\ge h(1)|k|\), strictly for
+\(|k|\ge2\). Let edge-center collars expose each unit defect as one central
+port, with a fixed-point-free inverse-port involution giving six axes \(u_i\).
+If the source selector maximizes
+\[
+ \det F_1\det F_2,\qquad
+ F_1=\sum_i u_iu_i^{\mathsf T},\quad
+ F_2=\sum_i|Q_i\rangle\langle Q_i|,\quad
+ Q_i=u_iu_i^{\mathsf T}-I_3/3,
+\]
+then the screen has twelve unit ports on the regular icosahedral orbit. An
+equal-weight additive invariant load \(X\) is read locally as \(X/12\).
 \end{theorem}
 
 \begin{proof}
@@ -1940,26 +1948,23 @@ Therefore
 =6V-2E
 =12.
 \]
-This is the discrete Gauss--Bonnet charge of the spherical screen. A locally
-hexagonal reference background has \(q_v=0\) away from defects. With fixed total positive
-charge \(12\), a convex defect cost such as \(\sum_v q_v^2\) is minimized by
-twelve unit defects \(q_v=1\), while tetrahedral and octahedral alternatives
-concentrate the same charge into four \(q=3\) defects or six \(q=2\) defects.
-The edge-center collar package turns each unit fivefold defect into a central
-readout algebra \(Z(\mathcal A(B_i))\), so the defects are the ports. The
-no-marked-point MaxEnt rule makes the twelve ports indistinguishable. The
-icosahedral group
-\(I\simeq A_5\) acts transitively on the twelve-point icosahedral vertex orbit
-with \(C_5\) vertex stabilizers, and orbit-stabilizer gives
+Thus \(\sum_vq_v=12\). The cost satisfies
 \[
-|I|/|C_5|=60/5=12.
+ \sum_vh(q_v)\ge h(1)\sum_v|q_v|\ge12h(1).
 \]
-The cyclic and dihedral rotation families are unbounded in order, so the sphere
-has no maximal finite rotation group; the selection of the icosahedral vertex
-configuration among transitive twelve-point arrangements is made by the named
-MaxEnt-maximal-symmetry hypothesis, not by a maximality theorem.
-An invariant scalar load that is additive across a transitive twelve-port
-orbit is split equally across the ports, so the local port read is \(X/12\).
+Equality requires nonnegative unit charges, and feasibility supplies the
+twelve-unit minimizer. The collar rule turns them into twelve central ports.
+For six axes, \(\operatorname{tr}F_1=6\) and
+\(\operatorname{tr}F_2=4\). Determinant AM--GM gives
+\(\det F_1\le2^3\) and \(\det F_2\le(4/5)^5\), with equality exactly at
+\(F_1=2I_3\) and \(F_2=(4/5)I_5\). The six equal-norm \(Q_i\) then form a
+regular simplex in \(\operatorname{Sym}_0(3)\), so
+\((u_i\cdot u_j)^2=1/5\) for \(i\ne j\). The associated Seidel matrix satisfies
+\(S^2=5I_6\); after switching one vertex is isolated and the remaining
+negative-edge graph is a five-cycle. This is the unique switching class and
+gives the six axes of a regular icosahedron, whose proper
+rotation group \(A_5\) is transitive on the twelve ports. Equal-weight
+additivity gives the local read \(X/12\).
 \end{proof}
 
 \begin{remark}[External identification of the load]
@@ -1969,15 +1974,15 @@ itself constrains only invariant screen loads that are additive across the
 twelve ports.
 \end{remark}
 
-\begin{remark}[Named hypothesis: MaxEnt-maximal-symmetry rule]
-The step from twelve indistinguishable ports to the icosahedral vertex orbit
-uses the no-marked-point MaxEnt symmetry rule as a named hypothesis. The rule
-is invoked, not derived: other transitive twelve-point orbits on the sphere
-exist, and the rule selects the \(A_5\) vertex configuration among them. Every
-quantity downstream of the \(12\)- and \(24\)-fold normalizations inherits this
-hypothesis together with the declared branch inputs
-\(\bar\ell_{\rm shared}=P/4\) and \(\mathbb Z_6\) class equidistribution of
-Theorem~\ref{thm:z6-reserve-trace}.
+\begin{remark}[Source-selector boundary]
+The D-optimal vector/quadrupole functional is a branch premise. Its production
+from finite mismatch, readback, and repair is work in progress. A
+source-derived strictly completely monotonic pair cost is an alternative
+selector by universal optimality. Only the twelve-port load normalization
+follows from unit splitting and placement. The cell value
+\(\bar\ell_{\rm shared}=P/4\) and the \(\mathbb Z_6\) class equidistribution of
+Theorem~\ref{thm:z6-reserve-trace} have separate premises; the port and slot
+counts do not imply either statement.
 \end{remark}
 
 \begin{theorem}[Icosahedral face-corner bundle]
@@ -2052,10 +2057,10 @@ path automaton, coupling character, grading, unit clock, and scalar response
 are authored inputs. The evidence checker does not enforce every source-law
 and provenance field, and its negative-control wrapper can count an unrelated
 nonzero exit as a successful rejection. Path exhaustion is internal to that automaton; inert
-stabilization supplies no cofinal physical screen refinement. Retrospective
-construction history also prevents a no-target ancestry claim. A global
+stabilization supplies no cofinal physical screen refinement. The construction
+has no frozen receipt excluding target dependence. A global
 mutually exclusive response law, physical charged-source selection, recovery
-dynamics, family attachment, and a pole map remain outside this model.
+dynamics, family attachment, and a pole map are outside this model.
 A separate conditional nature/pole interface shows how a supplied chiral
 three-family carrier and exact renormalized kernel would transport the face
 operator to a charged singularity readout. One premise identifies the physical
@@ -2064,8 +2069,8 @@ readout. It therefore adds a precise downstream
 certificate format without deriving either attachment from this screen model.
 \end{remark}
 
-The screen-sieve theorem fixes the canonical twelve-port branch. Its role is to give the
-reference patch enough boundary structure to support nontrivial overlap
+On its declared cost and selector branch, the screen-sieve theorem fixes the
+twelve-port carrier. It gives the reference patch enough boundary structure to support nontrivial overlap
 comparison, symmetry tests, verifier-shadow behavior, and cross-patch routing
 while remaining small enough for explicit evidence records.
 The theorem selects the exposed interface architecture. The dimension of the observer's internal
@@ -2152,7 +2157,7 @@ that theorem is read.
 The schedule-independent conclusion above is a same-source statement.  Equality of endpoints
 reached from different interiors exposing the same protected boundary requires injectivity of the
 boundary map on the consistent quotient, as characterized in
-Ref.~\cite{observableNormalForms}; weak normalization and all-schedule liveness remain separate
+Ref.~\cite{observableNormalForms}; weak normalization and all-schedule liveness are separate
 obligations.  The same reference shows that a total exact collar-preserving local repair exists
 only when every admissible collar value has a locally consistent extension.  Neither condition
 follows from finite descent alone.
@@ -2330,14 +2335,14 @@ supplies:
 \begin{enumerate}[leftmargin=2em]
 \item the fixed-cutoff patch, overlap, record, and repair interface;
 \item the finite edge-sector Casimir law on declared collars;
-\item the local repair semantics that the compact-gauge branch later reads in controlled
+\item the local repair semantics that the compact-gauge branch reads in controlled
 quotient form.
 \end{enumerate}
 
 The finite cylinder system and its projective weak-* / GNS extraction belong to the
 compact/Yang--Mills theorem surface. Identification with the four-dimensional Yang--Mills state,
 reflection-positive OS reconstruction, noncollapse, and equality between the Yang--Mills gap and
-the repair gap remain conditional on that surface's separately named receipts. Hardware evidence may test implementation discipline, but it
+the repair gap are conditional on that surface's separately named receipts. Hardware evidence may test implementation discipline, but it
 does not supply the Clay-admissible construction. A public evidence bundle that is used for any
 continuum or Lorentzian claim must therefore include the multiresolution regulator certificate:
 factor manifest, presentation-circuit hash, refinement/expectation identity defects,
@@ -2440,7 +2445,7 @@ symmetry chart for observer-facing cuts. \(A_5\)-icosahedral and \(E_8\)-type st
 the geometry data and representation-closure data. The echosahedral patch is the reference local
 interface: a bounded multi-port patch with symmetry, records, readout, repair, and checkpoint
 data. Toroidal subchannels supply local recurrence and winding-sensitive dynamics. The mathematical
-exports remain fixed-cutoff patch-net embedding, edge-sector Casimir handoff, central-record
+exports are fixed-cutoff patch-net embedding, edge-sector Casimir handoff, central-record
 measurement, Bell/CHSH event surfaces, and checkpoint/restoration.
 
 The claim discipline is the main point. Hardware can guide the architecture and supply public

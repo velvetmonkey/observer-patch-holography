@@ -34,7 +34,7 @@ def test_neutrino_attachment_bridge_invariant_scaffold() -> None:
     assert payload["contract"]["must_emit"].startswith("a source-closed neutrino operator")
     assert payload["contract"]["must_imply"] == "lambda_nu = (m_star_eV / q_mean^p_nu) * B_nu"
     ruled_out = payload["ruled_out_current_selected_point_scalar"]
-    assert ruled_out["status"] == "already_internal_to_current_candidate_stack_not_the_missing_bridge_scalar"
+    assert ruled_out["status"] == "internal_to_declared_candidate_stack_not_the_missing_bridge_scalar"
     assert ruled_out["selected_point"] == "weighted_cycle_selector_psi_wc"
     assert payload["qbar_only_collapse_status"] == "refuted_on_current_attached_stack_by_attachment_irreducibility_theorem"
     constructive = payload["best_constructive_subbridge_object"]

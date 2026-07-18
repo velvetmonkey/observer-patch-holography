@@ -52,7 +52,7 @@ def test_c3_symmetry_does_not_select_amplitude_or_phase():
 
 def test_artifact_promotes_geometry_but_not_charged_masses():
     screen = {
-        "status": "closed_on_declared_triangulated_screen_branch",
+        "status": "conditional_finite_selector_theorem",
         "checks": {"icosahedral_orbit_has_twelve_vertices": True},
         "orbit_stabilizer": {
             "orbit_size": 12,

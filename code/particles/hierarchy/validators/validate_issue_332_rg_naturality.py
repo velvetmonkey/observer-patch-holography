@@ -12,6 +12,7 @@ def main(path: str = "issue_332_rg_naturality_certificate.json") -> int:
     cert_path = pathlib.Path(path)
     cert = json.loads(cert_path.read_text(encoding="utf-8"))
     optional = cert.get("optional_upstream_resonance_check", {})
+    boundary = cert.get("claim_boundary", {})
     checks = {
         "issue_is_332": cert.get("issue") == 332,
         "accepted": cert.get("accepted") is True,
@@ -21,6 +22,14 @@ def main(path: str = "issue_332_rg_naturality_certificate.json") -> int:
         "higgs_mass_forbidden": any("Higgs" in item for item in cert.get("forbidden_calibrations", [])),
         "diagnostic_N_not_source": optional.get("n_crc_source") != "provided",
         "strict_resonance_not_required": optional.get("strict_resonance") is False,
+        "conditional_readout_named": (
+            "HIERARCHY-SCREEN-READOUT" in str(boundary.get("conditional_on", ""))
+            and boundary.get("receipt_class") == "conditional_identity"
+        ),
+        "physical_promotions_excluded": (
+            any("cosmic capacity" in item for item in boundary.get("not_closed_here", []))
+            and any("pole-mass" in item for item in boundary.get("not_closed_here", []))
+        ),
     }
     payload = {"checks": checks, "pass": all(checks.values())}
     print(json.dumps(payload, indent=2))

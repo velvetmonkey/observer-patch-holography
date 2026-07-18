@@ -29,12 +29,12 @@ def test_frozen_template_formula_reproduces_submitted_coordinates() -> None:
     }
     assert coordinates == pytest.approx(
         {
-            "u": 0.0021602387376279098,
-            "d": 0.004713845068652681,
-            "s": 0.09312611565085318,
-            "c": 1.2730350538241826,
-            "b": 4.192020570504227,
-            "t": 172.17119584025592,
+            "u": 0.0021602387377866293,
+            "d": 0.004713845068141124,
+            "s": 0.0931261156378832,
+            "c": 1.2730350539722035,
+            "b": 4.1920205700772085,
+            "t": 172.17119585133147,
         },
         rel=1e-14,
         abs=1e-16,
@@ -60,10 +60,10 @@ def test_compare_only_audit_reproduces_arithmetic_without_promoting_it() -> None
     audit = build_audit()
     comparison = audit["descriptive_mixed_chart_comparison"]
     assert comparison["max_abs_relative_error_percent"] == pytest.approx(
-        0.29457592878043837, rel=1e-12
+        0.2945759178962559, rel=1e-12
     )
     assert comparison["raw_diagonal_residual_sum"] == pytest.approx(
-        1.1653240915049539, rel=1e-12
+        1.1653239401869968, rel=1e-12
     )
     assert comparison["statistical_interpretation_allowed"] is False
     assert audit["ancestry_audit"]["source_only_ancestry_passes"] is False
