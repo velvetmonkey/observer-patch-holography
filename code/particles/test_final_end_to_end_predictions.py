@@ -71,11 +71,9 @@ def test_final_end_to_end_predictions_include_particle_five_gates_and_values() -
         "HIERARCHY-SCREEN-READOUT"
     )
     alignment = pixel_screen["shared_12_24_port_alignment"]
-    assert alignment["screen_oriented_slots"] == 24
-    assert alignment["product_adjoint_rounds_m_rep"] == 24
-    assert alignment["equal_cardinality_status"] == (
-        "arithmetic_alignment_without_physical_identification"
-    )
+    assert alignment["repair_register_slots"] == 24
+    assert alignment["screen_ports"] == 12
+    assert alignment["identification_status"] == "work_in_progress"
     gates = {gate["issue"]: gate for gate in payload["particle_five_issue_gates"]}
     assert set(gates) == {32, 153, 199, 201, 207, 223, 224, 225, 234, 235}
     assert gates[153]["state"] == "closed_out_of_scope_computationally_blocked"

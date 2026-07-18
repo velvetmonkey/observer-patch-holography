@@ -27,7 +27,7 @@
     "equivalence_theorem": "Because the proxy P_nu is internal to the declared candidate stack and strictly positive at the stored point, that conditional stack fixes B_nu if and only if it fixes C_nu := B_nu / P_nu.",
     "exact_residual_moduli_space": "R_{>0}"
   },
-  "generated_utc": "2026-07-18T05:34:58Z",
+  "generated_utc": "2026-07-18T06:04:30Z",
   "induced_target_containing_bridge_scalar_window": {
     "contains_compare_only_target": true,
     "definition": "B_nu = (I_nu^0.5 * ratio_hat^0.5 * sum_defect^-1) * C_nu",
@@ -106,7 +106,7 @@
         "value": 0.9994295999075177
       }
     ],
-    "selection_rule": "Choose one candidate per route family that still contains the live compare-only target while minimizing relative half-width; total algebraic complexity and route-local compare-only error break ties."
+    "selection_rule": "Choose one candidate per route family that contains the declared compare-only target while minimizing relative half-width; total algebraic complexity and route-local compare-only error break ties."
   },
   "strongest_locally_justified_exact_theorem": {
     "equivalent_parent_object": {

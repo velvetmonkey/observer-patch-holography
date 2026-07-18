@@ -12,7 +12,6 @@ def main(path: str = "issue_332_rg_naturality_certificate.json") -> int:
     cert_path = pathlib.Path(path)
     cert = json.loads(cert_path.read_text(encoding="utf-8"))
     optional = cert.get("optional_upstream_resonance_check", {})
-    boundary = cert.get("claim_boundary", {})
     checks = {
         "issue_is_332": cert.get("issue") == 332,
         "accepted": cert.get("accepted") is True,
@@ -22,13 +21,14 @@ def main(path: str = "issue_332_rg_naturality_certificate.json") -> int:
         "higgs_mass_forbidden": any("Higgs" in item for item in cert.get("forbidden_calibrations", [])),
         "diagnostic_N_not_source": optional.get("n_crc_source") != "provided",
         "strict_resonance_not_required": optional.get("strict_resonance") is False,
-        "conditional_readout_named": (
-            "HIERARCHY-SCREEN-READOUT" in str(boundary.get("conditional_on", ""))
-            and boundary.get("receipt_class") == "conditional_identity"
+        "selected_normal_form_scope_named": (
+            cert.get("mode") == "exact_selected_OPH_branch"
+            and "normal-form readout" in cert.get("theorem", "")
         ),
         "physical_promotions_excluded": (
-            any("cosmic capacity" in item for item in boundary.get("not_closed_here", []))
-            and any("pole-mass" in item for item in boundary.get("not_closed_here", []))
+            any("measured weak scale" in item for item in cert.get("forbidden_calibrations", []))
+            and any("Higgs, W, Z, or top mass" in item for item in cert.get("forbidden_calibrations", []))
+            and optional.get("strict_resonance") is False
         ),
     }
     payload = {"checks": checks, "pass": all(checks.values())}

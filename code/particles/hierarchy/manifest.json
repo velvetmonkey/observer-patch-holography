@@ -1,6 +1,6 @@
 {
   "bundle_id": "oph-hierarchy-proof-artifacts-r1473-2026-06-13",
-  "generated_utc": "2026-07-18T05:31:44Z",
+  "generated_utc": "2026-07-18T06:09:44Z",
   "purpose": "Machine-readable artifacts for the OPH electroweak hierarchy proof obligation audit.",
   "source_release_context": "OPH hierarchy source context with issue #332, #335, #337, #338, #342, #343, and #344 hierarchy closure artifacts, plus the icosahedral screen-sieve theorem.",
   "claim_boundary": {
@@ -38,18 +38,18 @@
   "files": [
     {
       "path": "README.md",
-      "sha256": "17e8157931b1026568d6698f47160ad405a077aedfc15447d247a70812116459",
-      "bytes": 12023
+      "sha256": "883e3214c93563b1306bcc848cebc34a606216bf1da3d68ed8ada141a3a1f35c",
+      "bytes": 12328
     },
     {
       "path": "STATUS.md",
-      "sha256": "3cb1d9c5becc6b25ac3be8685589c37410fb66f330b75743b53188602a2ef3f4",
-      "bytes": 7962
+      "sha256": "14152d6f27fd9c9b2571d85890011a73c6ae67a44ad0dec601e90a7673f728a8",
+      "bytes": 7716
     },
     {
       "path": "INTEGRATION.md",
-      "sha256": "73836e83eff0162e2a8e8782bd317e18fa0987e6cff51fb23a8ba654dd77a216",
-      "bytes": 6505
+      "sha256": "8a450ff02ec39a5770af458267a288bf799d2ce30aecfa0883f8ffdf2c3aeee8",
+      "bytes": 6726
     },
     {
       "path": "certificates/DAG_U.json",
@@ -138,13 +138,13 @@
     },
     {
       "path": "theorem_package.md",
-      "sha256": "57fdb3716231bc6d53a63b2d8259dd534b9de8164baf81c9be48b88334654be4",
-      "bytes": 11580
+      "sha256": "8b3081e01558e35ff741da0a99c0102c5707f1ee0ad9083206f21abb5c3420c3",
+      "bytes": 12065
     },
     {
       "path": "verify_issue_332_rg_naturality.py",
-      "sha256": "02afda992a24805dedb6d561e527501b094d8e9c2c0a2fbfde070b15ca43e374",
-      "bytes": 9016
+      "sha256": "e42289f5bfcf4ad735485bb833cdb8455d1e27e17d61a2871c4478d533a94f94",
+      "bytes": 9919
     },
     {
       "path": "verify_joint_fixed_point_certificate.py",
@@ -153,8 +153,8 @@
     },
     {
       "path": "test_hierarchy_bundle.py",
-      "sha256": "d62d07786fbd55cc613086068c078756c3326b5e12a402309856d032c97b54bf",
-      "bytes": 44078
+      "sha256": "843aa90dd1360b8acca25fafbbf4ec1c0709ceeaa16a09352ceb213f2d16e63b",
+      "bytes": 41938
     },
     {
       "path": "validators/validate_bundle.py",
@@ -168,8 +168,8 @@
     },
     {
       "path": "validators/validate_issue_332_rg_naturality.py",
-      "sha256": "f286f026300d8e0cbd3b43869aceccd22a141498a1f0862bec0095a2845d6247",
-      "bytes": 1317
+      "sha256": "9721ff22725954744fdfed288c87645ed8c13718b2b91957a1911e21ff9592df",
+      "bytes": 1815
     },
     {
       "path": "validators/validate_joint_fixed_point_certificate.py",
@@ -213,8 +213,8 @@
     },
     {
       "path": "verify_issue_337_electroweak_projection.py",
-      "sha256": "ab35ed6f11a9b94b15800ee03a6b7fccacf8b9d6957da420616a2ce16cd577c7",
-      "bytes": 18408
+      "sha256": "05b85105869c6c3fc7180ef90eee11030ea509f292954a81acbe6e41d8a457ea",
+      "bytes": 18025
     },
     {
       "path": "verify_screen_sieve_theorem.py",
@@ -223,18 +223,18 @@
     },
     {
       "path": "verify_issue_342_readback_resolution.py",
-      "sha256": "9f03aab37545a13201591cf396155813175eb37eadd7ea8342b00eb5a61b69c9",
-      "bytes": 28935
+      "sha256": "b749487ada7b5c6317395cb780fde58e83d56536253ad03c8c38060b8947fd80",
+      "bytes": 29400
     },
     {
       "path": "verify_issue_344_exact_capacity.py",
-      "sha256": "e3cb37ddcea9d54b88472525019a2f1ef5ea8a2e2537f07547ab3ed9c02b38fd",
-      "bytes": 35131
+      "sha256": "79759cfe110079700d9c234ce6073b9389f8d24b55d57f10bf0337cf1f23c410",
+      "bytes": 36053
     },
     {
       "path": "validators/validate_issue_337_electroweak_projection.py",
-      "sha256": "7320e35e7fc1bdd983ceaf53f7fb6aa903be3cd6cf8f83f2ec510ffd0a2bdaf2",
-      "bytes": 5249
+      "sha256": "24191dd55d9dcb5716fcda226035fbf8eb8eef39654b0eaa69c5220973214e6f",
+      "bytes": 5654
     },
     {
       "path": "validators/validate_screen_sieve_certificate.py",
@@ -243,13 +243,13 @@
     },
     {
       "path": "validators/validate_issue_342_readback_resolution.py",
-      "sha256": "4681c200438538ee3aa137d8094ca9895a57f4fbfb856580c88f2186c579ddb3",
-      "bytes": 9801
+      "sha256": "9571b08d8cb7747ab5c64a72af1778c5dc94904249fa9caa4ace01c92e2176de",
+      "bytes": 4852
     },
     {
       "path": "validators/validate_issue_344_exact_capacity.py",
-      "sha256": "b68fb51216749244576d29f6f761d92bc576d29427d4a79c42a7af4a1a294661",
-      "bytes": 16226
+      "sha256": "a750490ad876ce7e918fbcc333625af42c7928112569acfb15f1a16f94700d2a",
+      "bytes": 16401
     },
     {
       "path": "certificates/R_local_global_hierarchy_resonance_closeout_335.json",
@@ -288,8 +288,8 @@
     },
     {
       "path": "verify_pixel_screen_resonance_summary.py",
-      "sha256": "51c41c8f886a0bc3d8f2dcaaafd3db15082ab792677cc5d5891cba427179eb65",
-      "bytes": 9501
+      "sha256": "6581247dcdf4091fab31be243e8209c5ed1a8937ba440f1b0bbee3a0c64de464",
+      "bytes": 10298
     },
     {
       "path": "certificates/R_U_outward_rounded_interval_log.json",

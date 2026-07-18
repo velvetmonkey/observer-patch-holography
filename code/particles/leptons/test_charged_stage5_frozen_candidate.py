@@ -26,7 +26,8 @@ def test_determinant_law_is_satisfied():
         product *= Decimal(rows[name]["value_gev"])
     v = Decimal(artifact["inputs"]["v_from_source_transmutation_gev"])
     expected = v**3 / (Decimal(2) * Decimal(6) ** 14)
-    assert abs(product / expected - Decimal(1)) < Decimal("1e-70")
+    # The receipt serializes 60 significant decimal places.
+    assert abs(product / expected - Decimal(1)) <= Decimal("1e-59")
 
 
 def test_candidate_remains_unpromoted_and_frozen():

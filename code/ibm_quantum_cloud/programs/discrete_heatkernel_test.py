@@ -7,16 +7,24 @@ import math
 from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
+from typing import Any
 
 import numpy as np
-from qiskit import QuantumCircuit, transpile
-from qiskit.circuit.library import StatePreparation
-from qiskit_aer import AerSimulator
-from qiskit_ibm_runtime import SamplerV2
-from qiskit_ibm_runtime.options import SamplerOptions
 
-from ibm_runtime_common import ensure_dir, get_service, write_json
-
+try:
+    from qiskit import QuantumCircuit, transpile
+    from qiskit.circuit.library import StatePreparation
+    from qiskit_aer import AerSimulator
+    from qiskit_ibm_runtime import SamplerV2
+    from qiskit_ibm_runtime.options import SamplerOptions
+    from ibm_runtime_common import ensure_dir, get_service, write_json
+except ModuleNotFoundError as exc:  # Optional IBM execution dependency.
+    QuantumCircuit = Any
+    transpile = StatePreparation = AerSimulator = SamplerV2 = SamplerOptions = None
+    ensure_dir = get_service = write_json = None
+    _QISKIT_IMPORT_ERROR: ModuleNotFoundError | None = exc
+else:
+    _QISKIT_IMPORT_ERROR = None
 
 def group_spec(name: str) -> dict:
     if name == "z3":
@@ -528,6 +536,11 @@ def parse_args() -> argparse.Namespace:
 
 
 def main() -> int:
+    if _QISKIT_IMPORT_ERROR is not None:
+        raise SystemExit(
+            "The IBM execution lane requires the optional qiskit, qiskit-aer, "
+            "and qiskit-ibm-runtime packages."
+        )
     args = parse_args()
     mode = "local" if args.local_testing else args.mode
     outdir = ensure_dir(args.outdir)

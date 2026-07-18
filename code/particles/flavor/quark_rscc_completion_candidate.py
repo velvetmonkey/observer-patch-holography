@@ -13,6 +13,7 @@ completion diagnostic, not an OPH flavor theorem or physical postdiction.
 from __future__ import annotations
 
 import argparse
+import functools
 import hashlib
 import json
 from pathlib import Path
@@ -21,7 +22,18 @@ from typing import Any
 import mpmath as mp
 
 
-mp.mp.dps = 90
+WORKING_DPS = 90
+
+
+def _scoped_dps(func):
+    """Evaluate the candidate at fixed precision without mutating global state."""
+
+    @functools.wraps(func)
+    def wrapper(*args: Any, **kwargs: Any) -> Any:
+        with mp.workdps(WORKING_DPS):
+            return func(*args, **kwargs)
+
+    return wrapper
 
 CODE_ROOT = Path(__file__).resolve().parents[2]
 RUNS = CODE_ROOT / "particles" / "runs"
@@ -135,6 +147,7 @@ def load_repository_inputs() -> tuple[dict[str, object], dict[str, Any]]:
     return inputs, provenance
 
 
+@_scoped_dps
 def evaluate(
     *,
     include_d10_gev_display: bool = False,

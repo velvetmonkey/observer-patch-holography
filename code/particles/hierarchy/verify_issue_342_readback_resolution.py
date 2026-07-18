@@ -1,15 +1,13 @@
 #!/usr/bin/env python3
-"""Verifier for OPH issue #342: finite readback-resolution certificate.
+"""Verifier for OPH issue #342: conditional positive-root readback schema.
 
-The certificate composes corpus-side OPH foundational axioms (cited to the
-compact proof and the OBSERVERS synthesis fragments) with the machine-checkable
-EW-refined exact-capacity Banach contraction certificate to derive
-the finite readback-resolution object rho_read(r,N) and its refinement-limit
-convergence rho_read -> rho_star = (N_CRC/pi)^(-1/2). The bridge witness for
-N_CRC is the source-side fixed point N_CRC^EW(P_*) supplied by
+The certificate records the implication from declared finite-repair,
+observer-sector, central-atom, and cofinal-refinement premises to a singleton
+positive-root readback and its refinement limit.  It does not construct the
+finite objects, select the central atom, or emit an independent cosmic
+capacity.  The bridge-defined value N_CRC^EW(P_*) is supplied by
 R_EW_global_capacity_certificate.json; the rounded 3.31e122 cosmological
-capacity display is recorded as a diagnostic-only label and rejected as a
-bridge witness.
+capacity display is diagnostic only.
 """
 
 from __future__ import annotations
@@ -193,13 +191,13 @@ def build_certificate(
 
     branch_scope = {
         "d6_area_law_branch": "screen-capacity normalization N = pi*(r/ell)^2 in dimensionless form N = pi/rho^2 (D6 area law)",
-        "finite_oph_repair_branch": "finite OPH patch system at fixed cutoff r with strictly Lyapunov-decreasing repair, local diamond on the physical quotient, and repair completeness",
-        "stable_observer_sector_branch": "non-zero stable self-reading observer sector with a central projector and capacity visible on the quotient",
-        "central_record_algebra_branch": "central capacity register C_hat_{r,N}=sum_c c P_c with sharp central spectrum (variance zero on the OPH-stable branch)",
+        "finite_oph_repair_branch": "declared premise: a finite OPH patch system at fixed cutoff r with strictly Lyapunov-decreasing repair, local diamond on the physical quotient, and repair completeness; no executable family is constructed here",
+        "stable_observer_sector_branch": "declared premise: a non-zero stable self-reading observer sector with a central projector and capacity visible on the quotient; no observer functor is constructed here",
+        "central_record_algebra_branch": "declared premise: a central capacity register C_hat_{r,N}=sum_c c P_c with one selected positive atom and zero variance; the atom selection is not derived here",
         "ew_refined_exact_capacity_branch": "lambda=1/2 Banach contraction whose unique fixed point N_CRC^EW(P_*)=pi*exp[6*pi/(P_*alpha_U(P_*))] supplies F(N_CRC^EW)=N_CRC^EW>0",
         "positive_root_convention_branch": "the positive-root inverse rho=sqrt(pi/N) of the D6 area law (excludes the negative root)",
-        "refinement_cofinal_branch": "F_r -> F cofinally with quantitative residual delta_r controlling |N_r_star - N_CRC^EW|",
-        "scope_note": "The single effective readback resolution and its refinement-limit convergence rho_read -> rho_star are theorems on the conjunction of the seven branches above; on the corpus-side bridge, N_CRC denotes the source-side fixed point N_CRC^EW(P_*) supplied by the EW-refined exact-capacity certificate.",
+        "refinement_cofinal_branch": "declared premise: F_r -> F cofinally with quantitative residual delta_r controlling |N_r_star - N_CRC^EW|; no cofinal family is computed here",
+        "scope_note": "The certificate verifies a conditional implication on the conjunction of the seven branches above. N_CRC^EW(P_*) is the bridge-defined fixed point supplied by the EW-refined exact-capacity certificate, not an independently emitted cosmic capacity.",
     }
 
     obstruction_record = {
@@ -224,21 +222,23 @@ def build_certificate(
 
     acceptance_criteria_status = {
         "definitions_emitted": True,
-        "single_effective_readback_resolution_proved_via_central_record_algebra": True,
-        "single_atom_selected_with_zero_variance": True,
-        "finite_to_refinement_statement_proved_via_banach_and_positive_root_closure": (
+        "single_resolution_recorded_as_branch_premise": True,
+        "single_atom_supplied_by_bridge_defined_dependency": True,
+        "finite_to_refinement_implication_verified": (
             ew_accepted and ew_bridge_residual == 0 and kappa_ok
         ),
-        "positive_root_fixed_point_closure_forces_rho_read_to_rho_star": (
+        "positive_root_implication_verified": (
             strict_ok and ew_accepted
         ),
         "allowed_inputs_and_forbidden_calibrations_stated": True,
         "rounded_capacity_display_rejected_as_bridge_witness": rounded_rejected_as_bridge,
         "public_certificate_and_verifier_emitted": True,
         "ew_exact_capacity_dependency_loaded_and_accepted": ew_accepted,
-        "exact_bridge_fixed_point_hypothesis_supplied_for_repair_tick_lemma": (
+        "bridge_defined_fixed_point_hypothesis_supplied": (
             ew_accepted and ew_bridge_residual == 0
         ),
+        "readback_object_construction_not_claimed": True,
+        "independent_cosmic_capacity_not_claimed": True,
         "no_measured_weak_higgs_or_hierarchy_calibration_used": no_forbidden_inputs,
     }
 
@@ -256,39 +256,36 @@ def build_certificate(
     return {
         "issue": 342,
         "artifact": "R_readback_resolution_certificate",
-        "status": "closed_finite_readback_resolution_certificate",
+        "status": "conditional_positive_root_readback_schema",
         "accepted": bool(accepted),
-        "theorem": "finite readback-resolution certificate for the local/global hierarchy bridge",
+        "theorem": "conditional positive-root readback implication",
         "closeout_decision": (
-            "Composing the corpus OPH foundational axioms (finite repair "
-            "Lyapunov+diamond+completeness confluence, stable self-reading "
-            "observer sector, central record algebra) with the D6 dimensionless "
-            "area law and the EW-refined exact-capacity Banach contraction "
-            "certificate, the finite pipeline F_r(N)=Cap_read(Obs(nf_{r,N}(U_{r,N}))) "
-            "is single-valued at fixed (r,N), the extractor rho_read=sqrt(pi/F_r(N)) "
-            "is its unique positive-root inverse, and the cofinal refinement "
-            "F_r -> F together with the lambda=1/2 contraction fixed point "
-            "N_CRC^EW(P_*)=pi*exp[6*pi/(P_*alpha_U(P_*))]>0 forces "
-            "rho_read(r,N_CRC^EW) -> rho_star=(N_CRC^EW/pi)^(-1/2) at the "
-            "quantitative rate sqrt(pi)/(2*C_min^(3/2))*delta_r/(1-lambda). "
-            "The rounded 3.31e122 cosmological capacity display is recorded "
-            "in obstruction_record as a diagnostic-only label and rejected "
-            "as a bridge witness."
+            "Under the declared finite-repair, stable-observer, sharp-central-atom, "
+            "D6 area-law, and cofinal-refinement premises, the pipeline "
+            "F_r(N)=Cap_read(Obs(nf_{r,N}(U_{r,N}))) is single-valued and its "
+            "positive-root extractor satisfies rho_read=sqrt(pi/F_r(N)). The "
+            "lambda=1/2 bridge-defined fixed point N_CRC^EW(P_*) gives the "
+            "conditional limit rho_read(r,N_CRC^EW) -> "
+            "(N_CRC^EW/pi)^(-1/2) with the stated quantitative bound. The "
+            "certificate does not construct U, nf, Obs, Cap_read, or a cofinal "
+            "family, and it does not identify N_CRC^EW with physical cosmic "
+            "capacity. The rounded 3.31e122 display is diagnostic only."
         ),
         "definitions": {
-            "finite_initial_object": "U_{r,N} is the finite OPH patch system at fixed cutoff r and capacity coordinate N (extra/compact_proof_of_oph.tex)",
-            "normal_form_map": "nf_{r,N}: U_{r,N} -> n_{r,N} is the unique terminal normal form delivered by the strictly Lyapunov-decreasing finite repair process with the local diamond property and repair completeness (paper/tex_fragments/OBSERVERS_APPENDICES.tex)",
-            "observer_sector": "Obs(n_{r,N}) is the non-zero stable self-reading observer sector with a central projector on the physical quotient (paper/tex_fragments/OBSERVERS_SYNTHESIS_SECTIONS.tex)",
-            "capacity_register": "C_hat_{r,N}=sum_{c in S_{r,N}} c P_c is the central capacity register on Obs(n_{r,N}); the OPH-stable branch selects a single sharp central eigenvalue (variance zero)",
-            "cap_read": "Cap_read = the unique selected positive eigenvalue of C_hat_{r,N}",
-            "finite_readback_map": "F_r(N) = Cap_read(Obs(nf_{r,N}(U_{r,N})))",
+            "finite_initial_object": "declared premise U_{r,N}: finite OPH patch system at fixed cutoff r and capacity coordinate N",
+            "normal_form_map": "declared premise nf_{r,N}: U_{r,N} -> n_{r,N}: unique terminal normal form under finite repair confluence",
+            "observer_sector": "declared premise Obs(n_{r,N}): non-zero stable self-reading observer sector with a central projector on the physical quotient",
+            "capacity_register": "declared premise C_hat_{r,N}=sum_{c in S_{r,N}} c P_c: central capacity register with one selected positive atom and zero variance",
+            "cap_read": "declared Cap_read: the selected positive eigenvalue of C_hat_{r,N}",
+            "finite_readback_map": "conditional definition F_r(N) = Cap_read(Obs(nf_{r,N}(U_{r,N})))",
             "delivery_resolution": "rho_read(r,N) = sqrt(pi/F_r(N)) (positive-root inverse of D6 area law N = pi/rho^2)",
-            "limit_resolution": "rho_star = (N_CRC/pi)^(-1/2); the corpus-side bridge sets N_CRC = N_CRC^EW(P_*) supplied by R_EW_global_capacity_certificate.json",
+            "limit_resolution": "rho_star = (N_CRC^EW/pi)^(-1/2), with bridge-defined N_CRC^EW(P_*) supplied by R_EW_global_capacity_certificate.json",
         },
         "normal_form": {
-            "finite_state": True,
-            "unique": True,
-            "schedule_independent": True,
+            "premise_status": "declared_not_constructed_here",
+            "declared_finite_state": True,
+            "declared_unique": True,
+            "declared_schedule_independent": True,
             "certificate_basis": [
                 "strict finite Lyapunov descent",
                 "local diamond on the physical quotient",
@@ -297,23 +294,26 @@ def build_certificate(
             "source_artifact": "paper/tex_fragments/OBSERVERS_APPENDICES.tex (Lyapunov+diamond+completeness confluence theorem)",
         },
         "observer_sector": {
-            "nonzero": True,
-            "stable_self_reading": True,
-            "central_projector": True,
-            "capacity_visible_on_quotient": True,
-            "quotient_invariant": True,
+            "premise_status": "declared_not_constructed_here",
+            "declared_nonzero": True,
+            "declared_stable_self_reading": True,
+            "declared_central_projector": True,
+            "declared_capacity_visible_on_quotient": True,
+            "declared_quotient_invariant": True,
             "source_artifact": "paper/tex_fragments/OBSERVERS_SYNTHESIS_SECTIONS.tex",
         },
         "capacity_register": {
-            "central": True,
-            "positive_spectrum": True,
-            "selected_variance": "0",
+            "premise_status": "declared_not_constructed_here",
+            "declared_central": True,
+            "declared_positive_spectrum": True,
+            "declared_selected_variance": "0",
             "atoms": [
                 {
                     "label": "N_CRC_EW_capacity_atom",
                     "capacity": decstr(cap_read),
                     "probability": "1",
                     "selected": True,
+                    "selection_status": "declared_bridge_identification_not_derived_here",
                     "source_artifact": ew_cert_relpath,
                 }
             ],
@@ -332,7 +332,8 @@ def build_certificate(
             "display_rho_star": decstr(rho_display),
             "display_only": True,
         },
-        "strict_source_capacity_check": {
+        "conditional_source_capacity_check": {
+            "premise_status": "bridge_defined_value_substituted_into_declared_atom",
             "enabled": True,
             "N_CRC": decstr(source_n),
             "rho_star": decstr(rho_star),
@@ -342,8 +343,9 @@ def build_certificate(
             "accepted": bool(strict_ok),
         },
         "refinement_certificate": {
-            "uniform_limit_declared": True,
-            "positive_root_closure": True,
+            "premise_status": "cofinal_family_declared_not_computed_here",
+            "cofinal_limit_declared": True,
+            "positive_root_implication_verified": True,
             "contraction_kappa": decstr(kappa),
             "ew_capacity_lambda": decstr(ew_lambda),
             "kappa_matches_ew_lambda": kappa == ew_lambda,
@@ -378,49 +380,58 @@ def build_certificate(
         },
         "claim_boundary": {
             "closed_here": [
-                "fixed-cutoff normal form delivers a unique central capacity atom (single effective readback resolution)",
-                "the finite pipeline F_r(N)=Cap_read(Obs(nf_{r,N}(U_{r,N}))) is single-valued at fixed (r,N)",
                 "the extractor rho_read = sqrt(pi/Cap_read) is the unique positive-root inverse of the D6 area law",
-                "positive-root refinement closure rho_read(r,N_CRC^EW) -> rho_star with quantitative cofinal bound",
+                "conditional implication from the declared singleton readback and cofinal-refinement premises to rho_read(r,N_CRC^EW) -> rho_star with the quantitative bound",
             ],
             "closed_elsewhere": [
-                "EW-refined exact-capacity Banach contraction in R_EW_global_capacity_certificate.json (supplies F(N_CRC^EW)=N_CRC^EW>0 as input)",
-                "global repair-tick lemma in R_N_global_repair_tick_certificate.json (consumes this certificate to discharge its declared single-resolution premise)",
+                "bridge-defined EW capacity contraction in R_EW_global_capacity_certificate.json (supplies N_CRC^EW>0 as input, not cosmic capacity)",
+                "conditional global repair-tick lemma in R_N_global_repair_tick_certificate.json",
                 "representation-to-spectrum round-count theorem in R_m_rep_24_certificate.json",
                 "electroweak projection bridge in R_EW_tick_projection_certificate.json",
-                "RG/Higgs naturality square in issue_332_rg_naturality_certificate.json",
-                "full local/global hierarchy-resonance closeout in R_local_global_hierarchy_resonance_closeout_335.json",
+                "conditional RG/Higgs naturality square in issue_332_rg_naturality_certificate.json",
+                "conditional local/global hierarchy-resonance composition in R_local_global_hierarchy_resonance_closeout_335.json",
             ],
-            "not_closed_here": [],
+            "not_closed_here": [
+                "construction of an executable finite family U_{r,N} and its repair map nf_{r,N}",
+                "construction of Obs, the central register, and a source-selected capacity atom",
+                "a computed cofinal refinement family F_r -> F",
+                "an independently emitted physical cosmic capacity",
+                "HIERARCHY-SCREEN-READOUT",
+            ],
             "scope": (
-                "Closed on the conjunction of the seven branches enumerated in "
-                "branch_scope. The corpus-side N_CRC is taken to be the EW-refined "
-                "source-side fixed point N_CRC^EW(P_*) supplied by the "
-                "EW-refined exact-capacity certificate; "
-                "the rounded 3.31e122 cosmological label is recorded as a "
-                "diagnostic-only display and rejected as a bridge witness."
+                "Conditional positive-root implication on the declared branches in "
+                "branch_scope. N_CRC^EW(P_*) is a bridge-defined source value. "
+                "Neither the finite readback objects nor physical cosmic capacity "
+                "nor HIERARCHY-SCREEN-READOUT is derived by this certificate."
             ),
         },
         "source_status": {
-            "closes_gate": "finite_readback_resolution",
+            "closes_gate": False,
+            "receipt_class": "conditional_schema",
             "does_not_promote_full_hierarchy_resonance": True,
-            "remaining_for_full_hierarchy_resonance": [],
+            "remaining_for_full_hierarchy_resonance": [
+                "executable finite readback-family construction",
+                "source selection of the central capacity atom",
+                "computed cofinal refinement",
+                "HIERARCHY-SCREEN-READOUT",
+                "independent physical cosmic-capacity map",
+            ],
         },
         "checks": {
-            "normal_form_unique": True,
-            "observer_sector_central_nonzero": True,
-            "exactly_one_selected_positive_capacity_atom": True,
-            "zero_capacity_variance": True,
+            "normal_form_premise_recorded": True,
+            "observer_sector_premise_recorded": True,
+            "singleton_capacity_atom_premise_recorded": True,
+            "zero_capacity_variance_premise_recorded": True,
             "positive_root_extractor": True,
             "kappa_is_contractive": kappa_ok,
             "kappa_matches_ew_lambda": kappa == ew_lambda,
             "forbidden_input_check": no_forbidden_inputs,
-            "strict_source_capacity_check": bool(strict_ok),
+            "conditional_source_capacity_substitution_check": bool(strict_ok),
             "ew_dependency_accepted": ew_accepted,
             "ew_bridge_residual_zero": ew_bridge_residual == 0,
             "rounded_capacity_display_rejected_as_bridge": rounded_rejected_as_bridge,
-            "cap_read_equals_n_crc_ew": cap_read == n_crc_ew,
-            "rho_read_equals_rho_star_at_n_crc_ew": rho_read == rho_star,
+            "declared_cap_read_equals_bridge_defined_n_crc_ew": cap_read == n_crc_ew,
+            "positive_root_equals_rho_star_under_substitution": rho_read == rho_star,
             "all_acceptance_criteria_pass": all(acceptance_criteria_status.values()),
         },
         "verifier_command": (
@@ -440,32 +451,32 @@ def build_derivation_chain(
     return [
         {
             "step": 1,
-            "premise": "OPH finite patch-carrier pipeline (corpus axiom)",
-            "uses": ["finite OPH patch system at fixed cutoff r and capacity coordinate N"],
+            "premise": "Declared finite patch-carrier object",
+            "uses": ["premise U_{r,N}: finite OPH patch system at fixed cutoff r and capacity coordinate N"],
             "source_artifact": "extra/compact_proof_of_oph.tex (OPH framework section); paper/tex_fragments/OBSERVERS_SYNTHESIS_SECTIONS.tex",
-            "conclusion": "U_{r,N} is a finite, well-defined initial object on which the OPH repair-and-readback pipeline acts.",
+            "conclusion": "Conditional schema domain: assume U_{r,N} is a finite initial object on which the repair-and-readback pipeline acts; no executable U_{r,N} family is constructed here.",
         },
         {
             "step": 2,
-            "premise": "Fixed-cutoff confluence (corpus theorem: Lyapunov + local diamond + repair completeness)",
+            "premise": "Declared fixed-cutoff confluence premise (Lyapunov + local diamond + repair completeness)",
             "uses": ["U_{r,N}", "strictly Lyapunov-decreasing finite repair", "local diamond on the physical quotient", "repair completeness"],
             "source_artifact": "paper/tex_fragments/OBSERVERS_APPENDICES.tex (confluence theorem)",
-            "conclusion": "The finite repair process at fixed cutoff r terminates in a unique terminal normal form n_{r,N} = nf_{r,N}(U_{r,N}); the map nf_{r,N} is schedule-independent.",
+            "conclusion": "Under the confluence premise, nf_{r,N}(U_{r,N}) is a unique schedule-independent terminal normal form; the repair map is not constructed here.",
         },
         {
             "step": 3,
-            "premise": "Stable self-reading observer sector (corpus theorem)",
+            "premise": "Declared stable self-reading observer-sector premise",
             "uses": ["n_{r,N}", "non-zero observer sector", "stable self-reading", "central projector", "capacity visible on the physical quotient"],
             "source_artifact": "paper/tex_fragments/OBSERVERS_SYNTHESIS_SECTIONS.tex",
-            "conclusion": "Obs(n_{r,N}) is a well-defined non-zero stable self-reading observer sector on the physical quotient.",
+            "conclusion": "Under the observer-sector premise, Obs(n_{r,N}) is a non-zero stable self-reading sector on the physical quotient; Obs is not constructed here.",
         },
         {
             "step": 4,
-            "premise": "Central record algebra (corpus theorem)",
-            "uses": ["Obs(n_{r,N})", "central capacity register C_hat_{r,N}=sum_c c P_c", "OPH-stable selection (variance zero on the central spectrum)"],
+            "premise": "Declared sharp central-record premise",
+            "uses": ["Obs(n_{r,N})", "central capacity register C_hat_{r,N}=sum_c c P_c", "one selected positive atom with zero variance"],
             "source_artifact": "paper/tex_fragments/OBSERVERS_SYNTHESIS_SECTIONS.tex (central record algebra)",
-            "conclusion": "Cap_read(Obs(n_{r,N})) is single-valued, equal to the unique selected positive eigenvalue of C_hat_{r,N}; this discharges the 'single effective readback resolution rather than multiple incompatible readback scales' acceptance criterion.",
-            "acceptance_criterion_closed": "single effective readback resolution",
+            "conclusion": "Under the sharp-atom premise, Cap_read(Obs(n_{r,N})) is single-valued. The atom and its selection are not derived here.",
+            "acceptance_criterion_closed": "conditional singleton readback implication",
         },
         {
             "step": 5,
@@ -476,38 +487,38 @@ def build_derivation_chain(
         },
         {
             "step": 6,
-            "premise": "Composition of the finite pipeline",
-            "uses": ["steps 1-4 (single-valued Cap_read on the OPH-stable branch)", "step 5 (positive-root extractor)"],
+            "premise": "Conditional composition of the finite pipeline",
+            "uses": ["steps 1-4 (declared finite object, normal form, observer sector, and sharp atom)", "step 5 (positive-root extractor)"],
             "source_artifact": "this certificate (extractor and capacity_register fields)",
-            "conclusion": "F_r(N) := Cap_read(Obs(nf_{r,N}(U_{r,N}))) is well-defined and single-valued at fixed (r,N), and rho_read(r,N) = sqrt(pi/F_r(N)) is its single effective delivery resolution.",
+            "conclusion": "Under the declared premises, F_r(N) := Cap_read(Obs(nf_{r,N}(U_{r,N}))) is single-valued and rho_read(r,N) = sqrt(pi/F_r(N)) is its positive-root resolution.",
         },
         {
             "step": 7,
             "premise": f"EW-refined exact-capacity Banach contraction with lambda={ew_lambda}",
             "uses": ["C_EW(P,x) = (1-lambda)*x + lambda*6*pi/(P*alpha_U(P))", "Banach fixed-point theorem on the source-side log-capacity coordinate"],
             "source_artifact": ew_cert_relpath,
-            "conclusion": f"The unique fixed point is N_CRC^EW(P_*) = pi*exp[6*pi/(P_*alpha_U(P_*))] = {decstr(n_crc_ew)}, with B_EW(P_*,N_CRC^EW)=0 exactly. In particular F(N_CRC^EW)=N_CRC^EW>0, supplying the source-side fixed-point hypothesis required by the global repair-tick lemma.",
-            "acceptance_criterion_closed": "finite-to-refinement source-side fixed-point hypothesis supplied",
+            "conclusion": f"The bridge-defined map has fixed point N_CRC^EW(P_*) = pi*exp[6*pi/(P_*alpha_U(P_*))] = {decstr(n_crc_ew)}, with B_EW(P_*,N_CRC^EW)=0. Its use as F(N_CRC^EW)=N_CRC^EW is a declared bridge identification, not an independent readback or cosmic-capacity derivation.",
+            "acceptance_criterion_closed": "bridge-defined fixed-point value supplied",
         },
         {
             "step": 8,
-            "premise": "Positive-root fixed-point closure on the refinement",
+            "premise": "Positive-root implication under the declared cofinal refinement",
             "uses": [
-                "step 6 (single-valued F_r and rho_read)",
-                "step 7 (F(N_CRC^EW)=N_CRC^EW>0 with Banach lambda=1/2)",
-                f"cofinal refinement F_r -> F with quantitative residual delta_r and contraction kappa={kappa}",
+                "step 6 (conditionally single-valued F_r and rho_read)",
+                "step 7 plus the declared identification F(N_CRC^EW)=N_CRC^EW>0",
+                f"declared cofinal refinement F_r -> F with quantitative residual delta_r and contraction kappa={kappa}",
                 "chain rule on rho(N) = sqrt(pi)*N^(-1/2) (drho/dN = -sqrt(pi)/(2*N^(3/2)))",
             ],
             "source_artifact": "this certificate (refinement_certificate.finite_to_limit_bound)",
-            "conclusion": "|N_r_star - N_CRC^EW| <= delta_r/(1-kappa), hence by chain-rule continuity of sqrt(pi/.) at N_CRC^EW>0, |rho_r - rho_star| <= sqrt(pi)/(2*C_min^(3/2))*delta_r/(1-kappa) -> 0 as delta_r -> 0. So rho_read(r,N_CRC^EW) -> (N_CRC^EW/pi)^(-1/2) = rho_star, discharging the positive-root refinement-limit acceptance criterion.",
-            "acceptance_criterion_closed": "positive-root fixed-point closure forces rho_read -> rho_star",
+            "conclusion": "If the declared residual bound holds, then |N_r_star - N_CRC^EW| <= delta_r/(1-kappa) and chain-rule continuity gives |rho_r - rho_star| <= sqrt(pi)/(2*C_min^(3/2))*delta_r/(1-kappa) -> 0. Thus rho_read(r,N_CRC^EW) -> (N_CRC^EW/pi)^(-1/2) conditionally.",
+            "acceptance_criterion_closed": "conditional positive-root refinement implication",
         },
     ]
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description="Verify OPH issue #342 finite readback resolution."
+        description="Verify OPH issue #342 conditional positive-root readback schema."
     )
     parser.add_argument(
         "--n-display",

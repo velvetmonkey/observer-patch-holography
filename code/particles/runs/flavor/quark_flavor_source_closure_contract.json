@@ -31,28 +31,28 @@
       "sha256": "712f4ac9ac065bb5349eda86f168c5aca5f011771cefc5e50ededea56c17152a"
     },
     "particles/runs/flavor/quark_axiom_level_yukawa_moduli_nonidentifiability.json": {
-      "sha256": "f7d8f93c4d755760151a6e70de9727a229627f7f36bd4fbfa02211be609e03b6"
+      "sha256": "f8f2d62d2e5ec2948a46c8c2aa2bdc3d5ba10ece7b99fb8ec69a16acdae9ca12"
     },
     "particles/runs/flavor/quark_further_theorem_audit.json": {
       "sha256": "06a0f13f28a56139d3658624ff4d8d7951af9a851a4eb1c7ea9588973b8ce688"
     },
     "particles/runs/flavor/quark_odd_response_law.json": {
-      "sha256": "0292adf98a01f378efadd04c3e934682ece87ec72e216fb4825570a998a18cd3"
+      "sha256": "c187121e8a784d3e65acce4a24cae3c7b1602b911799a1eab5e632eb3f5c5d66"
     },
     "particles/runs/flavor/quark_rscc_completion_candidate.json": {
-      "sha256": "5a7bd5e1f66b89c5c2ea1fc247d31f611cfa5425db5be1fd1f0dc84d88101129"
+      "sha256": "d0d07b15eabf64c7fd05ebaca52decf6db0c2b8156ff4effa7b505e42aab4bb2"
     },
     "particles/runs/flavor/quark_rscc_completion_candidate_audit.json": {
-      "sha256": "5457ffa17b00f924b62cc1458ce2d34cac92a9b0c38c66e8def499c8770371cf"
+      "sha256": "f82e18b416cbafacc7816fbb111f52c83f6fe7e44affbe007ea482633841fc79"
     },
     "particles/runs/flavor/quark_rscc_module_arithmetic.json": {
       "sha256": "945da0cef4b21f39e1327d26a167af4b3f174a4c26cb0b0b2abcd81c0c36322b"
     },
     "particles/runs/flavor/quark_running_mass_scheme_convention_obstruction.json": {
-      "sha256": "de53e09444c1b391324bb3491a2d8953bfe8876fe9404189f13a8e4ef95cdc9a"
+      "sha256": "3824799907956da075e36254779cb98562b25ab9603aadfe301b3dada46f17b8"
     },
     "particles/runs/flavor/quark_sector_mean_split.json": {
-      "sha256": "5fa74146fddfb2c3bbea9f2c794aa55d3493d3c4d3724e6e5fa45d3bcfc0334d"
+      "sha256": "ca0dedd3db97550aac063ea76feabc3be83c1679cdcd2b1ef70c076a54513286"
     }
   },
   "exact_algebra": {

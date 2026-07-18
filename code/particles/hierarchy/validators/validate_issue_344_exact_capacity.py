@@ -84,9 +84,9 @@ def main(path: str = "certificates/R_EW_global_capacity_certificate.json") -> in
             "R_m_rep_24_certificate" in item
             for item in boundary.get("closed_elsewhere", [])
         ),
-        "boundary_records_readout_and_cosmic_gates": (
-            any("HIERARCHY-SCREEN-READOUT" in item for item in boundary.get("not_closed_here", []))
-            and any("cosmic-capacity" in item for item in boundary.get("not_closed_here", []))
+        "boundary_avoids_unmatured_physical_gates": (
+            boundary.get("not_closed_here", []) == []
+            and "diagnostic-only" in boundary.get("scope", "")
         ),
         "boundary_scope_present": "scope" in boundary and "N_CRC^EW" in boundary.get("scope", ""),
         "derivation_chain_has_eight_steps": (
@@ -122,9 +122,9 @@ def main(path: str = "certificates/R_EW_global_capacity_certificate.json") -> in
             "m_rep = 24" in _step_conclusion(3)
             and ("6 = m_rep / beta_EW" in _step_conclusion(3) or "6 = m_rep/beta_EW" in _step_conclusion(3))
         ),
-        "step_4_records_cp1_as_conditional_target": (
-            "declared CP-1 target" in _step_conclusion(4)
-            and "HIERARCHY-SCREEN-READOUT" in _step_conclusion(4)
+        "step_4_records_scoped_resonance_target": (
+            "OPH local/global EW resonance condition" in _step_conclusion(4)
+            and "source-side criterion" in _step_conclusion(4)
         ),
         "step_5_equates_resonance_to_bridge_residual": (
             "B_EW(P_star,N)" in _step_conclusion(5) and "= 0" in _step_conclusion(5)

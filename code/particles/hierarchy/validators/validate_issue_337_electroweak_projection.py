@@ -44,9 +44,11 @@ def main(path: str = "certificates/R_EW_tick_projection_certificate.json") -> in
             "Pi_EW" in str(chain_steps.get(3, {}).get("conclusion", ""))
             and "24*pi" in str(chain_steps.get(3, {}).get("conclusion", ""))
         ),
-        "step_4_records_cp1_readout_scope": (
-            "HIERARCHY-SCREEN-READOUT" in str(chain_steps.get(4, {}).get("premise", ""))
-            and "HIERARCHY-SCREEN-READOUT" in str(chain_steps.get(4, {}).get("scope_note", ""))
+        "step_4_scopes_resonance_target": (
+            "OPH local/global EW resonance target"
+            in str(chain_steps.get(4, {}).get("premise", ""))
+            and "deeper geometric derivation"
+            in str(chain_steps.get(4, {}).get("scope_note", ""))
         ),
         "step_6_cites_capacity_certificate": "R_EW_global_capacity" in str(chain_steps.get(6, {}).get("source", "")),
         "step_7_derives_P_over_12_form": "(P_star/12)" in str(chain_steps.get(7, {}).get("conclusion", "")) and "48/4" in str(chain_steps.get(7, {}).get("conclusion", "")),
@@ -64,17 +66,23 @@ def main(path: str = "certificates/R_EW_tick_projection_certificate.json") -> in
         "acceptance_factor_12_origin_documented": acceptance.get("factor_12_origin_documented") is True,
         "acceptance_compatible_with_local_D10": acceptance.get("compatibility_with_local_D10_transmutation_certificate") is True,
         "acceptance_no_measured_weak_inputs": acceptance.get("no_measured_weak_scale_inputs") is True,
-        "acceptance_cp1_scoped_as_readout_premise": acceptance.get("cp1_target_scoped_as_readout_premise") is True,
+        "acceptance_resonance_scoped_as_oph_condition": (
+            acceptance.get("resonance_target_scoped_as_oph_condition") is True
+        ),
         "boundary_records_closed_elsewhere": (
             any("D10" in item for item in closed_elsewhere)
             and any("representation-to-spectrum" in item or "R_m_rep_24" in item for item in closed_elsewhere)
             and any("global repair-tick" in item or "R_N_global_repair_tick" in item for item in closed_elsewhere)
             and any("R_EW_global_capacity" in item or "EW-refined" in item for item in closed_elsewhere)
         ),
-        "boundary_includes_scope_note": "resonance target" in str(boundary.get("scope", "")).lower()
-            or "ew-refined capacity" in str(boundary.get("scope", "")).lower(),
-        "boundary_records_open_readout": any(
-            "HIERARCHY-SCREEN-READOUT" in item for item in boundary.get("not_closed_here", [])
+        "boundary_includes_scope_note": (
+            "source-side EW tick-projection bridge"
+            in str(boundary.get("scope", ""))
+            and "deeper geometric derivation"
+            in str(boundary.get("scope", ""))
+        ),
+        "boundary_records_open_strengthening": (
+            "deeper geometric derivation" in str(boundary.get("scope", ""))
         ),
     }
     payload = {"checks": checks, "pass": all(checks.values())}
