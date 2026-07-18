@@ -15,8 +15,8 @@ The eligible sources are:
 - the exact gauge, charge, color, generation, and declared-action carrier
   claims in
   [*Deriving the Particle Zoo from Observer Consistency*](../paper/deriving_the_particle_zoo_from_observer_consistency.pdf);
-- the finite carrier and screen-sieve theorems in *Federated Echosahedral
-  Screen Microphysics*;
+- the finite carrier and screen-sieve theorems in
+  [*Federated Echosahedral Screen Microphysics*](../paper/screen_microphysics_and_observer_synchronization.pdf);
 - the substrate-neutral
   [normal-form](../extra/observable_normal_forms.pdf) and
   [finite-event-algebra](../extra/machine_checked_finite_event_algebras.pdf)

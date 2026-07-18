@@ -75,21 +75,20 @@ closure ledger counts them. The theory layer takes no measured number at all.
    physical pulls; measurement sigma is reported only for commensurate observables with
    a valid uncertainty model.
 3. **Basin-then-contract.** A fixed-point value is CORRECT and ONLY where a four-stage
-   record exists: measured basin, interval-grade contraction certificate, landing verdict,
-   and (where the certified width beats the measurement) registered sharpened digits.
+   record exists: measured basin, interval-grade contraction certificate, and landing verdict.
 4. **Outputs.** A quantity counts as an output only when a contracted fixed point or a
    forward chain from one lands inside a basin that did not tune the map, verified by the
    dependency-cone audit. Map revisions made after seeing a basin convert that basin to an
    input. Discrete structural selections count as inputs with their menu sizes.
 5. **Attribution.** A physical residual is attributed only after the source and reference
    occupy the same observable and scheme and theory uncertainty is propagated. A named
-   missing term in an incomplete map is a hypothesis, not an established cause. A
-   measurement-side mechanism claim is admissible only as a frozen registered prediction.
+   missing term in an incomplete map is a hypothesis, not an established cause.
+   Prospective comparisons require a timestamped source bundle and provenance record.
 6. **Ceiling.** No surface states a claim more strongly than the book states it; where the
    book and the claim registry disagree, the registry tier governs.
-7. **Failure permanence.** Executed tests stay on the falsification surface with their
-   verdicts. A failed row is revised only by a new frozen registration, never by
-   reclassification.
+7. **Audit permanence.** Executed tests remain in the provenance archive with their
+   original result and scope. Later constructions receive a new artifact identity rather
+   than rewriting the historical record.
 
 ## What would establish SLH
 

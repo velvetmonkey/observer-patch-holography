@@ -40,6 +40,6 @@ def test_blind_prediction_provenance_records_target_use_and_declared_sensitivity
     assert "electron_neutrino" not in row_map
     assert withheld_map["electron_neutrino"]["target_use"] == "target_ranked_selector_development_and_correlated_profile_rejection"
     assert withheld_map["electron_neutrino"]["blind_status"] == "withheld_not_blind_rejected_candidate"
-    workflows = {workflow["id"]: workflow for workflow in payload["preregistered_blind_workflows"]}
-    assert workflows["new_quantity_pre_reference_lock"]["status"] == "protocol_emitted_unexercised"
+    workflows = {workflow["id"]: workflow for workflow in payload["prospective_comparison_workflows"]}
+    assert workflows["new_quantity_pre_reference_provenance"]["status"] == "protocol_emitted_unexercised"
     assert workflows["convention_sensitivity_sweep"]["status"] == "declared_taxonomy_emitted_numeric_sweep_stage_gated"

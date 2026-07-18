@@ -1,72 +1,33 @@
-# OPH Cosmology Papers
+# OPH Cosmology And Dark Gravity
 
-This directory holds OPH cosmology papers inside the public core repository.
+This directory develops the cosmological continuation of Observer Patch Holography: repair-charge dark gravity, finite-source primordial structure, observer-screen synchronization, Boltzmann transport, and direct comparison with public cosmological data.
 
-These cosmology papers are very early, work-in-progress, unpublished research
-drafts. They are not part of the OPH release paper bundle. They should be read
-as staging documents for source, transfer, likelihood, and falsification gates,
-not as completed OPH cosmology results.
+The main OPH papers establish the structural observer, geometry, gravity, and matter branches. These focused companions carry the additional source laws, transfer maps, calibration, and likelihood contracts needed to turn that structure into cosmological observables.
 
-## Public-Data Status
+## Paper Map
 
-The dark-sector paper proposes a repair-charge condensate action. Its dilute
-normal phase has pressureless background scaling. Its cubic condensed link
-energy gives the spherical deep radial-acceleration law and baryonic
-Tully--Fisher scaling. The same action supplies repair current, stress, and a
-coherent-source coupling weighted by $\chi_\nu^{\rm can}$.
+| Paper | Main contribution |
+| --- | --- |
+| [Dark Gravity](oph_dark_matter_paper.pdf) ([source](oph_dark_matter_paper.tex)) | Repair-charge condensate action, dust-like normal phase, deep-galaxy radial-acceleration branch, and coherent-source coupling |
+| [Finite-Source CMB Program](oph_cosmology_finite_source_cmb_program.pdf) ([source](oph_cosmology_finite_source_cmb_program.tex), [Markdown](oph_cosmology_finite_source_cmb_program.md)) | Source-only inputs, scale bridge, transfer requirements, and CMB promotion path |
+| [Inflation Without an Inflaton](oph_inflation_without_inflaton_observer_screen_synchronization.pdf) ([source](oph_inflation_without_inflaton_observer_screen_synchronization.tex), [Markdown](oph_inflation_without_inflaton_observer_screen_synchronization.md)) | Observer-screen synchronization, flatness, horizon coherence, and geometric screen spectrum |
+| [Cosmological Vacuum And Structure Formation](oph_cosmological_vacuum_and_structure_formation.pdf) ([source](oph_cosmological_vacuum_and_structure_formation.tex), [Markdown](oph_cosmological_vacuum_and_structure_formation.md)) | Vacuum boundary, fluctuation ensembles, proto-objects, worldlines, and structure seeds |
+| [Cosmology Data And Likelihood Contracts](oph_cosmology_data_likelihood_contracts.pdf) ([source](oph_cosmology_data_likelihood_contracts.tex), [Markdown](oph_cosmology_data_likelihood_contracts.md)) | Data provenance, transfer, nuisance treatment, pooled reducers, and official likelihood comparisons |
+| [Boltzmann Transport Derivation](oph_boltzmann_transport_derivation.pdf) ([source](oph_boltzmann_transport_derivation.tex)) | Finite transport interface between OPH sources and observable distribution functions |
 
-The canonical repair pair, source maps, dimensional calibrations, full
-constitutive law, relativistic limit, abundance, lensing, CMB, clusters,
-Solar-System response, and laboratory receipts are work in progress. The
-paper supplies no closed physical dark-matter prediction. The
-analytic tilt and CAMB rows are conditional comparison diagnostics, not an
-OPH-native cosmology result. Reproducibility details and commands are in
-The companion code under [`../code/dark_matter/`](../code/dark_matter/) contains
-empirical and numerical diagnostics with no prediction status.
+The [physical CMB theorem program](physical_cmb_theorem_program.md) collects the remaining source, lift, stress, abundance, transfer, and likelihood obligations in one place.
 
-## Release Status
+## Dark-Gravity Structure
 
-- `oph_dark_matter_paper.tex`
-  - conditional repair-charge condensate action, repair-current balance,
-    dust-like normal phase, cubic deep-galaxy branch, and coherent-source force
+The dark-sector action already yields a pressureless dilute background and, through its cubic condensed link energy, a spherical deep-acceleration law with baryonic Tully–Fisher scaling. The same action supplies a repair current, stress channel, and coherent-source coupling weighted by $\chi_\nu^{\rm can}$.
 
-## Companion Papers
+Physical promotion requires the canonical repair pair, a relativistic constitutive completion, abundance and lensing maps, CMB and cluster transfer, Solar-System response, and calibrated laboratory receipts to close on the same branch. Existing analytic and numerical comparisons are evidence for developing those maps; the papers state their precise status.
 
-These files are public technical companions outside the release bundle.
+## Reproducibility
 
-- `oph_cosmology_finite_source_cmb_program.tex`
-  - finite-source cosmology, physical CMB boundaries, scale bridge, simulator
-    evidence, the conditional analytic $P_\star/48$ tilt comparison, and claim
-    boundaries
-- `oph_inflation_without_inflaton_observer_screen_synchronization.tex`
-  - inflation-free branch: flatness, horizon coherence, geometric screen
-    spectrum, screen release amplitude, radial lift, and hot source data
-- `oph_cosmological_vacuum_and_structure_formation.tex`
-  - OPH-native vacuum boundary, fluctuation ensembles, proto-object/worldline
-    formation, and structure-seed checks
-- `oph_cosmology_data_likelihood_contracts.tex`
-  - source-provenance artifacts, no-data-use checks, pooled reducers, Boltzmann
-    transfer, the public-data comparison ledger, and official likelihood
-    comparisons
-- simulator reference: https://github.com/muellerberndt/oph-physics-sim
-- visualization companion: https://simulation.floatingpragma.io
+Companion code lives in [`../code/dark_matter/`](../code/dark_matter/). The larger simulator and visualization surfaces are:
 
-The CMB companion distinguishes diagnostic proxies, conditional physical
-artifacts using a declared imported FLRW packet, and OPH-native physical artifacts
-derived from the quotient carrier.
-Flat-sector work is likewise split: spatial Levi--Civita holonomy identifies the $\kappa=0$
-branch, while direct theorem, conditional CMH, or explicit-assumption labels select it.
+- [OPH physics simulator](https://github.com/muellerberndt/oph-physics-sim)
+- [Interactive simulation](https://simulation.floatingpragma.io)
 
-## Paper Split
-
-Two cosmology papers would be too compressed. The split is five papers:
-
-1. **Dark sector and structure**: the repair-charge condensate action and its conditional normal, condensed, and coherent-source branches; OPH derivation and physical evidence are work in progress.
-2. **Finite-source CMB prediction program**: source-only inputs, scale calibration, Boltzmann transfer, declared likelihoods, and simulator checks.
-3. **Inflation without inflaton**: observer-screen synchronization, flatness, horizon coherence, geometric screen spectrum, screen release amplitude, radial lift, and hot source data.
-4. **Cosmological vacuum and structure formation**: OPH-native vacuum boundary, fluctuation ensembles, proto-object/worldline formation, and visualization-facing checks.
-5. **Data and likelihood contracts**: CMB/LSS/BAO/SN/WL/growth comparison protocols.
-
-All five cosmology papers are outside the release bundle and contain diagnostic
-outputs only. Their physical source, transfer, and likelihood boundaries are
-work in progress.
+The cosmology papers are focused research companions and are not part of the core release bundle.

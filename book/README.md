@@ -7,6 +7,31 @@ This directory contains the canonical Markdown source for the OPH book:
 - `appendix-*.md`
 - `epilogue.md`
 
+## Contents
+
+1. [Consistency](chapter-01-consistency.md)
+2. [Lineage](chapter-02-lineage.md)
+3. [The Screen](chapter-03-screen.md)
+4. [Entropy](chapter-04-entropy.md)
+5. [Algebra](chapter-05-algebra.md)
+6. [Overlap](chapter-06-overlap.md)
+7. [Recovery](chapter-07-recovery.md)
+8. [Holography](chapter-08-holography.md)
+9. [Entanglement](chapter-09-entanglement.md)
+10. [Error Correction](chapter-10-error-correction.md)
+11. [Maximum Entropy](chapter-11-maxent.md)
+12. [Symmetry](chapter-12-symmetry.md)
+13. [de Sitter Space](chapter-13-desitter.md)
+14. [The Standard Model](chapter-14-standard-model.md)
+15. [Relativity](chapter-15-relativity.md)
+16. [Matter](chapter-16-matter.md)
+17. [Darwinian Selection](chapter-17-darwin.md)
+18. [The Strange Loop](chapter-18-strangeloop.md)
+19. [Synthesis](chapter-19-synthesis.md)
+20. [Metaphysics](chapter-20-metaphysics.md)
+
+The book begins with the [prologue](prologue.md) and closes with the [epilogue](epilogue.md). The appendices contain the [chapter ledger](appendix-chapter-ledger.md), [concept glossary](appendix-concept-glossary.md), and [extended interludes](appendix-extended-interludes.md).
+
 ## Print PDF Build
 
 The polished print-style PDF is built with:

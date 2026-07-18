@@ -21,7 +21,7 @@ RG_CONTRACT = P_ROOT / "runtime" / "rg_matching_threshold_contract_current.json"
 THOMSON_CONTRACT = P_ROOT / "runtime" / "thomson_endpoint_contract_current.json"
 THOMSON_PACKAGE = P_ROOT / "runtime" / "thomson_endpoint_package_current.json"
 DEFAULT_JSON_OUT = PARTICLES_ROOT / "runs" / "status" / "blind_prediction_provenance.json"
-DEFAULT_MD_OUT = PARTICLES_ROOT / "BLIND_PREDICTION_PROVENANCE.md"
+DEFAULT_MD_OUT = PARTICLES_ROOT / "PARTICLE_PROVENANCE_AUDIT.md"
 
 
 def _now_utc() -> str:
@@ -202,13 +202,13 @@ def build_payload() -> dict[str, Any]:
             "numeric_sweep_performed": False,
             "next_artifact": "interval composition certificates after the populated source spectral measure payload exists",
         },
-        "preregistered_blind_workflows": [
+        "prospective_comparison_workflows": [
             {
-                "id": "new_quantity_pre_reference_lock",
+                "id": "new_quantity_pre_reference_provenance",
                 "status": "protocol_emitted_unexercised",
                 "rule": (
-                    "For any quantitative row outside construction inputs, freeze the source artifacts, "
-                    "hash the runtime bundle, record allowed conventions, then fetch or reveal the external reference."
+                    "For any quantitative row outside construction inputs, timestamp and hash the source artifacts, "
+                    "record allowed conventions, then fetch or reveal the external reference."
                 ),
                 "required_evidence": [
                     "source_artifact_hashes",
@@ -226,7 +226,7 @@ def build_payload() -> dict[str, Any]:
                     "report induced intervals for every public quantitative row."
                 ),
                 "required_evidence": [
-                    "scheme_lock",
+                    "scheme_record",
                     "threshold_map",
                     "matching_interval_composition_certificate",
                     "rowwise_sensitivity_intervals",
@@ -237,7 +237,7 @@ def build_payload() -> dict[str, Any]:
             "closable_now": True,
             "closed_as": "provenance_ledger_and_declared_sensitivity_taxonomy",
             "reason": (
-                "The row provenance ledger, blind workflow protocol, and declared convention-sensitivity "
+                "The row provenance ledger, prospective comparison protocol, and declared convention-sensitivity "
                 "taxonomy are emitted. Numeric sensitivity intervals remain tied to the populated source "
                 "spectral measure payload and interval certificate."
             ),
@@ -252,7 +252,7 @@ def build_payload() -> dict[str, Any]:
 
 def render_markdown(payload: dict[str, Any]) -> str:
     lines = [
-        "# Blind Prediction Provenance",
+        "# Particle Provenance Audit",
         "",
         f"Generated: `{payload['generated_utc']}`",
         "",
@@ -315,11 +315,11 @@ def render_markdown(payload: dict[str, Any]) -> str:
     lines.extend(
         [
             "",
-            "## Preregistered Workflows",
+            "## Prospective Comparison Workflows",
             "",
         ]
     )
-    for workflow in payload["preregistered_blind_workflows"]:
+    for workflow in payload["prospective_comparison_workflows"]:
         evidence = ", ".join(f"`{item}`" for item in workflow["required_evidence"])
         lines.append(f"- `{workflow['id']}`: `{workflow['status']}`. {workflow['rule']} Required evidence: {evidence}.")
     lines.extend(

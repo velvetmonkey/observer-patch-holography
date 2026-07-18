@@ -14,6 +14,46 @@ $$
 
 The universe is modeled as a fixed point of its own observer-accessible readback and repair process.
 
+## OPH For Absolute Beginners
+
+Imagine a simulator that has no finished universe map to consult. There is no pre-drawn four-dimensional grid and no master clock outside the system. The simulator is made from many small **observer patches**. Each patch has only:
+
+- a local state: what is happening from this patch’s perspective;
+- ports or boundaries: what it can exchange with neighboring patches;
+- memory: records of earlier reads;
+- self-readback: the ability to inspect part of its own state;
+- repair moves: ways to respond when overlapping records disagree.
+
+This is OPH’s operational model of a subjective perspective. Every patch sees only its own finite piece of reality. “Subjective” means locally accessible, not arbitrary. Two patches that overlap must agree about the information both can inspect.
+
+The patch-net repeatedly performs a simple computation:
+
+```text
+read local state
+      ↓
+exchange boundary records
+      ↓
+compare overlapping descriptions
+      ↓
+repair disagreement
+      ↓
+write the stable result and repeat
+```
+
+The public universe is the part that remains stable after this process. OPH calls that stable result **consensus** or a **normal form**.
+
+The icosahedron supplies the first highly symmetric finite scaffold for this computation. It has twelve vertices, twenty triangular faces, and rotation group $A_5$. In the OPH screen model, the twelve locations become observer-facing ports, the faces organize local overlaps, and repeated refinement turns the finite scaffold into a progressively finer patch-net. The “echosahedral” language used throughout the project refers to this icosahedral observer-screen architecture.
+
+Spacetime then appears from the computation instead of being supplied beforehand. Stable relations among patches become public adjacency, angle, and distance. The order of records inside one patch becomes local time. Synchronizable record order becomes public time. The conformal symmetry of the shared spherical screen becomes Lorentz symmetry, and the corresponding space of observer frames has three spatial dimensions.
+
+Matter and forces are stable patterns inside the same network. A particle is a reproducible, transportable pattern in the public record structure. A gauge force describes how internal labels must transform when those patterns move between overlapping patches. Gravity describes the smooth large-scale geometry required by the shared information and entropy relations.
+
+This is the **consciousness-first** or **observer-first** thesis in its simplest form. Conventional physics usually starts with matter fields in a four-dimensional spacetime and asks how observers or consciousness arise inside it. OPH starts with the minimal structure required for any perspective to exist at all: bounded access, self-readback, memory, comparison, and stable continuation. The shared physical world is reconstructed from the agreement conditions among those perspectives.
+
+“Observer” is a precise structural role here. A human mind, an organism, a physical instrument, or a software process can instantiate it when it has the required local state, boundary, records, readback, and repair loop. OPH does not say that human thoughts manufacture reality. It says that a reality with no possible local perspective, record, or self-consistent readback is not yet the public physical world described by observers.
+
+In simulation language, the universe is its own simulator. The patches, computation, records, and resulting world all belong to the same closed system. No external computer or programmer is required by the formal construction.
+
 ## Why OPH Is Interesting
 
 OPH uses one mathematical architecture across subjects that are normally introduced separately:
@@ -93,45 +133,22 @@ The detailed hypotheses and receipt types are stated in the papers. The reposito
 | Matter structure | Hypercharge lattice, three colors, three generations, and one Higgs doublet on the realized MAR branch | [Compact recovery paper](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
 | Exact verification | Lean theorem subset, interval certificates, finite receipts, and reproducible simulations | [`Lean/`](Lean) and [`code/`](code) |
 
-## How To Read The Project
+## Choose A Reading Path
 
-For the shortest route through the theory:
+| If you want... | Start here |
+| --- | --- |
+| The shortest persuasive overview | [A Compact Case for OPH](extra/compact_proof_of_oph.pdf) |
+| The technical center | [Recovering Relativity and the Standard Model](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) |
+| The full observer-first synthesis | [Observers Are All You Need](paper/observers_are_all_you_need.pdf) |
+| The finite consensus mechanism | [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf) |
+| The particle construction | [Deriving the Particle Zoo](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
+| The twelve-port screen architecture | [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf) |
+| Machine-checkable evidence | [`Lean/`](Lean), [`code/`](code), and the [closure ledger](docs/CLOSURE_LEDGER.md) |
+| Observer continuation and interpretation | [Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf) |
 
-1. Read [the compact case for OPH](extra/compact_proof_of_oph.pdf) for the informal argument and the main results.
-2. Read [the compact recovery paper](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf) for the theorem-level relativity, gravity, gauge, and matter construction.
-3. Read [Observers Are All You Need](paper/observers_are_all_you_need.pdf) for the broad synthesis.
-4. Inspect [`Lean/`](Lean), [`code/`](code), and the [closure ledger](docs/CLOSURE_LEDGER.md) for executable evidence and provenance.
+The [paper index](paper/) and [supplement index](extra/) give the complete curated publication map.
 
-## Core Papers
-
-- **[Recovering Relativity and Standard Model Structure from Observer Overlap Consistency](paper/recovering_relativity_and_standard_model_structure_from_observer_overlap_consistency_compact.pdf)** is the technical center of the repository. It composes the recovered spacetime, Einstein, compact-gauge, Standard Model matter, and finite $A_5$ results.
-- **[Observers Are All You Need](paper/observers_are_all_you_need.pdf)** presents the full observer-first program, from records and measurement to geometry, particles, and observer continuation.
-- **[Deriving the Particle Zoo from Observer Consistency](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)** develops the particle carriers, flavor structures, scale maps, and executable particle pipeline.
-- **[Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf)** develops the finite patch-net mechanics: overlap comparison, repair, protected observations, and normal forms.
-- **[Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf)** develops the twelve-port finite screen, $A_5$ carrier, central records, and synchronization architecture.
-- **[Paradise as Fixed-Point Consensus](paper/paradise_as_fixed_point_consensus.pdf)** explores the observer-continuation and metaphysical interpretation of the same fixed-point architecture.
-
-## Compact Mathematical Spine
-
-The OPH construction can be read as four layers.
-
-### 1. Observer consensus
-
-A patch has accessible state, ports, records, and repair moves. Compatible patches exchange only overlap-visible information. Under the finite termination and diamond conditions, repair produces a shared quotient normal form. That is the mathematical core of public reality in OPH.
-
-### 2. Geometry and gravity
-
-The oriented conformal two-sphere supplies the connected Lorentz group. Its observer-frame homogeneous space has dimension three. Modular flow supplies the relative clock, null translations supply directional transport, and generalized-entropy stationarity supplies the local gravitational relation.
-
-### 3. Gauge structure and matter
-
-Transportable internal charges form a tensor category. Compact reconstruction reads off the gauge group. Minimal admissible realization, anomaly cancellation, Yukawa invariance, and the shared central kernel select the Standard Model matter package. The independent $A_5$ coefficient construction reaches the same local gauge algebra from finite screen geometry.
-
-### 4. Fixed points and physical readout
-
-The quantitative program studies self-consistent coordinates such as the local pixel $P_\star$, record capacity $N_{\mathrm{CRC}}$, and scale ratio $\gamma_\star$. Exact map roots, source provenance, transport, and physical comparison are kept in machine-readable ledgers so the structural theory and its quantitative continuations remain auditable.
-
-## Proof And Evidence
+## Evidence You Can Inspect
 
 The repository contains several complementary forms of evidence:
 
@@ -143,11 +160,9 @@ The repository contains several complementary forms of evidence:
 - simulations reaching more than one million patches;
 - a claim registry and closure ledger connecting prose claims to artifacts.
 
-The broader Lean development contains three explicitly isolated asynchronous-repair signatures outside the 111-theorem subset. They do not enter the advertised machine-checked count.
-
 ## Research Frontier
 
-OPH’s structural core now supports several active continuations:
+OPH’s structural core supports several active continuations:
 
 - quantitative particle readout and flavor transport;
 - neutrino susceptibility and mixing geometry;
@@ -178,6 +193,7 @@ The [OPH Falsification Program](docs/OPH_FALSIFICATION_PROGRAM.md) is deliberate
 - [`code/`](code): certificates, simulations, particle calculations, and experiments.
 - [`book/`](book): the book source and downloadable PDF.
 - [`cosmology/`](cosmology): dark-sector and cosmology research.
+- [`physics-problems/`](physics-problems): focused applications and open-problem notes.
 - [`docs/`](docs): closure ledger, claim policy, and technical audit material.
 - [`assets/`](assets): diagrams and public figures.
 

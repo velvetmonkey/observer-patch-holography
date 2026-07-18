@@ -5,7 +5,7 @@ This status surface collects, for every particle family, the strongest
 numerical mass coordinate the corpus emits, its claim tier, and the named
 objects that block the next tier.  It reads generated lane artifacts and
 writes one JSON artifact plus the repository document
-``SOURCE_ONLY_MASS_PREDICTIONS.md``.
+``MASS_CANDIDATE_STATUS.md``.
 
 Tier ladder used by every row:
 
@@ -55,7 +55,7 @@ INPUTS = {
 }
 
 DEFAULT_JSON_OUT = RUNS / "status" / "source_only_mass_prediction_surface.json"
-DEFAULT_MD_OUT = PARTICLES / "SOURCE_ONLY_MASS_PREDICTIONS.md"
+DEFAULT_MD_OUT = PARTICLES / "MASS_CANDIDATE_STATUS.md"
 
 DISPLAY_NOTE = (
     "GeV/MeV displays use the unclosed clock candidate; the clock audit "
@@ -230,13 +230,13 @@ def _higgs_top_rows(
                     "log-midpoint anchor E_star exp(-pi) P^(-1/6)"
                 ),
                 "tier": (
-                    "T2, conditional on the frozen post-exposure "
+                    "T2, conditional on the archived post-exposure "
                     "boundary-scale candidate"
                 ),
                 "explanation": (
                     "Two-loop values of the adopted branch; the candidate "
                     "was identified after the implied scale was computed "
-                    "and is frozen prospectively against the three-loop "
+                    "and is retained as a historical coordinate for the three-loop "
                     "discriminating test. The flow-internal selection "
                     "route is closed by a no-go."
                 ),
@@ -247,7 +247,7 @@ def _higgs_top_rows(
                 ),
                 "blocking_objects": [
                     "CRITICALITY_BOUNDARY_SCALE_SELECTION_THEOREM "
-                    "(candidates frozen; three-loop packet discriminates)",
+                    "(candidate set archived; three-loop packet discriminates)",
                 ],
             },
             {
@@ -276,7 +276,7 @@ def _higgs_top_rows(
                 "artifact": "runs/calibration/d11_criticality_boundary_scan.json",
                 "blocking_objects": [
                     "CRITICALITY_BOUNDARY_SCALE_SELECTION_THEOREM",
-                    "frozen three-loop RG and matching packet",
+                    "prospective three-loop RG and matching packet",
                     "BRST-complete pole kernels",
                 ],
             },
@@ -319,7 +319,7 @@ def _higgs_top_rows(
                 "artifact": "runs/calibration/wzh_residual_elimination_boundary.json",
                 "blocking_objects": [
                     "CRITICALITY_BOUNDARY_SCALE_SELECTION_THEOREM",
-                    "frozen three-loop RG and matching packet",
+                    "prospective three-loop RG and matching packet",
                 ],
             },
             {
@@ -440,10 +440,10 @@ def _down_type_rows(clebsch: dict, up_scan: dict) -> dict[str, Any]:
                 "blocking_objects": clebsch["normalization_tension"]["open_objects"],
             },
             {
-                "lane": "up-type integer exponent scan (frozen, negative)",
+                "lane": "up-type integer exponent scan (archived negative result)",
                 "tier": "compare-only scan; law family removed",
                 "explanation": (
-                    "No frozen source-constant base gives integer exponents "
+                    "No declared source-constant base gives integer exponents "
                     "for charm and up; the verdict removes the family "
                     "prospectively and charm/up stay research-open."
                 ),
@@ -607,8 +607,8 @@ def build() -> dict[str, Any]:
                 "mechanism closed by the source-action rigidity theorem; the "
                 "physical Standard-Model moment vector is open"
             ),
-            "X4_provenance_freeze": (
-                "canonical taint classes, transitive hashes, prospective freeze"
+            "X4_provenance_record": (
+                "canonical taint classes, transitive hashes, timestamped source record"
             ),
             "X5_interacting_pole_packet": (
                 "BRST-complete two-point kernels, sheets, residues, widths"
@@ -620,7 +620,7 @@ def build() -> dict[str, Any]:
 def render_markdown(surface: dict[str, Any]) -> str:
     lines: list[str] = []
     add = lines.append
-    add("# Source-Only Mass Prediction Surface")
+    add("# Mass Candidate Status")
     add("")
     add(
         "Per-family best numerical mass coordinates with claim tiers and the "

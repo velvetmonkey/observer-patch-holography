@@ -48,7 +48,7 @@ def test_boson_block_carries_the_discrete_two_law_pair():
 def test_markdown_renders_with_tier_ladder_and_all_families():
     surface = lane.build()
     text = lane.render_markdown(surface)
-    assert "# Source-Only Mass Prediction Surface" in text
+    assert "# Mass Candidate Status" in text
     assert "| T4 |" in text
     for family in surface["families"]:
         assert f"## {family['family']}" in text

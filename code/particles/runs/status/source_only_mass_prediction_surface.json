@@ -18,19 +18,19 @@
           "explanation": "The eight-register architecture reproduces the charged triple at 84 ppm with zero runtime charged reference, and the architecture itself is a declared model input. The source-only completion is the A5/W5 orbit program; the homogeneous branch is proven shape-silent.",
           "lane": "MCPR completed-response candidate",
           "masses_MeV_display": [
-            "0.510955975741552068020723500054472749215281316506929210285918",
-            "105.649498782646844059230168742091114798777286110716174180541",
-            "1776.78070075553029532976178437253761581630448138776277281446"
+            "0.510955973930992429677202687890766774071029599541393032595821",
+            "105.649498408666895078002739698533982952112713317946458801723",
+            "1776.78069446548882083374727052244155166821044100608205917544"
           ],
           "masses_over_E_star": [
-            "4.18511066305360899033265486697796483889032850221501699814003e-23",
-            "8.65348219599200944059089424453399690379782667649961701550029e-21",
-            "0.000000000000000000145531595864945269052065442781293778785664923243516022968036"
+            "4.18511064822377470269395840649662765745505000074857712485008e-23",
+            "8.65348216536026137309689977791070308972247404090020057513152e-21",
+            "0.000000000000000000145531595349743942602015519049418174583149214180317805795398"
           ],
           "ratios": {
-            "m_mu_over_m_e": "206.768300594424760670043823850348852971584715754452765549816",
-            "m_tau_over_m_e": "3477.36553658440473352249890568969480291329678818453349997977",
-            "m_tau_over_m_mu": "16.8176917186413602019580872603411888326667064002055059599091"
+            "m_mu_over_m_e": "206.768300595180971740336250438069337267297486181700623840391",
+            "m_tau_over_m_e": "3477.36553659602259125062917777770871085134755874859290220748",
+            "m_tau_over_m_mu": "16.8176917186360408811380890714285922256792428651929103721313"
           },
           "row_class": "conditional_on_declared_mcpr_response_architecture",
           "tier": "T2"
@@ -91,16 +91,16 @@
     },
     {
       "discrete_ambiguity_width_GeV": {
-        "MW": 0.00928485276493518,
-        "MZ": 0.0050698956707719844
+        "MW": 0.009284852729948057,
+        "MZ": 0.005069895651629963
       },
       "family": "electroweak bosons",
       "rows": [
         {
-          "MW_GeV_display": 80.3300637719082,
-          "MW_over_E_star": 6.579630866577059e-18,
-          "MZ_GeV_display": 91.11911863389018,
-          "MZ_over_E_star": 7.463334863036661e-18,
+          "MW_GeV_display": 80.33006348366054,
+          "MW_over_E_star": 6.579630842967428e-18,
+          "MZ_GeV_display": 91.11911830689765,
+          "MZ_over_E_star": 7.463334836253536e-18,
           "artifact": "runs/calibration/wzh_residual_elimination_boundary.json",
           "blocking_objects": [
             "SOURCE_LAW_SELECTION_PRINCIPLE",
@@ -113,10 +113,10 @@
           "tier": "T2 (T3 once the discrete law selection is a theorem)"
         },
         {
-          "MW_GeV_display": 80.32077891914327,
-          "MW_over_E_star": 6.578870367942111e-18,
-          "MZ_GeV_display": 91.12418852956095,
-          "MZ_over_E_star": 7.463750125274475e-18,
+          "MW_GeV_display": 80.32077863093059,
+          "MW_over_E_star": 6.578870344335345e-18,
+          "MZ_GeV_display": 91.12418820254928,
+          "MZ_over_E_star": 7.463750098489782e-18,
           "artifact": "runs/calibration/wzh_residual_elimination_boundary.json",
           "blocking_objects": [
             "SOURCE_LAW_SELECTION_PRINCIPLE",
@@ -148,58 +148,58 @@
         {
           "artifact": "runs/calibration/d11_boundary_scale_selection_audit.json",
           "blocking_objects": [
-            "CRITICALITY_BOUNDARY_SCALE_SELECTION_THEOREM (candidates frozen; three-loop packet discriminates)"
+            "CRITICALITY_BOUNDARY_SCALE_SELECTION_THEOREM (candidate set archived; three-loop packet discriminates)"
           ],
-          "explanation": "Two-loop values of the adopted branch; the candidate was identified after the implied scale was computed and is frozen prospectively against the three-loop discriminating test. The flow-internal selection route is closed by a no-go.",
+          "explanation": "Two-loop values of the adopted branch; the candidate was identified after the implied scale was computed and is retained as a historical coordinate for the three-loop discriminating test. The flow-internal selection route is closed by a no-go.",
           "lane": "adopted conditional branch: criticality at the log-midpoint anchor E_star exp(-pi) P^(-1/6)",
-          "mH_tree_GeV_display": 125.77115268001006,
-          "mt_pole_GeV_display": 172.62935949498873,
-          "tier": "T2, conditional on the frozen post-exposure boundary-scale candidate"
+          "mH_tree_GeV_display": 125.77115226639518,
+          "mt_pole_GeV_display": 172.62935892273643,
+          "tier": "T2, conditional on the archived post-exposure boundary-scale candidate"
         },
         {
           "artifact": "runs/calibration/d11_criticality_boundary_scan.json",
           "blocking_objects": [
             "CRITICALITY_BOUNDARY_SCALE_SELECTION_THEOREM",
-            "frozen three-loop RG and matching packet",
+            "prospective three-loop RG and matching packet",
             "BRST-complete pole kernels"
           ],
           "explanation": "Both Yukawa-sector boundaries derive from the gauge sector through the criticality law. The family over named source scales brackets the measured pair; the archived mu_U branch is the low edge and its deficit decomposes into the boundary-scale choice plus loop truncation, both named and quantified.",
           "lane": "double-criticality boundary family (lambda = 0 and beta_lambda = 0 at one source scale; zero continuous parameters)",
           "one_loop": {
             "E_cell_pixel_energy": {
-              "mH_tree_GeV_display": 127.83227913851435,
-              "mt_pole_GeV_display": 170.4488982480913
+              "mH_tree_GeV_display": 127.83227871460655,
+              "mt_pole_GeV_display": 170.44889767995056
             },
             "E_star": {
-              "mH_tree_GeV_display": 128.3279539668733,
-              "mt_pole_GeV_display": 170.69172766866546
+              "mH_tree_GeV_display": 128.327953541279,
+              "mt_pole_GeV_display": 170.69172709971423
             },
             "log_midpoint_half_turn": {
-              "mH_tree_GeV_display": 121.6343204058547,
-              "mt_pole_GeV_display": 167.39421549217778
+              "mH_tree_GeV_display": 121.63432000427385,
+              "mt_pole_GeV_display": 167.394214934821
             },
             "mu_U_gauge_unification": {
-              "mH_tree_GeV_display": 115.10128097301045,
-              "mt_pole_GeV_display": 164.13059337895652
+              "mH_tree_GeV_display": 115.10128059486941,
+              "mt_pole_GeV_display": 164.13059283309306
             }
           },
           "tier": "T2, conditional on the boundary-scale selection theorem",
           "two_loop": {
             "E_cell_pixel_energy": {
-              "mH_tree_GeV_display": 131.80938770636138,
-              "mt_pole_GeV_display": 175.66412625804122
+              "mH_tree_GeV_display": 131.80938727093422,
+              "mt_pole_GeV_display": 175.66412567505776
             },
             "E_star": {
-              "mH_tree_GeV_display": 132.29093098946436,
-              "mt_pole_GeV_display": 175.90473696839024
+              "mH_tree_GeV_display": 132.29093055239247,
+              "mt_pole_GeV_display": 175.9047363846019
             },
             "log_midpoint_half_turn": {
-              "mH_tree_GeV_display": 125.77115268001006,
-              "mt_pole_GeV_display": 172.62935949498873
+              "mH_tree_GeV_display": 125.77115226639518,
+              "mt_pole_GeV_display": 172.62935892273643
             },
             "mu_U_gauge_unification": {
-              "mH_tree_GeV_display": 119.37075245526148,
-              "mt_pole_GeV_display": 169.37032322941494
+              "mH_tree_GeV_display": 119.37075206466659,
+              "mt_pole_GeV_display": 169.37032266864955
             }
           }
         },
@@ -219,7 +219,7 @@
           "artifact": "runs/calibration/wzh_residual_elimination_boundary.json",
           "blocking_objects": [
             "CRITICALITY_BOUNDARY_SCALE_SELECTION_THEOREM",
-            "frozen three-loop RG and matching packet"
+            "prospective three-loop RG and matching packet"
           ],
           "explanation": "The 115.1 GeV Higgs coordinate is the archived branch of the same family: criticality imposed at the gauge unification scale with one-loop running. Its deficit against measurement is the boundary-scale choice plus truncation, quantified by the scan.",
           "lane": "archived literal one-loop core at the mu_U boundary",
@@ -323,8 +323,8 @@
           "blocking_objects": [
             "charm/up Yukawa selectors"
           ],
-          "explanation": "No frozen source-constant base gives integer exponents for charm and up; the verdict removes the family prospectively and charm/up stay research-open.",
-          "lane": "up-type integer exponent scan (frozen, negative)",
+          "explanation": "No declared source-constant base gives integer exponents for charm and up; the verdict removes the family prospectively and charm/up stay research-open.",
+          "lane": "up-type integer exponent scan (archived negative result)",
           "tier": "compare-only scan; law family removed",
           "verdict": "SCAN_NEGATIVE_FAMILY_REMOVED"
         }
@@ -417,7 +417,7 @@
       ]
     }
   ],
-  "generated_utc": "2026-07-16T22:37:46Z",
+  "generated_utc": "2026-07-18T06:41:24Z",
   "global_blocking_objects": {
     "X1_strict_no_target_P_alpha_root": "source-audit branch witness; full endpoint proof requires the hadronic spectral transport, the scheme bridge, and the interval fixed-point proof",
     "X2_operational_clock_chain": [
@@ -435,7 +435,7 @@
       "FROZEN_RG_THRESHOLD_MATCHING_UNCERTAINTY_PACKET"
     ],
     "X3_source_law_selection": "mechanism closed by the source-action rigidity theorem; the physical Standard-Model moment vector is open",
-    "X4_provenance_freeze": "canonical taint classes, transitive hashes, prospective freeze",
+    "X4_provenance_record": "canonical taint classes, transitive hashes, timestamped source record",
     "X5_interacting_pole_packet": "BRST-complete two-point kernels, sheets, residues, widths"
   },
   "inputs": {

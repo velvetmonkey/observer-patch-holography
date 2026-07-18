@@ -47,7 +47,7 @@ HIERARCHY_SCREEN_SIEVE = HIERARCHY_ROOT / "certificates" / "R_screen_sieve_icosa
 HIERARCHY_NATURALITY = HIERARCHY_ROOT / "issue_332_rg_naturality_certificate.json"
 HIERARCHY_PIXEL_SCREEN = HIERARCHY_ROOT / "certificates" / "R_pixel_screen_resonance_summary.json"
 DEFAULT_JSON_OUT = PARTICLES_ROOT / "runs" / "status" / "final_end_to_end_predictions.json"
-DEFAULT_MD_OUT = PARTICLES_ROOT / "FINAL_END_TO_END_PREDICTIONS.md"
+DEFAULT_MD_OUT = PARTICLES_ROOT / "PARTICLE_PIPELINE_STATUS.md"
 getcontext().prec = 90
 
 
@@ -490,7 +490,7 @@ def build_payload() -> dict[str, Any]:
 
 def render_markdown(payload: dict[str, Any]) -> str:
     lines = [
-        "# Final End-to-End Particle Predictions",
+        "# Particle Pipeline Status",
         "",
         f"Generated: `{payload['generated_utc']}`",
         "",

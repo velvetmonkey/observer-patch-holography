@@ -90,13 +90,13 @@ def test_runtime_surface_preserves_rejected_neutrino_rows_and_canonical_refs(tmp
     assert (current_dir / "runs" / "status" / "particle_pipeline_closure_status.json").exists()
     provenance = json.loads((current_dir / "runs" / "status" / "blind_prediction_provenance.json").read_text())
     assert provenance["status"] == "closed_provenance_ledger_and_declared_sensitivity_taxonomy"
-    assert (current_dir / "BLIND_PREDICTION_PROVENANCE.md").exists()
+    assert (current_dir / "PARTICLE_PROVENANCE_AUDIT.md").exists()
     final_predictions = json.loads((current_dir / "runs" / "status" / "final_end_to_end_predictions.json").read_text())
     assert final_predictions["artifact"] == "oph_final_current_end_to_end_particle_predictions"
     assert {entry["particle_id"] for entry in final_predictions["predictions"]} == {"higgs"}
     assert (current_dir / "runs" / "status" / "carrier_mode_acceptance.json").exists()
     assert (current_dir / "CARRIER_MODE_ACCEPTANCE.md").exists()
-    assert (current_dir / "FINAL_END_TO_END_PREDICTIONS.md").exists()
+    assert (current_dir / "PARTICLE_PIPELINE_STATUS.md").exists()
     direct_top = json.loads((current_dir / "runs" / "calibration" / "direct_top_bridge_contract.json").read_text())
     assert direct_top["status"] == "hard_no_go_current_corpus_compare_only_direct_top_codomain"
     assert direct_top["promotion_allowed"] is False
