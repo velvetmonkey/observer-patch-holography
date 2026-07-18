@@ -7,6 +7,7 @@ import ObserverPatchHolography.CapacityFixedPoint
 import ObserverPatchHolography.SeedPi
 import ObservableNormalForms
 import ObserverPatchHolography.Bridges.ObservableNormalForms
+import ObserverPatchHolography.IcosahedralAntibridge
 import EventAlgebra
 
 /-!
