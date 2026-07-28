@@ -89,6 +89,23 @@ Status legend:
 | Generated-extension uniqueness | `RankedSynchronousSystem.generatedExtension_unique` | ✅ | Same boundary plus common finite rank bound. |
 | Width-three Rule 90 | `Rule90.kernel_exact`; `image_exact`; `read01_injective_on_image`; `read02_not_injective_on_image`; `no_total_reverse_repair` | ✅ | Self-contained exact kernel/image/readout/reverse-repair statements; imports no other project library. |
 
+## Directional scatter-project compiler (repo issue #626; #328 is the closed negative baseline)
+
+These entries track repository issue #626 rather than a manuscript label. All
+theorems are scoped to **certified layouts / compiler images**
+(`Scatter.Layout.Cert`), not to arbitrary scatter-project states.
+
+| Result | Lean declaration | Status | Scope |
+|---|---|---:|---|
+| Frozen directional output-only rule (route 1) | `Scatter.Layout.round` | ✅ | Definition; single write port per patch is type-level. |
+| Intertwiner: one directional round = one ranked synchronous step | `Scatter.Layout.round_eq_synchronousStep`; `Scatter.Circuit.compile_intertwiner` | ✅ | Every register state of a certified layout / compiled circuit; reuses `RankedSynchronousSystem`. |
+| Depth-bounded settling, fixedness, zero mismatch, uniqueness, noise recovery | `Scatter.Layout.evolve_settles`; `round_solution`; `totalMismatch_solution`; `totalMismatch_eq_zero_iff`; `zeroMismatch_unique`; `noise_recovery`; circuit instances `Scatter.Circuit.compile_settles` etc. | ✅ | Certified layouts; settling time is the rank bound (= circuit depth). |
+| Resource formulas | `Scatter.Circuit.compile_regCount`; `compile_patchCount` | ✅ | registers = wires, patches = gates, rounds = depth. |
+| Directional rule is an admissible member of the canonical projection family | `Scatter.Layout.round_eq_canonical_outputOnly`; `outputOnlySelection_isAdmissible` | ✅ | Certified layouts. |
+| #328 regression: depth-two AND chain settles, without special-casing | `Scatter.regression_settles` (instantiation); `regression_reaches_target` (kernel); `regression_unique_zero_mismatch` | ✅ | Compiled `andChain`, start `(w,out) = (0,1)`. |
+| #328 separation kept as its own negative result | `Scatter.sel328_isAdmissible`; `canonical_never_settles_328`; `canonical_scatter_project_not_settling_328` | ✅ | Existence of an admissible canonical selection with a mismatch-positive period-two orbit; does not claim all canonical members fail. |
+| Negative controls (guards watched failing) | `Scatter.collide_no_cert`; `collide_order_dependent`; `latch_no_cert`; `latch_never_zero_mismatch`; `latch_no_fixed_point`; `selfLoop_no_cert`; `selfLoop_never_zero_mismatch`; positive control `fanOut_settles_kernel` | ✅ | Write collision, two-register cycle, self-loop; read fan-out settles. |
+
 Explicitly not formalized:
 
 - asynchronous ranked-functional update counts and the path-gain estimate;

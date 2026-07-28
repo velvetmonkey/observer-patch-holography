@@ -6,6 +6,11 @@ import ObservableNormalForms.Repair
 import ObservableNormalForms.Functional
 import ObservableNormalForms.Stochastic
 import ObservableNormalForms.ConditionalResampling
+import ObservableNormalForms.Scatter.Layout
+import ObservableNormalForms.Scatter.Circuit
+import ObservableNormalForms.Scatter.Canonical
+import ObservableNormalForms.Scatter.Regression328
+import ObservableNormalForms.Scatter.Controls
 import ObservableNormalForms.Examples.Rule90
 import ObservableNormalForms.AxiomAudit
 
