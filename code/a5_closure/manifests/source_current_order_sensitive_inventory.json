@@ -195,7 +195,7 @@
         ".pyc"
       ]
     },
-    "file_count": 852,
+    "file_count": 853,
     "files": [
       {
         "byte_count": 42558,
@@ -656,6 +656,11 @@
         "byte_count": 9512,
         "path": "Lean/Geometry/SourceCheckpointPolicy.lean",
         "sha256": "sha256:a4ea55f9b70d485a714e760a2f42a77ce156a2941bca00e2465a5814cc2558ab"
+      },
+      {
+        "byte_count": 3693,
+        "path": "Lean/Geometry/SourceCheckpointTwoWave.lean",
+        "sha256": "sha256:d5ae75739481e032d989d043c5ba90ae0c3a12edb4b2f5c02a5bf733b2e2a576"
       },
       {
         "byte_count": 44006,
@@ -3975,7 +3980,7 @@
       {
         "byte_count": 9860,
         "path": "code/source_record_gluing/receipt.json",
-        "sha256": "sha256:12481429c5370bd90b60cd8052d43423a2a5e9115b3906301295e058731bccbb"
+        "sha256": "sha256:5f9619a05cfe3cdc6d2331432279f65179f50bfeef53492eca598d77fb8de50c"
       },
       {
         "byte_count": 11938,
@@ -4225,7 +4230,7 @@
       {
         "byte_count": 8628,
         "path": "code/source_selection_model/receipt.json",
-        "sha256": "sha256:768a22eeec66cda7a5f52903b209c41c457c84be85373448c2eb3c1cca1a161a"
+        "sha256": "sha256:df1a2d40496a92b2f0af26cca760301305351e050d501acf289f409059d522d8"
       },
       {
         "byte_count": 11004,
@@ -4458,7 +4463,7 @@
         "sha256": "sha256:e27040d16417838d35b3481e7cd3f848967096d31b5dc689702157e7e2febe78"
       }
     ],
-    "files_sha256": "sha256:a52e831b764586d7bd9bcfe6486b1c08cfa5978acc9fd9311382fa9680144aea",
+    "files_sha256": "sha256:d3f0fa79c38001aeb04ed61c53c38f5e65e3be57eedd10a6bbee3915e5ecd52e",
     "staleness_rule": "any added, removed, renamed, or byte-changed included file below an audited directory invalidates the committed inventory"
   },
   "audited_upstream_main_sha": "4511928b1d4bee6bca5601e309b44595a76f797f",
@@ -7367,7 +7372,7 @@
     ],
     "through_upstream_main_sha": "4511928b1d4bee6bca5601e309b44595a76f797f"
   },
-  "inventory_sha256": "sha256:ad276f052ea7fee133cace020604840effbe09f9b83c20148ddd69a40900496a",
+  "inventory_sha256": "sha256:f4888ba9008e5cf6de5c5036e5b956260c06e1f57235cdf3b80494654ec61431",
   "minimal_missing_fields": [
     {
       "field": "perturbation_families",

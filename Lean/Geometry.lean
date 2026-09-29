@@ -21,6 +21,7 @@ import Geometry.SourceNativeProgramsAxiomAudit
 import Geometry.SourceTemporalAcceptanceAxiomAudit
 import Geometry.SourceCheckpointAxiomAudit
 import Geometry.SourceCheckpointPathBound
+import Geometry.SourceCheckpointTwoWave
 import Geometry.SourcePublicationAxiomAudit
 import Geometry.SourceOperationReadsAxiomAudit
 import Geometry.SourceSelectionLocalityAxiomAudit
