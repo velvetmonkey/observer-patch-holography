@@ -554,6 +554,251 @@ def ShortestWord (d : ℕ) :=
   {w : List (Fin d) // w.length = 2 * d - 1 ∧
     Complete (Fin.last d) (initial d) (w.map (pathEdge d))}
 
+/-- Decode wave letters with `u` first-wave events and `v` second-wave
+ events emitted. First edges start at one; second edges start at zero. -/
+def waveDecode (u v : ℕ) : List DyckStep → List ℕ
+  | [] => []
+  | .U :: s => (u + 1) :: waveDecode (u + 1) v s
+  | .D :: s => v :: waveDecode u (v + 1) s
+
+/-- Recover wave letters from edge indices, keeping the next first-wave
+ index. On ballot inputs, a second-wave index is never that next index. -/
+def waveEncode (u : ℕ) : List ℕ → List DyckStep
+  | [] => []
+  | e :: w => if e = u + 1 then .U :: waveEncode (u + 1) w
+      else .D :: waveEncode u w
+
+private def BallotFrom (u v : ℕ) (s : List DyckStep) : Prop :=
+  ∀ i, v + (s.take i).count .D ≤ u + (s.take i).count .U
+
+private theorem ballot_tail_U {u v : ℕ} {s : List DyckStep}
+    (h : BallotFrom u v (.U :: s)) : BallotFrom (u + 1) v s := by
+  intro i
+  have hi := h (i + 1)
+  simpa [List.take_succ_cons, Nat.add_assoc, Nat.add_comm, Nat.add_left_comm] using hi
+
+private theorem ballot_tail_D {u v : ℕ} {s : List DyckStep}
+    (h : BallotFrom u v (.D :: s)) : BallotFrom u (v + 1) s := by
+  intro i
+  have hi := h (i + 1)
+  simpa [List.take_succ_cons, Nat.add_assoc, Nat.add_comm, Nat.add_left_comm] using hi
+
+private theorem waveEncode_decode (s : List DyckStep) (u v : ℕ)
+    (h : BallotFrom u v s) : waveEncode u (waveDecode u v s) = s := by
+  induction s generalizing u v with
+  | nil => rfl
+  | cons a s ih =>
+    cases a with
+    | U => simp [waveDecode, waveEncode, ih _ _ (ballot_tail_U h)]
+    | D =>
+      have hv : v ≤ u := by simpa using h 0
+      simp [waveDecode, waveEncode, show v ≠ u + 1 by omega,
+        ih _ _ (ballot_tail_D h)]
+
+private theorem waveDecode_length (s : List DyckStep) (u v : ℕ) :
+    (waveDecode u v s).length = s.length := by
+  induction s generalizing u v with
+  | nil => rfl
+  | cons a s ih => cases a <;> simp [waveDecode, ih]
+
+private theorem waveDecode_bound (s : List DyckStep) (u v n : ℕ)
+    (hu : u + s.count .U ≤ n) (hv : v + s.count .D ≤ n) :
+    ∀ e ∈ waveDecode u v s, e ≤ n := by
+  induction s generalizing u v with
+  | nil => simp [waveDecode]
+  | cons a s ih =>
+    cases a with
+    | U =>
+      simp only [List.count_cons_self, List.count_cons_of_ne (by decide : DyckStep.U ≠ .D)] at hu hv
+      intro e he
+      rcases List.mem_cons.mp he with rfl | he
+      · omega
+      · exact ih (u + 1) v (by omega) hv e he
+    | D =>
+      simp only [List.count_cons_self, List.count_cons_of_ne (by decide : DyckStep.D ≠ .U)] at hu hv
+      intro e he
+      rcases List.mem_cons.mp he with rfl | he
+      · omega
+      · exact ih u (v + 1) hu (by omega) e he
+
+/-- The edge-index word decoded from a Dyck word, with the final second-wave
+ edge appended. Its length is odd, unlike the balanced wave-letter list. -/
+def dyckIndices (p : DyckWord) : List ℕ :=
+  waveDecode 0 0 p.toList ++ [p.semilength]
+
+/-- Decoding and then recovering wave letters returns the original Dyck list.
+ The mandatory final second-wave event is removed before recovering letters. -/
+theorem dyckIndices_roundtrip (p : DyckWord) :
+    waveEncode 0 (dyckIndices p).dropLast = p.toList := by
+  simp only [dyckIndices, List.dropLast_concat]
+  exact waveEncode_decode p.toList 0 0 (by simpa [BallotFrom] using p.count_D_le_count_U)
+
+/-- Distinct Dyck words decode to distinct edge words. -/
+theorem dyckIndices_injective : Function.Injective dyckIndices := by
+  intro p q h
+  apply DyckWord.ext
+  rw [← dyckIndices_roundtrip p, ← dyckIndices_roundtrip q, h]
+
+private theorem dyckIndices_bound (p : DyckWord) :
+    ∀ e ∈ dyckIndices p, e ≤ p.semilength := by
+  intro e he
+  rcases List.mem_append.mp he with he | he
+  · exact waveDecode_bound p.toList 0 0 p.semilength (by simp [DyckWord.semilength])
+      (by simp [DyckWord.semilength, p.count_U_eq_count_D]) e he
+  · exact (List.mem_singleton.mp he).le
+
+/-- A Dyck word of semilength `n` gives a word in the original path alphabet
+ `Fin (n + 1)`, with both wave indices retained. -/
+def dyckPathWord (n : ℕ) (p : {p : DyckWord // p.semilength = n}) : List (Fin (n + 1)) :=
+  (dyckIndices p.val).attach.map fun e =>
+    ⟨e.val, by have := dyckIndices_bound p.val e.val e.property; omega⟩
+
+private theorem dyckPathWord_values (n : ℕ) (p : {p : DyckWord // p.semilength = n}) :
+    (dyckPathWord n p).map Fin.val = dyckIndices p.val := by
+  simp [dyckPathWord, List.map_map]
+
+/-- Recovering letters from the path alphabet is a left inverse to decoding. -/
+theorem dyckPathWord_roundtrip (n : ℕ) (p : {p : DyckWord // p.semilength = n}) :
+    waveEncode 0 ((dyckPathWord n p).map Fin.val).dropLast = p.val.toList := by
+  rw [dyckPathWord_values, dyckIndices_roundtrip]
+
+/-- The decoder into the original path alphabet is injective at every depth. -/
+theorem dyckPathWord_injective (n : ℕ) : Function.Injective (dyckPathWord n) := by
+  intro p q h
+  apply Subtype.ext
+  apply dyckIndices_injective
+  simpa only [dyckPathWord_values] using congrArg (List.map Fin.val) h
+
+/-- Every decoded path word has the sharp path horizon. -/
+theorem dyckPathWord_length (n : ℕ) (p : {p : DyckWord // p.semilength = n}) :
+    (dyckPathWord n p).length = 2 * (n + 1) - 1 := by
+  have hv := congrArg List.length (dyckPathWord_values n p)
+  simp only [List.length_map, dyckIndices, List.length_append, List.length_singleton,
+    waveDecode_length] at hv
+  have hl := p.val.two_mul_semilength_eq_length
+  rw [p.property] at hl
+  omega
+
+private theorem waveDecode_count (s : List DyckStep) (u v e : ℕ) :
+    (waveDecode u v s).count e =
+      (if u < e ∧ e ≤ u + s.count .U then 1 else 0) +
+      (if v ≤ e ∧ e < v + s.count .D then 1 else 0) := by
+  induction s generalizing u v with
+  | nil => simp only [waveDecode, List.count_nil, Nat.add_zero]; split_ifs <;> omega
+  | cons a s ih =>
+    cases a <;>
+      simp only [waveDecode, List.count_cons, beq_iff_eq, ih,
+        List.count_cons_self, List.count_cons_of_ne (by decide : DyckStep.U ≠ .D),
+        List.count_cons_of_ne (by decide : DyckStep.D ≠ .U)] <;>
+      split_ifs <;> omega
+
+/-- Decoded path words use edge zero once and every positive edge twice. -/
+theorem dyckPathWord_counts (n : ℕ) (p : {p : DyckWord // p.semilength = n})
+    (i : Fin (n + 1)) : (dyckPathWord n p).count i = if i.val = 0 then 1 else 2 := by
+  rw [← List.count_map_of_injective _ Fin.val Fin.val_injective i,
+    dyckPathWord_values, dyckIndices, List.count_append, waveDecode_count]
+  have hU : p.val.toList.count .U = n := p.property
+  have hD : p.val.toList.count .D = n := p.val.count_U_eq_count_D.symm.trans hU
+  simp only [hU, hD, p.property, Nat.zero_add, Nat.zero_le, true_and,
+    List.count_singleton, beq_iff_eq]
+  split_ifs <;> omega
+
+/-- Without the ballot condition, different wave-letter lists can decode
+ to the same edge indices. Two descending steps collide with a descent and
+ an ascent when both counters start at zero. -/
+theorem waveDecode_without_ballot_collision :
+    ([DyckStep.D, .D] : List DyckStep) ≠ [.D, .U] ∧
+      waveDecode 0 0 [.D, .D] = waveDecode 0 0 [.D, .U] := by
+  decide
+
+/-- Image of the explicit Dyck decoder in the original word alphabet.
+ This type records decoded candidates; completion is a separate proposition. -/
+def DyckPathWord (n : ℕ) := Set.range (dyckPathWord n)
+
+/-- Recover the Dyck word from a word in the decoder image, using the
+ explicit wave-letter encoder on its edge indices. -/
+def pathWordDyck (n : ℕ) (w : DyckPathWord n) : {p : DyckWord // p.semilength = n} :=
+  ⟨⟨waveEncode 0 (w.val.map Fin.val).dropLast, by
+      obtain ⟨p, hp⟩ := w.property
+      rw [← hp, dyckPathWord_roundtrip]
+      exact p.val.count_U_eq_count_D, by
+      obtain ⟨p, hp⟩ := w.property
+      rw [← hp, dyckPathWord_roundtrip]
+      exact p.val.count_D_le_count_U⟩, by
+    obtain ⟨p, hp⟩ := w.property
+    change (waveEncode 0 (w.val.map Fin.val).dropLast).count .U = n
+    rw [← hp, dyckPathWord_roundtrip]
+    exact p.property⟩
+
+/-- The explicit encoder is a left inverse to the path-word decoder. -/
+theorem pathWordDyck_decode (n : ℕ) (p : {p : DyckWord // p.semilength = n}) :
+    pathWordDyck n ⟨dyckPathWord n p, ⟨p, rfl⟩⟩ = p := by
+  apply Subtype.ext
+  apply DyckWord.ext
+  exact dyckPathWord_roundtrip n p
+
+/-- The explicit decoder is a left inverse to the encoder on its image. -/
+theorem dyckPathWord_encode (n : ℕ) (w : DyckPathWord n) :
+    dyckPathWord n (pathWordDyck n w) = w.val := by
+  obtain ⟨p, hp⟩ := w.property
+  have hw : w = ⟨dyckPathWord n p, ⟨p, rfl⟩⟩ := Subtype.ext hp.symm
+  subst w
+  rw [pathWordDyck_decode]
+
+/-- The decoder and explicit encoder identify Dyck words with the decoder
+ image in the original path alphabet. -/
+def dyckPathEquiv (n : ℕ) : {p : DyckWord // p.semilength = n} ≃ DyckPathWord n where
+  toFun p := ⟨dyckPathWord n p, ⟨p, rfl⟩⟩
+  invFun := pathWordDyck n
+  left_inv := pathWordDyck_decode n
+  right_inv w := Subtype.ext (dyckPathWord_encode n w)
+
+/-- There are Catalan-many distinct decoded path words. The theorem counts
+ the decoder image; identifying that image with `ShortestWord` also requires
+ completion and coverage proofs. -/
+theorem dyckPathWord_card (n : ℕ) : Nat.card (DyckPathWord n) = catalan n := by
+  rw [← Nat.card_congr (dyckPathEquiv n), Nat.card_eq_fintype_card]
+  exact DyckWord.card_dyckWord_semilength_eq_catalan n
+
+private def WaveOrder {d : ℕ} (w : List (Fin d)) : Prop :=
+  (∀ i : Fin d, w.count i = if i.val = 0 then 1 else 2) ∧
+  ∀ i j : Fin d, i.val + 1 = j.val →
+    (1 ≤ i.val → w.idxOf i < w.idxOf j) ∧
+    (w.length - 1 - w.reverse.idxOf i < w.length - 1 - w.reverse.idxOf j) ∧
+    w.idxOf j < w.length - 1 - w.reverse.idxOf i
+
+private instance {d : ℕ} (w : List (Fin d)) : Decidable (WaveOrder w) := by
+  unfold WaveOrder
+  infer_instance
+
+private theorem waveOrder_of_twoWave {d : ℕ} (w : List (Fin d)) (h : TwoWave w) :
+    WaveOrder w := by
+  refine ⟨h.1, ?_⟩
+  intro i j hij
+  refine ⟨fun hi => h.2 (.first i hi) (.first j (by omega)) hij, ?_, ?_⟩
+  · exact h.2 (.second i) (.second j) hij
+  · exact h.2 (.first j (by omega)) (.second i) hij.symm
+
+private theorem shortest_last (d : ℕ) (hd : 1 ≤ d) (pre : List (Fin d)) (e : Fin d)
+    (hlen : (pre ++ [e]).length = 2 * d - 1)
+    (hc : Complete (Fin.last d) (initial d) ((pre ++ [e]).map (pathEdge d))) :
+    e.val = d - 1 := by
+  by_contra h
+  let next : Fin d := ⟨e.val + 1, by omega⟩
+  have hn := shortest_second_precedence d hd e next rfl pre [] hlen hc
+  simp at hn
+
+private theorem shortest_card_of_finset (d : ℕ) (s : Finset (List (Fin d)))
+    (hs : ∀ w ∈ s, w.length = 2 * d - 1 ∧
+      Complete (Fin.last d) (initial d) (w.map (pathEdge d)))
+    (hc : ∀ w : ShortestWord d, w.val ∈ s) : Nat.card (ShortestWord d) = s.card := by
+  let e : ShortestWord d ≃ {w // w ∈ s} :=
+    { toFun := fun w => ⟨w.val, hc w⟩
+      invFun := fun w => ⟨w.val, hs w.val w.property⟩
+      left_inv := fun _ => rfl
+      right_inv := fun _ => rfl }
+  rw [Nat.card_congr e, Nat.card_eq_fintype_card, Fintype.card_coe]
+
 /-- The depth-one census contains only its single-edge serial word. -/
 theorem shortest_one_unique (w : ShortestWord 1) : w.val = [0] := by
   have hlen : w.val.length = 1 := by simpa using w.property.1
@@ -608,6 +853,187 @@ theorem shortest_card_two : Nat.card (ShortestWord 2) = 1 := by
   intro w
   apply Subtype.ext
   exact (shortest_two_unique w).trans (shortest_two_unique _).symm
+
+private def candidates_three : Finset (List (Fin 3)) :=
+  {[1, 2, 0, 1, 2],
+    [1, 0, 2, 1, 2]}
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+private theorem candidates_three_exhaustive :
+    ∀ a0 a1 a2 : Fin 3, WaveOrder [1, a0, a1, a2, 2] →
+      [1, a0, a1, a2, 2] ∈ candidates_three := by
+  decide +kernel
+
+private theorem candidates_three_complete :
+    ∀ w ∈ candidates_three, w.length = 2 * 3 - 1 ∧
+      Complete (Fin.last 3) (initial 3) (w.map (pathEdge 3)) := by
+  intro w hw
+  simp only [candidates_three, Finset.mem_insert, Finset.mem_singleton] at hw
+  rcases hw with rfl | rfl <;> constructor
+  all_goals first | decide | skip
+  all_goals
+    intro p q h
+    simp [pathEdge, run, advance, initial, initialState, pairAverage] at h
+    apply Prod.ext <;> dsimp <;> rcases h with ⟨h0, h1⟩ <;> linarith
+
+/-- The depth-three completing-word count is 2, using finite
+ event-order exhaustion and exact retained-record reconstruction. -/
+theorem shortest_card_three : Nat.card (ShortestWord 3) = 2 := by
+  trans candidates_three.card
+  · apply shortest_card_of_finset 3 candidates_three candidates_three_complete
+    intro w
+    obtain ⟨xs, hlen, hc⟩ := w
+    have hl : xs.length = 5 := by simpa using hlen
+    obtain ⟨a, rest1, rfl⟩ := List.exists_of_length_succ xs hl
+    have hl : rest1.length = 4 := by simpa using hl
+    obtain ⟨a0, rest2, rfl⟩ := List.exists_of_length_succ rest1 hl
+    have hl : rest2.length = 3 := by simpa using hl
+    obtain ⟨a1, rest3, rfl⟩ := List.exists_of_length_succ rest2 hl
+    have hl : rest3.length = 2 := by simpa using hl
+    obtain ⟨a2, rest4, rfl⟩ := List.exists_of_length_succ rest3 hl
+    have hl : rest4.length = 1 := by simpa using hl
+    obtain ⟨z, rfl⟩ := List.length_eq_one_iff.mp hl
+    have ha : a = (1 : Fin 3) := Fin.ext (shortest_first 3 (by omega) a
+      [a0, a1, a2, z] hlen hc)
+    have hz : z = (2 : Fin 3) := Fin.ext (shortest_last 3 (by omega)
+      [a, a0, a1, a2] z hlen hc)
+    have ho := waveOrder_of_twoWave [a, a0, a1, a2, z]
+      (twoWave_necessary 3 (by omega) [a, a0, a1, a2, z] hlen hc)
+    subst a
+    subst z
+    exact candidates_three_exhaustive a0 a1 a2 ho
+  · decide
+
+private def candidates_four : Finset (List (Fin 4)) :=
+  {[1, 2, 3, 0, 1, 2, 3],
+    [1, 2, 0, 3, 1, 2, 3],
+    [1, 2, 0, 1, 3, 2, 3],
+    [1, 0, 2, 3, 1, 2, 3],
+    [1, 0, 2, 1, 3, 2, 3]}
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+private theorem candidates_four_exhaustive :
+    ∀ a0 a1 a2 a3 a4 : Fin 4, WaveOrder [1, a0, a1, a2, a3, a4, 3] →
+      [1, a0, a1, a2, a3, a4, 3] ∈ candidates_four := by
+  decide +kernel
+
+private theorem candidates_four_complete :
+    ∀ w ∈ candidates_four, w.length = 2 * 4 - 1 ∧
+      Complete (Fin.last 4) (initial 4) (w.map (pathEdge 4)) := by
+  intro w hw
+  simp only [candidates_four, Finset.mem_insert, Finset.mem_singleton] at hw
+  rcases hw with rfl | rfl | rfl | rfl | rfl <;> constructor
+  all_goals first | decide | skip
+  all_goals
+    intro p q h
+    simp [pathEdge, run, advance, initial, initialState, pairAverage] at h
+    apply Prod.ext <;> dsimp <;> rcases h with ⟨h0, h1⟩ <;> linarith
+
+/-- The depth-four completing-word count is 5, using finite
+ event-order exhaustion and exact retained-record reconstruction. -/
+theorem shortest_card_four : Nat.card (ShortestWord 4) = 5 := by
+  trans candidates_four.card
+  · apply shortest_card_of_finset 4 candidates_four candidates_four_complete
+    intro w
+    obtain ⟨xs, hlen, hc⟩ := w
+    have hl : xs.length = 7 := by simpa using hlen
+    obtain ⟨a, rest1, rfl⟩ := List.exists_of_length_succ xs hl
+    have hl : rest1.length = 6 := by simpa using hl
+    obtain ⟨a0, rest2, rfl⟩ := List.exists_of_length_succ rest1 hl
+    have hl : rest2.length = 5 := by simpa using hl
+    obtain ⟨a1, rest3, rfl⟩ := List.exists_of_length_succ rest2 hl
+    have hl : rest3.length = 4 := by simpa using hl
+    obtain ⟨a2, rest4, rfl⟩ := List.exists_of_length_succ rest3 hl
+    have hl : rest4.length = 3 := by simpa using hl
+    obtain ⟨a3, rest5, rfl⟩ := List.exists_of_length_succ rest4 hl
+    have hl : rest5.length = 2 := by simpa using hl
+    obtain ⟨a4, rest6, rfl⟩ := List.exists_of_length_succ rest5 hl
+    have hl : rest6.length = 1 := by simpa using hl
+    obtain ⟨z, rfl⟩ := List.length_eq_one_iff.mp hl
+    have ha : a = (1 : Fin 4) := Fin.ext (shortest_first 4 (by omega) a
+      [a0, a1, a2, a3, a4, z] hlen hc)
+    have hz : z = (3 : Fin 4) := Fin.ext (shortest_last 4 (by omega)
+      [a, a0, a1, a2, a3, a4] z hlen hc)
+    have ho := waveOrder_of_twoWave [a, a0, a1, a2, a3, a4, z]
+      (twoWave_necessary 4 (by omega) [a, a0, a1, a2, a3, a4, z] hlen hc)
+    subst a
+    subst z
+    exact candidates_four_exhaustive a0 a1 a2 a3 a4 ho
+  · decide
+
+private def candidates_five : Finset (List (Fin 5)) :=
+  {[1, 2, 3, 4, 0, 1, 2, 3, 4],
+    [1, 2, 3, 0, 4, 1, 2, 3, 4],
+    [1, 2, 3, 0, 1, 4, 2, 3, 4],
+    [1, 2, 3, 0, 1, 2, 4, 3, 4],
+    [1, 2, 0, 3, 4, 1, 2, 3, 4],
+    [1, 2, 0, 3, 1, 4, 2, 3, 4],
+    [1, 2, 0, 3, 1, 2, 4, 3, 4],
+    [1, 2, 0, 1, 3, 4, 2, 3, 4],
+    [1, 2, 0, 1, 3, 2, 4, 3, 4],
+    [1, 0, 2, 3, 4, 1, 2, 3, 4],
+    [1, 0, 2, 3, 1, 4, 2, 3, 4],
+    [1, 0, 2, 3, 1, 2, 4, 3, 4],
+    [1, 0, 2, 1, 3, 4, 2, 3, 4],
+    [1, 0, 2, 1, 3, 2, 4, 3, 4]}
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+private theorem candidates_five_exhaustive :
+    ∀ a0 a1 a2 a3 a4 a5 a6 : Fin 5, WaveOrder [1, a0, a1, a2, a3, a4, a5, a6, 4] →
+      [1, a0, a1, a2, a3, a4, a5, a6, 4] ∈ candidates_five := by
+  decide +kernel
+
+set_option maxHeartbeats 1000000 in
+private theorem candidates_five_complete :
+    ∀ w ∈ candidates_five, w.length = 2 * 5 - 1 ∧
+      Complete (Fin.last 5) (initial 5) (w.map (pathEdge 5)) := by
+  intro w hw
+  simp only [candidates_five, Finset.mem_insert, Finset.mem_singleton] at hw
+  rcases hw with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl <;> constructor
+  all_goals first | decide | skip
+  all_goals
+    intro p q h
+    simp [pathEdge, run, advance, initial, initialState, pairAverage] at h
+    apply Prod.ext <;> dsimp <;> rcases h with ⟨h0, h1⟩ <;> linarith
+
+/-- The depth-five completing-word count is 14, using finite
+ event-order exhaustion and exact retained-record reconstruction. -/
+theorem shortest_card_five : Nat.card (ShortestWord 5) = 14 := by
+  trans candidates_five.card
+  · apply shortest_card_of_finset 5 candidates_five candidates_five_complete
+    intro w
+    obtain ⟨xs, hlen, hc⟩ := w
+    have hl : xs.length = 9 := by simpa using hlen
+    obtain ⟨a, rest1, rfl⟩ := List.exists_of_length_succ xs hl
+    have hl : rest1.length = 8 := by simpa using hl
+    obtain ⟨a0, rest2, rfl⟩ := List.exists_of_length_succ rest1 hl
+    have hl : rest2.length = 7 := by simpa using hl
+    obtain ⟨a1, rest3, rfl⟩ := List.exists_of_length_succ rest2 hl
+    have hl : rest3.length = 6 := by simpa using hl
+    obtain ⟨a2, rest4, rfl⟩ := List.exists_of_length_succ rest3 hl
+    have hl : rest4.length = 5 := by simpa using hl
+    obtain ⟨a3, rest5, rfl⟩ := List.exists_of_length_succ rest4 hl
+    have hl : rest5.length = 4 := by simpa using hl
+    obtain ⟨a4, rest6, rfl⟩ := List.exists_of_length_succ rest5 hl
+    have hl : rest6.length = 3 := by simpa using hl
+    obtain ⟨a5, rest7, rfl⟩ := List.exists_of_length_succ rest6 hl
+    have hl : rest7.length = 2 := by simpa using hl
+    obtain ⟨a6, rest8, rfl⟩ := List.exists_of_length_succ rest7 hl
+    have hl : rest8.length = 1 := by simpa using hl
+    obtain ⟨z, rfl⟩ := List.length_eq_one_iff.mp hl
+    have ha : a = (1 : Fin 5) := Fin.ext (shortest_first 5 (by omega) a
+      [a0, a1, a2, a3, a4, a5, a6, z] hlen hc)
+    have hz : z = (4 : Fin 5) := Fin.ext (shortest_last 5 (by omega)
+      [a, a0, a1, a2, a3, a4, a5, a6] z hlen hc)
+    have ho := waveOrder_of_twoWave [a, a0, a1, a2, a3, a4, a5, a6, z]
+      (twoWave_necessary 5 (by omega) [a, a0, a1, a2, a3, a4, a5, a6, z] hlen hc)
+    subst a
+    subst z
+    exact candidates_five_exhaustive a0 a1 a2 a3 a4 a5 a6 ho
+  · decide
 
 /-- A concrete order control at depth three: its edge counts have the sharp
 values, but the second use of edge one comes before edge zero. -/
@@ -674,6 +1100,19 @@ theorem chord_outside_path_horizon :
     Complete (Fin.last 2) (initial 2) chordWord ∧
       chordWord.length < 2 * 2 - 1 := chord_countermodel
 
+#print axioms waveDecode_without_ballot_collision
+#print axioms shortest_card_three
+#print axioms shortest_card_four
+#print axioms shortest_card_five
+#print axioms dyckIndices_roundtrip
+#print axioms dyckIndices_injective
+#print axioms dyckPathWord_roundtrip
+#print axioms dyckPathWord_injective
+#print axioms dyckPathWord_length
+#print axioms dyckPathWord_counts
+#print axioms pathWordDyck_decode
+#print axioms dyckPathWord_encode
+#print axioms dyckPathWord_card
 #print axioms serialWord_twoWave
 #print axioms orderBadWord_not_twoWave
 #print axioms twoWave_necessary
