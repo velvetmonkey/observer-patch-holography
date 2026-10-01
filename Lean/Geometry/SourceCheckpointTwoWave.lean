@@ -104,6 +104,80 @@ private theorem run_record_congr {d : ℕ} (u : List (Fin d))
     · intro p q
       simp only [advance, List.cons.injEq, hs, hr]
 
+private theorem lower_mean_root {d : ℕ} (i : Fin d) (hi : i.val + 1 < d)
+    (s : Port d → ℝ) :
+    pairAverage i.castSucc i.succ s (Fin.last d) = s (Fin.last d) := by
+  have h0 : Fin.last d ≠ i.castSucc := by
+    intro h
+    have := congrArg Fin.val h
+    simp only [Fin.val_last, Fin.val_castSucc] at this
+    omega
+  have h1 : Fin.last d ≠ i.succ := by
+    intro h
+    have := congrArg Fin.val h
+    simp only [Fin.val_last, Fin.val_succ] at this
+    omega
+  simp [pairAverage, h0, h1]
+
+private theorem separated_means {d : ℕ} (i j : Fin d) (h : i.val + 1 < j.val)
+    (s : Port d → ℝ) :
+    pairAverage j.castSucc j.succ (pairAverage i.castSucc i.succ s) =
+      pairAverage i.castSucc i.succ (pairAverage j.castSucc j.succ s) := by
+  apply OPH.SourceCheckpointPipeline.disjoint_means_commute
+  all_goals intro he; have := congrArg Fin.val he
+  all_goals simp only [Fin.val_castSucc, Fin.val_succ] at this
+  all_goals omega
+
+private theorem separated_advance_records {d : ℕ} (i j : Fin d)
+    (h : i.val + 1 < j.val) (c : Checkpoint Pair (Port d))
+    (hc : HasRoot (Fin.last d) c) :
+    ∀ p q,
+      (advance (Fin.last d) (advance (Fin.last d) c (pathEdge d i))
+        (pathEdge d j)).record p =
+      (advance (Fin.last d) (advance (Fin.last d) c (pathEdge d i))
+        (pathEdge d j)).record q ↔
+      (advance (Fin.last d) (advance (Fin.last d) c (pathEdge d j))
+        (pathEdge d i)).record p =
+      (advance (Fin.last d) (advance (Fin.last d) c (pathEdge d j))
+        (pathEdge d i)).record q := by
+  intro p q
+  have hi : i.val + 1 < d := lt_trans h j.isLt
+  simp only [advance, pathEdge, List.cons.injEq, separated_means i j h,
+    lower_mean_root i hi]
+  constructor
+  · rintro ⟨ha, _, hr⟩
+    exact ⟨ha, ha, hr⟩
+  · rintro ⟨ha, _, hr⟩
+    exact ⟨ha, hc p q hr, hr⟩
+
+/-- Swapping disjoint path means preserves the equality relation on retained
+ records, including the intermediate receiver samples, after any suffix. -/
+theorem separated_swap_records {d : ℕ} (pre post : List (Fin d)) (i j : Fin d)
+    (h : i.val + 1 < j.val) :
+    ∀ p q,
+      (run (Fin.last d) ((pre ++ i :: j :: post).map (pathEdge d)) (initial d)).record p =
+      (run (Fin.last d) ((pre ++ i :: j :: post).map (pathEdge d)) (initial d)).record q ↔
+      (run (Fin.last d) ((pre ++ j :: i :: post).map (pathEdge d)) (initial d)).record p =
+      (run (Fin.last d) ((pre ++ j :: i :: post).map (pathEdge d)) (initial d)).record q := by
+  simp only [run_append_path, List.map_cons, run]
+  apply run_record_congr
+  · funext p
+    exact separated_means i j h _
+  · apply separated_advance_records i j h
+    apply run_hasRoot
+    intro p q hpq
+    exact (List.cons.inj hpq).1
+
+/-- Completion is invariant under an adjacent swap of disjoint path edges.
+ This conclusion includes the intermediate retained receiver samples. -/
+theorem separated_swap_complete {d : ℕ} (pre post : List (Fin d)) (i j : Fin d)
+    (h : i.val + 1 < j.val) :
+    Complete (Fin.last d) (initial d) ((pre ++ i :: j :: post).map (pathEdge d)) ↔
+      Complete (Fin.last d) (initial d) ((pre ++ j :: i :: post).map (pathEdge d)) := by
+  constructor <;> intro hc p q hpq
+  · exact hc ((separated_swap_records pre post i j h p q).mpr hpq)
+  · exact hc ((separated_swap_records pre post i j h p q).mp hpq)
+
 /-- A shortest completing word cannot contain a mean that leaves every
 source-dependent scalar state unchanged at that point. The retained receiver
 sample is included when removing such a step. -/
@@ -760,6 +834,183 @@ theorem dyckPathWord_card (n : ℕ) : Nat.card (DyckPathWord n) = catalan n := b
   rw [← Nat.card_congr (dyckPathEquiv n), Nat.card_eq_fintype_card]
   exact DyckWord.card_dyckWord_semilength_eq_catalan n
 
+/-- Finite chains of adjacent swaps of separated, in-range path indices. -/
+inductive IndexSwaps (d : ℕ) : List ℕ → List ℕ → Prop where
+  | refl (w) : IndexSwaps d w w
+  | swap (pre post) (i j : ℕ) (hi : i < d) (hj : j < d) (hij : i + 1 < j) :
+      IndexSwaps d (pre ++ i :: j :: post) (pre ++ j :: i :: post)
+  | trans {u v w} : IndexSwaps d u v → IndexSwaps d v w → IndexSwaps d u w
+
+private theorem indexSwaps_context {d : ℕ} {u v : List ℕ} (h : IndexSwaps d u v)
+    (pre post : List ℕ) : IndexSwaps d (pre ++ u ++ post) (pre ++ v ++ post) := by
+  induction h with
+  | refl => exact .refl _
+  | swap a b i j hi hj hij =>
+    simpa only [List.append_assoc, List.cons_append] using
+      IndexSwaps.swap (pre ++ a) (b ++ post) i j hi hj hij
+  | trans _ _ ih₁ ih₂ => exact .trans ih₁ ih₂
+
+private theorem indexSwaps_move {d v u k : ℕ} (hvu : v + 1 < u)
+    (hu : u + k ≤ d) (hv : v < d) (post : List ℕ) :
+    IndexSwaps d (v :: (List.range' u k ++ post))
+      (List.range' u k ++ v :: post) := by
+  induction k generalizing u with
+  | zero => exact .refl _
+  | succ k ih =>
+    simp only [List.range'_succ, List.cons_append]
+    apply IndexSwaps.trans (IndexSwaps.swap [] _ v u hv (by omega) hvu)
+    simpa using indexSwaps_context (ih (u := u + 1) (by omega) (by omega)) [u] []
+
+private theorem waveDecode_normalize (s : List DyckStep) (u v d : ℕ)
+    (hb : BallotFrom u v s) (hu : u + s.count .U < d) (hv : v + s.count .D ≤ d) :
+    IndexSwaps d (waveDecode u v s)
+      (List.range' (u + 1) (s.count .U) ++ List.range' v (s.count .D)) := by
+  induction s generalizing u v with
+  | nil => exact .refl _
+  | cons a s ih =>
+    cases a with
+    | U =>
+      simp only [List.count_cons_self, List.count_cons_of_ne (by decide : DyckStep.U ≠ .D)] at hu hv ⊢
+      simpa only [waveDecode, List.range'_succ, List.cons_append, List.nil_append,
+        List.append_nil] using
+        indexSwaps_context (ih (u + 1) v (ballot_tail_U hb) (by omega) hv) [u + 1] []
+    | D =>
+      have hstep := hb 1
+      have hgap : v + 1 < u + 1 := by
+        simp [List.take_succ_cons] at hstep
+        omega
+      simp only [List.count_cons_self, List.count_cons_of_ne (by decide : DyckStep.D ≠ .U)] at hu hv ⊢
+      apply IndexSwaps.trans
+        (show IndexSwaps d (waveDecode u v (.D :: s))
+          (v :: (List.range' (u + 1) (s.count .U) ++ List.range' (v + 1) (s.count .D))) from by
+          simpa only [waveDecode, List.nil_append, List.cons_append, List.append_nil] using
+            indexSwaps_context (ih u (v + 1) (ballot_tail_D hb) hu (by omega)) [v] [])
+      simpa only [List.range'_succ] using
+        indexSwaps_move hgap (by omega : u + 1 + s.count .U ≤ d) (by omega)
+          (List.range' (v + 1) (s.count .D))
+
+/-- Every Dyck decoder word can be sorted into the serial two-wave indices
+ by swaps of separated edges. The ballot premise supplies the separation. -/
+theorem dyckIndices_normalize (p : DyckWord) :
+    IndexSwaps (p.semilength + 1) (dyckIndices p)
+      (List.range' 1 p.semilength ++ List.range' 0 (p.semilength + 1)) := by
+  have h := indexSwaps_context
+    (waveDecode_normalize p.toList 0 0 (p.semilength + 1)
+      (by simpa [BallotFrom] using p.count_D_le_count_U)
+      (by simp [DyckWord.semilength])
+      (by simp [DyckWord.semilength, p.count_U_eq_count_D])) [] [p.semilength]
+  have hU : p.toList.count .U = p.semilength := rfl
+  have hD : p.toList.count .D = p.semilength := p.count_U_eq_count_D.symm.trans hU
+  simpa only [dyckIndices, List.nil_append, Nat.zero_add, hU, hD,
+    List.append_assoc, List.range'_1_concat, Nat.zero_add] using h
+
+private theorem indexSwaps_complete (n : ℕ) {u v : List ℕ}
+    (h : IndexSwaps (n + 1) u v) :
+    Complete (Fin.last (n + 1)) (initial (n + 1))
+      ((u.map (Fin.ofNat (n + 1))).map (pathEdge (n + 1))) ↔
+    Complete (Fin.last (n + 1)) (initial (n + 1))
+      ((v.map (Fin.ofNat (n + 1))).map (pathEdge (n + 1))) := by
+  induction h with
+  | refl => rfl
+  | swap pre post i j hi hj hij =>
+    simpa only [List.map_append, List.map_cons] using
+      separated_swap_complete (pre.map (Fin.ofNat (n + 1)))
+        (post.map (Fin.ofNat (n + 1))) (Fin.ofNat (n + 1) i) (Fin.ofNat (n + 1) j)
+        (by simpa only [Fin.val_ofNat, Nat.mod_eq_of_lt hi, Nat.mod_eq_of_lt hj] using hij)
+  | trans _ _ ih₁ ih₂ => exact ih₁.trans ih₂
+
+private theorem interval_values
+    (seg : (d start n : ℕ) → start + n ≤ d → List (Fin d))
+    (hz : ∀ d start h, seg d start 0 h = [])
+    (hs : ∀ d start n h, seg d start (n + 1) h =
+      seg d start n (by omega) ++ [⟨start + n, by omega⟩])
+    (d start n : ℕ) (h : start + n ≤ d) :
+    (seg d start n h).map Fin.val = List.range' start n := by
+  induction n with
+  | zero => rw [hz]; rfl
+  | succ n ih =>
+    rw [hs, List.map_append, List.map_singleton, ih, List.range'_1_concat]
+
+private theorem serialWord_values (n : ℕ) :
+    (serialWord (n + 1)).map Fin.val =
+      List.range' 1 n ++ List.range' 0 (n + 1) := by
+  unfold serialWord
+  rw [List.map_append]
+  congr 1 <;> apply interval_values <;> intros <;> rfl
+
+/-- Every word produced by the explicit Dyck decoder completes in the
+ original retained-record semantics at every semilength. -/
+theorem dyckPathWord_complete (n : ℕ) (p : {p : DyckWord // p.semilength = n}) :
+    Complete (Fin.last (n + 1)) (initial (n + 1))
+      ((dyckPathWord n p).map (pathEdge (n + 1))) := by
+  have he : ∀ w : List (Fin (n + 1)), (w.map Fin.val).map (Fin.ofNat (n + 1)) = w := by
+    intro w
+    simp only [List.map_map]
+    convert List.map_id w using 1
+    congr 1
+    funext i
+    apply Fin.ext
+    exact Nat.mod_eq_of_lt i.isLt
+  have h := dyckIndices_normalize p.val
+  rw [p.property] at h
+  have hc := (indexSwaps_complete n h).mpr
+  rw [← dyckPathWord_values n p, he] at hc
+  apply hc
+  rw [← serialWord_values n, he]
+  exact serialWord_complete (n + 1) (by omega)
+
+/-- The explicit Dyck decoder embeds into shortest completing words;
+ no coverage premise is needed for this direction. -/
+def dyckShortestEmbedding (n : ℕ) :
+    {p : DyckWord // p.semilength = n} ↪ ShortestWord (n + 1) where
+  toFun p := ⟨dyckPathWord n p, dyckPathWord_length n p, dyckPathWord_complete n p⟩
+  inj' p q h := dyckPathWord_injective n (congrArg Subtype.val h)
+
+private instance shortestWord_finite (d : ℕ) : Finite (ShortestWord d) := by
+  let f : ShortestWord d → (Fin (2 * d - 1) → Fin d) :=
+    fun w i => w.val[i.val]'(by have := w.property.1; have := i.isLt; omega)
+  apply Finite.of_injective f
+  intro a b h
+  apply Subtype.ext
+  apply List.ext_getElem
+  · exact a.property.1.trans b.property.1.symm
+  · intro i hi hj
+    exact congrFun h ⟨i, by rw [← a.property.1]; exact hi⟩
+
+/-- There are at least Catalan-many shortest completing words at every
+ positive depth. This is a lower bound, not the full census. -/
+theorem shortest_card_ge_catalan (n : ℕ) :
+    catalan n ≤ Nat.card (ShortestWord (n + 1)) := by
+  have h := Nat.card_le_card_of_injective (dyckShortestEmbedding n)
+    (dyckShortestEmbedding n).injective
+  rw [Nat.card_eq_fintype_card, DyckWord.card_dyckWord_semilength_eq_catalan] at h
+  exact h
+
+/-- With decoder coverage as an explicit additional hypothesis, the
+ original encoder and decoder give an equivalence with shortest words. -/
+def dyckShortestEquiv_of_coverage (n : ℕ)
+    (coverage : ∀ w : ShortestWord (n + 1), w.val ∈ Set.range (dyckPathWord n)) :
+    {p : DyckWord // p.semilength = n} ≃ ShortestWord (n + 1) where
+  toFun := dyckShortestEmbedding n
+  invFun w := pathWordDyck n ⟨w.val, coverage w⟩
+  left_inv p := pathWordDyck_decode n p
+  right_inv w := Subtype.ext (dyckPathWord_encode n ⟨w.val, coverage w⟩)
+
+/-- Decoder coverage is the additional hypothesis required to turn
+ the proved embedding into the full arbitrary-depth completing-word census. -/
+theorem shortest_card_of_decoder_coverage (n : ℕ)
+    (coverage : ∀ w : ShortestWord (n + 1), w.val ∈ Set.range (dyckPathWord n)) :
+    Nat.card (ShortestWord (n + 1)) = catalan n := by
+  rw [← Nat.card_congr (dyckShortestEquiv_of_coverage n coverage), Nat.card_eq_fintype_card]
+  exact DyckWord.card_dyckWord_semilength_eq_catalan n
+
+/-- The completed decoder also satisfies every required two-wave event
+ precedence, by the retained universal necessity theorem. -/
+theorem dyckPathWord_twoWave (n : ℕ) (p : {p : DyckWord // p.semilength = n}) :
+    TwoWave (dyckPathWord n p) :=
+  twoWave_necessary (n + 1) (by omega) _ (dyckPathWord_length n p)
+    (dyckPathWord_complete n p)
+
 private def WaveOrder {d : ℕ} (w : List (Fin d)) : Prop :=
   (∀ i : Fin d, w.count i = if i.val = 0 then 1 else 2) ∧
   ∀ i j : Fin d, i.val + 1 = j.val →
@@ -876,6 +1127,16 @@ private theorem candidates_three_complete :
     intro p q h
     simp [pathEdge, run, advance, initial, initialState, pairAverage] at h
     apply Prod.ext <;> dsimp <;> rcases h with ⟨h0, h1⟩ <;> linarith
+
+/-- Swapping touching edges can erase source information. The separation
+ hypothesis in the swap theorem is necessary even at the sharp horizon. -/
+theorem adjacent_swap_can_destroy_completion :
+    Complete (Fin.last 3) (initial 3) (([1, 0, 2, 1, 2] : List (Fin 3)).map (pathEdge 3)) ∧
+      ¬ Complete (Fin.last 3) (initial 3)
+        (([0, 1, 2, 1, 2] : List (Fin 3)).map (pathEdge 3)) := by
+  constructor
+  · exact (candidates_three_complete _ (by simp [candidates_three])).2
+  · exact complete_not_first_zero 3 (by omega) [1, 2, 1, 2]
 
 /-- The depth-three completing-word count is 2, using finite
  event-order exhaustion and exact retained-record reconstruction. -/
@@ -1100,6 +1361,16 @@ theorem chord_outside_path_horizon :
     Complete (Fin.last 2) (initial 2) chordWord ∧
       chordWord.length < 2 * 2 - 1 := chord_countermodel
 
+#print axioms adjacent_swap_can_destroy_completion
+#print axioms shortest_card_ge_catalan
+#print axioms shortest_card_of_decoder_coverage
+#print axioms dyckPathWord_twoWave
+#print axioms dyckShortestEmbedding
+#print axioms dyckShortestEquiv_of_coverage
+#print axioms dyckIndices_normalize
+#print axioms dyckPathWord_complete
+#print axioms separated_swap_records
+#print axioms separated_swap_complete
 #print axioms waveDecode_without_ballot_collision
 #print axioms shortest_card_three
 #print axioms shortest_card_four
