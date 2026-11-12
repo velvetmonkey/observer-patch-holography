@@ -1,0 +1,64 @@
+{
+ "by_denominator_bound": {
+  "100": {
+   "candidates": 796,
+   "expected_hits_uniform_phase": "1.065088e-03",
+   "hits": [
+    "2/9"
+   ],
+   "nearest_other_candidate": "21/95",
+   "nearest_other_deviation_ppm": "-62749.499",
+   "probability_at_least_one_hit_uniform_phase": "1.064522e-03"
+  },
+  "12": {
+   "candidates": 11,
+   "expected_hits_uniform_phase": "1.471855e-05",
+   "hits": [
+    "2/9"
+   ],
+   "nearest_other_candidate": "1/5",
+   "nearest_other_deviation_ppm": "-638697.913",
+   "probability_at_least_one_hit_uniform_phase": "1.471845e-05"
+  },
+  "30": {
+   "candidates": 71,
+   "expected_hits_uniform_phase": "9.500155e-05",
+   "hits": [
+    "2/9"
+   ],
+   "nearest_other_candidate": "5/23",
+   "nearest_other_deviation_ppm": "-227038.144",
+   "probability_at_least_one_hit_uniform_phase": "9.499710e-05"
+  },
+  "9": {
+   "candidates": 7,
+   "expected_hits_uniform_phase": "9.366350e-06",
+   "hits": [
+    "2/9"
+   ],
+   "nearest_other_candidate": "1/5",
+   "nearest_other_deviation_ppm": "-638697.913",
+   "probability_at_least_one_hit_uniform_phase": "9.366313e-06"
+  }
+ },
+ "circulant": "sqrt(m_k) proportional to 1 + sqrt2 cos(theta + 2 pi k/3); e, mu, tau = k 1, 2, 0",
+ "family": "reduced p/q, 1 <= q <= Q, 0 < p/q < pi/12",
+ "planted_minus_fitted": "1.751491e-07",
+ "planted_mu_over_e": "206.770315973",
+ "planted_phase": "2/9",
+ "reference": {
+  "codata_2022_mu_over_e": "206.7682827",
+  "standard_uncertainty": "4.6e-06"
+ },
+ "register_receipt_mu_over_e": "206.770315972729",
+ "scope": "Counts rational phases near the measured ratio. Tests no construction and no physical claim.",
+ "single_uniform_phase_hit_probability": "1.338050e-06",
+ "theta_fitted_to_codata": "0.222222047073",
+ "theta_window": [
+  "0.222221871922",
+  "0.222222222222"
+ ],
+ "theta_window_width": "3.503007e-07",
+ "window_in_standard_uncertainties": "442.02",
+ "window_relative_deviation_ppm": "9.833581"
+}
