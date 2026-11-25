@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 769,
+  "surface_count": 771,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -2037,6 +2037,16 @@
     },
     {
       "path": "model/experiments/interval_echo_gauge/singlet_flight/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_gauge/singlet_leakage_bound/DERIVATION.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_gauge/singlet_leakage_bound/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
