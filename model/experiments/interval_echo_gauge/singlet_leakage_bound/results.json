@@ -1,0 +1,68 @@
+{
+  "status": "independently checked numerical enclosure",
+  "revision": "912d25da4efbdae9344e4198e75ac8ad93125a88",
+  "bracket": [
+    "0.030977574608",
+    "3872224598309/125000000000000"
+  ],
+  "arrival": "[0.03097767460789651927805746768 +/- 9.19e-30]",
+  "integrated_triplet": "[0.00099999899999998094528666044 +/- 4.89e-30]",
+  "outside_triplet": "[0.00509058703688754860258660939 +/- 6.80e-30]",
+  "outside_complement": "[0.0258870875710089706754708583 +/- 2.21e-29]",
+  "home": "[0.96902232539210348072194253232 +/- 9.19e-30]",
+  "preparation": {
+    "supplied_pure_state_probability": 1,
+    "refused_probability": 0,
+    "failed_probability": 0
+  },
+  "taylor_state_error": "[1.17415978581571736369365684497438817745498453098741664013e-30 +/- 5.14e-87]",
+  "matrix_error_bound": "[2.34831957163143472738731368994877635490996906197483328025e-30 +/- 3.74e-87]",
+  "dual_pivots": [
+    "[0.073184298484654343584315870924710401269917294974429054 +/- 6.95e-55]",
+    "[0.194137961857479061543584918206372305640345518991133632 +/- 8.44e-55]",
+    "[0.04518702657244384631434662402870601590609464943307021 +/- 5.29e-54]",
+    "[0.00723481349438693099188816683699275250780832170721360 +/- 7.04e-54]",
+    "[0.00484727214143913922661028474000451135040371850940578 +/- 8.47e-54]",
+    "[0.0057351334160477510090822755621401033362449796662944 +/- 3.06e-53]",
+    "[0.0067461383683301531839265662131521501775402734467171 +/- 5.73e-53]",
+    "[0.002207077739179033708598343850673350296557928712832 +/- 5.01e-52]",
+    "[9.6147813213099221712412723841561836547955297e-7 +/- 5.03e-51]"
+  ],
+  "controls": [
+    {
+      "control": "changed carrier edge",
+      "rejected": true,
+      "reason": "carrier edge binding"
+    },
+    {
+      "control": "changed projector",
+      "rejected": true,
+      "reason": "projector binding"
+    },
+    {
+      "control": "tightened upper bound",
+      "rejected": true,
+      "reason": "claimed dual upper bound"
+    },
+    {
+      "control": "invalid dual matrix",
+      "rejected": true,
+      "reason": "strict LDL pivot 3"
+    },
+    {
+      "control": "zero preparation",
+      "rejected": true,
+      "reason": "nonzero source"
+    },
+    {
+      "control": "closed bridges, diagonal retained",
+      "arrival": "[+/- 4.83e-30]",
+      "outside_triplet": "[+/- 4.83e-30]",
+      "outside_complement": "[+/- 9.66e-30]",
+      "home": "[1.00000000000000000000000000000 +/- 4.83e-30]",
+      "integrated_triplet": "[8.145926666765152267636635e-5 +/- 7.43e-30]",
+      "refused_probability": 0,
+      "failed_probability": 0
+    }
+  ]
+}
