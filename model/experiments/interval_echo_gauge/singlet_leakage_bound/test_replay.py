@@ -7,6 +7,14 @@ import textwrap
 import unittest
 
 
+try:
+    import flint
+except ImportError:
+    HAS_FLINT = False
+else:
+    HAS_FLINT = True
+
+
 REPLAY = Path(__file__).resolve().with_name('replay.py')
 LOAD = '''
 import importlib.util
@@ -22,6 +30,7 @@ verifier = replay.load_verifier()
 '''
 
 
+@unittest.skipUnless(HAS_FLINT, 'Replay tests require python-flint')
 class ReplayTests(unittest.TestCase):
     def run_cli(self, code):
         return subprocess.run(
