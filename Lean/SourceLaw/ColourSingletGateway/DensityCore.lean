@@ -152,7 +152,6 @@ private theorem full_inverse_control :
     ((1 / 9 : ℂ) • (1 : M)) * ((9 : ℂ) • (1 : M)) = 1 := by
   ext i j
   simp [Matrix.mul_apply, Matrix.one_apply, smul_eq_mul]
-  split_ifs <;> norm_num
 
 #print axioms zero_not_normalized
 #print axioms rank_singular
