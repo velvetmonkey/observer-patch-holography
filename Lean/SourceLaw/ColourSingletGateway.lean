@@ -1,3 +1,4 @@
+import SourceLaw.ColourSingletGateway.ScalarBounds
 import Mathlib.Data.Real.Basic
 import Mathlib.Logic.Relation
 import Mathlib.Tactic.Linarith
